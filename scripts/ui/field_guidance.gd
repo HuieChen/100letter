@@ -18,6 +18,7 @@ var marker_enabled: bool = true
 var _tracked: Dictionary = {}
 var _elapsed: float = 0.0
 var _context: Dictionary = {}
+var _expanded: bool = false
 var _heading: Label
 var _detail: Label
 var _caption: Label
@@ -34,13 +35,20 @@ func configure(state: Dictionary, catalog: Dictionary, context: Dictionary = {})
 	anchors=context.get("anchors",{}).duplicate()
 	var previous: String=str(descriptor.get("stage_id",""))
 	descriptor=resolve(state,catalog,context)
-	objective_rect=context.get("objective_rect",Rect2(58,143,1190,84) if context.get("view","location")=="desk" else Rect2(62,173,490,165))
+	objective_rect=context.get("objective_rect",Rect2(58,143,880,84) if context.get("view","location")=="desk" else Rect2(62,137,500,111))
 	marker_enabled=bool(context.get("marker_enabled",true))
 	visible=bool(descriptor.get("active",true)) and not bool(context.get("overlay_open",false))
 	if _heading==null and is_inside_tree(): _build_labels()
 	_layout()
 	if previous!=str(descriptor.get("stage_id","")):
+		_expanded=false
 		stage_changed.emit(str(descriptor.get("stage_id","")))
+
+func _unhandled_input(event: InputEvent) -> void:
+	if visible and event is InputEventKey and event.pressed and not event.echo and event.keycode==KEY_H:
+		_expanded=not _expanded
+		_layout()
+		get_viewport().set_input_as_handled()
 
 func set_target_point(id: String, point: Vector2) -> void:
 	anchors[id]=point
@@ -188,21 +196,21 @@ func _layout() -> void:
 	var factor: float=_factor()
 	var origin: Vector2=_origin()
 	var in_world: bool=_context.get("view","location")=="location"
-	_caption.text="当前要做"
-	_caption.visible=not in_world
+	_caption.text="当前目标   ·   H 查看提示" if in_world else "当前要做"
+	_caption.visible=true
 	_heading.text=str(descriptor.get("goal",""))
-	_detail.text=str(descriptor.get("detail",""))
-	_heading.add_theme_font_size_override("font_size",26)
-	_detail.add_theme_font_size_override("font_size",22)
+	_detail.text=str(descriptor.get("detail","")) if _expanded else str(descriptor.get("marker",""))
+	_heading.add_theme_font_size_override("font_size",24 if in_world else 26)
+	_detail.add_theme_font_size_override("font_size",19 if in_world else 21)
 	_detail.add_theme_constant_override("line_spacing",4)
 	var at: Vector2=objective_rect.position
 	for node: Label in [_caption,_heading,_detail]: node.scale=Vector2.ONE*factor
 	_caption.position=origin+(at+Vector2(1,0))*factor
-	_caption.size=Vector2(92,29)
-	_heading.position=origin+(at+Vector2(0,0) if in_world else at+Vector2(103,-5))*factor
-	_heading.size=Vector2(objective_rect.size.x if in_world else objective_rect.size.x-112,40)
-	_detail.position=origin+(at+Vector2(0,48) if in_world else at+Vector2(0,37))*factor
-	_detail.size=Vector2(objective_rect.size.x,objective_rect.size.y-44 if in_world else 60)
+	_caption.size=Vector2(500 if in_world else 92,29)
+	_heading.position=origin+(at+Vector2(0,27) if in_world else at+Vector2(103,-5))*factor
+	_heading.size=Vector2(objective_rect.size.x if in_world else objective_rect.size.x-112,38)
+	_detail.position=origin+(at+Vector2(0,69) if in_world else at+Vector2(0,37))*factor
+	_detail.size=Vector2(objective_rect.size.x,58 if in_world else 60)
 	queue_redraw()
 
 static func reading_scrim(compact: bool=false) -> ColorRect:
@@ -248,7 +256,10 @@ func _target_point() -> Variant:
 func _draw() -> void:
 	if not bool(descriptor.get("active",false)): return
 	draw_set_transform(_origin(),0,Vector2.ONE*_factor())
-	if _context.get("view","location")!="location":
+	if _context.get("view","location")=="location":
+		draw_rect(Rect2(43,122,540,137),Color(0.978,0.958,0.887,0.91))
+		draw_line(Vector2(43,122),Vector2(43,259),ACCENT,3,true)
+	else:
 		draw_line(objective_rect.position+Vector2(0,32),objective_rect.position+Vector2(minf(360,objective_rect.size.x),32),Color(0.38,0.49,0.40,0.38),1,true)
 	var target_point: Variant=_target_point()
 	if marker_enabled and target_point is Vector2:
@@ -257,9 +268,7 @@ func _draw() -> void:
 		draw_arc(point,16+breath,0,TAU,48,PAPER,5.0,true)
 		draw_arc(point,16+breath,0,TAU,48,ACCENT,2.0,true)
 		draw_circle(point,3.0,INK)
-		var target_id: String=str(descriptor.get("target_id",""))
-		var is_icon: bool=target_id in ["bag","map","tools","book","deliver"] or target_id.begins_with("letter:")
-		var label: String="下一步" if is_icon else str(descriptor.get("marker","查看"))
+		var label: String=str(descriptor.get("marker","查看"))
 		var width: float=get_theme_font("font").get_string_size(label,HORIZONTAL_ALIGNMENT_LEFT,-1,18).x
 		var at:=Vector2(clampf(point.x-width*0.5,31,1565-width),point.y-43)
 		if point.y<330: at.y=point.y+50

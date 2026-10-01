@@ -20,6 +20,16 @@ const Layout = preload("res://scripts/ui/stage_layout.gd")
 const DeskSurface = preload("res://scripts/ui/workbench_surface.gd")
 const Evidence = preload("res://scripts/ui/visual_evidence.gd")
 const Guidance = preload("res://scripts/ui/field_guidance.gd")
+const SceneExit = preload("res://scripts/ui/scene_exit.gd")
+const SCENE_PATHS = {
+	"post_office":["residential","community_center"],
+	"community_center":["post_office","bus_stop"],
+	"bus_stop":["community_center","lookout"],
+	"lookout":["bus_stop","tarot_shop"],
+	"residential":["post_office","tarot_shop"],
+	"chess_stall":["post_office","community_center"],
+	"tarot_shop":["residential","bus_stop"]
+}
 
 const ACTIONS = {"deliver":"亲手投递","delay":"留待下一班","hold":"暂存于邮局","return":"退回寄件人","return_to_sender":"还给寄件人","delegate":"请尘缘代送","remove_attachment":"只送正文，留下照片","file":"交入正式档案","keep":"私人保留","destroy":"不让这份记录留下"}
 var game: Node
@@ -112,7 +122,6 @@ func _base(view: String) -> void:
 	bg.apply_minute(visual_minute)
 	if view != "title":
 		if view=="location":
-			UI.place(Guidance.reading_scrim(),screen,Rect2(0,0,646,386))
 			UI.place(Guidance.reading_scrim(true),screen,Rect2(982,0,585,105))
 		UI.label(screen,"一百信",Rect2(62,22,160,48),25,UI.INK)
 		if view!="location": UI.label(screen,"SOLMERE POST",Rect2(212,35,310,40),16,UI.MUTED)
@@ -241,15 +250,15 @@ func _desk() -> void:
 		game.save_game()
 		_refresh_guidance())
 	UI.label(screen,game.status_text(selected),Rect2(1204,205,330,40),20,UI.CORAL if selected=="case02" else UI.INK)
-	_object("tools","拆封与修复",Rect2(1260,284,200,112),_tools)
-	_object("book","取出档案",Rect2(1260,422,200,112),_directory)
-	_object("deliver","登记与交付",Rect2(1260,560,200,112),_decision)
+	_object("tools","修复工具抽屉",Rect2(1234,294,267,92),_tools)
+	_object("book","邮局档案册",Rect2(1234,424,267,92),_directory)
+	_object("deliver","投递处理单",Rect2(1234,554,267,92),_decision)
 	if cs.get("opened",false):
 		UI.button(screen,"展开内页 ↗",Rect2(858,726,285,46),func(): _message(item.title,str(item.body)))
 	elif _body_access(selected):
 		UI.button(screen,"收件人分享的回执 ↗",Rect2(784,726,355,46),func(): _message(str(item.get("delivery_body_access",{}).get("label",item.title)),str(item.body)))
-	_object("map","小镇地图",Rect2(379,777,190,108),_map)
-	_object("door","回到现场",Rect2(605,777,190,108),_location)
+	_object("map","小镇地图",Rect2(379,772,190,103),_map)
+	_object("door","回到现场",Rect2(605,772,190,103),_location)
 	if game.first_four_handled() and not game.is_handled("case05"):
 		UI.button(screen,"看看托盘最下面那封信 →",Rect2(1024,812,490,50),_evening,true)
 	_objective()
@@ -259,6 +268,7 @@ func _object(kind: String, caption: String, rect: Rect2, callback: Callable, par
 	button.kind=kind
 	button.caption=caption
 	button.scene_caption=parent!=null and parent==world_hud
+	button.desk_fixture=parent==null and current_view=="desk" and kind!="letter"
 	UI.place(button,screen if parent==null else parent,rect)
 	button.pressed.connect(callback)
 	if kind!="letter": _bind_guidance(kind,button,Vector2(button.size.x*0.5,40))
@@ -303,8 +313,8 @@ func _map() -> void:
 	for loc in game.catalog.get("locations",[]):
 		var point: Vector2 = layout.get(loc.id,Vector2(500,300))
 		m.points.append(point+Vector2(61,91))
+		m.place_ids.append(str(loc.id))
 		if loc.id==game.state.location: m.current_index=idx
-		UI.texture(m,_scene_art(str(loc.asset)),Rect2(point,Vector2(122,94)))
 		var id: String = loc.id
 		var pin=Button.new()
 		pin.flat=true
@@ -495,10 +505,11 @@ func _location() -> void:
 	var light=Light.new("overlay")
 	light.minute=int(game.state.minute)
 	UI.place(light,world,Rect2(0,550,1600,260))
+	_add_scene_exits(str(loc.id),foot_y)
 	world_hud=Control.new()
 	world_hud.mouse_filter=Control.MOUSE_FILTER_IGNORE
 	UI.place(world_hud,screen,Rect2(0,0,1600,900))
-	var place_name=UI.label(world_hud,loc.name,Rect2(62,112,490,47),29,UI.INK)
+	var place_name=UI.label(world_hud,loc.name,Rect2(62,77,490,43),27,UI.INK)
 	place_name.tooltip_text=str(loc.description)
 	place_name.mouse_filter=Control.MOUSE_FILTER_PASS
 	_object("bag","信袋",Rect2(44,787,150,108),_desk,world_hud)
@@ -509,6 +520,20 @@ func _location() -> void:
 		var label="棋局尚未摆好" if loc.id=="chess_stall" else "屋内活动尚未开放"
 		UI.button(world_hud,label+" · 预留",Rect2(940,825,435,43),func(): _message(label,"这里预留了一项可选的小镇活动，尚未置入。\n\n现场的线索仍可调查，也不影响五封信的完整流程。"))
 	_objective()
+
+func _add_scene_exits(id: String, foot_y: float) -> void:
+	if id=="post_office" and not bool(game.state.get("ui_guidance",{}).get("entered_desk",false)):
+		return
+	var paths: Array=SCENE_PATHS.get(id,[])
+	for i: int in range(paths.size()):
+		var destination: String=str(paths[i])
+		var exit_sign=SceneExit.new()
+		exit_sign.destination=_location_name(destination).split(" · ")[0]
+		exit_sign.minutes=game.travel_cost(destination)
+		exit_sign.leftward=i==0
+		UI.place(exit_sign,world,Rect2(14 if i==0 else 1380,630,206,74))
+		var edge_x: float=stage_plan.walk_bounds.position.x+10 if i==0 else stage_plan.walk_bounds.end.x-10
+		exit_sign.pressed.connect(func(): _approach(Vector2(edge_x,foot_y),func(): _travel(destination)))
 
 func _sort_scene_actors(_at: Vector2=Vector2.ZERO) -> void:
 	if not is_instance_valid(actor_layer) or not is_instance_valid(walker): return

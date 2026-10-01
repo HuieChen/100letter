@@ -6,6 +6,7 @@ var chosen = false
 var index = 0
 var compact: bool = false
 var scene_caption: bool = false
+var desk_fixture: bool = false
 
 const INK := Color("52685e")
 const LINE := Color("8d9079")
@@ -28,6 +29,9 @@ func _ready() -> void:
 
 func _draw() -> void:
 	var active: bool = is_hovered() or has_focus()
+	if desk_fixture and kind in ["tools","book","deliver","map","door"]:
+		_draw_desk_fixture(active)
+		return
 	var lift: float = -2.0 if active else 0.0
 	var middle := Vector2(size.x*0.5,(31.0 if compact else 39.0)+lift)
 	if kind == "letter":
@@ -45,6 +49,42 @@ func _draw() -> void:
 		_: _draw_book()
 	draw_set_transform(Vector2.ZERO)
 	_draw_caption(75.0 if compact else 99.0,16 if compact else 18,active)
+
+func _draw_desk_fixture(active: bool) -> void:
+	var paper := Color("f4ead1")
+	var dark := Color("55746b")
+	var edge := Color("9b987e")
+	var lift: float = -3.0 if active else 0.0
+	if kind in ["tools","book","deliver"]:
+		var base := Rect2(11,9+lift,size.x-22,size.y-20)
+		if kind == "tools":
+			# The repair tools are inside a real drawer, not displayed as a huge icon.
+			draw_rect(base,Color("ae9777"))
+			draw_rect(Rect2(base.position+Vector2(5,4),base.size-Vector2(10,12)),Color("c9b08a"))
+			draw_line(Vector2(28,base.end.y-13),Vector2(size.x-28,base.end.y-13),Color("8c795e"),2,true)
+			draw_rect(Rect2(size.x-59,base.position.y+24,30,13),Color("ead9b8"))
+			draw_arc(Vector2(size.x-44,base.position.y+30),8,0,TAU,24,edge,1.5,true)
+		elif kind == "book":
+			draw_rect(Rect2(base.position+Vector2(4,6),base.size-Vector2(8,6)),Color("718d7c"))
+			draw_rect(Rect2(base.position+Vector2(10,12),base.size-Vector2(20,17)),Color("e8dcc0"))
+			draw_rect(Rect2(base.position+Vector2(10,12),Vector2(18,base.size.y-18)),Color("9a8168"))
+			draw_line(Vector2(size.x-54,base.position.y+31),Vector2(size.x-31,base.position.y+31),edge,2,true)
+		else:
+			draw_rect(Rect2(base.position+Vector2(2,7),base.size-Vector2(4,10)),paper)
+			draw_rect(Rect2(base.position+Vector2(2,7),base.size-Vector2(4,10)),edge,false,1.2)
+			for y: float in [25.0,35.0,45.0]:
+				draw_line(Vector2(size.x-86,base.position.y+y),Vector2(size.x-31,base.position.y+y),edge,1.3,true)
+			draw_arc(Vector2(size.x-45,base.end.y-22),12,0,TAU,24,CLAY,2,true)
+		draw_string(get_theme_font("font"),Vector2(34,size.y*0.61+lift),caption,HORIZONTAL_ALIGNMENT_LEFT,size.x-104,20,dark)
+	else:
+		var center := Vector2(size.x*0.5,39+lift)
+		draw_set_transform(center,0.0,Vector2.ONE*0.62)
+		if kind == "map": _draw_map()
+		else: _draw_door()
+		draw_set_transform(Vector2.ZERO)
+		_draw_caption(93,17,active)
+	if active:
+		draw_line(Vector2(24,size.y-7),Vector2(size.x-24,size.y-7),CLAY,2,true)
 
 func _draw_letter(active: bool) -> void:
 	var width: float = minf(size.x-37.0,200.0)

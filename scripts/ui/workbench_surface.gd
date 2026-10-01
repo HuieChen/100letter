@@ -19,9 +19,18 @@ func _draw() -> void:
 	draw_polyline(PackedVector2Array([Vector2(333,275),Vector2(1184,280),Vector2(1180,757),Vector2(329,752),Vector2(333,275)]),Color("879383"),1.0,true)
 	draw_line(Vector2(345,738),Vector2(1166,743),Color("bcc4ad"),1.0,true)
 	_draw_incoming_tray()
-	# A narrow cloth holds the actual record and tool objects, with no UI frame.
-	draw_colored_polygon(PackedVector2Array([Vector2(1244,279),Vector2(1503,285),Vector2(1497,697),Vector2(1239,692)]),Color("cabb9c"))
-	draw_line(Vector2(1491,296),Vector2(1486,682),Color("b5a689"),1.0,true)
+	# Three small working compartments belong to the desk furniture. Their
+	# clickable paper objects are drawn on top, at a consistent physical scale.
+	draw_rect(Rect2(1216,266,302,436),Color("b29d7d"))
+	draw_rect(Rect2(1224,273,286,421),Color("c7b696"))
+	for y: float in [288.0,418.0,548.0]:
+		draw_rect(Rect2(1234,y,265,106),Color("ad9b7e"))
+		draw_rect(Rect2(1240,y+5,253,92),Color("d6c6a5"))
+		draw_line(Vector2(1240,y+96),Vector2(1493,y+96),Color("877e69"),2.0,true)
+	# A shallow front shelf makes the map and return handle feel stored here.
+	draw_rect(Rect2(316,767,885,114),Color("c8b598"))
+	draw_line(Vector2(316,767),Vector2(1201,767),Color("a89375"),3.0,true)
+	draw_line(Vector2(316,879),Vector2(1201,879),Color("9f8c72"),2.0,true)
 	# The desk lip is deliberately asymmetric.
 	draw_colored_polygon(PackedVector2Array([Vector2(0,889),Vector2(347,883),Vector2(1600,886),Vector2(1600,900),Vector2(0,900)]),Color("b9a584"))
 	draw_line(Vector2(351,883),Vector2(1600,886),Color("ad9879"),1.5,true)
