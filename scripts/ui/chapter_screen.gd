@@ -1,8 +1,7 @@
 class_name ChapterScreen
 extends Control
-## Painted chapter bookends. Scenery comes from a complete environment image;
-## the original building is fitted in full above it, with no crop or colour overlay.
-## Code draws only typography, quiet reading paper, and the failure letter prop.
+## Chapter bookends use the same flat coastal palette as the explorable streets.
+## The supplied building remains a separate, uncropped texture above the scenery.
 
 signal primary_requested
 signal secondary_requested
@@ -10,7 +9,6 @@ signal details_requested
 
 const CANVAS := Vector2(1600, 900)
 const Courier = preload("res://scripts/ui/courier_actor.gd")
-const ENVIRONMENT = preload("res://assets/generated/environments/post_office.png")
 const POST_OFFICE = preload("res://assets/display_user/post_office_exterior_USER_20261001_LOCKED.jpg.png")
 const INK := Color("#294f4e")
 const SOFT := Color("#718980")
@@ -194,8 +192,7 @@ func _draw() -> void:
 
 
 func _paper_gradient(rect: Rect2, colors: PackedColorArray, stops: PackedFloat32Array, vertical: bool = false) -> void:
-	# Reading surfaces only. All trees, hills, pavement and shadows belong to
-	# the painted environment texture, never to generated geometry.
+	# Soft paper edges keep the chapter text legible over the drawn scenery.
 	var key: String = str(rect)
 	if not _paper_textures.has(key):
 		var gradient := Gradient.new()
@@ -212,14 +209,37 @@ func _paper_gradient(rect: Rect2, colors: PackedColorArray, stops: PackedFloat32
 
 
 func _draw_environment() -> void:
-	draw_texture_rect(ENVIRONMENT, Rect2(Vector2.ZERO, CANVAS), false)
+	draw_rect(Rect2(Vector2.ZERO, CANVAS), Color("e1ebe4"))
+	draw_colored_polygon(PackedVector2Array([
+		Vector2(0, 0), Vector2(1600, 0), Vector2(1600, 294),
+		Vector2(1140, 288), Vector2(820, 300), Vector2(426, 286), Vector2(0, 301)
+	]), Color("eaf0e6"))
+	draw_rect(Rect2(0, 305, 1600, 321), Color("87b9b2"))
+	draw_colored_polygon(PackedVector2Array([
+		Vector2(0, 506), Vector2(160, 443), Vector2(310, 459),
+		Vector2(492, 384), Vector2(662, 416), Vector2(747, 379),
+		Vector2(755, 625), Vector2(0, 625)
+	]), Color("a4b7a5"))
+	draw_colored_polygon(PackedVector2Array([
+		Vector2(1191, 429), Vector2(1292, 386), Vector2(1404, 393),
+		Vector2(1541, 364), Vector2(1600, 384), Vector2(1600, 625), Vector2(1191, 625)
+	]), Color("9cafa0"))
+	for y: float in [400.0, 474.0, 544.0]:
+		draw_line(Vector2(785, y), Vector2(1040, y - 5), Color("d5e2d4"), 2.0, true)
+		draw_line(Vector2(1260, y + 14), Vector2(1450, y + 9), Color("d5e2d4"), 2.0, true)
+	draw_colored_polygon(PackedVector2Array([
+		Vector2(0, 626), Vector2(1600, 613), Vector2(1600, 900), Vector2(0, 900)
+	]), Color("eadabd"))
+	draw_colored_polygon(PackedVector2Array([
+		Vector2(0, 629), Vector2(1600, 616), Vector2(1600, 650), Vector2(0, 664)
+	]), Color("f5e9d1"))
+	for y: float in [711.0, 790.0, 870.0]:
+		draw_line(Vector2(0, y), Vector2(1600, y - 13), Color("d4c5aa"), 2.0, true)
 
 
 func _draw_title_stage() -> void:
 	_draw_environment()
-	# The pale editorial margin leaves the original architecture and courier
-	# entirely outside the text area. The background painting remains visible
-	# through its soft outer edge; the user architecture is drawn afterwards.
+	# The paper margin keeps typography clear of the supplied architecture.
 	_paper_gradient(Rect2(0, 0, 839, 900),
 		PackedColorArray([PAPER, PAPER, Color(PAPER, 0.93), Color(PAPER, 0.0)]),
 		PackedFloat32Array([0.0, 0.70, 0.83, 1.0]))

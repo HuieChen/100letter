@@ -47,6 +47,7 @@ func _run() -> void:
 	for player in main.find_children("*","AudioStreamPlayer",true,false):
 		player.stop()
 		player.stream = null
+	await create_timer(0.35).timeout
 	main.queue_free()
 	await process_frame
 	await process_frame

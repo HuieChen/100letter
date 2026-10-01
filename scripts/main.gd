@@ -1085,6 +1085,10 @@ func _close_overlay(restore_world: bool = true) -> void:
 
 func _capture_ui() -> void:
 	# Explicit development capture: separate state, never loads or overwrites player save.
+	await get_tree().process_frame
+	await get_tree().process_frame
+	await get_tree().create_timer(0.2).timeout
+	get_viewport().get_texture().get_image().save_png("res://test-results/title.png")
 	game.save_path = "user://ui_capture_only.json"
 	game.new_game()
 	_desk()
