@@ -210,7 +210,7 @@ func _layout() -> void:
 	_heading.position=origin+(at+Vector2(0,27) if in_world else at+Vector2(103,-5))*factor
 	_heading.size=Vector2(objective_rect.size.x if in_world else objective_rect.size.x-112,38)
 	_detail.position=origin+(at+Vector2(0,69) if in_world else at+Vector2(0,37))*factor
-	_detail.size=Vector2(objective_rect.size.x,58 if in_world else 60)
+	_detail.size=Vector2(objective_rect.size.x,90 if in_world and _expanded else 58 if in_world else 60)
 	queue_redraw()
 
 static func reading_scrim(compact: bool=false) -> ColorRect:
@@ -257,8 +257,9 @@ func _draw() -> void:
 	if not bool(descriptor.get("active",false)): return
 	draw_set_transform(_origin(),0,Vector2.ONE*_factor())
 	if _context.get("view","location")=="location":
-		draw_rect(Rect2(43,122,540,137),Color(0.978,0.958,0.887,0.91))
-		draw_line(Vector2(43,122),Vector2(43,259),ACCENT,3,true)
+		var card_height: float=180.0 if _expanded else 137.0
+		draw_rect(Rect2(43,122,540,card_height),Color(0.978,0.958,0.887,0.91))
+		draw_line(Vector2(43,122),Vector2(43,122+card_height),ACCENT,3,true)
 	else:
 		draw_line(objective_rect.position+Vector2(0,32),objective_rect.position+Vector2(minf(360,objective_rect.size.x),32),Color(0.38,0.49,0.40,0.38),1,true)
 	var target_point: Variant=_target_point()
