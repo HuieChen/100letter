@@ -215,15 +215,18 @@ func _desk() -> void:
 	UI.label(screen,"邮局 · 分拣桌" if at_post else _location_name(game.state.location)+" · 打开信袋",Rect2(55,101,1000,45),28)
 	var item: Dictionary=game.letter_data(selected)
 	var cs: Dictionary=game.case_state(selected)
-	var i=0
-	for letter in game.catalog.letters:
+	# Build from the back of the case toward the player. Each upper strip stays
+	# exposed and clickable, while the selected letter is taken out to read.
+	var stack_offsets := [0,24,-9,17,5]
+	for stack_position in range(game.catalog.letters.size()):
+		var i: int=game.catalog.letters.size()-1-stack_position
+		var letter: Dictionary=game.catalog.letters[i]
 		var id: String=letter.id
-		var tab=_object("letter",str(letter.title),Rect2(67+(i%2)*6,348+i*72,338,76),func(): game.select_case(id); selected=id; _desk())
+		var tab=_object("letter",str(letter.title),Rect2(67+stack_offsets[i],446+stack_position*34,338,76),func(): game.select_case(id); selected=id; _desk())
 		tab.index=i
 		tab.chosen=id==selected
 		tab.queue_redraw()
-		_bind_guidance("letter:"+id,tab,Vector2(tab.size.x*0.5,40))
-		i+=1
+		_bind_guidance("letter:"+id,tab,Vector2(tab.size.x*0.5,23))
 	envelope=Card.new()
 	envelope.front=str(item.front)
 	envelope.back=str(item.back)
@@ -236,9 +239,9 @@ func _desk() -> void:
 	if selected=="case04": envelope.handwriting="M. / July 18"
 	if selected=="case03" and cs.get("repair_solved",false): envelope.front+="\n\n拼回的旧标签：Rose Court 302"
 	screen.add_child(envelope)
-	var pos=cs.get("card_position",[500,255])
+	var pos=cs.get("card_position",[590,205])
 	envelope.scale=Vector2.ONE*clampf(float(cs.get("card_scale",1.0)),0.9,1.08)
-	envelope.position=Vector2(clampf(float(pos[0]),400,1205-envelope.size.x*envelope.scale.x),clampf(float(pos[1]),220,790-envelope.size.y*envelope.scale.y))
+	envelope.position=Vector2(clampf(float(pos[0]),475,1210-envelope.size.x*envelope.scale.x),clampf(float(pos[1]),190,810-envelope.size.y*envelope.scale.y))
 	_bind_guidance("envelope",envelope,Vector2(envelope.size.x*0.5,20))
 	_bind_guidance("flip_edge",envelope,Vector2(envelope.size.x-10,envelope.size.y*0.5))
 	if envelope.reverse: _remember_guidance("back_seen",selected)
@@ -1092,7 +1095,7 @@ func _read_letter_body(title_text: String, body_text: String) -> void:
 	UI.place(shade,overlay,Rect2(0,91,1600,809))
 	var sheet=LetterInsert.new()
 	sheet.configure(title_text,body_text)
-	UI.place(sheet,overlay,Rect2(445,136,710,647))
+	UI.place(sheet,overlay,Rect2(570,136,460,647))
 	sheet.closed.connect(_close_overlay)
 	sound.play("paper")
 
@@ -1156,9 +1159,10 @@ func _capture_ui() -> void:
 	await get_tree().create_timer(0.35).timeout
 	get_viewport().get_texture().get_image().save_png("res://test-results/map.png")
 	for id in ["post_office","community_center","lookout"]:
-		game.state.location=id
+		game.state["location"]=id
 		_location()
-		await get_tree().create_timer(0.4).timeout
+		await get_tree().create_timer(0.85).timeout
+		RenderingServer.force_draw()
 		get_viewport().get_texture().get_image().save_png("res://test-results/"+id+".png")
 	_talk("mira_vale")
 	await get_tree().create_timer(0.4).timeout

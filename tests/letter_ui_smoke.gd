@@ -18,12 +18,26 @@ func _run() -> void:
 	await process_frame
 	var insert: Button=null
 	var letters: int=0
+	var letter_controls: Array[Control]=[]
 	for child in main.screen.get_children():
 		if child.get_script()!=load("res://scripts/ui/object_button.gd"): continue
 		if child.kind=="insert": insert=child
-		if child.kind=="letter": letters+=1
+		if child.kind=="letter":
+			letters+=1
+			letter_controls.append(child)
 	if insert==null or letters!=5:
 		push_error("mail case has no physical insert or all five selectable envelopes")
+		quit(1)
+		return
+	letter_controls.sort_custom(func(a: Control,b: Control): return a.position.y<b.position.y)
+	for i in range(letter_controls.size()-1):
+		var exposed: float=letter_controls[i+1].position.y-letter_controls[i].position.y
+		if exposed<26 or exposed>=letter_controls[i].size.y:
+			push_error("stacked envelope has no readable and clickable exposed edge")
+			quit(1)
+			return
+	if main.envelope.size.x/main.envelope.size.y>0.75:
+		push_error("selected letter is not a portrait page")
 		quit(1)
 		return
 	insert.pressed.emit()
@@ -31,7 +45,7 @@ func _run() -> void:
 	var sheet: Control=null
 	for child in main.overlay.get_children():
 		if child.get_script()==load("res://scripts/ui/letter_insert.gd"): sheet=child
-	if sheet==null or sheet.text_view.text!=str(main.game.letter_data("case01").body) or not sheet.text_view.scroll_active or sheet.text_view.size.x<400 or sheet.text_view.size.y<300:
+	if sheet==null or sheet.text_view.text!=str(main.game.letter_data("case01").body) or not sheet.text_view.scroll_active or sheet.text_view.size.x<280 or sheet.text_view.size.y<300 or sheet.size.x/sheet.size.y>0.75:
 		push_error("opened envelope did not reveal a scrollable physical page")
 		quit(1)
 		return

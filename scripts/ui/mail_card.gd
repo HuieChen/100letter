@@ -19,14 +19,14 @@ var is_note = false
 var handwriting = ""
 
 func _ready() -> void:
-	size = Vector2(650, 480) if not is_note else Vector2(360, 440)
+	size = Vector2(440, 600) if not is_note else Vector2(360, 440)
 	mouse_default_cursor_shape = CURSOR_DRAG
 	text_label = RichTextLabel.new()
 	text_label.position = Vector2(38, 88) if is_note else Vector2(54, 92)
 	if not handwriting.is_empty(): text_label.position.y=113
 	text_label.size = Vector2(size.x - 76, size.y - 135) if is_note else Vector2(size.x - 108, size.y - 151)
 	if not handwriting.is_empty(): text_label.size.y-=25
-	text_label.add_theme_font_size_override("normal_font_size", 23 if not is_note else 21)
+	text_label.add_theme_font_size_override("normal_font_size", 21)
 	text_label.add_theme_color_override("default_color", PaperUI.INK)
 	text_label.add_theme_constant_override("line_separation",5)
 	text_label.selection_enabled = true
@@ -62,7 +62,7 @@ func _draw() -> void:
 		draw_rect(Rect2(size.x-93,22,48,53),PaperUI.CORAL if urgent else PaperUI.TEAL)
 		draw_string(f,Vector2(size.x-84,57),"急" if urgent else "邮",HORIZONTAL_ALIGNMENT_LEFT,38,24,PaperUI.PAPER)
 		draw_line(Vector2(49,size.y-49),Vector2(size.x-49,size.y-49),Color("d5cbb5"),1)
-		draw_string(f,Vector2(51,size.y-23),"背面 · 点右边缘翻回" if reverse else "按住纸边移动 · 点右边缘翻面 · 字区滚轮阅读",HORIZONTAL_ALIGNMENT_LEFT,size.x-91,16,PaperUI.MUTED)
+		draw_string(f,Vector2(51,size.y-23),"背面 · 点右缘翻回" if reverse else "移纸 · 右缘翻面 · 字区滚动",HORIZONTAL_ALIGNMENT_LEFT,size.x-91,16,PaperUI.MUTED)
 		if reverse:
 			draw_polyline(PackedVector2Array([Vector2(8,55),Vector2(size.x/2,110),Vector2(size.x-8,55)]),Color("c9b991"),2)
 		if opened:
@@ -94,6 +94,6 @@ func _gui_input(event: InputEvent) -> void:
 		accept_event()
 	elif event is InputEventMouseMotion and dragging:
 		global_position = get_global_mouse_position()-drag_offset
-		position.x = clampf(position.x,400,1205-size.x*scale.x)
-		position.y = clampf(position.y,220,790-size.y*scale.y)
+		position.x = clampf(position.x,475,1210-size.x*scale.x)
+		position.y = clampf(position.y,190,810-size.y*scale.y)
 		accept_event()
