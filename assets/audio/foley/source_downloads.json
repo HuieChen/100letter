@@ -1,0 +1,86 @@
+[
+  {
+    "file": "impact.zip",
+    "url": "https://kenney.nl/media/pages/assets/impact-sounds/87b4ddecda-1677589768/kenney_impact-sounds.zip",
+    "bytes": 800850,
+    "sha256": "029d734af1582474edf3a694d1b0cebc97c1c152f2f39fa34d4c2bafc5de77f8"
+  },
+  {
+    "file": "wave1.flac",
+    "url": "https://opengameart.org/sites/default/files/wave_01_cc0-18363__jasinski__alkaibeach.flac",
+    "bytes": 626248,
+    "sha256": "fcfca178eca2eac536e8c2a4ed5cf8096e44c921acd587047b3d9f1d7845435c"
+  },
+  {
+    "file": "wave2.flac",
+    "url": "https://opengameart.org/sites/default/files/wave_02_cc0-18363__jasinski__alkaibeach.flac",
+    "bytes": 404529,
+    "sha256": "53b5c28c0edc36f049e77e65f2cf8a86135103328c44c1507c416e6469d18096"
+  },
+  {
+    "file": "wave3.flac",
+    "url": "https://opengameart.org/sites/default/files/wave_03_cc0-18363__jasinski__alkaibeach.flac",
+    "bytes": 367584,
+    "sha256": "fc795f95f352b354867d69a587daecb8815334e28e3b56a7798c5f3005349054"
+  },
+  {
+    "file": "birds.wav",
+    "url": "https://opengameart.org/sites/default/files/birdchirping071414.wav",
+    "bytes": 528004,
+    "sha256": "bc6e28bd823b653b2abf3384d4147718603af6bcd98e26166345df71a61eeb08"
+  },
+  {
+    "file": "door.7z",
+    "url": "https://opengameart.org/sites/default/files/door.7z",
+    "bytes": 1892257,
+    "sha256": "81e87d4f7ea2227076b25dc6e595378d3a35ae7e6a45817a051cfbcd17b13ea1"
+  },
+  {
+    "file": "paper.mp3",
+    "page": "https://freesound.org/people/keweldog/sounds/181774/",
+    "url": "https://cdn.freesound.org/previews/181/181774_3153523-hq.mp3",
+    "bytes": 112606,
+    "sha256": "63887d92134333842e2c65fe6da4db4c9495b471d0e59019749e83a6dac904d6",
+    "license": "CC0 1.0"
+  },
+  {
+    "file": "bell.mp3",
+    "page": "https://freesound.org/people/JohnsonBrandEditing/sounds/173932/",
+    "url": "https://cdn.freesound.org/previews/173/173932_3229685-hq.mp3",
+    "bytes": 270816,
+    "sha256": "0153087783311cc521e1f5121d3895375f50a75c7f69c715518f9f5277513aab",
+    "license": "CC0 1.0"
+  },
+  {
+    "file": "town.mp3",
+    "page": "https://freesound.org/people/MiLeuthner/sounds/399028/",
+    "url": "https://cdn.freesound.org/previews/399/399028_5105511-hq.mp3",
+    "bytes": 1334304,
+    "sha256": "b3f2a9c1a1d3fa0f1d978181be38673286c04517d7ddb2b4027addd54232f648",
+    "license": "CC0 1.0"
+  },
+  {
+    "file": "wind.mp3",
+    "page": "https://freesound.org/people/nickydunne/sounds/463551/",
+    "url": "https://cdn.freesound.org/previews/463/463551_9359506-hq.mp3",
+    "bytes": 2046048,
+    "sha256": "125167bf1c874f874aaab0a5befc5f34a3d14ea6568cd8c3c80d8e20874cbfae",
+    "license": "CC0 1.0"
+  },
+  {
+    "file": "tram.mp3",
+    "page": "https://freesound.org/people/mdayalan/sounds/239646/",
+    "url": "https://cdn.freesound.org/previews/239/239646_1061768-hq.mp3",
+    "bytes": 1477152,
+    "sha256": "38831e49d9e01c1d9c7bff3e8156022cf7727e59f58378b43afb07e37440db3e",
+    "license": "CC0 1.0"
+  },
+  {
+    "file": "sea.mp3",
+    "page": "https://freesound.org/people/jasinski/sounds/18363/",
+    "url": "https://cdn.freesound.org/previews/18/18363_71309-hq.mp3",
+    "bytes": 970697,
+    "sha256": "22af26bb4e66915308bcc2a3c1b329161ef1bbd443c5f51cd85ee02de6ee2636",
+    "license": "CC0 1.0"
+  }
+]

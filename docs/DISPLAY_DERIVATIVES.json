@@ -1,0 +1,141 @@
+{
+  "version": 2,
+  "authorization": "User explicitly allowed local outer-white removal and narrow externally connected JPEG white-edge refinement on 2026-10-01. Originals retained. RGB unchanged. No AI input.",
+  "method": "8-bit RGBA; baseline RGB min>=247 and range<=6, plus existing alpha=0; four-neighbour border-connected component. JPEG only: RGB min>=228, range<=20, Euclidean distance<=3 source pixels from the fixed baseline outer component, still four-neighbour connected. Only alpha set to zero; full dimensions retained.",
+  "edge_refinement": {
+    "jpeg_only": true,
+    "minimum_rgb": 228,
+    "maximum_rgb_range": 20,
+    "maximum_source_pixel_radius": 3.0,
+    "connectivity": 4,
+    "distance_reference": "fixed baseline outer component; never iteratively widened"
+  },
+  "assets": [
+    {
+      "location": "post_office",
+      "source": "assets/locked_user/post_office_exterior_USER_20261001_LOCKED.jpg",
+      "display": "assets/display_user/post_office_exterior_USER_20261001_LOCKED.jpg.png",
+      "size": [
+        1811,
+        1280
+      ],
+      "source_sha256": "10505e65f9ff2beb0bfec42d7492c169a2257582f7b6218711bf1824f2d69d5b",
+      "display_sha256": "e45102e8c753f329b3bd472aa6f5642b5b4156ac4b77cdbb1aa0481c329c4ab0",
+      "pixels_cleared": 1539323,
+      "baseline_pixels_cleared": 1531555,
+      "additional_jpeg_edge_pixels": 7768,
+      "edge_radius_source_pixels": 3.0,
+      "rgb_unchanged": true,
+      "outside_authorized_alpha_mask_unchanged": true,
+      "interior_unchanged": true
+    },
+    {
+      "location": "community_center",
+      "source": "assets/locked_user/community_center_USER_20261001_LOCKED.jpg",
+      "display": "assets/display_user/community_center_USER_20261001_LOCKED.jpg.png",
+      "size": [
+        1811,
+        1280
+      ],
+      "source_sha256": "df908fd63a384cc81a8bf9344368a1814ac5250b13806f600e745159e9013873",
+      "display_sha256": "908aa18084b829dba3c90aeede2841e41134e872ae8386185f30c9c63b1a2fa4",
+      "pixels_cleared": 1394111,
+      "baseline_pixels_cleared": 1382697,
+      "additional_jpeg_edge_pixels": 11414,
+      "edge_radius_source_pixels": 3.0,
+      "rgb_unchanged": true,
+      "outside_authorized_alpha_mask_unchanged": true,
+      "interior_unchanged": true
+    },
+    {
+      "location": "bus_stop",
+      "source": "assets/locked_user/bus_stop_LOCKED.png",
+      "display": "assets/display_user/bus_stop_LOCKED.png.png",
+      "size": [
+        1920,
+        1080
+      ],
+      "source_sha256": "8e69e0c923aa606877b0dcd4caa012859276c2e8bbfefc08c7fb915c9fe4b368",
+      "display_sha256": "24d26a96eaa31fd66c02c6e6258436fdc615014dbb269de5f2c37cec8334ca74",
+      "pixels_cleared": 1,
+      "baseline_pixels_cleared": 1,
+      "additional_jpeg_edge_pixels": 0,
+      "edge_radius_source_pixels": 0,
+      "rgb_unchanged": true,
+      "outside_authorized_alpha_mask_unchanged": true,
+      "interior_unchanged": true
+    },
+    {
+      "location": "lookout",
+      "source": "assets/locked_user/lookout_LOCKED.png",
+      "display": "assets/display_user/lookout_LOCKED.png.png",
+      "size": [
+        1920,
+        1080
+      ],
+      "source_sha256": "51036f2afc2d31526a194c4dfe1113c877f36c3e6177f3fa3e9fba023e1a67d1",
+      "display_sha256": "d18c2b53b68d7d47dabf615e57283bf38a8eaab3f88a7bf58453e01ffda3b635",
+      "pixels_cleared": 2,
+      "baseline_pixels_cleared": 2,
+      "additional_jpeg_edge_pixels": 0,
+      "edge_radius_source_pixels": 0,
+      "rgb_unchanged": true,
+      "outside_authorized_alpha_mask_unchanged": true,
+      "interior_unchanged": true
+    },
+    {
+      "location": "residential",
+      "source": "assets/locked_user/residential_building_USER_20261001_LOCKED.png",
+      "display": "assets/display_user/residential_building_USER_20261001_LOCKED.png.png",
+      "size": [
+        3508,
+        2480
+      ],
+      "source_sha256": "2e918363c006372d9a28ba508b5479f0f466084cc26e9b2de7f432013465efb0",
+      "display_sha256": "6145f79bd2d2cd74507ca653fcece9957af1515deaa450be984cbcff2c6227d2",
+      "pixels_cleared": 0,
+      "baseline_pixels_cleared": 0,
+      "additional_jpeg_edge_pixels": 0,
+      "edge_radius_source_pixels": 0,
+      "rgb_unchanged": true,
+      "outside_authorized_alpha_mask_unchanged": true,
+      "interior_unchanged": true
+    },
+    {
+      "location": "chess_stall",
+      "source": "assets/locked_user/chess_stall_USER_20261001_LOCKED.png",
+      "display": "assets/display_user/chess_stall_USER_20261001_LOCKED.png.png",
+      "size": [
+        1920,
+        1080
+      ],
+      "source_sha256": "61b38e2880dbc096cb9d3b8e05c45978f020e2ee04c33247c3422722cb36aa00",
+      "display_sha256": "0dfe6622df4bbe0b482decb2919a08984d2a5e24cd5fa017aae845b532e823cb",
+      "pixels_cleared": 0,
+      "baseline_pixels_cleared": 0,
+      "additional_jpeg_edge_pixels": 0,
+      "edge_radius_source_pixels": 0,
+      "rgb_unchanged": true,
+      "outside_authorized_alpha_mask_unchanged": true,
+      "interior_unchanged": true
+    },
+    {
+      "location": "tarot_shop",
+      "source": "assets/locked_user/tarot_shop_LOCKED.png",
+      "display": "assets/display_user/tarot_shop_LOCKED.png.png",
+      "size": [
+        1920,
+        1080
+      ],
+      "source_sha256": "4fb721b82bfa6f245fb23e82ff5e91caaf5b69fdcb30372e1118b70fcd0dfbf6",
+      "display_sha256": "d1190c5903f5425b7be6a79653f6b952f18e6c6a4eae3b92c8f9348e14161c3b",
+      "pixels_cleared": 0,
+      "baseline_pixels_cleared": 0,
+      "additional_jpeg_edge_pixels": 0,
+      "edge_radius_source_pixels": 0,
+      "rgb_unchanged": true,
+      "outside_authorized_alpha_mask_unchanged": true,
+      "interior_unchanged": true
+    }
+  ]
+}

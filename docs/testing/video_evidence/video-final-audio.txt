@@ -1,0 +1,50 @@
+Input #0, mov,mp4,m4a,3gp,3g2,mj2, from 'work/100letter-video-audio10.mp4':
+  Metadata:
+    major_brand     : isom
+    minor_version   : 512
+    compatible_brands: isomiso2avc1mp41
+    title           : 一百信 · 全流程演示
+    encoder         : Lavf61.7.100
+    comment         : Program-controlled Godot Main UI demonstration at normal playback speed; no game-state injection; not a human playtest. Video audio post gain +10 dB; game default mix unchanged.
+  Duration: 00:12:11.29, start: 0.000000, bitrate: 575 kb/s
+  Stream #0:0[0x1](und): Video: h264 (High) (avc1 / 0x31637661), yuvj420p(pc, bt470bg/unknown/unknown, progressive), 1280x720 [SAR 1:1 DAR 16:9], 377 kb/s, 24 fps, 24 tbr, 12288 tbn (default)
+      Metadata:
+        handler_name    : VideoHandler
+        vendor_id       : [0][0][0][0]
+        encoder         : Lavc61.19.100 libx264
+  Stream #0:1[0x2](und): Audio: aac (LC) (mp4a / 0x6134706D), 48000 Hz, stereo, fltp, 191 kb/s (default)
+      Metadata:
+        handler_name    : SoundHandler
+        vendor_id       : [0][0][0][0]
+[Parsed_volumedetect_0 @ 0000025648d4c300] n_samples: 0
+Stream mapping:
+  Stream #0:1 -> #0:0 (aac (native) -> pcm_s16le (native))
+Output #0, null, to 'NUL':
+  Metadata:
+    major_brand     : isom
+    minor_version   : 512
+    compatible_brands: isomiso2avc1mp41
+    title           : 一百信 · 全流程演示
+    comment         : Program-controlled Godot Main UI demonstration at normal playback speed; no game-state injection; not a human playtest. Video audio post gain +10 dB; game default mix unchanged.
+    encoder         : Lavf61.7.100
+  Stream #0:0(und): Audio: pcm_s16le, 48000 Hz, stereo, s16, 1536 kb/s (default)
+      Metadata:
+        handler_name    : SoundHandler
+        vendor_id       : [0][0][0][0]
+        encoder         : Lavc61.19.100 pcm_s16le
+size=N/A time=00:05:05.57 bitrate=N/A speed= 606x    
+size=N/A time=00:10:37.93 bitrate=N/A speed= 627x    
+[Parsed_volumedetect_0 @ 0000025649275100] n_samples: 70205440
+[Parsed_volumedetect_0 @ 0000025649275100] mean_volume: -28.8 dB
+[Parsed_volumedetect_0 @ 0000025649275100] max_volume: -6.1 dB
+[Parsed_volumedetect_0 @ 0000025649275100] histogram_6db: 12
+[Parsed_volumedetect_0 @ 0000025649275100] histogram_7db: 38
+[Parsed_volumedetect_0 @ 0000025649275100] histogram_8db: 163
+[Parsed_volumedetect_0 @ 0000025649275100] histogram_9db: 659
+[Parsed_volumedetect_0 @ 0000025649275100] histogram_10db: 1898
+[Parsed_volumedetect_0 @ 0000025649275100] histogram_11db: 5151
+[Parsed_volumedetect_0 @ 0000025649275100] histogram_12db: 11651
+[Parsed_volumedetect_0 @ 0000025649275100] histogram_13db: 24689
+[Parsed_volumedetect_0 @ 0000025649275100] histogram_14db: 47887
+[out#0/null @ 000002564939ee80] video:0KiB audio:137120KiB subtitle:0KiB other streams:0KiB global headers:0KiB muxing overhead: unknown
+size=N/A time=00:12:11.30 bitrate=N/A speed= 617x    

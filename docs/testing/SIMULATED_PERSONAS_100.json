@@ -1,0 +1,5761 @@
+{
+  "schema_version": 1,
+  "created_on": "2026-10-01",
+  "purpose": "100份合成测试视角与可执行路径计划，不是真实玩家、访谈、问卷或满意度结果。",
+  "cohort_counts": {
+    "puzzle_veteran": 60,
+    "novice": 20,
+    "other_genre": 20
+  },
+  "sampling_method": "按偏好分层的确定性覆盖设计；20种资深偏好×3行为，10种新手偏好×2行为，10种跨类型偏好×2行为。不是人口代表样本，路径不是100名独立受试者。",
+  "evidence_policy": "source_ids指向PLAYER_REVIEW_BASIS.md的外部来源；正负评价是待检验假设。core断言可自动化验证状态，manual_*必须由实际窗口/阅读观察记录；不得把核心通过当成体验通过。",
+  "runner_contract": {
+    "input": "personas[*].scenario",
+    "output_separate": true,
+    "results_path_hint": "由测试执行器另存实际报告，保留当前计划不写虚构pass",
+    "allowed_case02": [
+      "deliver",
+      "delegate",
+      "delay"
+    ],
+    "allowed_case03": [
+      "open",
+      "no_open"
+    ],
+    "allowed_case04": [
+      "deliver",
+      "hold",
+      "return_to_sender",
+      "remove_attachment"
+    ],
+    "allowed_case05": [
+      "file",
+      "keep",
+      "destroy"
+    ]
+  },
+  "criteria": [
+    {
+      "id": "C01",
+      "name": "事实可观察",
+      "criterion": "能在原始物件上指出用于结论的姓名、日期、笔迹或地址；不只看到日志给出的结论。",
+      "priority": "P1",
+      "source_ids": [
+        "OD_DEV",
+        "SH_REV"
+      ]
+    },
+    {
+      "id": "C02",
+      "name": "未知与已知分开",
+      "criterion": "未发现的身份、内页和关系不能提前写入档案；重复同一来源不充当独立证据。",
+      "priority": "P1",
+      "source_ids": [
+        "OD_DEV"
+      ]
+    },
+    {
+      "id": "C03",
+      "name": "路径公平",
+      "criterion": "不拆信与代送都是可完成的真实路线，明确交出什么、保留什么以及回不去的部分。",
+      "priority": "P1",
+      "source_ids": [
+        "FAE_REV"
+      ]
+    },
+    {
+      "id": "C04",
+      "name": "物理操作有信息价值",
+      "criterion": "拼接、拆封、修复与取走照片改变可读信息或交付物，不只是做满动作。",
+      "priority": "P1",
+      "source_ids": [
+        "HER_REV",
+        "HER_STORE",
+        "UNPACK_OFFICIAL"
+      ]
+    },
+    {
+      "id": "C05",
+      "name": "工作资料可并置",
+      "criterion": "原件、地图线索和已知人物资料能持续回看，比较不依赖记住前一个关闭的窗口。",
+      "priority": "P1",
+      "source_ids": [
+        "PP_MOBILE",
+        "SH_REV"
+      ]
+    },
+    {
+      "id": "C06",
+      "name": "时间取舍可解释",
+      "criterion": "出发前知道旅行成本，急件状态清楚，阅读慢不会受真实倒计时处罚。",
+      "priority": "P2",
+      "source_ids": [
+        "PP_STRUCTURE",
+        "HER_REV"
+      ]
+    },
+    {
+      "id": "C07",
+      "name": "选择后果真实",
+      "criterion": "伦理选择不贴善恶分数，移除附件与原样交付有材料和日终上的区别。",
+      "priority": "P1",
+      "source_ids": [
+        "FAE_REV",
+        "MUT_CRAFT"
+      ]
+    },
+    {
+      "id": "C08",
+      "name": "人物回应具体",
+      "criterion": "NPC 回应已经发生的观察或职业行为，普通便笺保留日常语气，不人人讨论哲学。",
+      "priority": "P2",
+      "source_ids": [
+        "MUT_CRAFT",
+        "UNPACK_OFFICIAL"
+      ]
+    },
+    {
+      "id": "C09",
+      "name": "文本可控",
+      "criterion": "长文能完整读到末行、停留与回看；叙事、操作提示和证据结论不抢同一个区域。",
+      "priority": "P1",
+      "source_ids": [
+        "SH_REV",
+        "PP_MOBILE"
+      ]
+    },
+    {
+      "id": "C10",
+      "name": "入口可发现",
+      "criterion": "新手知道哪里能点、哪里能拖、哪里翻面；区域命中一致且不互相遮挡。",
+      "priority": "P1",
+      "source_ids": [
+        "FAE_REV",
+        "HER_REV"
+      ]
+    },
+    {
+      "id": "C11",
+      "name": "恢复可靠",
+      "criterion": "保存后证据、交接、消耗和物理阶段一致；重载不把不可逆选择改成未发生。",
+      "priority": "P1",
+      "source_ids": [
+        "FAE_REV"
+      ]
+    },
+    {
+      "id": "C12",
+      "name": "错误可学习",
+      "criterion": "错误推断与职业失误指出缺少何种核对，允许有边界的恢复，不能把道德犹豫算错。",
+      "priority": "P1",
+      "source_ids": [
+        "OD_DEV",
+        "PP_STRUCTURE"
+      ]
+    },
+    {
+      "id": "C13",
+      "name": "操作不排斥阅读者",
+      "criterion": "缩放后命中准确，完成路径不依赖声音，持续按住动作有清楚说明和取消方式。",
+      "priority": "P2",
+      "source_ids": [
+        "UNPACK_OFFICIAL",
+        "HER_STORE"
+      ]
+    },
+    {
+      "id": "C14",
+      "name": "视觉有主次",
+      "criterion": "人物、完整原图、物件和文字清楚分层，关键证据不用极小低对比文字藏起来。",
+      "priority": "P2",
+      "source_ids": [
+        "HER_STORE",
+        "PP_MOBILE"
+      ]
+    },
+    {
+      "id": "C15",
+      "name": "结尾回应承诺",
+      "criterion": "开场提出的职业问题在第五封与日终得到回应；不暗示代码中不存在的拯救或复合路线。",
+      "priority": "P1",
+      "source_ids": [
+        "FAE_REV",
+        "MUT_CRAFT"
+      ]
+    },
+    {
+      "id": "C16",
+      "name": "调查节奏多样",
+      "criterion": "相邻案件要求不同的判断，移动得到新上下文，避免点击地点清空所有问句成为万能办法。",
+      "priority": "P2",
+      "source_ids": [
+        "PP_STRUCTURE",
+        "HER_REV",
+        "MUT_CRAFT"
+      ]
+    }
+  ],
+  "assertion_catalog": [
+    {
+      "id": "A01",
+      "method": "core",
+      "slug": "ordinary_delivery_facts",
+      "assertion": "Case01错误地点不能结案，取得旧地名资料后社区中心可投递。"
+    },
+    {
+      "id": "A02",
+      "method": "core",
+      "slug": "urgent_delegation_consent",
+      "assertion": "未获得delegate_terms不可代送；代送后不可追回且无early_bench。"
+    },
+    {
+      "id": "A03",
+      "method": "core",
+      "slug": "urgent_time_boundary",
+      "assertion": "记录急件交接时刻；17:59/18:00边界与代送25分钟规则一致；逾期不伪装准时。"
+    },
+    {
+      "id": "A04",
+      "method": "core",
+      "slug": "unopened_migration_route",
+      "assertion": "Case03六片完成后，repair_address+resident_moved+lookout_schedule或nora_registry可不拆投递；没有case03_body。"
+    },
+    {
+      "id": "A05",
+      "method": "core",
+      "slug": "opened_repair_route",
+      "assertion": "拆开后需实际修复才能交件；保留时间、材料和拆痕，工具不可结案后重放。"
+    },
+    {
+      "id": "A06",
+      "method": "core",
+      "slug": "independent_evidence_gate",
+      "assertion": "Case04少于三项独立物证拒绝登记，重复同一证据不增数；early_bench不计三项。"
+    },
+    {
+      "id": "A07",
+      "method": "core",
+      "slug": "identity_vs_ethics",
+      "assertion": "Case04错误身份与四种处理动作分开记录；伦理动作本身没有正邪判分。"
+    },
+    {
+      "id": "A08",
+      "method": "core",
+      "slug": "attachment_gate",
+      "assertion": "未拆不得移走照片；取消整理不结案；remove_attachment与deliver的材料状态不同。"
+    },
+    {
+      "id": "A09",
+      "method": "core",
+      "slug": "archive_exact_record",
+      "assertion": "Case05锁在前四件之后；近似编号不能代替S-0720-0718-04，正确记录后才可处理。"
+    },
+    {
+      "id": "A10",
+      "method": "core",
+      "slug": "distinct_endings",
+      "assertion": "file/keep/destroy与Case04各动作保留不同文字和状态，重复日终不重复结算。"
+    },
+    {
+      "id": "A11",
+      "method": "core",
+      "slug": "save_continuity",
+      "assertion": "关键交接/物理进度前后保存载入，状态、证据和耗材一致；QA不写用户存档。"
+    },
+    {
+      "id": "A12",
+      "method": "core",
+      "slug": "failure_recovery",
+      "assertion": "故意职业失误进入对应可恢复/检查点边界；不能把伦理选择当成失败原因。"
+    },
+    {
+      "id": "A13",
+      "method": "manual_ui",
+      "slug": "read_last_line",
+      "assertion": "新窗口逐封读到正文末行并回到开头；移动纸边和滚动字区不相互抢输入。"
+    },
+    {
+      "id": "A14",
+      "method": "manual_ui",
+      "slug": "hotspot_discovery",
+      "assertion": "不看脚本发现场景物件，点击视觉物体对应命中；记录首次未能发现的位置。"
+    },
+    {
+      "id": "A15",
+      "method": "manual_ui",
+      "slug": "actual_handwriting",
+      "assertion": "把信封与独立署名并置，实际能看到两者M/July笔迹特征，而非听日志说明。"
+    },
+    {
+      "id": "A16",
+      "method": "manual_ui",
+      "slug": "fragment_information_gain",
+      "assertion": "未拼前与拼后比较玩家可读信息；解释裂边/字迹如何形成地址，不能只记录归位成功。"
+    },
+    {
+      "id": "A17",
+      "method": "manual_ui",
+      "slug": "persistent_context",
+      "assertion": "在最终处理处回看已见证据、人物事实和对话约定，不靠记住关闭窗口的内容。"
+    },
+    {
+      "id": "A18",
+      "method": "manual_narrative",
+      "slug": "ordinary_voice",
+      "assertion": "读Case01到05：前两封仍轻且具体；Case04/05矛盾动机不由旁白盖棺定论。"
+    },
+    {
+      "id": "A19",
+      "method": "manual_narrative",
+      "slug": "action_reaction",
+      "assertion": "同一NPC在取得相关证据/代送交接前后有对应上下文，且没有未发生动作的感谢。"
+    },
+    {
+      "id": "A20",
+      "method": "manual_ui",
+      "slug": "original_art_integrity",
+      "assertion": "七场景完整原图对应当前manifest；未调色裁切，人物与原图同框看比例和饱和度。"
+    },
+    {
+      "id": "A21",
+      "method": "manual_timing",
+      "slug": "route_pressure",
+      "assertion": "分别记录0/4/8绕行路线急件到达与收工时刻；脚本时间不当作真实游玩分钟。"
+    },
+    {
+      "id": "A22",
+      "method": "manual_narrative",
+      "slug": "choice_honesty",
+      "assertion": "四种Case04措辞说明实际交给谁/传哪些材料，不承诺复合、宽恕或不存在的后续。"
+    },
+    {
+      "id": "A23",
+      "method": "manual_ui",
+      "slug": "physical_recovery",
+      "assertion": "操作中取消/重开保留合理进度，所有碎片可找回，误放无隐藏惩罚，缩放后命中一致。"
+    },
+    {
+      "id": "A24",
+      "method": "manual_narrative",
+      "slug": "case_variety",
+      "assertion": "给五案分别写一句实际判断过程；若都只剩看完所有热点再点唯一按钮，则记为节奏缺陷。"
+    }
+  ],
+  "personas": [
+    {
+      "id": "persona_001",
+      "segment": "puzzle_veteran",
+      "synthetic": true,
+      "label": "物证比对型 · 先调查再交接",
+      "play_preference": "物证比对型",
+      "behavioral_variant": "先调查再交接",
+      "priority_criteria": [
+        {
+          "id": "C01",
+          "rank": 1
+        },
+        {
+          "id": "C05",
+          "rank": 2
+        },
+        {
+          "id": "C02",
+          "rank": 3
+        }
+      ],
+      "source_ids": [
+        "OD_DEV",
+        "SH_REV",
+        "PP_MOBILE"
+      ],
+      "likely_positive_hypothesis": "同一事实能在两件原物上互相印证",
+      "likely_criticism_hypothesis": "解释卡直接代替观察，猜对人物只需数到三条",
+      "scenario": {
+        "case02": "deliver",
+        "case03": "no_open",
+        "case04": "deliver",
+        "case05": "file",
+        "detours": 0,
+        "wrong_delivery": true,
+        "wrong_identity": true,
+        "save_resume": true,
+        "damage_recovery": true
+      },
+      "assertion_ids": [
+        "A01",
+        "A06",
+        "A07",
+        "A09",
+        "A10",
+        "A03",
+        "A04",
+        "A11",
+        "A12",
+        "A15"
+      ],
+      "manual_prompt": "按此偏好完成场景，记录实际看到的事实、第一次犹豫及需要回看的内容；若没有证据，保留未验证。",
+      "result_status": "not_run"
+    },
+    {
+      "id": "persona_002",
+      "segment": "puzzle_veteran",
+      "synthetic": true,
+      "label": "无攻略推理型 · 先调查再交接",
+      "play_preference": "无攻略推理型",
+      "behavioral_variant": "先调查再交接",
+      "priority_criteria": [
+        {
+          "id": "C02",
+          "rank": 1
+        },
+        {
+          "id": "C01",
+          "rank": 2
+        },
+        {
+          "id": "C12",
+          "rank": 3
+        }
+      ],
+      "source_ids": [
+        "OD_DEV",
+        "SH_REV",
+        "PP_STRUCTURE"
+      ],
+      "likely_positive_hypothesis": "线索逐步出现且不提前泄露身份",
+      "likely_criticism_hypothesis": "系统过早给出正确姓名，把调查变成收集清单",
+      "scenario": {
+        "case02": "delegate",
+        "case03": "no_open",
+        "case04": "deliver",
+        "case05": "file",
+        "detours": 5,
+        "wrong_delivery": false,
+        "wrong_identity": false,
+        "save_resume": false,
+        "damage_recovery": false
+      },
+      "assertion_ids": [
+        "A01",
+        "A06",
+        "A07",
+        "A09",
+        "A10",
+        "A02",
+        "A04"
+      ],
+      "manual_prompt": "按此偏好完成场景，记录实际看到的事实、第一次犹豫及需要回看的内容；若没有证据，保留未验证。",
+      "result_status": "not_run"
+    },
+    {
+      "id": "persona_003",
+      "segment": "puzzle_veteran",
+      "synthetic": true,
+      "label": "非拆封路线型 · 先调查再交接",
+      "play_preference": "非拆封路线型",
+      "behavioral_variant": "先调查再交接",
+      "priority_criteria": [
+        {
+          "id": "C03",
+          "rank": 1
+        },
+        {
+          "id": "C02",
+          "rank": 2
+        },
+        {
+          "id": "C07",
+          "rank": 3
+        }
+      ],
+      "source_ids": [
+        "FAE_REV",
+        "OD_DEV",
+        "MUT_CRAFT"
+      ],
+      "likely_positive_hypothesis": "尊重隐私也有公开证据路线",
+      "likely_criticism_hypothesis": "不拆封选项只是口头承诺，最后仍强迫拆信",
+      "scenario": {
+        "case02": "delay",
+        "case03": "no_open",
+        "case04": "deliver",
+        "case05": "file",
+        "detours": 1,
+        "wrong_delivery": false,
+        "wrong_identity": false,
+        "save_resume": false,
+        "damage_recovery": false
+      },
+      "assertion_ids": [
+        "A01",
+        "A06",
+        "A07",
+        "A09",
+        "A10",
+        "A03",
+        "A04"
+      ],
+      "manual_prompt": "按此偏好完成场景，记录实际看到的事实、第一次犹豫及需要回看的内容；若没有证据，保留未验证。",
+      "result_status": "not_run"
+    },
+    {
+      "id": "persona_004",
+      "segment": "puzzle_veteran",
+      "synthetic": true,
+      "label": "桌面整理型 · 先调查再交接",
+      "play_preference": "桌面整理型",
+      "behavioral_variant": "先调查再交接",
+      "priority_criteria": [
+        {
+          "id": "C05",
+          "rank": 1
+        },
+        {
+          "id": "C09",
+          "rank": 2
+        },
+        {
+          "id": "C10",
+          "rank": 3
+        }
+      ],
+      "source_ids": [
+        "PP_MOBILE",
+        "SH_REV",
+        "FAE_REV",
+        "HER_REV"
+      ],
+      "likely_positive_hypothesis": "信、署名卡和时间表可并置保存上下文",
+      "likely_criticism_hypothesis": "大量互斥弹窗把比对变成记忆负担",
+      "scenario": {
+        "case02": "deliver",
+        "case03": "open",
+        "case04": "deliver",
+        "case05": "file",
+        "detours": 6,
+        "wrong_delivery": false,
+        "wrong_identity": false,
+        "save_resume": false,
+        "damage_recovery": false
+      },
+      "assertion_ids": [
+        "A01",
+        "A06",
+        "A07",
+        "A09",
+        "A10",
+        "A03",
+        "A05",
+        "A17"
+      ],
+      "manual_prompt": "按此偏好完成场景，记录实际看到的事实、第一次犹豫及需要回看的内容；若没有证据，保留未验证。",
+      "result_status": "not_run"
+    },
+    {
+      "id": "persona_005",
+      "segment": "puzzle_veteran",
+      "synthetic": true,
+      "label": "操作解谜型 · 先调查再交接",
+      "play_preference": "操作解谜型",
+      "behavioral_variant": "先调查再交接",
+      "priority_criteria": [
+        {
+          "id": "C04",
+          "rank": 1
+        },
+        {
+          "id": "C13",
+          "rank": 2
+        },
+        {
+          "id": "C12",
+          "rank": 3
+        }
+      ],
+      "source_ids": [
+        "HER_REV",
+        "HER_STORE",
+        "UNPACK_OFFICIAL",
+        "OD_DEV",
+        "PP_STRUCTURE"
+      ],
+      "likely_positive_hypothesis": "裂口、旋转和文字恢复共同帮助理解",
+      "likely_criticism_hypothesis": "地址未拼已经一目了然，六片只延迟点击",
+      "scenario": {
+        "case02": "delegate",
+        "case03": "open",
+        "case04": "deliver",
+        "case05": "file",
+        "detours": 2,
+        "wrong_delivery": false,
+        "wrong_identity": false,
+        "save_resume": true,
+        "damage_recovery": false
+      },
+      "assertion_ids": [
+        "A01",
+        "A06",
+        "A07",
+        "A09",
+        "A10",
+        "A02",
+        "A05",
+        "A11",
+        "A16"
+      ],
+      "manual_prompt": "按此偏好完成场景，记录实际看到的事实、第一次犹豫及需要回看的内容；若没有证据，保留未验证。",
+      "result_status": "not_run"
+    },
+    {
+      "id": "persona_006",
+      "segment": "puzzle_veteran",
+      "synthetic": true,
+      "label": "分支验证型 · 先调查再交接",
+      "play_preference": "分支验证型",
+      "behavioral_variant": "先调查再交接",
+      "priority_criteria": [
+        {
+          "id": "C07",
+          "rank": 1
+        },
+        {
+          "id": "C15",
+          "rank": 2
+        },
+        {
+          "id": "C11",
+          "rank": 3
+        }
+      ],
+      "source_ids": [
+        "FAE_REV",
+        "MUT_CRAFT"
+      ],
+      "likely_positive_hypothesis": "每种交付方式保留可见材料差异",
+      "likely_criticism_hypothesis": "所谓选择只换一段评价且提前暗示善恶",
+      "scenario": {
+        "case02": "delay",
+        "case03": "open",
+        "case04": "deliver",
+        "case05": "file",
+        "detours": 7,
+        "wrong_delivery": false,
+        "wrong_identity": false,
+        "save_resume": false,
+        "damage_recovery": true
+      },
+      "assertion_ids": [
+        "A01",
+        "A06",
+        "A07",
+        "A09",
+        "A10",
+        "A03",
+        "A05",
+        "A12",
+        "A22"
+      ],
+      "manual_prompt": "按此偏好完成场景，记录实际看到的事实、第一次犹豫及需要回看的内容；若没有证据，保留未验证。",
+      "result_status": "not_run"
+    },
+    {
+      "id": "persona_007",
+      "segment": "puzzle_veteran",
+      "synthetic": true,
+      "label": "职业模拟型 · 先调查再交接",
+      "play_preference": "职业模拟型",
+      "behavioral_variant": "先调查再交接",
+      "priority_criteria": [
+        {
+          "id": "C06",
+          "rank": 1
+        },
+        {
+          "id": "C12",
+          "rank": 2
+        },
+        {
+          "id": "C04",
+          "rank": 3
+        }
+      ],
+      "source_ids": [
+        "PP_STRUCTURE",
+        "HER_REV",
+        "OD_DEV",
+        "HER_STORE",
+        "UNPACK_OFFICIAL"
+      ],
+      "likely_positive_hypothesis": "出行、急件与修复成本可规划",
+      "likely_criticism_hypothesis": "轻易中午做完所有事，代送从来没有实际理由",
+      "scenario": {
+        "case02": "deliver",
+        "case03": "no_open",
+        "case04": "hold",
+        "case05": "file",
+        "detours": 3,
+        "wrong_delivery": false,
+        "wrong_identity": false,
+        "save_resume": false,
+        "damage_recovery": false
+      },
+      "assertion_ids": [
+        "A01",
+        "A06",
+        "A07",
+        "A09",
+        "A10",
+        "A03",
+        "A04",
+        "A21"
+      ],
+      "manual_prompt": "按此偏好完成场景，记录实际看到的事实、第一次犹豫及需要回看的内容；若没有证据，保留未验证。",
+      "result_status": "not_run"
+    },
+    {
+      "id": "persona_008",
+      "segment": "puzzle_veteran",
+      "synthetic": true,
+      "label": "线索谱系型 · 先调查再交接",
+      "play_preference": "线索谱系型",
+      "behavioral_variant": "先调查再交接",
+      "priority_criteria": [
+        {
+          "id": "C02",
+          "rank": 1
+        },
+        {
+          "id": "C01",
+          "rank": 2
+        },
+        {
+          "id": "C05",
+          "rank": 3
+        }
+      ],
+      "source_ids": [
+        "OD_DEV",
+        "SH_REV",
+        "PP_MOBILE"
+      ],
+      "likely_positive_hypothesis": "不同证据各证明不同环节",
+      "likely_criticism_hypothesis": "照片、回忆和重复问答被重复计成独立证明",
+      "scenario": {
+        "case02": "delegate",
+        "case03": "no_open",
+        "case04": "hold",
+        "case05": "file",
+        "detours": 8,
+        "wrong_delivery": true,
+        "wrong_identity": false,
+        "save_resume": false,
+        "damage_recovery": false
+      },
+      "assertion_ids": [
+        "A01",
+        "A06",
+        "A07",
+        "A09",
+        "A10",
+        "A02",
+        "A04",
+        "A12"
+      ],
+      "manual_prompt": "按此偏好完成场景，记录实际看到的事实、第一次犹豫及需要回看的内容；若没有证据，保留未验证。",
+      "result_status": "not_run"
+    },
+    {
+      "id": "persona_009",
+      "segment": "puzzle_veteran",
+      "synthetic": true,
+      "label": "防猜答案型 · 先调查再交接",
+      "play_preference": "防猜答案型",
+      "behavioral_variant": "先调查再交接",
+      "priority_criteria": [
+        {
+          "id": "C01",
+          "rank": 1
+        },
+        {
+          "id": "C12",
+          "rank": 2
+        },
+        {
+          "id": "C15",
+          "rank": 3
+        }
+      ],
+      "source_ids": [
+        "OD_DEV",
+        "SH_REV",
+        "PP_STRUCTURE",
+        "FAE_REV",
+        "MUT_CRAFT"
+      ],
+      "likely_positive_hypothesis": "错误身份和处理伦理分开反馈",
+      "likely_criticism_hypothesis": "一试就亮正确提示，可以枚举跳过推理",
+      "scenario": {
+        "case02": "delay",
+        "case03": "no_open",
+        "case04": "hold",
+        "case05": "file",
+        "detours": 4,
+        "wrong_delivery": false,
+        "wrong_identity": false,
+        "save_resume": true,
+        "damage_recovery": false
+      },
+      "assertion_ids": [
+        "A01",
+        "A06",
+        "A07",
+        "A09",
+        "A10",
+        "A03",
+        "A04",
+        "A11"
+      ],
+      "manual_prompt": "按此偏好完成场景，记录实际看到的事实、第一次犹豫及需要回看的内容；若没有证据，保留未验证。",
+      "result_status": "not_run"
+    },
+    {
+      "id": "persona_010",
+      "segment": "puzzle_veteran",
+      "synthetic": true,
+      "label": "档案谜题型 · 先调查再交接",
+      "play_preference": "档案谜题型",
+      "behavioral_variant": "先调查再交接",
+      "priority_criteria": [
+        {
+          "id": "C01",
+          "rank": 1
+        },
+        {
+          "id": "C09",
+          "rank": 2
+        },
+        {
+          "id": "C04",
+          "rank": 3
+        }
+      ],
+      "source_ids": [
+        "OD_DEV",
+        "SH_REV",
+        "PP_MOBILE",
+        "HER_REV",
+        "HER_STORE",
+        "UNPACK_OFFICIAL"
+      ],
+      "likely_positive_hypothesis": "近似编号和日期提供可解释的排除过程",
+      "likely_criticism_hypothesis": "日期格式不一致或答案自动显示令核对失效",
+      "scenario": {
+        "case02": "deliver",
+        "case03": "open",
+        "case04": "hold",
+        "case05": "file",
+        "detours": 0,
+        "wrong_delivery": false,
+        "wrong_identity": false,
+        "save_resume": false,
+        "damage_recovery": false
+      },
+      "assertion_ids": [
+        "A01",
+        "A06",
+        "A07",
+        "A09",
+        "A10",
+        "A03",
+        "A05"
+      ],
+      "manual_prompt": "按此偏好完成场景，记录实际看到的事实、第一次犹豫及需要回看的内容；若没有证据，保留未验证。",
+      "result_status": "not_run"
+    },
+    {
+      "id": "persona_011",
+      "segment": "puzzle_veteran",
+      "synthetic": true,
+      "label": "复玩比较型 · 先调查再交接",
+      "play_preference": "复玩比较型",
+      "behavioral_variant": "先调查再交接",
+      "priority_criteria": [
+        {
+          "id": "C11",
+          "rank": 1
+        },
+        {
+          "id": "C07",
+          "rank": 2
+        },
+        {
+          "id": "C15",
+          "rank": 3
+        }
+      ],
+      "source_ids": [
+        "FAE_REV",
+        "MUT_CRAFT"
+      ],
+      "likely_positive_hypothesis": "不同路线留下持久且不夸大的后果",
+      "likely_criticism_hypothesis": "结尾把路线拉回相同关系状态，复玩只读换词",
+      "scenario": {
+        "case02": "delegate",
+        "case03": "open",
+        "case04": "hold",
+        "case05": "file",
+        "detours": 5,
+        "wrong_delivery": false,
+        "wrong_identity": false,
+        "save_resume": false,
+        "damage_recovery": true
+      },
+      "assertion_ids": [
+        "A01",
+        "A06",
+        "A07",
+        "A09",
+        "A10",
+        "A02",
+        "A05",
+        "A12"
+      ],
+      "manual_prompt": "按此偏好完成场景，记录实际看到的事实、第一次犹豫及需要回看的内容；若没有证据，保留未验证。",
+      "result_status": "not_run"
+    },
+    {
+      "id": "persona_012",
+      "segment": "puzzle_veteran",
+      "synthetic": true,
+      "label": "空间调查型 · 先调查再交接",
+      "play_preference": "空间调查型",
+      "behavioral_variant": "先调查再交接",
+      "priority_criteria": [
+        {
+          "id": "C10",
+          "rank": 1
+        },
+        {
+          "id": "C16",
+          "rank": 2
+        },
+        {
+          "id": "C14",
+          "rank": 3
+        }
+      ],
+      "source_ids": [
+        "FAE_REV",
+        "HER_REV",
+        "PP_STRUCTURE",
+        "MUT_CRAFT",
+        "HER_STORE",
+        "PP_MOBILE"
+      ],
+      "likely_positive_hypothesis": "物件入口长在具体场景里",
+      "likely_criticism_hypothesis": "一排小圆点和抽象按钮取代环境观察",
+      "scenario": {
+        "case02": "delay",
+        "case03": "open",
+        "case04": "hold",
+        "case05": "file",
+        "detours": 1,
+        "wrong_delivery": false,
+        "wrong_identity": true,
+        "save_resume": false,
+        "damage_recovery": false
+      },
+      "assertion_ids": [
+        "A01",
+        "A06",
+        "A07",
+        "A09",
+        "A10",
+        "A03",
+        "A05",
+        "A12",
+        "A14"
+      ],
+      "manual_prompt": "按此偏好完成场景，记录实际看到的事实、第一次犹豫及需要回看的内容；若没有证据，保留未验证。",
+      "result_status": "not_run"
+    },
+    {
+      "id": "persona_013",
+      "segment": "puzzle_veteran",
+      "synthetic": true,
+      "label": "困难但公平型 · 先调查再交接",
+      "play_preference": "困难但公平型",
+      "behavioral_variant": "先调查再交接",
+      "priority_criteria": [
+        {
+          "id": "C12",
+          "rank": 1
+        },
+        {
+          "id": "C03",
+          "rank": 2
+        },
+        {
+          "id": "C13",
+          "rank": 3
+        }
+      ],
+      "source_ids": [
+        "OD_DEV",
+        "PP_STRUCTURE",
+        "FAE_REV",
+        "UNPACK_OFFICIAL",
+        "HER_STORE"
+      ],
+      "likely_positive_hypothesis": "错误说明缺少哪一步而不直接剧透",
+      "likely_criticism_hypothesis": "工具失误被突然重罚，回退信息又不够",
+      "scenario": {
+        "case02": "deliver",
+        "case03": "no_open",
+        "case04": "return_to_sender",
+        "case05": "file",
+        "detours": 6,
+        "wrong_delivery": false,
+        "wrong_identity": false,
+        "save_resume": true,
+        "damage_recovery": false
+      },
+      "assertion_ids": [
+        "A01",
+        "A06",
+        "A07",
+        "A09",
+        "A10",
+        "A03",
+        "A04",
+        "A11",
+        "A12"
+      ],
+      "manual_prompt": "按此偏好完成场景，记录实际看到的事实、第一次犹豫及需要回看的内容；若没有证据，保留未验证。",
+      "result_status": "not_run"
+    },
+    {
+      "id": "persona_014",
+      "segment": "puzzle_veteran",
+      "synthetic": true,
+      "label": "冷静阅读型 · 先调查再交接",
+      "play_preference": "冷静阅读型",
+      "behavioral_variant": "先调查再交接",
+      "priority_criteria": [
+        {
+          "id": "C09",
+          "rank": 1
+        },
+        {
+          "id": "C06",
+          "rank": 2
+        },
+        {
+          "id": "C08",
+          "rank": 3
+        }
+      ],
+      "source_ids": [
+        "SH_REV",
+        "PP_MOBILE",
+        "PP_STRUCTURE",
+        "HER_REV",
+        "MUT_CRAFT",
+        "UNPACK_OFFICIAL"
+      ],
+      "likely_positive_hypothesis": "文本可以慢慢读且回看",
+      "likely_criticism_hypothesis": "游戏要求读细节，却让字区被工具遮住",
+      "scenario": {
+        "case02": "delegate",
+        "case03": "no_open",
+        "case04": "return_to_sender",
+        "case05": "file",
+        "detours": 2,
+        "wrong_delivery": false,
+        "wrong_identity": false,
+        "save_resume": false,
+        "damage_recovery": false
+      },
+      "assertion_ids": [
+        "A01",
+        "A06",
+        "A07",
+        "A09",
+        "A10",
+        "A02",
+        "A04",
+        "A13"
+      ],
+      "manual_prompt": "按此偏好完成场景，记录实际看到的事实、第一次犹豫及需要回看的内容；若没有证据，保留未验证。",
+      "result_status": "not_run"
+    },
+    {
+      "id": "persona_015",
+      "segment": "puzzle_veteran",
+      "synthetic": true,
+      "label": "动机质疑型 · 先调查再交接",
+      "play_preference": "动机质疑型",
+      "behavioral_variant": "先调查再交接",
+      "priority_criteria": [
+        {
+          "id": "C08",
+          "rank": 1
+        },
+        {
+          "id": "C07",
+          "rank": 2
+        },
+        {
+          "id": "C15",
+          "rank": 3
+        }
+      ],
+      "source_ids": [
+        "MUT_CRAFT",
+        "UNPACK_OFFICIAL",
+        "FAE_REV"
+      ],
+      "likely_positive_hypothesis": "人的辩解通过普通动作和含混愿望显露",
+      "likely_criticism_hypothesis": "每封信都在讲主题，人物只是伦理示例",
+      "scenario": {
+        "case02": "delay",
+        "case03": "no_open",
+        "case04": "return_to_sender",
+        "case05": "file",
+        "detours": 7,
+        "wrong_delivery": true,
+        "wrong_identity": false,
+        "save_resume": false,
+        "damage_recovery": false
+      },
+      "assertion_ids": [
+        "A01",
+        "A06",
+        "A07",
+        "A09",
+        "A10",
+        "A03",
+        "A04",
+        "A12",
+        "A18"
+      ],
+      "manual_prompt": "按此偏好完成场景，记录实际看到的事实、第一次犹豫及需要回看的内容；若没有证据，保留未验证。",
+      "result_status": "not_run"
+    },
+    {
+      "id": "persona_016",
+      "segment": "puzzle_veteran",
+      "synthetic": true,
+      "label": "轻提示偏好型 · 先调查再交接",
+      "play_preference": "轻提示偏好型",
+      "behavioral_variant": "先调查再交接",
+      "priority_criteria": [
+        {
+          "id": "C02",
+          "rank": 1
+        },
+        {
+          "id": "C10",
+          "rank": 2
+        },
+        {
+          "id": "C12",
+          "rank": 3
+        }
+      ],
+      "source_ids": [
+        "OD_DEV",
+        "FAE_REV",
+        "HER_REV",
+        "PP_STRUCTURE"
+      ],
+      "likely_positive_hypothesis": "提醒下一种调查方向而不报答案",
+      "likely_criticism_hypothesis": "不知入口与不懂谜底被同一种直接提示混为一谈",
+      "scenario": {
+        "case02": "deliver",
+        "case03": "open",
+        "case04": "return_to_sender",
+        "case05": "file",
+        "detours": 3,
+        "wrong_delivery": false,
+        "wrong_identity": false,
+        "save_resume": false,
+        "damage_recovery": true
+      },
+      "assertion_ids": [
+        "A01",
+        "A06",
+        "A07",
+        "A09",
+        "A10",
+        "A03",
+        "A05",
+        "A12",
+        "A14"
+      ],
+      "manual_prompt": "按此偏好完成场景，记录实际看到的事实、第一次犹豫及需要回看的内容；若没有证据，保留未验证。",
+      "result_status": "not_run"
+    },
+    {
+      "id": "persona_017",
+      "segment": "puzzle_veteran",
+      "synthetic": true,
+      "label": "资料考据型 · 先调查再交接",
+      "play_preference": "资料考据型",
+      "behavioral_variant": "先调查再交接",
+      "priority_criteria": [
+        {
+          "id": "C01",
+          "rank": 1
+        },
+        {
+          "id": "C11",
+          "rank": 2
+        },
+        {
+          "id": "C14",
+          "rank": 3
+        }
+      ],
+      "source_ids": [
+        "OD_DEV",
+        "SH_REV",
+        "FAE_REV",
+        "HER_STORE",
+        "PP_MOBILE"
+      ],
+      "likely_positive_hypothesis": "姓名、旧日期与编号在不同物件上自洽",
+      "likely_criticism_hypothesis": "华丽样式遮住真正用来推理的字迹",
+      "scenario": {
+        "case02": "delegate",
+        "case03": "open",
+        "case04": "return_to_sender",
+        "case05": "file",
+        "detours": 8,
+        "wrong_delivery": false,
+        "wrong_identity": false,
+        "save_resume": true,
+        "damage_recovery": false
+      },
+      "assertion_ids": [
+        "A01",
+        "A06",
+        "A07",
+        "A09",
+        "A10",
+        "A02",
+        "A05",
+        "A11",
+        "A20"
+      ],
+      "manual_prompt": "按此偏好完成场景，记录实际看到的事实、第一次犹豫及需要回看的内容；若没有证据，保留未验证。",
+      "result_status": "not_run"
+    },
+    {
+      "id": "persona_018",
+      "segment": "puzzle_veteran",
+      "synthetic": true,
+      "label": "多案交错型 · 先调查再交接",
+      "play_preference": "多案交错型",
+      "behavioral_variant": "先调查再交接",
+      "priority_criteria": [
+        {
+          "id": "C16",
+          "rank": 1
+        },
+        {
+          "id": "C05",
+          "rank": 2
+        },
+        {
+          "id": "C11",
+          "rank": 3
+        }
+      ],
+      "source_ids": [
+        "PP_STRUCTURE",
+        "HER_REV",
+        "MUT_CRAFT",
+        "PP_MOBILE",
+        "SH_REV",
+        "FAE_REV"
+      ],
+      "likely_positive_hypothesis": "先后调查都能保持每案上下文",
+      "likely_criticism_hypothesis": "统一问句和热点让任意顺序实际等于全地图扫一遍",
+      "scenario": {
+        "case02": "delay",
+        "case03": "open",
+        "case04": "return_to_sender",
+        "case05": "file",
+        "detours": 4,
+        "wrong_delivery": false,
+        "wrong_identity": false,
+        "save_resume": false,
+        "damage_recovery": false
+      },
+      "assertion_ids": [
+        "A01",
+        "A06",
+        "A07",
+        "A09",
+        "A10",
+        "A03",
+        "A05",
+        "A17"
+      ],
+      "manual_prompt": "按此偏好完成场景，记录实际看到的事实、第一次犹豫及需要回看的内容；若没有证据，保留未验证。",
+      "result_status": "not_run"
+    },
+    {
+      "id": "persona_019",
+      "segment": "puzzle_veteran",
+      "synthetic": true,
+      "label": "谨慎实验型 · 先调查再交接",
+      "play_preference": "谨慎实验型",
+      "behavioral_variant": "先调查再交接",
+      "priority_criteria": [
+        {
+          "id": "C12",
+          "rank": 1
+        },
+        {
+          "id": "C04",
+          "rank": 2
+        },
+        {
+          "id": "C11",
+          "rank": 3
+        }
+      ],
+      "source_ids": [
+        "OD_DEV",
+        "PP_STRUCTURE",
+        "HER_REV",
+        "HER_STORE",
+        "UNPACK_OFFICIAL",
+        "FAE_REV"
+      ],
+      "likely_positive_hypothesis": "未确认前能摆弄物件，操作与最终决定分开",
+      "likely_criticism_hypothesis": "拖错位置立即成为不可逆道德选择",
+      "scenario": {
+        "case02": "deliver",
+        "case03": "no_open",
+        "case04": "remove_attachment",
+        "case05": "file",
+        "detours": 0,
+        "wrong_delivery": false,
+        "wrong_identity": false,
+        "save_resume": false,
+        "damage_recovery": false
+      },
+      "assertion_ids": [
+        "A01",
+        "A06",
+        "A07",
+        "A09",
+        "A10",
+        "A03",
+        "A04",
+        "A08",
+        "A23"
+      ],
+      "manual_prompt": "按此偏好完成场景，记录实际看到的事实、第一次犹豫及需要回看的内容；若没有证据，保留未验证。",
+      "result_status": "not_run"
+    },
+    {
+      "id": "persona_020",
+      "segment": "puzzle_veteran",
+      "synthetic": true,
+      "label": "叙事闭环型 · 先调查再交接",
+      "play_preference": "叙事闭环型",
+      "behavioral_variant": "先调查再交接",
+      "priority_criteria": [
+        {
+          "id": "C15",
+          "rank": 1
+        },
+        {
+          "id": "C08",
+          "rank": 2
+        },
+        {
+          "id": "C07",
+          "rank": 3
+        }
+      ],
+      "source_ids": [
+        "FAE_REV",
+        "MUT_CRAFT",
+        "UNPACK_OFFICIAL"
+      ],
+      "likely_positive_hypothesis": "前任职业细节回应今日每封信的处理",
+      "likely_criticism_hypothesis": "悬念用含混哲理结束，没有回应先前具体承诺",
+      "scenario": {
+        "case02": "delegate",
+        "case03": "no_open",
+        "case04": "remove_attachment",
+        "case05": "file",
+        "detours": 5,
+        "wrong_delivery": false,
+        "wrong_identity": false,
+        "save_resume": false,
+        "damage_recovery": false
+      },
+      "assertion_ids": [
+        "A01",
+        "A06",
+        "A07",
+        "A09",
+        "A10",
+        "A02",
+        "A04",
+        "A08",
+        "A22"
+      ],
+      "manual_prompt": "按此偏好完成场景，记录实际看到的事实、第一次犹豫及需要回看的内容；若没有证据，保留未验证。",
+      "result_status": "not_run"
+    },
+    {
+      "id": "persona_021",
+      "segment": "puzzle_veteran",
+      "synthetic": true,
+      "label": "物证比对型 · 交错调查并回看",
+      "play_preference": "物证比对型",
+      "behavioral_variant": "交错调查并回看",
+      "priority_criteria": [
+        {
+          "id": "C01",
+          "rank": 1
+        },
+        {
+          "id": "C05",
+          "rank": 2
+        },
+        {
+          "id": "C02",
+          "rank": 3
+        }
+      ],
+      "source_ids": [
+        "OD_DEV",
+        "SH_REV",
+        "PP_MOBILE"
+      ],
+      "likely_positive_hypothesis": "同一事实能在两件原物上互相印证",
+      "likely_criticism_hypothesis": "解释卡直接代替观察，猜对人物只需数到三条",
+      "scenario": {
+        "case02": "delay",
+        "case03": "no_open",
+        "case04": "remove_attachment",
+        "case05": "file",
+        "detours": 2,
+        "wrong_delivery": false,
+        "wrong_identity": false,
+        "save_resume": true,
+        "damage_recovery": true
+      },
+      "assertion_ids": [
+        "A01",
+        "A06",
+        "A07",
+        "A09",
+        "A10",
+        "A03",
+        "A04",
+        "A08",
+        "A11",
+        "A12",
+        "A15"
+      ],
+      "manual_prompt": "按此偏好完成场景，记录实际看到的事实、第一次犹豫及需要回看的内容；若没有证据，保留未验证。",
+      "result_status": "not_run"
+    },
+    {
+      "id": "persona_022",
+      "segment": "puzzle_veteran",
+      "synthetic": true,
+      "label": "无攻略推理型 · 交错调查并回看",
+      "play_preference": "无攻略推理型",
+      "behavioral_variant": "交错调查并回看",
+      "priority_criteria": [
+        {
+          "id": "C02",
+          "rank": 1
+        },
+        {
+          "id": "C01",
+          "rank": 2
+        },
+        {
+          "id": "C12",
+          "rank": 3
+        }
+      ],
+      "source_ids": [
+        "OD_DEV",
+        "SH_REV",
+        "PP_STRUCTURE"
+      ],
+      "likely_positive_hypothesis": "线索逐步出现且不提前泄露身份",
+      "likely_criticism_hypothesis": "系统过早给出正确姓名，把调查变成收集清单",
+      "scenario": {
+        "case02": "deliver",
+        "case03": "open",
+        "case04": "remove_attachment",
+        "case05": "file",
+        "detours": 7,
+        "wrong_delivery": true,
+        "wrong_identity": false,
+        "save_resume": false,
+        "damage_recovery": false
+      },
+      "assertion_ids": [
+        "A01",
+        "A06",
+        "A07",
+        "A09",
+        "A10",
+        "A03",
+        "A05",
+        "A08",
+        "A12"
+      ],
+      "manual_prompt": "按此偏好完成场景，记录实际看到的事实、第一次犹豫及需要回看的内容；若没有证据，保留未验证。",
+      "result_status": "not_run"
+    },
+    {
+      "id": "persona_023",
+      "segment": "puzzle_veteran",
+      "synthetic": true,
+      "label": "非拆封路线型 · 交错调查并回看",
+      "play_preference": "非拆封路线型",
+      "behavioral_variant": "交错调查并回看",
+      "priority_criteria": [
+        {
+          "id": "C03",
+          "rank": 1
+        },
+        {
+          "id": "C02",
+          "rank": 2
+        },
+        {
+          "id": "C07",
+          "rank": 3
+        }
+      ],
+      "source_ids": [
+        "FAE_REV",
+        "OD_DEV",
+        "MUT_CRAFT"
+      ],
+      "likely_positive_hypothesis": "尊重隐私也有公开证据路线",
+      "likely_criticism_hypothesis": "不拆封选项只是口头承诺，最后仍强迫拆信",
+      "scenario": {
+        "case02": "delegate",
+        "case03": "open",
+        "case04": "remove_attachment",
+        "case05": "file",
+        "detours": 3,
+        "wrong_delivery": false,
+        "wrong_identity": true,
+        "save_resume": false,
+        "damage_recovery": false
+      },
+      "assertion_ids": [
+        "A01",
+        "A06",
+        "A07",
+        "A09",
+        "A10",
+        "A02",
+        "A05",
+        "A08",
+        "A12",
+        "A04"
+      ],
+      "manual_prompt": "按此偏好完成场景，记录实际看到的事实、第一次犹豫及需要回看的内容；若没有证据，保留未验证。",
+      "result_status": "not_run"
+    },
+    {
+      "id": "persona_024",
+      "segment": "puzzle_veteran",
+      "synthetic": true,
+      "label": "桌面整理型 · 交错调查并回看",
+      "play_preference": "桌面整理型",
+      "behavioral_variant": "交错调查并回看",
+      "priority_criteria": [
+        {
+          "id": "C05",
+          "rank": 1
+        },
+        {
+          "id": "C09",
+          "rank": 2
+        },
+        {
+          "id": "C10",
+          "rank": 3
+        }
+      ],
+      "source_ids": [
+        "PP_MOBILE",
+        "SH_REV",
+        "FAE_REV",
+        "HER_REV"
+      ],
+      "likely_positive_hypothesis": "信、署名卡和时间表可并置保存上下文",
+      "likely_criticism_hypothesis": "大量互斥弹窗把比对变成记忆负担",
+      "scenario": {
+        "case02": "delay",
+        "case03": "open",
+        "case04": "remove_attachment",
+        "case05": "file",
+        "detours": 8,
+        "wrong_delivery": false,
+        "wrong_identity": false,
+        "save_resume": false,
+        "damage_recovery": false
+      },
+      "assertion_ids": [
+        "A01",
+        "A06",
+        "A07",
+        "A09",
+        "A10",
+        "A03",
+        "A05",
+        "A08",
+        "A17"
+      ],
+      "manual_prompt": "按此偏好完成场景，记录实际看到的事实、第一次犹豫及需要回看的内容；若没有证据，保留未验证。",
+      "result_status": "not_run"
+    },
+    {
+      "id": "persona_025",
+      "segment": "puzzle_veteran",
+      "synthetic": true,
+      "label": "操作解谜型 · 交错调查并回看",
+      "play_preference": "操作解谜型",
+      "behavioral_variant": "交错调查并回看",
+      "priority_criteria": [
+        {
+          "id": "C04",
+          "rank": 1
+        },
+        {
+          "id": "C13",
+          "rank": 2
+        },
+        {
+          "id": "C12",
+          "rank": 3
+        }
+      ],
+      "source_ids": [
+        "HER_REV",
+        "HER_STORE",
+        "UNPACK_OFFICIAL",
+        "OD_DEV",
+        "PP_STRUCTURE"
+      ],
+      "likely_positive_hypothesis": "裂口、旋转和文字恢复共同帮助理解",
+      "likely_criticism_hypothesis": "地址未拼已经一目了然，六片只延迟点击",
+      "scenario": {
+        "case02": "deliver",
+        "case03": "no_open",
+        "case04": "deliver",
+        "case05": "keep",
+        "detours": 4,
+        "wrong_delivery": false,
+        "wrong_identity": false,
+        "save_resume": true,
+        "damage_recovery": false
+      },
+      "assertion_ids": [
+        "A01",
+        "A06",
+        "A07",
+        "A09",
+        "A10",
+        "A03",
+        "A04",
+        "A11",
+        "A16"
+      ],
+      "manual_prompt": "按此偏好完成场景，记录实际看到的事实、第一次犹豫及需要回看的内容；若没有证据，保留未验证。",
+      "result_status": "not_run"
+    },
+    {
+      "id": "persona_026",
+      "segment": "puzzle_veteran",
+      "synthetic": true,
+      "label": "分支验证型 · 交错调查并回看",
+      "play_preference": "分支验证型",
+      "behavioral_variant": "交错调查并回看",
+      "priority_criteria": [
+        {
+          "id": "C07",
+          "rank": 1
+        },
+        {
+          "id": "C15",
+          "rank": 2
+        },
+        {
+          "id": "C11",
+          "rank": 3
+        }
+      ],
+      "source_ids": [
+        "FAE_REV",
+        "MUT_CRAFT"
+      ],
+      "likely_positive_hypothesis": "每种交付方式保留可见材料差异",
+      "likely_criticism_hypothesis": "所谓选择只换一段评价且提前暗示善恶",
+      "scenario": {
+        "case02": "delegate",
+        "case03": "no_open",
+        "case04": "deliver",
+        "case05": "keep",
+        "detours": 0,
+        "wrong_delivery": false,
+        "wrong_identity": false,
+        "save_resume": false,
+        "damage_recovery": true
+      },
+      "assertion_ids": [
+        "A01",
+        "A06",
+        "A07",
+        "A09",
+        "A10",
+        "A02",
+        "A04",
+        "A12",
+        "A22"
+      ],
+      "manual_prompt": "按此偏好完成场景，记录实际看到的事实、第一次犹豫及需要回看的内容；若没有证据，保留未验证。",
+      "result_status": "not_run"
+    },
+    {
+      "id": "persona_027",
+      "segment": "puzzle_veteran",
+      "synthetic": true,
+      "label": "职业模拟型 · 交错调查并回看",
+      "play_preference": "职业模拟型",
+      "behavioral_variant": "交错调查并回看",
+      "priority_criteria": [
+        {
+          "id": "C06",
+          "rank": 1
+        },
+        {
+          "id": "C12",
+          "rank": 2
+        },
+        {
+          "id": "C04",
+          "rank": 3
+        }
+      ],
+      "source_ids": [
+        "PP_STRUCTURE",
+        "HER_REV",
+        "OD_DEV",
+        "HER_STORE",
+        "UNPACK_OFFICIAL"
+      ],
+      "likely_positive_hypothesis": "出行、急件与修复成本可规划",
+      "likely_criticism_hypothesis": "轻易中午做完所有事，代送从来没有实际理由",
+      "scenario": {
+        "case02": "delay",
+        "case03": "no_open",
+        "case04": "deliver",
+        "case05": "keep",
+        "detours": 5,
+        "wrong_delivery": false,
+        "wrong_identity": false,
+        "save_resume": false,
+        "damage_recovery": false
+      },
+      "assertion_ids": [
+        "A01",
+        "A06",
+        "A07",
+        "A09",
+        "A10",
+        "A03",
+        "A04",
+        "A21"
+      ],
+      "manual_prompt": "按此偏好完成场景，记录实际看到的事实、第一次犹豫及需要回看的内容；若没有证据，保留未验证。",
+      "result_status": "not_run"
+    },
+    {
+      "id": "persona_028",
+      "segment": "puzzle_veteran",
+      "synthetic": true,
+      "label": "线索谱系型 · 交错调查并回看",
+      "play_preference": "线索谱系型",
+      "behavioral_variant": "交错调查并回看",
+      "priority_criteria": [
+        {
+          "id": "C02",
+          "rank": 1
+        },
+        {
+          "id": "C01",
+          "rank": 2
+        },
+        {
+          "id": "C05",
+          "rank": 3
+        }
+      ],
+      "source_ids": [
+        "OD_DEV",
+        "SH_REV",
+        "PP_MOBILE"
+      ],
+      "likely_positive_hypothesis": "不同证据各证明不同环节",
+      "likely_criticism_hypothesis": "照片、回忆和重复问答被重复计成独立证明",
+      "scenario": {
+        "case02": "deliver",
+        "case03": "open",
+        "case04": "deliver",
+        "case05": "keep",
+        "detours": 1,
+        "wrong_delivery": false,
+        "wrong_identity": false,
+        "save_resume": false,
+        "damage_recovery": false
+      },
+      "assertion_ids": [
+        "A01",
+        "A06",
+        "A07",
+        "A09",
+        "A10",
+        "A03",
+        "A05"
+      ],
+      "manual_prompt": "按此偏好完成场景，记录实际看到的事实、第一次犹豫及需要回看的内容；若没有证据，保留未验证。",
+      "result_status": "not_run"
+    },
+    {
+      "id": "persona_029",
+      "segment": "puzzle_veteran",
+      "synthetic": true,
+      "label": "防猜答案型 · 交错调查并回看",
+      "play_preference": "防猜答案型",
+      "behavioral_variant": "交错调查并回看",
+      "priority_criteria": [
+        {
+          "id": "C01",
+          "rank": 1
+        },
+        {
+          "id": "C12",
+          "rank": 2
+        },
+        {
+          "id": "C15",
+          "rank": 3
+        }
+      ],
+      "source_ids": [
+        "OD_DEV",
+        "SH_REV",
+        "PP_STRUCTURE",
+        "FAE_REV",
+        "MUT_CRAFT"
+      ],
+      "likely_positive_hypothesis": "错误身份和处理伦理分开反馈",
+      "likely_criticism_hypothesis": "一试就亮正确提示，可以枚举跳过推理",
+      "scenario": {
+        "case02": "delegate",
+        "case03": "open",
+        "case04": "deliver",
+        "case05": "keep",
+        "detours": 6,
+        "wrong_delivery": true,
+        "wrong_identity": false,
+        "save_resume": true,
+        "damage_recovery": false
+      },
+      "assertion_ids": [
+        "A01",
+        "A06",
+        "A07",
+        "A09",
+        "A10",
+        "A02",
+        "A05",
+        "A11",
+        "A12"
+      ],
+      "manual_prompt": "按此偏好完成场景，记录实际看到的事实、第一次犹豫及需要回看的内容；若没有证据，保留未验证。",
+      "result_status": "not_run"
+    },
+    {
+      "id": "persona_030",
+      "segment": "puzzle_veteran",
+      "synthetic": true,
+      "label": "档案谜题型 · 交错调查并回看",
+      "play_preference": "档案谜题型",
+      "behavioral_variant": "交错调查并回看",
+      "priority_criteria": [
+        {
+          "id": "C01",
+          "rank": 1
+        },
+        {
+          "id": "C09",
+          "rank": 2
+        },
+        {
+          "id": "C04",
+          "rank": 3
+        }
+      ],
+      "source_ids": [
+        "OD_DEV",
+        "SH_REV",
+        "PP_MOBILE",
+        "HER_REV",
+        "HER_STORE",
+        "UNPACK_OFFICIAL"
+      ],
+      "likely_positive_hypothesis": "近似编号和日期提供可解释的排除过程",
+      "likely_criticism_hypothesis": "日期格式不一致或答案自动显示令核对失效",
+      "scenario": {
+        "case02": "delay",
+        "case03": "open",
+        "case04": "deliver",
+        "case05": "keep",
+        "detours": 2,
+        "wrong_delivery": false,
+        "wrong_identity": false,
+        "save_resume": false,
+        "damage_recovery": false
+      },
+      "assertion_ids": [
+        "A01",
+        "A06",
+        "A07",
+        "A09",
+        "A10",
+        "A03",
+        "A05"
+      ],
+      "manual_prompt": "按此偏好完成场景，记录实际看到的事实、第一次犹豫及需要回看的内容；若没有证据，保留未验证。",
+      "result_status": "not_run"
+    },
+    {
+      "id": "persona_031",
+      "segment": "puzzle_veteran",
+      "synthetic": true,
+      "label": "复玩比较型 · 交错调查并回看",
+      "play_preference": "复玩比较型",
+      "behavioral_variant": "交错调查并回看",
+      "priority_criteria": [
+        {
+          "id": "C11",
+          "rank": 1
+        },
+        {
+          "id": "C07",
+          "rank": 2
+        },
+        {
+          "id": "C15",
+          "rank": 3
+        }
+      ],
+      "source_ids": [
+        "FAE_REV",
+        "MUT_CRAFT"
+      ],
+      "likely_positive_hypothesis": "不同路线留下持久且不夸大的后果",
+      "likely_criticism_hypothesis": "结尾把路线拉回相同关系状态，复玩只读换词",
+      "scenario": {
+        "case02": "deliver",
+        "case03": "no_open",
+        "case04": "hold",
+        "case05": "keep",
+        "detours": 7,
+        "wrong_delivery": false,
+        "wrong_identity": false,
+        "save_resume": false,
+        "damage_recovery": true
+      },
+      "assertion_ids": [
+        "A01",
+        "A06",
+        "A07",
+        "A09",
+        "A10",
+        "A03",
+        "A04",
+        "A12"
+      ],
+      "manual_prompt": "按此偏好完成场景，记录实际看到的事实、第一次犹豫及需要回看的内容；若没有证据，保留未验证。",
+      "result_status": "not_run"
+    },
+    {
+      "id": "persona_032",
+      "segment": "puzzle_veteran",
+      "synthetic": true,
+      "label": "空间调查型 · 交错调查并回看",
+      "play_preference": "空间调查型",
+      "behavioral_variant": "交错调查并回看",
+      "priority_criteria": [
+        {
+          "id": "C10",
+          "rank": 1
+        },
+        {
+          "id": "C16",
+          "rank": 2
+        },
+        {
+          "id": "C14",
+          "rank": 3
+        }
+      ],
+      "source_ids": [
+        "FAE_REV",
+        "HER_REV",
+        "PP_STRUCTURE",
+        "MUT_CRAFT",
+        "HER_STORE",
+        "PP_MOBILE"
+      ],
+      "likely_positive_hypothesis": "物件入口长在具体场景里",
+      "likely_criticism_hypothesis": "一排小圆点和抽象按钮取代环境观察",
+      "scenario": {
+        "case02": "delegate",
+        "case03": "no_open",
+        "case04": "hold",
+        "case05": "keep",
+        "detours": 3,
+        "wrong_delivery": false,
+        "wrong_identity": false,
+        "save_resume": false,
+        "damage_recovery": false
+      },
+      "assertion_ids": [
+        "A01",
+        "A06",
+        "A07",
+        "A09",
+        "A10",
+        "A02",
+        "A04",
+        "A14"
+      ],
+      "manual_prompt": "按此偏好完成场景，记录实际看到的事实、第一次犹豫及需要回看的内容；若没有证据，保留未验证。",
+      "result_status": "not_run"
+    },
+    {
+      "id": "persona_033",
+      "segment": "puzzle_veteran",
+      "synthetic": true,
+      "label": "困难但公平型 · 交错调查并回看",
+      "play_preference": "困难但公平型",
+      "behavioral_variant": "交错调查并回看",
+      "priority_criteria": [
+        {
+          "id": "C12",
+          "rank": 1
+        },
+        {
+          "id": "C03",
+          "rank": 2
+        },
+        {
+          "id": "C13",
+          "rank": 3
+        }
+      ],
+      "source_ids": [
+        "OD_DEV",
+        "PP_STRUCTURE",
+        "FAE_REV",
+        "UNPACK_OFFICIAL",
+        "HER_STORE"
+      ],
+      "likely_positive_hypothesis": "错误说明缺少哪一步而不直接剧透",
+      "likely_criticism_hypothesis": "工具失误被突然重罚，回退信息又不够",
+      "scenario": {
+        "case02": "delay",
+        "case03": "no_open",
+        "case04": "hold",
+        "case05": "keep",
+        "detours": 8,
+        "wrong_delivery": false,
+        "wrong_identity": false,
+        "save_resume": true,
+        "damage_recovery": false
+      },
+      "assertion_ids": [
+        "A01",
+        "A06",
+        "A07",
+        "A09",
+        "A10",
+        "A03",
+        "A04",
+        "A11",
+        "A12"
+      ],
+      "manual_prompt": "按此偏好完成场景，记录实际看到的事实、第一次犹豫及需要回看的内容；若没有证据，保留未验证。",
+      "result_status": "not_run"
+    },
+    {
+      "id": "persona_034",
+      "segment": "puzzle_veteran",
+      "synthetic": true,
+      "label": "冷静阅读型 · 交错调查并回看",
+      "play_preference": "冷静阅读型",
+      "behavioral_variant": "交错调查并回看",
+      "priority_criteria": [
+        {
+          "id": "C09",
+          "rank": 1
+        },
+        {
+          "id": "C06",
+          "rank": 2
+        },
+        {
+          "id": "C08",
+          "rank": 3
+        }
+      ],
+      "source_ids": [
+        "SH_REV",
+        "PP_MOBILE",
+        "PP_STRUCTURE",
+        "HER_REV",
+        "MUT_CRAFT",
+        "UNPACK_OFFICIAL"
+      ],
+      "likely_positive_hypothesis": "文本可以慢慢读且回看",
+      "likely_criticism_hypothesis": "游戏要求读细节，却让字区被工具遮住",
+      "scenario": {
+        "case02": "deliver",
+        "case03": "open",
+        "case04": "hold",
+        "case05": "keep",
+        "detours": 4,
+        "wrong_delivery": false,
+        "wrong_identity": true,
+        "save_resume": false,
+        "damage_recovery": false
+      },
+      "assertion_ids": [
+        "A01",
+        "A06",
+        "A07",
+        "A09",
+        "A10",
+        "A03",
+        "A05",
+        "A12",
+        "A13"
+      ],
+      "manual_prompt": "按此偏好完成场景，记录实际看到的事实、第一次犹豫及需要回看的内容；若没有证据，保留未验证。",
+      "result_status": "not_run"
+    },
+    {
+      "id": "persona_035",
+      "segment": "puzzle_veteran",
+      "synthetic": true,
+      "label": "动机质疑型 · 交错调查并回看",
+      "play_preference": "动机质疑型",
+      "behavioral_variant": "交错调查并回看",
+      "priority_criteria": [
+        {
+          "id": "C08",
+          "rank": 1
+        },
+        {
+          "id": "C07",
+          "rank": 2
+        },
+        {
+          "id": "C15",
+          "rank": 3
+        }
+      ],
+      "source_ids": [
+        "MUT_CRAFT",
+        "UNPACK_OFFICIAL",
+        "FAE_REV"
+      ],
+      "likely_positive_hypothesis": "人的辩解通过普通动作和含混愿望显露",
+      "likely_criticism_hypothesis": "每封信都在讲主题，人物只是伦理示例",
+      "scenario": {
+        "case02": "delegate",
+        "case03": "open",
+        "case04": "hold",
+        "case05": "keep",
+        "detours": 0,
+        "wrong_delivery": false,
+        "wrong_identity": false,
+        "save_resume": false,
+        "damage_recovery": false
+      },
+      "assertion_ids": [
+        "A01",
+        "A06",
+        "A07",
+        "A09",
+        "A10",
+        "A02",
+        "A05",
+        "A18"
+      ],
+      "manual_prompt": "按此偏好完成场景，记录实际看到的事实、第一次犹豫及需要回看的内容；若没有证据，保留未验证。",
+      "result_status": "not_run"
+    },
+    {
+      "id": "persona_036",
+      "segment": "puzzle_veteran",
+      "synthetic": true,
+      "label": "轻提示偏好型 · 交错调查并回看",
+      "play_preference": "轻提示偏好型",
+      "behavioral_variant": "交错调查并回看",
+      "priority_criteria": [
+        {
+          "id": "C02",
+          "rank": 1
+        },
+        {
+          "id": "C10",
+          "rank": 2
+        },
+        {
+          "id": "C12",
+          "rank": 3
+        }
+      ],
+      "source_ids": [
+        "OD_DEV",
+        "FAE_REV",
+        "HER_REV",
+        "PP_STRUCTURE"
+      ],
+      "likely_positive_hypothesis": "提醒下一种调查方向而不报答案",
+      "likely_criticism_hypothesis": "不知入口与不懂谜底被同一种直接提示混为一谈",
+      "scenario": {
+        "case02": "delay",
+        "case03": "open",
+        "case04": "hold",
+        "case05": "keep",
+        "detours": 5,
+        "wrong_delivery": true,
+        "wrong_identity": false,
+        "save_resume": false,
+        "damage_recovery": true
+      },
+      "assertion_ids": [
+        "A01",
+        "A06",
+        "A07",
+        "A09",
+        "A10",
+        "A03",
+        "A05",
+        "A12",
+        "A14"
+      ],
+      "manual_prompt": "按此偏好完成场景，记录实际看到的事实、第一次犹豫及需要回看的内容；若没有证据，保留未验证。",
+      "result_status": "not_run"
+    },
+    {
+      "id": "persona_037",
+      "segment": "puzzle_veteran",
+      "synthetic": true,
+      "label": "资料考据型 · 交错调查并回看",
+      "play_preference": "资料考据型",
+      "behavioral_variant": "交错调查并回看",
+      "priority_criteria": [
+        {
+          "id": "C01",
+          "rank": 1
+        },
+        {
+          "id": "C11",
+          "rank": 2
+        },
+        {
+          "id": "C14",
+          "rank": 3
+        }
+      ],
+      "source_ids": [
+        "OD_DEV",
+        "SH_REV",
+        "FAE_REV",
+        "HER_STORE",
+        "PP_MOBILE"
+      ],
+      "likely_positive_hypothesis": "姓名、旧日期与编号在不同物件上自洽",
+      "likely_criticism_hypothesis": "华丽样式遮住真正用来推理的字迹",
+      "scenario": {
+        "case02": "deliver",
+        "case03": "no_open",
+        "case04": "return_to_sender",
+        "case05": "keep",
+        "detours": 1,
+        "wrong_delivery": false,
+        "wrong_identity": false,
+        "save_resume": true,
+        "damage_recovery": false
+      },
+      "assertion_ids": [
+        "A01",
+        "A06",
+        "A07",
+        "A09",
+        "A10",
+        "A03",
+        "A04",
+        "A11",
+        "A20"
+      ],
+      "manual_prompt": "按此偏好完成场景，记录实际看到的事实、第一次犹豫及需要回看的内容；若没有证据，保留未验证。",
+      "result_status": "not_run"
+    },
+    {
+      "id": "persona_038",
+      "segment": "puzzle_veteran",
+      "synthetic": true,
+      "label": "多案交错型 · 交错调查并回看",
+      "play_preference": "多案交错型",
+      "behavioral_variant": "交错调查并回看",
+      "priority_criteria": [
+        {
+          "id": "C16",
+          "rank": 1
+        },
+        {
+          "id": "C05",
+          "rank": 2
+        },
+        {
+          "id": "C11",
+          "rank": 3
+        }
+      ],
+      "source_ids": [
+        "PP_STRUCTURE",
+        "HER_REV",
+        "MUT_CRAFT",
+        "PP_MOBILE",
+        "SH_REV",
+        "FAE_REV"
+      ],
+      "likely_positive_hypothesis": "先后调查都能保持每案上下文",
+      "likely_criticism_hypothesis": "统一问句和热点让任意顺序实际等于全地图扫一遍",
+      "scenario": {
+        "case02": "delegate",
+        "case03": "no_open",
+        "case04": "return_to_sender",
+        "case05": "keep",
+        "detours": 6,
+        "wrong_delivery": false,
+        "wrong_identity": false,
+        "save_resume": false,
+        "damage_recovery": false
+      },
+      "assertion_ids": [
+        "A01",
+        "A06",
+        "A07",
+        "A09",
+        "A10",
+        "A02",
+        "A04",
+        "A17"
+      ],
+      "manual_prompt": "按此偏好完成场景，记录实际看到的事实、第一次犹豫及需要回看的内容；若没有证据，保留未验证。",
+      "result_status": "not_run"
+    },
+    {
+      "id": "persona_039",
+      "segment": "puzzle_veteran",
+      "synthetic": true,
+      "label": "谨慎实验型 · 交错调查并回看",
+      "play_preference": "谨慎实验型",
+      "behavioral_variant": "交错调查并回看",
+      "priority_criteria": [
+        {
+          "id": "C12",
+          "rank": 1
+        },
+        {
+          "id": "C04",
+          "rank": 2
+        },
+        {
+          "id": "C11",
+          "rank": 3
+        }
+      ],
+      "source_ids": [
+        "OD_DEV",
+        "PP_STRUCTURE",
+        "HER_REV",
+        "HER_STORE",
+        "UNPACK_OFFICIAL",
+        "FAE_REV"
+      ],
+      "likely_positive_hypothesis": "未确认前能摆弄物件，操作与最终决定分开",
+      "likely_criticism_hypothesis": "拖错位置立即成为不可逆道德选择",
+      "scenario": {
+        "case02": "delay",
+        "case03": "no_open",
+        "case04": "return_to_sender",
+        "case05": "keep",
+        "detours": 2,
+        "wrong_delivery": false,
+        "wrong_identity": false,
+        "save_resume": false,
+        "damage_recovery": false
+      },
+      "assertion_ids": [
+        "A01",
+        "A06",
+        "A07",
+        "A09",
+        "A10",
+        "A03",
+        "A04",
+        "A23"
+      ],
+      "manual_prompt": "按此偏好完成场景，记录实际看到的事实、第一次犹豫及需要回看的内容；若没有证据，保留未验证。",
+      "result_status": "not_run"
+    },
+    {
+      "id": "persona_040",
+      "segment": "puzzle_veteran",
+      "synthetic": true,
+      "label": "叙事闭环型 · 交错调查并回看",
+      "play_preference": "叙事闭环型",
+      "behavioral_variant": "交错调查并回看",
+      "priority_criteria": [
+        {
+          "id": "C15",
+          "rank": 1
+        },
+        {
+          "id": "C08",
+          "rank": 2
+        },
+        {
+          "id": "C07",
+          "rank": 3
+        }
+      ],
+      "source_ids": [
+        "FAE_REV",
+        "MUT_CRAFT",
+        "UNPACK_OFFICIAL"
+      ],
+      "likely_positive_hypothesis": "前任职业细节回应今日每封信的处理",
+      "likely_criticism_hypothesis": "悬念用含混哲理结束，没有回应先前具体承诺",
+      "scenario": {
+        "case02": "deliver",
+        "case03": "open",
+        "case04": "return_to_sender",
+        "case05": "keep",
+        "detours": 7,
+        "wrong_delivery": false,
+        "wrong_identity": false,
+        "save_resume": false,
+        "damage_recovery": false
+      },
+      "assertion_ids": [
+        "A01",
+        "A06",
+        "A07",
+        "A09",
+        "A10",
+        "A03",
+        "A05",
+        "A22"
+      ],
+      "manual_prompt": "按此偏好完成场景，记录实际看到的事实、第一次犹豫及需要回看的内容；若没有证据，保留未验证。",
+      "result_status": "not_run"
+    },
+    {
+      "id": "persona_041",
+      "segment": "puzzle_veteran",
+      "synthetic": true,
+      "label": "物证比对型 · 尝试错误后复核",
+      "play_preference": "物证比对型",
+      "behavioral_variant": "尝试错误后复核",
+      "priority_criteria": [
+        {
+          "id": "C01",
+          "rank": 1
+        },
+        {
+          "id": "C05",
+          "rank": 2
+        },
+        {
+          "id": "C02",
+          "rank": 3
+        }
+      ],
+      "source_ids": [
+        "OD_DEV",
+        "SH_REV",
+        "PP_MOBILE"
+      ],
+      "likely_positive_hypothesis": "同一事实能在两件原物上互相印证",
+      "likely_criticism_hypothesis": "解释卡直接代替观察，猜对人物只需数到三条",
+      "scenario": {
+        "case02": "delegate",
+        "case03": "open",
+        "case04": "return_to_sender",
+        "case05": "keep",
+        "detours": 4,
+        "wrong_delivery": false,
+        "wrong_identity": false,
+        "save_resume": true,
+        "damage_recovery": true
+      },
+      "assertion_ids": [
+        "A01",
+        "A06",
+        "A07",
+        "A09",
+        "A10",
+        "A02",
+        "A05",
+        "A11",
+        "A12",
+        "A15"
+      ],
+      "manual_prompt": "按此偏好完成场景，记录实际看到的事实、第一次犹豫及需要回看的内容；若没有证据，保留未验证。",
+      "result_status": "not_run"
+    },
+    {
+      "id": "persona_042",
+      "segment": "puzzle_veteran",
+      "synthetic": true,
+      "label": "无攻略推理型 · 尝试错误后复核",
+      "play_preference": "无攻略推理型",
+      "behavioral_variant": "尝试错误后复核",
+      "priority_criteria": [
+        {
+          "id": "C02",
+          "rank": 1
+        },
+        {
+          "id": "C01",
+          "rank": 2
+        },
+        {
+          "id": "C12",
+          "rank": 3
+        }
+      ],
+      "source_ids": [
+        "OD_DEV",
+        "SH_REV",
+        "PP_STRUCTURE"
+      ],
+      "likely_positive_hypothesis": "线索逐步出现且不提前泄露身份",
+      "likely_criticism_hypothesis": "系统过早给出正确姓名，把调查变成收集清单",
+      "scenario": {
+        "case02": "delay",
+        "case03": "open",
+        "case04": "return_to_sender",
+        "case05": "keep",
+        "detours": 0,
+        "wrong_delivery": false,
+        "wrong_identity": false,
+        "save_resume": false,
+        "damage_recovery": false
+      },
+      "assertion_ids": [
+        "A01",
+        "A06",
+        "A07",
+        "A09",
+        "A10",
+        "A03",
+        "A05"
+      ],
+      "manual_prompt": "按此偏好完成场景，记录实际看到的事实、第一次犹豫及需要回看的内容；若没有证据，保留未验证。",
+      "result_status": "not_run"
+    },
+    {
+      "id": "persona_043",
+      "segment": "puzzle_veteran",
+      "synthetic": true,
+      "label": "非拆封路线型 · 尝试错误后复核",
+      "play_preference": "非拆封路线型",
+      "behavioral_variant": "尝试错误后复核",
+      "priority_criteria": [
+        {
+          "id": "C03",
+          "rank": 1
+        },
+        {
+          "id": "C02",
+          "rank": 2
+        },
+        {
+          "id": "C07",
+          "rank": 3
+        }
+      ],
+      "source_ids": [
+        "FAE_REV",
+        "OD_DEV",
+        "MUT_CRAFT"
+      ],
+      "likely_positive_hypothesis": "尊重隐私也有公开证据路线",
+      "likely_criticism_hypothesis": "不拆封选项只是口头承诺，最后仍强迫拆信",
+      "scenario": {
+        "case02": "deliver",
+        "case03": "no_open",
+        "case04": "remove_attachment",
+        "case05": "keep",
+        "detours": 5,
+        "wrong_delivery": true,
+        "wrong_identity": false,
+        "save_resume": false,
+        "damage_recovery": false
+      },
+      "assertion_ids": [
+        "A01",
+        "A06",
+        "A07",
+        "A09",
+        "A10",
+        "A03",
+        "A04",
+        "A08",
+        "A12"
+      ],
+      "manual_prompt": "按此偏好完成场景，记录实际看到的事实、第一次犹豫及需要回看的内容；若没有证据，保留未验证。",
+      "result_status": "not_run"
+    },
+    {
+      "id": "persona_044",
+      "segment": "puzzle_veteran",
+      "synthetic": true,
+      "label": "桌面整理型 · 尝试错误后复核",
+      "play_preference": "桌面整理型",
+      "behavioral_variant": "尝试错误后复核",
+      "priority_criteria": [
+        {
+          "id": "C05",
+          "rank": 1
+        },
+        {
+          "id": "C09",
+          "rank": 2
+        },
+        {
+          "id": "C10",
+          "rank": 3
+        }
+      ],
+      "source_ids": [
+        "PP_MOBILE",
+        "SH_REV",
+        "FAE_REV",
+        "HER_REV"
+      ],
+      "likely_positive_hypothesis": "信、署名卡和时间表可并置保存上下文",
+      "likely_criticism_hypothesis": "大量互斥弹窗把比对变成记忆负担",
+      "scenario": {
+        "case02": "delegate",
+        "case03": "no_open",
+        "case04": "remove_attachment",
+        "case05": "keep",
+        "detours": 1,
+        "wrong_delivery": false,
+        "wrong_identity": false,
+        "save_resume": false,
+        "damage_recovery": false
+      },
+      "assertion_ids": [
+        "A01",
+        "A06",
+        "A07",
+        "A09",
+        "A10",
+        "A02",
+        "A04",
+        "A08",
+        "A17"
+      ],
+      "manual_prompt": "按此偏好完成场景，记录实际看到的事实、第一次犹豫及需要回看的内容；若没有证据，保留未验证。",
+      "result_status": "not_run"
+    },
+    {
+      "id": "persona_045",
+      "segment": "puzzle_veteran",
+      "synthetic": true,
+      "label": "操作解谜型 · 尝试错误后复核",
+      "play_preference": "操作解谜型",
+      "behavioral_variant": "尝试错误后复核",
+      "priority_criteria": [
+        {
+          "id": "C04",
+          "rank": 1
+        },
+        {
+          "id": "C13",
+          "rank": 2
+        },
+        {
+          "id": "C12",
+          "rank": 3
+        }
+      ],
+      "source_ids": [
+        "HER_REV",
+        "HER_STORE",
+        "UNPACK_OFFICIAL",
+        "OD_DEV",
+        "PP_STRUCTURE"
+      ],
+      "likely_positive_hypothesis": "裂口、旋转和文字恢复共同帮助理解",
+      "likely_criticism_hypothesis": "地址未拼已经一目了然，六片只延迟点击",
+      "scenario": {
+        "case02": "delay",
+        "case03": "no_open",
+        "case04": "remove_attachment",
+        "case05": "keep",
+        "detours": 6,
+        "wrong_delivery": false,
+        "wrong_identity": true,
+        "save_resume": true,
+        "damage_recovery": false
+      },
+      "assertion_ids": [
+        "A01",
+        "A06",
+        "A07",
+        "A09",
+        "A10",
+        "A03",
+        "A04",
+        "A08",
+        "A11",
+        "A12",
+        "A16"
+      ],
+      "manual_prompt": "按此偏好完成场景，记录实际看到的事实、第一次犹豫及需要回看的内容；若没有证据，保留未验证。",
+      "result_status": "not_run"
+    },
+    {
+      "id": "persona_046",
+      "segment": "puzzle_veteran",
+      "synthetic": true,
+      "label": "分支验证型 · 尝试错误后复核",
+      "play_preference": "分支验证型",
+      "behavioral_variant": "尝试错误后复核",
+      "priority_criteria": [
+        {
+          "id": "C07",
+          "rank": 1
+        },
+        {
+          "id": "C15",
+          "rank": 2
+        },
+        {
+          "id": "C11",
+          "rank": 3
+        }
+      ],
+      "source_ids": [
+        "FAE_REV",
+        "MUT_CRAFT"
+      ],
+      "likely_positive_hypothesis": "每种交付方式保留可见材料差异",
+      "likely_criticism_hypothesis": "所谓选择只换一段评价且提前暗示善恶",
+      "scenario": {
+        "case02": "deliver",
+        "case03": "open",
+        "case04": "remove_attachment",
+        "case05": "keep",
+        "detours": 2,
+        "wrong_delivery": false,
+        "wrong_identity": false,
+        "save_resume": false,
+        "damage_recovery": true
+      },
+      "assertion_ids": [
+        "A01",
+        "A06",
+        "A07",
+        "A09",
+        "A10",
+        "A03",
+        "A05",
+        "A08",
+        "A12",
+        "A22"
+      ],
+      "manual_prompt": "按此偏好完成场景，记录实际看到的事实、第一次犹豫及需要回看的内容；若没有证据，保留未验证。",
+      "result_status": "not_run"
+    },
+    {
+      "id": "persona_047",
+      "segment": "puzzle_veteran",
+      "synthetic": true,
+      "label": "职业模拟型 · 尝试错误后复核",
+      "play_preference": "职业模拟型",
+      "behavioral_variant": "尝试错误后复核",
+      "priority_criteria": [
+        {
+          "id": "C06",
+          "rank": 1
+        },
+        {
+          "id": "C12",
+          "rank": 2
+        },
+        {
+          "id": "C04",
+          "rank": 3
+        }
+      ],
+      "source_ids": [
+        "PP_STRUCTURE",
+        "HER_REV",
+        "OD_DEV",
+        "HER_STORE",
+        "UNPACK_OFFICIAL"
+      ],
+      "likely_positive_hypothesis": "出行、急件与修复成本可规划",
+      "likely_criticism_hypothesis": "轻易中午做完所有事，代送从来没有实际理由",
+      "scenario": {
+        "case02": "delegate",
+        "case03": "open",
+        "case04": "remove_attachment",
+        "case05": "keep",
+        "detours": 7,
+        "wrong_delivery": false,
+        "wrong_identity": false,
+        "save_resume": false,
+        "damage_recovery": false
+      },
+      "assertion_ids": [
+        "A01",
+        "A06",
+        "A07",
+        "A09",
+        "A10",
+        "A02",
+        "A05",
+        "A08",
+        "A21"
+      ],
+      "manual_prompt": "按此偏好完成场景，记录实际看到的事实、第一次犹豫及需要回看的内容；若没有证据，保留未验证。",
+      "result_status": "not_run"
+    },
+    {
+      "id": "persona_048",
+      "segment": "puzzle_veteran",
+      "synthetic": true,
+      "label": "线索谱系型 · 尝试错误后复核",
+      "play_preference": "线索谱系型",
+      "behavioral_variant": "尝试错误后复核",
+      "priority_criteria": [
+        {
+          "id": "C02",
+          "rank": 1
+        },
+        {
+          "id": "C01",
+          "rank": 2
+        },
+        {
+          "id": "C05",
+          "rank": 3
+        }
+      ],
+      "source_ids": [
+        "OD_DEV",
+        "SH_REV",
+        "PP_MOBILE"
+      ],
+      "likely_positive_hypothesis": "不同证据各证明不同环节",
+      "likely_criticism_hypothesis": "照片、回忆和重复问答被重复计成独立证明",
+      "scenario": {
+        "case02": "delay",
+        "case03": "open",
+        "case04": "remove_attachment",
+        "case05": "keep",
+        "detours": 3,
+        "wrong_delivery": false,
+        "wrong_identity": false,
+        "save_resume": false,
+        "damage_recovery": false
+      },
+      "assertion_ids": [
+        "A01",
+        "A06",
+        "A07",
+        "A09",
+        "A10",
+        "A03",
+        "A05",
+        "A08"
+      ],
+      "manual_prompt": "按此偏好完成场景，记录实际看到的事实、第一次犹豫及需要回看的内容；若没有证据，保留未验证。",
+      "result_status": "not_run"
+    },
+    {
+      "id": "persona_049",
+      "segment": "puzzle_veteran",
+      "synthetic": true,
+      "label": "防猜答案型 · 尝试错误后复核",
+      "play_preference": "防猜答案型",
+      "behavioral_variant": "尝试错误后复核",
+      "priority_criteria": [
+        {
+          "id": "C01",
+          "rank": 1
+        },
+        {
+          "id": "C12",
+          "rank": 2
+        },
+        {
+          "id": "C15",
+          "rank": 3
+        }
+      ],
+      "source_ids": [
+        "OD_DEV",
+        "SH_REV",
+        "PP_STRUCTURE",
+        "FAE_REV",
+        "MUT_CRAFT"
+      ],
+      "likely_positive_hypothesis": "错误身份和处理伦理分开反馈",
+      "likely_criticism_hypothesis": "一试就亮正确提示，可以枚举跳过推理",
+      "scenario": {
+        "case02": "deliver",
+        "case03": "no_open",
+        "case04": "deliver",
+        "case05": "destroy",
+        "detours": 8,
+        "wrong_delivery": false,
+        "wrong_identity": false,
+        "save_resume": true,
+        "damage_recovery": false
+      },
+      "assertion_ids": [
+        "A01",
+        "A06",
+        "A07",
+        "A09",
+        "A10",
+        "A03",
+        "A04",
+        "A11"
+      ],
+      "manual_prompt": "按此偏好完成场景，记录实际看到的事实、第一次犹豫及需要回看的内容；若没有证据，保留未验证。",
+      "result_status": "not_run"
+    },
+    {
+      "id": "persona_050",
+      "segment": "puzzle_veteran",
+      "synthetic": true,
+      "label": "档案谜题型 · 尝试错误后复核",
+      "play_preference": "档案谜题型",
+      "behavioral_variant": "尝试错误后复核",
+      "priority_criteria": [
+        {
+          "id": "C01",
+          "rank": 1
+        },
+        {
+          "id": "C09",
+          "rank": 2
+        },
+        {
+          "id": "C04",
+          "rank": 3
+        }
+      ],
+      "source_ids": [
+        "OD_DEV",
+        "SH_REV",
+        "PP_MOBILE",
+        "HER_REV",
+        "HER_STORE",
+        "UNPACK_OFFICIAL"
+      ],
+      "likely_positive_hypothesis": "近似编号和日期提供可解释的排除过程",
+      "likely_criticism_hypothesis": "日期格式不一致或答案自动显示令核对失效",
+      "scenario": {
+        "case02": "delegate",
+        "case03": "no_open",
+        "case04": "deliver",
+        "case05": "destroy",
+        "detours": 4,
+        "wrong_delivery": true,
+        "wrong_identity": false,
+        "save_resume": false,
+        "damage_recovery": false
+      },
+      "assertion_ids": [
+        "A01",
+        "A06",
+        "A07",
+        "A09",
+        "A10",
+        "A02",
+        "A04",
+        "A12"
+      ],
+      "manual_prompt": "按此偏好完成场景，记录实际看到的事实、第一次犹豫及需要回看的内容；若没有证据，保留未验证。",
+      "result_status": "not_run"
+    },
+    {
+      "id": "persona_051",
+      "segment": "puzzle_veteran",
+      "synthetic": true,
+      "label": "复玩比较型 · 尝试错误后复核",
+      "play_preference": "复玩比较型",
+      "behavioral_variant": "尝试错误后复核",
+      "priority_criteria": [
+        {
+          "id": "C11",
+          "rank": 1
+        },
+        {
+          "id": "C07",
+          "rank": 2
+        },
+        {
+          "id": "C15",
+          "rank": 3
+        }
+      ],
+      "source_ids": [
+        "FAE_REV",
+        "MUT_CRAFT"
+      ],
+      "likely_positive_hypothesis": "不同路线留下持久且不夸大的后果",
+      "likely_criticism_hypothesis": "结尾把路线拉回相同关系状态，复玩只读换词",
+      "scenario": {
+        "case02": "delay",
+        "case03": "no_open",
+        "case04": "deliver",
+        "case05": "destroy",
+        "detours": 0,
+        "wrong_delivery": false,
+        "wrong_identity": false,
+        "save_resume": false,
+        "damage_recovery": true
+      },
+      "assertion_ids": [
+        "A01",
+        "A06",
+        "A07",
+        "A09",
+        "A10",
+        "A03",
+        "A04",
+        "A12"
+      ],
+      "manual_prompt": "按此偏好完成场景，记录实际看到的事实、第一次犹豫及需要回看的内容；若没有证据，保留未验证。",
+      "result_status": "not_run"
+    },
+    {
+      "id": "persona_052",
+      "segment": "puzzle_veteran",
+      "synthetic": true,
+      "label": "空间调查型 · 尝试错误后复核",
+      "play_preference": "空间调查型",
+      "behavioral_variant": "尝试错误后复核",
+      "priority_criteria": [
+        {
+          "id": "C10",
+          "rank": 1
+        },
+        {
+          "id": "C16",
+          "rank": 2
+        },
+        {
+          "id": "C14",
+          "rank": 3
+        }
+      ],
+      "source_ids": [
+        "FAE_REV",
+        "HER_REV",
+        "PP_STRUCTURE",
+        "MUT_CRAFT",
+        "HER_STORE",
+        "PP_MOBILE"
+      ],
+      "likely_positive_hypothesis": "物件入口长在具体场景里",
+      "likely_criticism_hypothesis": "一排小圆点和抽象按钮取代环境观察",
+      "scenario": {
+        "case02": "deliver",
+        "case03": "open",
+        "case04": "deliver",
+        "case05": "destroy",
+        "detours": 5,
+        "wrong_delivery": false,
+        "wrong_identity": false,
+        "save_resume": false,
+        "damage_recovery": false
+      },
+      "assertion_ids": [
+        "A01",
+        "A06",
+        "A07",
+        "A09",
+        "A10",
+        "A03",
+        "A05",
+        "A14"
+      ],
+      "manual_prompt": "按此偏好完成场景，记录实际看到的事实、第一次犹豫及需要回看的内容；若没有证据，保留未验证。",
+      "result_status": "not_run"
+    },
+    {
+      "id": "persona_053",
+      "segment": "puzzle_veteran",
+      "synthetic": true,
+      "label": "困难但公平型 · 尝试错误后复核",
+      "play_preference": "困难但公平型",
+      "behavioral_variant": "尝试错误后复核",
+      "priority_criteria": [
+        {
+          "id": "C12",
+          "rank": 1
+        },
+        {
+          "id": "C03",
+          "rank": 2
+        },
+        {
+          "id": "C13",
+          "rank": 3
+        }
+      ],
+      "source_ids": [
+        "OD_DEV",
+        "PP_STRUCTURE",
+        "FAE_REV",
+        "UNPACK_OFFICIAL",
+        "HER_STORE"
+      ],
+      "likely_positive_hypothesis": "错误说明缺少哪一步而不直接剧透",
+      "likely_criticism_hypothesis": "工具失误被突然重罚，回退信息又不够",
+      "scenario": {
+        "case02": "delegate",
+        "case03": "open",
+        "case04": "deliver",
+        "case05": "destroy",
+        "detours": 1,
+        "wrong_delivery": false,
+        "wrong_identity": false,
+        "save_resume": true,
+        "damage_recovery": false
+      },
+      "assertion_ids": [
+        "A01",
+        "A06",
+        "A07",
+        "A09",
+        "A10",
+        "A02",
+        "A05",
+        "A11",
+        "A12"
+      ],
+      "manual_prompt": "按此偏好完成场景，记录实际看到的事实、第一次犹豫及需要回看的内容；若没有证据，保留未验证。",
+      "result_status": "not_run"
+    },
+    {
+      "id": "persona_054",
+      "segment": "puzzle_veteran",
+      "synthetic": true,
+      "label": "冷静阅读型 · 尝试错误后复核",
+      "play_preference": "冷静阅读型",
+      "behavioral_variant": "尝试错误后复核",
+      "priority_criteria": [
+        {
+          "id": "C09",
+          "rank": 1
+        },
+        {
+          "id": "C06",
+          "rank": 2
+        },
+        {
+          "id": "C08",
+          "rank": 3
+        }
+      ],
+      "source_ids": [
+        "SH_REV",
+        "PP_MOBILE",
+        "PP_STRUCTURE",
+        "HER_REV",
+        "MUT_CRAFT",
+        "UNPACK_OFFICIAL"
+      ],
+      "likely_positive_hypothesis": "文本可以慢慢读且回看",
+      "likely_criticism_hypothesis": "游戏要求读细节，却让字区被工具遮住",
+      "scenario": {
+        "case02": "delay",
+        "case03": "open",
+        "case04": "deliver",
+        "case05": "destroy",
+        "detours": 6,
+        "wrong_delivery": false,
+        "wrong_identity": false,
+        "save_resume": false,
+        "damage_recovery": false
+      },
+      "assertion_ids": [
+        "A01",
+        "A06",
+        "A07",
+        "A09",
+        "A10",
+        "A03",
+        "A05",
+        "A13"
+      ],
+      "manual_prompt": "按此偏好完成场景，记录实际看到的事实、第一次犹豫及需要回看的内容；若没有证据，保留未验证。",
+      "result_status": "not_run"
+    },
+    {
+      "id": "persona_055",
+      "segment": "puzzle_veteran",
+      "synthetic": true,
+      "label": "动机质疑型 · 尝试错误后复核",
+      "play_preference": "动机质疑型",
+      "behavioral_variant": "尝试错误后复核",
+      "priority_criteria": [
+        {
+          "id": "C08",
+          "rank": 1
+        },
+        {
+          "id": "C07",
+          "rank": 2
+        },
+        {
+          "id": "C15",
+          "rank": 3
+        }
+      ],
+      "source_ids": [
+        "MUT_CRAFT",
+        "UNPACK_OFFICIAL",
+        "FAE_REV"
+      ],
+      "likely_positive_hypothesis": "人的辩解通过普通动作和含混愿望显露",
+      "likely_criticism_hypothesis": "每封信都在讲主题，人物只是伦理示例",
+      "scenario": {
+        "case02": "deliver",
+        "case03": "no_open",
+        "case04": "hold",
+        "case05": "destroy",
+        "detours": 2,
+        "wrong_delivery": false,
+        "wrong_identity": false,
+        "save_resume": false,
+        "damage_recovery": false
+      },
+      "assertion_ids": [
+        "A01",
+        "A06",
+        "A07",
+        "A09",
+        "A10",
+        "A03",
+        "A04",
+        "A18"
+      ],
+      "manual_prompt": "按此偏好完成场景，记录实际看到的事实、第一次犹豫及需要回看的内容；若没有证据，保留未验证。",
+      "result_status": "not_run"
+    },
+    {
+      "id": "persona_056",
+      "segment": "puzzle_veteran",
+      "synthetic": true,
+      "label": "轻提示偏好型 · 尝试错误后复核",
+      "play_preference": "轻提示偏好型",
+      "behavioral_variant": "尝试错误后复核",
+      "priority_criteria": [
+        {
+          "id": "C02",
+          "rank": 1
+        },
+        {
+          "id": "C10",
+          "rank": 2
+        },
+        {
+          "id": "C12",
+          "rank": 3
+        }
+      ],
+      "source_ids": [
+        "OD_DEV",
+        "FAE_REV",
+        "HER_REV",
+        "PP_STRUCTURE"
+      ],
+      "likely_positive_hypothesis": "提醒下一种调查方向而不报答案",
+      "likely_criticism_hypothesis": "不知入口与不懂谜底被同一种直接提示混为一谈",
+      "scenario": {
+        "case02": "delegate",
+        "case03": "no_open",
+        "case04": "hold",
+        "case05": "destroy",
+        "detours": 7,
+        "wrong_delivery": false,
+        "wrong_identity": true,
+        "save_resume": false,
+        "damage_recovery": true
+      },
+      "assertion_ids": [
+        "A01",
+        "A06",
+        "A07",
+        "A09",
+        "A10",
+        "A02",
+        "A04",
+        "A12",
+        "A14"
+      ],
+      "manual_prompt": "按此偏好完成场景，记录实际看到的事实、第一次犹豫及需要回看的内容；若没有证据，保留未验证。",
+      "result_status": "not_run"
+    },
+    {
+      "id": "persona_057",
+      "segment": "puzzle_veteran",
+      "synthetic": true,
+      "label": "资料考据型 · 尝试错误后复核",
+      "play_preference": "资料考据型",
+      "behavioral_variant": "尝试错误后复核",
+      "priority_criteria": [
+        {
+          "id": "C01",
+          "rank": 1
+        },
+        {
+          "id": "C11",
+          "rank": 2
+        },
+        {
+          "id": "C14",
+          "rank": 3
+        }
+      ],
+      "source_ids": [
+        "OD_DEV",
+        "SH_REV",
+        "FAE_REV",
+        "HER_STORE",
+        "PP_MOBILE"
+      ],
+      "likely_positive_hypothesis": "姓名、旧日期与编号在不同物件上自洽",
+      "likely_criticism_hypothesis": "华丽样式遮住真正用来推理的字迹",
+      "scenario": {
+        "case02": "delay",
+        "case03": "no_open",
+        "case04": "hold",
+        "case05": "destroy",
+        "detours": 3,
+        "wrong_delivery": true,
+        "wrong_identity": false,
+        "save_resume": true,
+        "damage_recovery": false
+      },
+      "assertion_ids": [
+        "A01",
+        "A06",
+        "A07",
+        "A09",
+        "A10",
+        "A03",
+        "A04",
+        "A11",
+        "A12",
+        "A20"
+      ],
+      "manual_prompt": "按此偏好完成场景，记录实际看到的事实、第一次犹豫及需要回看的内容；若没有证据，保留未验证。",
+      "result_status": "not_run"
+    },
+    {
+      "id": "persona_058",
+      "segment": "puzzle_veteran",
+      "synthetic": true,
+      "label": "多案交错型 · 尝试错误后复核",
+      "play_preference": "多案交错型",
+      "behavioral_variant": "尝试错误后复核",
+      "priority_criteria": [
+        {
+          "id": "C16",
+          "rank": 1
+        },
+        {
+          "id": "C05",
+          "rank": 2
+        },
+        {
+          "id": "C11",
+          "rank": 3
+        }
+      ],
+      "source_ids": [
+        "PP_STRUCTURE",
+        "HER_REV",
+        "MUT_CRAFT",
+        "PP_MOBILE",
+        "SH_REV",
+        "FAE_REV"
+      ],
+      "likely_positive_hypothesis": "先后调查都能保持每案上下文",
+      "likely_criticism_hypothesis": "统一问句和热点让任意顺序实际等于全地图扫一遍",
+      "scenario": {
+        "case02": "deliver",
+        "case03": "open",
+        "case04": "hold",
+        "case05": "destroy",
+        "detours": 8,
+        "wrong_delivery": false,
+        "wrong_identity": false,
+        "save_resume": false,
+        "damage_recovery": false
+      },
+      "assertion_ids": [
+        "A01",
+        "A06",
+        "A07",
+        "A09",
+        "A10",
+        "A03",
+        "A05",
+        "A17"
+      ],
+      "manual_prompt": "按此偏好完成场景，记录实际看到的事实、第一次犹豫及需要回看的内容；若没有证据，保留未验证。",
+      "result_status": "not_run"
+    },
+    {
+      "id": "persona_059",
+      "segment": "puzzle_veteran",
+      "synthetic": true,
+      "label": "谨慎实验型 · 尝试错误后复核",
+      "play_preference": "谨慎实验型",
+      "behavioral_variant": "尝试错误后复核",
+      "priority_criteria": [
+        {
+          "id": "C12",
+          "rank": 1
+        },
+        {
+          "id": "C04",
+          "rank": 2
+        },
+        {
+          "id": "C11",
+          "rank": 3
+        }
+      ],
+      "source_ids": [
+        "OD_DEV",
+        "PP_STRUCTURE",
+        "HER_REV",
+        "HER_STORE",
+        "UNPACK_OFFICIAL",
+        "FAE_REV"
+      ],
+      "likely_positive_hypothesis": "未确认前能摆弄物件，操作与最终决定分开",
+      "likely_criticism_hypothesis": "拖错位置立即成为不可逆道德选择",
+      "scenario": {
+        "case02": "delegate",
+        "case03": "open",
+        "case04": "hold",
+        "case05": "destroy",
+        "detours": 4,
+        "wrong_delivery": false,
+        "wrong_identity": false,
+        "save_resume": false,
+        "damage_recovery": false
+      },
+      "assertion_ids": [
+        "A01",
+        "A06",
+        "A07",
+        "A09",
+        "A10",
+        "A02",
+        "A05",
+        "A23"
+      ],
+      "manual_prompt": "按此偏好完成场景，记录实际看到的事实、第一次犹豫及需要回看的内容；若没有证据，保留未验证。",
+      "result_status": "not_run"
+    },
+    {
+      "id": "persona_060",
+      "segment": "puzzle_veteran",
+      "synthetic": true,
+      "label": "叙事闭环型 · 尝试错误后复核",
+      "play_preference": "叙事闭环型",
+      "behavioral_variant": "尝试错误后复核",
+      "priority_criteria": [
+        {
+          "id": "C15",
+          "rank": 1
+        },
+        {
+          "id": "C08",
+          "rank": 2
+        },
+        {
+          "id": "C07",
+          "rank": 3
+        }
+      ],
+      "source_ids": [
+        "FAE_REV",
+        "MUT_CRAFT",
+        "UNPACK_OFFICIAL"
+      ],
+      "likely_positive_hypothesis": "前任职业细节回应今日每封信的处理",
+      "likely_criticism_hypothesis": "悬念用含混哲理结束，没有回应先前具体承诺",
+      "scenario": {
+        "case02": "delay",
+        "case03": "open",
+        "case04": "hold",
+        "case05": "destroy",
+        "detours": 0,
+        "wrong_delivery": false,
+        "wrong_identity": false,
+        "save_resume": false,
+        "damage_recovery": false
+      },
+      "assertion_ids": [
+        "A01",
+        "A06",
+        "A07",
+        "A09",
+        "A10",
+        "A03",
+        "A05",
+        "A22"
+      ],
+      "manual_prompt": "按此偏好完成场景，记录实际看到的事实、第一次犹豫及需要回看的内容；若没有证据，保留未验证。",
+      "result_status": "not_run"
+    },
+    {
+      "id": "persona_061",
+      "segment": "novice",
+      "synthetic": true,
+      "label": "第一次点选调查 · 先调查再交接",
+      "play_preference": "第一次点选调查",
+      "behavioral_variant": "先调查再交接",
+      "priority_criteria": [
+        {
+          "id": "C10",
+          "rank": 1
+        },
+        {
+          "id": "C09",
+          "rank": 2
+        },
+        {
+          "id": "C12",
+          "rank": 3
+        }
+      ],
+      "source_ids": [
+        "FAE_REV",
+        "HER_REV",
+        "SH_REV",
+        "PP_MOBILE",
+        "OD_DEV",
+        "PP_STRUCTURE"
+      ],
+      "likely_positive_hypothesis": "入口与目的清楚，第一次错投能明白原因",
+      "likely_criticism_hypothesis": "不知道场景上哪些物体可调查，只能乱点",
+      "scenario": {
+        "case02": "deliver",
+        "case03": "no_open",
+        "case04": "return_to_sender",
+        "case05": "destroy",
+        "detours": 3,
+        "wrong_delivery": true,
+        "wrong_identity": false,
+        "save_resume": true,
+        "damage_recovery": true
+      },
+      "assertion_ids": [
+        "A01",
+        "A06",
+        "A07",
+        "A09",
+        "A10",
+        "A03",
+        "A04",
+        "A11",
+        "A12",
+        "A14"
+      ],
+      "manual_prompt": "按此偏好完成场景，记录实际看到的事实、第一次犹豫及需要回看的内容；若没有证据，保留未验证。",
+      "result_status": "not_run"
+    },
+    {
+      "id": "persona_062",
+      "segment": "novice",
+      "synthetic": true,
+      "label": "第一次拖动物件 · 先调查再交接",
+      "play_preference": "第一次拖动物件",
+      "behavioral_variant": "先调查再交接",
+      "priority_criteria": [
+        {
+          "id": "C10",
+          "rank": 1
+        },
+        {
+          "id": "C13",
+          "rank": 2
+        },
+        {
+          "id": "C04",
+          "rank": 3
+        }
+      ],
+      "source_ids": [
+        "FAE_REV",
+        "HER_REV",
+        "UNPACK_OFFICIAL",
+        "HER_STORE"
+      ],
+      "likely_positive_hypothesis": "拖边、翻面和滚动各有清楚反馈",
+      "likely_criticism_hypothesis": "在字区拖不动却没有解释，以为卡住",
+      "scenario": {
+        "case02": "delegate",
+        "case03": "no_open",
+        "case04": "return_to_sender",
+        "case05": "destroy",
+        "detours": 8,
+        "wrong_delivery": false,
+        "wrong_identity": false,
+        "save_resume": false,
+        "damage_recovery": false
+      },
+      "assertion_ids": [
+        "A01",
+        "A06",
+        "A07",
+        "A09",
+        "A10",
+        "A02",
+        "A04",
+        "A23"
+      ],
+      "manual_prompt": "按此偏好完成场景，记录实际看到的事实、第一次犹豫及需要回看的内容；若没有证据，保留未验证。",
+      "result_status": "not_run"
+    },
+    {
+      "id": "persona_063",
+      "segment": "novice",
+      "synthetic": true,
+      "label": "喜欢慢慢阅读 · 先调查再交接",
+      "play_preference": "喜欢慢慢阅读",
+      "behavioral_variant": "先调查再交接",
+      "priority_criteria": [
+        {
+          "id": "C09",
+          "rank": 1
+        },
+        {
+          "id": "C06",
+          "rank": 2
+        },
+        {
+          "id": "C08",
+          "rank": 3
+        }
+      ],
+      "source_ids": [
+        "SH_REV",
+        "PP_MOBILE",
+        "PP_STRUCTURE",
+        "HER_REV",
+        "MUT_CRAFT",
+        "UNPACK_OFFICIAL"
+      ],
+      "likely_positive_hypothesis": "不因阅读速度受罚，末行可见",
+      "likely_criticism_hypothesis": "担心急件倒计时而跳过真正要理解的内容",
+      "scenario": {
+        "case02": "delay",
+        "case03": "no_open",
+        "case04": "return_to_sender",
+        "case05": "destroy",
+        "detours": 4,
+        "wrong_delivery": false,
+        "wrong_identity": false,
+        "save_resume": false,
+        "damage_recovery": false
+      },
+      "assertion_ids": [
+        "A01",
+        "A06",
+        "A07",
+        "A09",
+        "A10",
+        "A03",
+        "A04",
+        "A13"
+      ],
+      "manual_prompt": "按此偏好完成场景，记录实际看到的事实、第一次犹豫及需要回看的内容；若没有证据，保留未验证。",
+      "result_status": "not_run"
+    },
+    {
+      "id": "persona_064",
+      "segment": "novice",
+      "synthetic": true,
+      "label": "不熟悉解谜术语 · 先调查再交接",
+      "play_preference": "不熟悉解谜术语",
+      "behavioral_variant": "先调查再交接",
+      "priority_criteria": [
+        {
+          "id": "C01",
+          "rank": 1
+        },
+        {
+          "id": "C12",
+          "rank": 2
+        },
+        {
+          "id": "C10",
+          "rank": 3
+        }
+      ],
+      "source_ids": [
+        "OD_DEV",
+        "SH_REV",
+        "PP_STRUCTURE",
+        "FAE_REV",
+        "HER_REV"
+      ],
+      "likely_positive_hypothesis": "旧地名对应日常地址核实，容易理解职责",
+      "likely_criticism_hypothesis": "独立证据一词没有对象例子，只看到计数",
+      "scenario": {
+        "case02": "deliver",
+        "case03": "open",
+        "case04": "return_to_sender",
+        "case05": "destroy",
+        "detours": 0,
+        "wrong_delivery": true,
+        "wrong_identity": false,
+        "save_resume": false,
+        "damage_recovery": false
+      },
+      "assertion_ids": [
+        "A01",
+        "A06",
+        "A07",
+        "A09",
+        "A10",
+        "A03",
+        "A05",
+        "A12"
+      ],
+      "manual_prompt": "按此偏好完成场景，记录实际看到的事实、第一次犹豫及需要回看的内容；若没有证据，保留未验证。",
+      "result_status": "not_run"
+    },
+    {
+      "id": "persona_065",
+      "segment": "novice",
+      "synthetic": true,
+      "label": "容易丢失当前任务 · 先调查再交接",
+      "play_preference": "容易丢失当前任务",
+      "behavioral_variant": "先调查再交接",
+      "priority_criteria": [
+        {
+          "id": "C05",
+          "rank": 1
+        },
+        {
+          "id": "C11",
+          "rank": 2
+        },
+        {
+          "id": "C09",
+          "rank": 3
+        }
+      ],
+      "source_ids": [
+        "PP_MOBILE",
+        "SH_REV",
+        "FAE_REV"
+      ],
+      "likely_positive_hypothesis": "回到桌面仍可看到下一件具体工作",
+      "likely_criticism_hypothesis": "换地图后忘了刚才要找谁或哪封信",
+      "scenario": {
+        "case02": "delegate",
+        "case03": "open",
+        "case04": "return_to_sender",
+        "case05": "destroy",
+        "detours": 5,
+        "wrong_delivery": false,
+        "wrong_identity": false,
+        "save_resume": true,
+        "damage_recovery": false
+      },
+      "assertion_ids": [
+        "A01",
+        "A06",
+        "A07",
+        "A09",
+        "A10",
+        "A02",
+        "A05",
+        "A11",
+        "A17"
+      ],
+      "manual_prompt": "按此偏好完成场景，记录实际看到的事实、第一次犹豫及需要回看的内容；若没有证据，保留未验证。",
+      "result_status": "not_run"
+    },
+    {
+      "id": "persona_066",
+      "segment": "novice",
+      "synthetic": true,
+      "label": "谨慎不愿拆信 · 先调查再交接",
+      "play_preference": "谨慎不愿拆信",
+      "behavioral_variant": "先调查再交接",
+      "priority_criteria": [
+        {
+          "id": "C03",
+          "rank": 1
+        },
+        {
+          "id": "C07",
+          "rank": 2
+        },
+        {
+          "id": "C12",
+          "rank": 3
+        }
+      ],
+      "source_ids": [
+        "FAE_REV",
+        "MUT_CRAFT",
+        "OD_DEV",
+        "PP_STRUCTURE"
+      ],
+      "likely_positive_hypothesis": "保留封口仍能完成任务",
+      "likely_criticism_hypothesis": "以为所有亮起工具都必须使用",
+      "scenario": {
+        "case02": "delay",
+        "case03": "open",
+        "case04": "return_to_sender",
+        "case05": "destroy",
+        "detours": 1,
+        "wrong_delivery": false,
+        "wrong_identity": false,
+        "save_resume": false,
+        "damage_recovery": true
+      },
+      "assertion_ids": [
+        "A01",
+        "A06",
+        "A07",
+        "A09",
+        "A10",
+        "A03",
+        "A05",
+        "A12",
+        "A04"
+      ],
+      "manual_prompt": "按此偏好完成场景，记录实际看到的事实、第一次犹豫及需要回看的内容；若没有证据，保留未验证。",
+      "result_status": "not_run"
+    },
+    {
+      "id": "persona_067",
+      "segment": "novice",
+      "synthetic": true,
+      "label": "担心不可逆选择 · 先调查再交接",
+      "play_preference": "担心不可逆选择",
+      "behavioral_variant": "先调查再交接",
+      "priority_criteria": [
+        {
+          "id": "C07",
+          "rank": 1
+        },
+        {
+          "id": "C12",
+          "rank": 2
+        },
+        {
+          "id": "C11",
+          "rank": 3
+        }
+      ],
+      "source_ids": [
+        "FAE_REV",
+        "MUT_CRAFT",
+        "OD_DEV",
+        "PP_STRUCTURE"
+      ],
+      "likely_positive_hypothesis": "交接前知道实际动作与保留的材料",
+      "likely_criticism_hypothesis": "按钮像结局标签，难以理解自己将做什么",
+      "scenario": {
+        "case02": "deliver",
+        "case03": "no_open",
+        "case04": "remove_attachment",
+        "case05": "destroy",
+        "detours": 6,
+        "wrong_delivery": true,
+        "wrong_identity": true,
+        "save_resume": false,
+        "damage_recovery": false
+      },
+      "assertion_ids": [
+        "A01",
+        "A06",
+        "A07",
+        "A09",
+        "A10",
+        "A03",
+        "A04",
+        "A08",
+        "A12",
+        "A22"
+      ],
+      "manual_prompt": "按此偏好完成场景，记录实际看到的事实、第一次犹豫及需要回看的内容；若没有证据，保留未验证。",
+      "result_status": "not_run"
+    },
+    {
+      "id": "persona_068",
+      "segment": "novice",
+      "synthetic": true,
+      "label": "短时分段游玩 · 先调查再交接",
+      "play_preference": "短时分段游玩",
+      "behavioral_variant": "先调查再交接",
+      "priority_criteria": [
+        {
+          "id": "C11",
+          "rank": 1
+        },
+        {
+          "id": "C05",
+          "rank": 2
+        },
+        {
+          "id": "C09",
+          "rank": 3
+        }
+      ],
+      "source_ids": [
+        "FAE_REV",
+        "PP_MOBILE",
+        "SH_REV"
+      ],
+      "likely_positive_hypothesis": "继续游戏后证据与进行中的操作都在",
+      "likely_criticism_hypothesis": "保存后不知道此前刚做了哪一步",
+      "scenario": {
+        "case02": "delegate",
+        "case03": "no_open",
+        "case04": "remove_attachment",
+        "case05": "destroy",
+        "detours": 2,
+        "wrong_delivery": false,
+        "wrong_identity": false,
+        "save_resume": false,
+        "damage_recovery": false
+      },
+      "assertion_ids": [
+        "A01",
+        "A06",
+        "A07",
+        "A09",
+        "A10",
+        "A02",
+        "A04",
+        "A08",
+        "A11"
+      ],
+      "manual_prompt": "按此偏好完成场景，记录实际看到的事实、第一次犹豫及需要回看的内容；若没有证据，保留未验证。",
+      "result_status": "not_run"
+    },
+    {
+      "id": "persona_069",
+      "segment": "novice",
+      "synthetic": true,
+      "label": "只用鼠标探索 · 先调查再交接",
+      "play_preference": "只用鼠标探索",
+      "behavioral_variant": "先调查再交接",
+      "priority_criteria": [
+        {
+          "id": "C13",
+          "rank": 1
+        },
+        {
+          "id": "C10",
+          "rank": 2
+        },
+        {
+          "id": "C09",
+          "rank": 3
+        }
+      ],
+      "source_ids": [
+        "UNPACK_OFFICIAL",
+        "HER_STORE",
+        "FAE_REV",
+        "HER_REV",
+        "SH_REV",
+        "PP_MOBILE"
+      ],
+      "likely_positive_hypothesis": "必要动作不藏在快捷键或声音里",
+      "likely_criticism_hypothesis": "关键操作要求持续准确轨迹却没有容错说明",
+      "scenario": {
+        "case02": "delay",
+        "case03": "no_open",
+        "case04": "remove_attachment",
+        "case05": "destroy",
+        "detours": 7,
+        "wrong_delivery": false,
+        "wrong_identity": false,
+        "save_resume": true,
+        "damage_recovery": false
+      },
+      "assertion_ids": [
+        "A01",
+        "A06",
+        "A07",
+        "A09",
+        "A10",
+        "A03",
+        "A04",
+        "A08",
+        "A11",
+        "A23"
+      ],
+      "manual_prompt": "按此偏好完成场景，记录实际看到的事实、第一次犹豫及需要回看的内容；若没有证据，保留未验证。",
+      "result_status": "not_run"
+    },
+    {
+      "id": "persona_070",
+      "segment": "novice",
+      "synthetic": true,
+      "label": "第一次读多分支故事 · 先调查再交接",
+      "play_preference": "第一次读多分支故事",
+      "behavioral_variant": "先调查再交接",
+      "priority_criteria": [
+        {
+          "id": "C08",
+          "rank": 1
+        },
+        {
+          "id": "C15",
+          "rank": 2
+        },
+        {
+          "id": "C07",
+          "rank": 3
+        }
+      ],
+      "source_ids": [
+        "MUT_CRAFT",
+        "UNPACK_OFFICIAL",
+        "FAE_REV"
+      ],
+      "likely_positive_hypothesis": "普通信与复杂旧信有明显轻重节奏",
+      "likely_criticism_hypothesis": "把没有最佳道德答案误认为自己一直失败",
+      "scenario": {
+        "case02": "deliver",
+        "case03": "open",
+        "case04": "remove_attachment",
+        "case05": "destroy",
+        "detours": 3,
+        "wrong_delivery": true,
+        "wrong_identity": false,
+        "save_resume": false,
+        "damage_recovery": false
+      },
+      "assertion_ids": [
+        "A01",
+        "A06",
+        "A07",
+        "A09",
+        "A10",
+        "A03",
+        "A05",
+        "A08",
+        "A12",
+        "A18"
+      ],
+      "manual_prompt": "按此偏好完成场景，记录实际看到的事实、第一次犹豫及需要回看的内容；若没有证据，保留未验证。",
+      "result_status": "not_run"
+    },
+    {
+      "id": "persona_071",
+      "segment": "novice",
+      "synthetic": true,
+      "label": "第一次点选调查 · 交错调查并回看",
+      "play_preference": "第一次点选调查",
+      "behavioral_variant": "交错调查并回看",
+      "priority_criteria": [
+        {
+          "id": "C10",
+          "rank": 1
+        },
+        {
+          "id": "C09",
+          "rank": 2
+        },
+        {
+          "id": "C12",
+          "rank": 3
+        }
+      ],
+      "source_ids": [
+        "FAE_REV",
+        "HER_REV",
+        "SH_REV",
+        "PP_MOBILE",
+        "OD_DEV",
+        "PP_STRUCTURE"
+      ],
+      "likely_positive_hypothesis": "入口与目的清楚，第一次错投能明白原因",
+      "likely_criticism_hypothesis": "不知道场景上哪些物体可调查，只能乱点",
+      "scenario": {
+        "case02": "delegate",
+        "case03": "open",
+        "case04": "remove_attachment",
+        "case05": "destroy",
+        "detours": 0,
+        "wrong_delivery": true,
+        "wrong_identity": false,
+        "save_resume": true,
+        "damage_recovery": true
+      },
+      "assertion_ids": [
+        "A01",
+        "A06",
+        "A07",
+        "A09",
+        "A10",
+        "A02",
+        "A05",
+        "A08",
+        "A11",
+        "A12",
+        "A14"
+      ],
+      "manual_prompt": "按此偏好完成场景，记录实际看到的事实、第一次犹豫及需要回看的内容；若没有证据，保留未验证。",
+      "result_status": "not_run"
+    },
+    {
+      "id": "persona_072",
+      "segment": "novice",
+      "synthetic": true,
+      "label": "第一次拖动物件 · 交错调查并回看",
+      "play_preference": "第一次拖动物件",
+      "behavioral_variant": "交错调查并回看",
+      "priority_criteria": [
+        {
+          "id": "C10",
+          "rank": 1
+        },
+        {
+          "id": "C13",
+          "rank": 2
+        },
+        {
+          "id": "C04",
+          "rank": 3
+        }
+      ],
+      "source_ids": [
+        "FAE_REV",
+        "HER_REV",
+        "UNPACK_OFFICIAL",
+        "HER_STORE"
+      ],
+      "likely_positive_hypothesis": "拖边、翻面和滚动各有清楚反馈",
+      "likely_criticism_hypothesis": "在字区拖不动却没有解释，以为卡住",
+      "scenario": {
+        "case02": "delay",
+        "case03": "open",
+        "case04": "remove_attachment",
+        "case05": "destroy",
+        "detours": 5,
+        "wrong_delivery": false,
+        "wrong_identity": false,
+        "save_resume": true,
+        "damage_recovery": false
+      },
+      "assertion_ids": [
+        "A01",
+        "A06",
+        "A07",
+        "A09",
+        "A10",
+        "A03",
+        "A05",
+        "A08",
+        "A11",
+        "A23"
+      ],
+      "manual_prompt": "按此偏好完成场景，记录实际看到的事实、第一次犹豫及需要回看的内容；若没有证据，保留未验证。",
+      "result_status": "not_run"
+    },
+    {
+      "id": "persona_073",
+      "segment": "novice",
+      "synthetic": true,
+      "label": "喜欢慢慢阅读 · 交错调查并回看",
+      "play_preference": "喜欢慢慢阅读",
+      "behavioral_variant": "交错调查并回看",
+      "priority_criteria": [
+        {
+          "id": "C09",
+          "rank": 1
+        },
+        {
+          "id": "C06",
+          "rank": 2
+        },
+        {
+          "id": "C08",
+          "rank": 3
+        }
+      ],
+      "source_ids": [
+        "SH_REV",
+        "PP_MOBILE",
+        "PP_STRUCTURE",
+        "HER_REV",
+        "MUT_CRAFT",
+        "UNPACK_OFFICIAL"
+      ],
+      "likely_positive_hypothesis": "不因阅读速度受罚，末行可见",
+      "likely_criticism_hypothesis": "担心急件倒计时而跳过真正要理解的内容",
+      "scenario": {
+        "case02": "deliver",
+        "case03": "no_open",
+        "case04": "deliver",
+        "case05": "file",
+        "detours": 1,
+        "wrong_delivery": false,
+        "wrong_identity": false,
+        "save_resume": true,
+        "damage_recovery": false
+      },
+      "assertion_ids": [
+        "A01",
+        "A06",
+        "A07",
+        "A09",
+        "A10",
+        "A03",
+        "A04",
+        "A11",
+        "A13"
+      ],
+      "manual_prompt": "按此偏好完成场景，记录实际看到的事实、第一次犹豫及需要回看的内容；若没有证据，保留未验证。",
+      "result_status": "not_run"
+    },
+    {
+      "id": "persona_074",
+      "segment": "novice",
+      "synthetic": true,
+      "label": "不熟悉解谜术语 · 交错调查并回看",
+      "play_preference": "不熟悉解谜术语",
+      "behavioral_variant": "交错调查并回看",
+      "priority_criteria": [
+        {
+          "id": "C01",
+          "rank": 1
+        },
+        {
+          "id": "C12",
+          "rank": 2
+        },
+        {
+          "id": "C10",
+          "rank": 3
+        }
+      ],
+      "source_ids": [
+        "OD_DEV",
+        "SH_REV",
+        "PP_STRUCTURE",
+        "FAE_REV",
+        "HER_REV"
+      ],
+      "likely_positive_hypothesis": "旧地名对应日常地址核实，容易理解职责",
+      "likely_criticism_hypothesis": "独立证据一词没有对象例子，只看到计数",
+      "scenario": {
+        "case02": "delegate",
+        "case03": "no_open",
+        "case04": "deliver",
+        "case05": "file",
+        "detours": 6,
+        "wrong_delivery": true,
+        "wrong_identity": false,
+        "save_resume": true,
+        "damage_recovery": false
+      },
+      "assertion_ids": [
+        "A01",
+        "A06",
+        "A07",
+        "A09",
+        "A10",
+        "A02",
+        "A04",
+        "A11",
+        "A12"
+      ],
+      "manual_prompt": "按此偏好完成场景，记录实际看到的事实、第一次犹豫及需要回看的内容；若没有证据，保留未验证。",
+      "result_status": "not_run"
+    },
+    {
+      "id": "persona_075",
+      "segment": "novice",
+      "synthetic": true,
+      "label": "容易丢失当前任务 · 交错调查并回看",
+      "play_preference": "容易丢失当前任务",
+      "behavioral_variant": "交错调查并回看",
+      "priority_criteria": [
+        {
+          "id": "C05",
+          "rank": 1
+        },
+        {
+          "id": "C11",
+          "rank": 2
+        },
+        {
+          "id": "C09",
+          "rank": 3
+        }
+      ],
+      "source_ids": [
+        "PP_MOBILE",
+        "SH_REV",
+        "FAE_REV"
+      ],
+      "likely_positive_hypothesis": "回到桌面仍可看到下一件具体工作",
+      "likely_criticism_hypothesis": "换地图后忘了刚才要找谁或哪封信",
+      "scenario": {
+        "case02": "delay",
+        "case03": "no_open",
+        "case04": "deliver",
+        "case05": "file",
+        "detours": 2,
+        "wrong_delivery": false,
+        "wrong_identity": false,
+        "save_resume": true,
+        "damage_recovery": false
+      },
+      "assertion_ids": [
+        "A01",
+        "A06",
+        "A07",
+        "A09",
+        "A10",
+        "A03",
+        "A04",
+        "A11",
+        "A17"
+      ],
+      "manual_prompt": "按此偏好完成场景，记录实际看到的事实、第一次犹豫及需要回看的内容；若没有证据，保留未验证。",
+      "result_status": "not_run"
+    },
+    {
+      "id": "persona_076",
+      "segment": "novice",
+      "synthetic": true,
+      "label": "谨慎不愿拆信 · 交错调查并回看",
+      "play_preference": "谨慎不愿拆信",
+      "behavioral_variant": "交错调查并回看",
+      "priority_criteria": [
+        {
+          "id": "C03",
+          "rank": 1
+        },
+        {
+          "id": "C07",
+          "rank": 2
+        },
+        {
+          "id": "C12",
+          "rank": 3
+        }
+      ],
+      "source_ids": [
+        "FAE_REV",
+        "MUT_CRAFT",
+        "OD_DEV",
+        "PP_STRUCTURE"
+      ],
+      "likely_positive_hypothesis": "保留封口仍能完成任务",
+      "likely_criticism_hypothesis": "以为所有亮起工具都必须使用",
+      "scenario": {
+        "case02": "deliver",
+        "case03": "open",
+        "case04": "deliver",
+        "case05": "file",
+        "detours": 7,
+        "wrong_delivery": false,
+        "wrong_identity": false,
+        "save_resume": true,
+        "damage_recovery": true
+      },
+      "assertion_ids": [
+        "A01",
+        "A06",
+        "A07",
+        "A09",
+        "A10",
+        "A03",
+        "A05",
+        "A11",
+        "A12",
+        "A04"
+      ],
+      "manual_prompt": "按此偏好完成场景，记录实际看到的事实、第一次犹豫及需要回看的内容；若没有证据，保留未验证。",
+      "result_status": "not_run"
+    },
+    {
+      "id": "persona_077",
+      "segment": "novice",
+      "synthetic": true,
+      "label": "担心不可逆选择 · 交错调查并回看",
+      "play_preference": "担心不可逆选择",
+      "behavioral_variant": "交错调查并回看",
+      "priority_criteria": [
+        {
+          "id": "C07",
+          "rank": 1
+        },
+        {
+          "id": "C12",
+          "rank": 2
+        },
+        {
+          "id": "C11",
+          "rank": 3
+        }
+      ],
+      "source_ids": [
+        "FAE_REV",
+        "MUT_CRAFT",
+        "OD_DEV",
+        "PP_STRUCTURE"
+      ],
+      "likely_positive_hypothesis": "交接前知道实际动作与保留的材料",
+      "likely_criticism_hypothesis": "按钮像结局标签，难以理解自己将做什么",
+      "scenario": {
+        "case02": "delegate",
+        "case03": "open",
+        "case04": "deliver",
+        "case05": "file",
+        "detours": 3,
+        "wrong_delivery": true,
+        "wrong_identity": false,
+        "save_resume": true,
+        "damage_recovery": false
+      },
+      "assertion_ids": [
+        "A01",
+        "A06",
+        "A07",
+        "A09",
+        "A10",
+        "A02",
+        "A05",
+        "A11",
+        "A12",
+        "A22"
+      ],
+      "manual_prompt": "按此偏好完成场景，记录实际看到的事实、第一次犹豫及需要回看的内容；若没有证据，保留未验证。",
+      "result_status": "not_run"
+    },
+    {
+      "id": "persona_078",
+      "segment": "novice",
+      "synthetic": true,
+      "label": "短时分段游玩 · 交错调查并回看",
+      "play_preference": "短时分段游玩",
+      "behavioral_variant": "交错调查并回看",
+      "priority_criteria": [
+        {
+          "id": "C11",
+          "rank": 1
+        },
+        {
+          "id": "C05",
+          "rank": 2
+        },
+        {
+          "id": "C09",
+          "rank": 3
+        }
+      ],
+      "source_ids": [
+        "FAE_REV",
+        "PP_MOBILE",
+        "SH_REV"
+      ],
+      "likely_positive_hypothesis": "继续游戏后证据与进行中的操作都在",
+      "likely_criticism_hypothesis": "保存后不知道此前刚做了哪一步",
+      "scenario": {
+        "case02": "delay",
+        "case03": "open",
+        "case04": "deliver",
+        "case05": "file",
+        "detours": 8,
+        "wrong_delivery": true,
+        "wrong_identity": true,
+        "save_resume": true,
+        "damage_recovery": false
+      },
+      "assertion_ids": [
+        "A01",
+        "A06",
+        "A07",
+        "A09",
+        "A10",
+        "A03",
+        "A05",
+        "A11",
+        "A12"
+      ],
+      "manual_prompt": "按此偏好完成场景，记录实际看到的事实、第一次犹豫及需要回看的内容；若没有证据，保留未验证。",
+      "result_status": "not_run"
+    },
+    {
+      "id": "persona_079",
+      "segment": "novice",
+      "synthetic": true,
+      "label": "只用鼠标探索 · 交错调查并回看",
+      "play_preference": "只用鼠标探索",
+      "behavioral_variant": "交错调查并回看",
+      "priority_criteria": [
+        {
+          "id": "C13",
+          "rank": 1
+        },
+        {
+          "id": "C10",
+          "rank": 2
+        },
+        {
+          "id": "C09",
+          "rank": 3
+        }
+      ],
+      "source_ids": [
+        "UNPACK_OFFICIAL",
+        "HER_STORE",
+        "FAE_REV",
+        "HER_REV",
+        "SH_REV",
+        "PP_MOBILE"
+      ],
+      "likely_positive_hypothesis": "必要动作不藏在快捷键或声音里",
+      "likely_criticism_hypothesis": "关键操作要求持续准确轨迹却没有容错说明",
+      "scenario": {
+        "case02": "deliver",
+        "case03": "no_open",
+        "case04": "hold",
+        "case05": "file",
+        "detours": 4,
+        "wrong_delivery": false,
+        "wrong_identity": false,
+        "save_resume": true,
+        "damage_recovery": false
+      },
+      "assertion_ids": [
+        "A01",
+        "A06",
+        "A07",
+        "A09",
+        "A10",
+        "A03",
+        "A04",
+        "A11",
+        "A23"
+      ],
+      "manual_prompt": "按此偏好完成场景，记录实际看到的事实、第一次犹豫及需要回看的内容；若没有证据，保留未验证。",
+      "result_status": "not_run"
+    },
+    {
+      "id": "persona_080",
+      "segment": "novice",
+      "synthetic": true,
+      "label": "第一次读多分支故事 · 交错调查并回看",
+      "play_preference": "第一次读多分支故事",
+      "behavioral_variant": "交错调查并回看",
+      "priority_criteria": [
+        {
+          "id": "C08",
+          "rank": 1
+        },
+        {
+          "id": "C15",
+          "rank": 2
+        },
+        {
+          "id": "C07",
+          "rank": 3
+        }
+      ],
+      "source_ids": [
+        "MUT_CRAFT",
+        "UNPACK_OFFICIAL",
+        "FAE_REV"
+      ],
+      "likely_positive_hypothesis": "普通信与复杂旧信有明显轻重节奏",
+      "likely_criticism_hypothesis": "把没有最佳道德答案误认为自己一直失败",
+      "scenario": {
+        "case02": "delegate",
+        "case03": "no_open",
+        "case04": "hold",
+        "case05": "file",
+        "detours": 0,
+        "wrong_delivery": true,
+        "wrong_identity": false,
+        "save_resume": true,
+        "damage_recovery": false
+      },
+      "assertion_ids": [
+        "A01",
+        "A06",
+        "A07",
+        "A09",
+        "A10",
+        "A02",
+        "A04",
+        "A11",
+        "A12",
+        "A18"
+      ],
+      "manual_prompt": "按此偏好完成场景，记录实际看到的事实、第一次犹豫及需要回看的内容；若没有证据，保留未验证。",
+      "result_status": "not_run"
+    },
+    {
+      "id": "persona_081",
+      "segment": "other_genre",
+      "synthetic": true,
+      "label": "叙事冒险玩家 · 先调查再交接",
+      "play_preference": "叙事冒险玩家",
+      "behavioral_variant": "先调查再交接",
+      "priority_criteria": [
+        {
+          "id": "C08",
+          "rank": 1
+        },
+        {
+          "id": "C15",
+          "rank": 2
+        },
+        {
+          "id": "C07",
+          "rank": 3
+        }
+      ],
+      "source_ids": [
+        "MUT_CRAFT",
+        "UNPACK_OFFICIAL",
+        "FAE_REV"
+      ],
+      "likely_positive_hypothesis": "角色记得已经发生的具体事",
+      "likely_criticism_hypothesis": "所有NPC只提供线索，见面没有关系上下文",
+      "scenario": {
+        "case02": "delay",
+        "case03": "no_open",
+        "case04": "hold",
+        "case05": "file",
+        "detours": 4,
+        "wrong_delivery": false,
+        "wrong_identity": false,
+        "save_resume": true,
+        "damage_recovery": true
+      },
+      "assertion_ids": [
+        "A01",
+        "A06",
+        "A07",
+        "A09",
+        "A10",
+        "A03",
+        "A04",
+        "A11",
+        "A12",
+        "A19"
+      ],
+      "manual_prompt": "按此偏好完成场景，记录实际看到的事实、第一次犹豫及需要回看的内容；若没有证据，保留未验证。",
+      "result_status": "not_run"
+    },
+    {
+      "id": "persona_082",
+      "segment": "other_genre",
+      "synthetic": true,
+      "label": "生活模拟玩家 · 先调查再交接",
+      "play_preference": "生活模拟玩家",
+      "behavioral_variant": "先调查再交接",
+      "priority_criteria": [
+        {
+          "id": "C04",
+          "rank": 1
+        },
+        {
+          "id": "C08",
+          "rank": 2
+        },
+        {
+          "id": "C16",
+          "rank": 3
+        }
+      ],
+      "source_ids": [
+        "HER_REV",
+        "HER_STORE",
+        "UNPACK_OFFICIAL",
+        "MUT_CRAFT",
+        "PP_STRUCTURE"
+      ],
+      "likely_positive_hypothesis": "职业动作与日常人情自然连接",
+      "likely_criticism_hypothesis": "重复盖章修复只成劳动清单，没有新意义",
+      "scenario": {
+        "case02": "deliver",
+        "case03": "open",
+        "case04": "hold",
+        "case05": "file",
+        "detours": 1,
+        "wrong_delivery": false,
+        "wrong_identity": false,
+        "save_resume": false,
+        "damage_recovery": false
+      },
+      "assertion_ids": [
+        "A01",
+        "A06",
+        "A07",
+        "A09",
+        "A10",
+        "A03",
+        "A05",
+        "A24"
+      ],
+      "manual_prompt": "按此偏好完成场景，记录实际看到的事实、第一次犹豫及需要回看的内容；若没有证据，保留未验证。",
+      "result_status": "not_run"
+    },
+    {
+      "id": "persona_083",
+      "segment": "other_genre",
+      "synthetic": true,
+      "label": "策略规划玩家 · 先调查再交接",
+      "play_preference": "策略规划玩家",
+      "behavioral_variant": "先调查再交接",
+      "priority_criteria": [
+        {
+          "id": "C06",
+          "rank": 1
+        },
+        {
+          "id": "C03",
+          "rank": 2
+        },
+        {
+          "id": "C12",
+          "rank": 3
+        }
+      ],
+      "source_ids": [
+        "PP_STRUCTURE",
+        "HER_REV",
+        "FAE_REV",
+        "OD_DEV"
+      ],
+      "likely_positive_hypothesis": "路线和工具有可预测成本",
+      "likely_criticism_hypothesis": "策略选项没有真正机会成本，最稳路线永远最优",
+      "scenario": {
+        "case02": "delegate",
+        "case03": "open",
+        "case04": "hold",
+        "case05": "file",
+        "detours": 5,
+        "wrong_delivery": false,
+        "wrong_identity": false,
+        "save_resume": false,
+        "damage_recovery": false
+      },
+      "assertion_ids": [
+        "A01",
+        "A06",
+        "A07",
+        "A09",
+        "A10",
+        "A02",
+        "A05",
+        "A21"
+      ],
+      "manual_prompt": "按此偏好完成场景，记录实际看到的事实、第一次犹豫及需要回看的内容；若没有证据，保留未验证。",
+      "result_status": "not_run"
+    },
+    {
+      "id": "persona_084",
+      "segment": "other_genre",
+      "synthetic": true,
+      "label": "动作游戏玩家 · 先调查再交接",
+      "play_preference": "动作游戏玩家",
+      "behavioral_variant": "先调查再交接",
+      "priority_criteria": [
+        {
+          "id": "C10",
+          "rank": 1
+        },
+        {
+          "id": "C13",
+          "rank": 2
+        },
+        {
+          "id": "C12",
+          "rank": 3
+        }
+      ],
+      "source_ids": [
+        "FAE_REV",
+        "HER_REV",
+        "UNPACK_OFFICIAL",
+        "HER_STORE",
+        "OD_DEV",
+        "PP_STRUCTURE"
+      ],
+      "likely_positive_hypothesis": "物件操作即时响应且错误可解释",
+      "likely_criticism_hypothesis": "输入区不一致、拖放失效被误认为操作难度",
+      "scenario": {
+        "case02": "delay",
+        "case03": "open",
+        "case04": "hold",
+        "case05": "file",
+        "detours": 1,
+        "wrong_delivery": false,
+        "wrong_identity": false,
+        "save_resume": false,
+        "damage_recovery": false
+      },
+      "assertion_ids": [
+        "A01",
+        "A06",
+        "A07",
+        "A09",
+        "A10",
+        "A03",
+        "A05",
+        "A23"
+      ],
+      "manual_prompt": "按此偏好完成场景，记录实际看到的事实、第一次犹豫及需要回看的内容；若没有证据，保留未验证。",
+      "result_status": "not_run"
+    },
+    {
+      "id": "persona_085",
+      "segment": "other_genre",
+      "synthetic": true,
+      "label": "休闲拼图玩家 · 先调查再交接",
+      "play_preference": "休闲拼图玩家",
+      "behavioral_variant": "先调查再交接",
+      "priority_criteria": [
+        {
+          "id": "C04",
+          "rank": 1
+        },
+        {
+          "id": "C10",
+          "rank": 2
+        },
+        {
+          "id": "C14",
+          "rank": 3
+        }
+      ],
+      "source_ids": [
+        "HER_REV",
+        "HER_STORE",
+        "UNPACK_OFFICIAL",
+        "FAE_REV",
+        "PP_MOBILE"
+      ],
+      "likely_positive_hypothesis": "形状与字迹一起带来恢复信息的满足",
+      "likely_criticism_hypothesis": "拼片只需对浅色槽，故事事实早已给完",
+      "scenario": {
+        "case02": "deliver",
+        "case03": "no_open",
+        "case04": "return_to_sender",
+        "case05": "file",
+        "detours": 6,
+        "wrong_delivery": true,
+        "wrong_identity": false,
+        "save_resume": true,
+        "damage_recovery": false
+      },
+      "assertion_ids": [
+        "A01",
+        "A06",
+        "A07",
+        "A09",
+        "A10",
+        "A03",
+        "A04",
+        "A11",
+        "A12",
+        "A16"
+      ],
+      "manual_prompt": "按此偏好完成场景，记录实际看到的事实、第一次犹豫及需要回看的内容；若没有证据，保留未验证。",
+      "result_status": "not_run"
+    },
+    {
+      "id": "persona_086",
+      "segment": "other_genre",
+      "synthetic": true,
+      "label": "阅读文学玩家 · 先调查再交接",
+      "play_preference": "阅读文学玩家",
+      "behavioral_variant": "先调查再交接",
+      "priority_criteria": [
+        {
+          "id": "C08",
+          "rank": 1
+        },
+        {
+          "id": "C09",
+          "rank": 2
+        },
+        {
+          "id": "C15",
+          "rank": 3
+        }
+      ],
+      "source_ids": [
+        "MUT_CRAFT",
+        "UNPACK_OFFICIAL",
+        "SH_REV",
+        "PP_MOBILE",
+        "FAE_REV"
+      ],
+      "likely_positive_hypothesis": "人物动机矛盾却留有普通生活的口气",
+      "likely_criticism_hypothesis": "所有声音像同一作者的长篇总结",
+      "scenario": {
+        "case02": "delegate",
+        "case03": "no_open",
+        "case04": "return_to_sender",
+        "case05": "file",
+        "detours": 2,
+        "wrong_delivery": false,
+        "wrong_identity": false,
+        "save_resume": false,
+        "damage_recovery": true
+      },
+      "assertion_ids": [
+        "A01",
+        "A06",
+        "A07",
+        "A09",
+        "A10",
+        "A02",
+        "A04",
+        "A12",
+        "A18"
+      ],
+      "manual_prompt": "按此偏好完成场景，记录实际看到的事实、第一次犹豫及需要回看的内容；若没有证据，保留未验证。",
+      "result_status": "not_run"
+    },
+    {
+      "id": "persona_087",
+      "segment": "other_genre",
+      "synthetic": true,
+      "label": "视觉设计玩家 · 先调查再交接",
+      "play_preference": "视觉设计玩家",
+      "behavioral_variant": "先调查再交接",
+      "priority_criteria": [
+        {
+          "id": "C14",
+          "rank": 1
+        },
+        {
+          "id": "C09",
+          "rank": 2
+        },
+        {
+          "id": "C10",
+          "rank": 3
+        }
+      ],
+      "source_ids": [
+        "HER_STORE",
+        "PP_MOBILE",
+        "SH_REV",
+        "FAE_REV",
+        "HER_REV"
+      ],
+      "likely_positive_hypothesis": "原图与新增人物构成清楚、协调的平面舞台",
+      "likely_criticism_hypothesis": "饱和度和线条语言分裂，菜单比人物更显眼",
+      "scenario": {
+        "case02": "delay",
+        "case03": "no_open",
+        "case04": "return_to_sender",
+        "case05": "file",
+        "detours": 7,
+        "wrong_delivery": false,
+        "wrong_identity": false,
+        "save_resume": false,
+        "damage_recovery": false
+      },
+      "assertion_ids": [
+        "A01",
+        "A06",
+        "A07",
+        "A09",
+        "A10",
+        "A03",
+        "A04",
+        "A20"
+      ],
+      "manual_prompt": "按此偏好完成场景，记录实际看到的事实、第一次犹豫及需要回看的内容；若没有证据，保留未验证。",
+      "result_status": "not_run"
+    },
+    {
+      "id": "persona_088",
+      "segment": "other_genre",
+      "synthetic": true,
+      "label": "合作讨论玩家 · 先调查再交接",
+      "play_preference": "合作讨论玩家",
+      "behavioral_variant": "先调查再交接",
+      "priority_criteria": [
+        {
+          "id": "C05",
+          "rank": 1
+        },
+        {
+          "id": "C01",
+          "rank": 2
+        },
+        {
+          "id": "C07",
+          "rank": 3
+        }
+      ],
+      "source_ids": [
+        "PP_MOBILE",
+        "SH_REV",
+        "OD_DEV",
+        "FAE_REV",
+        "MUT_CRAFT"
+      ],
+      "likely_positive_hypothesis": "两人能一起看物证并讨论事实与选择",
+      "likely_criticism_hypothesis": "只能轮流记住关闭的卡片，讨论靠背诵",
+      "scenario": {
+        "case02": "deliver",
+        "case03": "open",
+        "case04": "return_to_sender",
+        "case05": "file",
+        "detours": 3,
+        "wrong_delivery": false,
+        "wrong_identity": false,
+        "save_resume": false,
+        "damage_recovery": false
+      },
+      "assertion_ids": [
+        "A01",
+        "A06",
+        "A07",
+        "A09",
+        "A10",
+        "A03",
+        "A05",
+        "A17"
+      ],
+      "manual_prompt": "按此偏好完成场景，记录实际看到的事实、第一次犹豫及需要回看的内容；若没有证据，保留未验证。",
+      "result_status": "not_run"
+    },
+    {
+      "id": "persona_089",
+      "segment": "other_genre",
+      "synthetic": true,
+      "label": "收集探索玩家 · 先调查再交接",
+      "play_preference": "收集探索玩家",
+      "behavioral_variant": "先调查再交接",
+      "priority_criteria": [
+        {
+          "id": "C16",
+          "rank": 1
+        },
+        {
+          "id": "C02",
+          "rank": 2
+        },
+        {
+          "id": "C08",
+          "rank": 3
+        }
+      ],
+      "source_ids": [
+        "PP_STRUCTURE",
+        "HER_REV",
+        "MUT_CRAFT",
+        "OD_DEV",
+        "UNPACK_OFFICIAL"
+      ],
+      "likely_positive_hypothesis": "多走一处得到具体的人与地点联系",
+      "likely_criticism_hypothesis": "所有支路只有泛泛介绍或重复同一条线索",
+      "scenario": {
+        "case02": "delegate",
+        "case03": "open",
+        "case04": "return_to_sender",
+        "case05": "file",
+        "detours": 8,
+        "wrong_delivery": false,
+        "wrong_identity": true,
+        "save_resume": true,
+        "damage_recovery": false
+      },
+      "assertion_ids": [
+        "A01",
+        "A06",
+        "A07",
+        "A09",
+        "A10",
+        "A02",
+        "A05",
+        "A11",
+        "A12",
+        "A24"
+      ],
+      "manual_prompt": "按此偏好完成场景，记录实际看到的事实、第一次犹豫及需要回看的内容；若没有证据，保留未验证。",
+      "result_status": "not_run"
+    },
+    {
+      "id": "persona_090",
+      "segment": "other_genre",
+      "synthetic": true,
+      "label": "系统边界玩家 · 先调查再交接",
+      "play_preference": "系统边界玩家",
+      "behavioral_variant": "先调查再交接",
+      "priority_criteria": [
+        {
+          "id": "C11",
+          "rank": 1
+        },
+        {
+          "id": "C12",
+          "rank": 2
+        },
+        {
+          "id": "C03",
+          "rank": 3
+        }
+      ],
+      "source_ids": [
+        "FAE_REV",
+        "OD_DEV",
+        "PP_STRUCTURE"
+      ],
+      "likely_positive_hypothesis": "错误和重载不破坏世界状态",
+      "likely_criticism_hypothesis": "重复领取、重玩工具或旧交接状态可被覆盖",
+      "scenario": {
+        "case02": "delay",
+        "case03": "open",
+        "case04": "return_to_sender",
+        "case05": "file",
+        "detours": 5,
+        "wrong_delivery": false,
+        "wrong_identity": false,
+        "save_resume": false,
+        "damage_recovery": false
+      },
+      "assertion_ids": [
+        "A01",
+        "A06",
+        "A07",
+        "A09",
+        "A10",
+        "A03",
+        "A05",
+        "A11"
+      ],
+      "manual_prompt": "按此偏好完成场景，记录实际看到的事实、第一次犹豫及需要回看的内容；若没有证据，保留未验证。",
+      "result_status": "not_run"
+    },
+    {
+      "id": "persona_091",
+      "segment": "other_genre",
+      "synthetic": true,
+      "label": "叙事冒险玩家 · 交错调查并回看",
+      "play_preference": "叙事冒险玩家",
+      "behavioral_variant": "交错调查并回看",
+      "priority_criteria": [
+        {
+          "id": "C08",
+          "rank": 1
+        },
+        {
+          "id": "C15",
+          "rank": 2
+        },
+        {
+          "id": "C07",
+          "rank": 3
+        }
+      ],
+      "source_ids": [
+        "MUT_CRAFT",
+        "UNPACK_OFFICIAL",
+        "FAE_REV"
+      ],
+      "likely_positive_hypothesis": "角色记得已经发生的具体事",
+      "likely_criticism_hypothesis": "所有NPC只提供线索，见面没有关系上下文",
+      "scenario": {
+        "case02": "deliver",
+        "case03": "no_open",
+        "case04": "remove_attachment",
+        "case05": "file",
+        "detours": 1,
+        "wrong_delivery": false,
+        "wrong_identity": false,
+        "save_resume": false,
+        "damage_recovery": true
+      },
+      "assertion_ids": [
+        "A01",
+        "A06",
+        "A07",
+        "A09",
+        "A10",
+        "A03",
+        "A04",
+        "A08",
+        "A12",
+        "A19"
+      ],
+      "manual_prompt": "按此偏好完成场景，记录实际看到的事实、第一次犹豫及需要回看的内容；若没有证据，保留未验证。",
+      "result_status": "not_run"
+    },
+    {
+      "id": "persona_092",
+      "segment": "other_genre",
+      "synthetic": true,
+      "label": "生活模拟玩家 · 交错调查并回看",
+      "play_preference": "生活模拟玩家",
+      "behavioral_variant": "交错调查并回看",
+      "priority_criteria": [
+        {
+          "id": "C04",
+          "rank": 1
+        },
+        {
+          "id": "C08",
+          "rank": 2
+        },
+        {
+          "id": "C16",
+          "rank": 3
+        }
+      ],
+      "source_ids": [
+        "HER_REV",
+        "HER_STORE",
+        "UNPACK_OFFICIAL",
+        "MUT_CRAFT",
+        "PP_STRUCTURE"
+      ],
+      "likely_positive_hypothesis": "职业动作与日常人情自然连接",
+      "likely_criticism_hypothesis": "重复盖章修复只成劳动清单，没有新意义",
+      "scenario": {
+        "case02": "delegate",
+        "case03": "no_open",
+        "case04": "remove_attachment",
+        "case05": "file",
+        "detours": 6,
+        "wrong_delivery": true,
+        "wrong_identity": false,
+        "save_resume": false,
+        "damage_recovery": false
+      },
+      "assertion_ids": [
+        "A01",
+        "A06",
+        "A07",
+        "A09",
+        "A10",
+        "A02",
+        "A04",
+        "A08",
+        "A12",
+        "A24"
+      ],
+      "manual_prompt": "按此偏好完成场景，记录实际看到的事实、第一次犹豫及需要回看的内容；若没有证据，保留未验证。",
+      "result_status": "not_run"
+    },
+    {
+      "id": "persona_093",
+      "segment": "other_genre",
+      "synthetic": true,
+      "label": "策略规划玩家 · 交错调查并回看",
+      "play_preference": "策略规划玩家",
+      "behavioral_variant": "交错调查并回看",
+      "priority_criteria": [
+        {
+          "id": "C06",
+          "rank": 1
+        },
+        {
+          "id": "C03",
+          "rank": 2
+        },
+        {
+          "id": "C12",
+          "rank": 3
+        }
+      ],
+      "source_ids": [
+        "PP_STRUCTURE",
+        "HER_REV",
+        "FAE_REV",
+        "OD_DEV"
+      ],
+      "likely_positive_hypothesis": "路线和工具有可预测成本",
+      "likely_criticism_hypothesis": "策略选项没有真正机会成本，最稳路线永远最优",
+      "scenario": {
+        "case02": "delay",
+        "case03": "no_open",
+        "case04": "remove_attachment",
+        "case05": "file",
+        "detours": 2,
+        "wrong_delivery": false,
+        "wrong_identity": false,
+        "save_resume": true,
+        "damage_recovery": false
+      },
+      "assertion_ids": [
+        "A01",
+        "A06",
+        "A07",
+        "A09",
+        "A10",
+        "A03",
+        "A04",
+        "A08",
+        "A11",
+        "A21"
+      ],
+      "manual_prompt": "按此偏好完成场景，记录实际看到的事实、第一次犹豫及需要回看的内容；若没有证据，保留未验证。",
+      "result_status": "not_run"
+    },
+    {
+      "id": "persona_094",
+      "segment": "other_genre",
+      "synthetic": true,
+      "label": "动作游戏玩家 · 交错调查并回看",
+      "play_preference": "动作游戏玩家",
+      "behavioral_variant": "交错调查并回看",
+      "priority_criteria": [
+        {
+          "id": "C10",
+          "rank": 1
+        },
+        {
+          "id": "C13",
+          "rank": 2
+        },
+        {
+          "id": "C12",
+          "rank": 3
+        }
+      ],
+      "source_ids": [
+        "FAE_REV",
+        "HER_REV",
+        "UNPACK_OFFICIAL",
+        "HER_STORE",
+        "OD_DEV",
+        "PP_STRUCTURE"
+      ],
+      "likely_positive_hypothesis": "物件操作即时响应且错误可解释",
+      "likely_criticism_hypothesis": "输入区不一致、拖放失效被误认为操作难度",
+      "scenario": {
+        "case02": "deliver",
+        "case03": "open",
+        "case04": "remove_attachment",
+        "case05": "file",
+        "detours": 7,
+        "wrong_delivery": false,
+        "wrong_identity": false,
+        "save_resume": false,
+        "damage_recovery": false
+      },
+      "assertion_ids": [
+        "A01",
+        "A06",
+        "A07",
+        "A09",
+        "A10",
+        "A03",
+        "A05",
+        "A08",
+        "A23"
+      ],
+      "manual_prompt": "按此偏好完成场景，记录实际看到的事实、第一次犹豫及需要回看的内容；若没有证据，保留未验证。",
+      "result_status": "not_run"
+    },
+    {
+      "id": "persona_095",
+      "segment": "other_genre",
+      "synthetic": true,
+      "label": "休闲拼图玩家 · 交错调查并回看",
+      "play_preference": "休闲拼图玩家",
+      "behavioral_variant": "交错调查并回看",
+      "priority_criteria": [
+        {
+          "id": "C04",
+          "rank": 1
+        },
+        {
+          "id": "C10",
+          "rank": 2
+        },
+        {
+          "id": "C14",
+          "rank": 3
+        }
+      ],
+      "source_ids": [
+        "HER_REV",
+        "HER_STORE",
+        "UNPACK_OFFICIAL",
+        "FAE_REV",
+        "PP_MOBILE"
+      ],
+      "likely_positive_hypothesis": "形状与字迹一起带来恢复信息的满足",
+      "likely_criticism_hypothesis": "拼片只需对浅色槽，故事事实早已给完",
+      "scenario": {
+        "case02": "delegate",
+        "case03": "open",
+        "case04": "remove_attachment",
+        "case05": "file",
+        "detours": 3,
+        "wrong_delivery": false,
+        "wrong_identity": false,
+        "save_resume": false,
+        "damage_recovery": false
+      },
+      "assertion_ids": [
+        "A01",
+        "A06",
+        "A07",
+        "A09",
+        "A10",
+        "A02",
+        "A05",
+        "A08",
+        "A16"
+      ],
+      "manual_prompt": "按此偏好完成场景，记录实际看到的事实、第一次犹豫及需要回看的内容；若没有证据，保留未验证。",
+      "result_status": "not_run"
+    },
+    {
+      "id": "persona_096",
+      "segment": "other_genre",
+      "synthetic": true,
+      "label": "阅读文学玩家 · 交错调查并回看",
+      "play_preference": "阅读文学玩家",
+      "behavioral_variant": "交错调查并回看",
+      "priority_criteria": [
+        {
+          "id": "C08",
+          "rank": 1
+        },
+        {
+          "id": "C09",
+          "rank": 2
+        },
+        {
+          "id": "C15",
+          "rank": 3
+        }
+      ],
+      "source_ids": [
+        "MUT_CRAFT",
+        "UNPACK_OFFICIAL",
+        "SH_REV",
+        "PP_MOBILE",
+        "FAE_REV"
+      ],
+      "likely_positive_hypothesis": "人物动机矛盾却留有普通生活的口气",
+      "likely_criticism_hypothesis": "所有声音像同一作者的长篇总结",
+      "scenario": {
+        "case02": "delay",
+        "case03": "open",
+        "case04": "remove_attachment",
+        "case05": "file",
+        "detours": 8,
+        "wrong_delivery": false,
+        "wrong_identity": false,
+        "save_resume": false,
+        "damage_recovery": true
+      },
+      "assertion_ids": [
+        "A01",
+        "A06",
+        "A07",
+        "A09",
+        "A10",
+        "A03",
+        "A05",
+        "A08",
+        "A12",
+        "A18"
+      ],
+      "manual_prompt": "按此偏好完成场景，记录实际看到的事实、第一次犹豫及需要回看的内容；若没有证据，保留未验证。",
+      "result_status": "not_run"
+    },
+    {
+      "id": "persona_097",
+      "segment": "other_genre",
+      "synthetic": true,
+      "label": "视觉设计玩家 · 交错调查并回看",
+      "play_preference": "视觉设计玩家",
+      "behavioral_variant": "交错调查并回看",
+      "priority_criteria": [
+        {
+          "id": "C14",
+          "rank": 1
+        },
+        {
+          "id": "C09",
+          "rank": 2
+        },
+        {
+          "id": "C10",
+          "rank": 3
+        }
+      ],
+      "source_ids": [
+        "HER_STORE",
+        "PP_MOBILE",
+        "SH_REV",
+        "FAE_REV",
+        "HER_REV"
+      ],
+      "likely_positive_hypothesis": "原图与新增人物构成清楚、协调的平面舞台",
+      "likely_criticism_hypothesis": "饱和度和线条语言分裂，菜单比人物更显眼",
+      "scenario": {
+        "case02": "deliver",
+        "case03": "no_open",
+        "case04": "deliver",
+        "case05": "keep",
+        "detours": 5,
+        "wrong_delivery": false,
+        "wrong_identity": false,
+        "save_resume": true,
+        "damage_recovery": false
+      },
+      "assertion_ids": [
+        "A01",
+        "A06",
+        "A07",
+        "A09",
+        "A10",
+        "A03",
+        "A04",
+        "A11",
+        "A20"
+      ],
+      "manual_prompt": "按此偏好完成场景，记录实际看到的事实、第一次犹豫及需要回看的内容；若没有证据，保留未验证。",
+      "result_status": "not_run"
+    },
+    {
+      "id": "persona_098",
+      "segment": "other_genre",
+      "synthetic": true,
+      "label": "合作讨论玩家 · 交错调查并回看",
+      "play_preference": "合作讨论玩家",
+      "behavioral_variant": "交错调查并回看",
+      "priority_criteria": [
+        {
+          "id": "C05",
+          "rank": 1
+        },
+        {
+          "id": "C01",
+          "rank": 2
+        },
+        {
+          "id": "C07",
+          "rank": 3
+        }
+      ],
+      "source_ids": [
+        "PP_MOBILE",
+        "SH_REV",
+        "OD_DEV",
+        "FAE_REV",
+        "MUT_CRAFT"
+      ],
+      "likely_positive_hypothesis": "两人能一起看物证并讨论事实与选择",
+      "likely_criticism_hypothesis": "只能轮流记住关闭的卡片，讨论靠背诵",
+      "scenario": {
+        "case02": "delegate",
+        "case03": "no_open",
+        "case04": "deliver",
+        "case05": "keep",
+        "detours": 0,
+        "wrong_delivery": false,
+        "wrong_identity": false,
+        "save_resume": false,
+        "damage_recovery": false
+      },
+      "assertion_ids": [
+        "A01",
+        "A06",
+        "A07",
+        "A09",
+        "A10",
+        "A02",
+        "A04",
+        "A17"
+      ],
+      "manual_prompt": "按此偏好完成场景，记录实际看到的事实、第一次犹豫及需要回看的内容；若没有证据，保留未验证。",
+      "result_status": "not_run"
+    },
+    {
+      "id": "persona_099",
+      "segment": "other_genre",
+      "synthetic": true,
+      "label": "收集探索玩家 · 交错调查并回看",
+      "play_preference": "收集探索玩家",
+      "behavioral_variant": "交错调查并回看",
+      "priority_criteria": [
+        {
+          "id": "C16",
+          "rank": 1
+        },
+        {
+          "id": "C02",
+          "rank": 2
+        },
+        {
+          "id": "C08",
+          "rank": 3
+        }
+      ],
+      "source_ids": [
+        "PP_STRUCTURE",
+        "HER_REV",
+        "MUT_CRAFT",
+        "OD_DEV",
+        "UNPACK_OFFICIAL"
+      ],
+      "likely_positive_hypothesis": "多走一处得到具体的人与地点联系",
+      "likely_criticism_hypothesis": "所有支路只有泛泛介绍或重复同一条线索",
+      "scenario": {
+        "case02": "delay",
+        "case03": "no_open",
+        "case04": "deliver",
+        "case05": "keep",
+        "detours": 5,
+        "wrong_delivery": true,
+        "wrong_identity": false,
+        "save_resume": false,
+        "damage_recovery": false
+      },
+      "assertion_ids": [
+        "A01",
+        "A06",
+        "A07",
+        "A09",
+        "A10",
+        "A03",
+        "A04",
+        "A12",
+        "A24"
+      ],
+      "manual_prompt": "按此偏好完成场景，记录实际看到的事实、第一次犹豫及需要回看的内容；若没有证据，保留未验证。",
+      "result_status": "not_run"
+    },
+    {
+      "id": "persona_100",
+      "segment": "other_genre",
+      "synthetic": true,
+      "label": "系统边界玩家 · 交错调查并回看",
+      "play_preference": "系统边界玩家",
+      "behavioral_variant": "交错调查并回看",
+      "priority_criteria": [
+        {
+          "id": "C11",
+          "rank": 1
+        },
+        {
+          "id": "C12",
+          "rank": 2
+        },
+        {
+          "id": "C03",
+          "rank": 3
+        }
+      ],
+      "source_ids": [
+        "FAE_REV",
+        "OD_DEV",
+        "PP_STRUCTURE"
+      ],
+      "likely_positive_hypothesis": "错误和重载不破坏世界状态",
+      "likely_criticism_hypothesis": "重复领取、重玩工具或旧交接状态可被覆盖",
+      "scenario": {
+        "case02": "deliver",
+        "case03": "open",
+        "case04": "deliver",
+        "case05": "keep",
+        "detours": 1,
+        "wrong_delivery": false,
+        "wrong_identity": true,
+        "save_resume": false,
+        "damage_recovery": false
+      },
+      "assertion_ids": [
+        "A01",
+        "A06",
+        "A07",
+        "A09",
+        "A10",
+        "A03",
+        "A05",
+        "A12",
+        "A11"
+      ],
+      "manual_prompt": "按此偏好完成场景，记录实际看到的事实、第一次犹豫及需要回看的内容；若没有证据，保留未验证。",
+      "result_status": "not_run"
+    }
+  ]
+}

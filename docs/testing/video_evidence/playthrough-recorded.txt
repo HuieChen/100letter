@@ -1,0 +1,34 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+OpenGL API 3.3.0 NVIDIA 566.24 - Compatibility - Using Device: NVIDIA - NVIDIA GeForce RTX 4050 Laptop GPU
+
+Movie Maker mode enabled, recording movie in 1280×720 @ 24 FPS...
+PLAYTHROUGH title @ 0.0s
+PLAYTHROUGH post_office_entrance @ 8.0s
+PLAYTHROUGH returned_delivery @ 25.2s
+PLAYTHROUGH case01_evidence @ 44.2s
+PLAYTHROUGH case02_consent @ 120.5s
+PLAYTHROUGH town_chess @ 179.7s
+PLAYTHROUGH town_guestbook @ 199.4s
+PLAYTHROUGH residential_records @ 218.9s
+PLAYTHROUGH six_fragments @ 272.8s
+PLAYTHROUGH damage_warning @ 305.0s
+PLAYTHROUGH checkpoint @ 336.7s
+PLAYTHROUGH safe_opening @ 349.3s
+PLAYTHROUGH repair @ 383.0s
+PLAYTHROUGH route_seventeen @ 410.1s
+PLAYTHROUGH nora @ 419.5s
+PLAYTHROUGH independent_inference @ 495.6s
+PLAYTHROUGH old_letter @ 524.5s
+PLAYTHROUGH photo_choice @ 570.0s
+PLAYTHROUGH last_envelope @ 611.0s
+PLAYTHROUGH archive @ 664.5s
+PLAYTHROUGH evening @ 691.1s
+PLAYTHROUGH complete @ 730.8s
+PLAYTHROUGH PASS: 730.8 simulated seconds, 138 UI milestones, QA save user://qa/video_save_5971037.json
+--------------------------------------------------------------------------------
+Done recording movie at path: C:/Users/22416/Documents/Codex/2026-10-01/github/work/100letter-playthrough-final.avi
+17551 frames at 24 FPS (movie length: 00:12:11:07), recorded in 00:13:46 (88% of real-time speed).
+CPU render time: 36.72 seconds (average: 2.09 ms/frame)
+GPU render time: 23.70 seconds (average: 1.35 ms/frame)
+Encoding time: 269.82 seconds (average: 15.37 ms/frame)
+--------------------------------------------------------------------------------

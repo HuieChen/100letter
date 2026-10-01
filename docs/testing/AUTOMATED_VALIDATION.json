@@ -1,0 +1,653 @@
+{
+  "format": "solmere-automated-validation-v1",
+  "scope": "Passing automated evidence with per-run provenance. Main integration covers physical evidence, scene handoffs, guidance and transport. The final painted-resource GPU route and verified normal-speed movie have separate script/asset hashes. Native review, exported executable identity and publication remain separate release evidence.",
+  "runtime": {
+    "version": "Godot Engine v4.7.2.stable.official.ed1daf0bf",
+    "platform": "Windows x86_64",
+    "mode": "Headless state/Main suites plus GPU component suites; see per-suite provenance.",
+    "command_template": "Godot --headless --path . --script res://tests/<suite>.gd",
+    "save_isolation": "State and main-scene suites use task-local APPDATA/LOCALAPPDATA and user://qa save paths; the player's normal save is not loaded or overwritten."
+  },
+  "summary": {
+    "suites": 15,
+    "passed_suites": 15,
+    "failed_suites": 0,
+    "summed_checks_and_assertions": 5908,
+    "complete_cohort_paths": 100,
+    "failed_cohort_paths": 0,
+    "count_note": "Counts include overlapping assertions across suites. The 100 paths are not an additional 100 people or 100 manual UI sessions."
+  },
+  "suites": [
+    {
+      "id": "core",
+      "script": "tests/core_smoke.gd",
+      "checks": 224,
+      "failures": 0,
+      "result": "pass",
+      "evidence_kind": "preserved_stdout_directly_inspected",
+      "observed_summary": "CORE SMOKE: 224 checks, 0 failures",
+      "workspace_log": "work/core-smoke.log",
+      "coverage": [
+        "authoritative state and atomic save backup recovery",
+        "delegation consent and on-site handoff gates",
+        "privacy routes and wrong-delivery retry",
+        "provisional deduction roles with evening factual correction",
+        "physical damage checkpoints surviving restart",
+        "attachment arrangement before resealing",
+        "day-phase milestones and actual late final delivery reaching the ending"
+      ],
+      "log_sha256": "01648f6e8ebb9b9d73876909bc355a3fab5b2a7c04bf7dd20efc4803c781cf81",
+      "log_last_write_utc": "2026-09-30T20:00:33.2924489Z",
+      "independently_counted_pass_lines": 224
+    },
+    {
+      "id": "ui_flow",
+      "script": "tests/ui_flow_smoke.gd",
+      "checks": 315,
+      "failures": 0,
+      "result": "pass",
+      "evidence_kind": "preserved_stdout_directly_inspected",
+      "observed_summary": "UI FLOW SMOKE: 315 checks, 0 failures",
+      "workspace_log": "work/ui-flow-smoke.log",
+      "coverage": [
+        "actual Main scene and all seven location views",
+        "all five letters front/back with last-line scrolling",
+        "six visual evidence types through actual drag/click inputs; premature recording cannot grant clues",
+        "explicit observation stamp returns directly to a controllable scene without charging reading time",
+        "dialogue preserves both world figures, hides HUD and suspends movement until dismissed",
+        "map preview/cancel is free; explicit bus/walk departure charges its displayed cost once",
+        "missing recipient prompts without wrong-delivery attempt or reputation loss",
+        "six-fragment pointer manipulation with saved progress",
+        "three-card deduction placement and provisional recording without early truth grading",
+        "eight actual off-path slips, warnings, saved failure screen and exact checkpoint restoration",
+        "archive wrong-row rejection and correct-row completion",
+        "both photo destinations and opened-return path through real arrangement/restoration callbacks",
+        "ordinary, photo and return handoffs preserve the actual receiver scene and handing gesture",
+        "branch-specific ending and Continue reconstruction"
+      ],
+      "log_sha256": "2ce843683c9d47b7a346c723857aeb1ce05ac8006e75ba0b60a92d588f7c1e25",
+      "log_last_write_utc": "2026-09-30T23:05:03.8963020Z",
+      "independently_counted_pass_lines": 315,
+      "report": "docs/testing/ui_flow_results.json",
+      "started_utc": "2026-09-30T23:04:45",
+      "sources_changed_during_run": []
+    },
+    {
+      "id": "cohort",
+      "script": "tests/cohort_smoke.gd",
+      "assertions": 4976,
+      "complete_paths": 100,
+      "failed_paths": 0,
+      "result": "pass",
+      "evidence_kind": "preserved_stdout_and_machine_report_directly_inspected",
+      "observed_summary": "COHORT SMOKE: 100 complete paths, 0 failed paths, 4976 assertions",
+      "workspace_log": "work/cohort-smoke.log",
+      "report": "docs/testing/cohort_results.json",
+      "baseline_report": "docs/testing/cohort_baseline.json",
+      "profiles": "docs/testing/SIMULATED_PERSONAS_100.json",
+      "seed": 20261001,
+      "elapsed_automation_seconds": 149.879,
+      "coverage": [
+        "60 puzzle-veteran, 20 novice and 20 other-genre synthetic scenarios",
+        "seeded first-four-case order and travel variation",
+        "20 damage recoveries",
+        "33 save/resume paths",
+        "21 wrong-delivery retry paths",
+        "10 wrong identities and seven wrong evidence mappings",
+        "all ordinary/special-letter actions and both case03 privacy routes"
+      ],
+      "interpretation": "All 67 actual urgent deliveries/delegations were on time; 33 deliberate delays were late. This shows that day-phase pacing does not force lateness on these routes, not that subjective deadline tension is established. A separate core test completes a genuinely late last urgent delivery after real detours.",
+      "log_sha256": "5b4a9ee41c035461f499cd178383b8b5c06d16eda558e2d7c685932fda943f05",
+      "log_last_write_utc": "2026-09-30T21:56:26.7132441Z",
+      "generated_utc": "2026-09-30T21:56:26",
+      "sources_changed_during_run": []
+    },
+    {
+      "id": "daylight",
+      "script": "tests/daylight_smoke.gd",
+      "checks": 34,
+      "failures": 0,
+      "result": "pass",
+      "evidence_kind": "preserved_stdout_directly_inspected",
+      "observed_summary": "DAYLIGHT SMOKE: 34 checks, 0 failures",
+      "workspace_log": "work/daylight-smoke.log",
+      "coverage": [
+        "smooth palette and new world tint progression",
+        "noon neutral colors, gradual sunset and readable evening world",
+        "visual tween without advancing the game clock",
+        "overlay opacity cap and non-opaque scene light shapes"
+      ],
+      "log_sha256": "734dacee51387763fd60c8c1b0b7373394be8d04bcba7e1111446673379d41ca",
+      "log_last_write_utc": "2026-09-30T22:02:41.7728036Z",
+      "independently_counted_pass_lines": 34
+    },
+    {
+      "id": "physical",
+      "script": "tests/physical_smoke.gd",
+      "checks": 40,
+      "failures": 0,
+      "result": "pass",
+      "evidence_kind": "executor_tool_transcript_confirmed_by_physical_interactions_agent",
+      "observed_summary": "40 checks passed",
+      "count_note": "Supersedes the earlier 37-check result; three damage-warning assertions were added and passed.",
+      "coverage": [
+        "fragment drag/rotation",
+        "held curved opening trace and manual extraction",
+        "tool tolerance and persistent third/sixth-slip warnings",
+        "physical restoration and held repair stamp",
+        "archive serial plus date match"
+      ]
+    },
+    {
+      "id": "attachment",
+      "script": "tests/attachment_smoke.gd",
+      "checks": 15,
+      "failures": 0,
+      "result": "pass",
+      "evidence_kind": "executor_tool_transcript_confirmed_by_physical_interactions_agent",
+      "observed_summary": "15 checks passed",
+      "coverage": [
+        "photo reverse and original caption",
+        "provisional photo placement and reversal",
+        "physical outgoing handoff",
+        "no idle-time or cancellation commitment"
+      ]
+    },
+    {
+      "id": "walker",
+      "script": "tests/walker_smoke.gd",
+      "checks": 37,
+      "failures": 0,
+      "result": "pass",
+      "evidence_kind": "preserved_stdout_directly_inspected",
+      "observed_summary": "WALKER SMOKE: 37 checks, 0 failures",
+      "coverage": [
+        "actual engine InputEventKey WASD/arrow movement, focus-loss and modal cancellation",
+        "bounds, facing, walk-before-action ownership and target replacement",
+        "painted atlas registration and pose selection",
+        "142-pixel walk cycle, 71-pixel foot contacts and distance-triggered footsteps"
+      ],
+      "project_log": "test-results/walker_after_depth.log",
+      "log_sha256": "9f5945dbaf84dc6dd72edd9d521ff5b569b5a2dc681851bfab9594b3d884a486",
+      "log_last_write_utc": "2026-09-30T22:38:52.3212215Z",
+      "independently_counted_pass_lines": 37
+    },
+    {
+      "id": "deduction",
+      "script": "tests/deduction_smoke.gd",
+      "checks": 12,
+      "failures": 0,
+      "result": "pass",
+      "evidence_kind": "executor_tool_transcript_confirmed_by_physical_interactions_agent",
+      "observed_summary": "12 checks passed",
+      "coverage": [
+        "known-evidence-only cards",
+        "complete source reading",
+        "wrong provisional roles without early grading",
+        "slot exchange and distinct evidence",
+        "saved arrangement and one-shot physical registration"
+      ]
+    },
+    {
+      "id": "transport",
+      "observed_summary": "TRANSPORT SMOKE: 30 checks, 0 failures",
+      "checks": 30,
+      "independently_counted_pass_lines": 30,
+      "log_last_write_utc": "2026-09-30T20:02:38.0255227Z",
+      "coverage": [
+        "pure previews and unchanged default walk costs",
+        "inclusive scheduled departure and wait plus ride accounting",
+        "last-service walking fallback and invalid-mode no-op",
+        "no travel mutation after ending or during recoverable failure"
+      ],
+      "script": "tests/transport_smoke.gd",
+      "evidence_kind": "preserved_stdout_directly_inspected",
+      "failures": 0,
+      "workspace_log": "work/transport-smoke.log",
+      "result": "pass",
+      "log_sha256": "b9fe6b0df16a77a2fd2584c21056110c651d77f168ff919438c3f7853dea257b"
+    },
+    {
+      "id": "visual_evidence",
+      "observed_summary": "VISUAL_EVIDENCE_CHECKS=94 FAILURES=0",
+      "checks": 94,
+      "log_last_write_utc": "2026-09-30T20:56:04.1914428Z",
+      "project_log": "test-results/visual_evidence_smoke.log",
+      "coverage": [
+        "all observation types through pointer input",
+        "Tab/Enter/arrows with fine handwriting alignment",
+        "wrong/past services and no-service walking fallback",
+        "premature and duplicate recording, progressive hints, close/Escape",
+        "scaled hit coordinates at 80 percent"
+      ],
+      "script": "tests/visual_evidence_smoke.gd",
+      "evidence_kind": "preserved_stdout_directly_inspected",
+      "failures": 0,
+      "log_sha256": "aa17b3ed0d407f613bf1043fa38dc38154f7f3f069554f8167a320595b608458",
+      "result": "pass"
+    },
+    {
+      "id": "field_guidance",
+      "observed_summary": "FIELD_GUIDANCE_CHECKS=23 FAILURES=0",
+      "checks": 23,
+      "log_last_write_utc": "2026-09-30T21:41:56.5807589Z",
+      "project_log": "test-results/field_guidance_smoke.log",
+      "coverage": [
+        "context-only next action without core mutation or identity leaks",
+        "first door and actual envelope/back viewing progression",
+        "local plaque and delivery readiness from known clues",
+        "next unhandled case and restored-address gate",
+        "modal hiding, click passthrough and marker follows moved card"
+      ],
+      "script": "tests/field_guidance_smoke.gd",
+      "evidence_kind": "preserved_stdout_directly_inspected",
+      "failures": 0,
+      "log_sha256": "66cc1dd084a4cae5018d15a0b0ae7338dc012a81c4eae513bf029664cb0db6d8",
+      "result": "pass"
+    },
+    {
+      "result": "pass",
+      "id": "audio",
+      "observed_summary": "AUDIO SMOKE: 49 checks, 0 failures",
+      "evidence_kind": "preserved_stdout_directly_inspected",
+      "project_log": "test-results/audio_smoke_gpu.log",
+      "script": "tests/audio_smoke.gd",
+      "log_sha256": "43a2c6c1c08daa0a219c5fb55e1adff2d1d000fe73cd7448257e23c4c7b73e6a",
+      "independently_counted_pass_lines": 49,
+      "log_last_write_utc": "2026-09-30T21:14:55.5242939Z",
+      "coverage": [
+        "recorded ambient beds and music/action samples decode",
+        "location-aware playback and bus behavior",
+        "tram passage does not follow the player into another room"
+      ],
+      "limitations": "Technical engine verification, not human listening acceptance. The headless Dummy-backend variant retained playback references at shutdown; this record cites the clean GPU/WASAPI result.",
+      "checks": 49,
+      "runtime_mode": "OpenGL GPU plus WASAPI; clean teardown",
+      "failures": 0
+    },
+    {
+      "id": "audio_settings",
+      "result": "pass",
+      "log_last_write_utc": "2026-09-30T21:14:10.2815319Z",
+      "observed_summary": "AUDIO SETTINGS SMOKE: 20 checks, 0 failures",
+      "evidence_kind": "preserved_stdout_directly_inspected",
+      "project_log": "test-results/audio_settings_smoke.log",
+      "script": "tests/audio_settings_smoke.gd",
+      "log_sha256": "35dc58671bacf61d3115ebcca66e46eae79fcf9ece410aaa861d3e21775ae4b8",
+      "independently_counted_pass_lines": 20,
+      "coverage": [
+        "three real slider signals and independent channel gains",
+        "mute preserves gains and adjustment while muted",
+        "isolated preference-file round trip and invalid/zero values",
+        "settings do not change game progress"
+      ],
+      "checks": 20,
+      "runtime_mode": "OpenGL GPU plus WASAPI; clean teardown",
+      "failures": 0
+    },
+    {
+      "id": "chapter_screen_probe",
+      "observed_summary": "CHAPTER_SCREEN_CHECKS=13 FAILURES=0",
+      "checks": 13,
+      "runtime_mode": "Temporary GPU probe with viewport push_input; not a repository tests/ suite",
+      "log_last_write_utc": "2026-09-30T21:11:25.9722128Z",
+      "project_log": "test-results/chapter_screen_smoke.log",
+      "coverage": [
+        "title buttons and disabled Continue",
+        "ending long-text wheel scrolling and buttons",
+        "failure recovery/return buttons",
+        "actual 1280-pixel scaled pointer coordinates"
+      ],
+      "failures": 0,
+      "evidence_kind": "preserved_stdout_directly_inspected",
+      "log_sha256": "4bc63c414fbc5f7cc60bae93a33f64394343da7b4ff3ee4eaf3339d101073beb",
+      "result": "pass",
+      "workspace_script": "work/chapter_screen_probe.gd"
+    },
+    {
+      "id": "actor_depth",
+      "observed_summary": "ACTOR_DEPTH_SMOKE: 26 checks, 0 failures",
+      "checks": 26,
+      "runtime_mode": "GPU actual Main scene input and walking",
+      "log_last_write_utc": "2026-09-30T23:05:07.6767771Z",
+      "project_log": "test-results/actor_depth_smoke.log",
+      "coverage": [
+        "isolated foot-Y sorted actor layer preserves HUD and foreground order",
+        "walking behind and in front of the bus-stop NPC changes occlusion",
+        "direct handoff foot placement also updates depth",
+        "real NPC and timetable hit paths remain usable",
+        "residential northern floor bound clamps both walk targets and keyboard input"
+      ],
+      "script": "tests/actor_depth_smoke.gd",
+      "evidence_kind": "preserved_stdout_directly_inspected",
+      "failures": 0,
+      "log_sha256": "6a55e082246bc17cd749665a2c07e3b3112d418a024a55459fb70c837f4b7ec7",
+      "result": "pass"
+    }
+  ],
+  "evidence_provenance": {
+    "workspace_log_base": "Task workspace above outputs/100letter; work logs are not bundled in the Git repository.",
+    "transcript_only_results": "Physical, attachment and deduction results are executor-confirmed tool outputs. The other entries cite preserved stdout or machine reports. No historical source hash is invented for old unit runs.",
+    "hash_policy": "Source SHA-256 values identify files at report capture time, not an atomic historical checkout used by every run. File timestamps and post-run edits are recorded separately. This document does not bind an executable release or later video to these hashes."
+  },
+  "known_diagnostics": [
+    {
+      "location": "platform/windows/os_windows.cpp:2582",
+      "message": "ERROR: Failed to read the root certificate store.",
+      "impact_observed": "Windows startup diagnostic in several preserved runs. Passing suites exited successfully; the latest Main run has no script error, resource-leak warning or other error. This does not test network certificate functionality."
+    }
+  ],
+  "post_run_changes": [
+    {
+      "verification_boundary": "The current Main315, actor-depth26, final GPU replay and normal-speed recorded route were run after those changes. They verify their actual technical coverage; native visual acceptance and exported executable identity remain separate evidence.",
+      "basis": "release-owner freeze followed by a fresh import, Main run, actor-depth run and full GPU replay",
+      "change": "Earlier collage-style backgrounds, June/Mira portraits and narrow alpha edges were replaced/refined. Actor drawing now sorts within an isolated foot-Y layer, and the residential floor prevents northern overlap. The work-ID wording and movie settings are also included.",
+      "path": "scripts/main.gd, stage actor layer, residential ground bounds and display resources"
+    }
+  ],
+  "limitations": [
+    "Headless input tests exercise real controls and callbacks but do not measure visual taste, first-time comprehension, human satisfaction or player duration.",
+    "Current screenshots, visible gameplay/video, source/executable package identity and GitHub publication require separate release evidence.",
+    "No duplicate suite run was performed solely to write this record."
+  ],
+  "source_hashes_at_report_capture": [
+    {
+      "last_write_utc": "2026-09-30T20:06:12.5835305Z",
+      "path": "data/game.json",
+      "sha256": "05bb8649c501f025ee82e9817a9659aa5017f4e03a9feadcd57a852daa67b7f8"
+    },
+    {
+      "last_write_utc": "2026-09-30T19:28:56.3899358Z",
+      "path": "docs/testing/cohort_baseline.json",
+      "sha256": "7fcad1940dc6148ddda4ed7cf1b8ae693178abddb76893bbf93117952b951dd0"
+    },
+    {
+      "last_write_utc": "2026-09-30T21:56:26.7112464Z",
+      "path": "docs/testing/cohort_results.json",
+      "sha256": "943aa470c62c63f0e659df790e48afde0c9d271b33901e05454c58365886a6bc"
+    },
+    {
+      "last_write_utc": "2026-09-30T23:10:51.5123831Z",
+      "path": "docs/testing/playthrough_final_ui.json",
+      "sha256": "e9a398577aa42af1eedf32ddc3263b22b3648f712e865e4721d1331befa62d6f"
+    },
+    {
+      "last_write_utc": "2026-09-30T23:32:48.7760220Z",
+      "path": "docs/testing/playthrough_recorded.json",
+      "sha256": "16be1cb028b9c68aebe528314b7ae374fd934dc1486899b7d825d125b9ccfca2"
+    },
+    {
+      "last_write_utc": "2026-09-30T19:21:48.7308795Z",
+      "path": "docs/testing/SIMULATED_PERSONAS_100.json",
+      "sha256": "a600748db8f7ebbc0058eb25fd2a9b89df0ff6045b29a699374c6418a4a316b0"
+    },
+    {
+      "last_write_utc": "2026-09-30T23:05:03.9422311Z",
+      "path": "docs/testing/ui_flow_results.json",
+      "sha256": "b3d8413b20516c549a79da1fa56b4c9290579bbdc899787ddcbb2f258ba5d93a"
+    },
+    {
+      "last_write_utc": "2026-10-01T00:02:50.5361073Z",
+      "path": "docs/testing/VIDEO_VERIFICATION.json",
+      "sha256": "eb217960dae55098cf960496f72c2b2ed8a18b70d5ab9e2e9bd034b934a0f2f7"
+    },
+    {
+      "last_write_utc": "2026-09-30T22:13:22.6448238Z",
+      "path": "project.godot",
+      "sha256": "0a017f2d1defc1407f5c77f15deb991888aee89dd1b46b447dca39ef782c2168"
+    },
+    {
+      "last_write_utc": "2026-09-30T18:41:29.5822106Z",
+      "path": "scenes/main.tscn",
+      "sha256": "e6726340f123ce3c206a57637c574d3e591bae81074086a2e2e385fcc9fd8c2a"
+    },
+    {
+      "last_write_utc": "2026-09-30T19:56:09.5392778Z",
+      "path": "scripts/core/GameSession.gd",
+      "sha256": "06647c03e9dade7ff16563077e280e10bacbe9f602c9a1b4fb5e29f1acfd2bff"
+    },
+    {
+      "last_write_utc": "2026-09-30T18:48:32.4621169Z",
+      "path": "scripts/core/SaveData.gd",
+      "sha256": "44eb1f63a4e8d91683bd03c658fa531dd66a07f7e1920d6af16447817c34b963"
+    },
+    {
+      "last_write_utc": "2026-09-30T22:53:29.2018663Z",
+      "path": "scripts/main.gd",
+      "sha256": "4ac667eb115ce1d981115f53582d447df72f49c364ec6a66e37ac80a26d1a30d"
+    },
+    {
+      "last_write_utc": "2026-09-30T19:03:04.9945426Z",
+      "path": "scripts/ui/attachment_board.gd",
+      "sha256": "21abfac6994c2cc514660b57f861b04dbf45382130b79f9cd9b1250a31d6a2af"
+    },
+    {
+      "last_write_utc": "2026-09-30T21:11:08.6459828Z",
+      "path": "scripts/ui/audio_feedback.gd",
+      "sha256": "513eed1be73e8712236d9530bf6e0774349c27a7b35f4ec3d81bb347fce874d1"
+    },
+    {
+      "last_write_utc": "2026-09-30T21:09:50.2957883Z",
+      "path": "scripts/ui/chapter_screen.gd",
+      "sha256": "3f945f576e36650b42bacb480fd42f923c82ccaedeb014cc93714ebc2cefe63e"
+    },
+    {
+      "last_write_utc": "2026-09-30T19:54:14.1995926Z",
+      "path": "scripts/ui/conversation_ribbon.gd",
+      "sha256": "20b1154f1720a473f8630d3fb3204f7561c048320817f21b9b5cb8f0faf69b87"
+    },
+    {
+      "last_write_utc": "2026-09-30T20:58:02.4757271Z",
+      "path": "scripts/ui/courier_actor.gd",
+      "sha256": "9c7ff86978737c1288430a03d5ff214d80f7d0dfa57f01a00f207e13eeddc22d"
+    },
+    {
+      "last_write_utc": "2026-09-30T21:58:45.8375603Z",
+      "path": "scripts/ui/daylight.gd",
+      "sha256": "6c97922e3ed0708ab394f92eac1109126c413e35b5adf1451b19b83b215db40d"
+    },
+    {
+      "last_write_utc": "2026-09-30T19:33:23.0470080Z",
+      "path": "scripts/ui/deduction_board.gd",
+      "sha256": "35ff965e1546e29760e9dd9a3868d13bb6950c3bb02ab2edfe1875b9999c6bb2"
+    },
+    {
+      "last_write_utc": "2026-09-30T21:40:32.5704892Z",
+      "path": "scripts/ui/field_guidance.gd",
+      "sha256": "3f0322d35718c83ed1bd4401c2e02b5441fe977e26837b217abf6b21e0e4f744"
+    },
+    {
+      "last_write_utc": "2026-09-30T19:54:21.7235957Z",
+      "path": "scripts/ui/mail_card.gd",
+      "sha256": "32af1e4ba99674badf88e391f0684ae9f9704f696c0a0e93e234229a96100fcf"
+    },
+    {
+      "last_write_utc": "2026-09-30T20:19:13.6536562Z",
+      "path": "scripts/ui/map_controller.gd",
+      "sha256": "a480061040f93aba1bb860e64c300317499624d35706f4c1911d5b2d5f8420e6"
+    },
+    {
+      "last_write_utc": "2026-09-30T20:16:40.4443710Z",
+      "path": "scripts/ui/object_button.gd",
+      "sha256": "44f0555b8da93fad0339f98a02aecb417749f912b3876cefd125fa21ea478030"
+    },
+    {
+      "last_write_utc": "2026-09-30T19:18:31.0250349Z",
+      "path": "scripts/ui/paper_ui.gd",
+      "sha256": "f74f63c5438ca5449a8314452fedd0fd668550d795167a3a40182896a31bbb1d"
+    },
+    {
+      "last_write_utc": "2026-09-30T19:18:03.5633082Z",
+      "path": "scripts/ui/physical_board.gd",
+      "sha256": "64171bb5017ecf74c1b2f0a24eadea4a3ac35f1ecab13105249d0af2da98283f"
+    },
+    {
+      "last_write_utc": "2026-09-30T21:00:45.9294139Z",
+      "path": "scripts/ui/resident_portrait.gd",
+      "sha256": "5cd4f6ac4cab155df859ad5d53f6f048b0ea24faa0437cad9b482979215652eb"
+    },
+    {
+      "last_write_utc": "2026-09-30T19:16:48.4150111Z",
+      "path": "scripts/ui/scene_props.gd",
+      "sha256": "4d16a0c8974d4bf636e6ac1aa603e87e445ebc7461bca01b76ab5b5b3b31267d"
+    },
+    {
+      "last_write_utc": "2026-09-30T20:36:13.2148435Z",
+      "path": "scripts/ui/stage_depth.gd",
+      "sha256": "b9b3f7789e0c1e4b6ea8f2ed7a9e25d71086fa29fece2ce582c31043e9234646"
+    },
+    {
+      "last_write_utc": "2026-09-30T22:38:51.1831237Z",
+      "path": "scripts/ui/stage_layout.gd",
+      "sha256": "2e6d8bc6ecf96fe55e8d0a50c0e8f99ca7df20a04c6ff671ea62e57e3713f58c"
+    },
+    {
+      "last_write_utc": "2026-09-30T22:38:51.1803844Z",
+      "path": "scripts/ui/stage_walker.gd",
+      "sha256": "8b08d8a202100a586f3299b2343bff6a5568c0cbcb0be95dfdd93dbb702b5488"
+    },
+    {
+      "last_write_utc": "2026-09-30T20:51:45.3692551Z",
+      "path": "scripts/ui/visual_evidence.gd",
+      "sha256": "17d7e3a70052922447a82d36dd2e0d290d148fbb3c96c41c175aebc327cdf2a6"
+    },
+    {
+      "last_write_utc": "2026-09-30T20:04:01.5162262Z",
+      "path": "scripts/ui/workbench_surface.gd",
+      "sha256": "1bf02e58a031583bb8ad43dd269b945bd65fa16a18399a3bbdc6215ce4c97d8d"
+    },
+    {
+      "last_write_utc": "2026-09-30T22:40:56.0488792Z",
+      "path": "tests/actor_depth_smoke.gd",
+      "sha256": "db77500a65ffb16bed1f093f3477ebb34a589f2a25a269291e5a51adef9b5dc4"
+    },
+    {
+      "last_write_utc": "2026-09-30T19:01:24.9785843Z",
+      "path": "tests/attachment_smoke.gd",
+      "sha256": "0033dad1d6f01711f62cfac74d5f088d74035caac1452cc5d179c93fb204a638"
+    },
+    {
+      "last_write_utc": "2026-09-30T21:12:45.0723910Z",
+      "path": "tests/audio_settings_smoke.gd",
+      "sha256": "886401e3f1e57d3f6c7634b50a32967fb8bc3723d02613eb2a5312c8cb7f307b"
+    },
+    {
+      "last_write_utc": "2026-09-30T21:11:08.6509161Z",
+      "path": "tests/audio_smoke.gd",
+      "sha256": "12b26b62b7b1e46ba48f12412ca03878078193aafa2900cea7d2901a95aa57e3"
+    },
+    {
+      "last_write_utc": "2026-09-30T21:53:50.7941872Z",
+      "path": "tests/cohort_smoke.gd",
+      "sha256": "d4455e76014287624e52777d3cabbf0a5a55e477c5fe179e8203eb7a0af5e3b0"
+    },
+    {
+      "last_write_utc": "2026-09-30T19:41:00.0372978Z",
+      "path": "tests/core_smoke.gd",
+      "sha256": "fb96e5bf064b7d06ead7e1be6b1503235eb5fbec45735ae2ed719729d427e219"
+    },
+    {
+      "last_write_utc": "2026-09-30T22:02:32.2527643Z",
+      "path": "tests/daylight_smoke.gd",
+      "sha256": "99dd3506146050c362068d9426e3d2b0abb76bda2ba4e387e57838edf0773c2d"
+    },
+    {
+      "last_write_utc": "2026-09-30T19:33:26.8409404Z",
+      "path": "tests/deduction_smoke.gd",
+      "sha256": "e2d3027a482ab96312f26e8f78747e4aaee8ddf15358738ac2851f5272ed2e2e"
+    },
+    {
+      "last_write_utc": "2026-09-30T20:38:19.1158258Z",
+      "path": "tests/field_guidance_smoke.gd",
+      "sha256": "acce162a5857ca0ec3135bd757bc93a46c9cbe38b5be67589aec7b57f7ebfad4"
+    },
+    {
+      "last_write_utc": "2026-09-30T19:18:06.9802136Z",
+      "path": "tests/physical_smoke.gd",
+      "sha256": "96aba1bcb8f59763a077a0e36e5030013e182972f4d8ed6dca1b388d36126f71"
+    },
+    {
+      "last_write_utc": "2026-09-30T20:02:29.0007358Z",
+      "path": "tests/transport_smoke.gd",
+      "sha256": "d87beedc6d272f7a947af35668c9d85fe055427aadd9e2a2003cfb00445a33ed"
+    },
+    {
+      "last_write_utc": "2026-09-30T22:59:58.6463740Z",
+      "path": "tests/ui_flow_smoke.gd",
+      "sha256": "a025eb5e369b2c2e6584e753c5e552268b35c1e02a9392d2f79f7e772e2ca86f"
+    },
+    {
+      "last_write_utc": "2026-09-30T20:27:17.3067169Z",
+      "path": "tests/visual_evidence_smoke.gd",
+      "sha256": "972402e4a615524f9cf8a16342df6b968575e7ad94705a871160bebdb9c75edf"
+    },
+    {
+      "last_write_utc": "2026-09-30T20:56:35.6046543Z",
+      "path": "tests/walker_smoke.gd",
+      "sha256": "79a290a4c1d5940e90851dd9512e040b06e27ae86f90e229d34857f1f33e29aa"
+    },
+    {
+      "last_write_utc": "2026-09-30T22:12:34.7650006Z",
+      "path": "tools/playthrough.gd",
+      "sha256": "2d7385ed980d9cbf5f1560a7ed8ca43a902aeef8d9d611fa29a09bedf58c1073"
+    }
+  ],
+  "captured_utc": "2026-10-01T00:02:51.3029405Z",
+  "status": "automated_suites_and_recorded_demonstration_verified",
+  "verification_follow_up": "Latest Main integration passed 315 checks, actor-depth26 passed and all 100 core routes passed 4,976 assertions. The frozen-resource GPU preflight and separate 1x movie both passed with stable scripts/assets. The final 12:11.292 MP4 is verified; native acceptance, executable identity and GitHub publication remain distinct release evidence.",
+  "controlled_full_ui_demonstration": {
+    "passed": true,
+    "report": "docs/testing/playthrough_final_ui.json",
+    "simulated_seconds": 756.14,
+    "movie_budget": {
+      "enabled": true,
+      "fps": 24,
+      "max_jpeg_bytes": 90387,
+      "mean_jpeg_bytes": 56832.5,
+      "p95_900_seconds_bytes": 2096474400,
+      "p95_jpeg_bytes": 89059,
+      "projected_24fps_avi_bytes": 1176539269,
+      "projected_900_seconds_bytes": 1400381280,
+      "projection_note": "Actual rendered viewport sampled roughly every 10 simulated seconds; includes estimated 48kHz stereo 16-bit PCM, excludes small container/index overhead. Not a recorded movie.",
+      "quality": 0.55,
+      "sample_count": 75,
+      "viewport": [
+        1280,
+        720
+      ]
+    },
+    "workspace_stderr": "work/playthrough-final-ui-errors.log",
+    "source_changes_during_run": [],
+    "asset_changes_during_run": [],
+    "workspace_stdout": "work/playthrough-final-ui.log",
+    "started_utc": "2026-09-30T23:09:12",
+    "validation_speed": 8.0,
+    "scope": "GPU actual Main controls and physical input callbacks; seven final painted scenes, five letters, wrong delivery, damage recovery, bus trip, inference, photo withholding and archival ending. Default recording playback remains 1x. No final movie was recorded by this preflight.",
+    "ui_event_and_check_entries": 138,
+    "not_added_to_suite_total": "The 138 mixed milestones/check entries are a route trace, not 138 independent unit assertions.",
+    "elapsed_wall_seconds": 99.48
+  },
+  "recorded_movie": {
+    "sha256": "f7ebb13c651fe678f9d17394679472a90ac3dbfa975d7e06b6c21810da4dfcd7",
+    "verification": "All 17,551 video frames decoded; final audio fully decoded; audio-only pass preserved H.264 packet hash. Ten extracted frames viewed, six seeded random and four targeted. No full-film human watch is claimed.",
+    "frames": 17551,
+    "bytes": 52592641,
+    "video_audio_post_gain_db": 10,
+    "run_report": "docs/testing/playthrough_recorded.json",
+    "game_default_mix_changed": false,
+    "fps": 24,
+    "passed": true,
+    "final_audio_peak_dbfs": -6.1,
+    "scope": "Known-route program-controlled actual Main UI demonstration, not human gameplay or satisfaction testing.",
+    "duration_seconds": 731.2916666666666,
+    "dimensions": [
+      1280,
+      720
+    ],
+    "playback_speed": 1.0,
+    "delivery_path": "outputs/100letter-delivery/全流程演示.mp4",
+    "asset_changes_during_run": [],
+    "source_changes_during_run": [],
+    "report": "docs/testing/VIDEO_VERIFICATION.json"
+  }
+}

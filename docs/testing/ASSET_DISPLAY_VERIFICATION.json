@@ -1,0 +1,175 @@
+{
+  "verified_on": "2026-10-01",
+  "original_file_hashes_verified": 13,
+  "scope": "Read-only source/display hashes, dimensions and every RGB pixel. Four-neighbour exterior connectivity independently checked with component labelling. JPEG-only extra alpha clearing constrained to near-white pixels within 3 original-image pixels of fixed baseline outside; no deeper or colored alpha changes.",
+  "original_checks": [
+    {
+      "path": "assets/locked_user/bus_stop_LOCKED.png",
+      "sha256_ok": true
+    },
+    {
+      "path": "assets/locked_user/chess_stall_LOCKED.png",
+      "sha256_ok": true
+    },
+    {
+      "path": "assets/locked_user/chess_stall_USER_20261001_LOCKED.png",
+      "sha256_ok": true
+    },
+    {
+      "path": "assets/locked_user/community_center_LOCKED.jpeg",
+      "sha256_ok": true
+    },
+    {
+      "path": "assets/locked_user/community_center_USER_20261001_LOCKED.jpg",
+      "sha256_ok": true
+    },
+    {
+      "path": "assets/locked_user/heroine_concept_LOCKED.png",
+      "sha256_ok": true
+    },
+    {
+      "path": "assets/locked_user/lookout_LOCKED.png",
+      "sha256_ok": true
+    },
+    {
+      "path": "assets/locked_user/npc_chenyuan_LOCKED.jpeg",
+      "sha256_ok": true
+    },
+    {
+      "path": "assets/locked_user/post_office_exterior_LOCKED.jpeg",
+      "sha256_ok": true
+    },
+    {
+      "path": "assets/locked_user/post_office_exterior_USER_20261001_LOCKED.jpg",
+      "sha256_ok": true
+    },
+    {
+      "path": "assets/locked_user/residential_building_LOCKED.jpeg",
+      "sha256_ok": true
+    },
+    {
+      "path": "assets/locked_user/residential_building_USER_20261001_LOCKED.png",
+      "sha256_ok": true
+    },
+    {
+      "path": "assets/locked_user/tarot_shop_LOCKED.png",
+      "sha256_ok": true
+    }
+  ],
+  "display_checks": [
+    {
+      "location": "post_office",
+      "source_hash_ok": true,
+      "display_hash_ok": true,
+      "dimensions_identical": true,
+      "rgb_identical": true,
+      "only_authorized_white_alpha_cleared": true,
+      "all_changed_alpha_exterior_connected_4_neighbour": true,
+      "no_additional_changes_beyond_3_source_pixels": true,
+      "protected_non_near_white_alpha_unchanged": true,
+      "pixels_cleared": 1539323,
+      "additional_jpeg_edge_pixels": 7768,
+      "maximum_extra_distance_source_pixels": 3.0,
+      "alpha_values_introduced": [
+        0
+      ]
+    },
+    {
+      "location": "community_center",
+      "source_hash_ok": true,
+      "display_hash_ok": true,
+      "dimensions_identical": true,
+      "rgb_identical": true,
+      "only_authorized_white_alpha_cleared": true,
+      "all_changed_alpha_exterior_connected_4_neighbour": true,
+      "no_additional_changes_beyond_3_source_pixels": true,
+      "protected_non_near_white_alpha_unchanged": true,
+      "pixels_cleared": 1394111,
+      "additional_jpeg_edge_pixels": 11414,
+      "maximum_extra_distance_source_pixels": 3.0,
+      "alpha_values_introduced": [
+        0
+      ]
+    },
+    {
+      "location": "bus_stop",
+      "source_hash_ok": true,
+      "display_hash_ok": true,
+      "dimensions_identical": true,
+      "rgb_identical": true,
+      "only_authorized_white_alpha_cleared": true,
+      "all_changed_alpha_exterior_connected_4_neighbour": true,
+      "no_additional_changes_beyond_3_source_pixels": true,
+      "protected_non_near_white_alpha_unchanged": true,
+      "pixels_cleared": 1,
+      "additional_jpeg_edge_pixels": 0,
+      "maximum_extra_distance_source_pixels": 0.0,
+      "alpha_values_introduced": [
+        0
+      ]
+    },
+    {
+      "location": "lookout",
+      "source_hash_ok": true,
+      "display_hash_ok": true,
+      "dimensions_identical": true,
+      "rgb_identical": true,
+      "only_authorized_white_alpha_cleared": true,
+      "all_changed_alpha_exterior_connected_4_neighbour": true,
+      "no_additional_changes_beyond_3_source_pixels": true,
+      "protected_non_near_white_alpha_unchanged": true,
+      "pixels_cleared": 2,
+      "additional_jpeg_edge_pixels": 0,
+      "maximum_extra_distance_source_pixels": 0.0,
+      "alpha_values_introduced": [
+        0
+      ]
+    },
+    {
+      "location": "residential",
+      "source_hash_ok": true,
+      "display_hash_ok": true,
+      "dimensions_identical": true,
+      "rgb_identical": true,
+      "only_authorized_white_alpha_cleared": true,
+      "all_changed_alpha_exterior_connected_4_neighbour": true,
+      "no_additional_changes_beyond_3_source_pixels": true,
+      "protected_non_near_white_alpha_unchanged": true,
+      "pixels_cleared": 0,
+      "additional_jpeg_edge_pixels": 0,
+      "maximum_extra_distance_source_pixels": 0.0,
+      "alpha_values_introduced": []
+    },
+    {
+      "location": "chess_stall",
+      "source_hash_ok": true,
+      "display_hash_ok": true,
+      "dimensions_identical": true,
+      "rgb_identical": true,
+      "only_authorized_white_alpha_cleared": true,
+      "all_changed_alpha_exterior_connected_4_neighbour": true,
+      "no_additional_changes_beyond_3_source_pixels": true,
+      "protected_non_near_white_alpha_unchanged": true,
+      "pixels_cleared": 0,
+      "additional_jpeg_edge_pixels": 0,
+      "maximum_extra_distance_source_pixels": 0.0,
+      "alpha_values_introduced": []
+    },
+    {
+      "location": "tarot_shop",
+      "source_hash_ok": true,
+      "display_hash_ok": true,
+      "dimensions_identical": true,
+      "rgb_identical": true,
+      "only_authorized_white_alpha_cleared": true,
+      "all_changed_alpha_exterior_connected_4_neighbour": true,
+      "no_additional_changes_beyond_3_source_pixels": true,
+      "protected_non_near_white_alpha_unchanged": true,
+      "pixels_cleared": 0,
+      "additional_jpeg_edge_pixels": 0,
+      "maximum_extra_distance_source_pixels": 0.0,
+      "alpha_values_introduced": []
+    }
+  ],
+  "failures": 0
+}

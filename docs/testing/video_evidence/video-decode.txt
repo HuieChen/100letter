@@ -1,0 +1,52 @@
+Input #0, mov,mp4,m4a,3gp,3g2,mj2, from 'C:/Users/22416/Documents/Codex/2026-10-01/github/outputs/100letter-delivery/全流程演示.mp4':
+  Metadata:
+    major_brand     : isom
+    minor_version   : 512
+    compatible_brands: isomiso2avc1mp41
+    encoder         : Lavf61.7.100
+    comment         : Program-controlled Godot Main UI demonstration; normal playback speed, no game-state injection; not a human playtest.
+  Duration: 00:12:11.29, start: 0.000000, bitrate: 575 kb/s
+  Stream #0:0[0x1](und): Video: h264 (High) (avc1 / 0x31637661), yuvj420p(pc, bt470bg/unknown/unknown, progressive), 1280x720 [SAR 1:1 DAR 16:9], 377 kb/s, 24 fps, 24 tbr, 12288 tbn (default)
+      Metadata:
+        handler_name    : VideoHandler
+        vendor_id       : [0][0][0][0]
+        encoder         : Lavc61.19.100 libx264
+  Stream #0:1[0x2](und): Audio: aac (LC) (mp4a / 0x6134706D), 48000 Hz, stereo, fltp, 191 kb/s (default)
+      Metadata:
+        handler_name    : SoundHandler
+        vendor_id       : [0][0][0][0]
+[Parsed_volumedetect_0 @ 00000246ddb52f80] n_samples: 0
+Stream mapping:
+  Stream #0:0 -> #0:0 (h264 (native) -> wrapped_avframe (native))
+  Stream #0:1 -> #0:1 (aac (native) -> pcm_s16le (native))
+Output #0, null, to 'NUL':
+  Metadata:
+    major_brand     : isom
+    minor_version   : 512
+    compatible_brands: isomiso2avc1mp41
+    comment         : Program-controlled Godot Main UI demonstration; normal playback speed, no game-state injection; not a human playtest.
+    encoder         : Lavf61.7.100
+  Stream #0:0(und): Video: wrapped_avframe, yuvj420p(pc, bt470bg/unknown/unknown, progressive), 1280x720 [SAR 1:1 DAR 16:9], q=2-31, 200 kb/s, 24 fps, 24 tbn (default)
+      Metadata:
+        handler_name    : VideoHandler
+        vendor_id       : [0][0][0][0]
+        encoder         : Lavc61.19.100 wrapped_avframe
+  Stream #0:1(und): Audio: pcm_s16le, 48000 Hz, stereo, s16, 1536 kb/s (default)
+      Metadata:
+        handler_name    : SoundHandler
+        vendor_id       : [0][0][0][0]
+        encoder         : Lavc61.19.100 pcm_s16le
+[Parsed_volumedetect_0 @ 00000246dda49bc0] n_samples: 70205440
+[Parsed_volumedetect_0 @ 00000246dda49bc0] mean_volume: -38.8 dB
+[Parsed_volumedetect_0 @ 00000246dda49bc0] max_volume: -16.1 dB
+[Parsed_volumedetect_0 @ 00000246dda49bc0] histogram_16db: 12
+[Parsed_volumedetect_0 @ 00000246dda49bc0] histogram_17db: 34
+[Parsed_volumedetect_0 @ 00000246dda49bc0] histogram_18db: 160
+[Parsed_volumedetect_0 @ 00000246dda49bc0] histogram_19db: 685
+[Parsed_volumedetect_0 @ 00000246dda49bc0] histogram_20db: 1961
+[Parsed_volumedetect_0 @ 00000246dda49bc0] histogram_21db: 5108
+[Parsed_volumedetect_0 @ 00000246dda49bc0] histogram_22db: 11760
+[Parsed_volumedetect_0 @ 00000246dda49bc0] histogram_23db: 24764
+[Parsed_volumedetect_0 @ 00000246dda49bc0] histogram_24db: 47945
+[out#0/null @ 00000246dd520f40] video:7541KiB audio:137120KiB subtitle:0KiB other streams:0KiB global headers:0KiB muxing overhead: unknown
+frame=17551 fps=1192 q=-0.0 Lsize=N/A time=00:12:11.29 bitrate=N/A speed=49.6x    

@@ -1,0 +1,45 @@
+Input #0, mov,mp4,m4a,3gp,3g2,mj2, from 'C:/Users/22416/Documents/Codex/2026-10-01/github/outputs/100letter-delivery/全流程演示.mp4':
+  Metadata:
+    major_brand     : isom
+    minor_version   : 512
+    compatible_brands: isomiso2avc1mp41
+    encoder         : Lavf61.7.100
+    comment         : Program-controlled Godot Main UI demonstration; normal playback speed, no game-state injection; not a human playtest.
+  Duration: 00:12:11.29, start: 0.000000, bitrate: 575 kb/s
+  Stream #0:0[0x1](und): Video: h264 (High) (avc1 / 0x31637661), yuvj420p(pc, bt470bg/unknown/unknown, progressive), 1280x720 [SAR 1:1 DAR 16:9], 377 kb/s, 24 fps, 24 tbr, 12288 tbn (default)
+      Metadata:
+        handler_name    : VideoHandler
+        vendor_id       : [0][0][0][0]
+        encoder         : Lavc61.19.100 libx264
+  Stream #0:1[0x2](und): Audio: aac (LC) (mp4a / 0x6134706D), 48000 Hz, stereo, fltp, 191 kb/s (default)
+      Metadata:
+        handler_name    : SoundHandler
+        vendor_id       : [0][0][0][0]
+[aist#1:1/pcm_s16le @ 000001e76da19e80] Guessed Channel Layout: stereo
+Input #1, avi, from 'C:/Users/22416/Documents/Codex/2026-10-01/github/work/100letter-playthrough-final.avi':
+  Duration: 00:12:11.29, start: 0.000000, bitrate: 12348 kb/s
+  Stream #1:0: Video: mjpeg (Baseline) (MJPG / 0x47504A4D), yuvj420p(pc, bt470bg/unknown/unknown), 1280x720 [SAR 1:1 DAR 16:9], 10803 kb/s, 24 fps, 24 tbr, 24 tbn
+  Stream #1:1: Audio: pcm_s16le ([1][0][0][0] / 0x0001), 48000 Hz, stereo, s16, 1536 kb/s
+Stream mapping:
+  Stream #0:0 -> #0:0 (copy)
+  Stream #1:1 -> #0:1 (pcm_s16le (native) -> aac (native))
+Output #0, mp4, to 'C:/Users/22416/Documents/Codex/2026-10-01/github/work/100letter-video-audio10.mp4':
+  Metadata:
+    major_brand     : isom
+    minor_version   : 512
+    compatible_brands: isomiso2avc1mp41
+    comment         : Program-controlled Godot Main UI demonstration at normal playback speed; no game-state injection; not a human playtest. Video audio post gain +10 dB; game default mix unchanged.
+    title           : 一百信 · 全流程演示
+    encoder         : Lavf61.7.100
+  Stream #0:0(und): Video: h264 (High) (avc1 / 0x31637661), yuvj420p(pc, bt470bg/unknown/unknown, progressive), 1280x720 [SAR 1:1 DAR 16:9], q=2-31, 377 kb/s, 24 fps, 24 tbr, 12288 tbn (default)
+      Metadata:
+        handler_name    : VideoHandler
+        vendor_id       : [0][0][0][0]
+        encoder         : Lavc61.19.100 libx264
+  Stream #0:1: Audio: aac (LC) (mp4a / 0x6134706D), 48000 Hz, stereo, fltp, 192 kb/s
+      Metadata:
+        encoder         : Lavc61.19.100 aac
+[mp4 @ 000001e76dfc4c40] Starting second pass: moving the moov atom to the beginning of the file
+[out#0/mp4 @ 000001e76dfc4b40] video:33735KiB audio:17132KiB subtitle:0KiB other streams:0KiB global headers:0KiB muxing overhead: 0.968211%
+frame=17551 fps=556 q=-1.0 Lsize=   51360KiB time=00:12:11.20 bitrate= 575.4kbits/s speed=23.1x    
+[aac @ 000001e76df10700] Qavg: 1266.824

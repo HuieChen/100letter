@@ -1,0 +1,830 @@
+{
+	"asset_sha256_at_start": {
+		"res://assets/audio/afternoon.wav": "9a8be80cb6129887112a19bf33662fce14a1d4d16f55bbcd52f048f1de974a57",
+		"res://assets/audio/bell.wav": "a042b3692b0212e483dd41ee1e0d8c2857475ae455ae332591b8104abc649614",
+		"res://assets/audio/deliver.wav": "cad64e4520e9ccdfd4884a74de81c7200ba439a63493dc4d48bafbf343c6d094",
+		"res://assets/audio/flip.wav": "844279f230e6918dcff924767a397494107d087115165aa3a5a435a648c0ae58",
+		"res://assets/audio/foley/bell.wav": "a7f8688a49fa0cb671884652e5c34a0ff7b48cbcbba479771e6ea328f005e592",
+		"res://assets/audio/foley/birds.wav": "8572bf8558b9c22f7dbaed8b40f3e2227d7fd63dd3a96a7849f32a74aa48d0c0",
+		"res://assets/audio/foley/door_close.wav": "efd281ac2c6b7be70ad536bda57d324771bdfa1608e1852da14fe8e411065207",
+		"res://assets/audio/foley/door_open.wav": "103af91c87524b4f4833ba58f73ccc4bc9188317185f9f3be89c115718c9d709",
+		"res://assets/audio/foley/paper_1.wav": "f26b50383bce4e97eb750ebaa677bd13bf1d0f8b71d85a45cb3b950b6db3a1cd",
+		"res://assets/audio/foley/paper_2.wav": "1ae336e9a2b4706b1569be3cea6939d0680d8e185917f0247ff4fda40753d486",
+		"res://assets/audio/foley/paper_3.wav": "90d9c3edcd0c014d8337056dfecb47a2638c82889e0229a7112f4531b4f0ea18",
+		"res://assets/audio/foley/paper_slide.wav": "2315b5a996bf3644f95913f7082900702df05997d8ce2b917ab2e0c48eda38fd",
+		"res://assets/audio/foley/paper_unfold.wav": "00d88d3622547d2961f25c4405a6819d26c5eee8342465aec9ce9e26a188cbe5",
+		"res://assets/audio/foley/room_bed.ogg": "74df1fbde74321db9da89f859d491c2c0357d7145bf24a919a4efdff012eef51",
+		"res://assets/audio/foley/sea_bed.ogg": "cbdb8954695c1d3ffd698f6736fe7bcdfe033f0fbb26abe356ec9c46e4a33f60",
+		"res://assets/audio/foley/stamp_1.wav": "ff52d3928b25f80eb8dce6be553ff31d1378b150132e36b7035b1f966761c022",
+		"res://assets/audio/foley/stamp_2.wav": "be2c67bcb74c13c3b4ce3ddc750a337bfc43d6217de46b5f90b22892fca5feeb",
+		"res://assets/audio/foley/step_concrete_1.wav": "aea49e21426655e9b252f5d5de864a778a1de84d72df5ad4bb7c90bdbadfecc8",
+		"res://assets/audio/foley/step_concrete_2.wav": "e89dead0e3af34e42b1677182ea086f2b40c6233d8945eb8b0b82ecce89a9549",
+		"res://assets/audio/foley/step_concrete_3.wav": "d9b34cdb30e697c010ffa8c295642d55f67af3f4ede417cddee2f6bca8e59ceb",
+		"res://assets/audio/foley/step_grass_1.wav": "cf3d5a9044203be954374017fa7194350402c8226cceb53aa094e0bbd0bb4288",
+		"res://assets/audio/foley/step_grass_2.wav": "7bb88f7d639f49dc27a6e95d901ea6d949b344fc832842e06a29273c7a19bc08",
+		"res://assets/audio/foley/step_grass_3.wav": "afb61ae3d60767e753fcfc89853081c9485546af44a13dae7cd93f3aed513259",
+		"res://assets/audio/foley/step_wood_1.wav": "545e025a60beb498b17e1d01e7a9113e915fac252cd38138e685a93c6a712610",
+		"res://assets/audio/foley/step_wood_2.wav": "f475edf15b7df5450b8de50220f9e3decd6d83e9941edcdb169583e2ee363355",
+		"res://assets/audio/foley/step_wood_3.wav": "75e8fe52186ea896a4e862c6d16ab2a435328224d934f55b8b1e413c1a152be0",
+		"res://assets/audio/foley/tool_metal.wav": "64e4dd42293d7bd127ce701a8a9dc525d12b877b05c455aeca25bd722cffd325",
+		"res://assets/audio/foley/town_bed.ogg": "8546b72a344732ca0aab14edf5166125af78684c588fccf03525146fc1fa6db4",
+		"res://assets/audio/foley/tram_pass.wav": "ddf3a61a868f2ad9424fbc2b21c50484ca4892de79f939ca903908e80d80b686",
+		"res://assets/audio/foley/wind_bed.ogg": "7ffd6935e726a7bf25e9666ce4460f6f9f3806c1b873084f3f696d7fc446c88d",
+		"res://assets/audio/foley/wood_piece.wav": "c0bbe5af8bfc557d14814272a41edff19fde1ab927e82665af6cdf739e287c37",
+		"res://assets/audio/map.wav": "67dddda899192c3ae018476a29c42f82a285d60c463e1788b51b756eaccd59a5",
+		"res://assets/audio/paper.wav": "99c863ed97a8e698b5cb4eae4eac203f76386ee5bbb166deee37a785073b2466",
+		"res://assets/audio/sea.wav": "5ff6441c139bb840eea6090aa9beafc6bdf530324ace36c082bc35e7814f900f",
+		"res://assets/audio/snap.wav": "3af3ba2da6d0cb99aa6327ebee460e11dd78d1708736d399a996f95f5187cd5d",
+		"res://assets/audio/stamp.wav": "e63db5823bf8f03735b7e502325b13e8f07e180412b067caf9c23127b9b3e80a",
+		"res://assets/audio/tool.wav": "ba7e533137b605d52a9ba535c2bab9e95d389af99776142aa2dab8c80b9596e4",
+		"res://assets/characters/generated/chenyuan.png": "1bb93a517d0c2e8822fd188aeef998b8cdc60107b899fd435a631be043d36c14",
+		"res://assets/characters/generated/courier_sheet.png": "8bce7719cee072ace595cda834bbd8229e0f8ec352415195af52febb40c94c2d",
+		"res://assets/characters/generated/nora.png": "2c9c9cd4009d10929342daeea5d2485538c7dee5cc93f4760b299f7967732533",
+		"res://assets/display_user/bus_stop_LOCKED.png.png": "24d26a96eaa31fd66c02c6e6258436fdc615014dbb269de5f2c37cec8334ca74",
+		"res://assets/display_user/chess_stall_USER_20261001_LOCKED.png.png": "0dfe6622df4bbe0b482decb2919a08984d2a5e24cd5fa017aae845b532e823cb",
+		"res://assets/display_user/community_center_USER_20261001_LOCKED.jpg.png": "908aa18084b829dba3c90aeede2841e41134e872ae8386185f30c9c63b1a2fa4",
+		"res://assets/display_user/lookout_LOCKED.png.png": "d18c2b53b68d7d47dabf615e57283bf38a8eaab3f88a7bf58453e01ffda3b635",
+		"res://assets/display_user/post_office_exterior_USER_20261001_LOCKED.jpg.png": "e45102e8c753f329b3bd472aa6f5642b5b4156ac4b77cdbb1aa0481c329c4ab0",
+		"res://assets/display_user/residential_building_USER_20261001_LOCKED.png.png": "6145f79bd2d2cd74507ca653fcece9957af1515deaa450be984cbcff2c6227d2",
+		"res://assets/display_user/tarot_shop_LOCKED.png.png": "d1190c5903f5425b7be6a79653f6b952f18e6c6a4eae3b92c8f9348e14161c3b",
+		"res://assets/fonts/Caveat.ttf": "0bdb6b660482d31531b3945849fba5916b3ef8695da7024a9e6b9ee3c4157988",
+		"res://assets/fonts/NotoSansSC.ttf": "a3041811a78c361b1de50f953c805e0244951c21c5bd412f7232ef0d899af0da",
+		"res://assets/fonts/SolmereSans.ttf": "d940822c8fc679b829776cf65be0f6a188e5997b127d639fa3e616dfdeac122e",
+		"res://assets/generated/environments/bus_stop.png": "bd5f0e9670849e04c9bde189951e59373c5799bedde086a82f6a80f8026919d1",
+		"res://assets/generated/environments/chess_stall.png": "36bca6f88114aa6228a28c517cf1e9d099603a46c58d632920aba0c892c45b5c",
+		"res://assets/generated/environments/community_center.png": "a83e0bbe936a2c90da01e1166f340c9229fd416c11b74410aedc9fcfc972ae5a",
+		"res://assets/generated/environments/lookout.png": "0e09759e82957a4eedfdec40af87340fd4aaecc58bbae6a89c363f330ef71616",
+		"res://assets/generated/environments/post_office.png": "2227ced6a8fb24c44e5050e8df131c17119749ef803522816057e9fb38f410e8",
+		"res://assets/generated/environments/residential.png": "3d9aea4d4068458c67bb8b79c476bf1b2c9ddc0ad6d658589992e63acb28d97a",
+		"res://assets/generated/environments/tarot_shop.png": "dd7fe8113de3b3e51a595b4a915149938d0eb031ed111064c83862aad7bcb05c",
+		"res://assets/generated/npc_june.png": "e82f5b98ff0fd032c53e3a6b6e3fa7d256a5c63610c8a4d849f9168aacf6fdb5",
+		"res://assets/generated/npc_mira.png": "2f8c04f4c18ff8c059653630277a53f1eb7021297b4359ba0032bc5b16ad1ff2",
+		"res://assets/generated/post_office_interior.png": "efc7c574288fb5537023cf05c3a4161ec6f4c7fd3e44596d10219f8d308b3157",
+		"res://assets/icon.svg": "4f93baab02309aa6c894d35b9ee5cd3e801f0e4e7475adde883b73dfa7eb5efa",
+		"res://assets/locked_user/bus_stop_LOCKED.png": "8e69e0c923aa606877b0dcd4caa012859276c2e8bbfefc08c7fb915c9fe4b368",
+		"res://assets/locked_user/chess_stall_LOCKED.png": "8cbeae2f7ae6f3e18f26c0ea49bc5afec12e741f5ece1b2426b4ba4e2b1b446c",
+		"res://assets/locked_user/chess_stall_USER_20261001_LOCKED.png": "61b38e2880dbc096cb9d3b8e05c45978f020e2ee04c33247c3422722cb36aa00",
+		"res://assets/locked_user/heroine_concept_LOCKED.png": "e51b7f86cc994ea13421463d2601006a0552a6b4c2a88e8b42a211051c88a4d7",
+		"res://assets/locked_user/lookout_LOCKED.png": "51036f2afc2d31526a194c4dfe1113c877f36c3e6177f3fa3e9fba023e1a67d1",
+		"res://assets/locked_user/residential_building_USER_20261001_LOCKED.png": "2e918363c006372d9a28ba508b5479f0f466084cc26e9b2de7f432013465efb0",
+		"res://assets/locked_user/tarot_shop_LOCKED.png": "4fb721b82bfa6f245fb23e82ff5e91caaf5b69fdcb30372e1118b70fcd0dfbf6"
+	},
+	"assets_changed_at_end": [],
+	"controlled_ui_demonstration": true,
+	"demo_speed": 8.0,
+	"elapsed_game_seconds": 756.14,
+	"elapsed_wall_seconds": 99.48,
+	"engine": {
+		"build": "official",
+		"hash": "ed1daf0bf001b61586d9930840f2f1394092c079",
+		"hex": 263938,
+		"major": 4,
+		"minor": 7,
+		"patch": 2,
+		"status": "stable",
+		"string": "4.7.2-stable (official)",
+		"timestamp": 0
+	},
+	"events": [
+		{
+			"event": "title",
+			"game_time": "09:00",
+			"second": 0.0
+		},
+		{
+			"check": "The opening begins in the walkable scene with a contextual door objective.",
+			"passed": true,
+			"second": 8.76
+		},
+		{
+			"event": "post_office_entrance",
+			"game_time": "09:00",
+			"second": 8.76
+		},
+		{
+			"check": "Arrived at desk view.",
+			"passed": true,
+			"second": 12.8
+		},
+		{
+			"event": "returned_delivery",
+			"game_time": "09:00",
+			"second": 27.77
+		},
+		{
+			"check": "Wrong ordinary delivery remains open for investigation.",
+			"passed": true,
+			"second": 37.43
+		},
+		{
+			"check": "Map selection previews community_center without spending time.",
+			"passed": true,
+			"second": 44.65
+		},
+		{
+			"check": "Traveled to community_center using the physical map and walk departure.",
+			"passed": true,
+			"second": 48.38
+		},
+		{
+			"check": "Confirmed walk journey charged its previewed cost exactly once.",
+			"passed": true,
+			"second": 48.38
+		},
+		{
+			"event": "case01_evidence",
+			"game_time": "09:25",
+			"second": 48.38
+		},
+		{
+			"check": "Walked to and examined 门侧旧石牌.",
+			"passed": true,
+			"second": 52.53
+		},
+		{
+			"check": "Visual clue old_civic_hall_name requires direct observation before recording.",
+			"passed": true,
+			"second": 52.53
+		},
+		{
+			"check": "Examined old_civic_hall_name physically; recording is still an explicit action.",
+			"passed": true,
+			"second": 56.81
+		},
+		{
+			"check": "The observation stamp records old_civic_hall_name through Main.",
+			"passed": true,
+			"second": 60.53
+		},
+		{
+			"check": "Time spent observing old_civic_hall_name does not consume the shift clock.",
+			"passed": true,
+			"second": 60.53
+		},
+		{
+			"check": "Walked to and examined 翻修与茶会告示.",
+			"passed": true,
+			"second": 62.44
+		},
+		{
+			"check": "Old Civic Hall letter delivered through the UI.",
+			"passed": true,
+			"second": 83.07
+		},
+		{
+			"check": "Walked to and examined 公开转寄登记夹.",
+			"passed": true,
+			"second": 87.33
+		},
+		{
+			"check": "Walked to and examined 2020 夏季活动档案.",
+			"passed": true,
+			"second": 95.47
+		},
+		{
+			"check": "Visual clue event_archive requires direct observation before recording.",
+			"passed": true,
+			"second": 95.47
+		},
+		{
+			"check": "Examined event_archive physically; recording is still an explicit action.",
+			"passed": true,
+			"second": 100.32
+		},
+		{
+			"check": "The observation stamp records event_archive through Main.",
+			"passed": true,
+			"second": 104.17
+		},
+		{
+			"check": "Time spent observing event_archive does not consume the shift clock.",
+			"passed": true,
+			"second": 104.17
+		},
+		{
+			"check": "Walked to and examined 志愿者活动卡.",
+			"passed": true,
+			"second": 107.07
+		},
+		{
+			"check": "Visual clue handwriting_sample requires direct observation before recording.",
+			"passed": true,
+			"second": 107.07
+		},
+		{
+			"check": "Examined handwriting_sample physically; recording is still an explicit action.",
+			"passed": true,
+			"second": 112.33
+		},
+		{
+			"check": "The observation stamp records handwriting_sample through Main.",
+			"passed": true,
+			"second": 116.27
+		},
+		{
+			"check": "Time spent observing handwriting_sample does not consume the shift clock.",
+			"passed": true,
+			"second": 116.27
+		},
+		{
+			"check": "Map selection previews bus_stop without spending time.",
+			"passed": true,
+			"second": 124.01
+		},
+		{
+			"check": "Traveled to bus_stop using the physical map and walk departure.",
+			"passed": true,
+			"second": 127.79
+		},
+		{
+			"check": "Confirmed walk journey charged its previewed cost exactly once.",
+			"passed": true,
+			"second": 127.79
+		},
+		{
+			"event": "case02_consent",
+			"game_time": "09:45",
+			"second": 127.79
+		},
+		{
+			"check": "Walked to and examined 17 路时刻表.",
+			"passed": true,
+			"second": 131.82
+		},
+		{
+			"check": "Visual clue bus_to_lookout requires direct observation before recording.",
+			"passed": true,
+			"second": 131.82
+		},
+		{
+			"check": "Examined bus_to_lookout physically; recording is still an explicit action.",
+			"passed": true,
+			"second": 134.77
+		},
+		{
+			"check": "The observation stamp records bus_to_lookout through Main.",
+			"passed": true,
+			"second": 138.26
+		},
+		{
+			"check": "Time spent observing bus_to_lookout does not consume the shift clock.",
+			"passed": true,
+			"second": 138.26
+		},
+		{
+			"check": "Walked to and examined 志愿活动公告.",
+			"passed": true,
+			"second": 140.62
+		},
+		{
+			"check": "Walked to 尘缘 before conversation.",
+			"passed": true,
+			"second": 147.55
+		},
+		{
+			"check": "Agreed delegation registered at the bus stop.",
+			"passed": true,
+			"second": 179.07
+		},
+		{
+			"check": "Delegation did not grant an unseen lookout clue.",
+			"passed": true,
+			"second": 179.07
+		},
+		{
+			"check": "Map selection previews chess_stall without spending time.",
+			"passed": true,
+			"second": 186.04
+		},
+		{
+			"check": "Traveled to chess_stall using the physical map and walk departure.",
+			"passed": true,
+			"second": 189.66
+		},
+		{
+			"check": "Confirmed walk journey charged its previewed cost exactly once.",
+			"passed": true,
+			"second": 189.66
+		},
+		{
+			"event": "town_chess",
+			"game_time": "13:20",
+			"second": 189.66
+		},
+		{
+			"check": "Walked to and examined 借棋登记簿.",
+			"passed": true,
+			"second": 194.46
+		},
+		{
+			"check": "Map selection previews tarot_shop without spending time.",
+			"passed": true,
+			"second": 207.41
+		},
+		{
+			"check": "Traveled to tarot_shop using the physical map and walk departure.",
+			"passed": true,
+			"second": 210.58
+		},
+		{
+			"check": "Confirmed walk journey charged its previewed cost exactly once.",
+			"passed": true,
+			"second": 210.58
+		},
+		{
+			"event": "town_guestbook",
+			"game_time": "13:55",
+			"second": 210.58
+		},
+		{
+			"check": "Walked to and examined 公开留言册.",
+			"passed": true,
+			"second": 215.25
+		},
+		{
+			"check": "Map selection previews residential without spending time.",
+			"passed": true,
+			"second": 228.03
+		},
+		{
+			"check": "Traveled to residential using the physical map and walk departure.",
+			"passed": true,
+			"second": 231.97
+		},
+		{
+			"check": "Confirmed walk journey charged its previewed cost exactly once.",
+			"passed": true,
+			"second": 231.97
+		},
+		{
+			"event": "residential_records",
+			"game_time": "14:25",
+			"second": 231.97
+		},
+		{
+			"check": "Walked to and examined 302 门牌.",
+			"passed": true,
+			"second": 236.7
+		},
+		{
+			"check": "Visual clue resident_moved requires direct observation before recording.",
+			"passed": true,
+			"second": 236.7
+		},
+		{
+			"check": "Examined resident_moved physically; recording is still an explicit action.",
+			"passed": true,
+			"second": 241.54
+		},
+		{
+			"check": "The observation stamp records resident_moved through Main.",
+			"passed": true,
+			"second": 244.99
+		},
+		{
+			"check": "Time spent observing resident_moved does not consume the shift clock.",
+			"passed": true,
+			"second": 244.99
+		},
+		{
+			"check": "Walked to and examined 旧门牌底册.",
+			"passed": true,
+			"second": 248.27
+		},
+		{
+			"check": "Visual clue old_nameplate requires direct observation before recording.",
+			"passed": true,
+			"second": 248.27
+		},
+		{
+			"check": "Examined old_nameplate physically; recording is still an explicit action.",
+			"passed": true,
+			"second": 253.44
+		},
+		{
+			"check": "The observation stamp records old_nameplate through Main.",
+			"passed": true,
+			"second": 257.96
+		},
+		{
+			"check": "Time spent observing old_nameplate does not consume the shift clock.",
+			"passed": true,
+			"second": 257.96
+		},
+		{
+			"check": "Walked to June Arlen before conversation.",
+			"passed": true,
+			"second": 261.18
+		},
+		{
+			"check": "Selected case03 from its envelope tab.",
+			"passed": true,
+			"second": 272.13
+		},
+		{
+			"check": "Opened physical_board.gd through the interface.",
+			"passed": true,
+			"second": 285.16
+		},
+		{
+			"event": "six_fragments",
+			"game_time": "14:25",
+			"second": 286.0
+		},
+		{
+			"check": "Fragment 1 snapped after physical alignment.",
+			"passed": true,
+			"second": 288.4
+		},
+		{
+			"check": "Fragment 2 snapped after physical alignment.",
+			"passed": true,
+			"second": 293.07
+		},
+		{
+			"check": "Fragment 3 snapped after physical alignment.",
+			"passed": true,
+			"second": 296.21
+		},
+		{
+			"check": "Fragment 4 snapped after physical alignment.",
+			"passed": true,
+			"second": 300.11
+		},
+		{
+			"check": "Fragment 5 snapped after physical alignment.",
+			"passed": true,
+			"second": 304.81
+		},
+		{
+			"check": "Fragment 6 snapped after physical alignment.",
+			"passed": true,
+			"second": 307.13
+		},
+		{
+			"check": "Six rotated fragments reconstructed the old address.",
+			"passed": true,
+			"second": 314.68
+		},
+		{
+			"check": "Opened physical_board.gd through the interface.",
+			"passed": true,
+			"second": 317.04
+		},
+		{
+			"event": "damage_warning",
+			"game_time": "14:40",
+			"second": 317.85
+		},
+		{
+			"check": "Separate off-path slips recorded actual damage warnings.",
+			"passed": true,
+			"second": 333.69
+		},
+		{
+			"check": "Held pointer traversed the entire seal path.",
+			"passed": true,
+			"second": 345.94
+		},
+		{
+			"check": "Arrived at failure view.",
+			"passed": true,
+			"second": 350.13
+		},
+		{
+			"check": "Eight distinct deviations reached the damaged-letter ending.",
+			"passed": true,
+			"second": 350.67
+		},
+		{
+			"check": "Damaged opening did not reveal the inner letter.",
+			"passed": true,
+			"second": 350.67
+		},
+		{
+			"event": "checkpoint",
+			"game_time": "14:50",
+			"second": 350.67
+		},
+		{
+			"check": "Arrived at desk view.",
+			"passed": true,
+			"second": 359.85
+		},
+		{
+			"check": "Checkpoint preserved the finished address puzzle.",
+			"passed": true,
+			"second": 360.36
+		},
+		{
+			"check": "Opened physical_board.gd through the interface.",
+			"passed": true,
+			"second": 362.77
+		},
+		{
+			"event": "safe_opening",
+			"game_time": "14:40",
+			"second": 363.59
+		},
+		{
+			"check": "Held pointer traversed the entire seal path.",
+			"passed": true,
+			"second": 377.33
+		},
+		{
+			"check": "Opened physical_board.gd through the interface.",
+			"passed": true,
+			"second": 397.54
+		},
+		{
+			"event": "repair",
+			"game_time": "15:05",
+			"second": 398.53
+		},
+		{
+			"check": "Repair stage 0 is available in sequence.",
+			"passed": true,
+			"second": 398.53
+		},
+		{
+			"check": "Repair stage 1 is available in sequence.",
+			"passed": true,
+			"second": 401.14
+		},
+		{
+			"check": "Repair stage 2 is available in sequence.",
+			"passed": true,
+			"second": 404.0
+		},
+		{
+			"check": "Repair stage 3 is available in sequence.",
+			"passed": true,
+			"second": 406.82
+		},
+		{
+			"check": "Map selection previews bus_stop without spending time.",
+			"passed": true,
+			"second": 422.94
+		},
+		{
+			"check": "Traveled to bus_stop using the physical map and walk departure.",
+			"passed": true,
+			"second": 426.64
+		},
+		{
+			"check": "Confirmed walk journey charged its previewed cost exactly once.",
+			"passed": true,
+			"second": 426.64
+		},
+		{
+			"event": "route_seventeen",
+			"game_time": "15:40",
+			"second": 426.64
+		},
+		{
+			"check": "Map selection previews lookout without spending time.",
+			"passed": true,
+			"second": 433.87
+		},
+		{
+			"check": "Traveled to lookout using the physical map and bus departure.",
+			"passed": true,
+			"second": 437.85
+		},
+		{
+			"check": "Confirmed bus journey charged its previewed cost exactly once.",
+			"passed": true,
+			"second": 437.85
+		},
+		{
+			"event": "nora",
+			"game_time": "16:55",
+			"second": 437.85
+		},
+		{
+			"check": "Walked to Nora Vale before conversation.",
+			"passed": true,
+			"second": 444.14
+		},
+		{
+			"check": "Repaired invitation delivered to Nora at the lookout.",
+			"passed": true,
+			"second": 474.77
+		},
+		{
+			"check": "Selected case04 from its envelope tab.",
+			"passed": true,
+			"second": 475.58
+		},
+		{
+			"check": "Walked to June Arlen before conversation.",
+			"passed": true,
+			"second": 489.37
+		},
+		{
+			"check": "Walked to Mira Vale before conversation.",
+			"passed": true,
+			"second": 503.17
+		},
+		{
+			"event": "independent_inference",
+			"game_time": "16:55",
+			"second": 516.13
+		},
+		{
+			"check": "Opened deduction_board.gd through the interface.",
+			"passed": true,
+			"second": 516.13
+		},
+		{
+			"check": "Three independent evidence claims recorded by the inference seal.",
+			"passed": true,
+			"second": 541.62
+		},
+		{
+			"check": "Opened physical_board.gd through the interface.",
+			"passed": true,
+			"second": 544.91
+		},
+		{
+			"event": "old_letter",
+			"game_time": "16:55",
+			"second": 545.72
+		},
+		{
+			"check": "Held pointer traversed the entire seal path.",
+			"passed": true,
+			"second": 559.54
+		},
+		{
+			"event": "photo_choice",
+			"game_time": "17:20",
+			"second": 592.61
+		},
+		{
+			"check": "Opened attachment_board.gd through the interface.",
+			"passed": true,
+			"second": 592.61
+		},
+		{
+			"check": "Photo is physically inside the kept drawer before handoff.",
+			"passed": true,
+			"second": 608.36
+		},
+		{
+			"check": "Opened physical_board.gd through the interface.",
+			"passed": true,
+			"second": 612.14
+		},
+		{
+			"check": "Repair stage 0 is available in sequence.",
+			"passed": true,
+			"second": 612.14
+		},
+		{
+			"check": "Repair stage 1 is available in sequence.",
+			"passed": true,
+			"second": 615.06
+		},
+		{
+			"check": "Repair stage 2 is available in sequence.",
+			"passed": true,
+			"second": 618.0
+		},
+		{
+			"check": "Repair stage 3 is available in sequence.",
+			"passed": true,
+			"second": 621.19
+		},
+		{
+			"check": "Photo withheld through physical placement and final repaired handoff.",
+			"passed": true,
+			"second": 634.53
+		},
+		{
+			"check": "Identities and the three independent records agree.",
+			"passed": true,
+			"second": 634.53
+		},
+		{
+			"event": "last_envelope",
+			"game_time": "17:35",
+			"second": 634.53
+		},
+		{
+			"check": "Opened physical_board.gd through the interface.",
+			"passed": true,
+			"second": 652.91
+		},
+		{
+			"check": "Held pointer traversed the entire seal path.",
+			"passed": true,
+			"second": 667.6
+		},
+		{
+			"check": "Opened physical_board.gd through the interface.",
+			"passed": true,
+			"second": 687.73
+		},
+		{
+			"event": "archive",
+			"game_time": "18:00",
+			"second": 688.58
+		},
+		{
+			"check": "The full archive contains the case's original serial and date.",
+			"passed": true,
+			"second": 694.62
+		},
+		{
+			"check": "Arrived at ending view.",
+			"passed": true,
+			"second": 715.47
+		},
+		{
+			"event": "evening",
+			"game_time": "18:00",
+			"second": 716.11
+		},
+		{
+			"check": "All five letters have final UI-registered outcomes.",
+			"passed": true,
+			"second": 756.14
+		},
+		{
+			"check": "All seven locations were reached through the town map.",
+			"passed": true,
+			"second": 756.14
+		},
+		{
+			"check": "Archive stamp matched the original serial and date.",
+			"passed": true,
+			"second": 756.14
+		},
+		{
+			"check": "Actual evening state was produced.",
+			"passed": true,
+			"second": 756.14
+		},
+		{
+			"check": "Agreed urgent delegation arrived before sunset.",
+			"passed": true,
+			"second": 756.14
+		},
+		{
+			"event": "complete",
+			"game_time": "18:00",
+			"second": 756.14
+		}
+	],
+	"movie_budget": {
+		"enabled": true,
+		"fps": 24,
+		"max_jpeg_bytes": 90387,
+		"mean_jpeg_bytes": 56832.5,
+		"p95_900_seconds_bytes": 2096474400,
+		"p95_jpeg_bytes": 89059,
+		"projected_24fps_avi_bytes": 1176539269,
+		"projected_900_seconds_bytes": 1400381280,
+		"projection_note": "Actual rendered viewport sampled roughly every 10 simulated seconds; includes estimated 48kHz stereo 16-bit PCM, excludes small container/index overhead. Not a recorded movie.",
+		"quality": 0.55,
+		"sample_count": 75,
+		"viewport": [
+			1280,
+			720
+		]
+	},
+	"passed": true,
+	"save_path": "user://qa/video_save_6060822.json",
+	"source_scope": "All scripts, project settings, data, driver and raw PNG/SVG/TTF/WAV/OGG assets present at start. Does not identify an exported executable or prove human usability.",
+	"source_sha256_at_start": {
+		"res://data/game.json": "05bb8649c501f025ee82e9817a9659aa5017f4e03a9feadcd57a852daa67b7f8",
+		"res://project.godot": "0a017f2d1defc1407f5c77f15deb991888aee89dd1b46b447dca39ef782c2168",
+		"res://scripts/core/GameSession.gd": "06647c03e9dade7ff16563077e280e10bacbe9f602c9a1b4fb5e29f1acfd2bff",
+		"res://scripts/core/SaveData.gd": "44eb1f63a4e8d91683bd03c658fa531dd66a07f7e1920d6af16447817c34b963",
+		"res://scripts/main.gd": "4ac667eb115ce1d981115f53582d447df72f49c364ec6a66e37ac80a26d1a30d",
+		"res://scripts/ui/attachment_board.gd": "21abfac6994c2cc514660b57f861b04dbf45382130b79f9cd9b1250a31d6a2af",
+		"res://scripts/ui/audio_feedback.gd": "513eed1be73e8712236d9530bf6e0774349c27a7b35f4ec3d81bb347fce874d1",
+		"res://scripts/ui/chapter_screen.gd": "3f945f576e36650b42bacb480fd42f923c82ccaedeb014cc93714ebc2cefe63e",
+		"res://scripts/ui/conversation_ribbon.gd": "20b1154f1720a473f8630d3fb3204f7561c048320817f21b9b5cb8f0faf69b87",
+		"res://scripts/ui/courier_actor.gd": "9c7ff86978737c1288430a03d5ff214d80f7d0dfa57f01a00f207e13eeddc22d",
+		"res://scripts/ui/daylight.gd": "6c97922e3ed0708ab394f92eac1109126c413e35b5adf1451b19b83b215db40d",
+		"res://scripts/ui/deduction_board.gd": "35ff965e1546e29760e9dd9a3868d13bb6950c3bb02ab2edfe1875b9999c6bb2",
+		"res://scripts/ui/field_guidance.gd": "3f0322d35718c83ed1bd4401c2e02b5441fe977e26837b217abf6b21e0e4f744",
+		"res://scripts/ui/mail_card.gd": "32af1e4ba99674badf88e391f0684ae9f9704f696c0a0e93e234229a96100fcf",
+		"res://scripts/ui/map_controller.gd": "a480061040f93aba1bb860e64c300317499624d35706f4c1911d5b2d5f8420e6",
+		"res://scripts/ui/object_button.gd": "44f0555b8da93fad0339f98a02aecb417749f912b3876cefd125fa21ea478030",
+		"res://scripts/ui/paper_ui.gd": "f74f63c5438ca5449a8314452fedd0fd668550d795167a3a40182896a31bbb1d",
+		"res://scripts/ui/physical_board.gd": "64171bb5017ecf74c1b2f0a24eadea4a3ac35f1ecab13105249d0af2da98283f",
+		"res://scripts/ui/resident_portrait.gd": "5cd4f6ac4cab155df859ad5d53f6f048b0ea24faa0437cad9b482979215652eb",
+		"res://scripts/ui/scene_props.gd": "4d16a0c8974d4bf636e6ac1aa603e87e445ebc7461bca01b76ab5b5b3b31267d",
+		"res://scripts/ui/stage_depth.gd": "b9b3f7789e0c1e4b6ea8f2ed7a9e25d71086fa29fece2ce582c31043e9234646",
+		"res://scripts/ui/stage_layout.gd": "2e6d8bc6ecf96fe55e8d0a50c0e8f99ca7df20a04c6ff671ea62e57e3713f58c",
+		"res://scripts/ui/stage_walker.gd": "8b08d8a202100a586f3299b2343bff6a5568c0cbcb0be95dfdd93dbb702b5488",
+		"res://scripts/ui/visual_evidence.gd": "17d7e3a70052922447a82d36dd2e0d290d148fbb3c96c41c175aebc327cdf2a6",
+		"res://scripts/ui/workbench_surface.gd": "1bf02e58a031583bb8ad43dd269b945bd65fa16a18399a3bbdc6215ce4c97d8d",
+		"res://tools/playthrough.gd": "2d7385ed980d9cbf5f1560a7ed8ca43a902aeef8d9d611fa29a09bedf58c1073"
+	},
+	"sources_changed_at_end": [],
+	"started_utc": "2026-09-30T23:09:12"
+}

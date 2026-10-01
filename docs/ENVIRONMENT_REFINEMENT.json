@@ -1,0 +1,44 @@
+{
+  "reason": "Reduced black contour density and contrast after actual composite audit showed mismatch with authorized untouched pastel user architecture.",
+  "originalGenerationRecord": "ENVIRONMENT_GENERATION.json",
+  "method": "Built-in image_gen, generated assets only as edit inputs. No user originals.",
+  "firstPrompt": "Use case: style-transfer. Input image is OUR OWN generated postal-game environment, the only edit target. Keep EXACT composition, horizon height, perspective, open central building area, empty walkable stone lane, coastline and objects. Change only the rendering style so a separately inserted pastel flat-color building will belong naturally. Replace black ink outlines with very restrained muted local-color edges; simplify foliage into larger angular painted masses with only a few leaves indicated. Remove most little stone cracks and texture flecks. Broad hand-painted matte gouache color planes, angular shapes, straight sensible masonry. NO photorealistic lighting, no 3D, no photoreal textures, no blur filter, no pixel art, no new objects/buildings/people/text. Use a warm Mediterranean SUMMER palette: pale apricot/cream stone, muted dusty turquoise sea, pale airy blue sky, soft lavender shadows, sage olive leaves. Less saturated blue, less contrast than input, keep bright sunlight and readable depth. Do not turn it into a geometric diagram; retain confident artist-composed outlines and natural painted shapes, but NOT black comic contours. A polished illustrated 2D adventure setting with clear foreground, middle and far coast. Retain bottom corner plants and clear lower-middle walkway. Entire original 16:9 frame retained.",
+  "remainingPrompt": "Use case: style-transfer. Input image is OUR OWN generated postal-game environment, the only edit target. Keep EXACT composition, horizon height, perspective, open central building area, empty walkable stone lane, coastline and objects. Change only the rendering style so a separately inserted pastel flat-color building will belong naturally. Replace black ink outlines with very restrained muted local-color edges; simplify foliage into larger angular painted masses with only a few leaves indicated. Remove most little stone cracks and texture flecks. Broad hand-painted matte gouache color planes, angular shapes, straight sensible masonry. NO photorealistic lighting, no 3D, no photoreal textures, no blur filter, no pixel art, no new objects/buildings/people/text. Use a warm Mediterranean SUMMER palette: pale apricot/cream stone, muted dusty turquoise sea, pale airy blue sky, soft lavender shadows, sage olive leaves. Less saturated blue, less contrast than input, keep bright sunlight and readable depth. Do not turn it into a geometric diagram; retain confident artist-composed outlines and natural painted shapes, but NOT black comic contours. A polished illustrated 2D adventure setting with clear foreground, middle and far coast. Retain bottom corner plants and clear lower-middle walkway. Entire original 16:9 frame retained. Input image 1 is the target whose exact layout MUST stay fixed. Image 2 is our own final post-office environment STYLE REFERENCE ONLY: match its matte pastel gouache, soft local-color edges, simplified angular painted foliage, cream/apricot light and lavender shade. Do not copy the reference's objects or layout into image1.",
+  "selected": [
+    {
+      "id": "post_office",
+      "output": "exec-96c20024-dc78-4060-a80d-f1d828086cce.png",
+      "path": "assets/generated/environments/post_office.png"
+    },
+    {
+      "id": "community_center",
+      "output": "exec-73877bcc-29aa-4051-9afb-f754744c3c21.png",
+      "path": "assets/generated/environments/community_center.png"
+    },
+    {
+      "id": "bus_stop",
+      "output": "exec-4123ace1-2ee6-46c7-bbed-64872407f998.png",
+      "path": "assets/generated/environments/bus_stop.png"
+    },
+    {
+      "id": "lookout",
+      "output": "exec-e9291ef6-24be-4b3f-9a62-95add600286a.png",
+      "path": "assets/generated/environments/lookout.png"
+    },
+    {
+      "id": "residential",
+      "output": "exec-8e51d233-ed3c-49e2-9ed3-ef91ff0ec72c.png",
+      "path": "assets/generated/environments/residential.png"
+    },
+    {
+      "id": "chess_stall",
+      "output": "exec-6fd4a4dd-c3bd-484e-8e92-2b45338b91e6.png",
+      "path": "assets/generated/environments/chess_stall.png"
+    },
+    {
+      "id": "tarot_shop",
+      "output": "exec-b05a84cd-13bb-4d96-909f-eb06aa433cdc.png",
+      "path": "assets/generated/environments/tarot_shop.png"
+    }
+  ]
+}

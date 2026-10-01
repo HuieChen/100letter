@@ -1,0 +1,236 @@
+{
+  "format": "solmere-recorded-demonstration-v1",
+  "captured_utc": "2026-10-01T00:02:50.3278014Z",
+  "result": "pass",
+  "scope": "Normal-speed program-controlled recording of the actual Godot Main viewport. This is a known-route demonstration and technical verification, not a human playtest, satisfaction study or first-time completion-time measurement.",
+  "movie": {
+    "delivery_path": "outputs/100letter-delivery/全流程演示.mp4",
+    "filename": "全流程演示.mp4",
+    "bytes": 52592641,
+    "sha256": "f7ebb13c651fe678f9d17394679472a90ac3dbfa975d7e06b6c21810da4dfcd7",
+    "duration_seconds": 731.2916666666666,
+    "duration_display": "00:12:11.292",
+    "video": {
+      "pixel_format_reported": "yuvj420p (full range)",
+      "frames": 17551,
+      "fps": 24,
+      "codec": "H.264 High",
+      "copied_packet_sha256": "861f9fd12833f36df36b58e69d7eb2e83c73c76cfa7535093a7cad2380f58774",
+      "dimensions": [
+        1280,
+        720
+      ],
+      "encoder": "libx264 CRF 18, medium preset"
+    },
+    "audio": {
+      "original_movie_audio_mean_dbfs": -38.8,
+      "game_default_mix_changed": false,
+      "postproduction_gain_db": 10,
+      "sample_rate_hz": 48000,
+      "channels": 2,
+      "scope": "Uniform video-only gain applied from original MovieWriter PCM audio. Measured after AAC encoding; no video re-encoding in this pass.",
+      "target_bitrate_kbps": 192,
+      "original_movie_audio_max_dbfs": -16.1,
+      "max_volume_dbfs": -6.1,
+      "mean_volume_dbfs": -28.8,
+      "codec": "AAC LC"
+    }
+  },
+  "recording": {
+    "report": "docs/testing/playthrough_recorded.json",
+    "asset_changes_during_run": [],
+    "driver_wall_seconds": 821.158,
+    "movie_writer": {
+      "intermediate_avi_bytes": 1128802932,
+      "viewport": [
+        1280,
+        720
+      ],
+      "video_quality": 0.55,
+      "fps": 24,
+      "encoded_frames": 17551
+    },
+    "event_and_check_entries": 138,
+    "source_changes_during_run": [],
+    "driver": "tools/playthrough.gd",
+    "route": [
+      "title and immediate world guidance",
+      "all seven locations and five letters",
+      "wrong ordinary delivery then recovery",
+      "explicit urgent delegation",
+      "six-fragment physical reconstruction",
+      "eight physical opening errors and checkpoint recovery",
+      "actual scheduled bus trip",
+      "safe opening and restoration",
+      "three-role provisional deduction",
+      "old letter photo withheld and letter resealed",
+      "archive matching and branch-specific ending"
+    ],
+    "engine": "Godot Engine v4.7.2.stable.official.ed1daf0bf",
+    "playback_speed": 1.0,
+    "started_utc": "2026-09-30T23:19:07",
+    "source_and_asset_hashes": "The recorded report captures scripts, project settings, catalog and PNG/SVG/TTF/WAV/OGG raw resources at start and verifies them at end.",
+    "driver_game_seconds": 730.82,
+    "state_isolation": "Unique user://qa/video_save_5971037.json; no gameplay facts, clock or outcomes injected. Actions use actual Main controls and physical-board input callbacks."
+  },
+  "verification": {
+    "final_video_packet_identity": {
+      "matched": true,
+      "before": "SHA256=861f9fd12833f36df36b58e69d7eb2e83c73c76cfa7535093a7cad2380f58774",
+      "after": "SHA256=861f9fd12833f36df36b58e69d7eb2e83c73c76cfa7535093a7cad2380f58774"
+    },
+    "final_audio_decode": {
+      "exit_code": 0,
+      "scope": "Every final AAC audio sample decoded. Peak -6.1 dBFS; this is measurement rather than a human listening assessment.",
+      "clipping_observed": false,
+      "filter": "volumedetect"
+    },
+    "frame_inspection": {
+      "scope": "Ten actual extracted frames were viewed; the full film was not watched by a human. Audio-only postprocessing keeps these frames applicable.",
+      "count": 10,
+      "random_frames": 6,
+      "targeted_frames": 4,
+      "samples": [
+        {
+          "time_seconds": 0.5,
+          "method": "title/end targeted",
+          "filename": "frame_01_000.5s.jpg",
+          "path": "docs/testing/video_evidence/frame_01_000.5s.jpg",
+          "sha256": "5294332984fc4cb775ce6a14a89e484ac8c5f25bf28b54fe343efd86fd795dc3",
+          "inspection": "Actually viewed by the executing agent: content present, sampled text readable, no black frame, missing texture or clipped text observed."
+        },
+        {
+          "time_seconds": 723.0,
+          "method": "title/end targeted",
+          "filename": "frame_02_723.0s.jpg",
+          "path": "docs/testing/video_evidence/frame_02_723.0s.jpg",
+          "sha256": "f32db2123ed01b60c65ed26fe7f2e9a40dea4de40064bcbb696ff2f90a0c71f3",
+          "inspection": "Actually viewed by the executing agent: content present, sampled text readable, no black frame, missing texture or clipped text observed."
+        },
+        {
+          "time_seconds": 389,
+          "method": "seeded random",
+          "filename": "frame_03_389.0s.jpg",
+          "path": "docs/testing/video_evidence/frame_03_389.0s.jpg",
+          "sha256": "2ca6e45c60286c7fb255c36d78edc77cb909203c9c61bbbcd6cd8ab624b247f6",
+          "inspection": "Actually viewed by the executing agent: content present, sampled text readable, no black frame, missing texture or clipped text observed."
+        },
+        {
+          "time_seconds": 514,
+          "method": "seeded random",
+          "filename": "frame_04_514.0s.jpg",
+          "path": "docs/testing/video_evidence/frame_04_514.0s.jpg",
+          "sha256": "d3f8f970e2ffee7f11e3056ce48478f2194c1a86ae6b5841ba97172c79717b1c",
+          "inspection": "Actually viewed by the executing agent: content present, sampled text readable, no black frame, missing texture or clipped text observed."
+        },
+        {
+          "time_seconds": 117,
+          "method": "seeded random",
+          "filename": "frame_05_117.0s.jpg",
+          "path": "docs/testing/video_evidence/frame_05_117.0s.jpg",
+          "sha256": "63ab969a8abd9caabb678e8eab1accb9b0b4a12d0b1bab12bb7e65a8c9ebb2d4",
+          "inspection": "Actually viewed by the executing agent: content present, sampled text readable, no black frame, missing texture or clipped text observed."
+        },
+        {
+          "time_seconds": 696,
+          "method": "seeded random",
+          "filename": "frame_06_696.0s.jpg",
+          "path": "docs/testing/video_evidence/frame_06_696.0s.jpg",
+          "sha256": "6e3ea0f42712ad49c0bdd3467fb98383ab7ef6e85e8c61a665993057825f892b",
+          "inspection": "Actually viewed by the executing agent: content present, sampled text readable, no black frame, missing texture or clipped text observed."
+        },
+        {
+          "time_seconds": 178,
+          "method": "seeded random",
+          "filename": "frame_07_178.0s.jpg",
+          "path": "docs/testing/video_evidence/frame_07_178.0s.jpg",
+          "sha256": "92d82de31a345ffa3797923abc76875a40fc2d36cece379c595c88cafd59ddbd",
+          "inspection": "Actually viewed by the executing agent: content present, sampled text readable, no black frame, missing texture or clipped text observed."
+        },
+        {
+          "time_seconds": 632,
+          "method": "seeded random",
+          "filename": "frame_08_632.0s.jpg",
+          "path": "docs/testing/video_evidence/frame_08_632.0s.jpg",
+          "sha256": "09edb717c0dcf76434a4246a411c9c38b9f0787cfb11d6a05e5eef4cbb0a58d2",
+          "inspection": "Actually viewed by the executing agent: content present, sampled text readable, no black frame, missing texture or clipped text observed."
+        },
+        {
+          "time_seconds": 435,
+          "filename": "target_435.jpg",
+          "sha256": "a9fcfa57a7710daa037014fc587a5c1e722ffe72cbf62035ad5fdba0ced3f29b",
+          "method": "targeted on-site dialogue",
+          "path": "docs/testing/video_evidence/target_435.jpg",
+          "inspection": "Actually viewed by the executing agent: content present, sampled text readable, no black frame, missing texture or clipped text observed."
+        },
+        {
+          "time_seconds": 554,
+          "filename": "target_554.jpg",
+          "sha256": "965be7a1bf9ec651d1d5a45df312b6af5460deaf1170335ad8b1d43dbdc49ca5",
+          "method": "targeted long letter body",
+          "path": "docs/testing/video_evidence/target_554.jpg",
+          "inspection": "Actually viewed by the executing agent: content present, sampled text readable, no black frame, missing texture or clipped text observed."
+        }
+      ],
+      "random_seed": 20261001
+    },
+    "full_video_decode": {
+      "duplicate_frames": 0,
+      "frames": 17551,
+      "filter": "blackdetect=d=0.5:pix_th=0.02",
+      "exit_code": 0,
+      "scope": "Full initial H.264/AAC file decoded with -xerror. The final postproduction pass preserved the exact H.264 packet hash.",
+      "dropped_frames": 0,
+      "blackdetect_segments": 0
+    }
+  },
+  "evidence": [
+    {
+      "sha256": "a41ad5711ebd3d045ce728ce87091c796429d15b030c0c8492c97a68c736b731",
+      "path": "docs/testing/video_evidence/playthrough-recorded.txt"
+    },
+    {
+      "sha256": "bec68f37e731d497b9c67b4af384a02973b1792b5cb97437c340d7612af66f7e",
+      "path": "docs/testing/video_evidence/playthrough-recorded-errors.txt"
+    },
+    {
+      "sha256": "d608b2410f5f8ce460a053ad4841dbe664e1cbbb3086a2dd6613810746ca7b31",
+      "path": "docs/testing/video_evidence/video-transcode.txt"
+    },
+    {
+      "sha256": "8348bb1ba055801409c98a12d4eac9e9b616b2bea8b9d49a219b92e65bc576ac",
+      "path": "docs/testing/video_evidence/video-decode.txt"
+    },
+    {
+      "sha256": "76df05b90c02e741fb235a030ba948644b24ef2ab8ecec899d802ad0c5590e82",
+      "path": "docs/testing/video_evidence/video-decode-progress.txt"
+    },
+    {
+      "sha256": "f19cf5480f026b610d79a829c3c27690432f9213e81d0b8d43539af38ad89bfc",
+      "path": "docs/testing/video_evidence/video-audio-gain.txt"
+    },
+    {
+      "sha256": "120c53eeb287834f464f7427d3f9040f82ce9f00ca00b8866309d15a3a76001f",
+      "path": "docs/testing/video_evidence/video-final-audio.txt"
+    },
+    {
+      "sha256": "9a4639599c732e95734de65cbbcb519b18e43f27fcd78b5b73cb35ddc5edc437",
+      "path": "docs/testing/video_evidence/video-before-bitstream.sha256"
+    },
+    {
+      "sha256": "9a4639599c732e95734de65cbbcb519b18e43f27fcd78b5b73cb35ddc5edc437",
+      "path": "docs/testing/video_evidence/video-after-bitstream.sha256"
+    }
+  ],
+  "diagnostics": [
+    "Godot emitted the known Windows root certificate store startup diagnostic. The recorded route exited successfully with no script error or resource-leak warning.",
+    "MovieWriter warned at startup that 6.05 GiB disk space was available. The complete AVI, transcode and validation subsequently succeeded.",
+    "FFmpeg emitted the generic deprecated pixel-format warning when converting full-range MJPEG. Full decode and viewed frames passed; metadata records the full-range H.264 output."
+  ],
+  "limits": [
+    "Not 100 people or 100 manual gameplay sessions.",
+    "Does not establish first-time 30–45 minute playtime or subjective enjoyment.",
+    "Native input review, exported executable identity and GitHub publication are separate release evidence.",
+    "The 138 mixed route milestones are not added to the 5,908 suite assertion total."
+  ]
+}

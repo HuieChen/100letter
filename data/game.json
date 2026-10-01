@@ -1,0 +1,330 @@
+{
+  "title": "Solmere Post · 异常邮件部",
+  "subtitle": "五封信，一个夏日。",
+  "travel_service": {
+    "id": "route17",
+    "label": "17 路公交",
+    "from": "bus_stop",
+    "to": "lookout",
+    "departures": [790, 910, 1000],
+    "ride_minutes": 15
+  },
+  "opening_text": "主管把托盘推过来：‘普通邮件已经出发了。这里留下的，是地址变了、纸张坏了，或迟了太久的信。先看看信封，再去问问镇上的人。’\n\n窗外有人把遮阳篷撑开。桌角的钟刚过九点。最下面那封没有邮票的信，像是早就知道你会来。\n\n读信和思考不会让钟走快。旅行、拆封与深度调查会消耗工作时间。每个决定都留下记录；记录并不替你判断对错。",
+  "letters": [
+    {
+      "id": "case01",
+      "title": "旧名字的来信",
+      "serial": "S-0726-0724-01",
+      "type": "普通异常件",
+      "can_open": false,
+      "deadline": -1,
+      "recipient": "community_center",
+      "sender": "linnea",
+      "location": "community_center",
+      "front": "To the friends at Old Civic Hall, Solmere\n\n寄件人：Linnea\n邮戳：24 JUL 2026\n\n字写得很慢，Hall 的最后一笔几乎越过地址框。信封上没有房间号，只有一个地图里找不到的名字。",
+      "back": "封口完好。背面画着一只小饼干盒，旁边写着‘星期六，靠窗’。\n\n邮戳很新，纸也没有陈年的气味。这封信似乎只是用了一个旧称呼。\n\n邮路退签：现行街道簿未检索到 Old Civic Hall；转异常件部核对地点。",
+      "body": "亲爱的旧市政厅朋友们：\n很久不见。下周我会回 Solmere 一趟。\n如果星期六的邻里茶会还在举办，请替我留一个靠窗的位置。\n车票已经订好，这次我会早一点出门，免得又拎着盒子从大家身后挤进去。\n我还是会带那盒太甜的杏仁饼。\n糖我试着减过，出炉时尝了一块，觉得不像，便又撒了一点。别提前买点心，也别告诉我上次哪一盒剩得最多。\n窗边那把椅子若还晃，给我就好，我记得该往哪边坐。\n—— Linnea",
+      "delivery_body_access": {"when":"delivered","label":"茶会朋友们公开传阅的便笺"},
+      "clue_ids": ["old_civic_hall_name", "community_center_history"],
+      "choices": ["deliver", "delay", "return"],
+      "outcome": {
+        "deliver": "社区中心的人摸了摸收件栏：“Old Civic Hall……只有离开很久的人还会这么叫。”\n\n工作人员读到杏仁饼，笑着给你看 Linnea 留给茶会朋友们的便笺，又在登记册写下：靠窗，备一壶不加糖的茶。\n\n“那把椅子已经修好了，”她说完想了想，“不过还是给她留那一把吧。”",
+        "delay": "你把信放进明日再查的格子，在待办条上记下已核对的旧名。今天的茶会登记册暂时没有收到这份订位。",
+        "return": "你按回邮信息寄回了这封信，附上地址待核对的退签。Linnea 要再写一遍地址，也许还得另外托人留座。",
+        "wrong_delivery": "这里的人没认出 Old Civic Hall，把信完好退了回来。退签上多了一行：‘地址也会有记忆。问问哪一栋房子曾经用过这个名字。’你仍可重新调查和投递。"
+      },
+      "hint": "先比较邮戳年代与地址年代。一个新寄出的信，也可能写着一栋旧建筑的名字。"
+    },
+    {
+      "id": "case02",
+      "title": "赶在日落前",
+      "serial": "S-0726-0724-02",
+      "type": "日落前急件",
+      "can_open": false,
+      "deadline": 1080,
+      "recipient": "mira_vale",
+      "sender": "l_unknown",
+      "location": "lookout",
+      "front": "To: Mira Vale\nSolmere\nPRIORITY / Before Sunset\n\n回邮签名：L.\n\n红色急件签完整贴在右上角。收件人姓名清楚，但投递员在住址栏旁写了：‘本人今日外出，请确认下午去向。’",
+      "back": "封口没有受潮或松动。邮路附签：Mira 上午离开登记住处；非退居、非搬迁。\n\n这封信需要解决的是人今天在哪里，而不是她是谁。除收件人授权外，不拆开它。\n\n送达要求：18:00 前。逾期仍可送达，但约定可能已经过去。",
+      "body": "Mira——\n如果你收到这封，我大概已经在路上。\n车票买得太早，我把它从衣袋换到书里，又换回来，怕到了检票口找不到。\n有些事情，想在天色暗下之前亲口告诉你。\n听说你下午可能会去观景台。\n我本来想写“不用特意等”，可这么写，你大概真会走。\n如果能在日落前见到你，请等等我。\n车若晚了，你冷就先回去；我带了那件你总说太薄的外套，到了会很容易认。\n—— L.",
+      "delivery_body_access": {"when":"evening_delivered","label":"Mira 同意附在回执里的便笺"},
+      "clue_ids": ["chenyuan_sighting", "bus_to_lookout"],
+      "choices": ["deliver", "delegate", "delay"],
+      "outcome": {
+        "deliver": "你在观景台把急件交给 Mira，她读完后又看了一眼上坡的路：“那我再等一会儿。”\n\n风翻起长椅边的旧活动带，你在场记下了日期。晚间，Mira 带着签收回执给你看那张便笺；说到那件太薄的外套，她笑了一下：“我等到了。”",
+        "delegate": "尘缘收下急件，核对姓名和日落前的要求，把信放进干燥夹层。\n\n晚间的回执是 Mira 签的，尘缘带回她准许附上的便笺和一句：“我等到了。”你没有亲眼走那一趟，也没有记下长椅边的旧活动带。",
+        "delay": "急件被放回待办格。日落前的要求依旧有效，只是今天没有再替它安排一趟路。结算时，未完成的约定会作为延误留下。",
+        "deliver_late": "你抵达时，Mira 正把小册子收进包里。她接过迟到的信，也同意把便笺附进回执：“我知道 L. 来过，只是今天没碰上。”",
+        "delegate_late": "尘缘替你完成了投递，回执时间已经越过日落。Mira 让尘缘带回便笺，另附一句：“谢谢，信收到了，今晚没有碰上。”",
+        "wrong_delivery": "接信的人看了看 Mira 的名字，没有签收。‘她今天不在这里。’急件回到你手中；仍可继续调查，但路上的时间已经花掉了。"
+      },
+      "hint": "登记住址和今日去向是两种信息。把尘缘的目击与公交站的实际线路放在一起，再决定自己走一趟，还是把这趟路交给尘缘。"
+    },
+    {
+      "id": "case03",
+      "title": "雨水里的邀请函",
+      "serial": "S-0726-0724-03",
+      "type": "雨损修复件",
+      "can_open": true,
+      "deadline": -1,
+      "recipient": "nora_vale",
+      "sender": "e_unknown",
+      "location": "lookout",
+      "front": "水渍遮住了收件栏。异常件袋里有六片转寄标签，植物边纹、纸纤维与邮戳的弧线在碎片之间断开。\n\n残存字样：Ro… / …302\n\n不要从残字直接猜收件人。先在修复台把碎片归位，恢复这张标签原本记着的信息。",
+      "back": "封口在雨里松了一角，内页仍藏在里面。你可以继续从外部调查，也可以使用游戏中的拆封工具开启它。\n\n异常件附记：标签可能早于寄信时间。恢复一个地址，并不能证明那个人今天仍住在那里。\n\n拆开后，内页要手动展开；重新投递前，要把折痕、破边与封口复位。",
+      "body": "Nora，\n周五的小型星空聚会仍然照旧。\n我把你的名字留在望远镜值班表上了。\n登记的时候我差点照着旧通讯录写地址，才想起你搬了家；这一封若绕了路，先怪我。\n那架望远镜的右边支脚还是会松，我把小扳手放在装茶包的铁盒里。你不在的两次，大家找它找得比找星星还久。\n如果你还愿意来，晚上七点前到观景台。\n不用带椅子，你那把还在储物间。若想先来坐坐、不值班，也可以；名字留着不是要催你补欠的次数。\n我会多带一只杯子。\n—— E.",
+      "clue_ids": ["repair_address", "resident_moved", "nora_registry", "lookout_schedule", "case03_body"],
+      "choices": ["deliver", "delay", "open", "restore"],
+      "outcome": {
+        "deliver": "Nora 核对了姓名：“302 是我以前的门牌，搬走时总以为该改的地址都改了。”\n\n读完信，她把布包放到值班椅上，去找装茶包的铁盒：“E. 果然又把工具塞在这里。”\n\n她朝空椅子看了看：“那我今晚留下，等人来把另一只杯子领走。”",
+        "delay": "你把碎片和信一起收回保护袋，在待办条上写明已经确认的部分。Nora 今晚是否赴约仍没有答案；未完成的调查可以被后来的人接着做。",
+        "open": "内页展开后，Nora 的名字与观景台的约定变得清楚。答案来的更快了。信封的边缘也留下你需要处理的痕迹。",
+        "restore": "折痕、碎边与封口重新合到一起。你把信转向光，看看那一角是否还翘着，再将它放回信袋。",
+        "wrong_delivery": "302 的现住户把信退了出来。‘我只在拆旧姓名贴时见过这个名字。她已经搬走了。’这不是死路：旧地址已经完成了它能完成的那一半工作。"
+      },
+      "hint": "先恢复标签，再检查它是否过期。社区登记与志愿公告都可以在不拆信的情况下提供 Nora 的去向。"
+    },
+    {
+      "id": "case04",
+      "title": "迟到六年的情书",
+      "serial": "S-0720-0718-04",
+      "type": "六年前积压件",
+      "can_open": true,
+      "deadline": -1,
+      "recipient": "june_arlen",
+      "sender": "mira_vale",
+      "location": "lookout",
+      "front": "To: J. Ar— / Rose Court\n邮戳：18 JUL 2020\n异常件编号：S-0720-0718-04\n\n剩余的姓氏被一条旧分拣带遮住。寄件人栏有手写字迹，没有完整的可读姓名。\n\n字母 M 的开头很高，最后一笔向左回勾。它与镇上某份旧记录的笔迹也许能够比较。",
+      "back": "信封在夹层里发出很薄的纸声，像藏着一张照片。封口已经过了六个夏天，仍没有被收件人打开。\n\n退签为空。按原邮路，这封信早该离开邮局。\n\n如果选择开启，你会读到当年的私人文字；如果保留封口，也可以通过旧门牌、同日活动档案和笔迹样本辨认双方。决定如何处理前，需要至少三项彼此独立的物证。",
+      "body": "June，\n你走的时候，我非常生气。\n我跟别人说我根本不在乎，因为那听起来比“我一直在等”体面得多。\n有人信了，我又恼火，好像他们应该替我听出没有说出口的那一半。那几天，我连把你的杯子收进柜子都要弄出一点声音，可屋里根本没有别人。\n现在想想，我已经不记得究竟是谁先伤害了谁。\n这句话写得很公平，是不是？我写完却又想在后面添上几件只有你做过的事，好让你读到这里时仍觉得该先向我道歉。\n你留的纸袋还在抽屉里，我没有打开，也没有扔；每天找钥匙都得挪一次，倒成了我最熟悉的东西。\n如果你回来，不要因为可怜我。\n我想那会比你离开更让我难受。\n我说得这样硬，又怕你把它当成一句不要回来的话。不是那样，可我暂时只会写成这样。\n但如果你只是想回来看看，我大概还是会坐在老地方。\n你可以坐另一头，不必立刻想好第一句话。\n—— Mira",
+      "clue_ids": ["old_nameplate", "event_archive", "handwriting_sample", "old_photo", "early_bench", "mira_deflection", "current_relationship"],
+      "choices": ["deliver", "hold", "return_to_sender", "remove_attachment"],
+      "outcome": {
+        "deliver": "晚间，你从观景台下面经过。Mira 与 June 坐在同一条长椅的两端，中间放着已经打开的旧信和照片。\n\nJune 说：‘我不知道她当时等过。’\nMira 的手停在纸边：‘我那时候也不知道该怎样说。’\n\n没有争吵，也没有拥抱。她们比白天更小心地选择词语，像一条本已可以走过去的路，又露出了下面的旧裂缝。信抵达了。它造成什么，不会在今晚全部显现。",
+        "hold": "晚间，June 把一只纸杯递给 Mira。她们仍像平常那样坐在一处，聊起海风和下次社区活动。没有人提到六年前那个下午。\n\n旧信躺在你的暂扣格里，照片还在。你在自己的记录里写下：\n‘没有发生的冲突，也是一种被我制造的结果。’\n\n你知道她们今晚没有被这封信打断。你并不知道，她们是否愿意把这个决定交给你。",
+        "return_to_sender": "Mira 看见六年前的邮戳时，没有立即接话。她把信转到背面，指尖停在原来的封口上。\n\n‘我以为……算了。谢谢你交给我。’\n\n她把旧信放进包里，没有当着你的面拆开。晚间，June 仍在观景台等到她。Mira 是否还会把这封信寄出去，没有写在今天的回执上。",
+        "remove_attachment": "June 收到了文字。照片被你单独留在邮局，没有同信离开。\n\n‘她当年这样写过。’June 再读一遍，抬头看向 Mira，却没有把信直接连到那张合影所在的长椅。两人的谈话很轻，像在辨认一段没有图像佐证的记忆。\n\n你没有改动一句话。但你拿走了一部分可以使那些话变得具体的东西。照片背面的约定，现在只有你能看见。",
+        "wrong_delivery": "这份推断还无法完成签收。信封保持在你手中，已经收集的线索也没有消失。把姓名、日期与笔迹重新并排看一遍；一项相似，还不足以让两个陌生名字成为同一段往事。"
+      },
+      "hint": "先分开验证：J. Ar— 是谁；2020 年 7 月 18 日发生过什么；谁留下了寄件人的笔迹。辨认双方之后，才是你选择是否让信抵达的时候。"
+    },
+    {
+      "id": "case05",
+      "title": "写给你的信",
+      "serial": "S-0726-DESK-05",
+      "type": "交接桌特殊件",
+      "can_open": true,
+      "deadline": -1,
+      "recipient": "player",
+      "sender": "previous_sorter",
+      "location": "post_office",
+      "front": "For the next person who sits here.\n\n无邮票。无公开地址。\n\n你的名字没有出现在上面，但信封一直在你今天坐下的位置。右下角是一块长期压在台垫下形成的淡色方印。",
+      "back": "没有退回地点，也没有要求转交给别人。它交给的是一个岗位，和坐到岗位上的下一位人。\n\n你可以合法开启它。里面的旧清单要与今天的邮件编号逐项对照；四封来信处理完毕后，你才能替这份交接记录决定去处。",
+      "body": "如果你正在读这封信，说明你已经开始知道：\n邮差不是总能只负责把东西送到。\n有时你会知道得太多，甚至开始相信自己比收件人更清楚什么对他好。\n我当时也是。\n第一次把信放进暂扣格，我在期限一栏留了空白，告诉自己明天再查清楚；第二天换了日期，我没有换那张条子。\n后来我会先把退回的信排齐，再去吃午饭。有人问起，我便说还在核实，这句话常常也是真的，只是不包含全部。\n我确实怕有些人受伤，也怕他们问我为什么拖到今天——后一种怕，我总写成前一种。\n这份清单留了几次，又收了几次。把它交给你，也许仍是想请一个不认识我的人说，我当时没有别的办法。\n我不会告诉你我做得对不对。\n只希望你在下一次伸手拦住一封信以前，记得问自己：\n我是在保护谁？\n如果你也回答不出，不必替我把空白补得好看。\n—— 某个曾坐在这里的人",
+      "clue_ids": ["old_mail_log", "case04_number_match", "archive_status_key"],
+      "choices": ["file", "keep", "destroy"],
+      "outcome": {
+        "file": "你把旧清单与短笺一并放进正式档案，并在收件栏写下今天的日期。以后查阅这些编号的人，会知道曾经有人看见了它们。\n\n你没有在案由里写‘正确’或‘错误’。可能到来的调查，将由更多人承担，也可能打扰一些已经习惯沉默的人。登记页留着空白的后续处理栏。",
+        "keep": "你把短笺与清单放进自己的文件夹，没有登记进邮局档案。现在，邮局不知道你知道这件事。\n\n明天若有人问起这些编号，你可以拿出它们，也可以继续沉默。保留不是决定的结束；只是把下一次决定带回自己身边。",
+        "destroy": "你把清单移进标着“不再保留”的纸匣，盖下空白印，等那页纸从处理格里缓缓淡去。\n\n匣子合上后，你的手还停在盖子上。明天若有人查那十一组编号，档案里不会多出这一页；你仍会记得，它曾经在这里。"
+      },
+      "hint": "看完整编号，不只看末尾的数字。把六年前的日期、邮件本身与清单上的处理状态对应起来：被记作 HOLD 的信，和真正找不到的信一样吗？"
+    }
+  ],
+  "clues": {
+    "old_civic_hall_name": {"title":"门侧的旧石牌","text":"社区中心门侧的新招牌下，仍嵌着一块旧石牌：OLD CIVIC HALL。新旧牌匾使用同一个门框，位置没有改变。","source":"社区中心 · 门侧旧石牌","case_id":"case01"},
+    "community_center_history": {"title":"保留茶会的翻修告示","text":"一张翻修告示写道：Former Civic Hall / Community Center，旧市政厅改作社区中心后，星期六邻里茶会继续在一层窗边举行。记录既对应旧名，也对应信封背面的星期六与靠窗。","source":"社区中心 · 公告栏","case_id":"case01"},
+    "current_postmark": {"title":"近期邮戳","text":"《旧名字的来信》的戳记是 24 JUL 2026。它是近期寄出的信；地址的旧，不代表邮件本身积压了很久。","source":"邮局 · 今日邮路提示","case_id":"case01"},
+    "tea_table": {"title":"窗边预留的一张椅子","text":"茶会桌边放着一张手写菜单：淡茶，杏仁饼请另放。有人记得一位离开多年的朋友喜欢把饼干做得很甜。纸上没有替你写出收件地点结论。","source":"社区中心 · 窗边茶会桌","case_id":"case01"},
+    "bus_to_lookout": {"title":"17 路的夏日班次","text":"17 路沿海岸上行至观景台，下午班次为 13:10、15:10、16:40。末班往返说明仍写着‘观景台夏季服务’；车程与步行都要计入工作时间。线路证明可以前往那里，不能单独证明 Mira 在车上。","source":"公交站 · 17 路时刻表","case_id":"case02"},
+    "chenyuan_sighting": {"title":"尘缘听见的计划","text":"尘缘见过 Mira 拿着一本灰蓝色小册子经过站台。Mira 说今天想去观景台看日落。尘缘明确区分了‘听她说过计划’和‘亲眼看见她到达’。","source":"尘缘 · 公交站问话","case_id":"case02"},
+    "mira_absent": {"title":"外出，不是迁出","text":"居民楼代收夹里有 Mira 当日留下的条子：今天外出，不用把晚到的东西塞进门缝。管理员未登记搬迁。登记住址仍有效，但今天在那里找不到她。","source":"居民楼 · 代收夹","case_id":"case02"},
+    "delegate_terms": {"title":"一趟可以托付的路","text":"尘缘愿意把完好急件带去观景台，并带回签收。交接后本日不能追回邮件；送达反馈来自回执，沿路细节不等于亲自到场观察。","source":"尘缘 · 代送约定","case_id":"case02"},
+    "early_bench": {"title":"亲自送急件时看见的长椅","text":"你亲自把急件送到 Mira 手中时，风翻起长椅边的活动带：Summer Community Night · 18 July 2020。椅背上有两个并排的浅色方印，像是曾经夹过两张活动名卡。它指向一份值得去查的档案，尚不能单独确定寄件人。","source":"观景台 · 亲自送达急件时","case_id":"case04"},
+    "repair_address": {"title":"拼合后的转寄标签","text":"六片标签的边纹、纸纤维与邮戳接在一起，显出 Rose Court 302。标签上仍没有足够清楚的完整姓名。你恢复了过去的一条地址记录，还需要核对现在的住户。","source":"邮局修复台 · 手动拼合","case_id":"case03"},
+    "resident_moved": {"title":"302 的新姓名贴","text":"Rose Court 302 已贴上新住户姓名，旧标签只剩 Nora 的半个字。门边有未收走的搬家箱。邻居便条注明：原住户已迁出，来信请按更新后的社区登记转寄。","source":"居民楼 · 302 门牌","case_id":"case03"},
+    "nora_registry": {"title":"Nora 的社区登记","text":"公开转寄登记载明：Nora Vale，原住 Rose Court 302，数月前迁出；夏季志愿联系点为观景台。更新由本人签字，日间仍在镇上活动。她与 Mira 是两个独立登记的人，不能凭相同姓氏替其中一人收信。","source":"社区中心 · 转寄登记夹","case_id":"case03"},
+    "lookout_schedule": {"title":"望远镜志愿轮值","text":"公交站的志愿公告列出 Nora Vale 的名字：周五傍晚，观景台望远镜值班。角落有近期的更正贴，说明这一安排仍有效。姓名、时间和地点同时对应一位具体的人。","source":"公交站 · 志愿活动公告","case_id":"case03"},
+    "case03_body": {"title":"邀请函中的姓名与地点","text":"展开的内页以 Nora 开头，并写明周五的小型星空聚会、望远镜值班与晚上七点前到观景台。署名 E.。这是强线索，来自你读过的私人正文。","source":"雨水里的邀请函 · 拆封并展开","case_id":"case03"},
+    "forwarding_note": {"title":"留给后来投递员的话","text":"302 邻居写道：‘别把新的人叫成旧的名字。上一位只是搬走，不是消失。她还会回来帮我们修窗台。’便条没有记录 Nora 的私人新住址。","source":"居民楼 · 邻居便条","case_id":"case03"},
+    "old_nameplate": {"title":"Rose Court 的旧门牌底册","text":"住户底册的一页保留着 J. Arlen 的旧姓名条，旁边的全名登记为 June Arlen。登记时期包含 2020 年夏天，楼名为 Rose Court。它使信封上的 J. Ar— 有了独立可核对的收件人记录。","source":"居民楼 · 旧门牌底册","case_id":"case04"},
+    "event_archive": {"title":"六年前的同日活动名单","text":"Summer Community Night / Stargazing Event，18 July 2020。名单同时出现 Mira Vale 与 June Arlen。日期与旧信邮戳相同，举办地包括社区中心与观景台；这是当时留下的记录，不是今天的口述回忆。","source":"社区中心 · 2020 夏季活动档案","case_id":"case04"},
+    "handwriting_sample": {"title":"署名 Mira 的活动卡","text":"一张署名 Mira Vale 的活动卡留着手写标题。字母 M 的高起笔与向左回勾、July 中很长的 y 尾笔，都与旧信寄件栏残存笔迹吻合。卡片有独立签名，不能只把两份无名纸互相作证。","source":"社区中心 · 志愿者活动卡","case_id":"case04"},
+    "old_photo": {"title":"夹层中的观景台旧照片","text":"打开旧信后取出的照片：两人背影，观景台，背面日期为 18 July 2020。手写句子是：‘We said we’d come back every summer.’ 人脸不可见，照片要与门牌、活动名单或笔迹一起判断，不能凭背影猜人。","source":"迟到六年的情书 · 拆封后的附件","case_id":"case04"},
+    "mira_deflection": {"title":"Mira 避开的那一天","text":"Mira 承认以前认识 June，却在被问起 7 月 18 日时说不记得。你已经见过有她名字与笔迹的同日活动记录。她回避的是一段关系，不是你手中的纸质证据；这份口述不作为第三项独立物证。","source":"Mira · 关于旧活动的问话","case_id":"case04"},
+    "current_relationship": {"title":"她们现在的相处","text":"June 说自己和 Mira 现在偶尔见面，能一起做事，也能保持沉默。她们并不是正在等待一个旁人替她们宣布的团圆；六年前的文字会进入已经变化的关系。","source":"June · 观景台问话","case_id":"case04"},
+    "june_current": {"title":"June 的现在","text":"June 确认自己曾住 Rose Court，目前仍在 Solmere，今天可在观景台找到。她同意核对邮寄身份，没有因此授权任何人替她决定要不要读一封旧信。","source":"June · 居民楼问话","case_id":"case04"},
+    "old_mail_log": {"title":"前任留下的十一条记录","text":"特殊件中是一页旧异常件清单，列着十一组完整编号与日期，处理栏只有 HOLD / RETURN / DELAY。页边写着：‘I stopped calling them lost once I knew where they were.’ 需要把今日见过的实物与清单逐项匹配。","source":"写给你的信 · 合法开启后的内页","case_id":"case05"},
+    "case04_number_match": {"title":"旧信与暂扣清单重合","text":"实物 S-0720-0718-04，邮戳 18 July 2020，与旧清单同一编号、同一日期相符，状态为 HOLD。它并非单纯没有被找到：至少在这份记录写下时，有人知道它在哪里，也选择了把它留下。","source":"旧清单 · 手动编号比对","case_id":"case05"},
+    "archive_status_key": {"title":"处理词的区别","text":"邮局交接说明把 HOLD 记为保留待后续处置，RETURN 记为退回，DELAY 记为顺延。三个词都表示一项处理，而不是失踪证明。它们不说明处理者是否有充分理由。","source":"邮局 · 档案抽屉内侧","case_id":"case05"},
+    "postal_rules": {"title":"异常件交接须知","text":"外部信息可以先查；私人正文仅在允许开启的案件中通过工具交互读取。错投会退回，普通待办不会让工作中断。读取、比较与思考不消耗现实倒计时。","source":"邮局 · 交接须知","case_id":""},
+    "letter_privacy": {"title":"收件人的空白一页","text":"塔楼屋有一本给客人留言的册子，封面写着：‘留空的那一页也属于写字的人。’店员没有替你的案件占卜，也没有透露任何人的秘密。","source":"塔楼屋 · 留言册","case_id":""},
+    "chess_names": {"title":"棋摊记得的旧称呼","text":"棋摊账本把社区中心写成‘老厅’，把公交站写成‘以前那棵树那里’。摊主在旁边补了一句：‘叫法没改，不代表人没走过这几年。’旧称呼需要由地点证据核对。","source":"棋摊 · 借棋登记簿","case_id":"case01"},
+    "theatre_ticket": {"title":"一张没有附言的旧票","text":"棋摊抽屉里夹着旧社区活动票，日期只有月份，姓名栏空白。它说明这些活动曾经存在，但缺少精确日期与姓名，不能充当旧信身份推理的独立证据。","source":"棋摊 · 旧票存放盒","case_id":"case04"},
+    "tide_marker": {"title":"日落并不是停止的一刻","text":"观景台扶手刻着历年的潮位线。海面仍亮着，下面码头已经有人收起一天的工具。信件的截止时间是工作规则；等待的人怎么记住这一天，是另一件事。","source":"观景台 · 潮位扶手","case_id":"case02"}
+  },
+  "locations": [
+    {
+      "id":"post_office","name":"邮局","travel":0,"asset":"post_office_exterior_USER_20261001_LOCKED.jpg","position":[0.34,0.63],
+      "description":"海风把门口的时间表吹得轻响。普通邮件已经装车，几封异常件还留在低矮的木格里。",
+      "npc_ids":[],
+      "hotspots":[
+        {"id":"desk_notice","label":"交接须知","text":"交接纸的四角已经起毛：\n一，先核对外部资料。二，给未知信息留白。三，只有允许开启的信才能使用拆封工具。四，错投退回后继续查。\n\n末行有铅笔补写：退回的信也要记下日期，别把纸条丢了。","clues":["postal_rules"],"requires":[],"position":[0.409,0.728]},
+        {"id":"postmark_notice","label":"今日邮路提示","text":"戳记日期：24 JUL 2026。\n\n交接条分成“旧地址”和“积压旧信”两栏。《旧名字的来信》夹在前一栏；六年前的褐色信封夹在后一栏，夹子已经留下深印。","clues":["current_postmark"],"requires":[],"position":[0.494,0.722]},
+        {"id":"archive_key","label":"档案抽屉内侧","text":"抽屉内侧贴着三枚旧标签：\nHOLD：保留待后续处置。\nRETURN：按记录退回。\nDELAY：顺延到下一次处理。\n\n旁边另留着“去向不明”一栏。系在把手上的铅笔已经削得很短。","clues":["archive_status_key"],"requires":[],"position":[0.645,0.82]},
+        {"id":"desk_seat","label":"台垫下的浅印","text":"坐垫边缘晒成了不同的颜色。台垫下露出一个没有邮票的信封角，写着“给下一位坐在这里的人”。\n\n你把它放进今日托盘。台垫重新铺平时，下面还有一圈旧茶渍。","clues":[],"requires":[],"position":[0.444,0.843]}
+      ]
+    },
+    {
+      "id":"community_center","name":"社区中心","travel":25,"asset":"community_center_USER_20261001_LOCKED.jpg","position":[0.47,0.40],
+      "description":"窗里传来折椅挪动的声音。新招牌挂在旧门框上，公告栏一角露着褪色的活动纸。",
+      "npc_ids":["chenyuan"],
+      "hotspots":[
+        {"id":"old_hall_plaque","label":"门侧旧石牌","text":"新牌写着 Community Center，下方没有盖住的石面上刻着 OLD CIVIC HALL。字槽里积着浅灰的海盐。\n\n两块牌留在同一处门框边，台阶中间已经被鞋底磨低。","clues":["old_civic_hall_name"],"requires":[],"position":[0.647,0.855]},
+        {"id":"renovation_notice","label":"翻修与茶会告示","text":"Former Civic Hall / Community Center。\n\n告示说明，旧市政厅改作社区中心后，邻里茶会仍在星期六举行；沿原侧门进入，靠窗座位优先留给行动不便的居民。\n\n旁边夹着小纸：“下周谁能多带一壶不加糖的茶？”","clues":["community_center_history","tea_table"],"requires":[],"position":[0.532,0.798]},
+        {"id":"forwarding_register","label":"公开转寄登记夹","text":"转寄登记只列本人同意公开的联系点，不列私人新住址。\n\nNora Vale：原住 Rose Court 302；数月前迁出；夏季志愿联系点为观景台。更正栏有本人签名，夹页注明周五参加望远镜轮值。\n\nMira 的记录另夹在后面，没有迁出标记。","clues":["nora_registry"],"requires":[],"position":[0.248,0.845]},
+        {"id":"summer_archive","label":"2020 夏季活动档案","text":"18 July 2020\nSummer Community Night / Stargazing Event\n\n准备：社区中心；晚间集合：观景台。\n参加名单：Mira Vale、June Arlen。\n\n借物栏记着两把折椅；归还栏多了一把缺螺帽的伞，有人在旁边画了个小圆圈。","clues":["event_archive"],"requires":[],"position":[0.607,0.801]},
+        {"id":"mira_sample","label":"志愿者活动卡","text":"活动卡署名 Mira Vale。\n\n大写 M 高高起笔，再向左回勾；July 的 y 尾笔长到压住下一行。卡背列着布置工作：灯绳、杯子、两张名卡。\n\n旧胶带粘在纸角上。档案员留了夹子，可以把卡暂时取下细看。","clues":["handwriting_sample"],"requires":[],"position":[0.353,0.89]}
+      ]
+    },
+    {
+      "id":"bus_stop","name":"公交站","travel":20,"asset":"bus_stop_LOCKED.png","position":[0.66,0.62],
+      "description":"站牌投下窄窄的影子。晚班时刻被铅笔圈过，尘缘压住一张快被风吹走的车票。",
+      "npc_ids":["chenyuan"],
+      "hotspots":[
+        {"id":"route_seventeen","label":"17 路时刻表","text":"17 路：码头—公交站—观景台。\n下午上行：13:10 / 15:10 / 16:40。\n\n夏季服务条注明本月更换；纸角还留着上一张通知的胶印。","clues":["bus_to_lookout"],"requires":[],"position":[0.385,0.69]},
+        {"id":"volunteer_notice","label":"志愿活动公告","text":"“周五，小型星空聚会，观景台。望远镜交接请在七点前完成。”\n\n轮值名单里有 Nora Vale，旁边的近期更新贴写着“仍在本期值班”。页边还有一行：不认得星座也没关系，先帮忙扶稳三脚架就好。","clues":["lookout_schedule"],"requires":[],"position":[0.486,0.692]},
+        {"id":"temporary_stop","label":"被划掉的临时站牌","text":"去年的临时改道条画了叉，补着“恢复原站”。\n\n上方时刻表有本月更换日期，旁边的志愿公告也贴着近期更正；三张纸用了不同颜色的图钉。","clues":[],"requires":[],"position":[0.282,0.7]},
+        {"id":"waiting_seat","label":"候车处的小包","text":"尘缘的包留着一个干燥夹层，折好的布包住几张车票。包靠在长椅一端，没有占去旁边的座位。\n\n风起来时，尘缘顺手把包扣紧，又往里挪了一点。","clues":[],"requires":[],"position":[0.495,0.802]}
+      ]
+    },
+    {
+      "id":"lookout","name":"观景台","travel":40,"asset":"lookout_LOCKED.png","position":[0.81,0.23],
+      "description":"海面在这里变得很宽。风从长椅间穿过去，望远镜旁留着几只还没收起的杯子。",
+      "npc_ids":["mira_vale","june_arlen","nora_vale"],
+      "hotspots":[
+        {"id":"tide_rail","label":"潮位扶手","text":"木扶手上几道浅刻痕记着不同年份的高水位。最近一道旁边写了日期，数字被盐霜填白了一半。\n\n下面的码头有人收绳，绳头碰到空桶，响了一声。","clues":["tide_marker"],"requires":[],"position":[0.141,0.605]},
+        {"id":"telescope_stand","label":"望远镜交接处","text":"望远镜架旁夹着今日交接表：Nora 值班，备用电池已清点。\n\n一只纸杯压着表格边角，杯底洇出浅浅的圆印；末栏留着晚间接班人的签名位置。","clues":["lookout_schedule"],"requires":[],"position":[0.9,0.58]},
+        {"id":"current_seats","label":"面向海面的长椅","text":"两张长椅之间留着一段空隙。椅边各有一只杯子，其中一只杯沿缺了一点。\n\n一阵风吹过，折在椅角的外套垂下来，又被路过的人搭回扶手上。","clues":[],"requires":[],"position":[0.42,0.606]},
+        {"id":"return_path","label":"回镇的小路","text":"台阶沿扶手往下，转弯处有几块颜色较新的石板。再过去是居民楼的背面，邮局屋顶露出小小一角。\n\n靠近栏杆的草被踩矮了一条。","clues":[],"requires":[],"position":[0.111,0.734]}
+      ]
+    },
+    {
+      "id":"residential","name":"居民楼 · Rose Court","travel":30,"asset":"residential_building_USER_20261001_LOCKED.png","position":[0.24,0.29],
+      "description":"Rose Court 的字样还在，姓名条已经贴了几层。楼梯边的纸箱旁，整齐放着几个空玻璃罐。",
+      "npc_ids":["june_arlen"],
+      "hotspots":[
+        {"id":"door_302","label":"302 门牌","text":"302。现住户的姓名贴盖在旧位置上，边缘还露着半个 Nora。门口有没折平的纸箱。\n\n邻居留条：“原住户已迁出。来信请查社区更新登记，别再塞进这一户门下。”","clues":["resident_moved","forwarding_note"],"requires":[],"position":[0.589,0.493]},
+        {"id":"historical_nameplates","label":"旧门牌底册","text":"门厅留着邮路可查的旧底册。\n\n2020 年的一页贴着 J. Arlen 旧姓名条；全名栏为 June Arlen，楼名 Rose Court，入住期间包括当年夏天。\n\n姓名条背面的胶已经干了，管理员用两道纸角把它固定住。","clues":["old_nameplate"],"requires":[],"position":[0.287,0.744]},
+        {"id":"mira_calling_note","label":"当日代收夹","text":"Mira 的当日条子写着：“今天外出。晚到的东西请别塞门缝，我会再来问。”\n\n她这一格没有搬迁标记。旁边另一格明确写着迁出，夹着不同颜色的登记条。","clues":["mira_absent"],"requires":[],"position":[0.638,0.808]},
+        {"id":"neighbour_notice","label":"窗台边的便条","text":"“上一位帮我们修好的窗台，请新的住户继续把花盆放稳。雨大时，把信放进里面的小槽。”\n\n下面另一支笔补了：“她搬走了，不过还在这个镇。”纸边沾着一点花盆漏出的泥。","clues":["forwarding_note"],"requires":[],"position":[0.443,0.817]}
+      ]
+    },
+    {
+      "id":"chess_stall","name":"棋摊","travel":20,"asset":"chess_stall_USER_20261001_LOCKED.png","position":[0.49,0.82],
+      "description":"棋布挂在树间，借棋登记压在横木上。摊主去街角取水，留了一只倒扣的杯子。",
+      "npc_ids":[],
+      "hotspots":[
+        {"id":"chess_ledger","label":"借棋登记簿","text":"借用地点写着“老厅”“以前那棵树那里”和“海上面”。摊主在旁边补了现名，“老厅”后面画着指向社区中心的箭头。\n\n“归还”一栏留了几格空白，铅笔横在最后一行。","clues":["chess_names"],"requires":[],"position":[0.483,0.91]},
+        {"id":"old_ticket_box","label":"旧票存放盒","text":"盒里有张旧票，写着夏季社区活动。月份是七月，具体日期已经褪色，姓名栏没有填。\n\n票边有两个订书钉孔，被人沿着折痕压平过。","clues":["theatre_ticket"],"requires":[],"position":[0.66,0.925]},
+        {"id":"unfinished_game","label":"棋布旁的留条","text":"卷起的棋布旁压着纸条：“去拿水，回来继续。”\n\n杯子倒扣在横木上，下面垫了张擦过很多次的布。风把纸角吹起来，露出另一面记着的借用数目。","clues":[],"requires":[],"position":[0.638,0.691]}
+      ]
+    },
+    {
+      "id":"tarot_shop","name":"塔楼屋","travel":35,"asset":"tarot_shop_LOCKED.png","position":[0.14,0.58],
+      "description":"门帘轻轻晃动，里面传来整理纸页的声音。留言册摊在门边，封面压着一枚磨亮的铜扣。",
+      "npc_ids":[],
+      "hotspots":[
+        {"id":"blank_guestbook","label":"公开留言册","text":"留言册首页写着：“愿意公开的话，请留在这里。”\n\n有一页写：“我想问该不该再寄一封，后来还是把问题带回去了。”没有署名，也没有日期；后半页仍然空着。","clues":["letter_privacy"],"requires":[],"position":[0.45,0.722]},
+        {"id":"closed_question_box","label":"合上的问题盒","text":"盒盖写着“仅交给提问者”。细绳绕了两圈，绳头整齐地塞在结下面。\n\n你没有解开。屋里有人抽出一个空卡套，薄纸轻轻响了一下。","clues":[],"requires":[],"position":[0.535,0.736]},
+        {"id":"shop_hours","label":"手写营业牌","text":"手写牌上写着：晚饭前休息，想留话请写公开册。\n\n下面补了一行“明天再来看”。笔挂在细绳上，笔帽被磨得发亮。","clues":[],"requires":[],"position":[0.579,0.573]}
+      ]
+    }
+  ],
+  "npcs": [
+    {
+      "id":"chenyuan","name":"尘缘","portrait":"npc_chenyuan_LOCKED.jpeg",
+      "profile":[
+        {"label":"已知身份","value":"在公交站与你交谈的镇民。","requires":["chenyuan_sighting"]},
+        {"label":"已知住址","value":"？","requires":[]},
+        {"label":"今日行程","value":"会去观景台，可以协商代送急件。","requires":["delegate_terms"]},
+        {"label":"目击范围","value":"听 Mira 说过看日落的计划；未声称亲眼看见她到达。","requires":["chenyuan_sighting"]},
+        {"label":"相关邮件","value":"S-0726-0724-02 · 赶在日落前","requires":["delegate_terms"]}
+      ],
+      "dialogues":[
+        {"id":"chen_bus_mira","location":"bus_stop","question":"你今天见过 Mira 吗？","answer":"“见过，她拿着灰蓝色的小册子，说今天想去观景台看日落。”尘缘朝站牌偏了偏头，“我没有跟着她上车，去观景台的线路得再看一眼。”","clues":["chenyuan_sighting"],"requires":[]},
+        {"id":"chen_bus_certainty","location":"bus_stop","question":"你能确定她会在那里吗？","answer":"“不敢说百分百——她说的是想去，人到半路也会改主意。”尘缘把被风掀起的车票压住，“我能作数的，就是亲耳听见的那句话。”","clues":["chenyuan_sighting"],"requires":["chenyuan_sighting"]},
+        {"id":"chen_bus_delegate","location":"bus_stop","question":"如果你正好过去，能替我送这封急件吗？","answer":"“可以，我会核对 Mira 的名字，带回签收。”尘缘留出包里的干燥夹层，“不过交给我之后，今天就不能追回来检查了，你也不会亲眼看见那一路的事；想好了，再把信交给我。”","clues":["delegate_terms"],"requires":["chenyuan_sighting","bus_to_lookout"]},
+        {"id":"chen_bus_nora","location":"bus_stop","question":"公告上那位 Nora，今天还参加轮值吗？","answer":"“你已经去过旧住处了？那再看这里，Nora 的名字还在，右下角的更新贴是最近换的。”尘缘指给你看，“她说不认得星星也可以帮忙扶架子，所以我记住了。”","clues":["lookout_schedule"],"requires":["resident_moved"]},
+        {"id":"chen_center_oldhall","location":"community_center","question":"大家为什么还叫这里老厅？","answer":"“叫顺口了，连我写借椅子的条子都还写老厅。”尘缘把椅子挪进桌下，“门旁的旧石牌和翻修告示都在，你照那个登记，比照我的嘴稳。”","clues":[],"requires":[]},
+        {"id":"chen_center_nora","location":"community_center","question":"搬走的人还会在这里留记录吗？","answer":"“愿意公开的才留，有的人只留一个白天能找到的地方。”尘缘把转寄夹的封面压平，“新门牌不必让每个来翻册子的人都看见。”","clues":[],"requires":["resident_moved"]}
+      ]
+    },
+    {
+      "id":"mira_vale","name":"Mira Vale","portrait":"npc_mira.png",
+      "profile":[
+        {"label":"登记情况","value":"住址仍有效，今日外出。","requires":["mira_absent"]},
+        {"label":"今日去向","value":"计划在观景台看日落。","requires":["chenyuan_sighting"]},
+        {"label":"六年前的活动","value":"2020 年 7 月 18 日参加 Summer Community Night。","requires":["event_archive"]},
+        {"label":"笔迹样本","value":"有署名的活动卡：M 高起笔并回勾，y 尾笔较长。","requires":["handwriting_sample"]},
+        {"label":"已确认关系","value":"以前认识 June；如今偶尔见面。","requires":["current_relationship"]},
+        {"label":"相关记录","value":"与 June 同列于旧活动名单。","requires":["event_archive"]}
+      ],
+      "dialogues":[
+        {"id":"mira_lookout_today","location":"lookout","question":"你是 Mira Vale 吗？今天一直在等人？","answer":"“我是 Mira Vale，签收的话，我可以再拼一遍。”她看向上坡的小路，“今天想在这里待一会儿，暂时还不打算走。”","clues":[],"requires":[]},
+        {"id":"mira_lookout_june","location":"lookout","question":"你认识 June Arlen 吗？","answer":"“以前认识。”Mira 用拇指压住册子里翘起的一页，没有往下翻。","clues":[],"requires":["old_nameplate"]},
+        {"id":"mira_lookout_july","location":"lookout","question":"六年前的 7 月 18 日，你还记得吗？","answer":"“不记得了。”看见你手中有她署名的活动卡，Mira 把话收住了，过了一会儿才说：“那天的事，我现在不想讲。”","clues":["mira_deflection"],"requires":["event_archive","handwriting_sample"]},
+        {"id":"mira_lookout_return","location":"lookout","question":"如果过去写出的东西现在才回来呢？","answer":"“我也不知道，也许先看一眼笔迹，就不想读了。”Mira 合上册子，“但真有人替我收起来，我又可能怪那个人。”","clues":[],"requires":["mira_deflection"]}
+      ]
+    },
+    {
+      "id":"june_arlen","name":"June Arlen","portrait":"npc_june.png",
+      "profile":[
+        {"label":"历史住址","value":"2020 年夏天住 Rose Court，旧姓名条为 J. Arlen。","requires":["old_nameplate"]},
+        {"label":"今日可联系处","value":"仍在 Solmere，今天可在观景台找到。","requires":["june_current"]},
+        {"label":"六年前的活动","value":"与 Mira 同列 2020 年 7 月 18 日活动名单。","requires":["event_archive"]},
+        {"label":"当前关系","value":"与 Mira 偶尔见面，维持能够承受的相处距离。","requires":["current_relationship"]},
+        {"label":"相关称呼","value":"J. Ar— 与 J. Arlen 可由原始登记核对。","requires":["old_nameplate"]}
+      ],
+      "dialogues":[
+        {"id":"june_residence_name","location":"residential","question":"我在核对旧邮路，可以确认你的姓名吗？","answer":"“June Arlen，旧门牌常缩成 J. Arlen，管理员留着有年份的底册。”她等你记好，“我还在镇上，今天晚些时候会去观景台。”","clues":["june_current"],"requires":[]},
+        {"id":"june_residence_moved","location":"residential","question":"旧姓名条为什么没有全部丢掉？","answer":"“因为还会有信寄来，撕掉容易，退回去又要跑一趟。”June 扶住装姓名条的盒子，“查底册时连年份一起看，我自己也会把几个夏天记混。”","clues":[],"requires":["old_nameplate"]},
+        {"id":"june_residence_nora","location":"residential","question":"302 的旧住户还在镇上吗？","answer":"“Nora 还在镇上，搬走后回来帮我们修过窗台。”June 指向便条，“我没有她的新门牌，社区的转寄登记和公交站志愿公告更新得比我勤。”","clues":["forwarding_note"],"requires":["resident_moved"]},
+        {"id":"june_lookout_identity","location":"lookout","question":"可以再核对一下旧信上的 J. Ar— 吗？","answer":"“是我的旧称，J. Arlen，楼名也是 Rose Court。”June 看了一遍你的抄录，“全名和年份可以拿底册核对，别因为我点头就略过去。”","clues":["june_current"],"requires":["old_nameplate"]},
+        {"id":"june_lookout_present","location":"lookout","question":"你和 Mira 现在还有来往吗？","answer":"“偶尔见面，搬椅子的时候也会互相搭把手。”June 把一只杯子往阴影里移，“现在能坐着不说话，已经挺不容易了，别急着替我们把空白补上。”","clues":["current_relationship"],"requires":["event_archive"]},
+        {"id":"june_lookout_oldwords","location":"lookout","question":"如果有一封旧信找到这里，你想先知道什么？","answer":"“先告诉我是哪一年的，封口有没有动过。”June 把杯子搁到旁边，“我也许今天不读，也许忍不住马上拆——等拿到手里，我再想。”","clues":[],"requires":["current_relationship"]},
+        {"id":"june_lookout_photo","location":"lookout","question":"这里每年都会办夏季活动吗？","answer":"“很多年都办过，借的椅子倒总是那几把。”June 指向社区中心，“你要查哪一年的哪几个人，就看那份有日期的名单，比我讲得全。”","clues":[],"requires":["event_archive"]}
+      ]
+    },
+    {
+      "id":"nora_vale","name":"Nora Vale","portrait":"",
+      "profile":[
+        {"label":"旧住址","value":"Rose Court 302，已迁出。","requires":["resident_moved","nora_registry"]},
+        {"label":"本人公开联系点","value":"观景台夏季志愿处。","requires":["nora_registry"]},
+        {"label":"今日安排","value":"周五傍晚在望远镜处轮值。","requires":["lookout_schedule"]},
+        {"label":"邀请事项","value":"E. 邀请参加小型星空聚会，七点前到观景台。","requires":["case03_body"]}
+      ],
+      "dialogues":[
+        {"id":"nora_lookout_identity","location":"lookout","question":"你是 Nora Vale 吗？","answer":"“我是 Nora Vale，Rose Court 302 是旧住处，我已经搬了。”她把望远镜盖放好，“志愿轮值没换，公开转寄登记留的也是这里——观景台。”","clues":["nora_registry"],"requires":["resident_moved"]},
+        {"id":"nora_lookout_shift","location":"lookout","question":"今天的星空聚会照常吗？","answer":"“照常，我今晚值班，云厚了就先教大家把架子放稳。”Nora 看了看空椅，“离开了两次，还有人记得问我要不要来，我就来了。”","clues":["lookout_schedule"],"requires":["lookout_schedule"]},
+        {"id":"nora_lookout_oldaddress","location":"lookout","question":"你的公开转寄登记留的是这里，对吗？","answer":"“对，你还记着核对新的去向，谢谢。”Nora 把布包挪到脚边，“账单最先改，朋友的通讯录总慢一点，我自己的也一样，302 现在已经住着别人了。”","clues":[],"requires":["nora_registry"]}
+      ]
+    }
+  ],
+  "archive_records": [
+    {"serial":"S-0719-0612-01","date":"12 JUN 2019","status":"DELAY","note":"收件地点季节性停用；待更正。后续签收栏空白。"},
+    {"serial":"S-0719-0804-09","date":"04 AUG 2019","status":"RETURN","note":"回邮登记已填写，寄件人收讫栏空白。"},
+    {"serial":"S-0720-0307-02","date":"07 MAR 2020","status":"HOLD","note":"留存于异常件格；理由栏只有一横。"},
+    {"serial":"S-0720-0716-04","date":"16 JUL 2020","status":"DELAY","note":"编号末位相同，日期与今日旧信不同。不得合并记录。"},
+    {"serial":"S-0720-0718-04","date":"18 JUL 2020","status":"HOLD","note":"Rose Court；原封留存。经手人签名被折痕遮住。"},
+    {"serial":"S-0720-0718-08","date":"18 JUL 2020","status":"RETURN","note":"同一日的另一封邮件；退回依据未附。"},
+    {"serial":"S-0720-0922-03","date":"22 SEP 2020","status":"HOLD","note":"收件人仍在镇内。未附重新投递日期。"},
+    {"serial":"S-0721-0111-06","date":"11 JAN 2021","status":"DELAY","note":"等待补充消息。下一页没有续记。"},
+    {"serial":"S-0721-0509-02","date":"09 MAY 2021","status":"RETURN","note":"原路退回，正文未登记。"},
+    {"serial":"S-0721-0718-04","date":"18 JUL 2021","status":"HOLD","note":"月份日期近似，年份不同。不可只按尾号比对。"},
+    {"serial":"S-0722-0416-11","date":"16 APR 2022","status":"DELAY","note":"最后一笔记录。其后纸张留白。"}
+  ],
+  "archive_target": "S-0720-0718-04",
+  "ending_text": "收工时。\n\n你把桌上的工具收回纸盒，关掉灯。没有处理完的信留在各自的格子里，已经离开的信也仍在别人的一天里继续。窗外仍是温暖的 Solmere 黄昏。\n\n有些信迟到了。\n有些信，从来没有被允许抵达。"
+}

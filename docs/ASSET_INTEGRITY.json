@@ -1,0 +1,225 @@
+{
+  "schema_version": 1,
+  "audit_date": "2026-10-01",
+  "algorithm": "SHA-256",
+  "scope": "Original user artwork only; generated art is excluded.",
+  "display_exception": {
+    "authorized_on": "2026-10-01",
+    "authorization": "User explicitly permits local outer-white transparency removal only in separate display copies.",
+    "originals_unchanged": true,
+    "ai_input_forbidden": true,
+    "rgb_change_forbidden": true,
+    "crop_and_resize_forbidden": true,
+    "manifest": "docs/DISPLAY_DERIVATIVES.json",
+    "independent_verification": "docs/testing/ASSET_DISPLAY_VERIFICATION.json"
+  },
+  "rules": {
+    "allow": [
+      "byte-identical copy",
+      "runtime uniform scale",
+      "runtime translation",
+      "runtime separate overlays",
+      "runtime show/hide"
+    ],
+    "forbid": [
+      "upload locked artwork to image generation or image-editing AI",
+      "AI reference or image-to-image use",
+      "redraw",
+      "inpaint",
+      "crop",
+      "recolor",
+      "resample source",
+      "overwrite originals",
+      "flatten locked art into new backgrounds"
+    ]
+  },
+  "original_package_images_verified": 9,
+  "package_manifest_note": "The original SHA256_LOCKED_ASSETS.txt incorrectly lists its own digest as the empty-file hash. All nine listed image digests pass; the original text file is preserved.",
+  "files": [
+    {
+      "path": "assets/locked_user/bus_stop_LOCKED.png",
+      "sha256": "8e69e0c923aa606877b0dcd4caa012859276c2e8bbfefc08c7fb915c9fe4b368",
+      "bytes": 39534,
+      "width": 1920,
+      "height": 1080,
+      "origin": "original_specification_package"
+    },
+    {
+      "path": "assets/locked_user/chess_stall_LOCKED.png",
+      "sha256": "8cbeae2f7ae6f3e18f26c0ea49bc5afec12e741f5ece1b2426b4ba4e2b1b446c",
+      "bytes": 459923,
+      "width": 1920,
+      "height": 1080,
+      "origin": "original_specification_package"
+    },
+    {
+      "path": "assets/locked_user/chess_stall_USER_20261001_LOCKED.png",
+      "sha256": "61b38e2880dbc096cb9d3b8e05c45978f020e2ee04c33247c3422722cb36aa00",
+      "bytes": 218333,
+      "width": 1920,
+      "height": 1080,
+      "origin": "user_attachment_2026-10-01"
+    },
+    {
+      "path": "assets/locked_user/community_center_LOCKED.jpeg",
+      "sha256": "836dffc899d13e08bffc8b2a2bef606bd544da80736b9e3e77ebe068e229864c",
+      "bytes": 110589,
+      "width": 1811,
+      "height": 1280,
+      "origin": "original_specification_package"
+    },
+    {
+      "path": "assets/locked_user/community_center_USER_20261001_LOCKED.jpg",
+      "sha256": "df908fd63a384cc81a8bf9344368a1814ac5250b13806f600e745159e9013873",
+      "bytes": 110589,
+      "width": 1811,
+      "height": 1280,
+      "origin": "user_attachment_2026-10-01"
+    },
+    {
+      "path": "assets/locked_user/heroine_concept_LOCKED.png",
+      "sha256": "e51b7f86cc994ea13421463d2601006a0552a6b4c2a88e8b42a211051c88a4d7",
+      "bytes": 305289,
+      "width": 773,
+      "height": 1061,
+      "origin": "original_specification_package"
+    },
+    {
+      "path": "assets/locked_user/lookout_LOCKED.png",
+      "sha256": "51036f2afc2d31526a194c4dfe1113c877f36c3e6177f3fa3e9fba023e1a67d1",
+      "bytes": 195653,
+      "width": 1920,
+      "height": 1080,
+      "origin": "original_specification_package"
+    },
+    {
+      "path": "assets/locked_user/npc_chenyuan_LOCKED.jpeg",
+      "sha256": "b7ced62b1783ea3ef7666b3c6fb235526a19d5d23996620161ef192c2bc35427",
+      "bytes": 100942,
+      "width": 1019,
+      "height": 2180,
+      "origin": "original_specification_package"
+    },
+    {
+      "path": "assets/locked_user/post_office_exterior_LOCKED.jpeg",
+      "sha256": "c5a2f98fc5636a57e75e61b638dbc9f0f376e2946cc82c53136a853532d64340",
+      "bytes": 107214,
+      "width": 1811,
+      "height": 1280,
+      "origin": "original_specification_package"
+    },
+    {
+      "path": "assets/locked_user/post_office_exterior_USER_20261001_LOCKED.jpg",
+      "sha256": "10505e65f9ff2beb0bfec42d7492c169a2257582f7b6218711bf1824f2d69d5b",
+      "bytes": 107214,
+      "width": 1811,
+      "height": 1280,
+      "origin": "user_attachment_2026-10-01"
+    },
+    {
+      "path": "assets/locked_user/residential_building_LOCKED.jpeg",
+      "sha256": "cd7a321d4c44452c2a24458428eb38abfbac693ccd6e66d4607e0cd1381407ae",
+      "bytes": 138805,
+      "width": 1811,
+      "height": 1280,
+      "origin": "original_specification_package"
+    },
+    {
+      "path": "assets/locked_user/residential_building_USER_20261001_LOCKED.png",
+      "sha256": "2e918363c006372d9a28ba508b5479f0f466084cc26e9b2de7f432013465efb0",
+      "bytes": 347215,
+      "width": 3508,
+      "height": 2480,
+      "origin": "user_attachment_2026-10-01"
+    },
+    {
+      "path": "assets/locked_user/tarot_shop_LOCKED.png",
+      "sha256": "4fb721b82bfa6f245fb23e82ff5e91caaf5b69fdcb30372e1118b70fcd0dfbf6",
+      "bytes": 152418,
+      "width": 1920,
+      "height": 1080,
+      "origin": "original_specification_package"
+    }
+  ],
+  "active_locations": [
+    {
+      "location_id": "post_office",
+      "display_name": "邮局",
+      "path": "assets/locked_user/post_office_exterior_USER_20261001_LOCKED.jpg",
+      "source_attachment": "abd5853cb2c889d0f1a4411324f0edd7.jpg",
+      "source_sha256": "10505e65f9ff2beb0bfec42d7492c169a2257582f7b6218711bf1824f2d69d5b",
+      "verified_byte_identical": true
+    },
+    {
+      "location_id": "community_center",
+      "display_name": "社区中心",
+      "path": "assets/locked_user/community_center_USER_20261001_LOCKED.jpg",
+      "source_attachment": "af4b7dabac593b5bf81d2ec9260a6ab2.jpg",
+      "source_sha256": "df908fd63a384cc81a8bf9344368a1814ac5250b13806f600e745159e9013873",
+      "verified_byte_identical": true
+    },
+    {
+      "location_id": "bus_stop",
+      "display_name": "公交站",
+      "path": "assets/locked_user/bus_stop_LOCKED.png",
+      "source_attachment": "21b05f881667a2b9c4913c20cf503dc4.png",
+      "source_sha256": "8e69e0c923aa606877b0dcd4caa012859276c2e8bbfefc08c7fb915c9fe4b368",
+      "verified_byte_identical": true
+    },
+    {
+      "location_id": "lookout",
+      "display_name": "观景台",
+      "path": "assets/locked_user/lookout_LOCKED.png",
+      "source_attachment": "c348d94b5c08ac785b36701769232cf4.png",
+      "source_sha256": "51036f2afc2d31526a194c4dfe1113c877f36c3e6177f3fa3e9fba023e1a67d1",
+      "verified_byte_identical": true
+    },
+    {
+      "location_id": "residential",
+      "display_name": "居民楼 · Rose Court",
+      "path": "assets/locked_user/residential_building_USER_20261001_LOCKED.png",
+      "source_attachment": "bad5c6a2291fee65ec834987d3c51e4b.png",
+      "source_sha256": "2e918363c006372d9a28ba508b5479f0f466084cc26e9b2de7f432013465efb0",
+      "verified_byte_identical": true
+    },
+    {
+      "location_id": "chess_stall",
+      "display_name": "棋摊",
+      "path": "assets/locked_user/chess_stall_USER_20261001_LOCKED.png",
+      "source_attachment": "28709a623c6f1d42dc3415214a77efd8.png",
+      "source_sha256": "61b38e2880dbc096cb9d3b8e05c45978f020e2ee04c33247c3422722cb36aa00",
+      "verified_byte_identical": true
+    },
+    {
+      "location_id": "tarot_shop",
+      "display_name": "塔楼屋",
+      "path": "assets/locked_user/tarot_shop_LOCKED.png",
+      "source_attachment": "2dd73b5e9506cb4d2570775e2201204e.png",
+      "source_sha256": "4fb721b82bfa6f245fb23e82ff5e91caaf5b69fdcb30372e1118b70fcd0dfbf6",
+      "verified_byte_identical": true
+    }
+  ],
+  "comparisons": [
+    {
+      "location_id": "chess_stall",
+      "file_bytes_identical": false,
+      "decoded_pixels_identical": false
+    },
+    {
+      "location_id": "residential",
+      "file_bytes_identical": false,
+      "decoded_pixels_identical": false,
+      "note": "Latest PNG is 3508x2480; package JPEG is 1811x1280."
+    },
+    {
+      "location_id": "post_office",
+      "file_bytes_identical": false,
+      "decoded_pixels_identical": true
+    },
+    {
+      "location_id": "community_center",
+      "file_bytes_identical": false,
+      "decoded_pixels_identical": true
+    }
+  ]
+}

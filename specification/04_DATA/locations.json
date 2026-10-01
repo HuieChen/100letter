@@ -1,0 +1,9 @@
+[
+  {"id":"post_office","name":"邮局","travel_from_post_office":0,"locked_asset":"post_office_exterior_LOCKED.jpeg"},
+  {"id":"community_center","name":"社区中心","travel_from_post_office":25,"locked_asset":"community_center_LOCKED.jpeg"},
+  {"id":"bus_stop","name":"公交站","travel_from_post_office":20,"locked_asset":"bus_stop_LOCKED.png"},
+  {"id":"lookout","name":"观景台","travel_from_post_office":40,"locked_asset":"lookout_LOCKED.png"},
+  {"id":"residential","name":"居民楼","travel_from_post_office":30,"locked_asset":"residential_building_LOCKED.jpeg"},
+  {"id":"chess_stall","name":"棋摊","travel_from_post_office":20,"locked_asset":"chess_stall_LOCKED.png"},
+  {"id":"tarot_shop","name":"塔罗店","travel_from_post_office":35,"locked_asset":"tarot_shop_LOCKED.png"}
+]

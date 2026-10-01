@@ -1,0 +1,13 @@
+.godot/
+__pycache__/
+*.py[cod]
+*.tmp
+*.log
+.DS_Store
+builds/
+test-results/
+local-data/
+export_credentials.cfg
+*.exe
+*.pck
+*.zip

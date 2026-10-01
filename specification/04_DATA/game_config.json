@@ -1,0 +1,16 @@
+{
+  "day_start_minutes": 540,
+  "day_end_minutes": 1080,
+  "starting_postal_reputation": 70,
+  "safe_repair_materials": 3,
+  "default_travel_minutes": 30,
+  "deep_investigation_minutes": 25,
+  "kitchen_optional_minutes": 25,
+  "reputation_labels": [
+    {"min": 85, "label": "Trusted"},
+    {"min": 70, "label": "Professional"},
+    {"min": 50, "label": "Ordinary"},
+    {"min": 30, "label": "Questioned"},
+    {"min": 0, "label": "Under Review"}
+  ]
+}

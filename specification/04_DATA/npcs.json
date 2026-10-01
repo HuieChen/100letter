@@ -1,0 +1,27 @@
+[
+  {
+    "id":"chenyuan",
+    "name":"尘缘",
+    "locked_asset":"npc_chenyuan_LOCKED.jpeg",
+    "home_known":false,
+    "usual_locations":["bus_stop","community_center"],
+    "mvp_role":"information_and_delegate",
+    "base_trust":65
+  },
+  {
+    "id":"mira_vale",
+    "name":"Mira Vale",
+    "generated_asset":"npc_mira.png",
+    "usual_locations":["community_center","lookout"],
+    "mvp_role":"core_relationship_case04",
+    "base_trust":55
+  },
+  {
+    "id":"june_arlen",
+    "name":"June Arlen",
+    "generated_asset":"npc_june.png",
+    "usual_locations":["residential","lookout"],
+    "mvp_role":"recipient_case04",
+    "base_trust":50
+  }
+]

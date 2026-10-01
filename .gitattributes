@@ -1,0 +1,16 @@
+* text=auto
+*.gd text eol=lf
+*.tscn text eol=lf
+*.json text eol=lf
+*.md text eol=lf
+*.png binary
+*.jpeg binary
+*.ttf binary
+*.wav binary
+*.gd whitespace=-blank-at-eof
+*.md whitespace=-blank-at-eof
+# Keep supplied specifications and upstream license text byte-for-byte.
+specification/** -text -whitespace
+assets/audio/foley/KENNEY_CC0.txt -text -whitespace
+# Preserve captured tool output verbatim, including progress-line padding.
+docs/testing/video_evidence/*.txt -text -whitespace
