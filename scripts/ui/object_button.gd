@@ -29,7 +29,7 @@ func _ready() -> void:
 
 func _draw() -> void:
 	var active: bool = is_hovered() or has_focus()
-	if desk_fixture and kind in ["tools","book","deliver","map","door"]:
+	if desk_fixture and kind in ["tools","book","deliver","map","door","insert"]:
 		_draw_desk_fixture(active)
 		return
 	var lift: float = -2.0 if active else 0.0
@@ -55,6 +55,16 @@ func _draw_desk_fixture(active: bool) -> void:
 	var dark := Color("55746b")
 	var edge := Color("9b987e")
 	var lift: float = -3.0 if active else 0.0
+	if kind == "insert":
+		var sheet := Rect2(7,8+lift,size.x-14,size.y-17)
+		draw_rect(Rect2(sheet.position+Vector2(3,4),sheet.size),SHADOW)
+		draw_rect(sheet,paper)
+		draw_rect(sheet,edge,false,1.2)
+		for y: float in [25.0,34.0,43.0]:
+			draw_line(Vector2(23,y+lift),Vector2(size.x-30,y+lift),edge,1,true)
+		draw_colored_polygon(PackedVector2Array([Vector2(size.x-42,8+lift),Vector2(size.x-7,8+lift),Vector2(size.x-7,43+lift)]),Color("dfd0ad"))
+		draw_string(get_theme_font("font"),Vector2(18,size.y-27+lift),caption,HORIZONTAL_ALIGNMENT_LEFT,size.x-30,17,dark)
+		return
 	if kind in ["tools","book","deliver"]:
 		var base := Rect2(11,9+lift,size.x-22,size.y-20)
 		if kind == "tools":
@@ -87,28 +97,27 @@ func _draw_desk_fixture(active: bool) -> void:
 		draw_line(Vector2(24,size.y-7),Vector2(size.x-24,size.y-7),CLAY,2,true)
 
 func _draw_letter(active: bool) -> void:
-	var width: float = minf(size.x-37.0,200.0)
+	var width: float = minf(size.x-17.0,315.0)
 	var half := width*0.5
-	var center := Vector2(size.x*0.5+(3.0 if chosen else 0.0),43.0-(2.0 if active else 0.0))
-	draw_set_transform(center,deg_to_rad(-0.8 if index%2==0 else 0.8))
-	var rect := Rect2(-half,-31,width,64)
-	draw_rect(Rect2(rect.position+Vector2(2,4),rect.size),SHADOW)
-	draw_rect(rect,PAPER if chosen else Color("ede2c8"))
-	draw_rect(rect,Color("acaa90"),false,1.0)
-	draw_polyline(PackedVector2Array([Vector2(-half,-31),Vector2(0,7),Vector2(half,-31)]),Color("b7b397"),1.15,true)
-	draw_line(Vector2(-half,33),Vector2(-half+53,0),Color("d2c7aa"),1.0,true)
-	draw_line(Vector2(half,33),Vector2(half-53,0),Color("d2c7aa"),1.0,true)
-	draw_rect(Rect2(half-29,-23,19,24),CLAY if index==1 else SAGE)
-	draw_line(Vector2(half-25,-18),Vector2(half-15,-18),Color("dfd5b6"),1.0,true)
-	draw_string(get_theme_font("font"),Vector2(-half+12,22),"%02d"%[index+1],HORIZONTAL_ALIGNMENT_LEFT,50,17,INK)
+	var center := Vector2(size.x*0.5+(5.0 if chosen else 0.0),size.y*0.5-(3.0 if active else 0.0))
+	draw_set_transform(center,deg_to_rad(-0.6 if index%2==0 else 0.6))
+	var rect := Rect2(-half,-34,width,68)
+	draw_rect(Rect2(rect.position+Vector2(3,5),rect.size),SHADOW)
+	draw_rect(rect,PAPER if chosen else Color("e9dfc5"))
+	draw_rect(rect,Color("aaa58b"),false,1.0)
+	draw_polyline(PackedVector2Array([Vector2(-half,-34),Vector2(0,9),Vector2(half,-34)]),Color("c7bda4"),1.1,true)
+	draw_line(Vector2(-half,34),Vector2(-half+76,-9),Color("d4c6aa"),1.0,true)
+	draw_line(Vector2(half,34),Vector2(half-76,-9),Color("d4c6aa"),1.0,true)
+	draw_rect(Rect2(half-29,-26,20,23),CLAY if index==1 else SAGE)
+	draw_string(get_theme_font("font"),Vector2(-half+15,-9),"%02d"%[index+1],HORIZONTAL_ALIGNMENT_LEFT,35,15,INK)
+	draw_string(get_theme_font("font"),Vector2(-half+22,24),caption,HORIZONTAL_ALIGNMENT_LEFT,width-57,18,INK)
 	if chosen:
-		# A paperclip identifies the selected letter without an app-like tab.
-		draw_arc(Vector2(-half+14,-28),7,PI,TAU,12,INK,2.0,true)
-		draw_line(Vector2(-half+7,-28),Vector2(-half+7,-8),INK,2.0,true)
-		draw_arc(Vector2(-half+12,-8),5,0,PI,12,INK,2.0,true)
-		draw_line(Vector2(-half+17,-8),Vector2(-half+17,-27),INK,2.0,true)
+		# The selected envelope is drawn slightly forward with its paperclip.
+		draw_arc(Vector2(-half+14,-30),7,PI,TAU,12,INK,2.0,true)
+		draw_line(Vector2(-half+7,-30),Vector2(-half+7,-11),INK,2.0,true)
+		draw_arc(Vector2(-half+12,-11),5,0,PI,12,INK,2.0,true)
+		draw_line(Vector2(-half+17,-11),Vector2(-half+17,-29),INK,2.0,true)
 	draw_set_transform(Vector2.ZERO)
-	_draw_caption(101.0,17,active or chosen)
 
 func _draw_caption(baseline: float, font_size: int, active: bool) -> void:
 	var font := get_theme_font("font")

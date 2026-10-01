@@ -1,5 +1,6 @@
 extends Control
-## Independent vector desk, drawn behind the working cards.
+## A single open mail case on the desk. Letters and tools are separate clickable
+## objects above it; this furniture never embeds or alters supplied artwork.
 const CANVAS := Vector2(1600, 900)
 
 func _ready() -> void:
@@ -8,44 +9,47 @@ func _ready() -> void:
 
 func _draw() -> void:
 	draw_set_transform(Vector2.ZERO, 0.0, Vector2(size.x / CANVAS.x, size.y / CANVAS.y))
-	# The slightly sloping back edge belongs to the room above it.
-	draw_colored_polygon(PackedVector2Array([Vector2(0,245),Vector2(1020,245),Vector2(1600,263),Vector2(1600,900),Vector2(0,900)]),Color("d9c9ac"))
-	draw_polyline(PackedVector2Array([Vector2(0,245),Vector2(1020,245),Vector2(1600,263)]),Color("aa987a"),2.0,true)
-	draw_line(Vector2(298,258),Vector2(1164,258),Color("e8ddc5"),2.0,true)
-	# An uninterrupted blotter keeps the current letter visually primary.
-	var blotter := PackedVector2Array([Vector2(333,275),Vector2(1184,280),Vector2(1180,757),Vector2(329,752)])
-	_shadow(blotter,Vector2(3,5))
-	draw_colored_polygon(blotter,Color("9aa89a"))
-	draw_polyline(PackedVector2Array([Vector2(333,275),Vector2(1184,280),Vector2(1180,757),Vector2(329,752),Vector2(333,275)]),Color("879383"),1.0,true)
-	draw_line(Vector2(345,738),Vector2(1166,743),Color("bcc4ad"),1.0,true)
-	_draw_incoming_tray()
-	# Three small working compartments belong to the desk furniture. Their
-	# clickable paper objects are drawn on top, at a consistent physical scale.
-	draw_rect(Rect2(1216,266,302,436),Color("b29d7d"))
-	draw_rect(Rect2(1224,273,286,421),Color("c7b696"))
+	# Green work cloth and the open wooden case sit on the same physical desk.
+	draw_colored_polygon(PackedVector2Array([Vector2(0,245),Vector2(1600,245),Vector2(1600,900),Vector2(0,900)]),Color("8a9876"))
+	draw_line(Vector2(0,248),Vector2(1600,248),Color("b8b38e"),3.0,true)
+	_draw_mail_case()
+	# Narrow compartments keep tools attached to the furniture.
+	draw_rect(Rect2(1216,266,302,436),Color("765940"))
+	draw_rect(Rect2(1224,273,286,421),Color("a17b55"))
 	for y: float in [288.0,418.0,548.0]:
-		draw_rect(Rect2(1234,y,265,106),Color("ad9b7e"))
-		draw_rect(Rect2(1240,y+5,253,92),Color("d6c6a5"))
-		draw_line(Vector2(1240,y+96),Vector2(1493,y+96),Color("877e69"),2.0,true)
-	# A shallow front shelf makes the map and return handle feel stored here.
-	draw_rect(Rect2(316,767,885,114),Color("c8b598"))
-	draw_line(Vector2(316,767),Vector2(1201,767),Color("a89375"),3.0,true)
-	draw_line(Vector2(316,879),Vector2(1201,879),Color("9f8c72"),2.0,true)
-	# The desk lip is deliberately asymmetric.
-	draw_colored_polygon(PackedVector2Array([Vector2(0,889),Vector2(347,883),Vector2(1600,886),Vector2(1600,900),Vector2(0,900)]),Color("b9a584"))
-	draw_line(Vector2(351,883),Vector2(1600,886),Color("ad9879"),1.5,true)
+		draw_rect(Rect2(1234,y,265,106),Color("72583e"))
+		draw_rect(Rect2(1240,y+5,253,92),Color("c6b18b"))
+		draw_line(Vector2(1240,y+96),Vector2(1493,y+96),Color("6b553e"),2.0,true)
+	# Front ledge holds the map and the door handle in shallow slots.
+	draw_rect(Rect2(316,767,885,114),Color("9a7954"))
+	draw_line(Vector2(316,767),Vector2(1201,767),Color("d6b98b"),3.0,true)
+	draw_line(Vector2(316,879),Vector2(1201,879),Color("6d5239"),2.0,true)
+	draw_rect(Rect2(0,889,1600,11),Color("765a3f"))
 	draw_set_transform(Vector2.ZERO)
 
-func _draw_incoming_tray() -> void:
-	var outside := Rect2(24,252,270,550)
-	draw_rect(Rect2(outside.position+Vector2(4,7),outside.size),Color(0.25,0.24,0.20,0.12))
-	draw_rect(outside,Color("b29b79"))
-	draw_rect(Rect2(32,260,253,528),Color("c9b796"))
-	draw_line(Vector2(32,263),Vector2(32,787),Color("a18c6b"),1.0,true)
-	draw_line(Vector2(285,260),Vector2(285,789),Color("e0d0ae"),2.0,true)
-	draw_rect(Rect2(24,787,270,15),Color("b9a17e"))
-	draw_line(Vector2(24,787),Vector2(294,787),Color("e1cfad"),2.0,true)
-	draw_line(Vector2(129,794),Vector2(181,794),Color("897a61"),3.0,true)
+func _draw_mail_case() -> void:
+	# Open lid, inner lining, lower body and brass fittings read as one object.
+	var lid := PackedVector2Array([Vector2(45,278),Vector2(1191,278),Vector2(1168,485),Vector2(62,485)])
+	_shadow(lid,Vector2(6,12))
+	draw_colored_polygon(lid,Color("735138"))
+	draw_polyline(PackedVector2Array([Vector2(45,278),Vector2(1191,278),Vector2(1168,485),Vector2(62,485),Vector2(45,278)]),Color("4e3b2e"),4,true)
+	draw_colored_polygon(PackedVector2Array([Vector2(69,299),Vector2(1164,299),Vector2(1144,460),Vector2(81,460)]),Color("98704d"))
+	for y: float in [321.0,352.0,389.0,425.0]:
+		draw_line(Vector2(105,y),Vector2(1125,y+3),Color("aa8159"),2,true)
+	draw_rect(Rect2(66,421,1110,326),Color("4d3d30"))
+	draw_rect(Rect2(80,437,1082,286),Color("687a5e"))
+	draw_rect(Rect2(82,449,345,269),Color("637158"))
+	draw_line(Vector2(446,444),Vector2(446,720),Color("a5865b"),11,true)
+	draw_rect(Rect2(48,720,1142,38),Color("805d3d"))
+	draw_line(Vector2(48,720),Vector2(1190,720),Color("c5a274"),5,true)
+	draw_line(Vector2(61,745),Vector2(1176,745),Color("654a32"),3,true)
+	for x: float in [68.0,1119.0]:
+		draw_rect(Rect2(x,727,48,21),Color("c6a25f"))
+		draw_line(Vector2(x+7,731),Vector2(x+41,731),Color("efd195"),2,true)
+	draw_rect(Rect2(594,723,65,23),Color("c8a15e"))
+	draw_arc(Vector2(626,746),22,0,TAU,40,Color("6a705e"),5,true)
+	draw_line(Vector2(195,278),Vector2(220,278),Color("d1ae70"),7,true)
+	draw_line(Vector2(1002,278),Vector2(1027,278),Color("d1ae70"),7,true)
 
 func _shadow(points: PackedVector2Array, offset: Vector2) -> void:
 	var shifted := PackedVector2Array()

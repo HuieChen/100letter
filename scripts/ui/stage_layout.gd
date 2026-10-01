@@ -24,23 +24,23 @@ static func plan(location_id: String) -> Dictionary:
 	match location_id:
 		"community_center":
 			target=Vector2(427,91); height=650
-			feet={"chenyuan":Vector2(385,745)}; heights={"chenyuan":172.0}
+			feet={"chenyuan":Vector2(385,745)}; heights={"chenyuan":126.0}
 			entrance=Vector2(991,751); zone="civic_square"
 		"bus_stop":
 			target=Vector2(652,374); height=330
-			feet={"chenyuan":Vector2(1021,735)}; heights={"chenyuan":173.0}
+			feet={"chenyuan":Vector2(1021,735)}; heights={"chenyuan":126.0}
 			walk=Rect2(184,709,1254,103); spawn=Vector2(251,777)
 			entrance=Vector2(860,724); zone="coastal_road"
 		"lookout":
 			target=Vector2(122,295); height=390
 			feet={"june_arlen":Vector2(530,677),"mira_vale":Vector2(1030,683),"nora_vale":Vector2(1390,671)}
-			heights={"june_arlen":173.0,"mira_vale":174.0,"nora_vale":173.0}
+			heights={"june_arlen":127.0,"mira_vale":128.0,"nora_vale":127.0}
 			walk=Rect2(140,663,1304,122); spawn=Vector2(229,753)
 			entrance=Vector2(466,691); zone="high_cliff"
 		"residential":
 			target=Vector2(485,118); height=610
 			walk=Rect2(175,738,1270,66)
-			feet={"june_arlen":Vector2(1210,761)}; heights={"june_arlen":176.0}
+			feet={"june_arlen":Vector2(1210,761)}; heights={"june_arlen":128.0}
 			entrance=Vector2(698,742); zone="rose_courtyard"
 		"chess_stall":
 			target=Vector2(614,176); height=505
@@ -55,4 +55,4 @@ static func plan(location_id: String) -> Dictionary:
 	return {"location_id":id,"building":Rect2(target-alpha.position*scale_value,dimensions*scale_value),
 		"visible_building":Rect2(target,alpha.size*scale_value),"npc_feet":feet,"npc_heights":heights,
 		"walk_bounds":walk,"spawn":spawn,"arrival":spawn,"exit":Vector2(160,779),
-		"entrance":entrance,"palette_zone":zone,"actor_height":177.0,"ground_hit":Rect2(130,650,1330,169)}
+		"entrance":entrance,"palette_zone":zone,"actor_height":126.0,"ground_hit":Rect2(130,650,1330,169)}

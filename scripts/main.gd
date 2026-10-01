@@ -18,6 +18,8 @@ const Deduction = preload("res://scripts/ui/deduction_board.gd")
 const Conversation = preload("res://scripts/ui/conversation_ribbon.gd")
 const Layout = preload("res://scripts/ui/stage_layout.gd")
 const DeskSurface = preload("res://scripts/ui/workbench_surface.gd")
+const LetterInsert = preload("res://scripts/ui/letter_insert.gd")
+const FolioSurface = preload("res://scripts/ui/folio_surface.gd")
 const Evidence = preload("res://scripts/ui/visual_evidence.gd")
 const Guidance = preload("res://scripts/ui/field_guidance.gd")
 const SceneExit = preload("res://scripts/ui/scene_exit.gd")
@@ -216,7 +218,7 @@ func _desk() -> void:
 	var i=0
 	for letter in game.catalog.letters:
 		var id: String=letter.id
-		var tab=_object("letter",str(letter.title),Rect2(28,247+i*108,246,108),func(): game.select_case(id); selected=id; _desk())
+		var tab=_object("letter",str(letter.title),Rect2(67+(i%2)*6,348+i*72,338,76),func(): game.select_case(id); selected=id; _desk())
 		tab.index=i
 		tab.chosen=id==selected
 		tab.queue_redraw()
@@ -234,10 +236,9 @@ func _desk() -> void:
 	if selected=="case04": envelope.handwriting="M. / July 18"
 	if selected=="case03" and cs.get("repair_solved",false): envelope.front+="\n\n拼回的旧标签：Rose Court 302"
 	screen.add_child(envelope)
-	var pos=cs.get("card_position",[424,292])
-	envelope.position=Vector2(pos[0],pos[1])
-	envelope.scale=Vector2.ONE*float(cs.get("card_scale",1.0))
-	envelope.position.y=clampf(envelope.position.y,230,760-envelope.size.y*envelope.scale.y)
+	var pos=cs.get("card_position",[500,255])
+	envelope.scale=Vector2.ONE*clampf(float(cs.get("card_scale",1.0)),0.9,1.08)
+	envelope.position=Vector2(clampf(float(pos[0]),400,1205-envelope.size.x*envelope.scale.x),clampf(float(pos[1]),220,790-envelope.size.y*envelope.scale.y))
 	_bind_guidance("envelope",envelope,Vector2(envelope.size.x*0.5,20))
 	_bind_guidance("flip_edge",envelope,Vector2(envelope.size.x-10,envelope.size.y*0.5))
 	if envelope.reverse: _remember_guidance("back_seen",selected)
@@ -254,9 +255,9 @@ func _desk() -> void:
 	_object("book","邮局档案册",Rect2(1234,424,267,92),_directory)
 	_object("deliver","投递处理单",Rect2(1234,554,267,92),_decision)
 	if cs.get("opened",false):
-		UI.button(screen,"展开内页 ↗",Rect2(858,726,285,46),func(): _message(item.title,str(item.body)))
+		_object("insert","展开内页",Rect2(1024,664,136,83),func(): _read_letter_body(str(item.title),str(item.body)))
 	elif _body_access(selected):
-		UI.button(screen,"收件人分享的回执 ↗",Rect2(784,726,355,46),func(): _message(str(item.get("delivery_body_access",{}).get("label",item.title)),str(item.body)))
+		_object("insert","阅读回执",Rect2(1024,664,136,83),func(): _read_letter_body(str(item.get("delivery_body_access",{}).get("label",item.title)),str(item.body)))
 	_object("map","小镇地图",Rect2(379,772,190,103),_map)
 	_object("door","回到现场",Rect2(605,772,190,103),_location)
 	if game.first_four_handled() and not game.is_handled("case05"):
@@ -439,7 +440,7 @@ func _location() -> void:
 	UI.place(actor_layer,world,Rect2(0,0,1600,900))
 	walker=Walker.new()
 	walker.name="Courier"
-	walker.actor_height=float(stage_plan.get("actor_height",177.0))
+	walker.actor_height=float(stage_plan.get("actor_height",126.0))
 	UI.place(walker,actor_layer,Rect2(0,0,1600,900))
 	walker.foot_position_changed.connect(_sort_scene_actors)
 	walker.configure(null,bounds,stage_plan.spawn)
@@ -463,8 +464,8 @@ func _location() -> void:
 	for npc_id in loc.get("npc_ids",[]):
 		var npc=_npc(npc_id)
 		var feet: Vector2=stage_plan.npc_feet.get(npc_id,Vector2(1140,foot_y))
-		var actor_height: float=stage_plan.npc_heights.get(npc_id,196.0)
-		var actor_rect=Rect2(feet-Vector2(68,actor_height),Vector2(136,actor_height))
+		var actor_height: float=stage_plan.npc_heights.get(npc_id,128.0)
+		var actor_rect=Rect2(feet-Vector2(56,actor_height),Vector2(112,actor_height))
 		var actor_root=Control.new()
 		actor_root.name="Resident_"+str(npc_id)
 		actor_root.mouse_filter=Control.MOUSE_FILTER_IGNORE
@@ -653,6 +654,7 @@ func _tools() -> void:
 	var item: Dictionary = game.letter_data(selected)
 	var cs: Dictionary = game.case_state(selected)
 	var p = _modal("信件工具",Rect2(340,215,920,500))
+	_folio(p,"tools")
 	UI.label(p,"物件操作会留下痕迹，也会花掉工作时间。",Rect2(40,92,840,65),22)
 	if game.is_handled(selected):
 		UI.label(p,"这封信已登记处理，今日不能再拆封或修复。",Rect2(40,184,840,95),23)
@@ -721,7 +723,7 @@ func _physical(mode: String, after: Callable = Callable()) -> void:
 			after.call()
 			return
 		_desk()
-		if completed_mode=="open": _message(item.title,str(item.get("body","")),Callable(),"收好内页")
+		if completed_mode=="open": _read_letter_body(str(item.title),str(item.get("body","")))
 		else: _message("收起操作台",message))
 
 func _directory(profile_id: String = "", journal: bool = false) -> void:
@@ -729,6 +731,7 @@ func _directory(profile_id: String = "", journal: bool = false) -> void:
 	if current_view != "desk":
 		_desk()
 	var p = _modal("工作档案 · 只记下看见的事",Rect2(910,145,635,652),false)
+	_folio(p,"directory")
 	UI.button(p,"人物",Rect2(25,85,160,44),func(): _directory())
 	UI.button(p,"物证记录",Rect2(195,85,180,44),func(): _directory("",true))
 	if journal:
@@ -795,6 +798,12 @@ func _decision() -> void:
 		return
 	var item: Dictionary = game.letter_data(selected)
 	var p = _modal("决定这封信的去向",Rect2(260,150,1080,650))
+	var folio: FolioSurface=_folio(p,"decision")
+	for action_variant in item.get("choices",[]):
+		var option: String=str(action_variant)
+		if ACTIONS.has(option) and not (selected=="case04" and option=="remove_attachment"):
+			folio.action_count+=1
+	folio.queue_redraw()
 	UI.label(p,item.title+"  /  "+str(item.get("serial","")),Rect2(40,86,1000,48),25)
 	if game.is_handled(selected):
 		UI.body(p,"这封信已经作出处理："+game.status_text(selected)+"。\n\n"+str(game.case_state(selected).get("feedback","")),Rect2(40,170,960,280),24)
@@ -1059,10 +1068,33 @@ func _modal(title_text: String, rect: Rect2, dim: bool = true) -> Panel:
 	UI.button(p,"×",Rect2(rect.size.x-70,18,47,42),_close_overlay)
 	return p
 
+func _folio(panel: Panel, mode: String) -> FolioSurface:
+	var surface=FolioSurface.new()
+	surface.mode=mode
+	UI.place(surface,panel,Rect2(Vector2.ZERO,panel.size))
+	panel.move_child(surface,0)
+	return surface
+
 func _message(title_text: String, message: String, callback: Callable = Callable(), button_text: String = "收好这页") -> void:
 	var p = _modal(title_text,Rect2(355,166,890,632))
 	UI.body(p,message,Rect2(45,100,800,411),25)
 	UI.button(p,button_text,Rect2(445,545,395,54),func(): _close_overlay(); if callback.is_valid(): callback.call(),true)
+
+func _read_letter_body(title_text: String, body_text: String) -> void:
+	_close_overlay()
+	overlay=Control.new()
+	overlay.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
+	overlay.mouse_filter=Control.MOUSE_FILTER_IGNORE
+	add_child(overlay)
+	if is_instance_valid(guidance): guidance.set_overlay_open(true)
+	var shade=ColorRect.new()
+	shade.color=Color(0.11,0.14,0.12,0.47)
+	UI.place(shade,overlay,Rect2(0,91,1600,809))
+	var sheet=LetterInsert.new()
+	sheet.configure(title_text,body_text)
+	UI.place(sheet,overlay,Rect2(445,136,710,647))
+	sheet.closed.connect(_close_overlay)
+	sound.play("paper")
 
 func _close_overlay(restore_world: bool = true) -> void:
 	if traveling: return
@@ -1096,6 +1128,30 @@ func _capture_ui() -> void:
 	await get_tree().process_frame
 	await get_tree().create_timer(0.35).timeout
 	get_viewport().get_texture().get_image().save_png("res://test-results/desk.png")
+	envelope.reverse=true
+	envelope.refresh()
+	await get_tree().create_timer(0.2).timeout
+	get_viewport().get_texture().get_image().save_png("res://test-results/desk_reverse.png")
+	var capture_case: Dictionary=game.case_state(selected)
+	capture_case["opened"]=true
+	_desk()
+	await get_tree().create_timer(0.2).timeout
+	get_viewport().get_texture().get_image().save_png("res://test-results/desk_with_insert.png")
+	_read_letter_body(str(game.letter_data(selected).title),str(game.letter_data(selected).body))
+	await get_tree().create_timer(0.25).timeout
+	get_viewport().get_texture().get_image().save_png("res://test-results/letter_insert.png")
+	capture_case["opened"]=false
+	_desk()
+	_tools()
+	await get_tree().create_timer(0.2).timeout
+	get_viewport().get_texture().get_image().save_png("res://test-results/tools.png")
+	_directory()
+	await get_tree().create_timer(0.2).timeout
+	get_viewport().get_texture().get_image().save_png("res://test-results/directory.png")
+	_decision()
+	await get_tree().create_timer(0.2).timeout
+	get_viewport().get_texture().get_image().save_png("res://test-results/decision.png")
+	_desk()
 	_map()
 	await get_tree().create_timer(0.35).timeout
 	get_viewport().get_texture().get_image().save_png("res://test-results/map.png")
@@ -1107,4 +1163,8 @@ func _capture_ui() -> void:
 	_talk("mira_vale")
 	await get_tree().create_timer(0.4).timeout
 	get_viewport().get_texture().get_image().save_png("res://test-results/dialogue.png")
+	for player in find_children("*","AudioStreamPlayer",true,false):
+		player.stop()
+		player.stream=null
+	await get_tree().create_timer(0.35).timeout
 	get_tree().quit()

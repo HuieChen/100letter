@@ -59,6 +59,7 @@ static func button(parent: Node, text: String, rect: Rect2, callback: Callable, 
 	b.add_theme_color_override("font_color", TEAL if primary else INK)
 	b.add_theme_color_override("font_hover_color", CORAL)
 	b.add_theme_color_override("font_pressed_color", INK)
+	b.add_theme_color_override("font_disabled_color", MUTED)
 	var line=StyleBoxFlat.new()
 	line.bg_color=Color.TRANSPARENT
 	line.border_color=CORAL
@@ -67,6 +68,7 @@ static func button(parent: Node, text: String, rect: Rect2, callback: Callable, 
 	b.add_theme_stylebox_override("hover",line)
 	b.add_theme_stylebox_override("pressed",line)
 	b.add_theme_stylebox_override("focus",line)
+	b.add_theme_stylebox_override("disabled",StyleBoxEmpty.new())
 	b.mouse_default_cursor_shape = Control.CURSOR_POINTING_HAND
 	place(b, parent, rect)
 	b.pressed.connect(callback)
