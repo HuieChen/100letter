@@ -23,7 +23,9 @@ static func plan(location_id: String) -> Dictionary:
 	var zone: String = "post_courtyard"
 	match location_id:
 		"community_center":
-			target=Vector2(427,91); height=650
+			# Keep the full original texture visible while making the entrance and
+			# windows legible at a human scale beside the courier.
+			target=Vector2(385,20); height=750
 			feet={"chenyuan":Vector2(385,745)}; heights={"chenyuan":126.0}
 			entrance=Vector2(991,751); zone="civic_square"
 		"bus_stop":

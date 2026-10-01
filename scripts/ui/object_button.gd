@@ -99,8 +99,8 @@ func _draw_desk_fixture(active: bool) -> void:
 func _draw_letter(active: bool) -> void:
 	var width: float = minf(size.x-17.0,315.0)
 	var half := width*0.5
-	var center := Vector2(size.x*0.5+(5.0 if chosen else 0.0),size.y*0.5-(3.0 if active else 0.0))
-	draw_set_transform(center,deg_to_rad(-0.6 if index%2==0 else 0.6))
+	var center := Vector2(size.x*0.5+(10.0 if chosen else 0.0),size.y*0.5-(4.0 if active or chosen else 0.0))
+	draw_set_transform(center,deg_to_rad(-1.5 if index%2==0 else 1.1))
 	var rect := Rect2(-half,-34,width,68)
 	draw_rect(Rect2(rect.position+Vector2(3,5),rect.size),SHADOW)
 	draw_rect(rect,PAPER if chosen else Color("e9dfc5"))
@@ -109,8 +109,10 @@ func _draw_letter(active: bool) -> void:
 	draw_line(Vector2(-half,34),Vector2(-half+76,-9),Color("d4c6aa"),1.0,true)
 	draw_line(Vector2(half,34),Vector2(half-76,-9),Color("d4c6aa"),1.0,true)
 	draw_rect(Rect2(half-29,-26,20,23),CLAY if index==1 else SAGE)
-	draw_string(get_theme_font("font"),Vector2(-half+15,-9),"%02d"%[index+1],HORIZONTAL_ALIGNMENT_LEFT,35,15,INK)
-	draw_string(get_theme_font("font"),Vector2(-half+22,24),caption,HORIZONTAL_ALIGNMENT_LEFT,width-57,18,INK)
+	# Titles live on the exposed upper edge, so every letter can still be read
+	# and picked from the overlapping stack.
+	draw_string(get_theme_font("font"),Vector2(-half+37,-15),"%02d"%[index+1],HORIZONTAL_ALIGNMENT_LEFT,35,15,INK)
+	draw_string(get_theme_font("font"),Vector2(-half+70,-14),caption,HORIZONTAL_ALIGNMENT_LEFT,width-92,18,INK)
 	if chosen:
 		# The selected envelope is drawn slightly forward with its paperclip.
 		draw_arc(Vector2(-half+14,-30),7,PI,TAU,12,INK,2.0,true)
