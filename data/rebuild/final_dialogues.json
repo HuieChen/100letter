@@ -1,0 +1,51 @@
+{
+  "version": 1,
+  "scope": "Supplemental on-site Chinese dialogue for the retained final-production five cases. Source letter bodies and evidence facts remain unchanged. Questions reveal no evidence; the NPC reply is the commit point. Reading and conversation do not advance the game clock.",
+  "people": {
+    "elsie_moran": {
+      "greeting": "先站到阴凉里。你手上的信，是送到这一户的吗？",
+      "topics": [
+        {"id":"elsie_address","label":"核对信上的旧街名","question":"信上写着 Elsie Moran，17 Old Quay Lane。是这里吗？","answer":"是我，也就是这里。修海堤以前叫 Old Quay Lane，后来换成 Bay Steps。门边那块旧陶瓷号牌，我一直没舍得拆。","case_front":"case01","evidence":["elsie_confirmation"]},
+        {"id":"elsie_street","label":"问问新门牌","question":"这条街的新门牌在哪里看？","answer":"入口那张住户牌是现在的，墙上的陶瓷片是旧号。两个东西都在，你可以慢慢对。","evidence":[]},
+        {"id":"elsie_after_mail","label":"确认信已经收好","question":"刚才那封信，你收好了吗？","answer":"收好了。Ruth 的信总是先讲一件小事，讲着讲着又像她坐到了桌子对面。谢谢你送来。","received_case":"case01","evidence":[]}
+      ]
+    },
+    "chenyuan": {
+      "greeting": "下一班还没来。你要找人，还是找路？",
+      "topics": [
+        {"id":"chenyuan_route","label":"看看往山上的路线","question":"从这里去山上的观景台，路线在哪儿看？","answer":"站牌旁有时刻表。先看现在几点，再看下一班；走路也能到，出发前把时间算上。","evidence":[]},
+        {"id":"chenyuan_mira","label":"打听 Mira 的去向","question":"我有一封要亲交给 Mira 的本地件。你今天见过她吗？","answer":"见过。她拿着社区中心的钥匙，还有那个折叠望远镜箱。我只看见她出门；借用记录应该比我记得清楚。","case_front":"case02","locations":["bus_stop"],"evidence":["chenyuan_sighting"]},
+        {"id":"chenyuan_june","label":"核对 June 的旧住址","question":"这份旧地址写着 Rose Court。June 还住在那里吗？","answer":"她还会从这边经过，但早就不住 Rose Court 了。现在邮件该放哪儿，最好看社区那份现行登记，别只靠我的记性。","any_evidence":["label_reconstructed","case04_archive_mark"],"locations":["bus_stop"],"evidence":["chenyuan_june_history"]},
+        {"id":"chenyuan_music","label":"问起合照上的两个人","question":"旧音乐会照片上有 Mira 和 June。她们这些年还有来往吗？","answer":"很长一阵子不说话了。这不算秘密。春天又开始打招呼。我不会说都好了，只是……没那么坏了。","case_available":"case04","any_evidence":["old_music_photo","sea_watch_roster"],"locations":["bus_stop"],"evidence":["chenyuan_reconnection"]},
+        {"id":"chenyuan_handoff_terms","label":"询问登记代交的条件","question":"如果是不用收件人签名的本地件，可以请顺路的人代交吗？","answer":"先按邮局的本地服务说明核对，再和我当面约好到达时刻。信交给我以后，就由我保管，到达才有回执。","case_front":"case02","evidence":[]}
+      ]
+    },
+    "community_clerk": {
+      "greeting": "公告窗和借用簿都在这边。你要核对哪一项？",
+      "topics": [
+        {"id":"clerk_old_street","label":"查找旧街名记录","question":"我在路线图上找不到 Old Quay Lane。这里存着街道改名的记录吗？","answer":"海堤工程之后整理过一张改名公告，就在公告窗。旧称和现名各有一栏，你把信封拿在旁边对。","case_front":"case01","evidence":[]},
+        {"id":"clerk_equipment","label":"找望远镜借用记录","question":"我想核对 Mira 借用望远镜的记录。","answer":"借用簿里写着借用人和活动地点。记着看日期和状态：借出的一行，和后来归还的一行，不能当成同一时刻。","case_front":"case02","evidence":[]},
+        {"id":"clerk_forwarding","label":"查现行收信安排","question":"我修出了旧转寄标签。在哪里能对照现在的收信安排？","answer":"看志愿者登记表的收信栏。活动地点和批准收信点分开写着，别把参加活动的地方当成投递地址。","requires":["label_reconstructed"],"evidence":[]},
+        {"id":"clerk_mail_cubby","label":"问收信格的用法","question":"这排收信格，什么邮件可以放？","answer":"表上登记的本地收件人可以用。先核对收件人和当前批准的格位，再把信放进去；这和当面交到某个人手里是两种交接。","evidence":[]},
+        {"id":"clerk_old_music","label":"找以前的音乐会记录","question":"这里还留着六年前夏天的活动资料吗？","answer":"旧音乐会合照在档案页里，现行的 Sea Watch 名单在另一块板上。它们属于不同年份，别只因名字相同就把两段时间合在一起。","case_available":"case04","evidence":[]},
+        {"id":"clerk_hv","label":"查找旧职员的资料","question":"我在邮局旧账上看见了重复的 HV。该从哪里核对经手人？","answer":"人是谁，得看当年的轮班表；是不是正式处理代码，得另查流程册。你手上的账还应留着去向一栏。","requires":["ledger_hv_repeat"],"evidence":[]}
+      ]
+    },
+    "mira_vale": {
+      "greeting": "风有点大，把信拿稳。你找我吗？",
+      "topics": [
+        {"id":"mira_delivery","label":"确认本地亲交件","question":"有一封写给 Mira Vale 的本地亲交件。可以交给你吗？","answer":"可以，我就是 Mira。你把信交来，我自己收好。","case_front":"case02","evidence":[]},
+        {"id":"mira_departure","label":"问她还能等多久","question":"信封旁写着尽量在五点半以前。你还会在这里待多久？","answer":"五点半我就得走了。如果信在你手里，现在交就好；来不及也请如实留下记录，别替我签收。","case_front":"case02","evidence":[]},
+        {"id":"mira_received","label":"确认已经交到本人","question":"刚才那封本地件，已经交到你手里了？","answer":"在我这里。谢谢你跑这一趟。里面的事，我想先自己看看。","received_case":"case02","evidence":[]}
+      ]
+    },
+    "june_arlen": {
+      "greeting": "你好。你在核对社区的邮件吗？",
+      "topics": [
+        {"id":"june_mailpoint","label":"核对自己的调查方法","question":"我找到一份写着 June Arlen 的旧地址，想先核对现在的收信安排。","answer":"社区的现行表上有登记。请看收信那一栏，活动地点是另外一回事。旧信上的地址也留着，它能说明信走过哪里。","any_front":["case03","case04"],"evidence":[]},
+        {"id":"june_photo","label":"提起旧音乐会合照","question":"我在社区档案里看见了那张夏日音乐会合照。","answer":"那天人很多。照片会把大家留在同一刻，后来各自发生的事，它就讲不出来了。","requires":["old_music_photo"],"evidence":[]},
+        {"id":"june_old_mail","label":"确认旧件由她保管","question":"刚才那封旧信，你收好了？","answer":"收好了。六年前……先让我拿着吧。我想自己决定什么时候打开。","received_case":"case04","evidence":[]}
+      ]
+    }
+  }
+}

@@ -1,0 +1,162 @@
+{
+  "version": 1,
+  "catalog_version": "final-production-v1",
+  "authorization": "User-authorized limited sentence erasure/replacement and attachment removal/return; no free-form rewriting.",
+  "authoring_source": "specification/final_production_v1/04_VERTICAL_SLICE/CASE_BIBLE_FINAL.md",
+  "constraints": {
+    "catalog_body_immutable": true,
+    "maximum_slots_per_letter": 1,
+    "requires_player_visible_unfolded_body": true,
+    "requires_extracted_paper": true,
+    "requires_courier_custody": true,
+    "requires_no_disposition": true,
+    "hide_locked_options_and_previews": true,
+    "hide_future_recipient_feedback": true,
+    "all_unopened_routes_remain_available": true,
+    "no_automatic_work_reliability_penalty": true,
+    "no_automatic_npc_trust_penalty": true,
+    "penalty_requires_actual_detected_tampering": true,
+    "recipient_knows_only_received_content_and_visible_traces": true,
+    "returning_attachment_does_not_clear_private_handling_history": true,
+    "no_deadline_or_location_changes": true,
+    "reference_motion_claim": "This is a user-authorized Solmere design, not a claimed frame-by-frame observation of Forgery Craft."
+  },
+  "cases": {
+    "case02": {
+      "slots": [
+        {
+          "id": "case02_request",
+          "original": "I am not asking you to stay because I am afraid of what happens after you go.",
+          "options": [
+            {
+              "id": "case02_erase_request",
+              "label": "擦去这一句",
+              "operation": "erase",
+              "text": "",
+              "meaning_preview": "寄出的信里不再有这句对挽留动机的说明，见面邀请仍然保留。",
+              "consequence_id": "case02_request_erased"
+            },
+            {
+              "id": "case02_replace_request",
+              "label": "替换这一句",
+              "operation": "replace",
+              "text": "I am asking you to stay because I am afraid of what happens after you go.",
+              "meaning_preview": "把“我不是因为害怕才求你留下”改成“我因为害怕而求你留下”。其余信文不变。",
+              "consequence_id": "case02_request_changed"
+            }
+          ]
+        }
+      ]
+    },
+    "case03": {
+      "slots": [],
+      "attachment": {
+        "id": "case03_lighthouse_photo",
+        "label": "灯塔照片",
+        "caption": "小幅灯塔照片",
+        "catalog_value": "small lighthouse photo",
+        "body_anchor": "Yours is in the envelope.",
+        "initial_location": "envelope",
+        "operations": ["remove", "return"],
+        "requires_player_visible_unfolded_body": true,
+        "requires_extracted_paper": true,
+        "remove_preview": "照片留在工作面上；若未放回，它不会随信送出。",
+        "return_preview": "把这张原照片放回信中，恢复本次寄送的附件完整性。",
+        "removed_consequence_id": "case03_photo_missing",
+        "returned_consequence_id": "case03_photo_present",
+        "single_physical_object": true,
+        "no_duplicate_or_substitute": true,
+        "outside_attachment_keeps_separate_custody": true
+      }
+    },
+    "case04": {
+      "slots": [
+        {
+          "id": "case04_departure",
+          "original": "If you leave tomorrow, go.",
+          "options": [
+            {
+              "id": "case04_erase_departure",
+              "label": "擦去这一句",
+              "operation": "erase",
+              "text": "",
+              "meaning_preview": "寄出的旧信里不再有这句明确让对方离开的表示；前后的愤怒和不愿施压仍在。",
+              "consequence_id": "case04_departure_erased"
+            },
+            {
+              "id": "case04_replace_departure",
+              "label": "替换这一句",
+              "operation": "replace",
+              "text": "If you leave tomorrow, wait.",
+              "meaning_preview": "把当年的“要走就走吧”改成“要走也先等等”。它不会改变这封旧信的日期。",
+              "consequence_id": "case04_departure_changed"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "consequences": {
+    "case02_request_erased": {
+      "recipient_id": "mira_vale",
+      "trigger": "recipient_reads_received_version",
+      "feedback": "Mira把信折好：“信里还是约我上去。好，我知道了。”",
+      "evidence_basis": "Remaining text still invites Mira to the lookout before the last shuttle; the deleted sentence is not known to her.",
+      "defer_if_not_personally_witnessed": true,
+      "work_reliability_delta": 0,
+      "npc_trust_delta": 0
+    },
+    "case02_request_changed": {
+      "recipient_id": "mira_vale",
+      "trigger": "recipient_reads_received_version",
+      "feedback": "Mira又看了一遍那一行：“这是在叫我留下。我还是得听对方当面说。”",
+      "evidence_basis": "The received sentence now explicitly asks her to stay. This does not reveal an alteration or establish the unnamed sender's identity.",
+      "defer_if_not_personally_witnessed": true,
+      "work_reliability_delta": 0,
+      "npc_trust_delta": 0
+    },
+    "case04_departure_erased": {
+      "recipient_id": "june_arlen",
+      "trigger": "recipient_reads_received_version",
+      "feedback": "“她那时很生气。”June把信收起来，“我记得。别的，我得自己问。”",
+      "evidence_basis": "The remaining letter still describes anger and attachment. June cannot quote the removed sentence or know who removed it.",
+      "defer_if_not_personally_witnessed": true,
+      "work_reliability_delta": 0,
+      "npc_trust_delta": 0
+    },
+    "case04_departure_changed": {
+      "recipient_id": "june_arlen",
+      "trigger": "recipient_reads_received_version",
+      "feedback": "June的指尖停在那句话上：“她叫我等。我一直以为那天已经说完了。”她没有接着解释。",
+      "evidence_basis": "June reads the altered historical request to wait. Her memory differs, but she has no automatic knowledge of the original wording or the player's intervention.",
+      "defer_if_not_personally_witnessed": true,
+      "work_reliability_delta": 0,
+      "npc_trust_delta": 0
+    },
+    "case03_photo_missing": {
+      "recipient_id": "june_arlen",
+      "trigger": "recipient_opens_received_envelope_with_attachment_still_outside",
+      "feedback": "June摸了摸空信封：“信里说给我留了一张，里面却没有。也许夹漏了，我回头问问。”",
+      "evidence_basis": "The unchanged body promises a photograph, while the actual delivered envelope lacks it. This proves a discrepancy, not who caused it.",
+      "defer_if_not_personally_witnessed": true,
+      "work_reliability_delta": 0,
+      "npc_trust_delta": 0
+    },
+    "case03_photo_present": {
+      "recipient_id": "june_arlen",
+      "trigger": "recipient_opens_received_envelope_with_original_attachment_inside",
+      "feedback": "June把照片夹回信里：“她说会留一张，真的留了。”",
+      "evidence_basis": "The original photograph is present when June opens the delivered envelope. Its earlier removal and return are not automatically known to her.",
+      "defer_if_not_personally_witnessed": true,
+      "work_reliability_delta": 0,
+      "npc_trust_delta": 0
+    }
+  },
+  "detection": {
+    "trigger": "actual_visible_paper_or_ink_tampering_detected",
+    "generic_feedback": "对方把纸转向光：“这里像是擦过。你知道是怎么回事吗？”",
+    "attribution": "A visible trace permits a question about handling, not automatic knowledge of the author of the change or the original sentence.",
+    "penalty_policy": "No penalty is applied by this content file. Only an actual detection event may invoke the core's established evidence-based work/trust policy.",
+    "supersedes_ordinary_reading_feedback_when_it_would_contradict_detection": true
+  }
+}

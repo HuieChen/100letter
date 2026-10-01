@@ -1,0 +1,204 @@
+{
+  "schema_version": 1,
+  "recorded_at": "2026-10-01T23:35:51.015987+00:00",
+  "status": "automated_source_and_package_validation_passed_human_visual_acceptance_pending",
+  "engine": "Godot 4.7.2 stable",
+  "scope": "Current formal five-case entry in the public worktree. Program-driven actual engine inputs are not human playtests, full reference parity, listening approval or proof of GitHub publication.",
+  "public_source_base": "6f209a0f6d16c0e4042f62faf1d59e333490aefe",
+  "expected_collaborator_merge": "eae7b2eaacd6bc5a7e03cac92c888caa7c22cecb",
+  "headless": {
+    "checks": 4153,
+    "failures": 0,
+    "exit_code": 0,
+    "log_directory": "test-results/check-20261002-064201",
+    "suites": [
+      {
+        "name": "mail_physics_state_smoke",
+        "checks": 728,
+        "failures": 0,
+        "log_sha256": "71bd5eeb755cfb2119a51426d3ba8994602936c56023bdafb8b4955c8fdcfa68"
+      },
+      {
+        "name": "final_case_state_smoke",
+        "checks": 3348,
+        "failures": 0,
+        "log_sha256": "62c8a0ba772967000ee9949fc3b20d768298a79ab2679b3c23fd1a1eea3baeb1"
+      },
+      {
+        "name": "final_walker_smoke",
+        "checks": 31,
+        "failures": 0,
+        "log_sha256": "4acbe697b15fa5cc0426fada3c78cf61be20c37aaf9e0188020b745acb8fc346"
+      },
+      {
+        "name": "scene_dialogue_input_smoke",
+        "checks": 18,
+        "failures": 0,
+        "log_sha256": "3988ea7efe2104520021c2c4bb064fd6f58fb488512b2b59654ae861f86e6497"
+      },
+      {
+        "name": "postal_desk_live_queue",
+        "checks": 28,
+        "failures": 0,
+        "log_sha256": "f5c3bd8635d5c511b8928f20e51c764b46e25a06f99a4164bb907390d0f1cf60"
+      }
+    ],
+    "scope": "Model and independent movement/dialogue/queue checks. No render or visual approval."
+  },
+  "gpu_routes": [
+    {
+      "name": "sealed",
+      "checks": 336,
+      "failures": 0,
+      "input_events": 879,
+      "elapsed_seconds": 91.004,
+      "exit_code": 0,
+      "exit_code_basis": "Observed by the owning execution agent; report and process outputs preserved locally.",
+      "source_hashes_stable": true,
+      "report_path": "test-results/final-public-gpu-20261002-065656/sealed.json",
+      "report_sha256": "5a78040ddab4202d3b75385c74462c18fe3423acb9a9a7a51514077fc7371212",
+      "scope": "Actual-input five-case route, all seven locations, five manually stamped resolutions and ending.",
+      "ending_reached": true,
+      "resolution_count": 5,
+      "visited_locations": [
+        "community_center",
+        "residential",
+        "post_office",
+        "lookout",
+        "chess_stall",
+        "tarot_shop",
+        "bus_stop"
+      ],
+      "source_files_checked": 71,
+      "source_snapshot_sha256": "bda44c301f0f3d5a631fd3164564d369e8e0d8fdea348e7b28a1ed1f2bbb9bfa",
+      "snapshot_digest_format": "SHA256 of UTF-8 sorted compact JSON source map; full map remains in the hashed local report."
+    },
+    {
+      "name": "delegate",
+      "checks": 338,
+      "failures": 0,
+      "input_events": 898,
+      "elapsed_seconds": 89.943,
+      "exit_code": 0,
+      "exit_code_basis": "Observed by the owning execution agent; report and process outputs preserved locally.",
+      "source_hashes_stable": true,
+      "report_path": "test-results/final-public-gpu-20261002-065656/delegate.json",
+      "report_sha256": "e7baf9af324a713dfd3548655f3179002cf3f5ecb7d9eb2e1770d9c4b93b972c",
+      "scope": "Actual-input five-case route, all seven locations, five manually stamped resolutions and ending.",
+      "ending_reached": true,
+      "resolution_count": 5,
+      "visited_locations": [
+        "community_center",
+        "residential",
+        "post_office",
+        "bus_stop",
+        "chess_stall",
+        "tarot_shop",
+        "lookout"
+      ],
+      "source_files_checked": 71,
+      "source_snapshot_sha256": "bda44c301f0f3d5a631fd3164564d369e8e0d8fdea348e7b28a1ed1f2bbb9bfa",
+      "snapshot_digest_format": "SHA256 of UTF-8 sorted compact JSON source map; full map remains in the hashed local report."
+    },
+    {
+      "name": "amended",
+      "checks": 210,
+      "failures": 0,
+      "input_events": 544,
+      "elapsed_seconds": 51.226,
+      "exit_code": 0,
+      "exit_code_basis": "Observed by the owning execution agent; report and process outputs preserved locally.",
+      "source_hashes_stable": true,
+      "report_path": "test-results/final-public-gpu-20261002-065656/amended.json",
+      "report_sha256": "3be2ca54bea16e3e71dea7244ddd19963fc9f08c3745c4c940d431c4290a4245",
+      "scope": "Case01 tutorial then Case02 real erase/replace/reseal, on-site delivery and witnessed recipient response. This is not another complete five-case route.",
+      "source_files_checked": 72,
+      "source_snapshot_sha256": "7a8b9678256e7f2cb6de637f7a4e4a99a797ccda4b05b5cc8727cbd04a29d9ac",
+      "snapshot_digest_format": "SHA256 of UTF-8 sorted compact JSON source map; full map remains in the hashed local report."
+    }
+  ],
+  "os_window_close": {
+    "warning": "Automated OS event, not human X-click, audio listening, or art acceptance. See retained stderr logs.",
+    "input_events": 70,
+    "reload_exit": 0,
+    "child_exit": 0,
+    "input_checks": 14,
+    "failures": [],
+    "scope": "Actual input in an isolated GPU child, then Win32 WM_CLOSE to that exact PID-owned HWND, then fresh-process reload.",
+    "reload_checks": 15,
+    "report_path": "test-results/window-close-20261002-070103/report.json",
+    "report_sha256": "405601818a36e8cf22c01bd34938dc9338d49956d7d51aee5924ad35e349f901",
+    "total_checks": 29
+  },
+  "additional_boundaries": {
+    "drafts": {
+      "checks": 42,
+      "failures": 0,
+      "input_events": 114,
+      "report": "development/test-results/final_resolution_draft_results.json",
+      "limit": "Recorded before the later isolated paper cue and caption-only patches."
+    },
+    "counter_caption": {
+      "checks": 10,
+      "failures": 0,
+      "report": "development/test-results/counter_caption_results.json",
+      "scope": "Actual latch input, timer restore and two GPU frames; final host/desk source matches public tree."
+    },
+    "public_archive_adapter": {
+      "tests": 2,
+      "failures": 0,
+      "report": "test-results/public_archive_adapter.log",
+      "scope": "Optional separately retained local originals; default public runner explicitly does not run archival verification."
+    }
+  },
+  "visual_acceptance": "See ART_ACCEPTANCE_20261002.json; sampled current frames only, not complete visual/reference signoff.",
+  "audio": "GPU routes use Dummy; these route runs are not listening evidence.",
+  "packaging": {
+    "status": "passed",
+    "selected_resource_count": 104,
+    "selected_script_closure_count": 16,
+    "export_inventory_entries": 220,
+    "excluded_matches": [],
+    "export_audit_path": "test-results/package-20261002-072037/export-audit.json",
+    "export_audit_sha256": "1dc1a572ac0e44e170347809c53da15f4079e7b726afd3e059032c538d1c6809",
+    "packaged_content_checks": 163,
+    "packaged_content_failures": [],
+    "release_gpu_boot_exit": 0,
+    "release_frames_requested": 120,
+    "verification_path": "test-results/verify-package-20261002-072421/verification.json",
+    "verification_sha256": "fd04df2115d09c072fe69e16b0f83e86cce4760a45ce22c9583bbf70ec7be824",
+    "pck_sha256": "8e4dd434cf0dff7adebe9f2a16284331fd3f1940ea49fd730f8bf87da9074afa",
+    "executable_sha256": "d34d36f3be1a6c49c56525ae86469b92e4f417ddf0b43cf00dd80c385c4b0562",
+    "zip": {
+      "path": "builds/100letter-Windows-20261002.zip",
+      "bytes": 94169197,
+      "sha256": "f8a93bf521c020f9e37f4fea07fc3ea379823e86d1696c4cf214ca32f60d3465",
+      "files_crc_checked": 15,
+      "crc_failures": 0
+    },
+    "scope": "Actual PCK decoding using the matching editor inspector, then the official release executable GPU boot. Isolated saves; no source game fallback.",
+    "limits": [
+      "No full native input playthrough, visual reference acceptance or audio listening is implied.",
+      "Review stderr logs separately; Windows root certificate store warnings may occur."
+    ],
+    "first_attempt": "Package inventory correctly rejected a missing dynamically loaded core script; dependency selection was repaired and a new package passed. The rejected package was not approved."
+  },
+  "publication": "Not performed by this preparation/validation agent.",
+  "current_runtime_sha256": {
+    "scripts/rebuild/final_playable.gd": "8fddd4f4e005c6c05f7ae647a5f219bc005dd0785123ada09b2634ebd84666f2",
+    "scripts/rebuild/postal_desk.gd": "2ed8c34941934cc6d44fab80c7a3f27bf34afdb7495c38a53365822a62d27543",
+    "scripts/rebuild/final_case_state.gd": "958fcbf5fdfb1e7f3fea06c622ea071c0d8a9ec1b12c913a56deba80d43d5fd0",
+    "scripts/rebuild/mail_physics_state.gd": "c7bc4306835ba08cb24a05996ec2ba2423ffe63ed61d39730a7902ff90268a1d",
+    "assets/faefever_v2/manifest.json": "5712edfa0359e0c31417bd54bf4be9048ba2704871b2d5e14f89b57dcb7f5371"
+  },
+  "native_human_validation": {
+    "status": "not_completed",
+    "observed_limit": "Desktop helper reported handler not ready; the parent did not obtain a usable visible desktop window from Start-Process. No successful ten-action manual native playtest is claimed.",
+    "verified_instead": "Actual engine input GPU routes, actual PID-targeted OS WM_CLOSE and a separate official release GPU boot."
+  },
+  "diagnostic_limits": [
+    "GPU routes used Dummy audio; no listening approval. Some Dummy audio playback/resource-reference shutdown diagnostics remain in stderr.",
+    "Windows root-certificate-store warnings are retained in execution logs.",
+    "Four whitespace-only trailing tabs remain in frozen field_book/field_observation sources; no runtime mutation was made after package source validation."
+  ]
+}

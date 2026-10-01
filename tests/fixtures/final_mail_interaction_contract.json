@@ -1,0 +1,3645 @@
+{
+  "schema_version": "1.0.0",
+  "contract_id": "solmere_final_mail_interaction",
+  "created_on": "2026-10-01",
+  "artifact_kind": "design_acceptance_fixture",
+  "implementation_status": "NOT_IMPLEMENTED_BY_THIS_ARTIFACT",
+  "execution_status": "NOT_EXECUTED",
+  "scope": {
+    "runtime_modified": false,
+    "not_a_test_runner": true,
+    "not_proof_of_implementation": true,
+    "human_playtest_count": 0,
+    "reference_full_playthrough_claim": false,
+    "reference_listening_claim": false
+  },
+  "adapter_requirements": {
+    "state_key_format": "flat_dot_paths",
+    "merge_given_over_defaults": true,
+    "unknown_path_or_action": "FAIL_CONTRACT_ADAPTER_MISSING",
+    "empty_suite": "FAIL_ZERO_EXECUTED_SCENARIOS",
+    "proof_required": [
+      "actual_input_events",
+      "before_after_state",
+      "visible_material_state",
+      "commit_events",
+      "save_file_integrity_when_applicable"
+    ],
+    "forbidden_substitutes": [
+      "directly_emit_completion_signal",
+      "assign_done_flags",
+      "call_core_complete_method_instead_of_input",
+      "count_json_presence_as_pass",
+      "claim_pointer_test_proves_keyboard_or_native_UX"
+    ],
+    "assertion_operators": [
+      "eq",
+      "gte",
+      "one_of",
+      "unchanged_from_given"
+    ],
+    "assertion_baseline": "given merged over default_state immediately before first step",
+    "semantic_observables_note": "Some keys (such as same_geometry_guard_as_pointer) are adapter observations, not suggested runtime booleans. Adapter must derive them from event/state evidence rather than set them true.",
+    "trace_scale_note": "Numeric tamper_trace examples 1/3/8 are fixture ranks mild/intermediate/high, not a specified production 0–10 score. Adapter maps ranks to documented deterministic thresholds and tests each boundary."
+  },
+  "source_registry": [
+    {
+      "id": "P04_CASES",
+      "kind": "package_requirement",
+      "path": "specification/final_production_v1/04_VERTICAL_SLICE/CASE_BIBLE_FINAL.md",
+      "sections": [
+        "CASE 01",
+        "CASE 02",
+        "CASE 03 — THE FORWARDING LABEL",
+        "CASE 04 — SIX SUMMERS LATE",
+        "CASE 05 — DESK B"
+      ]
+    },
+    {
+      "id": "P04_FLOW",
+      "kind": "package_requirement",
+      "path": "specification/final_production_v1/04_VERTICAL_SLICE/MINUTE_BY_MINUTE_FLOW.md",
+      "sections": [
+        "0:02–0:06 Case 01 onboarding",
+        "0:14–0:25 Case 03",
+        "0:30–0:47 Case 04",
+        "0:47–0:57 Case 05"
+      ]
+    },
+    {
+      "id": "P04_DIALOGUE",
+      "kind": "package_requirement",
+      "path": "specification/final_production_v1/04_VERTICAL_SLICE/DIALOGUE_BIBLE.md",
+      "sections": [
+        "Rule for question menus",
+        "Conversation end"
+      ]
+    },
+    {
+      "id": "P04_NPC",
+      "kind": "package_requirement",
+      "path": "specification/final_production_v1/04_VERTICAL_SLICE/NPC_KNOWLEDGE_MATRIX.md",
+      "sections": [
+        "Chenyuan / 尘缘",
+        "June Arlen",
+        "Rule"
+      ]
+    },
+    {
+      "id": "P05_INSPECT",
+      "kind": "package_requirement",
+      "path": "specification/final_production_v1/05_INTERACTION/INSPECTION_SYSTEM_GENUINE_ARTICLE.md",
+      "sections": [
+        "Required actions",
+        "Forbidden shortcuts",
+        "Feedback",
+        "Clue legibility",
+        "Comparison"
+      ]
+    },
+    {
+      "id": "P05_REPAIR",
+      "kind": "package_requirement",
+      "path": "specification/final_production_v1/05_INTERACTION/REPAIR_SYSTEM_FORGERY_CRAFT.md",
+      "sections": [
+        "Two modes",
+        "Repair loop",
+        "Case 03 specific operations",
+        "Opening intact letter",
+        "Reinsert / reseal",
+        "Hidden values",
+        "Detection",
+        "Input feel"
+      ]
+    },
+    {
+      "id": "P05_MICRO",
+      "kind": "package_requirement",
+      "path": "specification/final_production_v1/05_INTERACTION/MICROINTERACTION_SPEC.md",
+      "sections": [
+        "Durations",
+        "Cursor states",
+        "Invalid action",
+        "Success feedback"
+      ]
+    },
+    {
+      "id": "P05_ARCHIVE",
+      "kind": "package_requirement",
+      "path": "specification/final_production_v1/05_INTERACTION/MAP_DIALOGUE_ARCHIVE_SPEC.md",
+      "sections": [
+        "Archive — Obra Dinn primary",
+        "Dialogue — Faefever primary",
+        "Time indicator — Papers Please secondary"
+      ]
+    },
+    {
+      "id": "P02_RULES",
+      "kind": "package_requirement",
+      "path": "specification/final_production_v1/02_LOGIC_AUDIT/WORLD_AND_POSTAL_RULES.md",
+      "sections": [
+        "Legal/professional dispositions",
+        "Unauthorized actions",
+        "Public vs private information"
+      ]
+    },
+    {
+      "id": "P02_METRICS",
+      "kind": "package_requirement",
+      "path": "specification/final_production_v1/02_LOGIC_AUDIT/TIME_REPUTATION_TRUST.md",
+      "sections": [
+        "Time",
+        "Work reliability",
+        "NPC trust"
+      ]
+    },
+    {
+      "id": "P02_AUDIT",
+      "kind": "package_requirement",
+      "path": "specification/final_production_v1/02_LOGIC_AUDIT/LOGIC_AUDIT_AND_FIXES.md",
+      "sections": [
+        "3. 没送达就掉声望不合理",
+        "4. 三次拆信机会太游戏化",
+        "5. 拆信为什么不是常规职业能力",
+        "7. 时间系统怎么不逼玩家速读",
+        "9. NPC 代送不能万能",
+        "10. 修改正文 / 销毁不能常规化",
+        "11. 声望与信任必须分开",
+        "12. 失败结局怎么存在"
+      ]
+    },
+    {
+      "id": "P09_PLAYTEST",
+      "kind": "package_requirement",
+      "path": "specification/final_production_v1/09_QA_RELEASE/PLAYTEST_PLAN.md",
+      "sections": [
+        "Minimum external test",
+        "Observe",
+        "Red flags",
+        "After test"
+      ]
+    },
+    {
+      "id": "V_REFERENCE_RECORD",
+      "kind": "reported_video_observation",
+      "path": "docs/REFERENCE_IMPLEMENTATION_NOTES.md",
+      "observer": "root agent; this review read its bounded evidence record",
+      "sections": [
+        "1. Faefever",
+        "2. Papers, Please",
+        "3. Return of the Obra Dinn",
+        "5. Crushed in Time",
+        "6. Forgery Craft",
+        "7. HER TREES"
+      ],
+      "boundary": "Sampled visual states only; no complete reference playthrough or listening approval."
+    },
+    {
+      "id": "U_CRUSHED_STILL",
+      "kind": "user_static_image",
+      "path": "9fcfe1973b2bf3b082be1c26e309eb17.jpg",
+      "observer": "physical_interactions agent viewed original image",
+      "timecode": null,
+      "observed": [
+        "暖黄/红色块构成的室内场景",
+        "手形指针",
+        "人物与椅子、壁炉、桌面物件同场",
+        "局部白色轮廓线",
+        "右上暂停与问号入口"
+      ],
+      "not_evidence_of": [
+        "按下或释放时点",
+        "工具接触规则",
+        "拖动惯性",
+        "错误回弹",
+        "真实手感延迟",
+        "任何音效"
+      ]
+    },
+    {
+      "id": "D_CONTRACT",
+      "kind": "design_proposal",
+      "path": "docs/FINAL_INTERACTION_ACCEPTANCE.md",
+      "sections": [
+        "状态与提交点",
+        "中断与存档",
+        "无障碍输入",
+        "体验风险"
+      ],
+      "boundary": "Engineering acceptance proposal derived from package goals; not claimed as observed reference behavior."
+    }
+  ],
+  "reference_gaps": [
+    {
+      "id": "G_COMPLETE_REFERENCE_FLOW",
+      "status": "NEEDS_REFERENCE_REVIEW",
+      "missing": "指定参考整段进入—控制—成功/失败—退出的完整流程与逐帧证据；采样不等于通关。"
+    },
+    {
+      "id": "G_TOOL_CONTINUOUS_SEQUENCE",
+      "status": "NEEDS_REFERENCE_REVIEW",
+      "missing": "Genuine Article / Forgery Craft 未剪断取工具—接触—变化—放回—复查操作。"
+    },
+    {
+      "id": "G_RELEASE_AND_CANCEL",
+      "status": "NEEDS_REFERENCE_REVIEW",
+      "missing": "Crushed抓拉松手判定/失败与退出；邮件交付前取消和纸件释放阈值的参考证据。"
+    },
+    {
+      "id": "G_SOUND",
+      "status": "NEEDS_REFERENCE_REVIEW",
+      "missing": "未取得直接听音证据；静帧和静音视频不能验收声音。"
+    },
+    {
+      "id": "G_NATIVE_AND_KEYBOARD",
+      "status": "NOT_EXECUTED",
+      "missing": "本项目真实运行窗口、键盘等价输入、焦点丢失和辅助功能验证。"
+    },
+    {
+      "id": "G_FIRST_TIME_PLAYERS",
+      "status": "NOT_RUN",
+      "missing": "经同意的真实首次玩家测试；设计视角不是100人评价。"
+    }
+  ],
+  "orthogonal_regions": {
+    "custody": {
+      "states": [
+        "desk",
+        "held",
+        "repair_mat",
+        "inventory",
+        "offered",
+        "transferred"
+      ],
+      "owner_independent_from_view": true
+    },
+    "view": {
+      "states": [
+        "front",
+        "back",
+        "zoomed",
+        "comparison"
+      ],
+      "visualization_not_fact_grant": true
+    },
+    "repair": {
+      "states": [
+        "not_on_mat",
+        "inspect_damage",
+        "label_lifted",
+        "aligned_unpressed",
+        "protected_pressed",
+        "fold_aligned",
+        "reinspected_complete"
+      ],
+      "case03_only_exterior": true
+    },
+    "opening": {
+      "states": [
+        "sealed",
+        "seam_in_progress",
+        "flap_open_paper_inside",
+        "partly_extracted",
+        "paper_out_folded",
+        "partly_unfolded",
+        "paper_open"
+      ],
+      "valid_private_case_opening_records_violation": true,
+      "staff_internal_exemption": true
+    },
+    "resealing": {
+      "states": [
+        "unfolded",
+        "partly_refolded",
+        "misaligned_fold",
+        "folded_ready",
+        "partly_inserted",
+        "inside_flap_open",
+        "closed_unsealed",
+        "resealed"
+      ],
+      "never_erases_opening_history": true
+    },
+    "handoff": {
+      "states": [
+        "none",
+        "approaching",
+        "in_range",
+        "offering",
+        "committed",
+        "cancelled"
+      ],
+      "arrival_never_commits": true
+    },
+    "session": {
+      "states": [
+        "active",
+        "paused",
+        "saving",
+        "resume_ready",
+        "save_error"
+      ],
+      "held_input_not_serialized": true
+    }
+  },
+  "case_constraints": {
+    "case01": {
+      "open_required": false,
+      "private": true,
+      "recipient": "Elsie Moran",
+      "source_refs": [
+        "P04_CASES"
+      ]
+    },
+    "case02": {
+      "open_required": false,
+      "private": true,
+      "recipient": "Mira Vale",
+      "deadline": "17:30",
+      "delegation_requires": [
+        "service_allows_trusted_handoff",
+        "plausible_carrier_route",
+        "no_signature_requirement"
+      ],
+      "source_refs": [
+        "P04_CASES",
+        "P02_AUDIT"
+      ]
+    },
+    "case03": {
+      "recipient": "June Arlen",
+      "authorization": "exterior_repair",
+      "original_address": "Rose Court 3C",
+      "old_forwarding": "North Pier Hostel",
+      "old_forwarding_status": "expired_last_year",
+      "current_mail_point": "Community Center local mail cubby",
+      "must_not_require": [
+        "opening_private_body",
+        "new_cipher",
+        "guessed_recipient"
+      ],
+      "source_refs": [
+        "P04_CASES",
+        "P05_REPAIR"
+      ]
+    },
+    "case04": {
+      "recipient": "June Arlen",
+      "sender_on_envelope": null,
+      "archive_mark": "HV / HOLD",
+      "recipient_is_not_puzzle": true,
+      "open_required": false,
+      "legitimate_choices": [
+        "deliver_recovered_to_June",
+        "archive_pending_supervisor_review",
+        "hold_for_verification"
+      ],
+      "must_not_require": [
+        "body_read",
+        "photo_removed",
+        "correct_sender_dropdown"
+      ],
+      "source_refs": [
+        "P04_CASES"
+      ]
+    },
+    "case05": {
+      "recipient": "next_Local_Exceptions_Desk_B_clerk",
+      "sender": "Helena Voss",
+      "authorization": "staff_internal",
+      "origin": "ledger sleeve",
+      "open_required": false,
+      "source_refs": [
+        "P04_CASES"
+      ]
+    }
+  },
+  "default_state": {
+    "mail.case_id": "case04",
+    "mail.owner": "player",
+    "mail.recipient": "June Arlen",
+    "mail.authorization": "private_intact",
+    "mail.seal": "intact",
+    "mail.damage": "none",
+    "mail.disposition": "unresolved",
+    "mail.resolved": false,
+    "mail.tamper_trace": 0,
+    "mail.privacy_violation": false,
+    "paper.location": "inside",
+    "paper.fold": "original_folded",
+    "paper.body_visible": false,
+    "paper.extract_progress": 0,
+    "repair.complete": false,
+    "reseal.complete": false,
+    "view.face": "front",
+    "view.zoom": 1,
+    "view.context": "desk",
+    "input.modality": "pointer",
+    "input.captured": false,
+    "facts.new_entries": [],
+    "facts.inferences": [],
+    "facts.current_recipient": "June Arlen",
+    "history.private_content_exposed": false,
+    "delivery.commit_count": 0,
+    "delivery.committed_ids": [],
+    "world.in_handoff_range": false,
+    "world.pending_delivery_token": null,
+    "clock.minute": 540
+  },
+  "persistent_fields": [
+    "mail.*",
+    "paper.geometry_and_material_state",
+    "repair.stable_phase_and_geometry",
+    "reseal.stable_phase_and_geometry",
+    "history.private_content_exposed",
+    "history.opening_events",
+    "facts.recorded_and_draft_entries",
+    "metrics.work_reliability",
+    "metrics.npc_trust",
+    "delivery.committed_ids",
+    "clock.minute",
+    "view.face_zoom_pan_positions_z_order"
+  ],
+  "transient_fields_not_restored": [
+    "input.captured",
+    "input.mouse_button_down",
+    "input.keyboard_latch",
+    "input.focus_owner",
+    "world.pending_delivery_token",
+    "world.walk_arrival_callable",
+    "audio.oneshot_players",
+    "animation.unfinished_tweens"
+  ],
+  "invariants": [
+    {
+      "id": "INV_NO_SKIP",
+      "rule": "No tool selection, proximity, snap, form field, or completion button substitutes for the required physical sequence.",
+      "source_refs": [
+        "P05_REPAIR",
+        "P05_INSPECT",
+        "D_CONTRACT"
+      ]
+    },
+    {
+      "id": "INV_OBJECT_EVIDENCE",
+      "rule": "Visible fields exist on readable object media; inspection and comparison do not auto-generate the answer.",
+      "source_refs": [
+        "P05_INSPECT",
+        "P05_ARCHIVE"
+      ]
+    },
+    {
+      "id": "INV_AUTHORIZATION",
+      "rule": "Case03 exterior repair never requires opening the customer's private contents; Case04 opening remains optional and deliberate.",
+      "source_refs": [
+        "P04_CASES",
+        "P05_REPAIR"
+      ]
+    },
+    {
+      "id": "INV_OPENING_HISTORY",
+      "rule": "Refolding/resealing/cancelling never removes recorded opening or private exposure; visible residual damage remains inspectable.",
+      "source_refs": [
+        "P05_REPAIR",
+        "D_CONTRACT"
+      ]
+    },
+    {
+      "id": "INV_NO_CUSTODY_DUPLICATION",
+      "rule": "Mail and loose contents have one coherent owner; handoff transaction commits exactly once.",
+      "source_refs": [
+        "D_CONTRACT"
+      ]
+    },
+    {
+      "id": "INV_NO_TIME_READING",
+      "rule": "Reading, inspecting and dragging do not advance the game clock.",
+      "source_refs": [
+        "P02_METRICS",
+        "P05_ARCHIVE"
+      ]
+    },
+    {
+      "id": "INV_SEPARATE_METRICS",
+      "rule": "Professional reliability, individual NPC trust, objective facts, and visible tamper traces are separate domains.",
+      "source_refs": [
+        "P02_AUDIT",
+        "P02_METRICS"
+      ]
+    },
+    {
+      "id": "INV_NO_SLOT_PUNISHMENT",
+      "rule": "No fixed opening tickets; no instant failure ending for one error; documented lawful non-delivery is not automatic misconduct.",
+      "source_refs": [
+        "P02_AUDIT"
+      ]
+    },
+    {
+      "id": "INV_DETERMINISTIC_DETECTION",
+      "rule": "Recipient attention and visible trace state produce repeatable detection; no hidden casino RNG.",
+      "source_refs": [
+        "P05_REPAIR"
+      ]
+    },
+    {
+      "id": "INV_SAVE_NO_AUTOCOMPLETE",
+      "rule": "Exit/resume restores stable partial work without auto-repair, auto-reseal, auto-handoff or erased trace.",
+      "source_refs": [
+        "D_CONTRACT"
+      ]
+    },
+    {
+      "id": "INV_ACCESSIBLE_EQUIVALENCE",
+      "rule": "Keyboard uses the same target/contact/geometry rules and same required stages without needing held-mouse precision or timed reading.",
+      "source_refs": [
+        "D_CONTRACT"
+      ]
+    },
+    {
+      "id": "INV_NO_FALSE_EVIDENCE",
+      "rule": "All scenario statuses remain NOT_EXECUTED until an actual input adapter produces evidence; static reference screenshot is not movement or sound proof.",
+      "source_refs": [
+        "D_CONTRACT",
+        "U_CRUSHED_STILL"
+      ]
+    }
+  ],
+  "timing_targets_ms": {
+    "source_refs": [
+      "P05_INSPECT",
+      "P05_MICRO"
+    ],
+    "origin": "package_targets_not_measured_reference",
+    "hover_lift": [
+      100,
+      140
+    ],
+    "pickup": [
+      80,
+      120
+    ],
+    "drop_settle": [
+      100,
+      150
+    ],
+    "flip": [
+      240,
+      300
+    ],
+    "inspect_zoom": [
+      180,
+      220
+    ],
+    "reduced_motion": "design proposal: keep state distinction and input availability; validate shortened presentation separately"
+  },
+  "actions": [
+    {
+      "id": "object.pick_up",
+      "input_required": "命中物件并按住指针；或焦点抓取锁定后方向输入",
+      "commit_rule": "仅建立抓点/移动控制，不发放线索或完成案件",
+      "source_refs": [
+        "P05_INSPECT",
+        "D_CONTRACT"
+      ],
+      "reference_gaps": []
+    },
+    {
+      "id": "object.move",
+      "input_required": "保持抓取的连续移动/键盘分步位移",
+      "commit_rule": "保持起始抓取偏移；不在松手前投递",
+      "source_refs": [
+        "P05_REPAIR",
+        "D_CONTRACT"
+      ],
+      "reference_gaps": []
+    },
+    {
+      "id": "object.release",
+      "input_required": "松开或结束键盘抓取",
+      "commit_rule": "落到桌面仅改变位置；交付必须另过交付守卫",
+      "source_refs": [
+        "P05_MICRO",
+        "D_CONTRACT"
+      ],
+      "reference_gaps": []
+    },
+    {
+      "id": "object.flip",
+      "input_required": "翻面手势/独立映射按键",
+      "commit_rule": "显示真实另一面；不自动整理线索或翻完立即开封",
+      "source_refs": [
+        "P05_INSPECT"
+      ],
+      "reference_gaps": []
+    },
+    {
+      "id": "view.zoom_pan",
+      "input_required": "滚轮/缩放键后拖动/方向平移",
+      "commit_rule": "改变观察视图，不移动邮件所有权或推理状态",
+      "source_refs": [
+        "P05_INSPECT",
+        "D_CONTRACT"
+      ],
+      "reference_gaps": []
+    },
+    {
+      "id": "object.compare",
+      "input_required": "将第二文档放到并置区域",
+      "commit_rule": "两件可独立移动/翻面/缩放，不输出 MATCH/答案",
+      "source_refs": [
+        "P05_INSPECT",
+        "P05_ARCHIVE"
+      ],
+      "reference_gaps": []
+    },
+    {
+      "id": "repair.place_on_mat",
+      "input_required": "把受损件实际拖入修复垫",
+      "commit_rule": "启用受损外标签相关操作；不破坏封口",
+      "source_refs": [
+        "P05_REPAIR",
+        "P04_CASES"
+      ],
+      "reference_gaps": []
+    },
+    {
+      "id": "tool.pick",
+      "input_required": "抓取抽象工具或键盘选择焦点工具",
+      "commit_rule": "只切换手持工具，不修改材质或选择伦理结论",
+      "source_refs": [
+        "P05_REPAIR"
+      ],
+      "reference_gaps": []
+    },
+    {
+      "id": "repair.lift_label",
+      "input_required": "工具有效接触已脱落标签",
+      "commit_rule": "标签成为可移动物，正文仍遮蔽",
+      "source_refs": [
+        "P05_REPAIR",
+        "P04_CASES"
+      ],
+      "reference_gaps": []
+    },
+    {
+      "id": "repair.align_label",
+      "input_required": "移动并旋转标签，断边几何关系成立",
+      "commit_rule": "可轻微吸附但仍需保护页与压平；不自动公布地址答案",
+      "source_refs": [
+        "P05_REPAIR",
+        "D_CONTRACT"
+      ],
+      "reference_gaps": [
+        "G_TOOL_CONTINUOUS_SEQUENCE",
+        "G_RELEASE_AND_CANCEL"
+      ]
+    },
+    {
+      "id": "repair.protect_press",
+      "input_required": "保护页实际覆盖并经接触压平",
+      "commit_rule": "外标签趋平，暴露该物件确实存在的字段",
+      "source_refs": [
+        "P04_CASES",
+        "P05_REPAIR"
+      ],
+      "reference_gaps": [
+        "G_TOOL_CONTINUOUS_SEQUENCE"
+      ]
+    },
+    {
+      "id": "repair.align_fold_reinspect",
+      "input_required": "对齐已有外折痕，再翻回/缩放复查",
+      "commit_rule": "外部修复结束；并不作出路线判断或投递",
+      "source_refs": [
+        "P05_REPAIR",
+        "P04_CASES"
+      ],
+      "reference_gaps": []
+    },
+    {
+      "id": "open.work_seam",
+      "input_required": "选中抽象开启工具后主动沿可见封线持续接触",
+      "commit_rule": "首次有效破坏接触记越界事实，封舌逐步松动；仍不抽出内页",
+      "source_refs": [
+        "P05_REPAIR",
+        "P02_RULES"
+      ],
+      "reference_gaps": [
+        "G_TOOL_CONTINUOUS_SEQUENCE",
+        "G_RELEASE_AND_CANCEL"
+      ]
+    },
+    {
+      "id": "paper.extract",
+      "input_required": "抓住露出的内页边缘并连续拉出",
+      "commit_rule": "内页位置由输入推进，越过包络口后成为独立物",
+      "source_refs": [
+        "P05_REPAIR"
+      ],
+      "reference_gaps": [
+        "G_TOOL_CONTINUOUS_SEQUENCE"
+      ]
+    },
+    {
+      "id": "paper.unfold",
+      "input_required": "分别抓住折页并打开",
+      "commit_rule": "只让已暴露区域可读；不预先向UI/无障碍标签输出遮住的文字",
+      "source_refs": [
+        "P05_REPAIR",
+        "P05_INSPECT",
+        "D_CONTRACT"
+      ],
+      "reference_gaps": [
+        "G_TOOL_CONTINUOUS_SEQUENCE"
+      ]
+    },
+    {
+      "id": "paper.refold",
+      "input_required": "沿原有折线移动折页",
+      "commit_rule": "对齐的折页才进入可装回外形；不能一键复原所有折页",
+      "source_refs": [
+        "P05_REPAIR",
+        "D_CONTRACT"
+      ],
+      "reference_gaps": [
+        "G_TOOL_CONTINUOUS_SEQUENCE"
+      ]
+    },
+    {
+      "id": "paper.reinsert",
+      "input_required": "折好内页后拖向信封口",
+      "commit_rule": "满足包络与方向守卫后逐步进入；不能因靠近自动传送",
+      "source_refs": [
+        "P05_REPAIR",
+        "D_CONTRACT"
+      ],
+      "reference_gaps": [
+        "G_RELEASE_AND_CANCEL"
+      ]
+    },
+    {
+      "id": "flap.close",
+      "input_required": "抓住封舌并合回",
+      "commit_rule": "封舌闭合但尚未完成最终封口动作",
+      "source_refs": [
+        "P05_REPAIR"
+      ],
+      "reference_gaps": []
+    },
+    {
+      "id": "flap.reseal",
+      "input_required": "对已闭合封舌实施抽象封口接触动作",
+      "commit_rule": "产生可见最终封口状态；原有阅读/开启历史和可见损伤不被清零",
+      "source_refs": [
+        "P05_REPAIR",
+        "D_CONTRACT"
+      ],
+      "reference_gaps": [
+        "G_TOOL_CONTINUOUS_SEQUENCE"
+      ]
+    },
+    {
+      "id": "delivery.approach",
+      "input_required": "持物点击收件目标后实际走近；或手动移动接近",
+      "commit_rule": "到达只进入可交接范围，绝不转移所有权",
+      "source_refs": [
+        "P04_CASES",
+        "D_CONTRACT"
+      ],
+      "reference_gaps": [
+        "G_RELEASE_AND_CANCEL"
+      ]
+    },
+    {
+      "id": "delivery.offer_release",
+      "input_required": "在可达范围内将实际信封递向合法接收目标并释放",
+      "commit_rule": "重新验证身份/服务/封装/所有权/交易ID后，原子提交一次移交",
+      "source_refs": [
+        "P02_RULES",
+        "P04_CASES",
+        "D_CONTRACT"
+      ],
+      "reference_gaps": [
+        "G_RELEASE_AND_CANCEL"
+      ]
+    },
+    {
+      "id": "session.cancel",
+      "input_required": "Esc/取消映射键/把物件收回",
+      "commit_rule": "停止当前抓取或走近，保留此前已提交材质及已读事实",
+      "source_refs": [
+        "D_CONTRACT"
+      ],
+      "reference_gaps": [
+        "G_RELEASE_AND_CANCEL"
+      ]
+    },
+    {
+      "id": "session.save_exit_resume",
+      "input_required": "真实退出/存档/重开入口",
+      "commit_rule": "恢复稳定物态和观察位置，释放所有输入捕获；不自动完成任何工序",
+      "source_refs": [
+        "D_CONTRACT"
+      ],
+      "reference_gaps": [
+        "G_NATIVE_AND_KEYBOARD"
+      ]
+    },
+    {
+      "id": "archive.record",
+      "input_required": "玩家在可回查书页主动记录观察或暂定推断",
+      "commit_rule": "未知仍未知；暂定不等于已核实",
+      "source_refs": [
+        "P05_ARCHIVE"
+      ],
+      "reference_gaps": []
+    }
+  ],
+  "interrupt_matrix": [
+    {
+      "phase": "label_lifted",
+      "events": [
+        "cancel",
+        "lose_focus",
+        "pause",
+        "save_reload",
+        "exit_resume"
+      ],
+      "expected": "preserve_committed_material_and_history; clear_capture_and_pending_callbacks; do_not_auto_advance; ownership_unique",
+      "status": "NOT_EXECUTED",
+      "source_refs": [
+        "D_CONTRACT"
+      ]
+    },
+    {
+      "phase": "aligned_unpressed",
+      "events": [
+        "cancel",
+        "lose_focus",
+        "pause",
+        "save_reload",
+        "exit_resume"
+      ],
+      "expected": "preserve_committed_material_and_history; clear_capture_and_pending_callbacks; do_not_auto_advance; ownership_unique",
+      "status": "NOT_EXECUTED",
+      "source_refs": [
+        "D_CONTRACT"
+      ]
+    },
+    {
+      "phase": "protected_pressed",
+      "events": [
+        "cancel",
+        "lose_focus",
+        "pause",
+        "save_reload",
+        "exit_resume"
+      ],
+      "expected": "preserve_committed_material_and_history; clear_capture_and_pending_callbacks; do_not_auto_advance; ownership_unique",
+      "status": "NOT_EXECUTED",
+      "source_refs": [
+        "D_CONTRACT"
+      ]
+    },
+    {
+      "phase": "seam_in_progress",
+      "events": [
+        "cancel",
+        "lose_focus",
+        "pause",
+        "save_reload",
+        "exit_resume"
+      ],
+      "expected": "preserve_committed_material_and_history; clear_capture_and_pending_callbacks; do_not_auto_advance; ownership_unique",
+      "status": "NOT_EXECUTED",
+      "source_refs": [
+        "D_CONTRACT"
+      ]
+    },
+    {
+      "phase": "flap_open_paper_inside",
+      "events": [
+        "cancel",
+        "lose_focus",
+        "pause",
+        "save_reload",
+        "exit_resume"
+      ],
+      "expected": "preserve_committed_material_and_history; clear_capture_and_pending_callbacks; do_not_auto_advance; ownership_unique",
+      "status": "NOT_EXECUTED",
+      "source_refs": [
+        "D_CONTRACT"
+      ]
+    },
+    {
+      "phase": "partly_extracted",
+      "events": [
+        "cancel",
+        "lose_focus",
+        "pause",
+        "save_reload",
+        "exit_resume"
+      ],
+      "expected": "preserve_committed_material_and_history; clear_capture_and_pending_callbacks; do_not_auto_advance; ownership_unique",
+      "status": "NOT_EXECUTED",
+      "source_refs": [
+        "D_CONTRACT"
+      ]
+    },
+    {
+      "phase": "paper_out_folded",
+      "events": [
+        "cancel",
+        "lose_focus",
+        "pause",
+        "save_reload",
+        "exit_resume"
+      ],
+      "expected": "preserve_committed_material_and_history; clear_capture_and_pending_callbacks; do_not_auto_advance; ownership_unique",
+      "status": "NOT_EXECUTED",
+      "source_refs": [
+        "D_CONTRACT"
+      ]
+    },
+    {
+      "phase": "partly_unfolded",
+      "events": [
+        "cancel",
+        "lose_focus",
+        "pause",
+        "save_reload",
+        "exit_resume"
+      ],
+      "expected": "preserve_committed_material_and_history; clear_capture_and_pending_callbacks; do_not_auto_advance; ownership_unique",
+      "status": "NOT_EXECUTED",
+      "source_refs": [
+        "D_CONTRACT"
+      ]
+    },
+    {
+      "phase": "paper_open",
+      "events": [
+        "cancel",
+        "lose_focus",
+        "pause",
+        "save_reload",
+        "exit_resume"
+      ],
+      "expected": "preserve_committed_material_and_history; clear_capture_and_pending_callbacks; do_not_auto_advance; ownership_unique",
+      "status": "NOT_EXECUTED",
+      "source_refs": [
+        "D_CONTRACT"
+      ]
+    },
+    {
+      "phase": "partly_refolded",
+      "events": [
+        "cancel",
+        "lose_focus",
+        "pause",
+        "save_reload",
+        "exit_resume"
+      ],
+      "expected": "preserve_committed_material_and_history; clear_capture_and_pending_callbacks; do_not_auto_advance; ownership_unique",
+      "status": "NOT_EXECUTED",
+      "source_refs": [
+        "D_CONTRACT"
+      ]
+    },
+    {
+      "phase": "misaligned_fold",
+      "events": [
+        "cancel",
+        "lose_focus",
+        "pause",
+        "save_reload",
+        "exit_resume"
+      ],
+      "expected": "preserve_committed_material_and_history; clear_capture_and_pending_callbacks; do_not_auto_advance; ownership_unique",
+      "status": "NOT_EXECUTED",
+      "source_refs": [
+        "D_CONTRACT"
+      ]
+    },
+    {
+      "phase": "partly_inserted",
+      "events": [
+        "cancel",
+        "lose_focus",
+        "pause",
+        "save_reload",
+        "exit_resume"
+      ],
+      "expected": "preserve_committed_material_and_history; clear_capture_and_pending_callbacks; do_not_auto_advance; ownership_unique",
+      "status": "NOT_EXECUTED",
+      "source_refs": [
+        "D_CONTRACT"
+      ]
+    },
+    {
+      "phase": "closed_unsealed",
+      "events": [
+        "cancel",
+        "lose_focus",
+        "pause",
+        "save_reload",
+        "exit_resume"
+      ],
+      "expected": "preserve_committed_material_and_history; clear_capture_and_pending_callbacks; do_not_auto_advance; ownership_unique",
+      "status": "NOT_EXECUTED",
+      "source_refs": [
+        "D_CONTRACT"
+      ]
+    },
+    {
+      "phase": "resealed",
+      "events": [
+        "cancel",
+        "lose_focus",
+        "pause",
+        "save_reload",
+        "exit_resume"
+      ],
+      "expected": "preserve_committed_material_and_history; clear_capture_and_pending_callbacks; do_not_auto_advance; ownership_unique",
+      "status": "NOT_EXECUTED",
+      "source_refs": [
+        "D_CONTRACT"
+      ]
+    },
+    {
+      "phase": "approaching",
+      "events": [
+        "cancel",
+        "lose_focus",
+        "pause",
+        "save_reload",
+        "exit_resume"
+      ],
+      "expected": "preserve_committed_material_and_history; clear_capture_and_pending_callbacks; do_not_auto_advance; ownership_unique",
+      "status": "NOT_EXECUTED",
+      "source_refs": [
+        "D_CONTRACT"
+      ]
+    },
+    {
+      "phase": "offering",
+      "events": [
+        "cancel",
+        "lose_focus",
+        "pause",
+        "save_reload",
+        "exit_resume"
+      ],
+      "expected": "preserve_committed_material_and_history; clear_capture_and_pending_callbacks; do_not_auto_advance; ownership_unique",
+      "status": "NOT_EXECUTED",
+      "source_refs": [
+        "D_CONTRACT"
+      ]
+    }
+  ],
+  "scenarios": [
+    {
+      "id": "INS01",
+      "title": "抓取保持偏移，无瞬间观察完成",
+      "status": "NOT_EXECUTED",
+      "claim_level": "acceptance_design_only",
+      "given": {},
+      "steps": [
+        {
+          "action": "object.pick_up",
+          "args": {
+            "object": "envelope",
+            "grab_uv": [
+              0.2,
+              0.7
+            ]
+          }
+        },
+        {
+          "action": "object.move",
+          "args": {
+            "delta": [
+              120,
+              35
+            ],
+            "held": true
+          }
+        }
+      ],
+      "assertions": [
+        {
+          "path": "input.grab_offset_preserved",
+          "op": "eq",
+          "expected": true
+        },
+        {
+          "path": "mail.owner",
+          "op": "eq",
+          "expected": "player"
+        },
+        {
+          "path": "facts.new_entries",
+          "op": "eq",
+          "expected": []
+        },
+        {
+          "path": "mail.disposition",
+          "op": "eq",
+          "expected": "unresolved"
+        }
+      ],
+      "source_refs": [
+        "P05_INSPECT",
+        "P05_REPAIR",
+        "D_CONTRACT"
+      ],
+      "coverage_tags": [
+        "pointer",
+        "inspection"
+      ],
+      "reference_gaps": []
+    },
+    {
+      "id": "INS02",
+      "title": "翻面仅显示背面",
+      "status": "NOT_EXECUTED",
+      "claim_level": "acceptance_design_only",
+      "given": {},
+      "steps": [
+        {
+          "action": "object.flip",
+          "args": {}
+        }
+      ],
+      "assertions": [
+        {
+          "path": "view.face",
+          "op": "eq",
+          "expected": "back"
+        },
+        {
+          "path": "mail.seal",
+          "op": "eq",
+          "expected": "intact"
+        },
+        {
+          "path": "paper.body_visible",
+          "op": "eq",
+          "expected": false
+        },
+        {
+          "path": "facts.new_entries",
+          "op": "eq",
+          "expected": []
+        }
+      ],
+      "source_refs": [
+        "P05_INSPECT"
+      ],
+      "coverage_tags": [
+        "inspection"
+      ],
+      "reference_gaps": []
+    },
+    {
+      "id": "INS03",
+      "title": "放大后平移和返回不丢物",
+      "status": "NOT_EXECUTED",
+      "claim_level": "acceptance_design_only",
+      "given": {
+        "view.zoom": 1
+      },
+      "steps": [
+        {
+          "action": "view.zoom_pan",
+          "args": {
+            "zoom": 2,
+            "pan": [
+              140,
+              -80
+            ]
+          }
+        },
+        {
+          "action": "session.cancel",
+          "args": {
+            "scope": "zoom"
+          }
+        }
+      ],
+      "assertions": [
+        {
+          "path": "view.zoom",
+          "op": "eq",
+          "expected": 1
+        },
+        {
+          "path": "mail.owner",
+          "op": "eq",
+          "expected": "player"
+        },
+        {
+          "path": "view.face",
+          "op": "eq",
+          "expected": "front"
+        },
+        {
+          "path": "mail.disposition",
+          "op": "eq",
+          "expected": "unresolved"
+        }
+      ],
+      "source_refs": [
+        "P05_INSPECT",
+        "D_CONTRACT"
+      ],
+      "coverage_tags": [
+        "inspection",
+        "cancel"
+      ],
+      "reference_gaps": []
+    },
+    {
+      "id": "INS04",
+      "title": "并置不自动判对",
+      "status": "NOT_EXECUTED",
+      "claim_level": "acceptance_design_only",
+      "given": {},
+      "steps": [
+        {
+          "action": "object.compare",
+          "args": {
+            "second_document": "current_public_roster"
+          }
+        }
+      ],
+      "assertions": [
+        {
+          "path": "view.visible_documents",
+          "op": "eq",
+          "expected": [
+            "envelope",
+            "current_public_roster"
+          ]
+        },
+        {
+          "path": "feedback.match_verdict",
+          "op": "eq",
+          "expected": false
+        },
+        {
+          "path": "facts.inferences",
+          "op": "eq",
+          "expected": []
+        }
+      ],
+      "source_refs": [
+        "P05_INSPECT",
+        "P05_ARCHIVE"
+      ],
+      "coverage_tags": [
+        "comparison"
+      ],
+      "reference_gaps": []
+    },
+    {
+      "id": "INS05",
+      "title": "模态期间同一输入不落到世界",
+      "status": "NOT_EXECUTED",
+      "claim_level": "acceptance_design_only",
+      "given": {
+        "view.context": "inspection"
+      },
+      "steps": [
+        {
+          "action": "object.release",
+          "args": {
+            "position": "covered_world_npc"
+          }
+        }
+      ],
+      "assertions": [
+        {
+          "path": "world.walk_requests",
+          "op": "eq",
+          "expected": 0
+        },
+        {
+          "path": "delivery.commit_count",
+          "op": "eq",
+          "expected": 0
+        }
+      ],
+      "source_refs": [
+        "D_CONTRACT"
+      ],
+      "coverage_tags": [
+        "input_routing"
+      ],
+      "reference_gaps": []
+    },
+    {
+      "id": "REP01",
+      "title": "Case03仅外部修复，无私人正文曝光",
+      "status": "NOT_EXECUTED",
+      "claim_level": "acceptance_design_only",
+      "given": {
+        "mail.case_id": "case03",
+        "mail.damage": "routing_label",
+        "mail.authorization": "exterior_repair",
+        "mail.recipient": "June Arlen"
+      },
+      "steps": [
+        {
+          "action": "repair.place_on_mat",
+          "args": {}
+        },
+        {
+          "action": "tool.pick",
+          "args": {
+            "tool": "abstract_restorer"
+          }
+        },
+        {
+          "action": "repair.lift_label",
+          "args": {
+            "target": "detached_label"
+          }
+        }
+      ],
+      "assertions": [
+        {
+          "path": "repair.phase",
+          "op": "eq",
+          "expected": "label_lifted"
+        },
+        {
+          "path": "mail.seal",
+          "op": "eq",
+          "expected": "intact"
+        },
+        {
+          "path": "paper.body_visible",
+          "op": "eq",
+          "expected": false
+        },
+        {
+          "path": "mail.privacy_violation",
+          "op": "eq",
+          "expected": false
+        }
+      ],
+      "source_refs": [
+        "P04_CASES",
+        "P05_REPAIR",
+        "P02_AUDIT"
+      ],
+      "coverage_tags": [
+        "case03",
+        "authorization"
+      ],
+      "reference_gaps": []
+    },
+    {
+      "id": "REP02",
+      "title": "修复未上垫、无效接触不改物态",
+      "status": "NOT_EXECUTED",
+      "claim_level": "acceptance_design_only",
+      "given": {
+        "mail.case_id": "case03",
+        "repair.phase": "not_on_mat"
+      },
+      "steps": [
+        {
+          "action": "tool.pick",
+          "args": {
+            "tool": "abstract_restorer"
+          }
+        },
+        {
+          "action": "repair.lift_label",
+          "args": {
+            "target": "desk"
+          }
+        }
+      ],
+      "assertions": [
+        {
+          "path": "repair.phase",
+          "op": "eq",
+          "expected": "not_on_mat"
+        },
+        {
+          "path": "mail.tamper_trace",
+          "op": "unchanged_from_given",
+          "expected": true
+        },
+        {
+          "path": "feedback.kind",
+          "op": "eq",
+          "expected": "neutral_no_change"
+        },
+        {
+          "path": "feedback.buzzer",
+          "op": "eq",
+          "expected": false
+        }
+      ],
+      "source_refs": [
+        "P05_REPAIR",
+        "P05_MICRO",
+        "D_CONTRACT"
+      ],
+      "coverage_tags": [
+        "invalid_action"
+      ],
+      "reference_gaps": []
+    },
+    {
+      "id": "REP03",
+      "title": "碎片相近但断边/角度不符不完成",
+      "status": "NOT_EXECUTED",
+      "claim_level": "acceptance_design_only",
+      "given": {
+        "mail.case_id": "case03",
+        "repair.phase": "label_lifted"
+      },
+      "steps": [
+        {
+          "action": "repair.align_label",
+          "args": {
+            "geometry": "wrong_angle"
+          }
+        }
+      ],
+      "assertions": [
+        {
+          "path": "repair.phase",
+          "op": "eq",
+          "expected": "label_lifted"
+        },
+        {
+          "path": "repair.complete",
+          "op": "eq",
+          "expected": false
+        },
+        {
+          "path": "feedback.match_verdict",
+          "op": "eq",
+          "expected": false
+        }
+      ],
+      "source_refs": [
+        "P05_REPAIR",
+        "D_CONTRACT"
+      ],
+      "coverage_tags": [
+        "case03",
+        "geometry"
+      ],
+      "reference_gaps": []
+    },
+    {
+      "id": "REP04",
+      "title": "断边对齐仍须手动保护压平",
+      "status": "NOT_EXECUTED",
+      "claim_level": "acceptance_design_only",
+      "given": {
+        "mail.case_id": "case03",
+        "repair.phase": "label_lifted"
+      },
+      "steps": [
+        {
+          "action": "repair.align_label",
+          "args": {
+            "geometry": "matching_edge"
+          }
+        }
+      ],
+      "assertions": [
+        {
+          "path": "repair.phase",
+          "op": "eq",
+          "expected": "aligned_unpressed"
+        },
+        {
+          "path": "repair.complete",
+          "op": "eq",
+          "expected": false
+        },
+        {
+          "path": "mail.resolved",
+          "op": "eq",
+          "expected": false
+        }
+      ],
+      "source_refs": [
+        "P04_CASES",
+        "P05_REPAIR",
+        "D_CONTRACT"
+      ],
+      "coverage_tags": [
+        "case03",
+        "no_shortcut"
+      ],
+      "reference_gaps": []
+    },
+    {
+      "id": "REP05",
+      "title": "保护、压平、折痕、复查完成合法修复",
+      "status": "NOT_EXECUTED",
+      "claim_level": "acceptance_design_only",
+      "given": {
+        "mail.case_id": "case03",
+        "repair.phase": "aligned_unpressed",
+        "mail.authorization": "exterior_repair"
+      },
+      "steps": [
+        {
+          "action": "repair.protect_press",
+          "args": {
+            "protective_sheet_covered": true,
+            "contact_completed": true
+          }
+        },
+        {
+          "action": "repair.align_fold_reinspect",
+          "args": {
+            "fold_geometry": "aligned",
+            "reinspected": true
+          }
+        }
+      ],
+      "assertions": [
+        {
+          "path": "repair.complete",
+          "op": "eq",
+          "expected": true
+        },
+        {
+          "path": "material.visible_fields",
+          "op": "eq",
+          "expected": [
+            "Rose Court 3C",
+            "June Arlen → North Pier Hostel",
+            "expired last year"
+          ]
+        },
+        {
+          "path": "mail.seal",
+          "op": "eq",
+          "expected": "intact"
+        },
+        {
+          "path": "mail.privacy_violation",
+          "op": "eq",
+          "expected": false
+        },
+        {
+          "path": "mail.disposition",
+          "op": "eq",
+          "expected": "unresolved"
+        },
+        {
+          "path": "facts.new_entries",
+          "op": "eq",
+          "expected": []
+        }
+      ],
+      "source_refs": [
+        "P04_CASES",
+        "P05_REPAIR",
+        "D_CONTRACT"
+      ],
+      "coverage_tags": [
+        "case03",
+        "repair",
+        "no_auto_inference"
+      ],
+      "reference_gaps": []
+    },
+    {
+      "id": "REP06",
+      "title": "旧转寄到期不能由修复成功覆写成现行地址",
+      "status": "NOT_EXECUTED",
+      "claim_level": "acceptance_design_only",
+      "given": {
+        "mail.case_id": "case03",
+        "repair.complete": true,
+        "facts.observed": [
+          "expired_forwarding",
+          "current_3C_other_resident",
+          "June_approved_community_cubby"
+        ]
+      },
+      "steps": [
+        {
+          "action": "archive.record",
+          "args": {
+            "draft_route": "North Pier Hostel"
+          }
+        }
+      ],
+      "assertions": [
+        {
+          "path": "facts.draft_route",
+          "op": "eq",
+          "expected": "North Pier Hostel"
+        },
+        {
+          "path": "facts.current_approved_route",
+          "op": "eq",
+          "expected": "Community Center local mail cubby"
+        },
+        {
+          "path": "feedback.match_verdict",
+          "op": "eq",
+          "expected": false
+        }
+      ],
+      "source_refs": [
+        "P04_CASES",
+        "P05_ARCHIVE"
+      ],
+      "coverage_tags": [
+        "case03",
+        "logic"
+      ],
+      "reference_gaps": []
+    },
+    {
+      "id": "OPEN01",
+      "title": "选工具不越界也不自动打开",
+      "status": "NOT_EXECUTED",
+      "claim_level": "acceptance_design_only",
+      "given": {
+        "mail.case_id": "case04"
+      },
+      "steps": [
+        {
+          "action": "tool.pick",
+          "args": {
+            "tool": "abstract_opener"
+          }
+        }
+      ],
+      "assertions": [
+        {
+          "path": "mail.seal",
+          "op": "eq",
+          "expected": "intact"
+        },
+        {
+          "path": "mail.privacy_violation",
+          "op": "eq",
+          "expected": false
+        },
+        {
+          "path": "paper.body_visible",
+          "op": "eq",
+          "expected": false
+        },
+        {
+          "path": "mail.tamper_trace",
+          "op": "unchanged_from_given",
+          "expected": true
+        }
+      ],
+      "source_refs": [
+        "P05_REPAIR",
+        "P02_RULES"
+      ],
+      "coverage_tags": [
+        "case04",
+        "no_shortcut"
+      ],
+      "reference_gaps": []
+    },
+    {
+      "id": "OPEN02",
+      "title": "主动有效开封接触才记录越界",
+      "status": "NOT_EXECUTED",
+      "claim_level": "acceptance_design_only",
+      "given": {
+        "mail.case_id": "case04",
+        "input.active_tool": "abstract_opener"
+      },
+      "steps": [
+        {
+          "action": "open.work_seam",
+          "args": {
+            "contact": "valid_seam",
+            "segments": "partial"
+          }
+        }
+      ],
+      "assertions": [
+        {
+          "path": "mail.privacy_violation",
+          "op": "eq",
+          "expected": true
+        },
+        {
+          "path": "mail.seal",
+          "op": "eq",
+          "expected": "partially_loosened"
+        },
+        {
+          "path": "paper.body_visible",
+          "op": "eq",
+          "expected": false
+        },
+        {
+          "path": "open.phase",
+          "op": "eq",
+          "expected": "seam_in_progress"
+        }
+      ],
+      "source_refs": [
+        "P05_REPAIR",
+        "P02_RULES",
+        "D_CONTRACT"
+      ],
+      "coverage_tags": [
+        "case04",
+        "commit_boundary"
+      ],
+      "reference_gaps": [
+        "G_TOOL_CONTINUOUS_SEQUENCE"
+      ]
+    },
+    {
+      "id": "OPEN03",
+      "title": "悬空/桌面错误接触不产生纸张效果",
+      "status": "NOT_EXECUTED",
+      "claim_level": "acceptance_design_only",
+      "given": {
+        "mail.case_id": "case04",
+        "input.active_tool": "abstract_opener"
+      },
+      "steps": [
+        {
+          "action": "open.work_seam",
+          "args": {
+            "contact": "outside_material",
+            "segments": "partial"
+          }
+        }
+      ],
+      "assertions": [
+        {
+          "path": "mail.seal",
+          "op": "eq",
+          "expected": "intact"
+        },
+        {
+          "path": "mail.tamper_trace",
+          "op": "unchanged_from_given",
+          "expected": true
+        },
+        {
+          "path": "feedback.kind",
+          "op": "eq",
+          "expected": "neutral_no_change"
+        },
+        {
+          "path": "feedback.buzzer",
+          "op": "eq",
+          "expected": false
+        }
+      ],
+      "source_refs": [
+        "P05_REPAIR",
+        "P05_MICRO"
+      ],
+      "coverage_tags": [
+        "invalid_action"
+      ],
+      "reference_gaps": []
+    },
+    {
+      "id": "OPEN04",
+      "title": "纸面粗糙操作可见损伤但单次失误不终局",
+      "status": "NOT_EXECUTED",
+      "claim_level": "acceptance_design_only",
+      "given": {
+        "mail.case_id": "case04",
+        "input.active_tool": "abstract_opener"
+      },
+      "steps": [
+        {
+          "action": "open.work_seam",
+          "args": {
+            "contact": "paper_damage_region",
+            "segments": "one_error"
+          }
+        }
+      ],
+      "assertions": [
+        {
+          "path": "mail.tamper_trace",
+          "op": "gte",
+          "expected": 1
+        },
+        {
+          "path": "material.new_damage_visible",
+          "op": "eq",
+          "expected": true
+        },
+        {
+          "path": "game.game_over",
+          "op": "eq",
+          "expected": false
+        },
+        {
+          "path": "feedback.quality_percent_visible",
+          "op": "eq",
+          "expected": false
+        }
+      ],
+      "source_refs": [
+        "P05_REPAIR",
+        "P02_AUDIT",
+        "D_CONTRACT"
+      ],
+      "coverage_tags": [
+        "trace",
+        "no_instant_gameover"
+      ],
+      "reference_gaps": []
+    },
+    {
+      "id": "OPEN05",
+      "title": "封线工序结束不替代抽出",
+      "status": "NOT_EXECUTED",
+      "claim_level": "acceptance_design_only",
+      "given": {
+        "mail.case_id": "case04",
+        "open.phase": "seam_in_progress",
+        "mail.privacy_violation": true
+      },
+      "steps": [
+        {
+          "action": "open.work_seam",
+          "args": {
+            "contact": "valid_seam",
+            "segments": "remaining"
+          }
+        }
+      ],
+      "assertions": [
+        {
+          "path": "mail.seal",
+          "op": "eq",
+          "expected": "open"
+        },
+        {
+          "path": "open.phase",
+          "op": "eq",
+          "expected": "flap_open_paper_inside"
+        },
+        {
+          "path": "paper.location",
+          "op": "eq",
+          "expected": "inside"
+        },
+        {
+          "path": "paper.body_visible",
+          "op": "eq",
+          "expected": false
+        }
+      ],
+      "source_refs": [
+        "P05_REPAIR"
+      ],
+      "coverage_tags": [
+        "case04",
+        "no_shortcut"
+      ],
+      "reference_gaps": []
+    },
+    {
+      "id": "OPEN06",
+      "title": "抽出需要完整位移，半途取消不自动展开",
+      "status": "NOT_EXECUTED",
+      "claim_level": "acceptance_design_only",
+      "given": {
+        "mail.case_id": "case04",
+        "mail.seal": "open",
+        "open.phase": "flap_open_paper_inside"
+      },
+      "steps": [
+        {
+          "action": "paper.extract",
+          "args": {
+            "progress": 0.45
+          }
+        },
+        {
+          "action": "session.cancel",
+          "args": {
+            "scope": "grab"
+          }
+        }
+      ],
+      "assertions": [
+        {
+          "path": "paper.location",
+          "op": "eq",
+          "expected": "partly_extracted"
+        },
+        {
+          "path": "paper.extract_progress",
+          "op": "eq",
+          "expected": 0.45
+        },
+        {
+          "path": "paper.fold",
+          "op": "eq",
+          "expected": "original_folded"
+        },
+        {
+          "path": "paper.body_visible",
+          "op": "eq",
+          "expected": false
+        },
+        {
+          "path": "input.captured",
+          "op": "eq",
+          "expected": false
+        }
+      ],
+      "source_refs": [
+        "P05_REPAIR",
+        "D_CONTRACT"
+      ],
+      "coverage_tags": [
+        "cancel",
+        "case04"
+      ],
+      "reference_gaps": []
+    },
+    {
+      "id": "OPEN07",
+      "title": "内页抽出后逐折展开",
+      "status": "NOT_EXECUTED",
+      "claim_level": "acceptance_design_only",
+      "given": {
+        "mail.case_id": "case04",
+        "mail.seal": "open",
+        "paper.location": "partly_extracted",
+        "paper.extract_progress": 0.45
+      },
+      "steps": [
+        {
+          "action": "paper.extract",
+          "args": {
+            "progress": 1
+          }
+        },
+        {
+          "action": "paper.unfold",
+          "args": {
+            "fold_id": "first",
+            "progress": 1
+          }
+        },
+        {
+          "action": "paper.unfold",
+          "args": {
+            "fold_id": "second",
+            "progress": 1
+          }
+        }
+      ],
+      "assertions": [
+        {
+          "path": "paper.location",
+          "op": "eq",
+          "expected": "desk"
+        },
+        {
+          "path": "paper.fold",
+          "op": "eq",
+          "expected": "unfolded"
+        },
+        {
+          "path": "paper.body_visible",
+          "op": "eq",
+          "expected": true
+        },
+        {
+          "path": "history.private_content_exposed",
+          "op": "eq",
+          "expected": true
+        },
+        {
+          "path": "facts.new_entries",
+          "op": "eq",
+          "expected": []
+        }
+      ],
+      "source_refs": [
+        "P05_REPAIR",
+        "P05_INSPECT",
+        "D_CONTRACT"
+      ],
+      "coverage_tags": [
+        "case04",
+        "reading"
+      ],
+      "reference_gaps": []
+    },
+    {
+      "id": "OPEN08",
+      "title": "遮住的内容不可通过提示/无障碍文案泄露",
+      "status": "NOT_EXECUTED",
+      "claim_level": "acceptance_design_only",
+      "given": {
+        "mail.case_id": "case04",
+        "paper.location": "inside",
+        "mail.seal": "intact"
+      },
+      "steps": [
+        {
+          "action": "view.zoom_pan",
+          "args": {
+            "zoom": 2,
+            "pan": [
+              0,
+              0
+            ]
+          }
+        }
+      ],
+      "assertions": [
+        {
+          "path": "paper.body_visible",
+          "op": "eq",
+          "expected": false
+        },
+        {
+          "path": "accessibility.hidden_body_text",
+          "op": "eq",
+          "expected": ""
+        },
+        {
+          "path": "feedback.private_summary",
+          "op": "eq",
+          "expected": ""
+        }
+      ],
+      "source_refs": [
+        "P05_INSPECT",
+        "P02_RULES",
+        "D_CONTRACT"
+      ],
+      "coverage_tags": [
+        "accessibility",
+        "privacy"
+      ],
+      "reference_gaps": []
+    },
+    {
+      "id": "RESEAL01",
+      "title": "展开内页不能直接装回",
+      "status": "NOT_EXECUTED",
+      "claim_level": "acceptance_design_only",
+      "given": {
+        "mail.case_id": "case04",
+        "paper.location": "desk",
+        "paper.fold": "unfolded",
+        "mail.seal": "open"
+      },
+      "steps": [
+        {
+          "action": "paper.reinsert",
+          "args": {
+            "progress": 1
+          }
+        }
+      ],
+      "assertions": [
+        {
+          "path": "paper.location",
+          "op": "eq",
+          "expected": "desk"
+        },
+        {
+          "path": "mail.seal",
+          "op": "eq",
+          "expected": "open"
+        },
+        {
+          "path": "feedback.kind",
+          "op": "eq",
+          "expected": "neutral_no_change"
+        }
+      ],
+      "source_refs": [
+        "P05_REPAIR"
+      ],
+      "coverage_tags": [
+        "reseal",
+        "invalid_action"
+      ],
+      "reference_gaps": []
+    },
+    {
+      "id": "RESEAL02",
+      "title": "错折不能靠接近信封自动吸入",
+      "status": "NOT_EXECUTED",
+      "claim_level": "acceptance_design_only",
+      "given": {
+        "mail.case_id": "case04",
+        "paper.location": "desk",
+        "paper.fold": "unfolded",
+        "mail.seal": "open"
+      },
+      "steps": [
+        {
+          "action": "paper.refold",
+          "args": {
+            "fold_id": "first",
+            "geometry": "misaligned"
+          }
+        },
+        {
+          "action": "paper.reinsert",
+          "args": {
+            "progress": 1
+          }
+        }
+      ],
+      "assertions": [
+        {
+          "path": "paper.location",
+          "op": "eq",
+          "expected": "desk"
+        },
+        {
+          "path": "paper.insertion_ready",
+          "op": "eq",
+          "expected": false
+        },
+        {
+          "path": "reseal.complete",
+          "op": "eq",
+          "expected": false
+        }
+      ],
+      "source_refs": [
+        "P05_REPAIR",
+        "D_CONTRACT"
+      ],
+      "coverage_tags": [
+        "reseal",
+        "geometry"
+      ],
+      "reference_gaps": []
+    },
+    {
+      "id": "RESEAL03",
+      "title": "逐折装回合舌封口是连续独立动作",
+      "status": "NOT_EXECUTED",
+      "claim_level": "acceptance_design_only",
+      "given": {
+        "mail.case_id": "case04",
+        "paper.location": "desk",
+        "paper.fold": "unfolded",
+        "mail.seal": "open",
+        "mail.privacy_violation": true,
+        "history.private_content_exposed": true,
+        "mail.tamper_trace": 3,
+        "material.permanent_damage_floor": 3
+      },
+      "steps": [
+        {
+          "action": "paper.refold",
+          "args": {
+            "fold_id": "first",
+            "geometry": "aligned"
+          }
+        },
+        {
+          "action": "paper.refold",
+          "args": {
+            "fold_id": "second",
+            "geometry": "aligned"
+          }
+        },
+        {
+          "action": "paper.reinsert",
+          "args": {
+            "progress": 1
+          }
+        },
+        {
+          "action": "flap.close",
+          "args": {
+            "progress": 1
+          }
+        },
+        {
+          "action": "flap.reseal",
+          "args": {
+            "contact_completed": true
+          }
+        }
+      ],
+      "assertions": [
+        {
+          "path": "paper.location",
+          "op": "eq",
+          "expected": "inside"
+        },
+        {
+          "path": "paper.fold",
+          "op": "eq",
+          "expected": "original_refolded"
+        },
+        {
+          "path": "mail.seal",
+          "op": "eq",
+          "expected": "resealed"
+        },
+        {
+          "path": "reseal.complete",
+          "op": "eq",
+          "expected": true
+        },
+        {
+          "path": "mail.privacy_violation",
+          "op": "eq",
+          "expected": true
+        },
+        {
+          "path": "history.private_content_exposed",
+          "op": "eq",
+          "expected": true
+        },
+        {
+          "path": "mail.tamper_trace",
+          "op": "gte",
+          "expected": 3
+        },
+        {
+          "path": "mail.disposition",
+          "op": "eq",
+          "expected": "unresolved"
+        }
+      ],
+      "source_refs": [
+        "P05_REPAIR",
+        "D_CONTRACT"
+      ],
+      "coverage_tags": [
+        "case04",
+        "reseal",
+        "history"
+      ],
+      "reference_gaps": []
+    },
+    {
+      "id": "RESEAL04",
+      "title": "合舌不等于封口完毕",
+      "status": "NOT_EXECUTED",
+      "claim_level": "acceptance_design_only",
+      "given": {
+        "mail.case_id": "case04",
+        "paper.location": "inside",
+        "paper.fold": "original_refolded",
+        "mail.seal": "open"
+      },
+      "steps": [
+        {
+          "action": "flap.close",
+          "args": {
+            "progress": 1
+          }
+        }
+      ],
+      "assertions": [
+        {
+          "path": "mail.seal",
+          "op": "eq",
+          "expected": "closed_unsealed"
+        },
+        {
+          "path": "reseal.complete",
+          "op": "eq",
+          "expected": false
+        }
+      ],
+      "source_refs": [
+        "P05_REPAIR",
+        "D_CONTRACT"
+      ],
+      "coverage_tags": [
+        "no_shortcut"
+      ],
+      "reference_gaps": []
+    },
+    {
+      "id": "HAND01",
+      "title": "接近和到达不能交付",
+      "status": "NOT_EXECUTED",
+      "claim_level": "acceptance_design_only",
+      "given": {
+        "delivery.target": "June",
+        "world.in_handoff_range": false
+      },
+      "steps": [
+        {
+          "action": "delivery.approach",
+          "args": {
+            "target": "June",
+            "arrive": true
+          }
+        }
+      ],
+      "assertions": [
+        {
+          "path": "world.in_handoff_range",
+          "op": "eq",
+          "expected": true
+        },
+        {
+          "path": "mail.owner",
+          "op": "eq",
+          "expected": "player"
+        },
+        {
+          "path": "delivery.commit_count",
+          "op": "eq",
+          "expected": 0
+        },
+        {
+          "path": "mail.disposition",
+          "op": "eq",
+          "expected": "unresolved"
+        }
+      ],
+      "source_refs": [
+        "D_CONTRACT",
+        "P04_CASES"
+      ],
+      "coverage_tags": [
+        "handoff",
+        "no_shortcut"
+      ],
+      "reference_gaps": []
+    },
+    {
+      "id": "HAND02",
+      "title": "行走中取消使旧回调失效",
+      "status": "NOT_EXECUTED",
+      "claim_level": "acceptance_design_only",
+      "given": {
+        "delivery.target": "June",
+        "world.in_handoff_range": false
+      },
+      "steps": [
+        {
+          "action": "delivery.approach",
+          "args": {
+            "target": "June",
+            "arrive": false
+          }
+        },
+        {
+          "action": "session.cancel",
+          "args": {
+            "scope": "approach"
+          }
+        },
+        {
+          "action": "delivery.approach",
+          "args": {
+            "deliver_stale_arrival_callback": true
+          }
+        }
+      ],
+      "assertions": [
+        {
+          "path": "mail.owner",
+          "op": "eq",
+          "expected": "player"
+        },
+        {
+          "path": "delivery.commit_count",
+          "op": "eq",
+          "expected": 0
+        },
+        {
+          "path": "world.pending_delivery_token",
+          "op": "eq",
+          "expected": null
+        }
+      ],
+      "source_refs": [
+        "D_CONTRACT"
+      ],
+      "coverage_tags": [
+        "handoff",
+        "cancel"
+      ],
+      "reference_gaps": []
+    },
+    {
+      "id": "HAND03",
+      "title": "近身释放合法封装邮件才单次移交",
+      "status": "NOT_EXECUTED",
+      "claim_level": "acceptance_design_only",
+      "given": {
+        "mail.case_id": "case04",
+        "mail.recipient": "June Arlen",
+        "delivery.target": "June",
+        "world.in_handoff_range": true,
+        "delivery.service_allows_target": true
+      },
+      "steps": [
+        {
+          "action": "delivery.offer_release",
+          "args": {
+            "target": "June",
+            "transaction_id": "h-001"
+          }
+        }
+      ],
+      "assertions": [
+        {
+          "path": "mail.owner",
+          "op": "eq",
+          "expected": "June"
+        },
+        {
+          "path": "delivery.commit_count",
+          "op": "eq",
+          "expected": 1
+        },
+        {
+          "path": "mail.disposition",
+          "op": "eq",
+          "expected": "delivered"
+        },
+        {
+          "path": "world.pending_delivery_token",
+          "op": "eq",
+          "expected": null
+        }
+      ],
+      "source_refs": [
+        "P04_CASES",
+        "P02_RULES",
+        "D_CONTRACT"
+      ],
+      "coverage_tags": [
+        "handoff",
+        "transaction"
+      ],
+      "reference_gaps": []
+    },
+    {
+      "id": "HAND04",
+      "title": "重复释放/重放提交不会复制信件或结算",
+      "status": "NOT_EXECUTED",
+      "claim_level": "acceptance_design_only",
+      "given": {
+        "mail.owner": "June",
+        "mail.disposition": "delivered",
+        "delivery.commit_count": 1,
+        "delivery.committed_ids": [
+          "h-001"
+        ]
+      },
+      "steps": [
+        {
+          "action": "delivery.offer_release",
+          "args": {
+            "target": "June",
+            "transaction_id": "h-001"
+          }
+        }
+      ],
+      "assertions": [
+        {
+          "path": "mail.owner",
+          "op": "eq",
+          "expected": "June"
+        },
+        {
+          "path": "delivery.commit_count",
+          "op": "eq",
+          "expected": 1
+        },
+        {
+          "path": "mail.disposition",
+          "op": "eq",
+          "expected": "delivered"
+        }
+      ],
+      "source_refs": [
+        "D_CONTRACT"
+      ],
+      "coverage_tags": [
+        "handoff",
+        "idempotency"
+      ],
+      "reference_gaps": []
+    },
+    {
+      "id": "HAND05",
+      "title": "目标离开或被模态打断后需重新验证",
+      "status": "NOT_EXECUTED",
+      "claim_level": "acceptance_design_only",
+      "given": {
+        "delivery.target": "June",
+        "world.in_handoff_range": false,
+        "delivery.service_allows_target": true
+      },
+      "steps": [
+        {
+          "action": "delivery.offer_release",
+          "args": {
+            "target": "June",
+            "transaction_id": "h-002"
+          }
+        }
+      ],
+      "assertions": [
+        {
+          "path": "mail.owner",
+          "op": "eq",
+          "expected": "player"
+        },
+        {
+          "path": "delivery.commit_count",
+          "op": "eq",
+          "expected": 0
+        },
+        {
+          "path": "mail.disposition",
+          "op": "eq",
+          "expected": "unresolved"
+        }
+      ],
+      "source_refs": [
+        "D_CONTRACT"
+      ],
+      "coverage_tags": [
+        "handoff",
+        "invalid_action"
+      ],
+      "reference_gaps": []
+    },
+    {
+      "id": "HAND06",
+      "title": "不满足签收/代交规则不能让代理拿走",
+      "status": "NOT_EXECUTED",
+      "claim_level": "acceptance_design_only",
+      "given": {
+        "mail.case_id": "case02",
+        "mail.recipient": "Mira Vale",
+        "world.in_handoff_range": true,
+        "delivery.target": "Chenyuan",
+        "delivery.service_allows_target": false
+      },
+      "steps": [
+        {
+          "action": "delivery.offer_release",
+          "args": {
+            "target": "Chenyuan",
+            "transaction_id": "h-003"
+          }
+        }
+      ],
+      "assertions": [
+        {
+          "path": "mail.owner",
+          "op": "eq",
+          "expected": "player"
+        },
+        {
+          "path": "delivery.commit_count",
+          "op": "eq",
+          "expected": 0
+        },
+        {
+          "path": "mail.disposition",
+          "op": "eq",
+          "expected": "unresolved"
+        }
+      ],
+      "source_refs": [
+        "P04_CASES",
+        "P02_AUDIT",
+        "D_CONTRACT"
+      ],
+      "coverage_tags": [
+        "case02",
+        "service_rule"
+      ],
+      "reference_gaps": []
+    },
+    {
+      "id": "HAND07",
+      "title": "未装回散页不以交付入口自动封装",
+      "status": "NOT_EXECUTED",
+      "claim_level": "acceptance_design_only",
+      "given": {
+        "mail.case_id": "case04",
+        "paper.location": "desk",
+        "paper.fold": "unfolded",
+        "mail.seal": "open",
+        "world.in_handoff_range": true,
+        "delivery.service_allows_target": true
+      },
+      "steps": [
+        {
+          "action": "delivery.offer_release",
+          "args": {
+            "target": "June",
+            "transaction_id": "h-004"
+          }
+        }
+      ],
+      "assertions": [
+        {
+          "path": "mail.owner",
+          "op": "eq",
+          "expected": "player"
+        },
+        {
+          "path": "paper.location",
+          "op": "eq",
+          "expected": "desk"
+        },
+        {
+          "path": "mail.seal",
+          "op": "eq",
+          "expected": "open"
+        },
+        {
+          "path": "delivery.commit_count",
+          "op": "eq",
+          "expected": 0
+        }
+      ],
+      "source_refs": [
+        "P05_REPAIR",
+        "D_CONTRACT"
+      ],
+      "coverage_tags": [
+        "handoff",
+        "no_shortcut"
+      ],
+      "reference_gaps": []
+    },
+    {
+      "id": "SAVE01",
+      "title": "稳定步骤保存重开保留物态/痕迹/事实",
+      "status": "NOT_EXECUTED",
+      "claim_level": "acceptance_design_only",
+      "given": {
+        "mail.case_id": "case04",
+        "mail.seal": "open",
+        "mail.tamper_trace": 2,
+        "mail.privacy_violation": true,
+        "history.private_content_exposed": true,
+        "paper.location": "desk",
+        "paper.fold": "unfolded",
+        "input.captured": true
+      },
+      "steps": [
+        {
+          "action": "session.save_exit_resume",
+          "args": {
+            "checkpoint": "latest_committed"
+          }
+        }
+      ],
+      "assertions": [
+        {
+          "path": "mail.seal",
+          "op": "unchanged_from_given",
+          "expected": true
+        },
+        {
+          "path": "mail.tamper_trace",
+          "op": "unchanged_from_given",
+          "expected": true
+        },
+        {
+          "path": "mail.privacy_violation",
+          "op": "unchanged_from_given",
+          "expected": true
+        },
+        {
+          "path": "history.private_content_exposed",
+          "op": "unchanged_from_given",
+          "expected": true
+        },
+        {
+          "path": "paper.location",
+          "op": "unchanged_from_given",
+          "expected": true
+        },
+        {
+          "path": "paper.fold",
+          "op": "unchanged_from_given",
+          "expected": true
+        },
+        {
+          "path": "input.captured",
+          "op": "eq",
+          "expected": false
+        },
+        {
+          "path": "delivery.commit_count",
+          "op": "eq",
+          "expected": 0
+        }
+      ],
+      "source_refs": [
+        "D_CONTRACT"
+      ],
+      "coverage_tags": [
+        "save",
+        "resume"
+      ],
+      "reference_gaps": []
+    },
+    {
+      "id": "SAVE02",
+      "title": "保存成功/文件替换前崩溃不出现半份交易",
+      "status": "NOT_EXECUTED",
+      "claim_level": "acceptance_design_only",
+      "given": {
+        "delivery.commit_count": 0,
+        "mail.owner": "player"
+      },
+      "steps": [
+        {
+          "action": "session.save_exit_resume",
+          "args": {
+            "fault_injection": "before_atomic_replace",
+            "transaction": "handoff"
+          }
+        }
+      ],
+      "assertions": [
+        {
+          "path": "persistence.snapshot",
+          "op": "one_of",
+          "expected": [
+            "previous_complete",
+            "next_complete"
+          ]
+        },
+        {
+          "path": "persistence.cross_field_consistent",
+          "op": "eq",
+          "expected": true
+        },
+        {
+          "path": "persistence.duplicate_mail_count",
+          "op": "eq",
+          "expected": 0
+        }
+      ],
+      "source_refs": [
+        "D_CONTRACT"
+      ],
+      "coverage_tags": [
+        "save",
+        "atomicity"
+      ],
+      "reference_gaps": []
+    },
+    {
+      "id": "SAVE03",
+      "title": "操作中退出保存已提交变化，不自动复原",
+      "status": "NOT_EXECUTED",
+      "claim_level": "acceptance_design_only",
+      "given": {
+        "repair.phase": "aligned_unpressed",
+        "repair.complete": false,
+        "mail.case_id": "case03"
+      },
+      "steps": [
+        {
+          "action": "session.save_exit_resume",
+          "args": {
+            "checkpoint": "latest_committed"
+          }
+        }
+      ],
+      "assertions": [
+        {
+          "path": "repair.phase",
+          "op": "eq",
+          "expected": "aligned_unpressed"
+        },
+        {
+          "path": "repair.complete",
+          "op": "eq",
+          "expected": false
+        },
+        {
+          "path": "mail.seal",
+          "op": "eq",
+          "expected": "intact"
+        },
+        {
+          "path": "input.captured",
+          "op": "eq",
+          "expected": false
+        }
+      ],
+      "source_refs": [
+        "D_CONTRACT",
+        "P05_REPAIR"
+      ],
+      "coverage_tags": [
+        "case03",
+        "save"
+      ],
+      "reference_gaps": []
+    },
+    {
+      "id": "SAVE04",
+      "title": "存档失败留在当前操作并保留上一有效文件",
+      "status": "NOT_EXECUTED",
+      "claim_level": "acceptance_design_only",
+      "given": {
+        "mail.case_id": "case04",
+        "mail.seal": "partially_loosened",
+        "mail.tamper_trace": 2
+      },
+      "steps": [
+        {
+          "action": "session.save_exit_resume",
+          "args": {
+            "fault_injection": "write_denied"
+          }
+        }
+      ],
+      "assertions": [
+        {
+          "path": "persistence.last_valid_file_preserved",
+          "op": "eq",
+          "expected": true
+        },
+        {
+          "path": "session.remains_open",
+          "op": "eq",
+          "expected": true
+        },
+        {
+          "path": "mail.seal",
+          "op": "eq",
+          "expected": "partially_loosened"
+        },
+        {
+          "path": "feedback.save_error_readable",
+          "op": "eq",
+          "expected": true
+        }
+      ],
+      "source_refs": [
+        "D_CONTRACT"
+      ],
+      "coverage_tags": [
+        "save",
+        "error_recovery"
+      ],
+      "reference_gaps": []
+    },
+    {
+      "id": "SAVE05",
+      "title": "载入旧/未知schema不推断案件已完成",
+      "status": "NOT_EXECUTED",
+      "claim_level": "acceptance_design_only",
+      "given": {},
+      "steps": [
+        {
+          "action": "session.save_exit_resume",
+          "args": {
+            "fault_injection": "unsupported_schema"
+          }
+        }
+      ],
+      "assertions": [
+        {
+          "path": "persistence.refused_without_overwrite",
+          "op": "eq",
+          "expected": true
+        },
+        {
+          "path": "game.invented_completion",
+          "op": "eq",
+          "expected": false
+        },
+        {
+          "path": "feedback.save_error_readable",
+          "op": "eq",
+          "expected": true
+        }
+      ],
+      "source_refs": [
+        "D_CONTRACT"
+      ],
+      "coverage_tags": [
+        "save",
+        "migration"
+      ],
+      "reference_gaps": []
+    },
+    {
+      "id": "SAVE06",
+      "title": "界面缩放后恢复仍可取回所有纸件",
+      "status": "NOT_EXECUTED",
+      "claim_level": "acceptance_design_only",
+      "given": {
+        "view.context": "inspection",
+        "view.viewport": [
+          1600,
+          900
+        ],
+        "view.object_positions": "near_old_edges"
+      },
+      "steps": [
+        {
+          "action": "session.save_exit_resume",
+          "args": {
+            "resume_viewport": [
+              1280,
+              720
+            ]
+          }
+        }
+      ],
+      "assertions": [
+        {
+          "path": "view.all_objects_reachable",
+          "op": "eq",
+          "expected": true
+        },
+        {
+          "path": "view.overlap_order_preserved",
+          "op": "eq",
+          "expected": true
+        },
+        {
+          "path": "paper.body_visible",
+          "op": "eq",
+          "expected": false
+        }
+      ],
+      "source_refs": [
+        "D_CONTRACT",
+        "P05_INSPECT"
+      ],
+      "coverage_tags": [
+        "save",
+        "layout"
+      ],
+      "reference_gaps": []
+    },
+    {
+      "id": "RULE01",
+      "title": "Case04不拆也有完整合法处置分支",
+      "status": "NOT_EXECUTED",
+      "claim_level": "acceptance_design_only",
+      "given": {
+        "mail.case_id": "case04",
+        "mail.recipient": "June Arlen",
+        "mail.seal": "intact",
+        "facts.observed": [
+          "case03_current_pickup",
+          "archive_HV_mark"
+        ]
+      },
+      "steps": [
+        {
+          "action": "archive.record",
+          "args": {
+            "disposition_draft": "hold_for_verification",
+            "note": "核实旧 HOLD 标记"
+          }
+        }
+      ],
+      "assertions": [
+        {
+          "path": "mail.seal",
+          "op": "eq",
+          "expected": "intact"
+        },
+        {
+          "path": "paper.body_visible",
+          "op": "eq",
+          "expected": false
+        },
+        {
+          "path": "disposition.available",
+          "op": "eq",
+          "expected": [
+            "deliver_recovered_to_June",
+            "archive_pending_supervisor_review",
+            "hold_for_verification"
+          ]
+        },
+        {
+          "path": "metrics.automatic_non_delivery_penalty",
+          "op": "eq",
+          "expected": 0
+        }
+      ],
+      "source_refs": [
+        "P04_CASES",
+        "P02_AUDIT"
+      ],
+      "coverage_tags": [
+        "case04",
+        "legal_alternatives"
+      ],
+      "reference_gaps": []
+    },
+    {
+      "id": "RULE02",
+      "title": "痕迹检测确定性且不改变事实答案",
+      "status": "NOT_EXECUTED",
+      "claim_level": "acceptance_design_only",
+      "given": {
+        "mail.case_id": "case04",
+        "mail.tamper_trace": 8,
+        "recipient.attention": "careful",
+        "world.in_handoff_range": true,
+        "delivery.service_allows_target": true
+      },
+      "steps": [
+        {
+          "action": "delivery.offer_release",
+          "args": {
+            "target": "June",
+            "transaction_id": "h-trace",
+            "repeat_with_same_snapshot": true
+          }
+        }
+      ],
+      "assertions": [
+        {
+          "path": "detection.same_snapshot_same_result",
+          "op": "eq",
+          "expected": true
+        },
+        {
+          "path": "detection.noticed",
+          "op": "eq",
+          "expected": true
+        },
+        {
+          "path": "facts.current_recipient",
+          "op": "eq",
+          "expected": "June Arlen"
+        },
+        {
+          "path": "feedback.quality_percent_visible",
+          "op": "eq",
+          "expected": false
+        }
+      ],
+      "source_refs": [
+        "P05_REPAIR",
+        "P02_METRICS",
+        "D_CONTRACT"
+      ],
+      "coverage_tags": [
+        "trace",
+        "determinism"
+      ],
+      "reference_gaps": []
+    },
+    {
+      "id": "RULE03",
+      "title": "轻微痕迹/随意查看不随机惩罚",
+      "status": "NOT_EXECUTED",
+      "claim_level": "acceptance_design_only",
+      "given": {
+        "mail.case_id": "case04",
+        "mail.tamper_trace": 1,
+        "recipient.attention": "casual",
+        "world.in_handoff_range": true,
+        "delivery.service_allows_target": true
+      },
+      "steps": [
+        {
+          "action": "delivery.offer_release",
+          "args": {
+            "target": "June",
+            "transaction_id": "h-mild",
+            "repeat_with_same_snapshot": true
+          }
+        }
+      ],
+      "assertions": [
+        {
+          "path": "detection.noticed",
+          "op": "eq",
+          "expected": false
+        },
+        {
+          "path": "detection.same_snapshot_same_result",
+          "op": "eq",
+          "expected": true
+        }
+      ],
+      "source_refs": [
+        "P05_REPAIR",
+        "D_CONTRACT"
+      ],
+      "coverage_tags": [
+        "trace",
+        "determinism"
+      ],
+      "reference_gaps": []
+    },
+    {
+      "id": "RULE04",
+      "title": "职业状态和个人信任使用独立变更事件",
+      "status": "NOT_EXECUTED",
+      "claim_level": "acceptance_design_only",
+      "given": {
+        "metrics.work_reliability": 5,
+        "metrics.npc_trust.June": 2
+      },
+      "steps": [
+        {
+          "action": "archive.record",
+          "args": {
+            "disposition_draft": "hold_for_verification",
+            "note": "记录完整",
+            "evaluate_separate_consequences": true
+          }
+        }
+      ],
+      "assertions": [
+        {
+          "path": "metrics.separate_ledgers",
+          "op": "eq",
+          "expected": true
+        },
+        {
+          "path": "metrics.npc_trust_is_work_score_alias",
+          "op": "eq",
+          "expected": false
+        },
+        {
+          "path": "facts.answer_changed_by_trust",
+          "op": "eq",
+          "expected": false
+        }
+      ],
+      "source_refs": [
+        "P02_METRICS",
+        "P02_AUDIT",
+        "D_CONTRACT"
+      ],
+      "coverage_tags": [
+        "metrics"
+      ],
+      "reference_gaps": []
+    },
+    {
+      "id": "RULE05",
+      "title": "阅读观察不消耗现实时间",
+      "status": "NOT_EXECUTED",
+      "claim_level": "acceptance_design_only",
+      "given": {
+        "clock.minute": 900
+      },
+      "steps": [
+        {
+          "action": "view.zoom_pan",
+          "args": {
+            "zoom": 2,
+            "read_for_real_seconds": 180
+          }
+        },
+        {
+          "action": "object.flip",
+          "args": {}
+        },
+        {
+          "action": "object.compare",
+          "args": {
+            "second_document": "ledger"
+          }
+        }
+      ],
+      "assertions": [
+        {
+          "path": "clock.minute",
+          "op": "eq",
+          "expected": 900
+        }
+      ],
+      "source_refs": [
+        "P02_METRICS",
+        "P05_ARCHIVE"
+      ],
+      "coverage_tags": [
+        "time"
+      ],
+      "reference_gaps": []
+    },
+    {
+      "id": "RULE06",
+      "title": "修复耗材不是拆信券，无硬次数",
+      "status": "NOT_EXECUTED",
+      "claim_level": "acceptance_design_only",
+      "given": {
+        "mail.case_id": "case04",
+        "history.opened_private_count": 3
+      },
+      "steps": [
+        {
+          "action": "tool.pick",
+          "args": {
+            "tool": "abstract_opener"
+          }
+        }
+      ],
+      "assertions": [
+        {
+          "path": "input.active_tool",
+          "op": "eq",
+          "expected": "abstract_opener"
+        },
+        {
+          "path": "feedback.remaining_open_tickets_visible",
+          "op": "eq",
+          "expected": false
+        },
+        {
+          "path": "policy.daily_open_cap",
+          "op": "eq",
+          "expected": false
+        }
+      ],
+      "source_refs": [
+        "P02_AUDIT"
+      ],
+      "coverage_tags": [
+        "policy"
+      ],
+      "reference_gaps": []
+    },
+    {
+      "id": "RULE07",
+      "title": "没有常驻改正文/销毁工具",
+      "status": "NOT_EXECUTED",
+      "claim_level": "acceptance_design_only",
+      "given": {},
+      "steps": [
+        {
+          "action": "tool.pick",
+          "args": {
+            "tool": "free_text_alteration_or_destroy"
+          }
+        }
+      ],
+      "assertions": [
+        {
+          "path": "feedback.kind",
+          "op": "eq",
+          "expected": "unavailable_action"
+        },
+        {
+          "path": "mail.owner",
+          "op": "eq",
+          "expected": "player"
+        },
+        {
+          "path": "mail.disposition",
+          "op": "eq",
+          "expected": "unresolved"
+        }
+      ],
+      "source_refs": [
+        "P02_RULES",
+        "P02_AUDIT"
+      ],
+      "coverage_tags": [
+        "illegal_action"
+      ],
+      "reference_gaps": []
+    },
+    {
+      "id": "RULE08",
+      "title": "Case05内部员工信不套私人违规逻辑",
+      "status": "NOT_EXECUTED",
+      "claim_level": "acceptance_design_only",
+      "given": {
+        "mail.case_id": "case05",
+        "mail.authorization": "staff_internal",
+        "mail.recipient": "next_Local_Exceptions_Desk_B_clerk"
+      },
+      "steps": [
+        {
+          "action": "tool.pick",
+          "args": {
+            "tool": "abstract_opener"
+          }
+        },
+        {
+          "action": "open.work_seam",
+          "args": {
+            "contact": "valid_seam",
+            "segments": "all"
+          }
+        }
+      ],
+      "assertions": [
+        {
+          "path": "mail.seal",
+          "op": "eq",
+          "expected": "open"
+        },
+        {
+          "path": "mail.privacy_violation",
+          "op": "eq",
+          "expected": false
+        },
+        {
+          "path": "mail.owner",
+          "op": "eq",
+          "expected": "player"
+        },
+        {
+          "path": "paper.body_visible",
+          "op": "eq",
+          "expected": false
+        }
+      ],
+      "source_refs": [
+        "P04_CASES",
+        "P02_RULES",
+        "D_CONTRACT"
+      ],
+      "coverage_tags": [
+        "case05"
+      ],
+      "reference_gaps": []
+    },
+    {
+      "id": "RULE09",
+      "title": "NPC不能凭空说出玩家才读到的私信",
+      "status": "NOT_EXECUTED",
+      "claim_level": "acceptance_design_only",
+      "given": {
+        "mail.case_id": "case04",
+        "history.private_content_exposed": true,
+        "npc.Chenyuan.knows_private_body": false
+      },
+      "steps": [
+        {
+          "action": "archive.record",
+          "args": {
+            "request_dialogue_topic": "Chenyuan_private_body"
+          }
+        }
+      ],
+      "assertions": [
+        {
+          "path": "npc.Chenyuan.knows_private_body",
+          "op": "eq",
+          "expected": false
+        },
+        {
+          "path": "dialogue.unearned_private_answer",
+          "op": "eq",
+          "expected": ""
+        }
+      ],
+      "source_refs": [
+        "P04_NPC",
+        "P04_DIALOGUE",
+        "D_CONTRACT"
+      ],
+      "coverage_tags": [
+        "knowledge"
+      ],
+      "reference_gaps": []
+    },
+    {
+      "id": "A11Y01",
+      "title": "键盘抓取不是自动解题",
+      "status": "NOT_EXECUTED",
+      "claim_level": "acceptance_design_only",
+      "given": {
+        "input.modality": "keyboard"
+      },
+      "steps": [
+        {
+          "action": "object.pick_up",
+          "args": {
+            "object": "envelope",
+            "keyboard_latch": true
+          }
+        },
+        {
+          "action": "object.move",
+          "args": {
+            "keyboard_steps": [
+              [
+                "right",
+                10
+              ],
+              [
+                "down",
+                4
+              ]
+            ]
+          }
+        },
+        {
+          "action": "object.release",
+          "args": {
+            "keyboard_latch": false
+          }
+        }
+      ],
+      "assertions": [
+        {
+          "path": "input.same_geometry_guard_as_pointer",
+          "op": "eq",
+          "expected": true
+        },
+        {
+          "path": "input.captured",
+          "op": "eq",
+          "expected": false
+        },
+        {
+          "path": "mail.disposition",
+          "op": "eq",
+          "expected": "unresolved"
+        },
+        {
+          "path": "facts.new_entries",
+          "op": "eq",
+          "expected": []
+        }
+      ],
+      "source_refs": [
+        "D_CONTRACT",
+        "P05_INSPECT"
+      ],
+      "coverage_tags": [
+        "accessibility",
+        "keyboard"
+      ],
+      "reference_gaps": []
+    },
+    {
+      "id": "A11Y02",
+      "title": "Case03所有修复动作都有键盘等价输入",
+      "status": "NOT_EXECUTED",
+      "claim_level": "acceptance_design_only",
+      "given": {
+        "input.modality": "keyboard",
+        "mail.case_id": "case03",
+        "mail.authorization": "exterior_repair",
+        "mail.damage": "routing_label"
+      },
+      "steps": [
+        { "action": "repair.place_on_mat", "args": { "keyboard_latch": true } },
+        { "action": "tool.pick", "args": { "tool": "abstract_restorer", "via_focus": true } },
+        { "action": "repair.lift_label", "args": { "target": "detached_label", "via_focus": true } },
+        { "action": "repair.align_label", "args": { "geometry": "matching_edge", "use_step_and_rotate_keys": true } },
+        { "action": "repair.protect_press", "args": { "protective_sheet_covered": true, "contact_completed": true, "keyboard_latch": true } },
+        { "action": "repair.align_fold_reinspect", "args": { "fold_geometry": "aligned", "reinspected": true, "use_step_and_flip_keys": true } }
+      ],
+      "assertions": [
+        { "path": "repair.complete", "op": "eq", "expected": true },
+        { "path": "mail.seal", "op": "eq", "expected": "intact" },
+        { "path": "mail.privacy_violation", "op": "eq", "expected": false },
+        { "path": "mail.disposition", "op": "eq", "expected": "unresolved" },
+        {
+          "path": "accessibility.unreachable_required_actions",
+          "op": "eq",
+          "expected": []
+        },
+        {
+          "path": "accessibility.instant_completion_shortcuts",
+          "op": "eq",
+          "expected": []
+        },
+        {
+          "path": "input.same_geometry_guard_as_pointer",
+          "op": "eq",
+          "expected": true
+        }
+      ],
+      "source_refs": [
+        "D_CONTRACT",
+        "P05_REPAIR"
+      ],
+      "coverage_tags": [
+        "accessibility",
+        "keyboard",
+        "case03"
+      ],
+      "reference_gaps": []
+    },
+    {
+      "id": "A11Y04",
+      "title": "Case04抽出展开折回装回封口有完整键盘输入",
+      "status": "NOT_EXECUTED",
+      "claim_level": "acceptance_design_only",
+      "given": { "input.modality": "keyboard", "mail.case_id": "case04" },
+      "steps": [
+        { "action": "tool.pick", "args": { "tool": "abstract_opener", "via_focus": true } },
+        { "action": "open.work_seam", "args": { "contact": "valid_seam", "segments": "all", "keyboard_step_path": true } },
+        { "action": "paper.extract", "args": { "progress": 1, "keyboard_latch": true } },
+        { "action": "paper.unfold", "args": { "fold_id": "first", "progress": 1, "keyboard_latch": true } },
+        { "action": "paper.unfold", "args": { "fold_id": "second", "progress": 1, "keyboard_latch": true } },
+        { "action": "paper.refold", "args": { "fold_id": "first", "geometry": "aligned", "use_step_keys": true } },
+        { "action": "paper.refold", "args": { "fold_id": "second", "geometry": "aligned", "use_step_keys": true } },
+        { "action": "paper.reinsert", "args": { "progress": 1, "keyboard_latch": true } },
+        { "action": "flap.close", "args": { "progress": 1, "keyboard_latch": true } },
+        { "action": "flap.reseal", "args": { "contact_completed": true, "keyboard_latch": true } }
+      ],
+      "assertions": [
+        { "path": "mail.seal", "op": "eq", "expected": "resealed" },
+        { "path": "paper.location", "op": "eq", "expected": "inside" },
+        { "path": "history.private_content_exposed", "op": "eq", "expected": true },
+        { "path": "accessibility.instant_completion_shortcuts", "op": "eq", "expected": [] },
+        { "path": "input.same_geometry_guard_as_pointer", "op": "eq", "expected": true },
+        { "path": "delivery.commit_count", "op": "eq", "expected": 0 }
+      ],
+      "source_refs": ["D_CONTRACT", "P05_REPAIR"],
+      "coverage_tags": ["accessibility", "keyboard", "case04"],
+      "reference_gaps": ["G_NATIVE_AND_KEYBOARD", "G_TOOL_CONTINUOUS_SEQUENCE"]
+    },
+    {
+      "id": "A11Y03",
+      "title": "缩放与低动作模式不隐藏证据或损坏操作",
+      "status": "NOT_EXECUTED",
+      "claim_level": "acceptance_design_only",
+      "given": {
+        "accessibility.reduced_motion": true,
+        "accessibility.text_scale": 1.5
+      },
+      "steps": [
+        {
+          "action": "object.flip",
+          "args": {}
+        },
+        {
+          "action": "view.zoom_pan",
+          "args": {
+            "zoom": 2,
+            "pan": [
+              0,
+              0
+            ]
+          }
+        }
+      ],
+      "assertions": [
+        {
+          "path": "view.critical_text_legible",
+          "op": "eq",
+          "expected": true
+        },
+        {
+          "path": "accessibility.focus_visible",
+          "op": "eq",
+          "expected": true
+        },
+        {
+          "path": "feedback.hidden_quality_spoken",
+          "op": "eq",
+          "expected": false
+        },
+        {
+          "path": "clock.minute",
+          "op": "eq",
+          "expected": 540
+        }
+      ],
+      "source_refs": [
+        "P05_INSPECT",
+        "D_CONTRACT"
+      ],
+      "coverage_tags": [
+        "accessibility",
+        "reading"
+      ],
+      "reference_gaps": []
+    }
+  ]
+}
