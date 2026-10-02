@@ -1,0 +1,738 @@
+{
+  "retrieved": "2026-10-02",
+  "observer": "inspect_package",
+  "official_page": "https://store.steampowered.com/app/1276550/Faefever/",
+  "metadata_source": "https://store.steampowered.com/api/appdetails?appids=1276550",
+  "movie": {
+    "id": 256792357,
+    "name": "Faefever_release_trailer",
+    "thumbnail": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/256792357/movie.293x165.jpg?t=1594373139",
+    "dash_av1": "https://video.akamai.steamstatic.com/store_trailers/1276550/297674/8c7dce40ff68d999b42f657de4b801f906d8daf2/1751213549/dash_av1.mpd?t=1594373139",
+    "dash_h264": "https://video.akamai.steamstatic.com/store_trailers/1276550/297674/8c7dce40ff68d999b42f657de4b801f906d8daf2/1751213549/dash_h264.mpd?t=1594373139",
+    "hls_h264": "https://video.akamai.steamstatic.com/store_trailers/1276550/297674/8c7dce40ff68d999b42f657de4b801f906d8daf2/1751213549/hls_264_master.m3u8?t=1594373139",
+    "highlight": true
+  },
+  "duration_seconds": 65.5,
+  "video_sha256": "cde0c233488a6844bc1781c678b136e58a8dfd2173b779fcc79111bbf00afd33",
+  "video_bytes": 19319231,
+  "coverage": "66 samples at 1fps across trailer plus 36 samples at2fps across selected visible interaction sequences; not every encoded frame",
+  "full_playthrough_watched": false,
+  "audio_listened": false,
+  "playthrough_status": "NEEDS_REFERENCE_REVIEW",
+  "frames": [
+    {
+      "file": "work/faefever_official/frames/sec_001.png",
+      "sample_label_seconds": 0,
+      "sample_interval_seconds": 1,
+      "sha256": "4c9b78e1307f9a51d7eae0d3347c4d533da767ee2f02cfd4a8f335e8af722f17",
+      "inspection": "contact_sheet_visually_reviewed"
+    },
+    {
+      "file": "work/faefever_official/frames/sec_002.png",
+      "sample_label_seconds": 1,
+      "sample_interval_seconds": 1,
+      "sha256": "0c8c4645dc4b7885aae9186d5b587309e0f6a1eecb657585a35f5f81a7bd21cb",
+      "inspection": "contact_sheet_visually_reviewed"
+    },
+    {
+      "file": "work/faefever_official/frames/sec_003.png",
+      "sample_label_seconds": 2,
+      "sample_interval_seconds": 1,
+      "sha256": "b9be9fbad6bf1eb74a716b3defdb8ed47eba3d65788cb0ef33c91ae17ee13cb7",
+      "inspection": "contact_sheet_visually_reviewed"
+    },
+    {
+      "file": "work/faefever_official/frames/sec_004.png",
+      "sample_label_seconds": 3,
+      "sample_interval_seconds": 1,
+      "sha256": "870b9667bf27ec0418034ebe16c4cb8b7c349988cd8d0579791cd47a2f13047e",
+      "inspection": "contact_sheet_visually_reviewed"
+    },
+    {
+      "file": "work/faefever_official/frames/sec_005.png",
+      "sample_label_seconds": 4,
+      "sample_interval_seconds": 1,
+      "sha256": "e6d29194ec01598fcfc41b4f9fab365430b15a1ffcf8a121309fd75fa40ab4c1",
+      "inspection": "contact_sheet_visually_reviewed"
+    },
+    {
+      "file": "work/faefever_official/frames/sec_006.png",
+      "sample_label_seconds": 5,
+      "sample_interval_seconds": 1,
+      "sha256": "f1da416c72c6bf74c2eb3ded0c9119d6ba597d11b795569724f0edd350fdd6c5",
+      "inspection": "contact_sheet_visually_reviewed"
+    },
+    {
+      "file": "work/faefever_official/frames/sec_007.png",
+      "sample_label_seconds": 6,
+      "sample_interval_seconds": 1,
+      "sha256": "93f10ac6ad21d32dca9e072578b0199bda152538a80d3a232b5b1f528d97df8f",
+      "inspection": "contact_sheet_visually_reviewed"
+    },
+    {
+      "file": "work/faefever_official/frames/sec_008.png",
+      "sample_label_seconds": 7,
+      "sample_interval_seconds": 1,
+      "sha256": "1dc894c40a7758c4b7b5c102565d3d70ee25c1e052f1b9564b72c5be752810a8",
+      "inspection": "contact_sheet_visually_reviewed"
+    },
+    {
+      "file": "work/faefever_official/frames/sec_009.png",
+      "sample_label_seconds": 8,
+      "sample_interval_seconds": 1,
+      "sha256": "7ef91842e7c72ac3a90d58d059e98f682452cb3482c748bab2f049825dc0c95d",
+      "inspection": "contact_sheet_visually_reviewed"
+    },
+    {
+      "file": "work/faefever_official/frames/sec_010.png",
+      "sample_label_seconds": 9,
+      "sample_interval_seconds": 1,
+      "sha256": "822c81eabefeb644f826699d27637ae40f472bc77a20e3b17bd8376fe6b30823",
+      "inspection": "contact_sheet_visually_reviewed"
+    },
+    {
+      "file": "work/faefever_official/frames/sec_011.png",
+      "sample_label_seconds": 10,
+      "sample_interval_seconds": 1,
+      "sha256": "c13765766102fb12deaede5071fc66881e542c0f8352620e2b42ff948ad34b21",
+      "inspection": "contact_sheet_visually_reviewed"
+    },
+    {
+      "file": "work/faefever_official/frames/sec_012.png",
+      "sample_label_seconds": 11,
+      "sample_interval_seconds": 1,
+      "sha256": "4c9b78e1307f9a51d7eae0d3347c4d533da767ee2f02cfd4a8f335e8af722f17",
+      "inspection": "contact_sheet_visually_reviewed"
+    },
+    {
+      "file": "work/faefever_official/frames/sec_013.png",
+      "sample_label_seconds": 12,
+      "sample_interval_seconds": 1,
+      "sha256": "8e2121df71c83c50111944bd6d0e0c8306d6e89cf7045f456ef7465322681f0d",
+      "inspection": "contact_sheet_visually_reviewed"
+    },
+    {
+      "file": "work/faefever_official/frames/sec_014.png",
+      "sample_label_seconds": 13,
+      "sample_interval_seconds": 1,
+      "sha256": "28258e457c3d45b2b3822a2386fe84175c89c0824a2dbc187905463603b7944f",
+      "inspection": "contact_sheet_visually_reviewed"
+    },
+    {
+      "file": "work/faefever_official/frames/sec_015.png",
+      "sample_label_seconds": 14,
+      "sample_interval_seconds": 1,
+      "sha256": "99e960a71cc3fce8a9d1a324a7f95c334e7da71594d0378b6bd5d8b53c8cb07a",
+      "inspection": "contact_sheet_visually_reviewed"
+    },
+    {
+      "file": "work/faefever_official/frames/sec_016.png",
+      "sample_label_seconds": 15,
+      "sample_interval_seconds": 1,
+      "sha256": "4c9b78e1307f9a51d7eae0d3347c4d533da767ee2f02cfd4a8f335e8af722f17",
+      "inspection": "contact_sheet_visually_reviewed"
+    },
+    {
+      "file": "work/faefever_official/frames/sec_017.png",
+      "sample_label_seconds": 16,
+      "sample_interval_seconds": 1,
+      "sha256": "a5ca6a5c397a101f93009821996e0474519dab713fe35e480ca05e3c4e6e2983",
+      "inspection": "contact_sheet_visually_reviewed"
+    },
+    {
+      "file": "work/faefever_official/frames/sec_018.png",
+      "sample_label_seconds": 17,
+      "sample_interval_seconds": 1,
+      "sha256": "72384115943a8ac402fcb2bb043be296ccfc643528a16c3280778387c6fac91b",
+      "inspection": "contact_sheet_visually_reviewed"
+    },
+    {
+      "file": "work/faefever_official/frames/sec_019.png",
+      "sample_label_seconds": 18,
+      "sample_interval_seconds": 1,
+      "sha256": "4c9b78e1307f9a51d7eae0d3347c4d533da767ee2f02cfd4a8f335e8af722f17",
+      "inspection": "contact_sheet_visually_reviewed"
+    },
+    {
+      "file": "work/faefever_official/frames/sec_020.png",
+      "sample_label_seconds": 19,
+      "sample_interval_seconds": 1,
+      "sha256": "4c9b78e1307f9a51d7eae0d3347c4d533da767ee2f02cfd4a8f335e8af722f17",
+      "inspection": "contact_sheet_visually_reviewed"
+    },
+    {
+      "file": "work/faefever_official/frames/sec_021.png",
+      "sample_label_seconds": 20,
+      "sample_interval_seconds": 1,
+      "sha256": "20af9903ffff514fb08b581b7a3db4171b5d563960e6e444c797e32ff24dbb46",
+      "inspection": "contact_sheet_visually_reviewed"
+    },
+    {
+      "file": "work/faefever_official/frames/sec_022.png",
+      "sample_label_seconds": 21,
+      "sample_interval_seconds": 1,
+      "sha256": "a0d92a9c577db127ab8f730dcf62bc54fcdcc1afc7e7ac960aaf41d0c488bb29",
+      "inspection": "contact_sheet_visually_reviewed"
+    },
+    {
+      "file": "work/faefever_official/frames/sec_023.png",
+      "sample_label_seconds": 22,
+      "sample_interval_seconds": 1,
+      "sha256": "7ac078495a3b45d7fa3a79d379eb748c51e1351ba1e063f6927679e10100ecf9",
+      "inspection": "contact_sheet_visually_reviewed"
+    },
+    {
+      "file": "work/faefever_official/frames/sec_024.png",
+      "sample_label_seconds": 23,
+      "sample_interval_seconds": 1,
+      "sha256": "62f6f46b69c6cff992fa755dd0db75c721c111b110cae85a646efeab4a187f7f",
+      "inspection": "contact_sheet_visually_reviewed"
+    },
+    {
+      "file": "work/faefever_official/frames/sec_025.png",
+      "sample_label_seconds": 24,
+      "sample_interval_seconds": 1,
+      "sha256": "4fca8daaedf1c91cc18c537b0e5347671aa0e7737f757eb0dbf1736ae03e8178",
+      "inspection": "contact_sheet_visually_reviewed"
+    },
+    {
+      "file": "work/faefever_official/frames/sec_026.png",
+      "sample_label_seconds": 25,
+      "sample_interval_seconds": 1,
+      "sha256": "769a5f705c4a82eed046112aaddf1c18b9aa0cc18aeabc9c57fc30d509f93518",
+      "inspection": "contact_sheet_visually_reviewed"
+    },
+    {
+      "file": "work/faefever_official/frames/sec_027.png",
+      "sample_label_seconds": 26,
+      "sample_interval_seconds": 1,
+      "sha256": "7ed4a23ff38c56ca9eae8337d9975dfebb8cb23f86ad7530bac10a2e3c55d695",
+      "inspection": "contact_sheet_visually_reviewed"
+    },
+    {
+      "file": "work/faefever_official/frames/sec_028.png",
+      "sample_label_seconds": 27,
+      "sample_interval_seconds": 1,
+      "sha256": "546839e5906e2c641429ce3ed06daaf42cb9f5e014e23395179167c03df3e583",
+      "inspection": "contact_sheet_visually_reviewed"
+    },
+    {
+      "file": "work/faefever_official/frames/sec_029.png",
+      "sample_label_seconds": 28,
+      "sample_interval_seconds": 1,
+      "sha256": "96bc43e3913b3ea672793a6c9ecb2fb148ec4c1dbd6c836acf51a512356d60e9",
+      "inspection": "contact_sheet_visually_reviewed"
+    },
+    {
+      "file": "work/faefever_official/frames/sec_030.png",
+      "sample_label_seconds": 29,
+      "sample_interval_seconds": 1,
+      "sha256": "4d05bd61ee3a2da1bddc50604224369bd0cbcedcb863c223b89804fa048335aa",
+      "inspection": "contact_sheet_visually_reviewed"
+    },
+    {
+      "file": "work/faefever_official/frames/sec_031.png",
+      "sample_label_seconds": 30,
+      "sample_interval_seconds": 1,
+      "sha256": "f998cacd9adf23a2ea25c1d1cb64b0da328626279e8b77b752cdea02a47dfc4b",
+      "inspection": "contact_sheet_visually_reviewed"
+    },
+    {
+      "file": "work/faefever_official/frames/sec_032.png",
+      "sample_label_seconds": 31,
+      "sample_interval_seconds": 1,
+      "sha256": "ad7e3e56fac0631073aa915212eddb0f3ae282b5342344cc5c3137bdee0c50b2",
+      "inspection": "contact_sheet_visually_reviewed"
+    },
+    {
+      "file": "work/faefever_official/frames/sec_033.png",
+      "sample_label_seconds": 32,
+      "sample_interval_seconds": 1,
+      "sha256": "d6810dd0f338620c66ec9a2fb981c2b1662d9c3046a9d54d66cc7ea9d781d78b",
+      "inspection": "contact_sheet_visually_reviewed"
+    },
+    {
+      "file": "work/faefever_official/frames/sec_034.png",
+      "sample_label_seconds": 33,
+      "sample_interval_seconds": 1,
+      "sha256": "2f39073040baa27c738081e7f2523ee6d6224897948b24a9cf72489348edb3fd",
+      "inspection": "contact_sheet_visually_reviewed"
+    },
+    {
+      "file": "work/faefever_official/frames/sec_035.png",
+      "sample_label_seconds": 34,
+      "sample_interval_seconds": 1,
+      "sha256": "d84a037bd75c43373a7fbb63fd50acac7304a8083e66a0ba6e79a918c0cd6c21",
+      "inspection": "contact_sheet_visually_reviewed"
+    },
+    {
+      "file": "work/faefever_official/frames/sec_036.png",
+      "sample_label_seconds": 35,
+      "sample_interval_seconds": 1,
+      "sha256": "e0a50f736366db3e6b66a5cce03a70dd383a9c79d21eb88515d84099e1183c57",
+      "inspection": "contact_sheet_visually_reviewed"
+    },
+    {
+      "file": "work/faefever_official/frames/sec_037.png",
+      "sample_label_seconds": 36,
+      "sample_interval_seconds": 1,
+      "sha256": "86fef0407ced664697ab1faa02b2604128b55df63d7b671b72120871cf865bde",
+      "inspection": "contact_sheet_visually_reviewed"
+    },
+    {
+      "file": "work/faefever_official/frames/sec_038.png",
+      "sample_label_seconds": 37,
+      "sample_interval_seconds": 1,
+      "sha256": "476dc345553feb0d08c26b8eff212cd4317499ce05d6e6d388e21e591b79ee2a",
+      "inspection": "contact_sheet_visually_reviewed"
+    },
+    {
+      "file": "work/faefever_official/frames/sec_039.png",
+      "sample_label_seconds": 38,
+      "sample_interval_seconds": 1,
+      "sha256": "5d44fabebe475ae176012a0b5755046f13dfb06150a39ee6214cbaa394806a1c",
+      "inspection": "contact_sheet_visually_reviewed"
+    },
+    {
+      "file": "work/faefever_official/frames/sec_040.png",
+      "sample_label_seconds": 39,
+      "sample_interval_seconds": 1,
+      "sha256": "4f20f993e9a4247349802d958d4e77c75f6500a1c6acad33af6f951852a01168",
+      "inspection": "contact_sheet_visually_reviewed"
+    },
+    {
+      "file": "work/faefever_official/frames/sec_041.png",
+      "sample_label_seconds": 40,
+      "sample_interval_seconds": 1,
+      "sha256": "5f254bb17682f799ded5981fa48f5cbef7e30ad84202e9e5fb4f1b78981c65dc",
+      "inspection": "contact_sheet_visually_reviewed"
+    },
+    {
+      "file": "work/faefever_official/frames/sec_042.png",
+      "sample_label_seconds": 41,
+      "sample_interval_seconds": 1,
+      "sha256": "442e8cdd711b0ee483c7aaf486eb0ad45f1c1f43bbac689984b1d5e827eae793",
+      "inspection": "contact_sheet_visually_reviewed"
+    },
+    {
+      "file": "work/faefever_official/frames/sec_043.png",
+      "sample_label_seconds": 42,
+      "sample_interval_seconds": 1,
+      "sha256": "fbf31fb4a8c3d994d9a07079e62d973efc5b734e855840a7f0043613e8a47bb2",
+      "inspection": "contact_sheet_visually_reviewed"
+    },
+    {
+      "file": "work/faefever_official/frames/sec_044.png",
+      "sample_label_seconds": 43,
+      "sample_interval_seconds": 1,
+      "sha256": "bbbc8b1f3fbcb8ab983719b449d56382ece43d8eb4c88d40a3f7d12f0b14ee4d",
+      "inspection": "contact_sheet_visually_reviewed"
+    },
+    {
+      "file": "work/faefever_official/frames/sec_045.png",
+      "sample_label_seconds": 44,
+      "sample_interval_seconds": 1,
+      "sha256": "8e557db8735798471d2015d28d6201ff0612107db2f4e50099cd1ab44175f4c4",
+      "inspection": "contact_sheet_visually_reviewed"
+    },
+    {
+      "file": "work/faefever_official/frames/sec_046.png",
+      "sample_label_seconds": 45,
+      "sample_interval_seconds": 1,
+      "sha256": "6a2ca40f5fe7e043e4cfb49cc6d43fe6d1a906ab343b3c9d07505005e89d1943",
+      "inspection": "contact_sheet_visually_reviewed"
+    },
+    {
+      "file": "work/faefever_official/frames/sec_047.png",
+      "sample_label_seconds": 46,
+      "sample_interval_seconds": 1,
+      "sha256": "3f60bff21c5b5079d7619c0941568079dbac6ac33efa9194507448d9a3f81d6e",
+      "inspection": "contact_sheet_visually_reviewed"
+    },
+    {
+      "file": "work/faefever_official/frames/sec_048.png",
+      "sample_label_seconds": 47,
+      "sample_interval_seconds": 1,
+      "sha256": "62a5ae6534d62450529d30df59357fc3a705451e809e67ab8b25adc96c87b1bd",
+      "inspection": "contact_sheet_visually_reviewed"
+    },
+    {
+      "file": "work/faefever_official/frames/sec_049.png",
+      "sample_label_seconds": 48,
+      "sample_interval_seconds": 1,
+      "sha256": "65e23e9dd2ba33a6d84fbf40efeb2f00c0999e2a7ecf5de5064f0f3dae5c421c",
+      "inspection": "contact_sheet_visually_reviewed"
+    },
+    {
+      "file": "work/faefever_official/frames/sec_050.png",
+      "sample_label_seconds": 49,
+      "sample_interval_seconds": 1,
+      "sha256": "3f678fedb0ab0358594d547754d06db10b838fc81e9a9e54dc6c0f3a45de9d53",
+      "inspection": "contact_sheet_visually_reviewed"
+    },
+    {
+      "file": "work/faefever_official/frames/sec_051.png",
+      "sample_label_seconds": 50,
+      "sample_interval_seconds": 1,
+      "sha256": "3ea46d376fb386a5ab5aa6d07d88ebfe547e90b9f70d32ebf8e378a7665fa521",
+      "inspection": "contact_sheet_visually_reviewed"
+    },
+    {
+      "file": "work/faefever_official/frames/sec_052.png",
+      "sample_label_seconds": 51,
+      "sample_interval_seconds": 1,
+      "sha256": "3520dfe13fe3738faf8661865820e74012e9de438ff1e65a8332e30f935b61d7",
+      "inspection": "contact_sheet_visually_reviewed"
+    },
+    {
+      "file": "work/faefever_official/frames/sec_053.png",
+      "sample_label_seconds": 52,
+      "sample_interval_seconds": 1,
+      "sha256": "f4880e9af2ddf5c17440d13067875ada3fb2eb71d6d9876d1946556b3c1111d5",
+      "inspection": "contact_sheet_visually_reviewed"
+    },
+    {
+      "file": "work/faefever_official/frames/sec_054.png",
+      "sample_label_seconds": 53,
+      "sample_interval_seconds": 1,
+      "sha256": "7ed733e4dcdfdbf9a296d9398daf2698e76477c15a3254529f49ffa2f03d4852",
+      "inspection": "contact_sheet_visually_reviewed"
+    },
+    {
+      "file": "work/faefever_official/frames/sec_055.png",
+      "sample_label_seconds": 54,
+      "sample_interval_seconds": 1,
+      "sha256": "d1ae50faf22644ed09ef2ad67e3de19b0497518a0c43ba83321d8fc69c155364",
+      "inspection": "contact_sheet_visually_reviewed"
+    },
+    {
+      "file": "work/faefever_official/frames/sec_056.png",
+      "sample_label_seconds": 55,
+      "sample_interval_seconds": 1,
+      "sha256": "fd94d9659a6f44560c9fae2f1954d5bd134ca57b66fa74e5bd2c65665694f429",
+      "inspection": "contact_sheet_visually_reviewed"
+    },
+    {
+      "file": "work/faefever_official/frames/sec_057.png",
+      "sample_label_seconds": 56,
+      "sample_interval_seconds": 1,
+      "sha256": "05916457ad21dfa610911331b6d10abf2b745ab7586fe4851cc863362a792f30",
+      "inspection": "contact_sheet_visually_reviewed"
+    },
+    {
+      "file": "work/faefever_official/frames/sec_058.png",
+      "sample_label_seconds": 57,
+      "sample_interval_seconds": 1,
+      "sha256": "08f716744309f377234f2b5f4ef5683fb99f5ce7aa8c8e421af2ce44dacea8b9",
+      "inspection": "contact_sheet_visually_reviewed"
+    },
+    {
+      "file": "work/faefever_official/frames/sec_059.png",
+      "sample_label_seconds": 58,
+      "sample_interval_seconds": 1,
+      "sha256": "79f10f9b02c1cdf9ef6ec4d23a2420817091f621fb35d3f0af3378bec7378225",
+      "inspection": "contact_sheet_visually_reviewed"
+    },
+    {
+      "file": "work/faefever_official/frames/sec_060.png",
+      "sample_label_seconds": 59,
+      "sample_interval_seconds": 1,
+      "sha256": "d523f1c8f0be50d66309f0f0448776605493e6781305e5b9a31bea324e704cab",
+      "inspection": "contact_sheet_visually_reviewed"
+    },
+    {
+      "file": "work/faefever_official/frames/sec_061.png",
+      "sample_label_seconds": 60,
+      "sample_interval_seconds": 1,
+      "sha256": "3f9bafab2cf21b7cc765bf4f9815916caea10fe38807268d57511802a6dde97f",
+      "inspection": "contact_sheet_visually_reviewed"
+    },
+    {
+      "file": "work/faefever_official/frames/sec_062.png",
+      "sample_label_seconds": 61,
+      "sample_interval_seconds": 1,
+      "sha256": "4c9b78e1307f9a51d7eae0d3347c4d533da767ee2f02cfd4a8f335e8af722f17",
+      "inspection": "contact_sheet_visually_reviewed"
+    },
+    {
+      "file": "work/faefever_official/frames/sec_063.png",
+      "sample_label_seconds": 62,
+      "sample_interval_seconds": 1,
+      "sha256": "60549a1c0a8d2bcad98fabf7a30c4a9ccebdac47514b67b2a0457d706e45222f",
+      "inspection": "contact_sheet_visually_reviewed"
+    },
+    {
+      "file": "work/faefever_official/frames/sec_064.png",
+      "sample_label_seconds": 63,
+      "sample_interval_seconds": 1,
+      "sha256": "f4b715fdabdf7305c3e7a2ac6d2964bba65389255859156f235d7803cda4638a",
+      "inspection": "contact_sheet_visually_reviewed"
+    },
+    {
+      "file": "work/faefever_official/frames/sec_065.png",
+      "sample_label_seconds": 64,
+      "sample_interval_seconds": 1,
+      "sha256": "281b145f64387b697a170d0e5c2903809a206347ae2f5593bfe77a2672736139",
+      "inspection": "contact_sheet_visually_reviewed"
+    },
+    {
+      "file": "work/faefever_official/frames/sec_066.png",
+      "sample_label_seconds": 65,
+      "sample_interval_seconds": 1,
+      "sha256": "abb5a3b19cb596eb03a286e4809226eaf1c4e60efbf3785044004c06a9988cfa",
+      "inspection": "contact_sheet_visually_reviewed"
+    },
+    {
+      "file": "work/faefever_official/dialogue/frame_001.png",
+      "sample_label_seconds": 27.0,
+      "sample_interval_seconds": 0.5,
+      "sha256": "87117bd2d8cb527a9ec99d9ff30de235f729d53a8bec72aed514ec164ae2abe2",
+      "inspection": "contact_sheet_visually_reviewed"
+    },
+    {
+      "file": "work/faefever_official/dialogue/frame_002.png",
+      "sample_label_seconds": 27.5,
+      "sample_interval_seconds": 0.5,
+      "sha256": "5de8f519fcf27172255016070d2ee46b033ef8d46a9f372d8460ace64d67a6cd",
+      "inspection": "contact_sheet_visually_reviewed"
+    },
+    {
+      "file": "work/faefever_official/dialogue/frame_003.png",
+      "sample_label_seconds": 28.0,
+      "sample_interval_seconds": 0.5,
+      "sha256": "f4d7db12fed1b2e2a610f911e3ed20bb760784d4193dfd9eb41e447cdaf72e4e",
+      "inspection": "contact_sheet_visually_reviewed"
+    },
+    {
+      "file": "work/faefever_official/dialogue/frame_004.png",
+      "sample_label_seconds": 28.5,
+      "sample_interval_seconds": 0.5,
+      "sha256": "3cad71cb11ba8fc6f0ccd8013372729a3581104a92fe97ed8e58486c456aa108",
+      "inspection": "contact_sheet_visually_reviewed"
+    },
+    {
+      "file": "work/faefever_official/dialogue/frame_005.png",
+      "sample_label_seconds": 29.0,
+      "sample_interval_seconds": 0.5,
+      "sha256": "c47935773a4e4e6b7ac5ff11d0ca69b69fd475bef4d6f49d839ed28d2cb9be07",
+      "inspection": "contact_sheet_visually_reviewed"
+    },
+    {
+      "file": "work/faefever_official/dialogue/frame_006.png",
+      "sample_label_seconds": 29.5,
+      "sample_interval_seconds": 0.5,
+      "sha256": "bbcc85e322782f2c30d8d2a94988d90ce0100d436cad8b9e2266d1089a6e7aa3",
+      "inspection": "contact_sheet_visually_reviewed"
+    },
+    {
+      "file": "work/faefever_official/dialogue/frame_007.png",
+      "sample_label_seconds": 30.0,
+      "sample_interval_seconds": 0.5,
+      "sha256": "a6f20fac6dae7c8c98ad8eedfadb9c570a48825dc415daa5ab1b67a4aef77df3",
+      "inspection": "contact_sheet_visually_reviewed"
+    },
+    {
+      "file": "work/faefever_official/dialogue/frame_008.png",
+      "sample_label_seconds": 30.5,
+      "sample_interval_seconds": 0.5,
+      "sha256": "cb8f02bcc77fd73ee48c5f3475ca0de98d269ae4f122e19d5076a18422c1226a",
+      "inspection": "contact_sheet_visually_reviewed"
+    },
+    {
+      "file": "work/faefever_official/dialogue/frame_009.png",
+      "sample_label_seconds": 31.0,
+      "sample_interval_seconds": 0.5,
+      "sha256": "353864c4c0d42cc72a1c7204a37e70b8ca7f6b0ee16c597ba51b8815e5b4a853",
+      "inspection": "contact_sheet_visually_reviewed"
+    },
+    {
+      "file": "work/faefever_official/dialogue/frame_010.png",
+      "sample_label_seconds": 31.5,
+      "sample_interval_seconds": 0.5,
+      "sha256": "18764321f825933addc7d4edb10342862d6436604e723f95d5e004e2ab6eb891",
+      "inspection": "contact_sheet_visually_reviewed"
+    },
+    {
+      "file": "work/faefever_official/dialogue/frame_011.png",
+      "sample_label_seconds": 32.0,
+      "sample_interval_seconds": 0.5,
+      "sha256": "4c7902abdda118c41e790d61e2633cc573e292a51eff206c19b42891f058d0dc",
+      "inspection": "contact_sheet_visually_reviewed"
+    },
+    {
+      "file": "work/faefever_official/dialogue/frame_012.png",
+      "sample_label_seconds": 32.5,
+      "sample_interval_seconds": 0.5,
+      "sha256": "dde402ab077d074fcf739c21f9852b10cf457574f0277855f7c7ddb4ce6d051b",
+      "inspection": "contact_sheet_visually_reviewed"
+    },
+    {
+      "file": "work/faefever_official/tools/frame_001.png",
+      "sample_label_seconds": 36.0,
+      "sample_interval_seconds": 0.5,
+      "sha256": "a714277a1d2dfd390d01276526fcbf814bba70f88c0f7dc0f2a95d3accb74b65",
+      "inspection": "contact_sheet_visually_reviewed"
+    },
+    {
+      "file": "work/faefever_official/tools/frame_002.png",
+      "sample_label_seconds": 36.5,
+      "sample_interval_seconds": 0.5,
+      "sha256": "e8490b8ed7eb8fcad6e93469d25261f52834171d4c05e6561bca63a2163811c2",
+      "inspection": "contact_sheet_visually_reviewed"
+    },
+    {
+      "file": "work/faefever_official/tools/frame_003.png",
+      "sample_label_seconds": 37.0,
+      "sample_interval_seconds": 0.5,
+      "sha256": "4df4496782902b4931db3283bf1bd32a93354899e9f140b889f80c90651fe176",
+      "inspection": "contact_sheet_visually_reviewed"
+    },
+    {
+      "file": "work/faefever_official/tools/frame_004.png",
+      "sample_label_seconds": 37.5,
+      "sample_interval_seconds": 0.5,
+      "sha256": "9850847bbcc44d21d26846d4b79aa52bfdbf0c67fea751006626e093365b991c",
+      "inspection": "contact_sheet_visually_reviewed"
+    },
+    {
+      "file": "work/faefever_official/tools/frame_005.png",
+      "sample_label_seconds": 38.0,
+      "sample_interval_seconds": 0.5,
+      "sha256": "8370fec64bda779dfe249014a501babee8a96828d464abcf99665b5d481cd0ae",
+      "inspection": "contact_sheet_visually_reviewed"
+    },
+    {
+      "file": "work/faefever_official/tools/frame_006.png",
+      "sample_label_seconds": 38.5,
+      "sample_interval_seconds": 0.5,
+      "sha256": "390147b7f334348d0cd27def1abd12460379222b500d911bdc40479e321becc0",
+      "inspection": "contact_sheet_visually_reviewed"
+    },
+    {
+      "file": "work/faefever_official/tools/frame_007.png",
+      "sample_label_seconds": 39.0,
+      "sample_interval_seconds": 0.5,
+      "sha256": "ea3f8294040f21ca3dcc4cba162ad81d772385c0103685a21010edaeaf71dc44",
+      "inspection": "contact_sheet_visually_reviewed"
+    },
+    {
+      "file": "work/faefever_official/tools/frame_008.png",
+      "sample_label_seconds": 39.5,
+      "sample_interval_seconds": 0.5,
+      "sha256": "5199e20dce16c6a9775e82fd4d580a027590dc9718528bedb4a7f9a56417ff8b",
+      "inspection": "contact_sheet_visually_reviewed"
+    },
+    {
+      "file": "work/faefever_official/book_photo/frame_001.png",
+      "sample_label_seconds": 44.0,
+      "sample_interval_seconds": 0.5,
+      "sha256": "c250451a2317941cb2fee7db5d4460364be5108b609c7fcde275a39af076667b",
+      "inspection": "contact_sheet_visually_reviewed"
+    },
+    {
+      "file": "work/faefever_official/book_photo/frame_002.png",
+      "sample_label_seconds": 44.5,
+      "sample_interval_seconds": 0.5,
+      "sha256": "39d6b9815f0bc1f13b6fd595fddc3ff9853400d8dd77fd43d0f4751138147763",
+      "inspection": "contact_sheet_visually_reviewed"
+    },
+    {
+      "file": "work/faefever_official/book_photo/frame_003.png",
+      "sample_label_seconds": 45.0,
+      "sample_interval_seconds": 0.5,
+      "sha256": "d457b948a25769cd4544f9b2a270601a26df800c02a4ac9b2b57c5fb9ab02183",
+      "inspection": "contact_sheet_visually_reviewed"
+    },
+    {
+      "file": "work/faefever_official/book_photo/frame_004.png",
+      "sample_label_seconds": 45.5,
+      "sample_interval_seconds": 0.5,
+      "sha256": "378bcfcda032bed7a7ecd528dff80a30e54fe389cfd9067096b72b35452b59b8",
+      "inspection": "contact_sheet_visually_reviewed"
+    },
+    {
+      "file": "work/faefever_official/book_photo/frame_005.png",
+      "sample_label_seconds": 46.0,
+      "sample_interval_seconds": 0.5,
+      "sha256": "d35f5008102e84b9cf40f3c2d8bd4a5c4beee8c0b786c9a516afe0b4303dcd37",
+      "inspection": "contact_sheet_visually_reviewed"
+    },
+    {
+      "file": "work/faefever_official/book_photo/frame_006.png",
+      "sample_label_seconds": 46.5,
+      "sample_interval_seconds": 0.5,
+      "sha256": "9055af8ef84509b2119e1183c40e9b5bd0cafb5bbcb95aeed626ecd6a2f54ccb",
+      "inspection": "contact_sheet_visually_reviewed"
+    },
+    {
+      "file": "work/faefever_official/book_photo/frame_007.png",
+      "sample_label_seconds": 47.0,
+      "sample_interval_seconds": 0.5,
+      "sha256": "824a5793018c5f387613bc600c0fc3c4d6dd037732d1444f7744a121a7a93184",
+      "inspection": "contact_sheet_visually_reviewed"
+    },
+    {
+      "file": "work/faefever_official/book_photo/frame_008.png",
+      "sample_label_seconds": 47.5,
+      "sample_interval_seconds": 0.5,
+      "sha256": "e6ac709233b58f9bce19d95d66af85de51a4f5713eab02d102ee5d4b957e6687",
+      "inspection": "contact_sheet_visually_reviewed"
+    },
+    {
+      "file": "work/faefever_official/book_photo/frame_009.png",
+      "sample_label_seconds": 48.0,
+      "sample_interval_seconds": 0.5,
+      "sha256": "b85db3ae9f2ec92cfa8ee94fb70ce4ee333480e6e9baf7d55bb68f73bf83f648",
+      "inspection": "contact_sheet_visually_reviewed"
+    },
+    {
+      "file": "work/faefever_official/book_photo/frame_010.png",
+      "sample_label_seconds": 48.5,
+      "sample_interval_seconds": 0.5,
+      "sha256": "6f5f29ace9e55168f3278aeacf4d516bdd67dcdd385d7aa0a98ecd8c1ae212d3",
+      "inspection": "contact_sheet_visually_reviewed"
+    },
+    {
+      "file": "work/faefever_official/book_photo/frame_011.png",
+      "sample_label_seconds": 49.0,
+      "sample_interval_seconds": 0.5,
+      "sha256": "7ed7ea7470174dcf632113fbc28adaa76ccfdff78ba784b7b7be7948c66156de",
+      "inspection": "contact_sheet_visually_reviewed"
+    },
+    {
+      "file": "work/faefever_official/book_photo/frame_012.png",
+      "sample_label_seconds": 49.5,
+      "sample_interval_seconds": 0.5,
+      "sha256": "b985f4e46c9f3d62421c235a1a5300508a9dc43928acc277b6f6913c93206b5c",
+      "inspection": "contact_sheet_visually_reviewed"
+    },
+    {
+      "file": "work/faefever_official/book_photo/frame_013.png",
+      "sample_label_seconds": 50.0,
+      "sample_interval_seconds": 0.5,
+      "sha256": "6bad85e49c6c8db21d331a509ea47c5dac8b7340f2749fbad7afa5f113e32f70",
+      "inspection": "contact_sheet_visually_reviewed"
+    },
+    {
+      "file": "work/faefever_official/book_photo/frame_014.png",
+      "sample_label_seconds": 50.5,
+      "sample_interval_seconds": 0.5,
+      "sha256": "425732385e1148f5a1b97dc7c128b5fd73b30f5bfa901c02c80c05126fd14b4d",
+      "inspection": "contact_sheet_visually_reviewed"
+    },
+    {
+      "file": "work/faefever_official/book_photo/frame_015.png",
+      "sample_label_seconds": 51.0,
+      "sample_interval_seconds": 0.5,
+      "sha256": "b1962fe33c781d6ffb2e164affa3dacc00f6be09ecb03bcde6116d243f4c2866",
+      "inspection": "contact_sheet_visually_reviewed"
+    },
+    {
+      "file": "work/faefever_official/book_photo/frame_016.png",
+      "sample_label_seconds": 51.5,
+      "sample_interval_seconds": 0.5,
+      "sha256": "0b1ffc142a35c5d70d212a12bedab3d47641f2e87aa7cba7a32012db269a30ab",
+      "inspection": "contact_sheet_visually_reviewed"
+    }
+  ]
+}

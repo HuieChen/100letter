@@ -1,0 +1,735 @@
+{
+  "schema_version": 1,
+  "status": "sampled_runtime_visual_review_complete_not_full_art_signoff",
+  "scope": "Current generated art in the formal five-case entry. This records file integrity and the listed real runtime frames; it does not certify every frame, all 62 keys, reference-game parity, or human acceptance.",
+  "manifest_was_modified": false,
+  "manifest_status_policy": "The asset manifest retains its generation-time review statuses. Later observations are recorded here without rewriting asset provenance or its SHA.",
+  "capture_origin_note": "public means this repository checkout; development means the sibling development checkout with matching component source and asset manifest. Intermediate artifact directories are intentionally not published. The six listed copies are included under docs/screenshots/current.",
+  "evidence": {
+    "workbench": {
+      "checks": 184,
+      "failures": 0,
+      "execution": "Actual Input.parse_input_event routed through the Control, physical model and core, isolated save; GPU capture enabled.",
+      "report_at_run": "development/test-results/mail_workbench_input_results.json"
+    },
+    "field_observation": {
+      "checks": 240,
+      "failures": 0,
+      "execution": "Actual InputEvent dispatch, photo front/zoom/flip/caption reads and observation gates, isolated save; GPU capture enabled.",
+      "report_at_run": "development/test-results/field_observation_results.json"
+    },
+    "public_sealed_route": {
+      "checks": 336,
+      "failures": 0,
+      "basis": "Independent QA agent completed the public-tree actual-input five-case route. The title, counter, town and book frames here are copied from that run.",
+      "scope_limit": "Behavioral route assertions are not a visual or audio satisfaction score."
+    },
+    "renderer": "Godot 4.7.2, OpenGL compatibility, NVIDIA RTX 4050 Laptop GPU",
+    "audio_driver": "Dummy; no listening assessment in these runs",
+    "latest_component_stderr": "Only the local environment root-certificate-store warning; prior shared-cache GLES initialization warnings did not recur in sequential isolated APPDATA runs."
+  },
+  "runtime_observations": [
+    {
+      "id": "title",
+      "asset_keys": [
+        "cover"
+      ],
+      "capture": "01_title.png",
+      "observed": "Generated cover and actual title controls render in one frame; readable at the captured 1600x900 viewport.",
+      "limit": "No claim about every window size or all title-menu states."
+    },
+    {
+      "id": "counter",
+      "asset_keys": [
+        "BG_workroom",
+        "mail_box_base",
+        "mail_box_lid",
+        "mail_box_latch",
+        "envelope_front",
+        "handbook_closed",
+        "resolution_slip",
+        "satchel",
+        "town_map"
+      ],
+      "capture": "02_counter.png",
+      "observed": "Independent open lid, box base, latch and removable letter render together. The final public frame has one readable bottom caption; the earlier two-caption overlap is absent.",
+      "limit": "A held-open sample is not a frame-by-frame review of the entire lid animation."
+    },
+    {
+      "id": "magnifier",
+      "asset_keys": [
+        "letter_paper",
+        "magnifier",
+        "drawer_open",
+        "drawer_front",
+        "opener",
+        "sealer"
+      ],
+      "capture": "03_magnifier.png",
+      "observed": "Portrait paper and live localized text are legible. The glass frame stays above enlarged content. Physical tools are in the open drawer.",
+      "limit": "Only the sampled paper and glass position are visually certified here, not every possible overlap."
+    },
+    {
+      "id": "town",
+      "asset_keys": [
+        "BG_residential",
+        "CHAR_courier",
+        "CHAR_elsie"
+      ],
+      "capture": "04_town.png",
+      "observed": "Current character textures and residential background render together with grounded feet in this stationary frame.",
+      "limit": "This still does not establish natural gait, frame-to-frame anatomy, or every NPC/scene occlusion."
+    },
+    {
+      "id": "photo",
+      "asset_keys": [
+        "old_music_photo",
+        "service_paper"
+      ],
+      "capture": "05_photo.png",
+      "observed": "The front is an actual generated group photograph. Separate inspected runtime frames showed wheel zoom and the reverse caption; names are granted as evidence only after explicit caption reads.",
+      "limit": "The small front flip label partially overlaps the cream photo border; the bottom interaction instruction remains readable."
+    },
+    {
+      "id": "field_book",
+      "asset_keys": [
+        "handbook_open"
+      ],
+      "capture": "06_field_book.png",
+      "observed": "The opened double-page physical book, top paper tabs and current learned-fact entries are visible in actual hosted play.",
+      "limit": "This page sample does not certify every populated page, maximum-length text, or every localization."
+    },
+    {
+      "id": "eraser_runtime_edge_review",
+      "asset_keys": [
+        "eraser"
+      ],
+      "source_capture": "development/artifacts/reference_audit/mail_workbench/04b_case02_original_selected_phrase.png",
+      "observed": "Viewed at approximately 100px tool scale in the current workbench. No conspicuous opaque bounding rectangle was visible against the drawer/desk at that size.",
+      "result": "runtime_scale_checked_with_source_alpha_caveat",
+      "manifest_review_status": "runtime_edge_review_required",
+      "limit": "The generator's faint native alpha halo is not declared absent. This is not a native-resolution or all-background edge approval."
+    },
+    {
+      "id": "amendment_paper",
+      "asset_keys": [
+        "letter_paper",
+        "replacement_strip",
+        "eraser"
+      ],
+      "source_capture": "development/artifacts/reference_audit/mail_workbench/06_case02_replacement.png",
+      "observed": "The selected sentence fits the paper; replacement text fits the single strip. Erased segments no longer repeat full strip borders.",
+      "limit": "Limited authored sentence options were checked; arbitrary free-text layout is not supported or certified."
+    },
+    {
+      "id": "wall_observation",
+      "asset_keys": [
+        "wall_closeup",
+        "wall_plate_old",
+        "wall_plate_new"
+      ],
+      "source_capture": "development/test-results/field_observation/ceramic_after.png",
+      "observed": "Separate old and new plaques render on the generated bare wall; moving the top plaque exposes the old number without a duplicated baked plaque.",
+      "limit": "This is one focused observation composition, not a review of all seven background illustrations."
+    }
+  ],
+  "remaining_boundaries": [
+    "No claim that every generated asset or all animation frames were individually reviewed in this document.",
+    "No complete reference-game walkthrough, frame-for-frame visual match, or tactile-equivalence pass is claimed.",
+    "No human playtest cohort, 100-person satisfaction result, or audio listening result is implied by automated assertions.",
+    "No claim about final exported Windows native acceptance, every hardware configuration, or GitHub publication status is made here.",
+    "All selected screenshots are runtime frames of this game, not third-party reference screenshots, user original artwork, or hand-composited promotional mockups."
+  ],
+  "reviewed_at": "2026-10-02T07:11:54.5594247+08:00",
+  "manifest_integrity": {
+    "path": "assets/faefever_v2/manifest.json",
+    "sha256": "5712edfa0359e0c31417bd54bf4be9048ba2704871b2d5e14f89b57dcb7f5371",
+    "resource_keys": 62,
+    "unique_png_paths": 48,
+    "actual_png_files": 48,
+    "missing_files": 0,
+    "sha_mismatches": 0,
+    "status": "passed_file_integrity_not_visual_acceptance"
+  },
+  "source_sha256": {
+    "scripts/rebuild/field_observation.gd": "d78233ab336358283aafbe429f49077999bdb0b7bfe4d55800b6fcb34bda1ca5",
+    "scripts/rebuild/mail_workbench.gd": "66c93a1ab3777faf158a282c8d63565537d056ac9f5b3a17d60d219174246a6d",
+    "scripts/rebuild/final_playable.gd": "8fddd4f4e005c6c05f7ae647a5f219bc005dd0785123ada09b2634ebd84666f2",
+    "scripts/rebuild/field_book.gd": "a777246e8274c9cf81515923d2723869cc3c5eb81208ca4f8f0892fc17102090",
+    "scripts/rebuild/postal_desk.gd": "2ed8c34941934cc6d44fab80c7a3f27bf34afdb7495c38a53365822a62d27543",
+    "scripts/rebuild/resolution_slip.gd": "0511df621d66a81edb15cccc9d5317e311c02546bcd94b2042d11f92c1a564ab",
+    "scripts/rebuild/physical_art.gd": "67bd9e9768dd348efc2da217186e9ff5b04a3afe3a4fff70c4311a7d64629215"
+  },
+  "included_screenshots": [
+    {
+      "id": "title",
+      "path": "docs/screenshots/current/01_title.png",
+      "source_capture": "public/artifacts/final_five_case/sealed/01_title.png",
+      "sha256": "07e3ca77364a75657e98645cffc70aaf3fab2e7578eb10b3720f96f947a1f831",
+      "dimensions": [
+        1600,
+        900
+      ],
+      "visual_reviewed": true,
+      "postprocess": "None: original Godot viewport PNG copied byte-for-byte."
+    },
+    {
+      "id": "counter",
+      "path": "docs/screenshots/current/02_counter.png",
+      "source_capture": "public/artifacts/final_five_case/sealed/02_counter_first_mail.png",
+      "sha256": "02f514d38b7d0b4e0c2a75fcfb9074024010c4a5a992fbc17f5dffad1fb62de9",
+      "dimensions": [
+        1600,
+        900
+      ],
+      "visual_reviewed": true,
+      "postprocess": "None: original Godot viewport PNG copied byte-for-byte."
+    },
+    {
+      "id": "magnifier",
+      "path": "docs/screenshots/current/03_magnifier.png",
+      "source_capture": "development/artifacts/reference_audit/mail_workbench/03a_actual_body_magnification.png",
+      "sha256": "f7b7a9242d5ca32e7be4437da5a050198f80d4eccd8e6eff99087d44b9a9f7fb",
+      "dimensions": [
+        1600,
+        900
+      ],
+      "visual_reviewed": true,
+      "postprocess": "None: original Godot viewport PNG copied byte-for-byte."
+    },
+    {
+      "id": "town",
+      "path": "docs/screenshots/current/04_town.png",
+      "source_capture": "public/artifacts/final_five_case/sealed/world_residential.png",
+      "sha256": "09209ff5af437d9fa9cda33948cc4b45ea5db94480f1c28af8d77b32a598129e",
+      "dimensions": [
+        1600,
+        900
+      ],
+      "visual_reviewed": true,
+      "postprocess": "None: original Godot viewport PNG copied byte-for-byte."
+    },
+    {
+      "id": "photo",
+      "path": "docs/screenshots/current/05_photo.png",
+      "source_capture": "development/test-results/field_observation/music_photo_front.png",
+      "sha256": "296ffb9a550ef947eed2058ecfc9e92d1e26b831d6f68c8f52f2145e76a7a28b",
+      "dimensions": [
+        1600,
+        900
+      ],
+      "visual_reviewed": true,
+      "postprocess": "None: original Godot viewport PNG copied byte-for-byte."
+    },
+    {
+      "id": "field_book",
+      "path": "docs/screenshots/current/06_field_book.png",
+      "source_capture": "public/artifacts/final_five_case/sealed/07_field_archive.png",
+      "sha256": "ae9e984825914900bd3a4ff0bbe9edeca2644c7ec3ad7a6ef4de12a289282e61",
+      "dimensions": [
+        1600,
+        900
+      ],
+      "visual_reviewed": true,
+      "postprocess": "None: original Godot viewport PNG copied byte-for-byte."
+    }
+  ],
+  "resource_integrity_records": [
+    {
+      "key": "mail_box_base",
+      "path": "assets/faefever_v2/props/mail_box_base.png",
+      "declared_sha256": "9b10052b5d4702591c0c99006859efc1b2f1fc391539cf659246888dfef66d1d",
+      "actual_sha256": "9b10052b5d4702591c0c99006859efc1b2f1fc391539cf659246888dfef66d1d",
+      "matches_declared": true,
+      "manifest_review_status_preserved": "inspected_individual_asset_pending_runtime"
+    },
+    {
+      "key": "letter_paper",
+      "path": "assets/faefever_v2/props/letter_paper.png",
+      "declared_sha256": "91500aa2ab2dfa766eaec4bbfd7533ca562d50afde96aab154cc9d2544f9a6b7",
+      "actual_sha256": "91500aa2ab2dfa766eaec4bbfd7533ca562d50afde96aab154cc9d2544f9a6b7",
+      "matches_declared": true,
+      "manifest_review_status_preserved": "inspected_individual_asset_pending_runtime"
+    },
+    {
+      "key": "handbook_open",
+      "path": "assets/faefever_v2/props/handbook_open.png",
+      "declared_sha256": "2ae462630fd50d1ad121c46c620ec6a0ca3b817b4a368955b1a3c8dfe51a450c",
+      "actual_sha256": "2ae462630fd50d1ad121c46c620ec6a0ca3b817b4a368955b1a3c8dfe51a450c",
+      "matches_declared": true,
+      "manifest_review_status_preserved": "inspected_individual_asset_pending_runtime"
+    },
+    {
+      "key": "mail_box_lid",
+      "path": "assets/faefever_v2/props/mail_box_lid.png",
+      "declared_sha256": "954ec8c320819ae9415e8b0c9fe7fc706b6f979d3fa40dfbf2d03eda07ac7525",
+      "actual_sha256": "954ec8c320819ae9415e8b0c9fe7fc706b6f979d3fa40dfbf2d03eda07ac7525",
+      "matches_declared": true,
+      "manifest_review_status_preserved": "inspected_individual_asset_pending_runtime"
+    },
+    {
+      "key": "envelope_front",
+      "path": "assets/faefever_v2/props/envelope_front.png",
+      "declared_sha256": "321aa5cb9f108f9686d9b06a4658ad571fa26a279d47d16fb06ebb52c37b9178",
+      "actual_sha256": "321aa5cb9f108f9686d9b06a4658ad571fa26a279d47d16fb06ebb52c37b9178",
+      "matches_declared": true,
+      "manifest_review_status_preserved": "inspected_individual_asset_pending_runtime"
+    },
+    {
+      "key": "envelope_back",
+      "path": "assets/faefever_v2/props/envelope_back.png",
+      "declared_sha256": "f617aab27438330711320804bbc3f558a09e603ef59450bf240ffa6450097f4e",
+      "actual_sha256": "f617aab27438330711320804bbc3f558a09e603ef59450bf240ffa6450097f4e",
+      "matches_declared": true,
+      "manifest_review_status_preserved": "inspected_individual_asset_pending_runtime"
+    },
+    {
+      "key": "magnifier",
+      "path": "assets/faefever_v2/props/magnifier.png",
+      "declared_sha256": "599468f934068167d01c7b1bf9913c1d1946569c0a231fdde6351b464cae148d",
+      "actual_sha256": "599468f934068167d01c7b1bf9913c1d1946569c0a231fdde6351b464cae148d",
+      "matches_declared": true,
+      "manifest_review_status_preserved": "inspected_individual_asset_pending_runtime"
+    },
+    {
+      "key": "postal_seal",
+      "path": "assets/faefever_v2/props/postal_seal.png",
+      "declared_sha256": "239700b92605e1e275c12b5ccc2bec647db39faec01ddf64f6e9004457eed132",
+      "actual_sha256": "239700b92605e1e275c12b5ccc2bec647db39faec01ddf64f6e9004457eed132",
+      "matches_declared": true,
+      "manifest_review_status_preserved": "inspected_individual_asset_pending_runtime"
+    },
+    {
+      "key": "drawer_open",
+      "path": "assets/faefever_v2/props/drawer_open.png",
+      "declared_sha256": "c2f1316e22e1c84855beb0cc96a9e02a7d3574041284bebbcb9dd3807f35d74e",
+      "actual_sha256": "c2f1316e22e1c84855beb0cc96a9e02a7d3574041284bebbcb9dd3807f35d74e",
+      "matches_declared": true,
+      "manifest_review_status_preserved": "inspected_individual_asset_pending_runtime"
+    },
+    {
+      "key": "resolution_slip",
+      "path": "assets/faefever_v2/props/resolution_slip.png",
+      "declared_sha256": "4689e1248b6f6366d1fcdd9976c3516961e75f72be7bfa14092fdabcd07aba30",
+      "actual_sha256": "4689e1248b6f6366d1fcdd9976c3516961e75f72be7bfa14092fdabcd07aba30",
+      "matches_declared": true,
+      "manifest_review_status_preserved": "inspected_individual_asset_pending_runtime"
+    },
+    {
+      "key": "handbook_closed",
+      "path": "assets/faefever_v2/props/handbook_closed.png",
+      "declared_sha256": "43018dbfd794405a6649c808a8e97b976e9cc91f547415f304ab7a716aed90fb",
+      "actual_sha256": "43018dbfd794405a6649c808a8e97b976e9cc91f547415f304ab7a716aed90fb",
+      "matches_declared": true,
+      "manifest_review_status_preserved": "inspected_individual_asset_pending_runtime"
+    },
+    {
+      "key": "drawer_front",
+      "path": "assets/faefever_v2/props/drawer_front.png",
+      "declared_sha256": "218be351c999cfd95b208eb6ea3cf15624bffd30680c499740bac7dfb9ca0e52",
+      "actual_sha256": "218be351c999cfd95b208eb6ea3cf15624bffd30680c499740bac7dfb9ca0e52",
+      "matches_declared": true,
+      "manifest_review_status_preserved": "inspected_individual_asset_pending_runtime"
+    },
+    {
+      "key": "BG_post_office",
+      "path": "assets/faefever_v2/backgrounds/BG_post_office.png",
+      "declared_sha256": "d40281359039d7feca6ff539dff4ba81aa750560ca1cabb84656ebfdd1975cca",
+      "actual_sha256": "d40281359039d7feca6ff539dff4ba81aa750560ca1cabb84656ebfdd1975cca",
+      "matches_declared": true,
+      "manifest_review_status_preserved": "simplified_second_pass_inspected_pending_runtime"
+    },
+    {
+      "key": "BG_community_center",
+      "path": "assets/faefever_v2/backgrounds/BG_community_center.png",
+      "declared_sha256": "9c97448ddbbdc5108d08cffccf5a3afa6836bb29f7999b08a32bc13fbff7de0a",
+      "actual_sha256": "9c97448ddbbdc5108d08cffccf5a3afa6836bb29f7999b08a32bc13fbff7de0a",
+      "matches_declared": true,
+      "manifest_review_status_preserved": "simplified_second_pass_inspected_pending_runtime"
+    },
+    {
+      "key": "BG_residential",
+      "path": "assets/faefever_v2/backgrounds/BG_residential.png",
+      "declared_sha256": "bdabb2a20ddd4e612a767404884c0f6aadbb6c67356c4102c0afa993604486ae",
+      "actual_sha256": "bdabb2a20ddd4e612a767404884c0f6aadbb6c67356c4102c0afa993604486ae",
+      "matches_declared": true,
+      "manifest_review_status_preserved": "simplified_second_pass_inspected_pending_runtime"
+    },
+    {
+      "key": "CHAR_courier",
+      "path": "assets/faefever_v2/characters/CHAR_courier.png",
+      "declared_sha256": "3b24efd80bb4736c2a74866e345e6ca62445a6f8812abb997f759e1518778a4e",
+      "actual_sha256": "3b24efd80bb4736c2a74866e345e6ca62445a6f8812abb997f759e1518778a4e",
+      "matches_declared": true,
+      "manifest_review_status_preserved": "visually_accepted_for_integration"
+    },
+    {
+      "key": "CHAR_elsie",
+      "path": "assets/faefever_v2/characters/CHAR_elsie.png",
+      "declared_sha256": "653851a681f60cc9996e8be405cdd11f0f938ceceecf3c05098e1ea4128c4b0f",
+      "actual_sha256": "653851a681f60cc9996e8be405cdd11f0f938ceceecf3c05098e1ea4128c4b0f",
+      "matches_declared": true,
+      "manifest_review_status_preserved": "visually_accepted_for_integration"
+    },
+    {
+      "key": "CHAR_chenyuan",
+      "path": "assets/faefever_v2/characters/CHAR_chenyuan.png",
+      "declared_sha256": "b4751d59acec1f07c18db198e912bd7057818963fe7446cfd1b94a5d8011e315",
+      "actual_sha256": "b4751d59acec1f07c18db198e912bd7057818963fe7446cfd1b94a5d8011e315",
+      "matches_declared": true,
+      "manifest_review_status_preserved": "visually_accepted_for_integration"
+    },
+    {
+      "key": "CHAR_mira",
+      "path": "assets/faefever_v2/characters/CHAR_mira.png",
+      "declared_sha256": "d70d5305d7b8f356694d133753137a786343d645412b65a98fb2264871c91bd1",
+      "actual_sha256": "d70d5305d7b8f356694d133753137a786343d645412b65a98fb2264871c91bd1",
+      "matches_declared": true,
+      "manifest_review_status_preserved": "visually_accepted_for_integration"
+    },
+    {
+      "key": "CHAR_june",
+      "path": "assets/faefever_v2/characters/CHAR_june.png",
+      "declared_sha256": "0f2aace7b9a077b1b62527df09465cee6769bad57ff32ce4252865fac8d17c7f",
+      "actual_sha256": "0f2aace7b9a077b1b62527df09465cee6769bad57ff32ce4252865fac8d17c7f",
+      "matches_declared": true,
+      "manifest_review_status_preserved": "visually_accepted_for_integration"
+    },
+    {
+      "key": "CHAR_clerk",
+      "path": "assets/faefever_v2/characters/CHAR_clerk.png",
+      "declared_sha256": "bc69adc9d7c763343da5f735dd606f1f6e57aa8d62569e19971a6c8c9cbf1842",
+      "actual_sha256": "bc69adc9d7c763343da5f735dd606f1f6e57aa8d62569e19971a6c8c9cbf1842",
+      "matches_declared": true,
+      "manifest_review_status_preserved": "visually_accepted_for_integration"
+    },
+    {
+      "key": "opener",
+      "path": "assets/faefever_v2/props/opener.png",
+      "declared_sha256": "c2cdb53ef010f5d45a342517793e240e9cd1c0565980e5a1e6f2e66dce04f3fd",
+      "actual_sha256": "c2cdb53ef010f5d45a342517793e240e9cd1c0565980e5a1e6f2e66dce04f3fd",
+      "matches_declared": true,
+      "manifest_review_status_preserved": "visually_accepted_for_integration"
+    },
+    {
+      "key": "restorer",
+      "path": "assets/faefever_v2/props/restorer.png",
+      "declared_sha256": "7fcaaa744396685510ee984bb72895b2939fa71cd26462d97fb20f2935375479",
+      "actual_sha256": "7fcaaa744396685510ee984bb72895b2939fa71cd26462d97fb20f2935375479",
+      "matches_declared": true,
+      "manifest_review_status_preserved": "visually_accepted_for_integration"
+    },
+    {
+      "key": "press",
+      "path": "assets/faefever_v2/props/press.png",
+      "declared_sha256": "f3cfb452a9fb64debbb53e1b2cc7260e3c1ad460331fedcf40ee047f8baafaff",
+      "actual_sha256": "f3cfb452a9fb64debbb53e1b2cc7260e3c1ad460331fedcf40ee047f8baafaff",
+      "matches_declared": true,
+      "manifest_review_status_preserved": "visually_accepted_for_integration"
+    },
+    {
+      "key": "BG_bus_stop",
+      "path": "assets/faefever_v2/backgrounds/BG_bus_stop.png",
+      "declared_sha256": "c4518108a2a7e466b7f9a0b379bd8c8e000ec8d8f6acc6153bdd58842655fc45",
+      "actual_sha256": "c4518108a2a7e466b7f9a0b379bd8c8e000ec8d8f6acc6153bdd58842655fc45",
+      "matches_declared": true,
+      "manifest_review_status_preserved": "visually_accepted_for_integration"
+    },
+    {
+      "key": "BG_lookout",
+      "path": "assets/faefever_v2/backgrounds/BG_lookout.png",
+      "declared_sha256": "98a2514c362b1fbc4b8d9dcf111b1e0785f164d5db1a0b083d95d5d472f30978",
+      "actual_sha256": "98a2514c362b1fbc4b8d9dcf111b1e0785f164d5db1a0b083d95d5d472f30978",
+      "matches_declared": true,
+      "manifest_review_status_preserved": "visually_accepted_for_integration"
+    },
+    {
+      "key": "BG_chess_stall",
+      "path": "assets/faefever_v2/backgrounds/BG_chess_stall.png",
+      "declared_sha256": "a5ddaabce8b7438762b53f60d98e245a5295795e29d3f07738300e23db1c7d6c",
+      "actual_sha256": "a5ddaabce8b7438762b53f60d98e245a5295795e29d3f07738300e23db1c7d6c",
+      "matches_declared": true,
+      "manifest_review_status_preserved": "visually_accepted_for_integration"
+    },
+    {
+      "key": "sealer",
+      "path": "assets/faefever_v2/props/sealer.png",
+      "declared_sha256": "34f23a82a5726e1ca11caa0a96a3ef1b2b7fef2745235bf70555d3a14b968bc6",
+      "actual_sha256": "34f23a82a5726e1ca11caa0a96a3ef1b2b7fef2745235bf70555d3a14b968bc6",
+      "matches_declared": true,
+      "manifest_review_status_preserved": "visually_accepted_for_integration"
+    },
+    {
+      "key": "repair_label",
+      "path": "assets/faefever_v2/props/repair_label.png",
+      "declared_sha256": "52acc925211f6ddb8f3f7fc0eec0bd66ce02f0e7b4a2829ce0e7e6186a969eef",
+      "actual_sha256": "52acc925211f6ddb8f3f7fc0eec0bd66ce02f0e7b4a2829ce0e7e6186a969eef",
+      "matches_declared": true,
+      "manifest_review_status_preserved": "visually_accepted_for_integration"
+    },
+    {
+      "key": "protector",
+      "path": "assets/faefever_v2/props/protector.png",
+      "declared_sha256": "5b95716253f3308351ec66faddaab3721ba7f182e4ff699a8acb4612639a3aef",
+      "actual_sha256": "5b95716253f3308351ec66faddaab3721ba7f182e4ff699a8acb4612639a3aef",
+      "matches_declared": true,
+      "manifest_review_status_preserved": "visually_accepted_for_integration"
+    },
+    {
+      "key": "replacement_strip",
+      "path": "assets/faefever_v2/props/replacement_strip.png",
+      "declared_sha256": "3cbc19dfbaaf014d28ce9d50ac239084e381057f27c1f1c0d56be2a16d8a1f32",
+      "actual_sha256": "3cbc19dfbaaf014d28ce9d50ac239084e381057f27c1f1c0d56be2a16d8a1f32",
+      "matches_declared": true,
+      "manifest_review_status_preserved": "visually_accepted_for_integration"
+    },
+    {
+      "key": "BG_tarot_shop",
+      "path": "assets/faefever_v2/backgrounds/BG_tarot_shop.png",
+      "declared_sha256": "626c8c94150bd891bdd81206958e435aa3fea6a84cf3f016ba807eb04af78796",
+      "actual_sha256": "626c8c94150bd891bdd81206958e435aa3fea6a84cf3f016ba807eb04af78796",
+      "matches_declared": true,
+      "manifest_review_status_preserved": "visually_accepted_for_integration"
+    },
+    {
+      "key": "BG_workroom",
+      "path": "assets/faefever_v2/backgrounds/BG_workroom.png",
+      "declared_sha256": "d6a68a90792a3b140c76a2b560efa984bb3650481a5496c5fa0b63307a1a4218",
+      "actual_sha256": "d6a68a90792a3b140c76a2b560efa984bb3650481a5496c5fa0b63307a1a4218",
+      "matches_declared": true,
+      "manifest_review_status_preserved": "visually_accepted_for_integration"
+    },
+    {
+      "key": "cover",
+      "path": "assets/faefever_v2/backgrounds/cover.png",
+      "declared_sha256": "1632af45da57bd2767f36bdc9b64c54d09247c7a5f9f0256b6fc3afb755faaab",
+      "actual_sha256": "1632af45da57bd2767f36bdc9b64c54d09247c7a5f9f0256b6fc3afb755faaab",
+      "matches_declared": true,
+      "manifest_review_status_preserved": "visually_accepted_for_integration"
+    },
+    {
+      "key": "satchel",
+      "path": "assets/faefever_v2/props/satchel.png",
+      "declared_sha256": "290a53b944e2d0c8f5c38a3ca16786f527e0745c1337c8d1a5a4705f09302128",
+      "actual_sha256": "290a53b944e2d0c8f5c38a3ca16786f527e0745c1337c8d1a5a4705f09302128",
+      "matches_declared": true,
+      "manifest_review_status_preserved": "visually_accepted_for_integration"
+    },
+    {
+      "key": "envelope_flap",
+      "path": "assets/faefever_v2/props/envelope_flap.png",
+      "declared_sha256": "482cd7ae81b608f8a581fc17d1cb310bf2f0d86370c9524740ef2a8f0bee1d6d",
+      "actual_sha256": "482cd7ae81b608f8a581fc17d1cb310bf2f0d86370c9524740ef2a8f0bee1d6d",
+      "matches_declared": true,
+      "manifest_review_status_preserved": "visually_accepted_for_integration"
+    },
+    {
+      "key": "mail_box_latch",
+      "path": "assets/faefever_v2/props/mail_box_latch.png",
+      "declared_sha256": "49c3d053d55ef7b9b175a03d505deaee3cc7f9e209c7bf1eeef7bc24d5ba69a4",
+      "actual_sha256": "49c3d053d55ef7b9b175a03d505deaee3cc7f9e209c7bf1eeef7bc24d5ba69a4",
+      "matches_declared": true,
+      "manifest_review_status_preserved": "visually_accepted_for_integration"
+    },
+    {
+      "key": "seal_mark",
+      "path": "assets/faefever_v2/props/seal_mark.png",
+      "declared_sha256": "5c0884402c513fd76c9f281df1185685d22d42bf234a009b9ec21992f2b24bf9",
+      "actual_sha256": "5c0884402c513fd76c9f281df1185685d22d42bf234a009b9ec21992f2b24bf9",
+      "matches_declared": true,
+      "manifest_review_status_preserved": "visually_accepted_for_integration"
+    },
+    {
+      "key": "attachment_photo",
+      "path": "assets/faefever_v2/props/attachment_photo.png",
+      "declared_sha256": "317a06c011412b41180e309ffafdb240d0cfd7fc4ca9c4b5d9499151538a2f1a",
+      "actual_sha256": "317a06c011412b41180e309ffafdb240d0cfd7fc4ca9c4b5d9499151538a2f1a",
+      "matches_declared": true,
+      "manifest_review_status_preserved": "visually_accepted_for_integration"
+    },
+    {
+      "key": "town_map",
+      "path": "assets/faefever_v2/props/town_map.png",
+      "declared_sha256": "46953dcb9916ebedf48161903da434695673fb450f5322622c7578f09ead35e1",
+      "actual_sha256": "46953dcb9916ebedf48161903da434695673fb450f5322622c7578f09ead35e1",
+      "matches_declared": true,
+      "manifest_review_status_preserved": "visually_accepted_for_integration"
+    },
+    {
+      "key": "CHAR_courier_walk",
+      "path": "assets/faefever_v2/characters/CHAR_courier_walk.png",
+      "declared_sha256": "68521ded3103d7a5af2bcca60393bb849c3f862423a88891da4778d5de60f5c0",
+      "actual_sha256": "68521ded3103d7a5af2bcca60393bb849c3f862423a88891da4778d5de60f5c0",
+      "matches_declared": true,
+      "manifest_review_status_preserved": "visually_accepted_for_integration"
+    },
+    {
+      "key": "workroom",
+      "path": "assets/faefever_v2/backgrounds/BG_workroom.png",
+      "declared_sha256": "d6a68a90792a3b140c76a2b560efa984bb3650481a5496c5fa0b63307a1a4218",
+      "actual_sha256": "d6a68a90792a3b140c76a2b560efa984bb3650481a5496c5fa0b63307a1a4218",
+      "matches_declared": true,
+      "manifest_review_status_preserved": "visually_accepted_for_integration"
+    },
+    {
+      "key": "service_paper",
+      "path": "assets/faefever_v2/props/letter_paper.png",
+      "declared_sha256": "91500aa2ab2dfa766eaec4bbfd7533ca562d50afde96aab154cc9d2544f9a6b7",
+      "actual_sha256": "91500aa2ab2dfa766eaec4bbfd7533ca562d50afde96aab154cc9d2544f9a6b7",
+      "matches_declared": true,
+      "manifest_review_status_preserved": "inspected_individual_asset_pending_runtime"
+    },
+    {
+      "key": "paper_corner",
+      "path": "assets/faefever_v2/props/letter_paper.png",
+      "declared_sha256": "91500aa2ab2dfa766eaec4bbfd7533ca562d50afde96aab154cc9d2544f9a6b7",
+      "actual_sha256": "91500aa2ab2dfa766eaec4bbfd7533ca562d50afde96aab154cc9d2544f9a6b7",
+      "matches_declared": true,
+      "manifest_review_status_preserved": "inspected_individual_asset_pending_runtime"
+    },
+    {
+      "key": "door_closeup",
+      "path": "assets/faefever_v2/backgrounds/BG_residential.png",
+      "declared_sha256": "bdabb2a20ddd4e612a767404884c0f6aadbb6c67356c4102c0afa993604486ae",
+      "actual_sha256": "bdabb2a20ddd4e612a767404884c0f6aadbb6c67356c4102c0afa993604486ae",
+      "matches_declared": true,
+      "manifest_review_status_preserved": "simplified_second_pass_inspected_pending_runtime"
+    },
+    {
+      "key": "door_handle",
+      "path": "assets/faefever_v2/backgrounds/BG_residential.png",
+      "declared_sha256": "bdabb2a20ddd4e612a767404884c0f6aadbb6c67356c4102c0afa993604486ae",
+      "actual_sha256": "bdabb2a20ddd4e612a767404884c0f6aadbb6c67356c4102c0afa993604486ae",
+      "matches_declared": true,
+      "manifest_review_status_preserved": "simplified_second_pass_inspected_pending_runtime"
+    },
+    {
+      "key": "door_plate",
+      "path": "assets/faefever_v2/backgrounds/BG_residential.png",
+      "declared_sha256": "bdabb2a20ddd4e612a767404884c0f6aadbb6c67356c4102c0afa993604486ae",
+      "actual_sha256": "bdabb2a20ddd4e612a767404884c0f6aadbb6c67356c4102c0afa993604486ae",
+      "matches_declared": true,
+      "manifest_review_status_preserved": "simplified_second_pass_inspected_pending_runtime"
+    },
+    {
+      "key": "pen",
+      "path": "assets/faefever_v2/props/pen.png",
+      "declared_sha256": "03e023aee4d00481a4968f4b8af047d72c482de2643433b226aa82717659e8c4",
+      "actual_sha256": "03e023aee4d00481a4968f4b8af047d72c482de2643433b226aa82717659e8c4",
+      "matches_declared": true,
+      "manifest_review_status_preserved": "visually_accepted_for_integration"
+    },
+    {
+      "key": "wall_closeup",
+      "path": "assets/faefever_v2/backgrounds/wall_closeup.png",
+      "declared_sha256": "7b6159f2210bdc8f686526b2ac3174d8a268f27d8dac154b3cd4ed87e2e2121f",
+      "actual_sha256": "7b6159f2210bdc8f686526b2ac3174d8a268f27d8dac154b3cd4ed87e2e2121f",
+      "matches_declared": true,
+      "manifest_review_status_preserved": "visually_accepted_for_integration"
+    },
+    {
+      "key": "wall_plate_old",
+      "path": "assets/faefever_v2/props/wall_plate_old.png",
+      "declared_sha256": "1226149921c5b3320258407775dada5442a6a04c9144344f1d33ca8538b62351",
+      "actual_sha256": "1226149921c5b3320258407775dada5442a6a04c9144344f1d33ca8538b62351",
+      "matches_declared": true,
+      "manifest_review_status_preserved": "visually_accepted_for_integration"
+    },
+    {
+      "key": "wall_plate_new",
+      "path": "assets/faefever_v2/props/wall_plate_new.png",
+      "declared_sha256": "071ce2c519660c0dc4ec753614795f7fe8751622ab9a5921e3eb1276c5f1fd25",
+      "actual_sha256": "071ce2c519660c0dc4ec753614795f7fe8751622ab9a5921e3eb1276c5f1fd25",
+      "matches_declared": true,
+      "manifest_review_status_preserved": "visually_accepted_for_integration"
+    },
+    {
+      "key": "CHAR_courier_walk_0",
+      "path": "assets/faefever_v2/characters/CHAR_courier_walk.png",
+      "declared_sha256": "68521ded3103d7a5af2bcca60393bb849c3f862423a88891da4778d5de60f5c0",
+      "actual_sha256": "68521ded3103d7a5af2bcca60393bb849c3f862423a88891da4778d5de60f5c0",
+      "matches_declared": true,
+      "manifest_review_status_preserved": "visually_accepted_for_integration"
+    },
+    {
+      "key": "CHAR_courier_walk_1",
+      "path": "assets/faefever_v2/characters/CHAR_courier_walk.png",
+      "declared_sha256": "68521ded3103d7a5af2bcca60393bb849c3f862423a88891da4778d5de60f5c0",
+      "actual_sha256": "68521ded3103d7a5af2bcca60393bb849c3f862423a88891da4778d5de60f5c0",
+      "matches_declared": true,
+      "manifest_review_status_preserved": "visually_accepted_for_integration"
+    },
+    {
+      "key": "CHAR_courier_walk_2",
+      "path": "assets/faefever_v2/characters/CHAR_courier_walk.png",
+      "declared_sha256": "68521ded3103d7a5af2bcca60393bb849c3f862423a88891da4778d5de60f5c0",
+      "actual_sha256": "68521ded3103d7a5af2bcca60393bb849c3f862423a88891da4778d5de60f5c0",
+      "matches_declared": true,
+      "manifest_review_status_preserved": "visually_accepted_for_integration"
+    },
+    {
+      "key": "CHAR_courier_walk_3",
+      "path": "assets/faefever_v2/characters/CHAR_courier_walk.png",
+      "declared_sha256": "68521ded3103d7a5af2bcca60393bb849c3f862423a88891da4778d5de60f5c0",
+      "actual_sha256": "68521ded3103d7a5af2bcca60393bb849c3f862423a88891da4778d5de60f5c0",
+      "matches_declared": true,
+      "manifest_review_status_preserved": "visually_accepted_for_integration"
+    },
+    {
+      "key": "CHAR_courier_walk_4",
+      "path": "assets/faefever_v2/characters/CHAR_courier_walk.png",
+      "declared_sha256": "68521ded3103d7a5af2bcca60393bb849c3f862423a88891da4778d5de60f5c0",
+      "actual_sha256": "68521ded3103d7a5af2bcca60393bb849c3f862423a88891da4778d5de60f5c0",
+      "matches_declared": true,
+      "manifest_review_status_preserved": "visually_accepted_for_integration"
+    },
+    {
+      "key": "CHAR_courier_walk_5",
+      "path": "assets/faefever_v2/characters/CHAR_courier_walk.png",
+      "declared_sha256": "68521ded3103d7a5af2bcca60393bb849c3f862423a88891da4778d5de60f5c0",
+      "actual_sha256": "68521ded3103d7a5af2bcca60393bb849c3f862423a88891da4778d5de60f5c0",
+      "matches_declared": true,
+      "manifest_review_status_preserved": "visually_accepted_for_integration"
+    },
+    {
+      "key": "CHAR_courier_walk_6",
+      "path": "assets/faefever_v2/characters/CHAR_courier_walk.png",
+      "declared_sha256": "68521ded3103d7a5af2bcca60393bb849c3f862423a88891da4778d5de60f5c0",
+      "actual_sha256": "68521ded3103d7a5af2bcca60393bb849c3f862423a88891da4778d5de60f5c0",
+      "matches_declared": true,
+      "manifest_review_status_preserved": "visually_accepted_for_integration"
+    },
+    {
+      "key": "CHAR_courier_walk_7",
+      "path": "assets/faefever_v2/characters/CHAR_courier_walk.png",
+      "declared_sha256": "68521ded3103d7a5af2bcca60393bb849c3f862423a88891da4778d5de60f5c0",
+      "actual_sha256": "68521ded3103d7a5af2bcca60393bb849c3f862423a88891da4778d5de60f5c0",
+      "matches_declared": true,
+      "manifest_review_status_preserved": "visually_accepted_for_integration"
+    },
+    {
+      "key": "game_icon",
+      "path": "assets/faefever_v2/props/game_icon.png",
+      "declared_sha256": "990e39ea01e54d54f931479c564b86b6043367102137619027b9e7467263d777",
+      "actual_sha256": "990e39ea01e54d54f931479c564b86b6043367102137619027b9e7467263d777",
+      "matches_declared": true,
+      "manifest_review_status_preserved": "visually_accepted_for_integration"
+    },
+    {
+      "key": "old_music_photo",
+      "path": "assets/faefever_v2/props/old_music_photo.png",
+      "declared_sha256": "12da8206f208e247489d1e32661cdc916b8f733ba808abbe76d9c2dc1cbdbdb9",
+      "actual_sha256": "12da8206f208e247489d1e32661cdc916b8f733ba808abbe76d9c2dc1cbdbdb9",
+      "matches_declared": true,
+      "manifest_review_status_preserved": "visually_accepted_for_integration"
+    },
+    {
+      "key": "eraser",
+      "path": "assets/faefever_v2/props/eraser.png",
+      "declared_sha256": "a766663e706ad985b711e55ccb1229455b148fdb023e957da8edc55561a24600",
+      "actual_sha256": "a766663e706ad985b711e55ccb1229455b148fdb023e957da8edc55561a24600",
+      "matches_declared": true,
+      "manifest_review_status_preserved": "runtime_edge_review_required"
+    }
+  ]
+}

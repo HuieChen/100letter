@@ -1,0 +1,139 @@
+{
+  "source": "CHAR_courier_walk.png",
+  "source_sha256": "68521ded3103d7a5af2bcca60393bb849c3f862423a88891da4778d5de60f5c0",
+  "dimensions": [
+    1774,
+    887
+  ],
+  "method": "8 separate alpha>128 connected silhouettes; region padded 2px. Horizontal foot pivot is manually inspected hip axis, vertical pivot at bottom opaque shoe line. One fixed reference height prevents per-frame rescaling. No pixels changed.",
+  "frames": [
+    {
+      "key": "CHAR_courier_walk_0",
+      "region": [
+        224,
+        11,
+        212,
+        422
+      ],
+      "foot_anchor_px": [
+        91,
+        420
+      ],
+      "reference_height_px": 420,
+      "alpha_threshold": 128,
+      "connected_component_area": 31632
+    },
+    {
+      "key": "CHAR_courier_walk_1",
+      "region": [
+        624,
+        11,
+        131,
+        423
+      ],
+      "foot_anchor_px": [
+        80,
+        421
+      ],
+      "reference_height_px": 420,
+      "alpha_threshold": 128,
+      "connected_component_area": 26333
+    },
+    {
+      "key": "CHAR_courier_walk_2",
+      "region": [
+        985,
+        10,
+        209,
+        423
+      ],
+      "foot_anchor_px": [
+        87,
+        421
+      ],
+      "reference_height_px": 420,
+      "alpha_threshold": 128,
+      "connected_component_area": 31565
+    },
+    {
+      "key": "CHAR_courier_walk_3",
+      "region": [
+        1384,
+        11,
+        179,
+        424
+      ],
+      "foot_anchor_px": [
+        86,
+        422
+      ],
+      "reference_height_px": 420,
+      "alpha_threshold": 128,
+      "connected_component_area": 31085
+    },
+    {
+      "key": "CHAR_courier_walk_4",
+      "region": [
+        219,
+        453,
+        229,
+        422
+      ],
+      "foot_anchor_px": [
+        97,
+        420
+      ],
+      "reference_height_px": 420,
+      "alpha_threshold": 128,
+      "connected_component_area": 31839
+    },
+    {
+      "key": "CHAR_courier_walk_5",
+      "region": [
+        630,
+        453,
+        125,
+        422
+      ],
+      "foot_anchor_px": [
+        74,
+        420
+      ],
+      "reference_height_px": 420,
+      "alpha_threshold": 128,
+      "connected_component_area": 27786
+    },
+    {
+      "key": "CHAR_courier_walk_6",
+      "region": [
+        984,
+        453,
+        217,
+        422
+      ],
+      "foot_anchor_px": [
+        89,
+        420
+      ],
+      "reference_height_px": 420,
+      "alpha_threshold": 128,
+      "connected_component_area": 31207
+    },
+    {
+      "key": "CHAR_courier_walk_7",
+      "region": [
+        1385,
+        453,
+        164,
+        422
+      ],
+      "foot_anchor_px": [
+        86,
+        420
+      ],
+      "reference_height_px": 420,
+      "alpha_threshold": 128,
+      "connected_component_area": 29898
+    }
+  ]
+}

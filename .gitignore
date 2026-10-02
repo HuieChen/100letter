@@ -11,3 +11,23 @@ export_credentials.cfg
 *.exe
 *.pck
 *.zip
+
+# Local captures, build staging and private archive inputs are never newly published.
+/work/
+/artifacts/
+*.mp4
+*.mkv
+*.avi
+*.webm
+*.psd
+/assets/display_user/street_scenery_USER_20261001_LOCKED.png*
+/assets/generated/post_office_interior.png*
+/assets/generated/post_office_entry.png*
+/assets/generated/props/mail_box_desk_v2.png*
+/assets/reference_gate/
+/scripts/reference_gate/
+/scenes/reference_fidelity_prototype.tscn*
+/Play-Reference-Prototype.cmd
+/tools/play-reference-prototype.ps1
+/tests/reference_gate_smoke.gd*
+**/codex-clipboard-*

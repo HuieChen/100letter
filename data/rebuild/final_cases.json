@@ -1,0 +1,699 @@
+{
+  "schema_version": 1,
+  "catalog_version": "final-production-v1",
+  "cases": [
+    {
+      "id": "case01",
+      "title": "The Street That Changed Its Name",
+      "type": "obsolete_local_address",
+      "initial_envelope_state": "intact",
+      "legal_dispositions": [
+        "deliver",
+        "return_to_sender",
+        "hold_for_verification",
+        "unresolved_with_note"
+      ],
+      "optional_open": true,
+      "deadline": null,
+      "recipient_id": "elsie_moran",
+      "sender_id": "ruth_moran",
+      "envelope": {
+        "recipient": "Elsie Moran",
+        "address": "17 Old Quay Lane, Solmere",
+        "return": "Ruth Moran, Bellmar"
+      },
+      "body": "Elsie,\n\nI found the blue bowl you left in my cupboard last winter. I nearly posted it to you, then remembered what happened to the last parcel I trusted to my own packing.\n\nSo I am keeping the bowl until you visit. This letter is only to tell you not to buy another one.\n\nI also tried your lemon cake again. It still sinks in the middle. I am choosing to blame the oven.\n\nWrite when you can.\n\nRuth",
+      "body_source": "04_VERTICAL_SLICE/CASE_BIBLE_FINAL.md",
+      "private": true,
+      "clues": [
+        "street_renaming",
+        "ceramic_17",
+        "moran_entry",
+        "elsie_confirmation"
+      ],
+      "npc_topics": [],
+      "world_flags": [],
+      "outcomes": {
+        "deliver": {
+          "legal": true
+        },
+        "return_to_sender": {
+          "legal": true
+        },
+        "hold_for_verification": {
+          "legal": true
+        },
+        "unresolved_with_note": {
+          "legal": true
+        }
+      },
+      "paper_fragility": "ordinary",
+      "recipient_attention": "casual"
+    },
+    {
+      "id": "case02",
+      "title": "Before the Last Shuttle",
+      "type": "local_priority_hand_delivery",
+      "initial_envelope_state": "intact",
+      "legal_dispositions": [
+        "deliver",
+        "delegate",
+        "hold_for_verification",
+        "unresolved_with_note"
+      ],
+      "optional_open": true,
+      "deadline": "17:30",
+      "recipient_id": "mira_vale",
+      "sender_id": "",
+      "envelope": {
+        "recipient": "Mira Vale",
+        "service_mark": "LOCAL PRIORITY — HAND TO RECIPIENT",
+        "counter_note": "Before 17:30 if possible",
+        "return": ""
+      },
+      "body": "Mira,\n\nI kept the second ticket.\n\nI know that sounds dramatic. It is not meant to be. If you still want to leave tonight, leave. I am not asking you to stay because I am afraid of what happens after you go.\n\nBut before the last shuttle, come up to the lookout. I want to give you the ticket myself, and I want one conversation where neither of us pretends we are being practical.\n\n— J.",
+      "body_source": "04_VERTICAL_SLICE/CASE_BIBLE_FINAL.md",
+      "private": true,
+      "clues": [
+        "mira_absent",
+        "chenyuan_sighting",
+        "telescope_checkout",
+        "telescope_returned",
+        "shuttle_timetable",
+        "trusted_handoff_rule"
+      ],
+      "npc_topics": [],
+      "world_flags": [],
+      "outcomes": {
+        "deliver": {
+          "legal": true
+        },
+        "delegate": {
+          "legal": true
+        },
+        "hold_for_verification": {
+          "legal": true
+        },
+        "unresolved_with_note": {
+          "legal": true
+        }
+      },
+      "paper_fragility": "ordinary",
+      "recipient_attention": "casual"
+    },
+    {
+      "id": "case03",
+      "title": "The Forwarding Label",
+      "type": "authorized_exterior_repair",
+      "initial_envelope_state": "damaged",
+      "legal_dispositions": [
+        "forward",
+        "repair_and_reenter",
+        "hold_for_verification",
+        "unresolved_with_note"
+      ],
+      "optional_open": true,
+      "deadline": null,
+      "recipient_id": "june_arlen",
+      "sender_id": "leonie",
+      "envelope": {
+        "recipient": "June Arlen",
+        "address": "water-damaged",
+        "back": "Detached forwarding label partly attached",
+        "recovered_fields": {
+          "original_address": "Rose Court 3C",
+          "forwarding_recipient": "June Arlen",
+          "forwarding_destination": "North Pier Hostel",
+          "forwarding_valid_from": "2024-07-20",
+          "forwarding_valid_until": "2025-07-19"
+        }
+      },
+      "body": "June,\n\nI finally developed the photographs from the storm night. Half of them are just black water and one ridiculous picture of my thumb.\n\nThere is one good photograph of the lighthouse, though. I made two prints. Yours is in the envelope.\n\nYou were right about the clouds clearing after midnight. I hated that you were right, because I had already complained for three hours.\n\nSee you when I am back in town.\n\nLeonie",
+      "body_source": "04_VERTICAL_SLICE/CASE_BIBLE_FINAL.md",
+      "private": true,
+      "clues": [
+        "label_reconstructed",
+        "current_3c_resident",
+        "june_current_mailpoint",
+        "chenyuan_june_history"
+      ],
+      "npc_topics": [],
+      "world_flags": [],
+      "outcomes": {
+        "forward": {
+          "legal": true
+        },
+        "repair_and_reenter": {
+          "legal": true
+        },
+        "hold_for_verification": {
+          "legal": true
+        },
+        "unresolved_with_note": {
+          "legal": true
+        }
+      },
+      "paper_fragility": "ordinary",
+      "recipient_attention": "casual",
+      "attachment": "small lighthouse photo"
+    },
+    {
+      "id": "case04",
+      "title": "Six Summers Late",
+      "type": "recovered_archive_item",
+      "initial_envelope_state": "aged_intact",
+      "legal_dispositions": [
+        "deliver",
+        "archive_review",
+        "hold_for_verification"
+      ],
+      "optional_open": true,
+      "deadline": null,
+      "recipient_id": "june_arlen",
+      "sender_id": "",
+      "envelope": {
+        "recipient": "June Arlen",
+        "address": "Rose Court 3C",
+        "date": "2020-07-20",
+        "return": "",
+        "archive_mark": "HV / HOLD"
+      },
+      "body": "June,\n\nI wrote an uglier version of this first. I tore it up because it made me sound certain, and I wasn’t.\n\nI was angry that you left the rehearsal. Then I was angrier that everyone kept asking me whether I was all right, as if you had done something to me instead of simply choosing something for yourself.\n\nThe honest part is this: I wanted you to stay. Not because the band needed you. Not because Solmere needed you. Because I did.\n\nI did not know how to say that without making it sound like a debt.\n\nIf you leave tomorrow, go. I will survive being angry. I would rather be angry than have you stay because you feel sorry for me.\n\nI just did not want the last true thing between us to be the stupid argument behind the community center.\n\nMira",
+      "body_source": "04_VERTICAL_SLICE/CASE_BIBLE_FINAL.md",
+      "private": true,
+      "clues": [
+        "case04_archive_mark",
+        "old_music_photo",
+        "sea_watch_roster",
+        "chenyuan_reconnection",
+        "case04_manual_hold"
+      ],
+      "npc_topics": [],
+      "world_flags": [],
+      "outcomes": {
+        "deliver": {
+          "legal": true
+        },
+        "archive_review": {
+          "legal": true
+        },
+        "hold_for_verification": {
+          "legal": true
+        }
+      },
+      "paper_fragility": "aged",
+      "recipient_attention": "careful"
+    },
+    {
+      "id": "case05",
+      "title": "Desk B",
+      "type": "internal_staff_paper",
+      "initial_envelope_state": "intact",
+      "legal_dispositions": [
+        "file_officially",
+        "keep_at_desk",
+        "supervisor_next_shift"
+      ],
+      "optional_open": false,
+      "deadline": null,
+      "recipient_id": "next_local_exceptions_clerk",
+      "sender_id": "helena_voss",
+      "envelope": {
+        "recipient": "The next person assigned to Local Exceptions, Desk B",
+        "sender": "Helena Voss",
+        "date": "2020-07-20",
+        "status": "internal staff paper"
+      },
+      "body": "If you are reading this, someone finally opened the bottom ledger pocket.\n\nI used Desk B for eleven years. Most unresolved letters were boring: old addresses, bad handwriting, people who moved without telling anyone.\n\nA few were not boring.\n\nThere were three times I held a letter after I already knew where it belonged.\nI told myself I was buying time. Once I was right. Once I still do not know. Once I am fairly sure I made another person’s decision for them because I was afraid of what would happen if I did my job.\n\nThe marks in the ledger are mine. They are not procedure.\n\nIf you find the remaining letters, do not treat my choices as instructions.\nAnd do not assume that delivering everything automatically makes you innocent either.\n\n— Helena Voss",
+      "body_source": "04_VERTICAL_SLICE/CASE_BIBLE_FINAL.md",
+      "private": false,
+      "clues": [
+        "ledger_hv_repeat",
+        "helena_rota",
+        "procedure_codes",
+        "ledger_returns"
+      ],
+      "npc_topics": [],
+      "world_flags": [],
+      "outcomes": {
+        "file_officially": {
+          "legal": true
+        },
+        "keep_at_desk": {
+          "legal": true
+        },
+        "supervisor_next_shift": {
+          "legal": true
+        }
+      },
+      "paper_fragility": "ordinary",
+      "recipient_attention": "casual"
+    }
+  ],
+  "clues": [
+    {
+      "id": "street_renaming",
+      "case_id": "case01",
+      "source": "community_notice",
+      "knowledge_owner": "community_notice",
+      "text": "After the seawall reconstruction, Old Quay Lane was renamed Bay Steps.",
+      "location": "community_center",
+      "public_or_private": "public",
+      "validity_time": {
+        "available_after_minute": 0
+      },
+      "supports": [
+        "street_is_bay_steps"
+      ],
+      "contradicts": [],
+      "reveals_names": []
+    },
+    {
+      "id": "ceramic_17",
+      "case_id": "case01",
+      "source": "residential_wall",
+      "knowledge_owner": "residential_wall",
+      "text": "An old ceramic 17 remains beside the current 9 Bay Steps address.",
+      "location": "residential",
+      "public_or_private": "public",
+      "validity_time": {
+        "available_after_minute": 0
+      },
+      "supports": [
+        "same_building"
+      ],
+      "contradicts": [],
+      "reveals_names": []
+    },
+    {
+      "id": "moran_entry",
+      "case_id": "case01",
+      "source": "public_resident_note",
+      "knowledge_owner": "public_resident_note",
+      "text": "E. Moran — 9 Bay Steps.",
+      "location": "residential",
+      "public_or_private": "public",
+      "validity_time": {
+        "available_after_minute": 0
+      },
+      "supports": [
+        "elsie_current_address"
+      ],
+      "contradicts": [],
+      "reveals_names": []
+    },
+    {
+      "id": "elsie_confirmation",
+      "case_id": "case01",
+      "source": "elsie_moran",
+      "knowledge_owner": "elsie_moran",
+      "text": "Elsie confirms this is her home and that Old Quay Lane is its old street name.",
+      "location": "residential",
+      "public_or_private": "voluntary",
+      "validity_time": {
+        "available_after_minute": 0
+      },
+      "supports": [
+        "elsie_current_address"
+      ],
+      "contradicts": [],
+      "reveals_names": []
+    },
+    {
+      "id": "mira_absent",
+      "case_id": "case02",
+      "source": "mira_home",
+      "knowledge_owner": "mira_home",
+      "text": "Mira is not at home.",
+      "location": "residential",
+      "public_or_private": "public",
+      "validity_time": {
+        "available_after_minute": 0
+      },
+      "supports": [],
+      "contradicts": [],
+      "reveals_names": []
+    },
+    {
+      "id": "chenyuan_sighting",
+      "case_id": "case02",
+      "source": "chenyuan",
+      "knowledge_owner": "chenyuan",
+      "text": "She had the community-center keys when I saw her. And the telescope case. So… not home.",
+      "location": "bus_stop",
+      "public_or_private": "voluntary",
+      "validity_time": {
+        "available_after_minute": 0
+      },
+      "supports": [],
+      "contradicts": [],
+      "reveals_names": []
+    },
+    {
+      "id": "telescope_checkout",
+      "case_id": "case02",
+      "source": "equipment_checkout_sheet",
+      "knowledge_owner": "equipment_checkout_sheet",
+      "text": "Mira Vale — folding telescope — event location: Lookout. Return pending.",
+      "location": "community_center",
+      "public_or_private": "public",
+      "validity_time": {
+        "available_after_minute": 0
+      },
+      "supports": [
+        "mira_event_at_lookout"
+      ],
+      "contradicts": [],
+      "reveals_names": [
+        "mira_vale"
+      ]
+    },
+    {
+      "id": "telescope_returned",
+      "case_id": "case02",
+      "source": "equipment_checkout_sheet",
+      "knowledge_owner": "equipment_checkout_sheet",
+      "text": "Mira Vale — folding telescope — returned 15:05 — event location: Lookout.",
+      "location": "community_center",
+      "public_or_private": "public",
+      "validity_time": {
+        "available_after_minute": 905
+      },
+      "supports": [
+        "mira_event_at_lookout"
+      ],
+      "contradicts": [],
+      "reveals_names": [
+        "mira_vale"
+      ]
+    },
+    {
+      "id": "shuttle_timetable",
+      "case_id": "case02",
+      "source": "public_bus_timetable",
+      "knowledge_owner": "public_bus_timetable",
+      "text": "The last hill shuttle must be compared with the current clock and the 17:30 hand-delivery note.",
+      "location": "bus_stop",
+      "public_or_private": "public",
+      "validity_time": {
+        "available_after_minute": 0
+      },
+      "supports": [],
+      "contradicts": [],
+      "reveals_names": []
+    },
+    {
+      "id": "trusted_handoff_rule",
+      "case_id": "case02",
+      "source": "local_service_guide",
+      "knowledge_owner": "local_service_guide",
+      "text": "Trusted local handoff is allowed when the carrier has an appropriate route and no recipient signature is required.",
+      "location": "post_office",
+      "public_or_private": "public",
+      "validity_time": {
+        "available_after_minute": 0
+      },
+      "supports": [],
+      "contradicts": [],
+      "reveals_names": []
+    },
+    {
+      "id": "label_reconstructed",
+      "case_id": "case03",
+      "source": "physical_label",
+      "knowledge_owner": "physical_label",
+      "text": "Rose Court 3C; June Arlen → North Pier Hostel; valid 2024-07-20 through 2025-07-19.",
+      "location": "",
+      "public_or_private": "physical",
+      "validity_time": {
+        "available_after_minute": 0
+      },
+      "supports": [
+        "old_forwarding_expired"
+      ],
+      "contradicts": [],
+      "reveals_names": []
+    },
+    {
+      "id": "current_3c_resident",
+      "case_id": "case03",
+      "source": "current_resident_list",
+      "knowledge_owner": "current_resident_list",
+      "text": "Rose Court 3C is currently assigned to another resident.",
+      "location": "residential",
+      "public_or_private": "public",
+      "validity_time": {
+        "available_after_minute": 0
+      },
+      "supports": [
+        "june_not_at_3c"
+      ],
+      "contradicts": [],
+      "reveals_names": []
+    },
+    {
+      "id": "june_current_mailpoint",
+      "case_id": "case03",
+      "source": "public_volunteer_roster",
+      "knowledge_owner": "public_volunteer_roster",
+      "text": "June Arlen — Observatory volunteer — approved local mail cubby: Community Center.",
+      "location": "community_center",
+      "public_or_private": "public",
+      "validity_time": {
+        "available_after_minute": 0
+      },
+      "supports": [
+        "june_approved_mailpoint"
+      ],
+      "contradicts": [],
+      "reveals_names": [
+        "june_arlen"
+      ]
+    },
+    {
+      "id": "chenyuan_june_history",
+      "case_id": "case03",
+      "source": "chenyuan",
+      "knowledge_owner": "chenyuan",
+      "text": "June still comes through here, but she hasn’t lived at Rose Court in ages.",
+      "location": "bus_stop",
+      "public_or_private": "voluntary",
+      "validity_time": {
+        "available_after_minute": 0
+      },
+      "supports": [
+        "june_not_at_3c"
+      ],
+      "contradicts": [],
+      "reveals_names": []
+    },
+    {
+      "id": "case04_archive_mark",
+      "case_id": "case04",
+      "source": "case04_envelope_back",
+      "knowledge_owner": "case04_envelope_back",
+      "text": "HV / HOLD under the old sorting mark.",
+      "location": "",
+      "public_or_private": "physical",
+      "validity_time": {
+        "available_after_minute": 0
+      },
+      "supports": [
+        "case04_marked_hold"
+      ],
+      "contradicts": [],
+      "reveals_names": []
+    },
+    {
+      "id": "old_music_photo",
+      "case_id": "case04",
+      "source": "community_archive_photo",
+      "knowledge_owner": "community_archive_photo",
+      "text": "Old summer music night: Mira Vale, June Arlen, and other participants.",
+      "location": "community_center",
+      "public_or_private": "public",
+      "validity_time": {
+        "available_after_minute": 0
+      },
+      "supports": [
+        "past_acquaintance"
+      ],
+      "contradicts": [],
+      "reveals_names": [
+        "mira_vale",
+        "june_arlen"
+      ]
+    },
+    {
+      "id": "sea_watch_roster",
+      "case_id": "case04",
+      "source": "current_volunteer_board",
+      "knowledge_owner": "current_volunteer_board",
+      "text": "Sea Watch Weekend volunteers include Mira Vale and June Arlen.",
+      "location": "community_center",
+      "public_or_private": "public",
+      "validity_time": {
+        "available_after_minute": 0
+      },
+      "supports": [
+        "current_shared_activity"
+      ],
+      "contradicts": [],
+      "reveals_names": [
+        "mira_vale",
+        "june_arlen"
+      ]
+    },
+    {
+      "id": "chenyuan_reconnection",
+      "case_id": "case04",
+      "source": "chenyuan",
+      "knowledge_owner": "chenyuan",
+      "text": "They weren’t friends for a long time. That’s not a secret. They started talking again this spring. I wouldn’t call it fixed. I’d call it… less broken.",
+      "location": "bus_stop",
+      "public_or_private": "voluntary",
+      "validity_time": {
+        "available_after_minute": 0
+      },
+      "supports": [
+        "speaking_again"
+      ],
+      "contradicts": [],
+      "reveals_names": []
+    },
+    {
+      "id": "case04_manual_hold",
+      "case_id": "case04",
+      "source": "old_desk_ledger",
+      "knowledge_owner": "old_desk_ledger",
+      "text": "HOLD — HV. Not Return, Unknown, or Damaged.",
+      "location": "post_office",
+      "public_or_private": "public",
+      "validity_time": {
+        "available_after_minute": 0
+      },
+      "supports": [
+        "manual_discretion"
+      ],
+      "contradicts": [],
+      "reveals_names": []
+    },
+    {
+      "id": "ledger_hv_repeat",
+      "case_id": "case05",
+      "source": "old_desk_ledger",
+      "knowledge_owner": "old_desk_ledger",
+      "text": "HV / HOLD repeats on several unresolved entries, including the recorded Case04 item.",
+      "location": "post_office",
+      "public_or_private": "public",
+      "validity_time": {
+        "available_after_minute": 0
+      },
+      "supports": [
+        "repeat_hv"
+      ],
+      "contradicts": [],
+      "reveals_names": []
+    },
+    {
+      "id": "helena_rota",
+      "case_id": "case05",
+      "source": "old_shift_rota",
+      "knowledge_owner": "old_shift_rota",
+      "text": "Helena Voss — Desk B.",
+      "location": "post_office",
+      "public_or_private": "public",
+      "validity_time": {
+        "available_after_minute": 0
+      },
+      "supports": [
+        "helena_desk_b"
+      ],
+      "contradicts": [],
+      "reveals_names": [
+        "helena_voss"
+      ]
+    },
+    {
+      "id": "procedure_codes",
+      "case_id": "case05",
+      "source": "official_procedure_guide",
+      "knowledge_owner": "official_procedure_guide",
+      "text": "The official procedure categories do not include HV.",
+      "location": "post_office",
+      "public_or_private": "public",
+      "validity_time": {
+        "available_after_minute": 0
+      },
+      "supports": [
+        "hv_not_official_code"
+      ],
+      "contradicts": [],
+      "reveals_names": []
+    },
+    {
+      "id": "ledger_returns",
+      "case_id": "case05",
+      "source": "old_desk_ledger",
+      "knowledge_owner": "old_desk_ledger",
+      "text": "Two entries later returned to Desk B for review; one records Case04.",
+      "location": "post_office",
+      "public_or_private": "public",
+      "validity_time": {
+        "available_after_minute": 0
+      },
+      "supports": [
+        "desk_b_return_history"
+      ],
+      "contradicts": [],
+      "reveals_names": []
+    }
+  ],
+  "locations": [
+    "post_office",
+    "community_center",
+    "residential",
+    "bus_stop",
+    "lookout",
+    "chess_stall",
+    "tarot_shop"
+  ],
+  "people": {
+    "elsie_moran": "Elsie Moran",
+    "ruth_moran": "Ruth Moran",
+    "mira_vale": "Mira Vale",
+    "june_arlen": "June Arlen",
+    "leonie": "Leonie",
+    "helena_voss": "Helena Voss",
+    "chenyuan": "尘缘",
+    "community_clerk": "Community Center Clerk"
+  },
+  "calendar": {
+    "story_date": "2026-07-20",
+    "start_minute": 540,
+    "equipment_return_minute": 905,
+    "mira_departure_minute": 1050,
+    "forwarding_valid_from": "2024-07-20",
+    "forwarding_valid_until": "2025-07-19"
+  },
+  "policy": {
+    "travel_costs": [
+      15,
+      30
+    ],
+    "long_help_minutes": 30,
+    "kitchen_help_minutes": 30,
+    "records_retrieval_minutes": 15,
+    "failure_after_severe_breaches": 3,
+    "careful_trace_threshold": 1.5,
+    "casual_trace_threshold": 4.0
+  },
+  "implementation_defaults": [
+    "The source gives relative years, not exact dates: 2026-07-20 story date, 2020-07-20 archive dates, and 2024-07-20 through 2025-07-19 forwarding dates are explicit implementation defaults.",
+    "The new Bay Steps street number is unspecified; 9 Bay Steps is a supplemental consistent replacement for old ceramic 17.",
+    "17:30 is treated as Mira already departed (arrival must be strictly earlier); returned 15:05 only becomes historical fact at minute 905.",
+    "The ledger's ambiguous returned entries mean returned to Desk B for review, not returned to sender; original package text is preserved separately.",
+    "Travel caller must supply an explicitly previewed 15 or 30 minute cost; no old bus schedule is inherited.",
+    "Reliability band thresholds, trace detection thresholds, and three separate severe breaches for failure are adjustable implementation defaults, not measured reference mechanics."
+  ]
+}
