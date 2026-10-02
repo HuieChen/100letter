@@ -64,7 +64,7 @@ func _layout() -> void:
 
 func _draw() -> void:
 	var factor := maxf(0.01, minf(size.x / CANVAS.x, size.y / CANVAS.y))
-	draw_rect(Rect2(Vector2.ZERO, size), Color(0.08, 0.11, 0.13, 0.16))
+	draw_rect(Rect2(Vector2.ZERO, size), Color(0.08, 0.11, 0.13, 0.52))
 	draw_set_transform((size - CANVAS * factor) * 0.5, 0, Vector2.ONE * factor)
 	# Blank painted material only. Text, identity permissions and navigation remain live controls.
 	Art.paint(self,"handbook_open",BOOK_RECT)
@@ -85,15 +85,20 @@ func _rebuild() -> void:
 	if is_instance_valid(core): _view = core.dossier_view()
 	if _view.is_empty(): _view = {"known_people": {}, "observations": [], "draft": {}, "confirmed": {}}
 	var close := _button("Close", "×", Rect2(173,109,56,56), _close, 38)
-	close.position = Vector2(151,81)
-	close.size = Vector2(52,52)
+	close.position = Vector2(1464,16)
+	close.size = Vector2(96,66)
+	close.alignment = HORIZONTAL_ALIGNMENT_CENTER
+	close.add_theme_stylebox_override("normal", _tab_style(false))
+	close.add_theme_stylebox_override("hover", _tab_style(true))
+	close.add_theme_stylebox_override("pressed", _tab_style(true))
 	_label("Solmere / Local Exceptions", Rect2(286,148,430,40), 28, TEAL, HAND)
 	_label(SECTIONS[section], Rect2(285,183,430,35), 27)
 	_label("随身记录", Rect2(846,176,420,36), 24, MUTED)
 	for index: int in range(SECTIONS.size()):
 		var tab := _button("Tab" + str(index), SECTIONS[index], Rect2(), _select_section.bind(index), 20)
 		tab.position = Vector2([213,390,999,1191][index],66)
-		tab.size = Vector2(82,46)
+		tab.size = Vector2(120,46)
+		tab.alignment = HORIZONTAL_ALIGNMENT_CENTER
 		tab.add_theme_stylebox_override("hover", StyleBoxEmpty.new())
 		tab.add_theme_stylebox_override("pressed", StyleBoxEmpty.new())
 		
