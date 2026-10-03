@@ -2,6 +2,14 @@ param([Parameter(Mandatory=$true)][string]$GodotPath)
 $ErrorActionPreference='Stop'
 $taskRepo=Split-Path -Parent $PSScriptRoot
 $taskEngine=(Resolve-Path -LiteralPath $GodotPath).Path
+# The official Windows console launcher creates a separate GUI child. For this
+# exact HWND/PID ownership probe launch the matching GUI binary directly; keep
+# the ownership guard intact instead of accepting a different process ID.
+if ([IO.Path]::GetFileName($taskEngine) -like '*_console.exe') {
+ $taskGui=Join-Path ([IO.Path]::GetDirectoryName($taskEngine)) ([IO.Path]::GetFileName($taskEngine).Replace('_console.exe','.exe'))
+ if(-not (Test-Path -LiteralPath $taskGui -PathType Leaf)){throw 'Matching Godot GUI executable is required for the exact window-close probe.'}
+ $taskEngine=(Resolve-Path -LiteralPath $taskGui).Path
+}
 $taskRun=Join-Path $taskRepo ('test-results/window-close-'+(Get-Date -Format 'yyyyMMdd-HHmmss'))
 New-Item -ItemType Directory -Force -Path $taskRun | Out-Null
 $taskOldAppData=$env:APPDATA

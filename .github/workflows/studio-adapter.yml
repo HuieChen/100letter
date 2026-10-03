@@ -1,9 +1,9 @@
 name: Studio adapter integrity
 on:
   push:
-    paths: ['tools/studio.py', 'tools/studio/**', 'third_party/claude-code-game-studios/**', 'tests/test_studio_workflow.py', '.github/workflows/studio-adapter.yml']
+    paths: ['tools/studio.py', 'tools/studio/**', 'third_party/claude-code-game-studios/**', 'tests/test_studio_workflow.py', 'scripts/rebuild/field_book.gd', 'tests/field_book_smoke.gd', 'QA_GATES.md', '.github/workflows/studio-adapter.yml']
   pull_request:
-    paths: ['tools/studio.py', 'tools/studio/**', 'third_party/claude-code-game-studios/**', 'tests/test_studio_workflow.py', '.github/workflows/studio-adapter.yml']
+    paths: ['tools/studio.py', 'tools/studio/**', 'third_party/claude-code-game-studios/**', 'tests/test_studio_workflow.py', 'scripts/rebuild/field_book.gd', 'tests/field_book_smoke.gd', 'QA_GATES.md', '.github/workflows/studio-adapter.yml']
 permissions:
   contents: read
 jobs:

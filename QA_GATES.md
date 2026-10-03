@@ -1,11 +1,8 @@
-# QA gates
+# QA gates — reviewed 2026-10-03
+Compilation/unit counts/running process are not usability or aesthetic acceptance.
+Use tools/studio.py: pinned upstream integrity, per-chain fresh source/test/art hashes, raw engine result/logs/screenshots, real-input evidence. Gate rejects stale/tampered/absent evidence and pending native checks; no bypass to make it green.
 
-The uploaded snapshot is not accepted. Compilation, unit counts and a running process are insufficient evidence of usability.
-
-The CCGS/Codex adaptation in docs/STUDIO_WORKFLOW.md is now part of this workflow. tools/studio.py verifies its pinned source and captures current engine evidence; its gate must reject missing native review, stale source, absent/changed evidence, unknown checks and unresolved blockers. Adapter/CI success is not whole-game acceptance. Current checks use local Godot suites, not inactive upstream Claude hooks.
-
-For each complete state chain check normal path, visible exit without Esc, Esc, invalid actions, rapid input, re-entry, save/reload, focus loss, Chinese/English and responsive sizes 1920×1080 / 1280×720 / 2560×1440. Confirm no text clipping/overlap, no missing asset, no misleading affordance, no leaked private content and no user art modification.
-
-Automated engine input tests supplement actual-window manual testing. Capture full actual viewport screenshots and recording where feasible, otherwise a precise state walkthrough. Do not describe scripted input as human testing. Save QA_REPORT.md with failures and remaining scope limitations.
-
-At most three focused correction passes; unresolved affected work becomes BLOCKED. Latest direct instruction removes approval waits: send phase evidence, allow five minutes for feedback, then continue safe complete-chain work. Silence is not acceptance; incoming feedback overrides the direction. Tool-blocked WeChat reports are saved locally and do not stop engineering.
+Per chain: normal path; visible × without knowing Esc; Esc; wrong action; rapid input; repeated entry; recorded-state save/restore; focus loss; Chinese/English; 1920×1080, 1280×720, 2560×1440. No overlap/clipping/dead affordances/private-identity leakage.
+Automated GPU input/rendering supplements actual OS input and visual inspection. Record exact methods. Dummy audio is not listening. Authoring simulation is not a playable session; estimated duration is not measured novice duration.
+Keep QA_REPORT.md and local phase text/full screenshots/recording or precise state explanation. All unresolved blockers remain explicit. Continue focused correction passes as user requests, not a fixed three-pass quality waiver.
+Scoped changes and main publication are authorized. Tool-denied WeChat/links stay blocked; local reporting continues. Silence never equals player acceptance. Publish only reviewed source/package, verify exact SHA and current CI.

@@ -238,7 +238,11 @@ func _assert_target(condition: bool, label: String) -> bool:
 	return condition
 
 func _shot(file_name: String) -> void:
-	await process_frame; await RenderingServer.frame_post_draw
+	await process_frame
+	# A static/occluded Windows fixture can stop emitting frame_post_draw.
+	# Draw the actual current viewport on the main thread; never await a frame
+	# that may not be scheduled, and never substitute a cached picture.
+	RenderingServer.force_draw(false)
 	DirAccess.make_dir_recursive_absolute(FIVE_OUT + route)
 	var path := FIVE_OUT + route + "/" + file_name + ".png"
 	_check(root.get_texture().get_image().save_png(path) == OK, "GPU capture " + file_name)

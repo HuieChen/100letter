@@ -4,6 +4,8 @@
 
 当前包含五封案件、七处地点，以及从取信、调查、交接到回局盖单的完整班次流程。入口为 Godot 4.7.2 的 `scenes/final_slice.tscn`。
 
+2026-10-03 档案整改：保留原手绘书页，重新约束纸页内的文字、半身肖像与章签位置。该阶段的截图、操作链和待验项目见 [档案检查报告](docs/testing/BOOK_REVIEW_20261003.md) 与 [QA_REPORT.md](QA_REPORT.md)。这是开发阶段修复；主游戏语言切换、新三封信流程和完整新手验收仍未完成。
+
 | 标题与开始 | 柜台取信 |
 |---|---|
 | ![游戏标题](docs/screenshots/current/01_title.png) | ![打开实体邮件箱](docs/screenshots/current/02_counter.png) |

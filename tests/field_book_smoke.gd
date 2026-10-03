@@ -149,6 +149,43 @@ func _run() -> void:
 	_check(book.find_child("ConfirmedRecord", true, false) != null, "only actual completed factual reconstruction displays confirmed area")
 	_check(_find("RecordDraft") == null, "confirmed final record is read-only and cannot pretend to write into ended shift")
 	await _shot("field_book_confirmed")
+	# Exercise public, mixed-script records at each real rendering size. Quotes
+	# stay untouched when interface headings change language.
+	for dimensions: Vector2i in [Vector2i(1280,720),Vector2i(1920,1080),Vector2i(2560,1440)]:
+		root.content_scale_size = Vector2i(1600,900)
+		root.size = dimensions
+		await process_frame
+		for language: String in ["zh", "en"]:
+			book.configure(game, language)
+			await _click("Tab0")
+			await _select_id("chenyuan")
+			_check(_all_text(book).contains("First conversation" if language == "en" else "首次交谈"), "person headings follow locale at " + str(dimensions))
+			_check(book.find_child("KnownPortrait",true,false) != null, "locale retains actual encountered portrait")
+			_assert_layout()
+			await _shot("field_book_person_%s_%d" % [language, dimensions.x])
+			await _click("Tab1")
+			await _select_id("helena_rota")
+			_check((_find("EvidenceText") as RichTextLabel).text == "Helena Voss — Desk B.", "source quote is verbatim after locale switch")
+			_assert_layout()
+			await _shot("field_book_source_%s_%d" % [language, dimensions.x])
+			await _click("Tab3")
+			_check((_find("DeskEntry") as LineEdit).text == "Desk B", "changing locale does not destroy recorded draft")
+			_assert_layout()
+			await _shot("field_book_draft_%s_%d" % [language, dimensions.x])
+			# Fast alternating chapters/corners must not duplicate modal children,
+			# enumerate hidden people, or break the visible exit.
+			for repetition: int in range(8):
+				await _click("Tab0")
+				await _click("NextPage")
+				await _click("PreviousPage")
+			_check(book.page >= 0 and book.page < book._items.size(), "rapid leaf input remains in real record range")
+			var before_closed := closed_count
+			await _click("Close")
+			_check(closed_count == before_closed + 1 and not book.visible, "visible cross works without shortcuts at " + str(dimensions))
+			book.configure(game, language)
+			await process_frame
+			await _key(KEY_ESCAPE)
+			_check(closed_count == before_closed + 2 and not book.visible, "Escape closes reopened bilingual book")
 	book.queue_free(); host.queue_free(); game.queue_free(); restored.free()
 	await process_frame
 	var report := {"suite": "field_book", "checks": checks, "failures": failures, "runtime": Engine.get_version_info(), "screenshots": artifacts,
@@ -208,6 +245,7 @@ func _find(node_name: String):
 
 
 func _click(node_name: String) -> void:
+	print("BOOK INPUT ", node_name, " chapter=", book.section, " page=", book.page)
 	var control: Control = _find(node_name)
 	_check(control != null, "input target exists " + node_name)
 	if control == null: return
@@ -262,8 +300,10 @@ func _select_id(id: String) -> void:
 	_check(index >= 0, "visible record exists " + id)
 	if index < 0: return
 	var target_page: int = index / int(book.page_size())
-	while book.page < target_page: await _click("NextPage")
-	while book.page > target_page: await _click("PreviousPage")
+	for attempt: int in range(20):
+		if book.page == target_page: break
+		await _click("NextPage" if book.page < target_page else "PreviousPage")
+	_check(book.page == target_page, "bounded navigation reaches record page " + id)
 	if book.section != 0: await _click("Entry" + str(index))
 	_check(book.selected_id == id, "pointer opens selected record " + id)
 
@@ -275,7 +315,39 @@ func _all_text(node: Node) -> String:
 	return result
 
 
+func _assert_layout() -> void:
+	var tab_rects: Array[Rect2] = []
+	for index: int in range(4):
+		var tab: Button = _find("Tab" + str(index))
+		if tab == null: continue
+		_check(tab.size == Book.TAB_SIZE, "physical tabs share equal width and height")
+		_check(is_equal_approx(tab.position.y,70), "tabs share baseline")
+		var font: Font = tab.get_theme_font("font")
+		_check(font.get_string_size(tab.text,HORIZONTAL_ALIGNMENT_LEFT,-1,tab.get_theme_font_size("font_size")).x + 12 <= tab.size.x, "tab text fits without clipping")
+		var material: Texture2D = Book.Art.texture("handbook_open")
+		var ratio: Vector2 = Book.BOOK_RECT.size / material.get_size()
+		var painted: Rect2 = Rect2(Book.BOOK_RECT.position + Book.TAB_REGIONS[index].position * ratio, Book.TAB_REGIONS[index].size * ratio)
+		_check(painted.encloses(tab.get_rect()), "tab text region stays inside the actual painted paper tab")
+		tab_rects.append(tab.get_global_rect())
+	for first: int in range(tab_rects.size()):
+		for second: int in range(first+1,tab_rects.size()): _check(not tab_rects[first].intersects(tab_rects[second]), "tabs never overlap")
+	var close: Button = _find("Close")
+	_check(Rect2(Vector2.ZERO,root.get_visible_rect().size).encloses(close.get_global_rect()), "visible cross stays in viewport")
+	for child: Node in book._canvas.find_children("*", "Control", true, false):
+		if child.has_meta("paper_leaf"):
+			_check(child.get_parent().clip_contents, "record is clipped to its own paper leaf")
+			_check(Rect2(Vector2.ZERO,child.get_parent().size).encloses(child.get_rect()), "record stays inside paper safe area: " + str(child.name))
+		if child is Label:
+			_check(child.get_minimum_size().y <= child.size.y + 1, "wrapped label has sufficient height: " + child.text)
+		elif child is RichTextLabel:
+			_check(child.scroll_active and child.size.x >= 400, "long record has a readable scrolling page")
+		elif child is Button and not child.text.is_empty():
+			var font: Font = child.get_theme_font("font")
+			_check(font.get_string_size(child.text,HORIZONTAL_ALIGNMENT_LEFT,-1,child.get_theme_font_size("font_size")).x + 12 <= child.size.x, "button text is fully readable: " + child.text)
+
+
 func _shot(name: String) -> void:
+	print("BOOK CAPTURE ", name)
 	await create_timer(0.36).timeout
 	if DisplayServer.get_name() == "headless": return
 	await RenderingServer.frame_post_draw

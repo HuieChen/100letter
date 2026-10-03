@@ -1,0 +1,45 @@
+{
+  "scope": "Book development checkpoint; GPU inputs/captures, not native or player acceptance",
+  "engine": "4.7.2-stable (official)",
+  "book_checks": 1477,
+  "failures": [],
+  "book_source_sha256": "7de2fa73e15edc069a15273c756ea162be50e95f66937896765bcebe93fe9b48",
+  "test_source_sha256": "b82c2be7087b0cdf3ff05e4561b86ffdefe615f7cf9dbaeec9713b3f18770cb5",
+  "unchanged_book_bitmap_sha256": "2ae462630fd50d1ad121c46c620ec6a0ca3b817b4a368955b1a3c8dfe51a450c",
+  "full_regression_checks": 7050,
+  "window_close_checks": 29,
+  "book_evidence": "test-results/studio/book/20261003T105639997532Z/evidence.json",
+  "regression_logs": "test-results/check-20261003-184633",
+  "window_close_evidence": "test-results/window-close-20261003-185616/report.json",
+  "screenshots": [
+    {
+      "path": "docs/testing/book_20261003/field_book_person_zh_1920.png",
+      "sha256": "2e15ab919515e716cad657b184e31ca3ed5c2f290e111d1dd8a5cf77b70da19e",
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "path": "docs/testing/book_20261003/field_book_source_en_1920.png",
+      "sha256": "d67b0310c25581cad7b9055a9600def3058c6f597375f7d49245cdecbdda208a",
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "path": "docs/testing/book_20261003/field_book_draft_zh_1920.png",
+      "sha256": "c481e79204447bb174a48d66df1b3efe83137805d61fecafa757d8308d00c2e8",
+      "width": 1920,
+      "height": 1080
+    }
+  ],
+  "package": {
+    "kind": "local review, not final acceptance",
+    "exe_sha256": "d34d36f3be1a6c49c56525ae86469b92e4f417ddf0b43cf00dd80c385c4b0562",
+    "pck_sha256": "f5ecb84dd9df895bb62316d6b2ef8ea3ed8a7b52b428be6a7b4cb83c3202b500",
+    "compiled_book_sha256": "c18b229332c70ff8e547e1a89174cfec6e1fe0f5f9f2a950451de3aa76622f1e",
+    "pck_book_constants_and_mount_probe": "PASS; actual compiled PCK, headless",
+    "excluded_files": []
+  },
+  "native_review": "PENDING",
+  "audio_listening": "PENDING",
+  "player_acceptance": "NOT_INFERRED"
+}
