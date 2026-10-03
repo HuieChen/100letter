@@ -1,5 +1,13 @@
 # QA report · 2026-10-03
 
+## Open-source QA adoption — 2026-10-04
+
+GUT 9.7.1 is pinned with its MIT license and 259 byte-verified upstream files, without enabling plugins/autoloads/update hooks. Fresh production model run: 8 tests, 580 assertions, zero failures/skips. Independent save locations test invalid-command atomicity, repeated custody, hidden information, UI copies, corrupt-save recovery, tool cancellation and remote NPC guards. See docs/OPEN_SOURCE_ADOPTION_20261004.md and docs/testing/GUT_20261004.md. Original 7,496 engine assertions remain a distinct earlier current-runtime run; GUT is not native/UI/audio/player acceptance.
+
+The first integration report did not complete due to a timestamp/test-count assumption; retained and fixed. It also found a JPEG evidence capture wrongly named PNG: corrected extension with unchanged bytes and references. Final Godot import is error-free. Evidence directories are excluded from Godot import and exact-byte checkout is specified. No production save or visual framework migration.
+
+Fresh native follow-up used the current Windows package and an isolated `user://qa/native-book-20261004-0243/progress.json` slot: real mouse input confirmed title, new game and supervisor cross. Further book input returned `Computer Use helper already has an active request`, then `unknown screenshotId screenshot-0`; another application's window occluded the target during recovery. Stopped this owned QA process only. No additional book/flip/listening success is inferred, and the user's existing game process/save was retained. Other work continued as instructed.
+
 ## Transparent letter intake — 2026-10-04
 
 All five PDF pages and the separately supplied envelope are exported as RGBA PNGs in `assets/authoring/letter01_20261004`. User correction requires interior white paper pinholes to be transparent too; version 1 failed this intent and is excluded. Version 2 uses the built-in background-extraction tool, copied unchanged. Read-only pixel inspection verifies alpha minimum zero, interior fully transparent pixels (envelope 6; pages 74/62/32/45/49 in the recorded paper inset) and zero opaque near-white pixels in that inset. Full source/render/output pages were visually compared; handwriting and signature are readable, but pixel-exact equivalence is not claimed. Original PDF/JPG are untouched. These authoring exports do not yet replace live letter objects or expand the playable story.
@@ -16,7 +24,7 @@ Failures retained: the first new onboarding fixture incorrectly injected unscale
 
 Remaining acceptance gaps: no first-time human playtest or audio listening; complete three-letter 30-minute story/wax workflow still pending. Guidance for the entire campaign is not certified by the first-counter fix. CORE-BOOK remains under review, not silently marked complete. Publication is a development checkpoint.
 
-Native checkpoint: actual Windows input verified the title/new-game entry, supervisor visible cross, book opening, the full paper tab edge, book cross, bag opening and direct envelope entry into the physical inspection surface. The retained game-only frame is `docs/testing/tabs-guide_20261004/native_book_letters.png` (855×512). User input interrupted the box/letter and later flip actions; those steps are not claimed as independently completed native tests. Automated coverage remains distinct. Current player progress is preserved; native audio/novice/full-chain checks remain pending.
+Native checkpoint: actual Windows input verified the title/new-game entry, supervisor visible cross, book opening, the full paper tab edge, book cross, bag opening and direct envelope entry into the physical inspection surface. The retained game-only frame is `docs/testing/tabs-guide_20261004/native_book_letters.jpg` (856×511 capture). User input interrupted the box/letter and later flip actions; those steps are not claimed as independently completed native tests. Automated coverage remains distinct. Current player progress is preserved; native audio/novice/full-chain checks remain pending.
 
 ## Latest studio production integration
 

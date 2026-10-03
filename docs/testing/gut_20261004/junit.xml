@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites name="GutTests" failures="0" tests="8" >
+  <testsuite name="qa/gut/test_postal_boundaries.gd" tests="8" failures="0" skipped="0" time="0.673259" >
+      <testcase name="test_unopened_letter_and_unmet_people_remain_private" assertions="9" status="pass" classname="qa/gut/test_postal_boundaries.gd" time="0.003174" >
+      </testcase>
+      <testcase name="test_invalid_commands_cannot_change_custody_time_or_progress" assertions="321" status="pass" classname="qa/gut/test_postal_boundaries.gd" time="0.378707" >
+      </testcase>
+      <testcase name="test_unknown_envelope_face_is_atomic" assertions="15" status="pass" classname="qa/gut/test_postal_boundaries.gd" time="0.059226" >
+      </testcase>
+      <testcase name="test_repeated_pickup_never_duplicates_an_envelope" assertions="203" status="pass" classname="qa/gut/test_postal_boundaries.gd" time="0.007163" >
+      </testcase>
+      <testcase name="test_ui_copies_cannot_rewrite_original_letter_or_dossier" assertions="4" status="pass" classname="qa/gut/test_postal_boundaries.gd" time="0.0161" >
+      </testcase>
+      <testcase name="test_corrupt_save_recovers_last_verified_physical_object" assertions="11" status="pass" classname="qa/gut/test_postal_boundaries.gd" time="0.088058" >
+      </testcase>
+      <testcase name="test_safe_tool_cancel_releases_world_without_losing_letter" assertions="14" status="pass" classname="qa/gut/test_postal_boundaries.gd" time="0.108866" >
+      </testcase>
+      <testcase name="test_remote_dialogue_cannot_inject_a_clue" assertions="3" status="pass" classname="qa/gut/test_postal_boundaries.gd" time="0.011965" >
+      </testcase>
+  </testsuite>
+</testsuites>

@@ -25,7 +25,7 @@
       "severity": "acceptance_gap",
       "owner": "qa-lead",
       "status": "NOT_ASSESSED",
-      "observed": "Last actual-window capture was Windows lock screen; no native/listening acceptance.",
+      "observed": "Partial native book/bag checks exist; a fresh isolated native attempt confirmed title/new game/supervisor cross, then screenshot ID loss and another app occluded the target. Full native/listening/novice acceptance remains unverified.",
       "evidence": "QA_REPORT.md"
     },
     {

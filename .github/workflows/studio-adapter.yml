@@ -1,9 +1,9 @@
 name: Studio adapter integrity
 on:
   push:
-    paths: ['project.yaml', 'production/**', 'design/**', 'docs/architecture/STUDIO_BOUNDARIES.md', 'tools/studio.py', 'tools/studio/**', 'third_party/claude-code-game-studios/**', 'tests/test_studio_*.py', 'scripts/rebuild/field_book.gd', 'tests/field_book_smoke.gd', 'QA_GATES.md', '.github/workflows/studio-adapter.yml']
+    paths: ['project.yaml', 'production/**', 'design/**', 'docs/architecture/STUDIO_BOUNDARIES.md', 'tools/studio.py', 'tools/studio/**', 'third_party/claude-code-game-studios/**', 'tests/test_studio_*.py', 'scripts/rebuild/field_book.gd', 'tests/field_book_smoke.gd', 'QA_GATES.md', 'addons/gut/**', 'tools/gut.lock.json', 'tools/check_gut.py', 'qa/gut/**', '.github/workflows/studio-adapter.yml']
   pull_request:
-    paths: ['project.yaml', 'production/**', 'design/**', 'docs/architecture/STUDIO_BOUNDARIES.md', 'tools/studio.py', 'tools/studio/**', 'third_party/claude-code-game-studios/**', 'tests/test_studio_*.py', 'scripts/rebuild/field_book.gd', 'tests/field_book_smoke.gd', 'QA_GATES.md', '.github/workflows/studio-adapter.yml']
+    paths: ['project.yaml', 'production/**', 'design/**', 'docs/architecture/STUDIO_BOUNDARIES.md', 'tools/studio.py', 'tools/studio/**', 'third_party/claude-code-game-studios/**', 'tests/test_studio_*.py', 'scripts/rebuild/field_book.gd', 'tests/field_book_smoke.gd', 'QA_GATES.md', 'addons/gut/**', 'tools/gut.lock.json', 'tools/check_gut.py', 'qa/gut/**', '.github/workflows/studio-adapter.yml']
 permissions:
   contents: read
 jobs:
@@ -15,5 +15,6 @@ jobs:
         with:
           python-version: '3.12'
       - run: python tools/studio.py verify
+      - run: python tools/check_gut.py --verify-only
       - run: python tools/studio.py status
       - run: python -m unittest discover -s tests -p 'test_studio_*.py' -v

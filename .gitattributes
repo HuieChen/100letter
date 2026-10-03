@@ -20,3 +20,8 @@ third_party/claude-code-game-studios/** -text -eol -whitespace
 # Retained evidence hashes bind exact bytes on every collaborator's checkout.
 production/qa/** -text -eol -whitespace
 docs/testing/studio_20261003/** -text -eol -whitespace
+# Exact-byte capture and independently licensed test tools.
+docs/testing/tabs-guide_20261004/** -text -eol -whitespace
+docs/testing/TABS_GUIDE_20261004.md -text -eol -whitespace
+docs/testing/gut_20261004/** -text -eol -whitespace
+addons/gut/** -text -eol -whitespace

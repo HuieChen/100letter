@@ -1,0 +1,1049 @@
+{
+  "name": "GUT",
+  "version": "9.7.1",
+  "revision": "aeb5d4f3f7f0a6c9b5e178876d6c99b791fda605",
+  "source": "https://github.com/bitwes/Gut",
+  "source_archive": "https://codeload.github.com/bitwes/Gut/zip/aeb5d4f3f7f0a6c9b5e178876d6c99b791fda605",
+  "archive_sha256": "840382c1f3170ad9f039f4bbbcf94c922547792ea290227ec09c7b509e899d58",
+  "license": "MIT",
+  "license_path": "addons/gut/LICENSE.md",
+  "scope": "Development-only test runner. No editor plugin, autoload, update checks or gameplay framework migration.",
+  "files": [
+    {
+      "path": "addons/gut/GutScene.gd",
+      "sha256": "13f9a26bb6048c7d8cd80112d03e0a4e2705896f648a38973efe603299320b3a"
+    },
+    {
+      "path": "addons/gut/GutScene.gd.uid",
+      "sha256": "f2d3027e0180f1b2005698a80a63e874cc2ceb33a999f032fadcf4c36253ea8a"
+    },
+    {
+      "path": "addons/gut/GutScene.tscn",
+      "sha256": "dc2c55a94beaea35739236678ef69379bc0266877ef10a22fb2dfb9d785c5705"
+    },
+    {
+      "path": "addons/gut/LICENSE.md",
+      "sha256": "872fea6e72319f72e4ec0aa10bd7ec535ed3124bf2718bd8e0140e9adafef917"
+    },
+    {
+      "path": "addons/gut/UserFileViewer.gd",
+      "sha256": "9ac084952d8e45f29bfff77d485bf1ed03a95d324923f52314263968ee508047"
+    },
+    {
+      "path": "addons/gut/UserFileViewer.gd.uid",
+      "sha256": "13fc41321d3aae49b60fbffa9a0fe9c9a830fc84e7b26dfba472820254f69b35"
+    },
+    {
+      "path": "addons/gut/UserFileViewer.tscn",
+      "sha256": "d91fbda7e4e202e0c7c5a27bd15178e7e4ff383e79e3b1f57df48acac2e38a5e"
+    },
+    {
+      "path": "addons/gut/autofree.gd",
+      "sha256": "ec4cfa1f327726153ce2d31428d0a2c0155c942473e262c082ff43bad3aa9288"
+    },
+    {
+      "path": "addons/gut/autofree.gd.uid",
+      "sha256": "6096fa3d9357bffcc1637c7e6a13c50e51a3f4b52b1d8c4815dbc5e88e604642"
+    },
+    {
+      "path": "addons/gut/awaiter.gd",
+      "sha256": "94b76995e3e9d647b36ce2f724eba11860675b621a23e918604da71e958113ca"
+    },
+    {
+      "path": "addons/gut/awaiter.gd.uid",
+      "sha256": "380fb96f73448c9c5fe79d70ff25556738600b0af4419e36bfff0c65d21c2b5f"
+    },
+    {
+      "path": "addons/gut/cli/change_project_warnings.gd",
+      "sha256": "37e01b834657f0a5f1d2c240c0ac73bcdf98c835f642ddb971727daee13224e5"
+    },
+    {
+      "path": "addons/gut/cli/change_project_warnings.gd.uid",
+      "sha256": "320ea6ca480345a517e8f81b0252becbe09cdd0ed72e286bff56441d21e12b90"
+    },
+    {
+      "path": "addons/gut/cli/gut_cli.gd",
+      "sha256": "bc804b16d8827a00da5ac144450b18e373823055f17ff20021a3fee67471d0ed"
+    },
+    {
+      "path": "addons/gut/cli/gut_cli.gd.uid",
+      "sha256": "8ca6265ffe1a765bbd771234753c2744f183fffdeb80e27010aef01fe49e1663"
+    },
+    {
+      "path": "addons/gut/cli/optparse.gd",
+      "sha256": "569a60644bbd3371773f57a5f6b5db053208ae8e779484f247461f9817058923"
+    },
+    {
+      "path": "addons/gut/cli/optparse.gd.uid",
+      "sha256": "875d5a35defbe1d098b5f0037c36713ad9ac904d3edf8c020516767481083e0f"
+    },
+    {
+      "path": "addons/gut/collected_script.gd",
+      "sha256": "83712048b74c6d474641d7663ab10a9aa57233824e0a5d4e3583ed7cfcb5b30b"
+    },
+    {
+      "path": "addons/gut/collected_script.gd.uid",
+      "sha256": "caffbc32c5d6e6fc347ea7d616b8cae8f430b896d6ea77c23be78923454242f5"
+    },
+    {
+      "path": "addons/gut/collected_test.gd",
+      "sha256": "1792b9b8ffbef403aec2cdb1ff2a6724e17c96c5173430d6de27bfbf6013171f"
+    },
+    {
+      "path": "addons/gut/collected_test.gd.uid",
+      "sha256": "414c3b15b51f96e4986660f7555056f420ace9bac65e672c44bc9354f97fc4a2"
+    },
+    {
+      "path": "addons/gut/comparator.gd",
+      "sha256": "25587cb670b1a3871cea2b08ceb8c444273c21e566d1b34fa1d3083d0e128f20"
+    },
+    {
+      "path": "addons/gut/comparator.gd.uid",
+      "sha256": "8265b76ad57ebbc7001e155704174538c50695ddbb369e91c5883826d24313f4"
+    },
+    {
+      "path": "addons/gut/compare_result.gd",
+      "sha256": "dd0a48a1d681bbe7277ccdedb2882265c8a6542c163d4dd86d56f1cda71438a9"
+    },
+    {
+      "path": "addons/gut/compare_result.gd.uid",
+      "sha256": "2cedfbb95fc5e35cb1d79e37d74b12a5a468c6bb38f4004e7abc19a6cea3a5bd"
+    },
+    {
+      "path": "addons/gut/diff_formatter.gd",
+      "sha256": "d500427868b0c942cb0c2abd3f170062e9203f9c006c4d8158d91215e9081aba"
+    },
+    {
+      "path": "addons/gut/diff_formatter.gd.uid",
+      "sha256": "b0ba8e79fd578b55a213cb735c8344aa94bf302123c078798c78975501016be4"
+    },
+    {
+      "path": "addons/gut/diff_tool.gd",
+      "sha256": "58ab9c8ed85f10484eb984ca2b00156997ffc48f8fedc0c260f2a8be70773456"
+    },
+    {
+      "path": "addons/gut/diff_tool.gd.uid",
+      "sha256": "a7d312c3683d53852cbfd400d716ea162dc70bcf626d598fa94a4d46de565df8"
+    },
+    {
+      "path": "addons/gut/double_templates/double_data_template.txt",
+      "sha256": "901a12d9c58ae9b18003d11814df24eae2d533c72224201ecedee40c33832a18"
+    },
+    {
+      "path": "addons/gut/double_templates/function_template.txt",
+      "sha256": "13fc9dac4c523419b2a4957c949488448e39b35671fdae05edc6887d7db1183b"
+    },
+    {
+      "path": "addons/gut/double_templates/init_template.txt",
+      "sha256": "c8acd3126abb1052740a016ce98574ef70c97a9bb165cceb09614d4cb6a328c4"
+    },
+    {
+      "path": "addons/gut/double_templates/script_template.txt",
+      "sha256": "4557671c1dd3b37766963c74fcfe54188166460a6dbcdffde28e8c206fab3492"
+    },
+    {
+      "path": "addons/gut/double_templates/singleton_template.txt",
+      "sha256": "ec4ddb96c03edeed6735a34886310d96547a786209fe3ed83ca93b8a4b5c44ad"
+    },
+    {
+      "path": "addons/gut/double_tools.gd",
+      "sha256": "74a55ba8f57dc163604832f02723aa9f0394eed1aed3fa240c64bea0953ece71"
+    },
+    {
+      "path": "addons/gut/double_tools.gd.uid",
+      "sha256": "23edd693694aed953f6968d8326d2d4828759da0ec498b20c3a8115cac7b2bca"
+    },
+    {
+      "path": "addons/gut/doubler.gd",
+      "sha256": "c50a30fa54a98e088c3e147e4f04c61810aa1d91720c8588c27c2636d8d5fbc5"
+    },
+    {
+      "path": "addons/gut/doubler.gd.uid",
+      "sha256": "d35aa30dc79db950dbff8137d3827a885b66e30e993d2ab4edc2142606cb447a"
+    },
+    {
+      "path": "addons/gut/dynamic_gdscript.gd",
+      "sha256": "031a48b3a9b3335c227f5e4a3c1b041657ac5d088546c581fcffd8a8432370a0"
+    },
+    {
+      "path": "addons/gut/dynamic_gdscript.gd.uid",
+      "sha256": "d996fe49aaa2edf3e9a7d74ffe18f277c08777eb51da4ca667826deb1c6bf4a2"
+    },
+    {
+      "path": "addons/gut/editor_caret_context_notifier.gd",
+      "sha256": "20bb7fd94b8293ebacd68d49256afe38ab665ad7dfd8b5d6290f48f5b7dc7ca1"
+    },
+    {
+      "path": "addons/gut/editor_caret_context_notifier.gd.uid",
+      "sha256": "b276829969b5d338d574d61ec8a7793c055a8b4ffcf26c79e36d39fade327e27"
+    },
+    {
+      "path": "addons/gut/error_tracker.gd",
+      "sha256": "ea3567b72725fb0eaac25074708378d5f4fadd741032ce0a93f9e41652cdc9f3"
+    },
+    {
+      "path": "addons/gut/error_tracker.gd.uid",
+      "sha256": "d2e0e67060366447d25671e95445dd65e83dc41c182f4ccecb468d06339afdd8"
+    },
+    {
+      "path": "addons/gut/fonts/AnonymousPro-Bold.ttf",
+      "sha256": "886c150f2aa1d4b1cc23bce0b77d68ed36d5a42e0ff3f0e97748edd7623087c2"
+    },
+    {
+      "path": "addons/gut/fonts/AnonymousPro-Bold.ttf.import",
+      "sha256": "bc13eae9cba496384c5297143cdcd6faa97a9e446bc021c56bc3abc16720c1c6"
+    },
+    {
+      "path": "addons/gut/fonts/AnonymousPro-BoldItalic.ttf",
+      "sha256": "a421794367245363a89fd2804a19969212ebd6a9cef076bb825accb39a27e121"
+    },
+    {
+      "path": "addons/gut/fonts/AnonymousPro-BoldItalic.ttf.import",
+      "sha256": "3848f69b9e0e0b401a2e428408b69368d5e514dd3ab86bf3f54f986cad70fba3"
+    },
+    {
+      "path": "addons/gut/fonts/AnonymousPro-Italic.ttf",
+      "sha256": "c09b3b506b231b4e1a3b3b22e24420dbce85b7bebc74dc0f350caeb48f8b035e"
+    },
+    {
+      "path": "addons/gut/fonts/AnonymousPro-Italic.ttf.import",
+      "sha256": "cd93c0adcf6189bd3b1af2960d42c84113b8d329076961e24a86fce254c09b31"
+    },
+    {
+      "path": "addons/gut/fonts/AnonymousPro-Regular.ttf",
+      "sha256": "4d5d383c044681a4d6552c3672c5b0c907eabc6ab0175565e0c81dac24fd7e26"
+    },
+    {
+      "path": "addons/gut/fonts/AnonymousPro-Regular.ttf.import",
+      "sha256": "95f15ecd127d814156e3608e88fb4964ebe637cd6dded465d1f8543ece7961c6"
+    },
+    {
+      "path": "addons/gut/fonts/CourierPrime-Bold.ttf",
+      "sha256": "ff84d6ef4951db182c99c6b8a76c0bae0245c192994a032132b59f5c04392967"
+    },
+    {
+      "path": "addons/gut/fonts/CourierPrime-Bold.ttf.import",
+      "sha256": "8af6bbccdd725d3eda13b2a8d765eef0fcc20003ed94d8dcc4329502792cbe89"
+    },
+    {
+      "path": "addons/gut/fonts/CourierPrime-BoldItalic.ttf",
+      "sha256": "32cbf2f3729bd78a84008878aeac9abdf85f3f84dd196d012879abdcda5bffcd"
+    },
+    {
+      "path": "addons/gut/fonts/CourierPrime-BoldItalic.ttf.import",
+      "sha256": "23d9d4c12b35710742682f3ad6bd7f4f58524c31e07a1b5e8b9e29efbc2c3116"
+    },
+    {
+      "path": "addons/gut/fonts/CourierPrime-Italic.ttf",
+      "sha256": "2f4cc8daf20a7127e2b2a314fbb20279021208b9abb8c38e54fc9b19caac6783"
+    },
+    {
+      "path": "addons/gut/fonts/CourierPrime-Italic.ttf.import",
+      "sha256": "c92e1afdc3e38122b250037d9c162205ebe53b5122a82e62c3106af83d5231cf"
+    },
+    {
+      "path": "addons/gut/fonts/CourierPrime-Regular.ttf",
+      "sha256": "16c3b24e173a21f23bdab9d50b5a49dc138e2b80789e010c7f29272b23e0634b"
+    },
+    {
+      "path": "addons/gut/fonts/CourierPrime-Regular.ttf.import",
+      "sha256": "494f8c060035231543a5ffadf939acba1b9b1f34a9c958259bd970e7f6f00d20"
+    },
+    {
+      "path": "addons/gut/fonts/LobsterTwo-Bold.ttf",
+      "sha256": "cfe79870da707a188578dea1816f452420916281530817dc47ceda096e4cefba"
+    },
+    {
+      "path": "addons/gut/fonts/LobsterTwo-Bold.ttf.import",
+      "sha256": "9b0b379294b9cb780bc01165e4ef1671836713b733491732755d34bfd3cc74b5"
+    },
+    {
+      "path": "addons/gut/fonts/LobsterTwo-BoldItalic.ttf",
+      "sha256": "97a658cde6909be3ed54c11fb337e10ed72201579d3b94ecff2ff9477b5a1605"
+    },
+    {
+      "path": "addons/gut/fonts/LobsterTwo-BoldItalic.ttf.import",
+      "sha256": "69ec59f1d20802e3a9d853c25e75bb2084bc43b71759e8b2ab70ce44575cc9c8"
+    },
+    {
+      "path": "addons/gut/fonts/LobsterTwo-Italic.ttf",
+      "sha256": "5b4894780212918aaba1936a57f255c08da026c3bcc15d6343141030a29a2dc5"
+    },
+    {
+      "path": "addons/gut/fonts/LobsterTwo-Italic.ttf.import",
+      "sha256": "280cddd903c6489f441d13c0af4bdd18cf9292b08f53006f3a61e9397ad5d436"
+    },
+    {
+      "path": "addons/gut/fonts/LobsterTwo-Regular.ttf",
+      "sha256": "66ae53dcaad43a7de57cd3a1aa3fbc4e1b51623a317be9dc1f7e603118a301cb"
+    },
+    {
+      "path": "addons/gut/fonts/LobsterTwo-Regular.ttf.import",
+      "sha256": "3bbb7a249c0c6f90a4eaa4612d050ff7fe901c8d73b3997d7008a4636329bde9"
+    },
+    {
+      "path": "addons/gut/fonts/OFL.txt",
+      "sha256": "7284515a7e666096d0ba18e3273acc893723d258fbacc029da2a520da37facb4"
+    },
+    {
+      "path": "addons/gut/get_editor_interface.gd",
+      "sha256": "ca6d98eabbfba7d325e04808836c2883f5dcb342af865c9586a53ae44c9996a0"
+    },
+    {
+      "path": "addons/gut/get_editor_interface.gd.uid",
+      "sha256": "41baa7a0f5f109ead21c8d12507203eaba24564e25b404ccad137e8071194c9b"
+    },
+    {
+      "path": "addons/gut/godot_singletons.gd",
+      "sha256": "29e16d7d85119efe5ee47c893670fc8baabd68dfcc7268ccea8f93ab428c5d32"
+    },
+    {
+      "path": "addons/gut/godot_singletons.gd.uid",
+      "sha256": "b678dee7f80c34b79066e7518800feda4c489ee56d0759c510fa5151c2936871"
+    },
+    {
+      "path": "addons/gut/gui/EditorRadioButton.tres",
+      "sha256": "ba90248a0ad0f1d5480e29155a96b3c472c845dac65690e2d653b9c50068e2b5"
+    },
+    {
+      "path": "addons/gut/gui/GutBottomPanel.gd",
+      "sha256": "e15b60be48b4cc5e41611fc4176f7bf0f7ebd307e4a088ba035fc2a8a2a11afd"
+    },
+    {
+      "path": "addons/gut/gui/GutBottomPanel.gd.uid",
+      "sha256": "6bc413c128d97cbcdf0c1367437b2fe8768b269cb0c9a2d3c7d03f0fa89bf32f"
+    },
+    {
+      "path": "addons/gut/gui/GutBottomPanel.tscn",
+      "sha256": "89d152263e49c4e7f4dd9e135030a54868782be70b6dabf1046c274b6a92e882"
+    },
+    {
+      "path": "addons/gut/gui/GutControl.gd",
+      "sha256": "3ade9103b6abcc1f4ca32119b41ad9354396c41e59a0496189cd0ef4bf2423cd"
+    },
+    {
+      "path": "addons/gut/gui/GutControl.gd.uid",
+      "sha256": "9fd41de36c1fe514867ef372fdf020afe62685b241dc8a41e8f626a16aaea9fc"
+    },
+    {
+      "path": "addons/gut/gui/GutControl.tscn",
+      "sha256": "67b57877af5dc947db7ded83eff28e68a183416b9948f5450e5b796784000577"
+    },
+    {
+      "path": "addons/gut/gui/GutLogo.tscn",
+      "sha256": "72c7f2a3dc844f88a3434584fc552051ac6ceeb66ca537c762a0e62ff19ba8e5"
+    },
+    {
+      "path": "addons/gut/gui/GutRunner.gd",
+      "sha256": "ad9c323f369eced285ddd37f6cc91fd34cdf737bd1f524ed53a524acb641de60"
+    },
+    {
+      "path": "addons/gut/gui/GutRunner.gd.uid",
+      "sha256": "51161e8d7ab18b2152b182ac46c0961fc4ddcd17d30605d9de70905631aef49a"
+    },
+    {
+      "path": "addons/gut/gui/GutRunner.tscn",
+      "sha256": "0aaab3a640f9562b9b023b4b53b5024443e56431d417a579a8670b3572d551a5"
+    },
+    {
+      "path": "addons/gut/gui/GutSceneTheme.tres",
+      "sha256": "c33d1a4adb3010843b8ab34c4f012b929ec3634554b3de0577a5da6586922fde"
+    },
+    {
+      "path": "addons/gut/gui/MinGui.tscn",
+      "sha256": "843ec13ce97732bdbabebffcf715a75fe5bf5852bfa0d88f7f24b743c77225d1"
+    },
+    {
+      "path": "addons/gut/gui/NormalGui.tscn",
+      "sha256": "904556549580ecc416637dcf154030f9746779acb47fb56a0a9add7fc1e3125b"
+    },
+    {
+      "path": "addons/gut/gui/OutputText.gd",
+      "sha256": "a42df92c7b8c763faee773ef7c118f88993d953f6842ee2d9a56b67f9d4b04b6"
+    },
+    {
+      "path": "addons/gut/gui/OutputText.gd.uid",
+      "sha256": "dd4114ffbffbaef1ab74a00780ffa8362a83c55a7fc1f06d3400e76c548f6340"
+    },
+    {
+      "path": "addons/gut/gui/OutputText.tscn",
+      "sha256": "7d7cd8910f3dcecda91cf0da0c75f68bad243fad3e710be955be6a5282f46be3"
+    },
+    {
+      "path": "addons/gut/gui/ResizeHandle.gd",
+      "sha256": "1d52db02cb28723a344c07805ec9f3839115d583f73caa0a27001aa774864fc6"
+    },
+    {
+      "path": "addons/gut/gui/ResizeHandle.gd.uid",
+      "sha256": "72f8a92d89fc9df353466e37a137beeec4a1be6b5ce4cdf9f750de195fda163a"
+    },
+    {
+      "path": "addons/gut/gui/ResizeHandle.tscn",
+      "sha256": "c2ac6ba3f36ed58e5997c7fe6cda91e5a109754fd7a6e7647bf6cb0d79849461"
+    },
+    {
+      "path": "addons/gut/gui/ResultsTree.gd",
+      "sha256": "af9f53564559e9670f3f0970004006c6069c96705fc5abe13fe60f5ad7e23ea4"
+    },
+    {
+      "path": "addons/gut/gui/ResultsTree.gd.uid",
+      "sha256": "6a73a72827b07522ebd49885f4eeae37c061b2493e606567c887d6849c23aae8"
+    },
+    {
+      "path": "addons/gut/gui/ResultsTree.tscn",
+      "sha256": "da355f06080f47ec3fa37899ab5e1a0f02730d414367e2d62f6e2e9f77771d65"
+    },
+    {
+      "path": "addons/gut/gui/RunAtCursor.gd",
+      "sha256": "2fd60fe28bb690cd630a227dc6d3bb502349fafdd0e53f777f0df1139729215e"
+    },
+    {
+      "path": "addons/gut/gui/RunAtCursor.gd.uid",
+      "sha256": "8d49d15c1e5c8042153d0d36d22760ecf58dbd8474b456ffef0f174c4f754eaa"
+    },
+    {
+      "path": "addons/gut/gui/RunAtCursor.tscn",
+      "sha256": "cbd85f372607bb613696700dd0733e0e6ad7eadb6f92fc1d01028d3b4ee3e488"
+    },
+    {
+      "path": "addons/gut/gui/RunExternally.gd",
+      "sha256": "4ea9a5f9517b117318d5eb91bc2e1609b041972f8217ec1eaaac625a80fb53fe"
+    },
+    {
+      "path": "addons/gut/gui/RunExternally.gd.uid",
+      "sha256": "cd2993942c307d207dbfb84d8614546c366c4c0db99cfeb9141377f78667c579"
+    },
+    {
+      "path": "addons/gut/gui/RunExternally.tscn",
+      "sha256": "be39b1c989143118ae6542e5da650a5fb37fd7c067366f1165b10bc64b0825aa"
+    },
+    {
+      "path": "addons/gut/gui/RunResults.gd",
+      "sha256": "c85c5f67735c01876f31c12b96b7cb63c13cdff23bff3b49a465b3f087d7a764"
+    },
+    {
+      "path": "addons/gut/gui/RunResults.gd.uid",
+      "sha256": "02db26990606305f985108c44825083980c502f79dfd389de2193c84d2094a4d"
+    },
+    {
+      "path": "addons/gut/gui/RunResults.tscn",
+      "sha256": "c1ef77d66c3924cd225bc333f1456d6a537f75336e40aecbbae59c6032623c7f"
+    },
+    {
+      "path": "addons/gut/gui/Settings.tscn",
+      "sha256": "06805c2746ba01c8f1ed37c1aff2ece1769d3e6417bc9ad6f9546b30bc55309f"
+    },
+    {
+      "path": "addons/gut/gui/ShellOutOptions.gd",
+      "sha256": "404a05f70f2f0dd671e4cfcc570a226bf91fca656e40dcf346596b48f37ff3b4"
+    },
+    {
+      "path": "addons/gut/gui/ShellOutOptions.gd.uid",
+      "sha256": "bcc9d8e20836465e5f72010f31c52fbf6a1f4aaaf39718439e1fe8f3255d9bf2"
+    },
+    {
+      "path": "addons/gut/gui/ShellOutOptions.tscn",
+      "sha256": "40274257e7fb91897fd9fc473e169cc9080c0442677f9eee97bc90377bb30567"
+    },
+    {
+      "path": "addons/gut/gui/ShortcutButton.gd",
+      "sha256": "15b485987d399bc3573fde63a24852cd22928ec9b94d909a0f73fb190ced9dea"
+    },
+    {
+      "path": "addons/gut/gui/ShortcutButton.gd.uid",
+      "sha256": "a35af50bc7ee3c957bf3ccbc5f13db520f8ff0b5086e5b4ebe83aa1cae2d96b1"
+    },
+    {
+      "path": "addons/gut/gui/ShortcutButton.tscn",
+      "sha256": "5f6073b4bf9ebefb4cf80349c38dc4d28adf9f2c29d2514ca8c7e3f4763b406e"
+    },
+    {
+      "path": "addons/gut/gui/ShortcutDialog.gd",
+      "sha256": "e786e0e95697bbde066babf8dec4e276c7ebe53bf5c201af872926c773a15d62"
+    },
+    {
+      "path": "addons/gut/gui/ShortcutDialog.gd.uid",
+      "sha256": "c919556aade6ed4192151c2a42e48be357e899d4d399120de7f60764f369d17f"
+    },
+    {
+      "path": "addons/gut/gui/ShortcutDialog.tscn",
+      "sha256": "7e3052c2c61c40ca945277c0c83007e3634c2229ddebf51034a479ad7243609a"
+    },
+    {
+      "path": "addons/gut/gui/about.gd",
+      "sha256": "8885f6e9b5cf0a40064eed302df685373d67f1e06d5fcf223c94eb00688052da"
+    },
+    {
+      "path": "addons/gut/gui/about.gd.uid",
+      "sha256": "82a043930aaf9725aed8904332aae82372abe66b8fc7f8e51aa28013db0c5251"
+    },
+    {
+      "path": "addons/gut/gui/about.tscn",
+      "sha256": "b476a610e0356eabf9e1c3b613c870c76bea2d2ef36f87e2f13179bf4630fc4c"
+    },
+    {
+      "path": "addons/gut/gui/arrow.png",
+      "sha256": "7f5a2f25d0cc68b8281bda24cdcd1d816e718d11fa0d050ede6cbad9033d17ed"
+    },
+    {
+      "path": "addons/gut/gui/arrow.png.import",
+      "sha256": "7ebd2c78029dd7a8a12efc194585b9ecb6d4922699d2881cc4d662403484d7d5"
+    },
+    {
+      "path": "addons/gut/gui/check_for_update.gd",
+      "sha256": "c5c0b4e638ee753125a9e05c21b3d8c18afaa0a4c71ab12cbfe08eb8c866259c"
+    },
+    {
+      "path": "addons/gut/gui/check_for_update.gd.uid",
+      "sha256": "ad048435de97d6d943152d848c4613cd298dea3afa8410b028665b715370a125"
+    },
+    {
+      "path": "addons/gut/gui/check_for_update.tscn",
+      "sha256": "39adf72604669a7d55f0a8e5457556c814625255fd81f2a167ae80ad7e43050d"
+    },
+    {
+      "path": "addons/gut/gui/editor_globals.gd",
+      "sha256": "bd63f9cacdcf1780cbb0bee45716c922e210ce7b18787703d71ac6c79faa56e6"
+    },
+    {
+      "path": "addons/gut/gui/editor_globals.gd.uid",
+      "sha256": "cd0a4180287a7601800a9c7228bd2460bb7843c5ae3ac52bc9a18111d823994e"
+    },
+    {
+      "path": "addons/gut/gui/gut_config_gui.gd",
+      "sha256": "c5bd34d3313710eadf80f52c179b195cd6169e4962590fe5f4e52a663485526c"
+    },
+    {
+      "path": "addons/gut/gui/gut_config_gui.gd.uid",
+      "sha256": "96be87136294053ba2c04c98748ca115d51e589ec96eac38531310d27a4fb48f"
+    },
+    {
+      "path": "addons/gut/gui/gut_dock.gd",
+      "sha256": "01cb49b0dd1661f511f3766383e6038510e27d8ce3a7ef873a4be2027e93d3d5"
+    },
+    {
+      "path": "addons/gut/gui/gut_dock.gd.uid",
+      "sha256": "d38124b62244bcc32d24251ce9de1e5fbb011582c220d405708753e7000ef154"
+    },
+    {
+      "path": "addons/gut/gui/gut_gui.gd",
+      "sha256": "40ccc7521c6617e7f55516f07c02f5952fb3be6312ff5fc21960951a1f7bac35"
+    },
+    {
+      "path": "addons/gut/gui/gut_gui.gd.uid",
+      "sha256": "851c30dbe29bedd33dc1e758819fcdb99392d08066de72c2f5ade577c8cdb010"
+    },
+    {
+      "path": "addons/gut/gui/gut_logo.gd",
+      "sha256": "eeef3ccb00de5b980ee426abec8613b6353fdbcb5ea08574a72519c653bf20f7"
+    },
+    {
+      "path": "addons/gut/gui/gut_logo.gd.uid",
+      "sha256": "cf13c0b4b17c0e5b6b7c75be04a141d26866f66b7c63268b2777b7538377ca78"
+    },
+    {
+      "path": "addons/gut/gui/gut_user_preferences.gd",
+      "sha256": "8291644954996ccc0b93e4c70e514efc3d0f877bd3c024cc4488fb3efade6d03"
+    },
+    {
+      "path": "addons/gut/gui/gut_user_preferences.gd.uid",
+      "sha256": "d1b0ee367b2e2f70a887f2cb86bce86d29d84e74f9ef87ea12d2f711b441461e"
+    },
+    {
+      "path": "addons/gut/gui/option_maker.gd",
+      "sha256": "71f3eb33bfa7f980d4383788f993250f9cba3329f032ec491e45047d89245f6e"
+    },
+    {
+      "path": "addons/gut/gui/option_maker.gd.uid",
+      "sha256": "fc09be7864bfe9ee2d30308255d592be32c6244c1a6fbd6767b39c19b8ed577a"
+    },
+    {
+      "path": "addons/gut/gui/panel_controls.gd",
+      "sha256": "b3061a3f3cb6f815fde9b96f3eae9cacc3a68530c78637f645475319323be12b"
+    },
+    {
+      "path": "addons/gut/gui/panel_controls.gd.uid",
+      "sha256": "00c022ed27473d1d4aa12266ebdd8c91630b198d10d0adab0535f8ad212f3e73"
+    },
+    {
+      "path": "addons/gut/gui/play.png",
+      "sha256": "d4280462a7940ebaf184e2b92bd01a69cf09ae1c97b175ac92e1410d16ecf278"
+    },
+    {
+      "path": "addons/gut/gui/play.png.import",
+      "sha256": "de172fceaae18e4ce83179d2fba5691e1a77384590d8b2da85f6b92f7a48b174"
+    },
+    {
+      "path": "addons/gut/gui/run_from_editor.gd",
+      "sha256": "1caa12168151895a503d48ebe73aa8ebb052a63fe4ce3aa5deaefab6ee20cf09"
+    },
+    {
+      "path": "addons/gut/gui/run_from_editor.gd.uid",
+      "sha256": "e4c8dec2efc0c7e3aa97fc9d04bc4de53352083c9e6234f431bbc89387163a3c"
+    },
+    {
+      "path": "addons/gut/gui/run_from_editor.tscn",
+      "sha256": "687beb18780c67992639506baddd070be0b4c8ea799e6cbb563c4b835a7bca93"
+    },
+    {
+      "path": "addons/gut/gui/update_required.gd",
+      "sha256": "66a253992001444ad88725e8a28fe2ee68ea3b81ad8ed72fad229569ea157700"
+    },
+    {
+      "path": "addons/gut/gui/update_required.gd.uid",
+      "sha256": "b7090bf54952bdf0e7207cfa544528286f8942fc32c47006a26b6b16fb310a98"
+    },
+    {
+      "path": "addons/gut/gui/update_required.tscn",
+      "sha256": "12d91a9af19d4c9c1ca43a362a5556d93c7efa93760c38afe5a0c683c917d3f8"
+    },
+    {
+      "path": "addons/gut/gut.gd",
+      "sha256": "6207e0f51090be6e5bd1d22ebf14bc38960f507f88908d315404d5f46ec7b3ca"
+    },
+    {
+      "path": "addons/gut/gut.gd.uid",
+      "sha256": "0a293e0f6d71cc1a72bccdd4394e019309170b536d1eb9cdcb1591f12edfda53"
+    },
+    {
+      "path": "addons/gut/gut_cmdln.gd",
+      "sha256": "53a29a8c7d635144ab70b7c3ae94d48802fbc073897d91b1fc4cab253bbdd1c5"
+    },
+    {
+      "path": "addons/gut/gut_cmdln.gd.uid",
+      "sha256": "c884de5405b8befa1c06c672c874ecf4e08278d1d341b66a32212d113ff6ee1c"
+    },
+    {
+      "path": "addons/gut/gut_config.gd",
+      "sha256": "7243b1a77d7ecad72f6c9b5679bd188843c64ee2dbd9c70ffea870d917c597c4"
+    },
+    {
+      "path": "addons/gut/gut_config.gd.uid",
+      "sha256": "6ff0f522df7567293c8eb54efe3cb3fdcb12eaa149ce25dc30acdd1e4fbbf9b9"
+    },
+    {
+      "path": "addons/gut/gut_constants.gd",
+      "sha256": "31f138ee591a8e7e8581d2311aec89de974467e30972b475f57fc4e6ff24346d"
+    },
+    {
+      "path": "addons/gut/gut_constants.gd.uid",
+      "sha256": "c34e05075cbaa5ba947e5d38ae74a14d30b4a8963056a7ca252c2ee82b09284c"
+    },
+    {
+      "path": "addons/gut/gut_fonts.gd",
+      "sha256": "aba4bc97628ec2d36e537daf113e85d5a23bd39808a34bdd99aae3eecfa18763"
+    },
+    {
+      "path": "addons/gut/gut_fonts.gd.uid",
+      "sha256": "9484153926f8cd625ec7508d4f78095da4597f8a6a98488adb99d7047119cf63"
+    },
+    {
+      "path": "addons/gut/gut_loader.gd",
+      "sha256": "3c72b2e98a5e94e30704c49ccb5ef4b767b9dd277d97123337e9a3c3d3121bf6"
+    },
+    {
+      "path": "addons/gut/gut_loader.gd.uid",
+      "sha256": "d3332e5b03cabfc9a7a41e6ee491369093d77d72890b2a480019ca9f00543682"
+    },
+    {
+      "path": "addons/gut/gut_loader_the_scene.tscn",
+      "sha256": "7fed5025cac6da15eb55613ec7310c41425740a30a75a2b161b7c31ac5690c3f"
+    },
+    {
+      "path": "addons/gut/gut_menu.gd",
+      "sha256": "a3ff5b9894d5cef8e5ae0af653ff2adc60a4d13f43609f88e21890847c957f67"
+    },
+    {
+      "path": "addons/gut/gut_menu.gd.uid",
+      "sha256": "7fb82a804a4cbc97060aa1e893ace791a8427440eee59de3c0447c2927d52233"
+    },
+    {
+      "path": "addons/gut/gut_plugin.gd",
+      "sha256": "b61b14356376eb25fa9ee24f799e3a4ccec76300a205521fe75cca2078c6b76a"
+    },
+    {
+      "path": "addons/gut/gut_plugin.gd.uid",
+      "sha256": "3d4e9bdbcc2bd4429807044bf1bce9b08c15f707e8d35631b1116d07ad9f690e"
+    },
+    {
+      "path": "addons/gut/gut_to_move.gd",
+      "sha256": "43c0738b97ca336c5507784b0fcdb200db005690d3f5cb70829568540793fcc7"
+    },
+    {
+      "path": "addons/gut/gut_to_move.gd.uid",
+      "sha256": "dd000a4d1db0dace2e035693a22ea89d90b33a50e68c0871742e25ac38e350ca"
+    },
+    {
+      "path": "addons/gut/gut_tracked_error.gd",
+      "sha256": "7160ba6aee185a91299abf8ca859b22e6af8974e27b7bf588029bf371d64bada"
+    },
+    {
+      "path": "addons/gut/gut_tracked_error.gd.uid",
+      "sha256": "3096f521ac664a2cf1de152133fdde9ace496de47598b8ddf4c9f92d90f244b7"
+    },
+    {
+      "path": "addons/gut/gut_vscode_debugger.gd",
+      "sha256": "0c8ef4165d0913b36c133dccf2b822b0224ee2884cb9e9aaf9ed336b32066801"
+    },
+    {
+      "path": "addons/gut/gut_vscode_debugger.gd.uid",
+      "sha256": "9f1a9b2be4d8450530423320b2320e89489296222f566cf68578c7fea61f1d71"
+    },
+    {
+      "path": "addons/gut/hook_script.gd",
+      "sha256": "dbaf25e0e4203b789f922772c04365b1887edfe5c535764369f7d3408dd9a310"
+    },
+    {
+      "path": "addons/gut/hook_script.gd.uid",
+      "sha256": "892f5e366a90f27199d387a68828d2cccfb7f8a8b48573693185ac4fe4769907"
+    },
+    {
+      "path": "addons/gut/icon.png",
+      "sha256": "17186e5c117662f093554ade93529a8f2927750362004e133acf3ded0afba45d"
+    },
+    {
+      "path": "addons/gut/icon.png.import",
+      "sha256": "124533b31cca0c3367180d7b039f12c1d079c797dc4b76ba1543cd738efeb8fb"
+    },
+    {
+      "path": "addons/gut/images/Folder.svg",
+      "sha256": "f771d0791459be2befbfb389d79c0826f31d294ad8c8a1ad2234fd4b49cc2ba1"
+    },
+    {
+      "path": "addons/gut/images/Folder.svg.import",
+      "sha256": "f8d92326b470fd9f508031d62f0cd969c1b0a46748a7abddf1f9183a0b89a616"
+    },
+    {
+      "path": "addons/gut/images/GutIconV2_base.png",
+      "sha256": "4e9f0e37fb7cc5854622c7dacb7e801e05bf19aca76fdfff8c6b36a4a4ea320a"
+    },
+    {
+      "path": "addons/gut/images/GutIconV2_base.png.import",
+      "sha256": "1fdd99386273e17df322212ee70c7f8e9645bcae6dac0cec4ab91d3f4bebaed1"
+    },
+    {
+      "path": "addons/gut/images/GutIconV2_no_shine.png",
+      "sha256": "5c18b5fec79f125206545b71441d58b2e66f1f4c9d9b54535f3fcc47eff8b381"
+    },
+    {
+      "path": "addons/gut/images/GutIconV2_no_shine.png.import",
+      "sha256": "6adfc9dd620f3458fd1ccaee80950d96d21de241008213b33e94dfc107c414cd"
+    },
+    {
+      "path": "addons/gut/images/HSplitContainer.svg",
+      "sha256": "058efa4532cd866c1d559e5eadd6527ca181bc7c480043d51d25197b7e166184"
+    },
+    {
+      "path": "addons/gut/images/HSplitContainer.svg.import",
+      "sha256": "924b327f8a14ab48d651a5a8b63b574383e8ebec45100e0f4b5375ea30c150a3"
+    },
+    {
+      "path": "addons/gut/images/Script.svg",
+      "sha256": "961f01edacb3e31e02be6adc4168d309344a67ea24f795a42f8a029df450c03d"
+    },
+    {
+      "path": "addons/gut/images/Script.svg.import",
+      "sha256": "09ede1f88b67652811cc4fcf1cca72838f86c08fd99fa26dabfe09aaef67d68f"
+    },
+    {
+      "path": "addons/gut/images/VSplitContainer.svg",
+      "sha256": "898e219cf1045a2eda4fafe4108a5cd5ae159379a40d4063269a9f46269d7ee8"
+    },
+    {
+      "path": "addons/gut/images/VSplitContainer.svg.import",
+      "sha256": "ba8dc2743b4ae39c0a4b9720352363d3d1d43e9216516b2c364d34f627c79e13"
+    },
+    {
+      "path": "addons/gut/images/eyey.png",
+      "sha256": "a129c7c3aa05794538b85a8ae12bee0c49513ebb31b8a8f3c17e5a2888b95da4"
+    },
+    {
+      "path": "addons/gut/images/eyey.png.import",
+      "sha256": "afcca39767bf883cf6976b9b2fa2a6a8c3ad509b882457e3bac7de72a09ce062"
+    },
+    {
+      "path": "addons/gut/images/green.png",
+      "sha256": "9137132eda912531252c215d698a604c401f2e59f8b29005117d72fef625ed75"
+    },
+    {
+      "path": "addons/gut/images/green.png.import",
+      "sha256": "26df36470a4e2131fd68e7f162715ed63ac95e833e0d931da3ed1b373ddb548a"
+    },
+    {
+      "path": "addons/gut/images/red.png",
+      "sha256": "e85d15987192029471051afc3b5de797629b95a5e02024fc5d14d81fdaf599bd"
+    },
+    {
+      "path": "addons/gut/images/red.png.import",
+      "sha256": "99a1eec679d2189ce2aaf3cd1aec2292ffe8cfeefebaf83c331b27144fd99301"
+    },
+    {
+      "path": "addons/gut/images/yellow.png",
+      "sha256": "d3e42a49cde1baf9dd2647d62ca58399efeb94c2eec39b2b62450021532c08c3"
+    },
+    {
+      "path": "addons/gut/images/yellow.png.import",
+      "sha256": "85820eb6791be2de714df8f2596b7a42936dc3f6f544dfa9df0820791d86c3db"
+    },
+    {
+      "path": "addons/gut/inner_class_registry.gd",
+      "sha256": "7c476ee69970529176b7c259e139d0f01ef067a71ea2229c244efdc0a9ea87e5"
+    },
+    {
+      "path": "addons/gut/inner_class_registry.gd.uid",
+      "sha256": "a3924208acbe831403471419b48b78aab25036ad23dd85c6474607ec8fcb43ee"
+    },
+    {
+      "path": "addons/gut/input_factory.gd",
+      "sha256": "5f099285fd7f08ca4fe262a5d943bbdcf77a829033f1c43e541eb20834e25d37"
+    },
+    {
+      "path": "addons/gut/input_factory.gd.uid",
+      "sha256": "3553e605c74cc0e049396497589b265a40e33013f32dc0a979e082fb29e03a89"
+    },
+    {
+      "path": "addons/gut/input_sender.gd",
+      "sha256": "97b8a8ade87c949e8ebea3c1a305eacd66d9fcee93e815e3f2bc5c990c0d7b53"
+    },
+    {
+      "path": "addons/gut/input_sender.gd.uid",
+      "sha256": "c98fa89f2e75185186414dda4b74bc189db7605c0f18f96c3f1303c0ec5ac068"
+    },
+    {
+      "path": "addons/gut/junit_xml_export.gd",
+      "sha256": "e4f5d3c86dbd96e311bf3a0eaea3d6bbe9c8840f954f6e14e94b9a87e4561cb3"
+    },
+    {
+      "path": "addons/gut/junit_xml_export.gd.uid",
+      "sha256": "75cdd368a735f5ba8be2d8f9d61051c89bb1cd9aa1467a2e1f2ad4b9ce4fadcc"
+    },
+    {
+      "path": "addons/gut/lazy_loader.gd",
+      "sha256": "d92d9fd6852a534edf60fa640f924f1bf4cc4d8e5154505c6a473b3430d07259"
+    },
+    {
+      "path": "addons/gut/lazy_loader.gd.uid",
+      "sha256": "9738c728ba3ebd6e3f572d5c470c8e5e74a7d25dca7ce2baf4ba56e849a014dd"
+    },
+    {
+      "path": "addons/gut/logger.gd",
+      "sha256": "fcc8fe13de64ac1ebbc990e43068622320320524a61af71411f87d18a8ec3aa8"
+    },
+    {
+      "path": "addons/gut/logger.gd.uid",
+      "sha256": "552ce28be2e902340cea07ad71355c72cbfcde43679a2ac104c05109ef482b53"
+    },
+    {
+      "path": "addons/gut/menu_manager.gd.uid",
+      "sha256": "4a91e83ff2aef02e5e29c55cc2fecfbdc859736bfc9a4801db7125c664a3556b"
+    },
+    {
+      "path": "addons/gut/method_maker.gd",
+      "sha256": "6d14680a015537e2a5c743fd367e91873f97f64adc3fd1b834ea75a9980db0f7"
+    },
+    {
+      "path": "addons/gut/method_maker.gd.uid",
+      "sha256": "c63a531bcf1de7eb8b9c0209b1ed8e94f466aabdda571627f0a6b98c05b47cb6"
+    },
+    {
+      "path": "addons/gut/one_to_many.gd",
+      "sha256": "cc7bcb590bfd28dcec80b0697cfcad38791cc377dab70f4cd03425c1f138d942"
+    },
+    {
+      "path": "addons/gut/one_to_many.gd.uid",
+      "sha256": "39b5130a01fa76c480178beacde1e79ce49bf34947d1cb634b04030f54979a4f"
+    },
+    {
+      "path": "addons/gut/orphan_counter.gd",
+      "sha256": "a8674d872080ef1c016fdb3f7a49bad649b3c0e4707b834a86b0f4ed9f3ccb4e"
+    },
+    {
+      "path": "addons/gut/orphan_counter.gd.uid",
+      "sha256": "52f40ccfa10f174c984db3ca18db39be52ee34640d908eef1c899e7129fa4de8"
+    },
+    {
+      "path": "addons/gut/parameter_factory.gd",
+      "sha256": "a72ad8e0600fe76ef739011d4f9c8fed1f6e0d6525b25a5b50d96077cac4a2ea"
+    },
+    {
+      "path": "addons/gut/parameter_factory.gd.uid",
+      "sha256": "5c5f1c7e1d87a61b1c03edaf5d7d4918f7be4748627d38831003c3857fdcd12a"
+    },
+    {
+      "path": "addons/gut/parameter_handler.gd",
+      "sha256": "377a85a70bba6ba604966bd23297a1315e6489c0176e057dbf75abd39540a8ff"
+    },
+    {
+      "path": "addons/gut/parameter_handler.gd.uid",
+      "sha256": "3ba42ac27244a37f40ee25e3b8812e77fc9117e6bdc7fafe98959d22b800087f"
+    },
+    {
+      "path": "addons/gut/plugin.cfg",
+      "sha256": "be0298bc96f251cfed86cfc919fddf179b9cca023eef6aa688f34e155378d6f9"
+    },
+    {
+      "path": "addons/gut/printers.gd",
+      "sha256": "b0641f1ca547674a5638e18fa933b0c439e80481a43916dfd2d0df809add97ec"
+    },
+    {
+      "path": "addons/gut/printers.gd.uid",
+      "sha256": "5b8ad1d7af5b449f709f53e400b408816b7fd58dae1a90983f3d77c465fb7c7f"
+    },
+    {
+      "path": "addons/gut/result_exporter.gd",
+      "sha256": "09c0185bbdf9f214f83520cab2da4d6c67cd649adbf599592a198b1561f57595"
+    },
+    {
+      "path": "addons/gut/result_exporter.gd.uid",
+      "sha256": "e57e269d65edb2e7f4922a84e221617324c9d61cae5659ce2eec0941175161b7"
+    },
+    {
+      "path": "addons/gut/script_parser.gd",
+      "sha256": "ef749a57a5f4d00e2d37f034acc0d39d7627d3afb20eb7805a29c8d170c12fc5"
+    },
+    {
+      "path": "addons/gut/script_parser.gd.uid",
+      "sha256": "9ad78372b05dc0f7e2d061a8dda4825edecbf44c2940615654c78df303eda667"
+    },
+    {
+      "path": "addons/gut/signal_watcher.gd",
+      "sha256": "c71dd96090b8064a5b098c8386fbff47c4cf0c2f569ec14277378bfddecbe436"
+    },
+    {
+      "path": "addons/gut/signal_watcher.gd.uid",
+      "sha256": "b1118b2052cb2bd4adda8617294a8e6915266c4d6d4e17b43e83d6cddd7c4a9c"
+    },
+    {
+      "path": "addons/gut/singleton_parser.gd",
+      "sha256": "ecb9e4789c0007cdc40b42112d3acba6a2e25a02fed77f07f415c52e53355b39"
+    },
+    {
+      "path": "addons/gut/singleton_parser.gd.uid",
+      "sha256": "6905af2531baf2831e0425a25e98a1303577e2da8ec7ec8960f683a2e0667dbd"
+    },
+    {
+      "path": "addons/gut/source_code_pro.fnt",
+      "sha256": "404094d0aae3de496a64fca1795bed8bd60c2411a3d992551f9e8f00789b71fe"
+    },
+    {
+      "path": "addons/gut/source_code_pro.fnt.import",
+      "sha256": "de85f9122dc4eed4951e04609094a10835a3ea1366deca778e86b6a5df6cdb6a"
+    },
+    {
+      "path": "addons/gut/spy.gd",
+      "sha256": "44a969f161a2ba056f04fb6fc958b549800f72ba592665748208bd3173ed899d"
+    },
+    {
+      "path": "addons/gut/spy.gd.uid",
+      "sha256": "209146b16ea34990852feeb83bad57267d58001a09ec6bbc2407f2469ff90fc1"
+    },
+    {
+      "path": "addons/gut/strutils.gd",
+      "sha256": "87001c083eee719c532bdddbfa35a1240124347f323d33342b76ae7c0bc8096e"
+    },
+    {
+      "path": "addons/gut/strutils.gd.uid",
+      "sha256": "9285f042855144ad0dea1893d209f6e06151be56d85559898d8473b1bf281f8d"
+    },
+    {
+      "path": "addons/gut/stub_params.gd",
+      "sha256": "cdd75c6e444393bbb9c3d16a191bbfe9f4dc08fa74022ba32965985ce3d3e6fe"
+    },
+    {
+      "path": "addons/gut/stub_params.gd.uid",
+      "sha256": "1fe019cea2763552bf62ce7d71bfb47cdfd99cbeff863df6ab0a59d7d7bc3237"
+    },
+    {
+      "path": "addons/gut/stubber.gd",
+      "sha256": "43a09c07e58c8c9d9ab63407465cdf51a23533e00616467b49c249bdb74453ce"
+    },
+    {
+      "path": "addons/gut/stubber.gd.uid",
+      "sha256": "7b7b9acaac29d58d4b434d4313a6fc6056a4defff4b02e080545ed31f508846e"
+    },
+    {
+      "path": "addons/gut/stubs.gd",
+      "sha256": "ced5a44a0bc63a7a60690cee738616dd7de10113080f12a858540b53d2c019d7"
+    },
+    {
+      "path": "addons/gut/stubs.gd.uid",
+      "sha256": "aa8d56a1f0d3631a42f5232a5e2d04108ca732a61a33602a733c4477b0ddbbc0"
+    },
+    {
+      "path": "addons/gut/summary.gd",
+      "sha256": "d7fd00643d090186643ef3515c7b3d4089e5e256130f4fa2fdbfdc46d7647bc4"
+    },
+    {
+      "path": "addons/gut/summary.gd.uid",
+      "sha256": "7a612201b08daec8c842ab32df4fee43ddf8751ab1dbf94d3466db8670cdb483"
+    },
+    {
+      "path": "addons/gut/test.gd",
+      "sha256": "fd3f7560846588963f1be11313d4a9f755eb0f35078cca280480fa305df86a1c"
+    },
+    {
+      "path": "addons/gut/test.gd.uid",
+      "sha256": "fec24b306e4e6c9726de16f6194b2a473eb11e2225b0d50f1ce02a5255d6f08a"
+    },
+    {
+      "path": "addons/gut/test_collector.gd",
+      "sha256": "7ab5513b8e76abaf63dc14fabd8adf26a23ee174b659f0a6129fde62d42a31ce"
+    },
+    {
+      "path": "addons/gut/test_collector.gd.uid",
+      "sha256": "87ec3aba36c7dd681a5796d9e870dab01e4213e040fbe4fd99d94b58b84c3ea0"
+    },
+    {
+      "path": "addons/gut/thing_counter.gd",
+      "sha256": "2c882f687b9380e9fdfe542b14d04c3d67181b62d092e9dae284eb1374027907"
+    },
+    {
+      "path": "addons/gut/thing_counter.gd.uid",
+      "sha256": "3605ae77071b7222ff5cbc4e165cfdb5388e4ae4af0a5381d8cf327e0f53c574"
+    },
+    {
+      "path": "addons/gut/update_detector.gd",
+      "sha256": "ed41a788f86917ba571ec29462a398b4e8d8964c906f7104cbb5e56a675c9ce5"
+    },
+    {
+      "path": "addons/gut/update_detector.gd.uid",
+      "sha256": "2ffb781817f22846885c145a9c67799594115f17c5649a49339aed9f1d744fd4"
+    },
+    {
+      "path": "addons/gut/utils.gd",
+      "sha256": "5d48a7b30b309cc571e429476a6ee1110ed5993d3754b0473bd2205bd699e522"
+    },
+    {
+      "path": "addons/gut/utils.gd.uid",
+      "sha256": "0410f391a67f48057671fcd22b86705220ea887050bb6580dbd6540467887507"
+    },
+    {
+      "path": "addons/gut/version_conversion.gd",
+      "sha256": "5c1e51b7d153921c58d1e07782336b476b9727371cdf57bd1f002c51662d2822"
+    },
+    {
+      "path": "addons/gut/version_conversion.gd.uid",
+      "sha256": "51930a9fee4cf65f1fd25d5438d37fd6c5f9d4ae51888980dbacbd361be7a111"
+    },
+    {
+      "path": "addons/gut/version_numbers.gd",
+      "sha256": "d04ef8751905e504efee47ea2662709b31a07f9647c239c465079f083f260d3b"
+    },
+    {
+      "path": "addons/gut/version_numbers.gd.uid",
+      "sha256": "bf6335b66b1f6d94d0c9ddb54b316a113a921da6839b88db930af127eee945e4"
+    },
+    {
+      "path": "addons/gut/versions.json",
+      "sha256": "3232e9472cbc4bb51daf344e06976161b86e9699560e866820a1dc78092e238c"
+    },
+    {
+      "path": "addons/gut/warnings_manager.gd",
+      "sha256": "39134853014a98eca08e31cea553de64b8c5e7a00ab799dd664933ab55ef4b9f"
+    },
+    {
+      "path": "addons/gut/warnings_manager.gd.uid",
+      "sha256": "fc3374ebf126e113962225b7252df80aa6dd837743dce1e3149aa232828aa6cb"
+    }
+  ]
+}

@@ -15,7 +15,7 @@
     "docs/REQUIREMENTS_REVIEW_20261003.md": "fab4fe00d54131679c633def4421b2e7b81ab026f98f5108ff5f5ec19b5bbda4",
     "docs/architecture/STUDIO_BOUNDARIES.md": "1b1f2defc7a39cb12e904076f735d758c8202122c899915c522a4d702809959b",
     "production/epics/core-usability/story-book.json": "57abd7044b488348ee3cb98ba1ce1988b8b6d33f9e175804650d9e1cb2b7b2b7",
-    "production/studio-board.json": "0c4b53f02c12dc3f48840807a1f57d41ff9174c40ef1c3b0bbb39729f3ee88dd",
+    "production/studio-board.json": "19ba24f87421c962fa6a9e0e54cc0fee98c92093f9e7eefb95deb316a3226fa5",
     "project.yaml": "cef29968a12884ee71b7238a4903aaa28f8273865676fd40b3286dce43df1314",
     "scripts/rebuild/field_book.gd": "e4ba06b12ddfc2db0e20b026ff41f4a3d3d04ec390f1eb03ff97120d820298ea",
     "scripts/ui/paper_ui.gd": "a55a285ef83bf966cabb5c6ffb5d66216f0d596fde4f27789318f3bcee444f24",
@@ -25,7 +25,7 @@
     "tools/studio/pipeline.py": "bf3f38ad8fce8732c74626fd09c84637b838d4dabe77e96bf359dbc6ce9c5181",
     "tools/studio/upstream.lock.json": "6790a1ccb85cf8cb32f1400078a337c65f05b95022ec45216556b780af4a4f7d"
   },
-  "observed": "Fresh 17 engine suites pass 7496 assertions, 29 window-close/reload checks and 28 workflow tests. Book: 1628 assertions/25 frames; onboarding: 54. Both fixture-input failure and real dialogue-height failure retained with passing final logs. Real OS checks are partial/user-interrupted. Historical incomplete exit-0 report root cause remains unproved.",
+  "observed": "Fresh 17 engine suites pass 7496 assertions, 29 window-close/reload checks and 28 workflow tests. Book: 1628 assertions/25 frames; onboarding: 54. Both fixture-input failure and real dialogue-height failure retained with passing final logs. Real OS checks are partial/user-interrupted. Historical incomplete exit-0 report root cause remains unproved. Added GUT 9.7.1 production model tests: 8 tests / 580 assertions pass. Fresh isolated native title/new-game/supervisor cross verified, further native input rejected by helper screenshot state and occlusion; not claimed as completion.",
   "criterion_results": {
     "CORE-BOOK-AC1": {
       "status": "NOT_ASSESSED",
@@ -43,7 +43,7 @@
   "artifacts": [
     {
       "path": "docs/testing/TABS_GUIDE_20261004.md",
-      "sha256": "547c2574bfc99e5053f711f2bb3e21c06b7fef8ca66073a64ba15fa221f4b053"
+      "sha256": "b34575151a176d6c2052b0df2b90398da10392a5a568f2148187c07ed6be30be"
     },
     {
       "path": "docs/testing/tabs-guide_20261004/field_book_person_zh_1920.png",
@@ -54,7 +54,7 @@
       "sha256": "5f24fd6def2edfe76f9ec0efc1c765e6c4ccbb7feb2ae9e3b971697742ff3d61"
     },
     {
-      "path": "docs/testing/tabs-guide_20261004/native_book_letters.png",
+      "path": "docs/testing/tabs-guide_20261004/native_book_letters.jpg",
       "sha256": "ac11f201d43c9594c832a8165adfab9c79e84b53769b343b121b85d26726823b"
     },
     {

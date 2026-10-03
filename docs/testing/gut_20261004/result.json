@@ -1,0 +1,36 @@
+{
+  "version": "9.7.1",
+  "upstream_revision": "aeb5d4f3f7f0a6c9b5e178876d6c99b791fda605",
+  "tests": 8,
+  "assertions": 580,
+  "failures": 0,
+  "skipped": 0,
+  "finished_utc": "20261003T183932068514Z",
+  "commands": [
+    [
+      "C:\\Users\\22416\\Documents\\Codex\\2026-09-06\\bang\\outputs\\Godot\\Godot_v4.7.2-stable_win64.exe",
+      "--headless",
+      "--path",
+      "C:\\Users\\22416\\Documents\\Codex\\2026-10-01\\github\\work\\100letter-studio-publish",
+      "--editor",
+      "--import",
+      "--quit"
+    ],
+    [
+      "C:\\Users\\22416\\Documents\\Codex\\2026-09-06\\bang\\outputs\\Godot\\Godot_v4.7.2-stable_win64.exe",
+      "--headless",
+      "--path",
+      "C:\\Users\\22416\\Documents\\Codex\\2026-10-01\\github\\work\\100letter-studio-publish",
+      "--script",
+      "res://addons/gut/gut_cmdln.gd",
+      "-gdir=res://qa/gut",
+      "-gexit",
+      "-gconfig=",
+      "-gdisable_colors",
+      "-gjunit_xml_file=C:\\Users\\22416\\Documents\\Codex\\2026-10-01\\github\\work\\100letter-studio-publish\\test-results\\gut\\20261003T183932068514Z\\junit.xml"
+    ]
+  ],
+  "scope": "Production model guards, custody, privacy, tool cancellation and corrupt-save recovery; not native UI or player acceptance.",
+  "junit_file": "junit.xml",
+  "junit_sha256": "864036bbfc0193d651e624134ee8ba97bb5fa93987eb7f4f820da0a84c42e922"
+}

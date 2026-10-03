@@ -3,7 +3,6 @@
   "story": "CORE-BOOK",
   "status": "NOT_COMPLETE",
   "blockers": [
-    "Review pending/rework: ux-designer",
     "Review pending/rework: art-director",
     "Review pending/rework: godot-gdscript-specialist",
     "Review pending/rework: qa-lead",
@@ -11,6 +10,7 @@
     "Acceptance criterion pending/unverifiable: CORE-BOOK-AC2",
     "Acceptance criterion pending/unverifiable: CORE-BOOK-AC3",
     "Review pending/rework: sound-designer",
+    "Review pending/rework: ux-designer",
     "Acceptance criterion not verified: CORE-BOOK-AC1",
     "Acceptance criterion not verified: CORE-BOOK-AC2",
     "Acceptance criterion not verified: CORE-BOOK-AC3",
@@ -31,11 +31,11 @@
     "Unresolved blocker list missing or nonempty"
   ],
   "reviews": {
-    "ux-designer": "NOT_ASSESSED",
     "art-director": "NOT_ASSESSED",
     "godot-gdscript-specialist": "NOT_ASSESSED",
     "qa-lead": "NOT_ASSESSED",
-    "sound-designer": "NOT_ASSESSED"
+    "sound-designer": "NOT_ASSESSED",
+    "ux-designer": "NOT_ASSESSED"
   },
   "basis": {
     "CURRENT_SPEC.md": "1e0d82afea679ac1b2266f8ecc22e0beadaff6494ad16809f54ad85f094c0d08",
@@ -49,7 +49,7 @@
     "docs/REQUIREMENTS_REVIEW_20261003.md": "fab4fe00d54131679c633def4421b2e7b81ab026f98f5108ff5f5ec19b5bbda4",
     "docs/architecture/STUDIO_BOUNDARIES.md": "1b1f2defc7a39cb12e904076f735d758c8202122c899915c522a4d702809959b",
     "production/epics/core-usability/story-book.json": "57abd7044b488348ee3cb98ba1ce1988b8b6d33f9e175804650d9e1cb2b7b2b7",
-    "production/studio-board.json": "0c4b53f02c12dc3f48840807a1f57d41ff9174c40ef1c3b0bbb39729f3ee88dd",
+    "production/studio-board.json": "19ba24f87421c962fa6a9e0e54cc0fee98c92093f9e7eefb95deb316a3226fa5",
     "project.yaml": "cef29968a12884ee71b7238a4903aaa28f8273865676fd40b3286dce43df1314",
     "scripts/rebuild/field_book.gd": "e4ba06b12ddfc2db0e20b026ff41f4a3d3d04ec390f1eb03ff97120d820298ea",
     "scripts/ui/paper_ui.gd": "a55a285ef83bf966cabb5c6ffb5d66216f0d596fde4f27789318f3bcee444f24",

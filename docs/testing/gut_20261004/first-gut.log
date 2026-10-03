@@ -1,0 +1,43 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+---  GUT  ---
+[1m[INFO]:  [0musing [C:/Users/22416/Documents/Codex/2026-10-01/github/work/100letter-studio-publish/test-results/gut/20261003T183551507892Z/AppData/Roaming/Godot/app_userdata/一百信 · Solmere Post] for temporary output.
+Godot version:  4.7.2
+GUT version:  9.7.1
+
+
+res://qa/gut/test_postal_boundaries.gd
+* test_unopened_letter_and_unmet_people_remain_private
+* test_invalid_commands_cannot_change_custody_time_or_progress
+* test_unknown_envelope_face_is_atomic<parameterized>
+    - params[0]()
+    - params[1](inside)
+    - params[2](FRONT)
+    - params[3](null)
+    - params[4](front/back)
+* test_repeated_pickup_never_duplicates_an_envelope
+* test_ui_copies_cannot_rewrite_original_letter_or_dossier
+* test_corrupt_save_recovers_last_verified_physical_object
+* test_safe_tool_cancel_releases_world_without_losing_letter
+* test_remote_dialogue_cannot_inject_a_clue
+8/8 passed.
+
+
+
+
+==============================================
+= Run Summary
+==============================================
+
+Totals
+------
+Scripts               1
+Tests                 8
+Passing Tests         8
+Asserts             580
+Time              1.041s
+
+
+---- All tests passed! ----
+
+Results saved to C:\Users\22416\Documents\Codex\2026-10-01\github\work\100letter-studio-publish\test-results\gut\20261003T183551507892Z\junit_1791052567.421.xml
