@@ -75,7 +75,7 @@ try {
         Invoke-TaskGodot $taskSuite @('--script',"res://tests/$taskSuite.gd")
     }
     if ($GpuChecks) {
-        foreach ($taskSuite in @('field_observation_smoke','field_book_smoke','mail_workbench_input_smoke','resolution_slip_smoke','final_host_boundary_smoke','final_resolution_draft_smoke','core_review_input')) {
+        foreach ($taskSuite in @('field_observation_smoke','field_book_smoke','mail_workbench_input_smoke','resolution_slip_smoke','final_host_boundary_smoke','final_resolution_draft_smoke','counter_onboarding_input','core_review_input')) {
             Invoke-TaskGodot $taskSuite @('--script',"res://tests/$taskSuite.gd",'--resolution','1600x900','--audio-driver','Dummy') -Gpu
         }
         foreach ($taskRoute in @('sealed','delegate')) {

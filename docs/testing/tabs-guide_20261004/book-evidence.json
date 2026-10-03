@@ -1,0 +1,347 @@
+{
+  "schema_version": 1,
+  "chain": "book",
+  "captured_at_utc": "20261003T163343005752Z",
+  "source_fingerprint": {
+    "assets/audio/afternoon.wav": "9a8be80cb6129887112a19bf33662fce14a1d4d16f55bbcd52f048f1de974a57",
+    "assets/audio/bell.wav": "a042b3692b0212e483dd41ee1e0d8c2857475ae455ae332591b8104abc649614",
+    "assets/audio/deliver.wav": "cad64e4520e9ccdfd4884a74de81c7200ba439a63493dc4d48bafbf343c6d094",
+    "assets/audio/flip.wav": "844279f230e6918dcff924767a397494107d087115165aa3a5a435a648c0ae58",
+    "assets/audio/foley/bell.wav": "a7f8688a49fa0cb671884652e5c34a0ff7b48cbcbba479771e6ea328f005e592",
+    "assets/audio/foley/birds.wav": "8572bf8558b9c22f7dbaed8b40f3e2227d7fd63dd3a96a7849f32a74aa48d0c0",
+    "assets/audio/foley/door_close.wav": "efd281ac2c6b7be70ad536bda57d324771bdfa1608e1852da14fe8e411065207",
+    "assets/audio/foley/door_open.wav": "103af91c87524b4f4833ba58f73ccc4bc9188317185f9f3be89c115718c9d709",
+    "assets/audio/foley/paper_1.wav": "f26b50383bce4e97eb750ebaa677bd13bf1d0f8b71d85a45cb3b950b6db3a1cd",
+    "assets/audio/foley/paper_2.wav": "1ae336e9a2b4706b1569be3cea6939d0680d8e185917f0247ff4fda40753d486",
+    "assets/audio/foley/paper_3.wav": "90d9c3edcd0c014d8337056dfecb47a2638c82889e0229a7112f4531b4f0ea18",
+    "assets/audio/foley/paper_slide.wav": "2315b5a996bf3644f95913f7082900702df05997d8ce2b917ab2e0c48eda38fd",
+    "assets/audio/foley/paper_unfold.wav": "00d88d3622547d2961f25c4405a6819d26c5eee8342465aec9ce9e26a188cbe5",
+    "assets/audio/foley/room_bed.ogg": "74df1fbde74321db9da89f859d491c2c0357d7145bf24a919a4efdff012eef51",
+    "assets/audio/foley/sample_manifest.json": "62cdcbe6f0bb1bea3d983437d7862cad301d0a69f1b445df99c6f67905182a37",
+    "assets/audio/foley/sea_bed.ogg": "cbdb8954695c1d3ffd698f6736fe7bcdfe033f0fbb26abe356ec9c46e4a33f60",
+    "assets/audio/foley/source_downloads.json": "5ef913bb72c417acb9e909840f934ee9610d1ca731114ef491971decded7a74e",
+    "assets/audio/foley/stamp_1.wav": "ff52d3928b25f80eb8dce6be553ff31d1378b150132e36b7035b1f966761c022",
+    "assets/audio/foley/stamp_2.wav": "be2c67bcb74c13c3b4ce3ddc750a337bfc43d6217de46b5f90b22892fca5feeb",
+    "assets/audio/foley/step_concrete_1.wav": "aea49e21426655e9b252f5d5de864a778a1de84d72df5ad4bb7c90bdbadfecc8",
+    "assets/audio/foley/step_concrete_2.wav": "e89dead0e3af34e42b1677182ea086f2b40c6233d8945eb8b0b82ecce89a9549",
+    "assets/audio/foley/step_concrete_3.wav": "d9b34cdb30e697c010ffa8c295642d55f67af3f4ede417cddee2f6bca8e59ceb",
+    "assets/audio/foley/step_grass_1.wav": "cf3d5a9044203be954374017fa7194350402c8226cceb53aa094e0bbd0bb4288",
+    "assets/audio/foley/step_grass_2.wav": "7bb88f7d639f49dc27a6e95d901ea6d949b344fc832842e06a29273c7a19bc08",
+    "assets/audio/foley/step_grass_3.wav": "afb61ae3d60767e753fcfc89853081c9485546af44a13dae7cd93f3aed513259",
+    "assets/audio/foley/step_wood_1.wav": "545e025a60beb498b17e1d01e7a9113e915fac252cd38138e685a93c6a712610",
+    "assets/audio/foley/step_wood_2.wav": "f475edf15b7df5450b8de50220f9e3decd6d83e9941edcdb169583e2ee363355",
+    "assets/audio/foley/step_wood_3.wav": "75e8fe52186ea896a4e862c6d16ab2a435328224d934f55b8b1e413c1a152be0",
+    "assets/audio/foley/tool_metal.wav": "64e4dd42293d7bd127ce701a8a9dc525d12b877b05c455aeca25bd722cffd325",
+    "assets/audio/foley/town_bed.ogg": "8546b72a344732ca0aab14edf5166125af78684c588fccf03525146fc1fa6db4",
+    "assets/audio/foley/tram_pass.wav": "ddf3a61a868f2ad9424fbc2b21c50484ca4892de79f939ca903908e80d80b686",
+    "assets/audio/foley/wind_bed.ogg": "7ffd6935e726a7bf25e9666ce4460f6f9f3806c1b873084f3f696d7fc446c88d",
+    "assets/audio/foley/wood_piece.wav": "c0bbe5af8bfc557d14814272a41edff19fde1ab927e82665af6cdf739e287c37",
+    "assets/audio/map.wav": "67dddda899192c3ae018476a29c42f82a285d60c463e1788b51b756eaccd59a5",
+    "assets/audio/paper.wav": "99c863ed97a8e698b5cb4eae4eac203f76386ee5bbb166deee37a785073b2466",
+    "assets/audio/sea.wav": "5ff6441c139bb840eea6090aa9beafc6bdf530324ace36c082bc35e7814f900f",
+    "assets/audio/snap.wav": "3af3ba2da6d0cb99aa6327ebee460e11dd78d1708736d399a996f95f5187cd5d",
+    "assets/audio/stamp.wav": "e63db5823bf8f03735b7e502325b13e8f07e180412b067caf9c23127b9b3e80a",
+    "assets/audio/tool.wav": "ba7e533137b605d52a9ba535c2bab9e95d389af99776142aa2dab8c80b9596e4",
+    "assets/characters/generated/atlas.json": "88f63dcd829564a672351392c2c8b1eb957687f6a6c7640f403e65ec75903e80",
+    "assets/characters/generated/chenyuan.png": "1bb93a517d0c2e8822fd188aeef998b8cdc60107b899fd435a631be043d36c14",
+    "assets/characters/generated/courier_sheet.png": "8bce7719cee072ace595cda834bbd8229e0f8ec352415195af52febb40c94c2d",
+    "assets/characters/generated/nora.png": "2c9c9cd4009d10929342daeea5d2485538c7dee5cc93f4760b299f7967732533",
+    "assets/faefever_v2/backgrounds/BG_bus_stop.png": "c4518108a2a7e466b7f9a0b379bd8c8e000ec8d8f6acc6153bdd58842655fc45",
+    "assets/faefever_v2/backgrounds/BG_chess_stall.png": "a5ddaabce8b7438762b53f60d98e245a5295795e29d3f07738300e23db1c7d6c",
+    "assets/faefever_v2/backgrounds/BG_community_center.png": "9c97448ddbbdc5108d08cffccf5a3afa6836bb29f7999b08a32bc13fbff7de0a",
+    "assets/faefever_v2/backgrounds/BG_lookout.png": "98a2514c362b1fbc4b8d9dcf111b1e0785f164d5db1a0b083d95d5d472f30978",
+    "assets/faefever_v2/backgrounds/BG_post_office.png": "d40281359039d7feca6ff539dff4ba81aa750560ca1cabb84656ebfdd1975cca",
+    "assets/faefever_v2/backgrounds/BG_residential.png": "bdabb2a20ddd4e612a767404884c0f6aadbb6c67356c4102c0afa993604486ae",
+    "assets/faefever_v2/backgrounds/BG_tarot_shop.png": "626c8c94150bd891bdd81206958e435aa3fea6a84cf3f016ba807eb04af78796",
+    "assets/faefever_v2/backgrounds/BG_workroom.png": "d6a68a90792a3b140c76a2b560efa984bb3650481a5496c5fa0b63307a1a4218",
+    "assets/faefever_v2/backgrounds/cover.png": "1632af45da57bd2767f36bdc9b64c54d09247c7a5f9f0256b6fc3afb755faaab",
+    "assets/faefever_v2/backgrounds/wall_closeup.png": "7b6159f2210bdc8f686526b2ac3174d8a268f27d8dac154b3cd4ed87e2e2121f",
+    "assets/faefever_v2/characters/CHAR_chenyuan.png": "b4751d59acec1f07c18db198e912bd7057818963fe7446cfd1b94a5d8011e315",
+    "assets/faefever_v2/characters/CHAR_clerk.png": "bc69adc9d7c763343da5f735dd606f1f6e57aa8d62569e19971a6c8c9cbf1842",
+    "assets/faefever_v2/characters/CHAR_courier.png": "3b24efd80bb4736c2a74866e345e6ca62445a6f8812abb997f759e1518778a4e",
+    "assets/faefever_v2/characters/CHAR_courier_walk.png": "68521ded3103d7a5af2bcca60393bb849c3f862423a88891da4778d5de60f5c0",
+    "assets/faefever_v2/characters/CHAR_elsie.png": "653851a681f60cc9996e8be405cdd11f0f938ceceecf3c05098e1ea4128c4b0f",
+    "assets/faefever_v2/characters/CHAR_june.png": "0f2aace7b9a077b1b62527df09465cee6769bad57ff32ce4252865fac8d17c7f",
+    "assets/faefever_v2/characters/CHAR_mira.png": "d70d5305d7b8f356694d133753137a786343d645412b65a98fb2264871c91bd1",
+    "assets/faefever_v2/characters/courier_walk_regions.json": "ac1e428a2878b8f6003a92343bb7a181220075cd0f9504b671777c08da575db2",
+    "assets/faefever_v2/manifest.json": "873fe79adcf7c8a10ba9dbc0e98212a920553ad652c985447240c89195ab5b2a",
+    "assets/faefever_v2/props/attachment_photo.png": "317a06c011412b41180e309ffafdb240d0cfd7fc4ca9c4b5d9499151538a2f1a",
+    "assets/faefever_v2/props/book_index_tab.png": "7dbb9432d714fe02feb7e639068227c13f5e98b86d888044d33d907d4b423482",
+    "assets/faefever_v2/props/drawer_front.png": "218be351c999cfd95b208eb6ea3cf15624bffd30680c499740bac7dfb9ca0e52",
+    "assets/faefever_v2/props/drawer_open.png": "c2f1316e22e1c84855beb0cc96a9e02a7d3574041284bebbcb9dd3807f35d74e",
+    "assets/faefever_v2/props/envelope_back.png": "f617aab27438330711320804bbc3f558a09e603ef59450bf240ffa6450097f4e",
+    "assets/faefever_v2/props/envelope_flap.png": "482cd7ae81b608f8a581fc17d1cb310bf2f0d86370c9524740ef2a8f0bee1d6d",
+    "assets/faefever_v2/props/envelope_front.png": "321aa5cb9f108f9686d9b06a4658ad571fa26a279d47d16fb06ebb52c37b9178",
+    "assets/faefever_v2/props/eraser.png": "a766663e706ad985b711e55ccb1229455b148fdb023e957da8edc55561a24600",
+    "assets/faefever_v2/props/game_icon.png": "990e39ea01e54d54f931479c564b86b6043367102137619027b9e7467263d777",
+    "assets/faefever_v2/props/handbook_closed.png": "43018dbfd794405a6649c808a8e97b976e9cc91f547415f304ab7a716aed90fb",
+    "assets/faefever_v2/props/handbook_open.png": "2ae462630fd50d1ad121c46c620ec6a0ca3b817b4a368955b1a3c8dfe51a450c",
+    "assets/faefever_v2/props/letter_paper.png": "91500aa2ab2dfa766eaec4bbfd7533ca562d50afde96aab154cc9d2544f9a6b7",
+    "assets/faefever_v2/props/magnifier.png": "599468f934068167d01c7b1bf9913c1d1946569c0a231fdde6351b464cae148d",
+    "assets/faefever_v2/props/mail_box_base.png": "9b10052b5d4702591c0c99006859efc1b2f1fc391539cf659246888dfef66d1d",
+    "assets/faefever_v2/props/mail_box_latch.png": "49c3d053d55ef7b9b175a03d505deaee3cc7f9e209c7bf1eeef7bc24d5ba69a4",
+    "assets/faefever_v2/props/mail_box_lid.png": "954ec8c320819ae9415e8b0c9fe7fc706b6f979d3fa40dfbf2d03eda07ac7525",
+    "assets/faefever_v2/props/old_music_photo.png": "12da8206f208e247489d1e32661cdc916b8f733ba808abbe76d9c2dc1cbdbdb9",
+    "assets/faefever_v2/props/opener.png": "c2cdb53ef010f5d45a342517793e240e9cd1c0565980e5a1e6f2e66dce04f3fd",
+    "assets/faefever_v2/props/pen.png": "03e023aee4d00481a4968f4b8af047d72c482de2643433b226aa82717659e8c4",
+    "assets/faefever_v2/props/postal_seal.png": "239700b92605e1e275c12b5ccc2bec647db39faec01ddf64f6e9004457eed132",
+    "assets/faefever_v2/props/press.png": "f3cfb452a9fb64debbb53e1b2cc7260e3c1ad460331fedcf40ee047f8baafaff",
+    "assets/faefever_v2/props/protector.png": "5b95716253f3308351ec66faddaab3721ba7f182e4ff699a8acb4612639a3aef",
+    "assets/faefever_v2/props/repair_label.png": "52acc925211f6ddb8f3f7fc0eec0bd66ce02f0e7b4a2829ce0e7e6186a969eef",
+    "assets/faefever_v2/props/replacement_strip.png": "3cbc19dfbaaf014d28ce9d50ac239084e381057f27c1f1c0d56be2a16d8a1f32",
+    "assets/faefever_v2/props/resolution_slip.png": "4689e1248b6f6366d1fcdd9976c3516961e75f72be7bfa14092fdabcd07aba30",
+    "assets/faefever_v2/props/restorer.png": "7fcaaa744396685510ee984bb72895b2939fa71cd26462d97fb20f2935375479",
+    "assets/faefever_v2/props/satchel.png": "290a53b944e2d0c8f5c38a3ca16786f527e0745c1337c8d1a5a4705f09302128",
+    "assets/faefever_v2/props/seal_mark.png": "5c0884402c513fd76c9f281df1185685d22d42bf234a009b9ec21992f2b24bf9",
+    "assets/faefever_v2/props/sealer.png": "34f23a82a5726e1ca11caa0a96a3ef1b2b7fef2745235bf70555d3a14b968bc6",
+    "assets/faefever_v2/props/town_map.png": "46953dcb9916ebedf48161903da434695673fb450f5322622c7578f09ead35e1",
+    "assets/faefever_v2/props/wall_plate_new.png": "071ce2c519660c0dc4ec753614795f7fe8751622ab9a5921e3eb1276c5f1fd25",
+    "assets/faefever_v2/props/wall_plate_old.png": "1226149921c5b3320258407775dada5442a6a04c9144344f1d33ca8538b62351",
+    "assets/fonts/Caveat.ttf": "0bdb6b660482d31531b3945849fba5916b3ef8695da7024a9e6b9ee3c4157988",
+    "assets/fonts/NotoSansSC.ttf": "a3041811a78c361b1de50f953c805e0244951c21c5bd412f7232ef0d899af0da",
+    "assets/fonts/SolmereSans.ttf": "d940822c8fc679b829776cf65be0f6a188e5997b127d639fa3e616dfdeac122e",
+    "assets/generated/environments/bus_stop.png": "bd5f0e9670849e04c9bde189951e59373c5799bedde086a82f6a80f8026919d1",
+    "assets/generated/environments/chess_stall.png": "36bca6f88114aa6228a28c517cf1e9d099603a46c58d632920aba0c892c45b5c",
+    "assets/generated/environments/community_center.png": "a83e0bbe936a2c90da01e1166f340c9229fd416c11b74410aedc9fcfc972ae5a",
+    "assets/generated/environments/lookout.png": "0e09759e82957a4eedfdec40af87340fd4aaecc58bbae6a89c363f330ef71616",
+    "assets/generated/environments/post_office.png": "2227ced6a8fb24c44e5050e8df131c17119749ef803522816057e9fb38f410e8",
+    "assets/generated/environments/residential.png": "3d9aea4d4068458c67bb8b79c476bf1b2c9ddc0ad6d658589992e63acb28d97a",
+    "assets/generated/environments/tarot_shop.png": "dd7fe8113de3b3e51a595b4a915149938d0eb031ed111064c83862aad7bcb05c",
+    "assets/generated/npc_june.png": "e82f5b98ff0fd032c53e3a6b6e3fa7d256a5c63610c8a4d849f9168aacf6fdb5",
+    "assets/generated/npc_mira.png": "2f8c04f4c18ff8c059653630277a53f1eb7021297b4359ba0032bc5b16ad1ff2",
+    "assets/generated/post_office_interior.png": "efc7c574288fb5537023cf05c3a4161ec6f4c7fd3e44596d10219f8d308b3157",
+    "data/game.json": "7ba227cb6f7e1beed42539d296f1c33a5fb3f8ceaf5dd3f7be52faf753a026a1",
+    "data/rebuild/final_cases.json": "ea98a7158186b658575af93bf6eb31e29a374be6d9b6647e7d5c362dc6792744",
+    "data/rebuild/final_dialogues.json": "f2fa37f5f6b7d09a3729cbdc28a8050e64cbb33a6b76079f5619d374b54a53cd",
+    "data/rebuild/player_amendments.json": "da965670ec3be342e6559ec9d9e1208056f7b896ef90837a8b44cf00b46602a4",
+    "export_presets.cfg": "90053105622c8fb217153a17b0c3982bb36da35b55d81157104aaa1eb8a1736c",
+    "project.godot": "859f0c70a2873da75534b26cc065b04295fbd1ec3e842da0fae502ac36bbb3e4",
+    "scenes/final_slice.tscn": "4fb8a1b7bdd5598b4a48fea26a93e1aa14b77a646aaf3d37b5555f27db5b4221",
+    "scenes/main.tscn": "e6726340f123ce3c206a57637c574d3e591bae81074086a2e2e385fcc9fd8c2a",
+    "scripts/core/GameSession.gd": "06647c03e9dade7ff16563077e280e10bacbe9f602c9a1b4fb5e29f1acfd2bff",
+    "scripts/core/SaveData.gd": "44eb1f63a4e8d91683bd03c658fa531dd66a07f7e1920d6af16447817c34b963",
+    "scripts/main.gd": "1f96ec2197c601571d1cd6851cb9aa961b5cd1b5d929328096124b181bdcd35b",
+    "scripts/rebuild/field_book.gd": "e4ba06b12ddfc2db0e20b026ff41f4a3d3d04ec390f1eb03ff97120d820298ea",
+    "scripts/rebuild/field_observation.gd": "0fb63883ee9fe7a0a7c9eb07773948361977115518da3d9c6e1affa06b9bfbb6",
+    "scripts/rebuild/final_case_state.gd": "958fcbf5fdfb1e7f3fea06c622ea071c0d8a9ec1b12c913a56deba80d43d5fd0",
+    "scripts/rebuild/final_paper_map.gd": "d4206706d68246071dcedb7345c8831c54b58023721b51fd4713a6a46d165e47",
+    "scripts/rebuild/final_playable.gd": "c5ea229ef58c7d099a1520c636823bd7ed372be777598c0c79d666ff41bde95a",
+    "scripts/rebuild/final_walker.gd": "293ad1cb201e7cfef0eef3e3db8d85f67af1df5aea671e71ad1081a5e266e95f",
+    "scripts/rebuild/mail_physics_state.gd": "c7bc4306835ba08cb24a05996ec2ba2423ffe63ed61d39730a7902ff90268a1d",
+    "scripts/rebuild/mail_workbench.gd": "2117b68ac8abf2fb1df83209eabdc11f384aaf7b1209c38e85452a427039a207",
+    "scripts/rebuild/physical_art.gd": "2dd4281d0f514bf2ab8e4a2416920a139e1dec3edda6d09f6fcc1d47350d0f39",
+    "scripts/rebuild/postal_desk.gd": "bab560dd74c551ad05c5d401d6dde14bcc4a490677eb4b445f43570e6c51adb5",
+    "scripts/rebuild/resolution_draft_store.gd": "f9a45b82a82e9f703939251057ca6d667602c37560f58b401eb0512f1fa32551",
+    "scripts/rebuild/resolution_slip.gd": "b1ce24b405938e4c4978b61acbaaaf89d7517a87a7224bae8f3698b9dce325d7",
+    "scripts/rebuild/scene_dialogue.gd": "b9a941a09835e4021fe8ec16fad10a3609e8a26b8f3d8b1d795bca402d7b67b7",
+    "scripts/rebuild/tool_drawer.gd": "c0083b7dd71dea9bca27af63280f8fc8ba46c5d5c3e102d4e17641a028676876",
+    "scripts/ui/attachment_board.gd": "21abfac6994c2cc514660b57f861b04dbf45382130b79f9cd9b1250a31d6a2af",
+    "scripts/ui/audio_feedback.gd": "8b228acd1631255b6e5952b03ef7912098ee8ab4d42c3e2a4be20d8b42a79a1f",
+    "scripts/ui/chapter_screen.gd": "bdcba4127c5bc2fe9d47c920d66ef286e98eac614e9b5b7dd4aa63b0d2939a6a",
+    "scripts/ui/conversation_ribbon.gd": "20b1154f1720a473f8630d3fb3204f7561c048320817f21b9b5cb8f0faf69b87",
+    "scripts/ui/courier_actor.gd": "f202480e65f99b101930c388022d2e482d58b9c10f3d6ebfe11f260c8b39821e",
+    "scripts/ui/daylight.gd": "6c97922e3ed0708ab394f92eac1109126c413e35b5adf1451b19b83b215db40d",
+    "scripts/ui/deduction_board.gd": "35ff965e1546e29760e9dd9a3868d13bb6950c3bb02ab2edfe1875b9999c6bb2",
+    "scripts/ui/field_guidance.gd": "6977329988e048140a3425dcdd91b3d3b5e592fab05dde2e355d086bb1c39923",
+    "scripts/ui/folio_surface.gd": "1b8e8ed13eb71a50480e5e6b396f8d78edae9c1331cc7991d7b9f6b89f974255",
+    "scripts/ui/letter_insert.gd": "e894fe93d4f89db0cff2d4edc6e1d0e38bfadc60404d21be33f10f063c60d994",
+    "scripts/ui/mail_card.gd": "7478ae2c35c6b03cf9bd6bc6fe9b2bd575002770177cb4141fcf84c09b715fe6",
+    "scripts/ui/map_controller.gd": "1c1a40da588eac759f15428e81fcad39a65c2f6afee9e6826a8a6541d65fb5b8",
+    "scripts/ui/object_button.gd": "28d879803be423f383ac0678e1cc0cd0938da78a2c021251329060cec18184ec",
+    "scripts/ui/paper_ui.gd": "a55a285ef83bf966cabb5c6ffb5d66216f0d596fde4f27789318f3bcee444f24",
+    "scripts/ui/physical_board.gd": "64171bb5017ecf74c1b2f0a24eadea4a3ac35f1ecab13105249d0af2da98283f",
+    "scripts/ui/resident_portrait.gd": "d37300bb7eaa8d697c97630d023f44aafa1ed5a308f9c3822e942a1178ea60c0",
+    "scripts/ui/scene_exit.gd": "91d8ac97e2dafbf516289d16730394c257f55a69c082680f63903779eeb5d7fc",
+    "scripts/ui/scene_props.gd": "4d16a0c8974d4bf636e6ac1aa603e87e445ebc7461bca01b76ab5b5b3b31267d",
+    "scripts/ui/stage_depth.gd": "4000a1da202245c974187e9ac0441144c7f1b8bab8d739577a2369fb55563831",
+    "scripts/ui/stage_layout.gd": "e00754d9c5a464ba7b483415f0b7a601293b68080dba91b67905b42fc9f872aa",
+    "scripts/ui/stage_walker.gd": "8b08d8a202100a586f3299b2343bff6a5568c0cbcb0be95dfdd93dbb702b5488",
+    "scripts/ui/visual_evidence.gd": "b494a3f1161fef80c285d60413942bf20e83cb6ca18aae4d62bbf2a7b5a032f7",
+    "scripts/ui/workbench_surface.gd": "2e9a32055edc457bcb09f3b913fcbd3f1826708be86f901257be936c14a95246",
+    "tests/actor_depth_smoke.gd": "a4c487c3bd58e26a13f07a243424d310b011f675757b6d5ed3a47d37769f8105",
+    "tests/attachment_smoke.gd": "0033dad1d6f01711f62cfac74d5f088d74035caac1452cc5d179c93fb204a638",
+    "tests/audio_settings_smoke.gd": "5c4c6781609ddbf5c01c27b7fa36bb2823601db6907a926373e0e05d3ea93f08",
+    "tests/audio_smoke.gd": "3bd45ebe2b2d775b946d766e0cc96db3d4767074d1d5ffb7be9420b0346a6210",
+    "tests/cohort_smoke.gd": "d4455e76014287624e52777d3cabbf0a5a55e477c5fe179e8203eb7a0af5e3b0",
+    "tests/core_review_input.gd": "f4261e88311aa16a7bd0e8ef094c31122bf9fa242aaff536f84c247498bc3443",
+    "tests/core_smoke.gd": "fb96e5bf064b7d06ead7e1be6b1503235eb5fbec45735ae2ed719729d427e219",
+    "tests/counter_caption_smoke.gd": "feb47440679ed0e05e30556f3ca525ff09095c58fceda92f5b9a716be72e1e02",
+    "tests/counter_onboarding_input.gd": "f9771dec487b55fe318944e7b6270ad6d235dbbb21cdbcaa898cf3a335eb6c73",
+    "tests/daylight_smoke.gd": "99dd3506146050c362068d9426e3d2b0abb76bda2ba4e387e57838edf0773c2d",
+    "tests/deduction_smoke.gd": "e2d3027a482ab96312f26e8f78747e4aaee8ddf15358738ac2851f5272ed2e2e",
+    "tests/envelope_text_bounds_smoke.gd": "52787a6b032889c619589eeb54c6b485d285d88232f0e1f9f8fefa97affd2e24",
+    "tests/field_book_smoke.gd": "63434067fd9a3d8aebe084b94f11e5abb9bcef53f65f52e8740e23b9e96cade5",
+    "tests/field_guidance_smoke.gd": "81961c76f6bce48928b8e5aa672b8def75c30897218c0f4a88ae41debe1db604",
+    "tests/field_observation_smoke.gd": "9c96255214d6195a6f4a2f92773541f344d144bca360e36b30deaa39710b3399",
+    "tests/final_amended_handoff_input.gd": "1eedae50bbd58c8ee84ce1fc4428684996f5eac15ee0d9f91ffdcdaa5c505898",
+    "tests/final_case_state_smoke.gd": "6685ff9b0c57a7ceb0472062c962fe79583c9e6f9c7e7e9ebceb1cbd1a3b5c1f",
+    "tests/final_five_case_input.gd": "46dcce60c9d11bc33ee33ae8d8980da86970818c3668f756ddb27e3c20ad21bc",
+    "tests/final_host_boundary_smoke.gd": "3cb43d2b97ac173177dd8acf605829af1ba7c07e636f80a76fde42c065757b73",
+    "tests/final_playable_input_smoke.gd": "a51f111e8d79b9a56049b7b62df29e03de9548db5e21e30c6a7557589379e04f",
+    "tests/final_resolution_draft_smoke.gd": "1aff4633936365b1d0e01b3d2f1eb43ee29f3f86ea93560d2925701c34e60e92",
+    "tests/final_walker_smoke.gd": "7a45415543cee0174d6edd54acc2583c8c99fe2b2d35a9925d564d8982501ab3",
+    "tests/final_window_close_input.gd": "594f24ecf8bdcadbcc15468b8e83895838531b71cccacc8fe27f94fe827ee503",
+    "tests/fixtures/final_mail_interaction_contract.json": "f3285325a8e3e2d3ebce9c9b6080659f47a6fc2f9c39cf41a060b456066f36da",
+    "tests/letter_ui_smoke.gd": "8a1d41296a3d6aa29a4cd33fca0ea7af769104c33a829dfb4f333fe69516efd3",
+    "tests/mail_physics_state_smoke.gd": "01aebd103138573ec6e694a95dc00f17d6e51a004acf6e689375ea46ac213640",
+    "tests/mail_workbench_input_smoke.gd": "a79a7e8e00ff181b105d7d20d40e67f32736c1af51bd1b75012c20545749b574",
+    "tests/packaged_content_smoke.gd": "d72f59ed9e438a21779cf2cfdda7233bce40cdfae8573b5cb2f2afd747e0f150",
+    "tests/physical_smoke.gd": "96aba1bcb8f59763a077a0e36e5030013e182972f4d8ed6dca1b388d36126f71",
+    "tests/postal_desk_live_queue.gd": "f1abed733b62b9b0dfc139c9f3e5cb0bb86a3050a06eec08bd22e7f69b779660",
+    "tests/resolution_slip_smoke.gd": "9acfc81197b7bbcdf381ccea3225f952b66b165ad8bd3f921acd117c96256ca9",
+    "tests/scene_dialogue_input_smoke.gd": "d13c868d6b37d190be88b8f8f49126bfbccd4a30eb88ebf1ad12fd01272459ca",
+    "tests/scene_exit_smoke.gd": "044dd134f518a6060b7df72cf3aeafeebb48beeccfe7fb76c2355b868edb1bc7",
+    "tests/transport_smoke.gd": "d87beedc6d272f7a947af35668c9d85fe055427aadd9e2a2003cfb00445a33ed",
+    "tests/ui_flow_smoke.gd": "a025eb5e369b2c2e6584e753c5e552268b35c1e02a9392d2f79f7e772e2ca86f",
+    "tests/visual_evidence_smoke.gd": "0fa2cfe6304f850b707482cd08a62e8c37025e4dac4230b8a3455bfd0b622b60",
+    "tests/walker_smoke.gd": "4efdb1e16c5e3f27e79d1b11cf0e0eec7fdb4ae79cc8c103e34986c42ce43270"
+  },
+  "source_unchanged_during_run": true,
+  "engine": {
+    "import_command": [
+      "C:\\Users\\22416\\Documents\\Codex\\2026-09-06\\bang\\outputs\\Godot\\Godot_v4.7.2-stable_win64.exe",
+      "--headless",
+      "--path",
+      "C:\\Users\\22416\\Documents\\Codex\\2026-10-01\\github\\work\\100letter-studio-publish",
+      "--editor",
+      "--import",
+      "--quit",
+      "--log-file",
+      "C:\\Users\\22416\\Documents\\Codex\\2026-10-01\\github\\work\\100letter-studio-publish\\test-results\\studio\\book\\20261003T163343005752Z\\import.log"
+    ],
+    "command": [
+      "C:\\Users\\22416\\Documents\\Codex\\2026-09-06\\bang\\outputs\\Godot\\Godot_v4.7.2-stable_win64.exe",
+      "--path",
+      "C:\\Users\\22416\\Documents\\Codex\\2026-10-01\\github\\work\\100letter-studio-publish",
+      "--rendering-driver",
+      "opengl3",
+      "--position=-12000,-12000",
+      "--audio-driver",
+      "Dummy",
+      "--resolution",
+      "1920x1080",
+      "--script",
+      "res://tests/field_book_smoke.gd",
+      "--log-file",
+      "C:\\Users\\22416\\Documents\\Codex\\2026-10-01\\github\\work\\100letter-studio-publish\\test-results\\studio\\book\\20261003T163343005752Z\\engine.log"
+    ],
+    "exit_code": 0,
+    "checks": 1628,
+    "failures": [],
+    "result": {
+      "path": "docs/testing/tabs-guide_20261004/book-engine/engine-result.json",
+      "sha256": "9085bc11b34c725490015d5a878619880149c7b4ef9712721d733f7e0a6f3a12"
+    },
+    "log": {
+      "path": "docs/testing/tabs-guide_20261004/book-engine/engine.log",
+      "sha256": "df186cbdf2a1f56fa900a4a6f97acc5585fbd6a6f521921226db9152c51287e7"
+    }
+  },
+  "automated_screenshots": [
+    {
+      "path": "docs/testing/tabs-guide_20261004/book-engine/field_book_unknown.png",
+      "sha256": "f234bea73220ab2b406cb34586f9bb72bf9d90918cd2f15a85a51106212c3164"
+    },
+    {
+      "path": "docs/testing/tabs-guide_20261004/book-engine/field_book_person.png",
+      "sha256": "99101272e915ed4c4de4a14745fe638ebb866284d0e4669b0f505ff517511f10"
+    },
+    {
+      "path": "docs/testing/tabs-guide_20261004/book-engine/field_book_turning.png",
+      "sha256": "d50afb5b9c0d502245e9f04dcebe92812f43e77f2d5f872647ae72980c0685c2"
+    },
+    {
+      "path": "docs/testing/tabs-guide_20261004/book-engine/field_book_evidence.png",
+      "sha256": "4c2eb84a02ec53b7abfbcce60066c5dab7dab56cf212991f9d01ed05a7ec81cc"
+    },
+    {
+      "path": "docs/testing/tabs-guide_20261004/book-engine/field_book_draft.png",
+      "sha256": "8f6b1143e88ef7526730989d89e8fecaa50ba998f81139d7fae2036276e36b2b"
+    },
+    {
+      "path": "docs/testing/tabs-guide_20261004/book-engine/field_book_2000.png",
+      "sha256": "9f34ca3fc9f6decfb4fdae056c467825ed21db07be1fa8df5d8a0237287ad7a5"
+    },
+    {
+      "path": "docs/testing/tabs-guide_20261004/book-engine/field_book_confirmed.png",
+      "sha256": "c37b3ca2027f2511d70a2f350d313fa580f4bd568b0e3dae6d51d429243b64b9"
+    },
+    {
+      "path": "docs/testing/tabs-guide_20261004/book-engine/field_book_person_zh_1280.png",
+      "sha256": "23eba95b726ea0a4b38aace63d9bcb67f72325bae94409eefff8e07f9ea34d80"
+    },
+    {
+      "path": "docs/testing/tabs-guide_20261004/book-engine/field_book_source_zh_1280.png",
+      "sha256": "1f9d6b5fb942413f8ee6368997e15bd128bb9189cdb94f24fdfe3e94280f192f"
+    },
+    {
+      "path": "docs/testing/tabs-guide_20261004/book-engine/field_book_draft_zh_1280.png",
+      "sha256": "4719f4ea552c05e120a6f24d07aeb91bd6ee6fc843ad00c51b83760739e33b87"
+    },
+    {
+      "path": "docs/testing/tabs-guide_20261004/book-engine/field_book_person_en_1280.png",
+      "sha256": "2852ac4d22958abb4df2cfe19b952d24514f189f15ff34f8bb0b1fb9250d064b"
+    },
+    {
+      "path": "docs/testing/tabs-guide_20261004/book-engine/field_book_source_en_1280.png",
+      "sha256": "e459b787d874e57d7d3715a6d26bc177d53cdb611acdbb1f146e80ed1058da70"
+    },
+    {
+      "path": "docs/testing/tabs-guide_20261004/book-engine/field_book_draft_en_1280.png",
+      "sha256": "3764370faeca31ba1e22d0af5d457ac7d46aff30da3257d2bc8122d1188b4d49"
+    },
+    {
+      "path": "docs/testing/tabs-guide_20261004/book-engine/field_book_person_zh_1920.png",
+      "sha256": "99101272e915ed4c4de4a14745fe638ebb866284d0e4669b0f505ff517511f10"
+    },
+    {
+      "path": "docs/testing/tabs-guide_20261004/book-engine/field_book_source_zh_1920.png",
+      "sha256": "d65038506929beaf8790872a5bc674475cd362c40fda85c21c10821a8becdb1e"
+    },
+    {
+      "path": "docs/testing/tabs-guide_20261004/book-engine/field_book_draft_zh_1920.png",
+      "sha256": "7b9fc4d658cccd706e107c41639995823af477774b3809fb0ddbed44efd4badf"
+    },
+    {
+      "path": "docs/testing/tabs-guide_20261004/book-engine/field_book_person_en_1920.png",
+      "sha256": "a3a8369b7e07d63cf1e1604ad24c887a2562f92314b736093fa5c5285081f1d0"
+    },
+    {
+      "path": "docs/testing/tabs-guide_20261004/book-engine/field_book_source_en_1920.png",
+      "sha256": "5f24fd6def2edfe76f9ec0efc1c765e6c4ccbb7feb2ae9e3b971697742ff3d61"
+    },
+    {
+      "path": "docs/testing/tabs-guide_20261004/book-engine/field_book_draft_en_1920.png",
+      "sha256": "48a828bb6e59298a53fd98ccc4519a26fd0edf181b9ca44e70504c813d85dab5"
+    },
+    {
+      "path": "docs/testing/tabs-guide_20261004/book-engine/field_book_person_zh_2560.png",
+      "sha256": "60d9cb92afbccdcc3eac1031c6b0c0e9357b8104abfba6b967419d0b576bb140"
+    },
+    {
+      "path": "docs/testing/tabs-guide_20261004/book-engine/field_book_source_zh_2560.png",
+      "sha256": "aad6c55c651d07769c125ab410a1bb6b17a0826825a43ff78107183d5be29d8b"
+    },
+    {
+      "path": "docs/testing/tabs-guide_20261004/book-engine/field_book_draft_zh_2560.png",
+      "sha256": "8898cc4ae6ba77f682e2db96c752492a2362c7b54ba3fbae43b4563e9f5c4c75"
+    },
+    {
+      "path": "docs/testing/tabs-guide_20261004/book-engine/field_book_person_en_2560.png",
+      "sha256": "70a697e876fe90023aa50d82f8841b0d99de5d683fc6558837082359bbca4950"
+    },
+    {
+      "path": "docs/testing/tabs-guide_20261004/book-engine/field_book_source_en_2560.png",
+      "sha256": "19c07abbc025d889786fa5550adedbabb9c9a9e5d4fbd01553be1fec6e539237"
+    },
+    {
+      "path": "docs/testing/tabs-guide_20261004/book-engine/field_book_draft_en_2560.png",
+      "sha256": "170881788b3bcc051f7fc1c4d07355400068aa6b421cea4e74106b24ecd9ee19"
+    }
+  ],
+  "native_review": null,
+  "unresolved_blockers": [
+    "Native OS-input review, focus-loss, bilingual and full responsive checks pending"
+  ],
+  "scope": "Scripted GPU input/rendering with Dummy audio; not native input, listening, novice timing or player approval"
+}

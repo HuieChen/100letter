@@ -27,6 +27,8 @@
   ],
   "files": [
     "scripts/rebuild/field_book.gd",
+    "assets/faefever_v2/manifest.json",
+    "assets/faefever_v2/props/book_index_tab.png",
     "scripts/ui/paper_ui.gd",
     "tests/field_book_smoke.gd"
   ],

@@ -329,13 +329,13 @@ func _assert_layout() -> void:
 		var tab: Button = _find("Tab" + str(index))
 		if tab == null: continue
 		_check(tab.size == Book.TAB_SIZE, "physical tabs share equal width and height")
-		_check(is_equal_approx(tab.position.y,70), "tabs share baseline")
+		_check(is_equal_approx(tab.position.y,59), "tabs share baseline")
 		var font: Font = tab.get_theme_font("font")
 		_check(font.get_string_size(tab.text,HORIZONTAL_ALIGNMENT_LEFT,-1,tab.get_theme_font_size("font_size")).x + 12 <= tab.size.x, "tab text fits without clipping")
-		var material: Texture2D = Book.Art.texture("handbook_open")
-		var ratio: Vector2 = Book.BOOK_RECT.size / material.get_size()
-		var painted: Rect2 = Rect2(Book.BOOK_RECT.position + Book.TAB_REGIONS[index].position * ratio, Book.TAB_REGIONS[index].size * ratio)
+		var painted: Rect2 = book.painted_tab_rect(index)
 		_check(painted.encloses(tab.get_rect()), "tab text region stays inside the actual painted paper tab")
+		_check(tab.get_rect().encloses(painted), "whole visible chapter slip responds to pointer input")
+		_check(is_zero_approx(tab.rotation), "index writing remains upright")
 		tab_rects.append(tab.get_global_rect())
 	for first: int in range(tab_rects.size()):
 		for second: int in range(first+1,tab_rects.size()): _check(not tab_rects[first].intersects(tab_rects[second]), "tabs never overlap")

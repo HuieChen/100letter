@@ -1,0 +1,158 @@
+{
+  "version": 2,
+  "request": "Exterior AND existing white texture pinholes must be transparent. Preserve source files and writing.",
+  "method": "Built-in image_gen background-extraction; generated RGBA copied unchanged. No program pixel edits.",
+  "runtime_selection": "authoring intake only; no automatic gameplay substitution",
+  "originals": [
+    {
+      "name": "letter 1.pdf",
+      "sha256": "e760e7a23a5b04d372ae53ba905a9d834540cdd6a58ade87021857c7b6816e26",
+      "modified": false
+    },
+    {
+      "name": "fd5df0023f2392faace42bf885f3a7a4.jpg",
+      "sha256": "f92ff666ed676cdcd1bd60f4d570bf6edf1b564eecb2f7475302f705a18acaa4",
+      "modified": false
+    }
+  ],
+  "assets": [
+    {
+      "path": "envelope_back.png",
+      "sha256": "8702ff113d534c403bdaba39167075ca64d5f83bd9fbfa9c82247d852b61d915",
+      "size": [
+        1492,
+        1054
+      ],
+      "alpha_range": [
+        0,
+        255
+      ],
+      "opaque_bbox_128": [
+        149,
+        115,
+        1336,
+        951
+      ],
+      "interior_fully_transparent_pixels": 6,
+      "interior_opaque_near_white_pixels": 0,
+      "generated_basename": "exec-0300e444-509b-4e9a-a20f-964a72ef1d2b.png",
+      "prompt": "Use case: background-extraction. Edit target: supplied brown wax-sealed envelope. Make a precise transparent cutout, NOT a redraw. REMOVE ALL WHITE BACKGROUND, BOTH OUTSIDE AND INSIDE THE SUBJECT: the tiny bright-white distressed flecks, pinholes, gaps and voids scattered across the brown paper are actual HOLES, so each must show real alpha=0 transparency too. Do not leave them white or paint over them. It is essential that an arbitrary colored surface placed underneath is visible through every existing white paper pinhole as well as around the edges. Preserve exact handwritten text and punctuation, line breaks, every dark ink stroke, tan paper color/grain, fold lines, original rough silhouette and wax seal including its colored highlights. Only the existing near-white paper voids and outer white background become transparent; keep ordinary light-tan paper opaque and keep pink/red wax highlights intact. No retyping, no reshaping, no new holes, no smoothing, no shadows, no restyle. Whole object visible. Genuine alpha PNG, no simulated checkerboard or black backdrop.",
+      "visual_review": "Reviewed full page against source; handwriting remains legible, page order/signature intact. No claim of pixel-exact equivalence."
+    },
+    {
+      "path": "letter_page_01.png",
+      "sha256": "c2efcab5af8b0b011fab4778852c45c2d31e20789ab3ed4e9d889f3dcffc40f3",
+      "size": [
+        1055,
+        1491
+      ],
+      "alpha_range": [
+        0,
+        255
+      ],
+      "opaque_bbox_128": [
+        31,
+        30,
+        1030,
+        1476
+      ],
+      "interior_fully_transparent_pixels": 74,
+      "interior_opaque_near_white_pixels": 0,
+      "generated_basename": "exec-ab994081-5973-456d-92d2-b4d29bca1b72.png",
+      "prompt": "Use case: background-extraction. Edit target: supplied handwritten letter sheet page 1. Make a precise transparent cutout, NOT a redraw. REMOVE ALL WHITE BACKGROUND, BOTH OUTSIDE AND INSIDE THE SUBJECT: the tiny bright-white distressed flecks, pinholes, gaps and voids scattered across the brown paper are actual HOLES, so each must show real alpha=0 transparency too. Do not leave them white or paint over them. It is essential that an arbitrary colored surface placed underneath is visible through every existing white paper pinhole as well as around the edges. Preserve exact handwritten text and punctuation, line breaks, every dark ink stroke, tan paper color/grain, fold lines, original rough silhouette and wax seal including its colored highlights. Only the existing near-white paper voids and outer white background become transparent; keep ordinary light-tan paper opaque and keep pink/red wax highlights intact. No retyping, no reshaping, no new holes, no smoothing, no shadows, no restyle. Whole object visible. Genuine alpha PNG, no simulated checkerboard or black backdrop.",
+      "visual_review": "Reviewed full page against source; handwriting remains legible, page order/signature intact. No claim of pixel-exact equivalence."
+    },
+    {
+      "path": "letter_page_02.png",
+      "sha256": "e357202b17cd0852645bd8ced3e3ed15771f6efa4fba8d9f64ce64fc4a3c0655",
+      "size": [
+        1055,
+        1491
+      ],
+      "alpha_range": [
+        0,
+        255
+      ],
+      "opaque_bbox_128": [
+        33,
+        33,
+        1027,
+        1473
+      ],
+      "interior_fully_transparent_pixels": 62,
+      "interior_opaque_near_white_pixels": 0,
+      "generated_basename": "exec-52b8a2bf-f755-42f1-98cd-0a76a02debaa.png",
+      "prompt": "Use case: background-extraction. Edit target: supplied handwritten letter sheet page 2. Make a precise transparent cutout, NOT a redraw. REMOVE ALL WHITE BACKGROUND, BOTH OUTSIDE AND INSIDE THE SUBJECT: the tiny bright-white distressed flecks, pinholes, gaps and voids scattered across the brown paper are actual HOLES, so each must show real alpha=0 transparency too. Do not leave them white or paint over them. It is essential that an arbitrary colored surface placed underneath is visible through every existing white paper pinhole as well as around the edges. Preserve exact handwritten text and punctuation, line breaks, every dark ink stroke, tan paper color/grain, fold lines, original rough silhouette and wax seal including its colored highlights. Only the existing near-white paper voids and outer white background become transparent; keep ordinary light-tan paper opaque and keep pink/red wax highlights intact. No retyping, no reshaping, no new holes, no smoothing, no shadows, no restyle. Whole object visible. Genuine alpha PNG, no simulated checkerboard or black backdrop.",
+      "visual_review": "Reviewed full page against source; handwriting remains legible, page order/signature intact. No claim of pixel-exact equivalence."
+    },
+    {
+      "path": "letter_page_03.png",
+      "sha256": "875892ff065422b001887e6c1b6b4a84e99c9c4a256858a03501588d59fac374",
+      "size": [
+        1054,
+        1492
+      ],
+      "alpha_range": [
+        0,
+        255
+      ],
+      "opaque_bbox_128": [
+        30,
+        31,
+        1027,
+        1477
+      ],
+      "interior_fully_transparent_pixels": 32,
+      "interior_opaque_near_white_pixels": 0,
+      "generated_basename": "exec-833b705c-b661-438a-b931-91af90762898.png",
+      "prompt": "Use case: background-extraction. Edit target: supplied handwritten letter sheet page 3. Make a precise transparent cutout, NOT a redraw. REMOVE ALL WHITE BACKGROUND, BOTH OUTSIDE AND INSIDE THE SUBJECT: the tiny bright-white distressed flecks, pinholes, gaps and voids scattered across the brown paper are actual HOLES, so each must show real alpha=0 transparency too. Do not leave them white or paint over them. It is essential that an arbitrary colored surface placed underneath is visible through every existing white paper pinhole as well as around the edges. Preserve exact handwritten text and punctuation, line breaks, every dark ink stroke, tan paper color/grain, fold lines, original rough silhouette and wax seal including its colored highlights. Only the existing near-white paper voids and outer white background become transparent; keep ordinary light-tan paper opaque and keep pink/red wax highlights intact. No retyping, no reshaping, no new holes, no smoothing, no shadows, no restyle. Whole object visible. Genuine alpha PNG, no simulated checkerboard or black backdrop.",
+      "visual_review": "Reviewed full page against source; handwriting remains legible, page order/signature intact. No claim of pixel-exact equivalence."
+    },
+    {
+      "path": "letter_page_04.png",
+      "sha256": "536b08b04d7431dee3edb68596a104e801f0c84fe6bc4846a7f5e96829b785bd",
+      "size": [
+        1055,
+        1491
+      ],
+      "alpha_range": [
+        0,
+        255
+      ],
+      "opaque_bbox_128": [
+        31,
+        31,
+        1028,
+        1476
+      ],
+      "interior_fully_transparent_pixels": 45,
+      "interior_opaque_near_white_pixels": 0,
+      "generated_basename": "exec-13762111-9e9d-4503-b1bf-9dc053552c24.png",
+      "prompt": "Use case: background-extraction. Edit target: supplied handwritten letter sheet page 4. Make a precise transparent cutout, NOT a redraw. REMOVE ALL WHITE BACKGROUND, BOTH OUTSIDE AND INSIDE THE SUBJECT: the tiny bright-white distressed flecks, pinholes, gaps and voids scattered across the brown paper are actual HOLES, so each must show real alpha=0 transparency too. Do not leave them white or paint over them. It is essential that an arbitrary colored surface placed underneath is visible through every existing white paper pinhole as well as around the edges. Preserve exact handwritten text and punctuation, line breaks, every dark ink stroke, tan paper color/grain, fold lines, original rough silhouette and wax seal including its colored highlights. Only the existing near-white paper voids and outer white background become transparent; keep ordinary light-tan paper opaque and keep pink/red wax highlights intact. No retyping, no reshaping, no new holes, no smoothing, no shadows, no restyle. Whole object visible. Genuine alpha PNG, no simulated checkerboard or black backdrop.",
+      "visual_review": "Reviewed full page against source; handwriting remains legible, page order/signature intact. No claim of pixel-exact equivalence."
+    },
+    {
+      "path": "letter_page_05.png",
+      "sha256": "a6394e2a79a9918992716897763dbd2c96240efd17dba7e3c62da8d68982511f",
+      "size": [
+        1055,
+        1491
+      ],
+      "alpha_range": [
+        0,
+        255
+      ],
+      "opaque_bbox_128": [
+        30,
+        30,
+        1028,
+        1476
+      ],
+      "interior_fully_transparent_pixels": 49,
+      "interior_opaque_near_white_pixels": 0,
+      "generated_basename": "exec-e499689d-5a96-4bb4-b196-156d3820f7ef.png",
+      "prompt": "Use case: background-extraction. Edit target: supplied handwritten letter sheet page 5. Make a precise transparent cutout, NOT a redraw. REMOVE ALL WHITE BACKGROUND, BOTH OUTSIDE AND INSIDE THE SUBJECT: the tiny bright-white distressed flecks, pinholes, gaps and voids scattered across the brown paper are actual HOLES, so each must show real alpha=0 transparency too. Do not leave them white or paint over them. It is essential that an arbitrary colored surface placed underneath is visible through every existing white paper pinhole as well as around the edges. Preserve exact handwritten text and punctuation, line breaks, every dark ink stroke, tan paper color/grain, fold lines, original rough silhouette and wax seal including its colored highlights. Only the existing near-white paper voids and outer white background become transparent; keep ordinary light-tan paper opaque and keep pink/red wax highlights intact. No retyping, no reshaping, no new holes, no smoothing, no shadows, no restyle. Whole object visible. Genuine alpha PNG, no simulated checkerboard or black backdrop.",
+      "visual_review": "Reviewed full page against source; handwriting remains legible, page order/signature intact. No claim of pixel-exact equivalence."
+    }
+  ]
+}

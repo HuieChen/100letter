@@ -1,5 +1,9 @@
 # Current specification — reviewed 2026-10-03
 
+2026-10-04 asset intake: export all five pages of the supplied letter 1.pdf and the supplied brown wax-sealed envelope as transparent PNG cutouts. Exterior AND existing white paper pinholes must be transparent; colored wax highlights stay. This specifically authorizes background removal of these two sources; preserve their originals and content. Keep exported intake separate from runtime selection until a physical letter chain is wired and verified. Adopt applicable open-source game/interaction tools after primary-source license/version verification and actual checks, within the ordered work.
+
+2026-10-04 feedback: publish every scoped fix to main; upright physical chapter slips with consistent writing and full-silhouette hit areas. Make first action discoverable through real click/drag object response and a concise supervisor purpose. Dialogue height must follow real wrapped glyph metrics. Preserve accepted book/scenery, no global redesign.
+
 Authority: newest explicit user feedback → this file → Master Runbook/reference mapping → older packs. See docs/REQUIREMENTS_REVIEW_20261003.md. Old specifications cannot reintroduce rejected interactions.
 
 ## Preserve the accepted game

@@ -235,7 +235,7 @@ func _begin_briefing() -> void:
 	var briefing:=SceneDialogue.new()
 	modal=briefing
 	UI.place(briefing,self,Rect2(0,0,1600,900))
-	briefing.configure("主管 · 柜台另一端","早。第一封在桌上的手提箱里，锁扣扣着，免得海风把纸吹走。是 Ruth 寄给 Elsie 的，写着旧街名。联系不上寄件人，退回去也只是再绕一圈。你去看看门牌；社区中心还留着改名记录。见到住户，问清是本人再交。办好回来，把依据和实际去向写在处置单上，盖邮局章。查不清就留待核实——晚一点到，总比交错人好。")
+	briefing.configure("主管 · 柜台另一端","早。手提箱里这封一直没送到，锁扣还扣着。你先把信拿出来看看。信上是旧街名——社区中心窗边留着改名公告，先从那儿查起。别急着交，地址对得上，也得问清是谁家的信。")
 	briefing.find_child("AdvanceDialogue",true,false).name="FinishBriefing"
 	briefing.advanced.connect(_finish_briefing)
 	briefing.closed.connect(_finish_briefing)

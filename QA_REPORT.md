@@ -1,5 +1,23 @@
 # QA report · 2026-10-03
 
+## Transparent letter intake — 2026-10-04
+
+All five PDF pages and the separately supplied envelope are exported as RGBA PNGs in `assets/authoring/letter01_20261004`. User correction requires interior white paper pinholes to be transparent too; version 1 failed this intent and is excluded. Version 2 uses the built-in background-extraction tool, copied unchanged. Read-only pixel inspection verifies alpha minimum zero, interior fully transparent pixels (envelope 6; pages 74/62/32/45/49 in the recorded paper inset) and zero opaque near-white pixels in that inset. Full source/render/output pages were visually compared; handwriting and signature are readable, but pixel-exact equivalence is not claimed. Original PDF/JPG are untouched. These authoring exports do not yet replace live letter objects or expand the playable story.
+
+## Latest tab and onboarding repair — 2026-10-04
+
+Physical chapter slips now use one upright ImageGen paper sprite behind the unchanged original book. Equal geometry, horizontal writing, no underline/dashboard frame; the whole painted slip is clickable. Empty chapters remain absent. The original book bitmap and all scenery/characters are unchanged.
+
+Opening object response is repaired: after releasing the latch, either click or drag the actual lid. A 0.32-second hinge transition ignores duplicate clicks; the locked lid resists. Click or drag the exposed envelope to lift the same object into inspection. The visible cross returns it to the existing counter and saves observed face/custody; it cannot leave a duplicate envelope in the box. The supervisor gives a short first goal, including the actual community notice location. No narrator tutorial or task arrow is introduced. Dialogue layout now measures wrapped glyphs instead of assuming a character count determines height.
+
+Fresh full run `test-results/check-20261004-002452` passes all 17 engine suites, including both five-case routes and amended handoff. `counter_onboarding_input` passes 54 assertions across three resolutions, using visible objects and crosses; book passes 1,628 assertions in Chinese/English at three resolutions; shared core UI passes 196. Window close/reload passes 29 checks in `test-results/window-close-20261004-002958`. 28 workflow gate tests also pass. These are automated engine/input checks, not human usability approval.
+
+Failures retained: the first new onboarding fixture incorrectly injected unscaled input; it was corrected to the existing viewport-input adapter. The next test found a real short-dialogue scrollbar/height problem at all three sizes; measuring actual glyph layout fixed it. Passing final logs and 1920 images are retained under `docs/testing/tabs-guide_20261004`. The precise native window and audio/novice acceptance remain separate. Earlier complete results below are historical.
+
+Remaining acceptance gaps: no first-time human playtest or audio listening; complete three-letter 30-minute story/wax workflow still pending. Guidance for the entire campaign is not certified by the first-counter fix. CORE-BOOK remains under review, not silently marked complete. Publication is a development checkpoint.
+
+Native checkpoint: actual Windows input verified the title/new-game entry, supervisor visible cross, book opening, the full paper tab edge, book cross, bag opening and direct envelope entry into the physical inspection surface. The retained game-only frame is `docs/testing/tabs-guide_20261004/native_book_letters.png` (855×512). User input interrupted the box/letter and later flip actions; those steps are not claimed as independently completed native tests. Automated coverage remains distinct. Current player progress is preserved; native audio/novice/full-chain checks remain pending.
+
 ## Latest studio production integration
 
 CCGS now has project-local production stories, responsibility boundaries, design inputs, active-board/dependency checks, materialized handoff briefs, adversarial role records, change-impact routing and finish/handoff commands. This is sequential responsibility review, not independent multi-agent or 49-agent execution. See [actual use report](docs/testing/STUDIO_PRODUCTION_20261003.md).

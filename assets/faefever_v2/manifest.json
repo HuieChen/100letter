@@ -1578,6 +1578,33 @@
         872
       ],
       "sha256": "a766663e706ad985b711e55ccb1229455b148fdb023e957da8edc55561a24600"
+    },
+    "book_index_tab": {
+      "path": "res://assets/faefever_v2/props/book_index_tab.png",
+      "generator": "image_gen.imagegen",
+      "ai_generated": true,
+      "source": "ImageGen exec-10ca797d-5c56-49c6-9a02-75d62adae080.png",
+      "prompt": "One isolated blank upright paper index tab. Transparent exterior; nearly horizontal top, short vertical sides, rounded top corners. Warm cream flat fill, thin dark brown handmade line, a small beige edge shadow. No tilt, text, symbols, tears, stains, folds, hatch, book or interface. Clean low detail authored 2D point-and-click sprite, readable at 130 by 44 pixels. No photorealism, 3D, glossy material or gradients.",
+      "review_status": "individual_shape_reviewed_runtime_pending",
+      "notes": "Original ImageGen pixels copied unchanged; alpha region selected at runtime. Book body and user art unchanged.",
+      "native_dimensions": [
+        2172,
+        724
+      ],
+      "mode": "RGBA",
+      "alpha_bounds": [
+        204,
+        174,
+        1970,
+        550
+      ],
+      "region": [
+        204,
+        174,
+        1766,
+        376
+      ],
+      "sha256": "7dbb9432d714fe02feb7e639068227c13f5e98b86d888044d33d907d4b423482"
     }
   }
 }

@@ -1,0 +1,12 @@
+{
+	"checks": 54,
+	"failures": [],
+	"host_sha256": "9c8581bca0f998d11ad520508e6db9e44b2397233243d2913978ef0906dc1667",
+	"scope": "Actual Godot viewport clicks at three sizes, not OS input or a first-time human playtest.",
+	"screenshots": [
+		"res://test-results/core-review/all_onboarding_supervisor_1920.png",
+		"res://test-results/core-review/all_onboarding_click_inspect_1920.png"
+	],
+	"source_sha256": "bab560dd74c551ad05c5d401d6dde14bcc4a490677eb4b445f43570e6c51adb5",
+	"suite": "counter_onboarding_input"
+}

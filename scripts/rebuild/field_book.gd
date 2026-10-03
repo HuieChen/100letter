@@ -13,8 +13,8 @@ const BOOK_RECT := Rect2(30,52,1540,798)
 # Every live record is clipped to one leaf; the gutter is never a text column.
 const LEFT_SAFE := Rect2(178,154,548,566)
 const RIGHT_SAFE := Rect2(865,154,548,566)
-const TAB_SIZE := Vector2(82,32)
-const TAB_REGIONS := [Rect2(208,0,118,58),Rect2(408,0,116,58),Rect2(1055,0,112,58),Rect2(1275,0,117,58)]
+const TAB_SIZE := Vector2(136,54)
+const TAB_CENTERS := [285.0,465.0,1035.0,1235.0]
 const INK := Color("#303238")
 const MUTED := Color("#6B7376")
 const TEAL := Color("#397C82")
@@ -82,13 +82,12 @@ func _draw() -> void:
 	# Blank painted material only. Text, identity permissions and navigation remain live controls.
 	var material := Art.texture("handbook_open")
 	if material != null:
-		# Preserve the original bitmap; render its body and only useful physical tabs.
+		# Separate upright index slips tuck behind the unchanged painted book.
+		for index: int in _available_sections():
+			Art.paint(self,"book_index_tab",painted_tab_rect(index))
 		var cut := 58.0
 		var ratio := BOOK_RECT.size / material.get_size()
 		draw_texture_rect_region(material, Rect2(BOOK_RECT.position + Vector2(0,cut)*ratio, Vector2(material.get_width(),material.get_height()-cut)*ratio), Rect2(0,cut,material.get_width(),material.get_height()-cut))
-		for index: int in _available_sections():
-			var source: Rect2 = TAB_REGIONS[index]
-			draw_texture_rect_region(material,Rect2(BOOK_RECT.position+source.position*ratio,source.size*ratio),source)
 	draw_set_transform(Vector2.ZERO)
 
 
@@ -125,9 +124,9 @@ func _rebuild() -> void:
 		tab.size = TAB_SIZE
 		tab.alignment = HORIZONTAL_ALIGNMENT_CENTER
 		tab.add_theme_color_override("font_color", TEAL if index == section else INK)
-		tab.add_theme_stylebox_override("normal", _line_style(TEAL) if index == section else StyleBoxEmpty.new())
-		tab.add_theme_stylebox_override("hover", _line_style(MUTED))
-		tab.add_theme_stylebox_override("pressed", _line_style(TEAL))
+		for state: String in ["normal","hover","pressed","focus"]:
+			tab.add_theme_stylebox_override(state,StyleBoxEmpty.new())
+		tab.add_theme_color_override("font_hover_color", TEAL)
 		
 		tab.mouse_entered.connect(tab.queue_redraw)
 		tab.mouse_exited.connect(tab.queue_redraw)
@@ -431,11 +430,11 @@ func _section_name(index: int) -> String:
 
 
 func tab_rect(index: int) -> Rect2:
-	var material := Art.texture("handbook_open")
-	var ratio := BOOK_RECT.size / material.get_size()
-	var region: Rect2 = TAB_REGIONS[index]
-	var center_x := BOOK_RECT.position.x + region.get_center().x * ratio.x
-	return Rect2(Vector2(center_x - TAB_SIZE.x * 0.5, 70), TAB_SIZE)
+	return painted_tab_rect(index)
+
+
+func painted_tab_rect(index: int) -> Rect2:
+	return Rect2(TAB_CENTERS[index]-68.0,59.0,136.0,54.0)
 
 
 func _person_name(id: String) -> String:

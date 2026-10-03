@@ -1,0 +1,66 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+[   0% ] first_scan_filesystem | Started 项目初始化 (5 steps)
+[   0% ] first_scan_filesystem | 正在扫描文件结构……
+[  16% ] first_scan_filesystem | 正在加载全局类名……
+[  33% ] first_scan_filesystem | 正在校验 GDExtension……
+[  50% ] first_scan_filesystem | 正在创建自动加载脚本……
+[  66% ] first_scan_filesystem | 正在初始化插件……
+[  83% ] first_scan_filesystem | 正在启动文件扫描……
+[ DONE ] first_scan_filesystem
+
+[   0% ] update_scripts_classes | Started 正在注册全局类…… (2 steps)
+[   0% ] update_scripts_classes | 
+[  33% ] update_scripts_classes | 
+[ DONE ] update_scripts_classes
+
+[   0% ] _update_scan_actions | Started 正在扫描动作…… (27 steps)
+[   0% ] _update_scan_actions | all_onboarding_click_inspect_1920.png
+[   3% ] _update_scan_actions | all_onboarding_supervisor_1920.png
+[   7% ] _update_scan_actions | field_book_2000.png
+[  10% ] _update_scan_actions | field_book_confirmed.png
+[  14% ] _update_scan_actions | field_book_draft.png
+[  17% ] _update_scan_actions | field_book_draft_en_1280.png
+[  21% ] _update_scan_actions | field_book_draft_en_1920.png
+[  25% ] _update_scan_actions | field_book_draft_en_2560.png
+[  28% ] _update_scan_actions | field_book_draft_zh_1280.png
+[  32% ] _update_scan_actions | field_book_draft_zh_1920.png
+[  35% ] _update_scan_actions | field_book_draft_zh_2560.png
+[  39% ] _update_scan_actions | field_book_evidence.png
+[  42% ] _update_scan_actions | field_book_person.png
+[  46% ] _update_scan_actions | field_book_person_en_1280.png
+[  50% ] _update_scan_actions | field_book_person_en_1920.png
+[  53% ] _update_scan_actions | field_book_person_en_2560.png
+[  57% ] _update_scan_actions | field_book_person_zh_1280.png
+[  60% ] _update_scan_actions | field_book_person_zh_1920.png
+[  64% ] _update_scan_actions | field_book_person_zh_2560.png
+[  67% ] _update_scan_actions | field_book_source_en_1280.png
+[  71% ] _update_scan_actions | field_book_source_en_1920.png
+[  75% ] _update_scan_actions | field_book_source_en_2560.png
+[  78% ] _update_scan_actions | field_book_source_zh_1280.png
+[  82% ] _update_scan_actions | field_book_source_zh_1920.png
+[  85% ] _update_scan_actions | field_book_source_zh_2560.png
+[  89% ] _update_scan_actions | field_book_turning.png
+[  92% ] _update_scan_actions | field_book_unknown.png
+[ DONE ] _update_scan_actions
+
+[   0% ] reimport | Started 正在导入或重新导入资产 (3 steps)
+[   0% ] reimport | 正在准备重新导入文件……
+[  25% ] reimport | 正在准备重新导入文件……
+[  50% ] reimport | 正在准备重新导入文件……
+[   0% ] reimport | 正在执行重新导入的前置操作……
+[   0% ] reimport | all_onboarding_click_inspect_1920.png
+[  25% ] reimport | all_onboarding_supervisor_1920.png
+[  50% ] reimport | field_book_turning.png
+[  75% ] reimport | 正在结束资产导入……
+[ DONE ] reimport
+
+[   0% ] reimport | Started 正在导入或重新导入资产 (3 steps)
+[   0% ] reimport | 正在执行重新导入的后置操作……
+[ DONE ] reimport
+
+[   0% ] loading_editor_layout | Started 正在加载编辑器 (5 steps)
+[   0% ] loading_editor_layout | 正在加载编辑器布局……
+[  16% ] loading_editor_layout | 正在加载停靠面板……
+[ DONE ] loading_editor_layout
+

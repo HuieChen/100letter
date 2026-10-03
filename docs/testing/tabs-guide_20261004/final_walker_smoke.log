@@ -1,0 +1,36 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+PASS all real walk poses are warm before first step
+PASS hotspot action waits for approach rather than firing on click
+PASS actor accelerates into its walk
+PASS journey converges without overshoot or a stuck target
+PASS walking emits spaced foot contacts from actual travelled distance
+PASS arrival runs the pending action once
+PASS feet settle at target with no residual movement
+PASS standing still emits no phantom footsteps
+PASS extra frames cannot repeat a completed callback
+PASS journey converges without overshoot or a stuck target
+PASS a new destination invalidates the earlier hotspot callback
+PASS the courier faces its return journey
+PASS cancel stops feet and invalidates callbacks when a modal opens
+PASS journey converges without overshoot or a stuck target
+PASS click targets clamp to the walkable foot area
+PASS even a nearby hotspot callback waits for the processing boundary
+PASS a nearby hotspot remains usable without a fake journey
+PASS journey converges without overshoot or a stuck target
+PASS closing the screen from arrived cancels the former action safely
+PASS losing focus cancels click movement and stale action
+PASS manual input is disabled by default outside the scene
+PASS held D drives actual acceleration and interrupts click travel
+PASS key release brakes smoothly and never fires a stale hotspot
+PASS W moves through depth but clamps feet at the walk boundary
+PASS opening a modal disables keyboard movement even if a key remains held
+PASS losing window focus immediately stops manual movement
+PASS dialogue can face the nearby person without changing foot position
+PASS handoff lifecycle remains grounded (visual pose requires a manifest asset)
+PASS gesture returns to breathing idle without looping the handoff
+PASS optional whole texture keeps its original aspect ratio
+PASS journey converges without overshoot or a stuck target
+PASS whole texture source pixels remain unchanged after walking
+PASS final movement class does not import the retired artwork renderer
+FINAL WALKER SMOKE: 33 checks, 0 failures

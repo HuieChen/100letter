@@ -34,6 +34,7 @@ var _message := ""
 var _message_left := 0.0
 var _pending := false
 var _rejection := 0.0
+var _lid_motion: Tween
 
 func configure(game:Node) -> void:
 	if is_instance_valid(core) and core.changed.is_connected(refresh):core.changed.disconnect(refresh)
@@ -66,6 +67,7 @@ func _process(delta: float) -> void:
 
 func _gui_input(event: InputEvent) -> void:
 	if _pending:return
+	if _lid_motion != null and _lid_motion.is_running():return
 	if event is InputEventMouseMotion:
 		var p:Vector2=event.position/_fit
 		if held=="lid":lid_open=clampf(_lid_start+(_drag_start.y-p.y)/230.0,0,1)
@@ -89,10 +91,16 @@ func _gui_input(event: InputEvent) -> void:
 		else:
 			var previous:=held;held=""
 			if previous=="lid":
-				if lid_open>0.88:lid_open=1.0;cue.emit("door");_say("从箱里取出一封，放到面前。" if not waiting.is_empty() else "箱里暂时没有待取件。")
+				if p.distance_to(_drag_start)<8.0:
+					_lid_motion=create_tween()
+					_lid_motion.tween_property(self,"lid_open",0.0 if lid_open>0.5 else 1.0,0.32).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
+					_lid_motion.tween_callback(func():cue.emit("door"))
+				elif lid_open>0.88:lid_open=1.0;cue.emit("door");_say("从箱里取出一封，放到面前。" if not waiting.is_empty() else "箱里暂时没有待取件。")
 				elif lid_open<0.08:lid_open=0.0
 			elif previous=="letter":
-				if p.distance_to(_drag_start)>95 and INSPECTION.has_point(p) and not LETTER.has_point(p):
+				var clicked:=p.distance_to(_drag_start)<8.0 and LETTER.has_point(p)
+				var placed:=p.distance_to(_drag_start)>95 and INSPECTION.has_point(p) and not LETTER.has_point(p)
+				if clicked or placed:
 					_pending=true;mail_taken.emit(waiting[0],Rect2(letter_rect.position,Vector2(390,219)))
 				else:letter_rect=LETTER;cue.emit("paper")
 		accept_event();queue_redraw()

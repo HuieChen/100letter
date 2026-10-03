@@ -67,7 +67,8 @@ func _render() -> void:
 			next_page.name = "ChoicePageNext"
 			next_page.pressed.connect(func(): _choice_page += 1; _render())
 	else:
-		UI.label(self, _speaker, Rect2(126, top + 49, 1280, 40), 29, WORDS).name = "Speaker"
+		var speaker:=UI.label(self, _speaker, Rect2(126, top + 49, 1280, 40), 29, WORDS)
+		speaker.name = "Speaker"
 		var spoken:=RichTextLabel.new()
 		spoken.name = "SpokenLine"
 		spoken.text=_line
@@ -79,6 +80,21 @@ func _render() -> void:
 		var next := _text_button("›", Rect2(682, 839, 236, 48))
 		next.name = "AdvanceDialogue"
 		next.pressed.connect(_advance)
+		_fit_spoken_line.call_deferred(ribbon,close,speaker,spoken)
+
+func _fit_spoken_line(ribbon:Control,close:Control,speaker:Control,spoken:RichTextLabel) -> void:
+	# Use the actual wrapped glyph layout, including CJK and mixed-script text.
+	await get_tree().process_frame
+	if not is_instance_valid(spoken) or _showing_choices:return
+	var content:=float(spoken.get_content_height())
+	var height:=clampf(content+172.0,256.0,360.0)
+	var top:=900.0-height
+	ribbon.position.y=top;ribbon.size.y=height
+	close.position.y=top+36.0
+	speaker.position.y=top+49.0
+	spoken.position.y=top+96.0
+	spoken.size.y=height-164.0
+	spoken.scroll_active=content>spoken.size.y
 
 func _text_button(text: String, rect: Rect2) -> Button:
 	var button := Button.new()
