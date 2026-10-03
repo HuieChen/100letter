@@ -7,12 +7,17 @@ ROOT = Path(__file__).resolve().parent.parent
 
 
 def main() -> None:
-    evidence = json.loads((ROOT / "docs/testing/tabs-guide_20261004/book-evidence.json").read_text(encoding="utf-8"))
-    items = evidence["automated_screenshots"] + [evidence["engine"]["result"], evidence["engine"]["log"]]
-    records = ROOT / "production/qa/reviews/core-book-20261004"
-    for record in sorted(records.glob("*.json")):
-        if record.name != "finish.json":
-            items += json.loads(record.read_text(encoding="utf-8"))["artifacts"]
+    items = []
+    for folder, reviews in (
+        ("tabs-guide_20261004", "core-book-20261004"),
+        ("corner-review_20261004", "core-book-corner-20261004"),
+    ):
+        evidence = json.loads((ROOT / "docs/testing" / folder / "book-evidence.json").read_text(encoding="utf-8"))
+        items += evidence["automated_screenshots"] + [evidence["engine"]["result"], evidence["engine"]["log"]]
+        records = ROOT / "production/qa/reviews" / reviews
+        for record in sorted(records.glob("*.json")):
+            if record.name != "finish.json":
+                items += json.loads(record.read_text(encoding="utf-8"))["artifacts"]
     observed = {}
     for item in items:
         path = (ROOT / item["path"]).resolve()

@@ -22,6 +22,13 @@ def verify_vendor() -> dict:
             raise ValueError(f"Pinned GUT bytes differ: {item['path']}")
     if len(lock["files"]) != 259 or lock["version"] != "9.7.1":
         raise ValueError("Unexpected GUT version or incomplete snapshot")
+    notices = lock.get("font_licenses", [])
+    expected = {"AnonymousPro-OFL.txt", "CourierPrime-OFL.txt", "LobsterTwo-OFL.txt", "SourceCodePro-LICENSE.md"}
+    if {item["path"] for item in notices} != {"third_party/gut-font-licenses/" + name for name in expected} or len(notices) != 4:
+        raise ValueError("Incomplete bundled-font license notices")
+    for item in notices:
+        if item["license"] != "OFL-1.1" or hashlib.sha256((ROOT / item["path"]).read_bytes()).hexdigest() != item["sha256"]:
+            raise ValueError(f"Bundled-font notice bytes differ: {item['path']}")
     return lock
 
 
@@ -32,7 +39,7 @@ def main() -> int:
     args = parser.parse_args()
     lock = verify_vendor()
     if args.verify_only:
-        print(f"GUT {lock['version']}: 259 upstream files match pinned hashes")
+        print(f"GUT {lock['version']}: 259 upstream files and 4 font notices match pinned hashes")
         return 0
     if not args.godot or not args.godot.is_file():
         parser.error("Supply the real Godot 4.7.x executable with --godot")

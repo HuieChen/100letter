@@ -1,0 +1,1321 @@
+{
+	"checks": 14,
+	"display_server": "Windows",
+	"elapsed_ms": 3140,
+	"engine_pid": 33384,
+	"expected_physical": {
+		"attachment_location": "none",
+		"attachment_moved": false,
+		"attachment_position": [
+			935.0,
+			420.0
+		],
+		"body_exposed": false,
+		"body_unfolded": false,
+		"case_id": "case01",
+		"completion_serial": 0,
+		"damage_failure": false,
+		"edit_key": "",
+		"envelope_position": [
+			140.0,
+			160.0
+		],
+		"erase_mask": 0,
+		"exterior_fold_aligned": false,
+		"exterior_fold_progress": 0.0,
+		"exterior_on_mat": false,
+		"exterior_repaired": false,
+		"extracted": false,
+		"extraction_progress": 0.5,
+		"face": "back",
+		"flap_closed": false,
+		"flap_progress": 0.0,
+		"fold_progress": [
+			0.0,
+			0.0
+		],
+		"folded": true,
+		"inserted": false,
+		"insertion_progress": 0.0,
+		"inspected_back": true,
+		"inspected_front": true,
+		"irreversible_damage": false,
+		"label_aligned": false,
+		"label_lifted": false,
+		"label_position": [
+			360.0,
+			315.0
+		],
+		"label_pressed": false,
+		"label_turn": 1,
+		"open_cycle_completed": false,
+		"opened": true,
+		"opened_count": 1,
+		"opened_history": true,
+		"operation_mode": "open",
+		"pan": [
+			200.0,
+			70.0
+		],
+		"paper_location": "partly_extracted",
+		"paper_position": [
+			670.0,
+			225.0
+		],
+		"permanent_damage": 0.0,
+		"privacy_violation": true,
+		"protector_placed": false,
+		"protector_position": [
+			940.0,
+			440.0
+		],
+		"repair_quality": 0.0,
+		"replacement_id": "",
+		"replacement_placed": false,
+		"replacement_position": [
+			900.0,
+			85.0
+		],
+		"resealed": false,
+		"restored": false,
+		"seal_condition": "open",
+		"seam_count": 9,
+		"tamper_trace": 0.25,
+		"tampering_started": true,
+		"unfolded": false,
+		"version": 3,
+		"zoom": 1.0
+	},
+	"failures": [],
+	"input_events": [
+		{
+			"carried": "",
+			"detail": {
+				"held": false,
+				"x": 800.0,
+				"y": 608.5
+			},
+			"elapsed_ms": 439,
+			"kind": "pointer_motion",
+			"location": "post_office",
+			"minute": 540,
+			"modal": "",
+			"view": "title"
+		},
+		{
+			"carried": "",
+			"detail": {
+				"button": 1,
+				"pressed": true,
+				"x": 800.0,
+				"y": 608.5
+			},
+			"elapsed_ms": 446,
+			"kind": "pointer_button",
+			"location": "post_office",
+			"minute": 540,
+			"modal": "",
+			"view": "title"
+		},
+		{
+			"carried": "",
+			"detail": {
+				"button": 1,
+				"pressed": false,
+				"x": 800.0,
+				"y": 608.5
+			},
+			"elapsed_ms": 910,
+			"kind": "pointer_button",
+			"location": "post_office",
+			"minute": 540,
+			"modal": "",
+			"view": "counter"
+		},
+		{
+			"carried": "",
+			"detail": {
+				"held": false,
+				"x": 800.0,
+				"y": 863.0
+			},
+			"elapsed_ms": 1421,
+			"kind": "pointer_motion",
+			"location": "post_office",
+			"minute": 540,
+			"modal": "res://scripts/rebuild/scene_dialogue.gd",
+			"view": "counter"
+		},
+		{
+			"carried": "",
+			"detail": {
+				"button": 1,
+				"pressed": true,
+				"x": 800.0,
+				"y": 863.0
+			},
+			"elapsed_ms": 1426,
+			"kind": "pointer_button",
+			"location": "post_office",
+			"minute": 540,
+			"modal": "res://scripts/rebuild/scene_dialogue.gd",
+			"view": "counter"
+		},
+		{
+			"carried": "",
+			"detail": {
+				"button": 1,
+				"pressed": false,
+				"x": 800.0,
+				"y": 863.0
+			},
+			"elapsed_ms": 1432,
+			"kind": "pointer_button",
+			"location": "post_office",
+			"minute": 540,
+			"modal": "",
+			"view": "counter"
+		},
+		{
+			"carried": "",
+			"detail": {
+				"held": false,
+				"x": 812.5,
+				"y": 644.0
+			},
+			"elapsed_ms": 1498,
+			"kind": "pointer_motion",
+			"location": "post_office",
+			"minute": 540,
+			"modal": "",
+			"view": "counter"
+		},
+		{
+			"carried": "",
+			"detail": {
+				"button": 1,
+				"pressed": true,
+				"x": 812.5,
+				"y": 644.0
+			},
+			"elapsed_ms": 1507,
+			"kind": "pointer_button",
+			"location": "post_office",
+			"minute": 540,
+			"modal": "",
+			"view": "counter"
+		},
+		{
+			"carried": "",
+			"detail": {
+				"button": 1,
+				"pressed": false,
+				"x": 812.5,
+				"y": 644.0
+			},
+			"elapsed_ms": 1511,
+			"kind": "pointer_button",
+			"location": "post_office",
+			"minute": 540,
+			"modal": "",
+			"view": "counter"
+		},
+		{
+			"carried": "",
+			"detail": {
+				"held": false,
+				"x": 811.0,
+				"y": 558.5
+			},
+			"elapsed_ms": 1517,
+			"kind": "pointer_motion",
+			"location": "post_office",
+			"minute": 540,
+			"modal": "",
+			"view": "counter"
+		},
+		{
+			"carried": "",
+			"detail": {
+				"button": 1,
+				"pressed": true,
+				"x": 811.0,
+				"y": 558.5
+			},
+			"elapsed_ms": 1523,
+			"kind": "pointer_button",
+			"location": "post_office",
+			"minute": 540,
+			"modal": "",
+			"view": "counter"
+		},
+		{
+			"carried": "",
+			"detail": {
+				"held": true,
+				"x": 811.0,
+				"y": 529.75
+			},
+			"elapsed_ms": 1529,
+			"kind": "pointer_motion",
+			"location": "post_office",
+			"minute": 540,
+			"modal": "",
+			"view": "counter"
+		},
+		{
+			"carried": "",
+			"detail": {
+				"held": true,
+				"x": 811.0,
+				"y": 501.0
+			},
+			"elapsed_ms": 1535,
+			"kind": "pointer_motion",
+			"location": "post_office",
+			"minute": 540,
+			"modal": "",
+			"view": "counter"
+		},
+		{
+			"carried": "",
+			"detail": {
+				"held": true,
+				"x": 811.0,
+				"y": 472.25
+			},
+			"elapsed_ms": 1541,
+			"kind": "pointer_motion",
+			"location": "post_office",
+			"minute": 540,
+			"modal": "",
+			"view": "counter"
+		},
+		{
+			"carried": "",
+			"detail": {
+				"held": true,
+				"x": 811.0,
+				"y": 443.5
+			},
+			"elapsed_ms": 1548,
+			"kind": "pointer_motion",
+			"location": "post_office",
+			"minute": 540,
+			"modal": "",
+			"view": "counter"
+		},
+		{
+			"carried": "",
+			"detail": {
+				"held": true,
+				"x": 811.0,
+				"y": 414.75
+			},
+			"elapsed_ms": 1554,
+			"kind": "pointer_motion",
+			"location": "post_office",
+			"minute": 540,
+			"modal": "",
+			"view": "counter"
+		},
+		{
+			"carried": "",
+			"detail": {
+				"held": true,
+				"x": 811.0,
+				"y": 386.0
+			},
+			"elapsed_ms": 1560,
+			"kind": "pointer_motion",
+			"location": "post_office",
+			"minute": 540,
+			"modal": "",
+			"view": "counter"
+		},
+		{
+			"carried": "",
+			"detail": {
+				"held": true,
+				"x": 811.0,
+				"y": 357.25
+			},
+			"elapsed_ms": 1573,
+			"kind": "pointer_motion",
+			"location": "post_office",
+			"minute": 540,
+			"modal": "",
+			"view": "counter"
+		},
+		{
+			"carried": "",
+			"detail": {
+				"held": true,
+				"x": 811.0,
+				"y": 328.5
+			},
+			"elapsed_ms": 1578,
+			"kind": "pointer_motion",
+			"location": "post_office",
+			"minute": 540,
+			"modal": "",
+			"view": "counter"
+		},
+		{
+			"carried": "",
+			"detail": {
+				"button": 1,
+				"pressed": false,
+				"x": 811.0,
+				"y": 328.5
+			},
+			"elapsed_ms": 1584,
+			"kind": "pointer_button",
+			"location": "post_office",
+			"minute": 540,
+			"modal": "",
+			"view": "counter"
+		},
+		{
+			"carried": "",
+			"detail": {
+				"held": false,
+				"x": 812.0,
+				"y": 565.0
+			},
+			"elapsed_ms": 1590,
+			"kind": "pointer_motion",
+			"location": "post_office",
+			"minute": 540,
+			"modal": "",
+			"view": "counter"
+		},
+		{
+			"carried": "",
+			"detail": {
+				"button": 1,
+				"pressed": true,
+				"x": 812.0,
+				"y": 565.0
+			},
+			"elapsed_ms": 1600,
+			"kind": "pointer_button",
+			"location": "post_office",
+			"minute": 540,
+			"modal": "",
+			"view": "counter"
+		},
+		{
+			"carried": "",
+			"detail": {
+				"held": true,
+				"x": 768.0,
+				"y": 550.625
+			},
+			"elapsed_ms": 1602,
+			"kind": "pointer_motion",
+			"location": "post_office",
+			"minute": 540,
+			"modal": "",
+			"view": "counter"
+		},
+		{
+			"carried": "",
+			"detail": {
+				"held": true,
+				"x": 724.0,
+				"y": 536.25
+			},
+			"elapsed_ms": 1608,
+			"kind": "pointer_motion",
+			"location": "post_office",
+			"minute": 540,
+			"modal": "",
+			"view": "counter"
+		},
+		{
+			"carried": "",
+			"detail": {
+				"held": true,
+				"x": 680.0,
+				"y": 521.875
+			},
+			"elapsed_ms": 1614,
+			"kind": "pointer_motion",
+			"location": "post_office",
+			"minute": 540,
+			"modal": "",
+			"view": "counter"
+		},
+		{
+			"carried": "",
+			"detail": {
+				"held": true,
+				"x": 636.0,
+				"y": 507.5
+			},
+			"elapsed_ms": 1620,
+			"kind": "pointer_motion",
+			"location": "post_office",
+			"minute": 540,
+			"modal": "",
+			"view": "counter"
+		},
+		{
+			"carried": "",
+			"detail": {
+				"held": true,
+				"x": 592.0,
+				"y": 493.125
+			},
+			"elapsed_ms": 1626,
+			"kind": "pointer_motion",
+			"location": "post_office",
+			"minute": 540,
+			"modal": "",
+			"view": "counter"
+		},
+		{
+			"carried": "",
+			"detail": {
+				"held": true,
+				"x": 548.0,
+				"y": 478.75
+			},
+			"elapsed_ms": 1632,
+			"kind": "pointer_motion",
+			"location": "post_office",
+			"minute": 540,
+			"modal": "",
+			"view": "counter"
+		},
+		{
+			"carried": "",
+			"detail": {
+				"held": true,
+				"x": 504.0,
+				"y": 464.375
+			},
+			"elapsed_ms": 1638,
+			"kind": "pointer_motion",
+			"location": "post_office",
+			"minute": 540,
+			"modal": "",
+			"view": "counter"
+		},
+		{
+			"carried": "",
+			"detail": {
+				"held": true,
+				"x": 460.0,
+				"y": 450.0
+			},
+			"elapsed_ms": 1644,
+			"kind": "pointer_motion",
+			"location": "post_office",
+			"minute": 540,
+			"modal": "",
+			"view": "counter"
+		},
+		{
+			"carried": "",
+			"detail": {
+				"button": 1,
+				"pressed": false,
+				"x": 460.0,
+				"y": 450.0
+			},
+			"elapsed_ms": 1728,
+			"kind": "pointer_button",
+			"location": "post_office",
+			"minute": 540,
+			"modal": "res://scripts/rebuild/mail_workbench.gd",
+			"view": "counter"
+		},
+		{
+			"carried": "",
+			"detail": {
+				"held": false,
+				"x": 760.0,
+				"y": 495.0
+			},
+			"elapsed_ms": 1733,
+			"kind": "pointer_motion",
+			"location": "post_office",
+			"minute": 540,
+			"modal": "res://scripts/rebuild/mail_workbench.gd",
+			"view": "counter"
+		},
+		{
+			"carried": "",
+			"detail": {
+				"button": 2,
+				"pressed": true,
+				"x": 760.0,
+				"y": 495.0
+			},
+			"elapsed_ms": 1741,
+			"kind": "pointer_button",
+			"location": "post_office",
+			"minute": 540,
+			"modal": "res://scripts/rebuild/mail_workbench.gd",
+			"view": "counter"
+		},
+		{
+			"carried": "",
+			"detail": {
+				"button": 2,
+				"pressed": false,
+				"x": 760.0,
+				"y": 495.0
+			},
+			"elapsed_ms": 1744,
+			"kind": "pointer_button",
+			"location": "post_office",
+			"minute": 540,
+			"modal": "res://scripts/rebuild/mail_workbench.gd",
+			"view": "counter"
+		},
+		{
+			"carried": "",
+			"detail": {
+				"held": false,
+				"x": 1339.0,
+				"y": 837.5
+			},
+			"elapsed_ms": 1747,
+			"kind": "pointer_motion",
+			"location": "post_office",
+			"minute": 540,
+			"modal": "res://scripts/rebuild/mail_workbench.gd",
+			"view": "counter"
+		},
+		{
+			"carried": "",
+			"detail": {
+				"button": 1,
+				"pressed": true,
+				"x": 1339.0,
+				"y": 837.5
+			},
+			"elapsed_ms": 1754,
+			"kind": "pointer_button",
+			"location": "post_office",
+			"minute": 540,
+			"modal": "res://scripts/rebuild/mail_workbench.gd",
+			"view": "counter"
+		},
+		{
+			"carried": "",
+			"detail": {
+				"held": true,
+				"x": 1339.0,
+				"y": 843.0
+			},
+			"elapsed_ms": 1808,
+			"kind": "pointer_motion",
+			"location": "post_office",
+			"minute": 540,
+			"modal": "res://scripts/rebuild/mail_workbench.gd",
+			"view": "counter"
+		},
+		{
+			"carried": "",
+			"detail": {
+				"held": true,
+				"x": 1339.0,
+				"y": 848.5
+			},
+			"elapsed_ms": 1811,
+			"kind": "pointer_motion",
+			"location": "post_office",
+			"minute": 540,
+			"modal": "res://scripts/rebuild/mail_workbench.gd",
+			"view": "counter"
+		},
+		{
+			"carried": "",
+			"detail": {
+				"held": true,
+				"x": 1339.0,
+				"y": 854.0
+			},
+			"elapsed_ms": 1814,
+			"kind": "pointer_motion",
+			"location": "post_office",
+			"minute": 540,
+			"modal": "res://scripts/rebuild/mail_workbench.gd",
+			"view": "counter"
+		},
+		{
+			"carried": "",
+			"detail": {
+				"held": true,
+				"x": 1339.0,
+				"y": 859.5
+			},
+			"elapsed_ms": 1820,
+			"kind": "pointer_motion",
+			"location": "post_office",
+			"minute": 540,
+			"modal": "res://scripts/rebuild/mail_workbench.gd",
+			"view": "counter"
+		},
+		{
+			"carried": "",
+			"detail": {
+				"held": true,
+				"x": 1339.0,
+				"y": 865.0
+			},
+			"elapsed_ms": 1826,
+			"kind": "pointer_motion",
+			"location": "post_office",
+			"minute": 540,
+			"modal": "res://scripts/rebuild/mail_workbench.gd",
+			"view": "counter"
+		},
+		{
+			"carried": "",
+			"detail": {
+				"held": true,
+				"x": 1339.0,
+				"y": 870.5
+			},
+			"elapsed_ms": 1832,
+			"kind": "pointer_motion",
+			"location": "post_office",
+			"minute": 540,
+			"modal": "res://scripts/rebuild/mail_workbench.gd",
+			"view": "counter"
+		},
+		{
+			"carried": "",
+			"detail": {
+				"held": true,
+				"x": 1339.0,
+				"y": 876.0
+			},
+			"elapsed_ms": 1838,
+			"kind": "pointer_motion",
+			"location": "post_office",
+			"minute": 540,
+			"modal": "res://scripts/rebuild/mail_workbench.gd",
+			"view": "counter"
+		},
+		{
+			"carried": "",
+			"detail": {
+				"held": true,
+				"x": 1339.0,
+				"y": 881.5
+			},
+			"elapsed_ms": 1874,
+			"kind": "pointer_motion",
+			"location": "post_office",
+			"minute": 540,
+			"modal": "res://scripts/rebuild/mail_workbench.gd",
+			"view": "counter"
+		},
+		{
+			"carried": "",
+			"detail": {
+				"button": 1,
+				"pressed": false,
+				"x": 1339.0,
+				"y": 881.5
+			},
+			"elapsed_ms": 1877,
+			"kind": "pointer_button",
+			"location": "post_office",
+			"minute": 540,
+			"modal": "res://scripts/rebuild/mail_workbench.gd",
+			"view": "counter"
+		},
+		{
+			"carried": "",
+			"detail": {
+				"held": false,
+				"x": 1326.0,
+				"y": 708.0
+			},
+			"elapsed_ms": 1881,
+			"kind": "pointer_motion",
+			"location": "post_office",
+			"minute": 540,
+			"modal": "res://scripts/rebuild/mail_workbench.gd",
+			"view": "counter"
+		},
+		{
+			"carried": "",
+			"detail": {
+				"button": 1,
+				"pressed": true,
+				"x": 1326.0,
+				"y": 708.0
+			},
+			"elapsed_ms": 1895,
+			"kind": "pointer_button",
+			"location": "post_office",
+			"minute": 540,
+			"modal": "res://scripts/rebuild/mail_workbench.gd",
+			"view": "counter"
+		},
+		{
+			"carried": "",
+			"detail": {
+				"button": 1,
+				"pressed": false,
+				"x": 1326.0,
+				"y": 708.0
+			},
+			"elapsed_ms": 1958,
+			"kind": "pointer_button",
+			"location": "post_office",
+			"minute": 540,
+			"modal": "res://scripts/rebuild/mail_workbench.gd",
+			"view": "counter"
+		},
+		{
+			"carried": "",
+			"detail": {
+				"held": false,
+				"x": 595.0,
+				"y": 400.0
+			},
+			"elapsed_ms": 1960,
+			"kind": "pointer_motion",
+			"location": "post_office",
+			"minute": 540,
+			"modal": "res://scripts/rebuild/mail_workbench.gd",
+			"view": "counter"
+		},
+		{
+			"carried": "",
+			"detail": {
+				"button": 1,
+				"pressed": true,
+				"x": 595.0,
+				"y": 400.0
+			},
+			"elapsed_ms": 1990,
+			"kind": "pointer_button",
+			"location": "post_office",
+			"minute": 540,
+			"modal": "res://scripts/rebuild/mail_workbench.gd",
+			"view": "counter"
+		},
+		{
+			"carried": "",
+			"detail": {
+				"held": true,
+				"x": 635.0,
+				"y": 400.0
+			},
+			"elapsed_ms": 1996,
+			"kind": "pointer_motion",
+			"location": "post_office",
+			"minute": 540,
+			"modal": "res://scripts/rebuild/mail_workbench.gd",
+			"view": "counter"
+		},
+		{
+			"carried": "",
+			"detail": {
+				"held": true,
+				"x": 675.0,
+				"y": 400.0
+			},
+			"elapsed_ms": 2002,
+			"kind": "pointer_motion",
+			"location": "post_office",
+			"minute": 540,
+			"modal": "res://scripts/rebuild/mail_workbench.gd",
+			"view": "counter"
+		},
+		{
+			"carried": "",
+			"detail": {
+				"held": true,
+				"x": 715.0,
+				"y": 400.0
+			},
+			"elapsed_ms": 2008,
+			"kind": "pointer_motion",
+			"location": "post_office",
+			"minute": 540,
+			"modal": "res://scripts/rebuild/mail_workbench.gd",
+			"view": "counter"
+		},
+		{
+			"carried": "",
+			"detail": {
+				"held": true,
+				"x": 755.0,
+				"y": 400.0
+			},
+			"elapsed_ms": 2014,
+			"kind": "pointer_motion",
+			"location": "post_office",
+			"minute": 540,
+			"modal": "res://scripts/rebuild/mail_workbench.gd",
+			"view": "counter"
+		},
+		{
+			"carried": "",
+			"detail": {
+				"held": true,
+				"x": 795.0,
+				"y": 400.0
+			},
+			"elapsed_ms": 2020,
+			"kind": "pointer_motion",
+			"location": "post_office",
+			"minute": 540,
+			"modal": "res://scripts/rebuild/mail_workbench.gd",
+			"view": "counter"
+		},
+		{
+			"carried": "",
+			"detail": {
+				"held": true,
+				"x": 835.0,
+				"y": 400.0
+			},
+			"elapsed_ms": 2026,
+			"kind": "pointer_motion",
+			"location": "post_office",
+			"minute": 540,
+			"modal": "res://scripts/rebuild/mail_workbench.gd",
+			"view": "counter"
+		},
+		{
+			"carried": "",
+			"detail": {
+				"held": true,
+				"x": 875.0,
+				"y": 400.0
+			},
+			"elapsed_ms": 2032,
+			"kind": "pointer_motion",
+			"location": "post_office",
+			"minute": 540,
+			"modal": "res://scripts/rebuild/mail_workbench.gd",
+			"view": "counter"
+		},
+		{
+			"carried": "",
+			"detail": {
+				"held": true,
+				"x": 915.0,
+				"y": 400.0
+			},
+			"elapsed_ms": 2140,
+			"kind": "pointer_motion",
+			"location": "post_office",
+			"minute": 540,
+			"modal": "res://scripts/rebuild/mail_workbench.gd",
+			"view": "counter"
+		},
+		{
+			"carried": "",
+			"detail": {
+				"button": 1,
+				"pressed": false,
+				"x": 915.0,
+				"y": 400.0
+			},
+			"elapsed_ms": 2142,
+			"kind": "pointer_button",
+			"location": "post_office",
+			"minute": 540,
+			"modal": "res://scripts/rebuild/mail_workbench.gd",
+			"view": "counter"
+		},
+		{
+			"carried": "",
+			"detail": {
+				"held": false,
+				"x": 984.0,
+				"y": 470.0
+			},
+			"elapsed_ms": 2147,
+			"kind": "pointer_motion",
+			"location": "post_office",
+			"minute": 540,
+			"modal": "res://scripts/rebuild/mail_workbench.gd",
+			"view": "counter"
+		},
+		{
+			"carried": "",
+			"detail": {
+				"button": 1,
+				"pressed": true,
+				"x": 984.0,
+				"y": 470.0
+			},
+			"elapsed_ms": 2153,
+			"kind": "pointer_button",
+			"location": "post_office",
+			"minute": 540,
+			"modal": "res://scripts/rebuild/mail_workbench.gd",
+			"view": "counter"
+		},
+		{
+			"carried": "",
+			"detail": {
+				"held": true,
+				"x": 997.75,
+				"y": 470.0
+			},
+			"elapsed_ms": 2160,
+			"kind": "pointer_motion",
+			"location": "post_office",
+			"minute": 540,
+			"modal": "res://scripts/rebuild/mail_workbench.gd",
+			"view": "counter"
+		},
+		{
+			"carried": "",
+			"detail": {
+				"held": true,
+				"x": 1011.5,
+				"y": 470.0
+			},
+			"elapsed_ms": 2166,
+			"kind": "pointer_motion",
+			"location": "post_office",
+			"minute": 540,
+			"modal": "res://scripts/rebuild/mail_workbench.gd",
+			"view": "counter"
+		},
+		{
+			"carried": "",
+			"detail": {
+				"held": true,
+				"x": 1025.25,
+				"y": 470.0
+			},
+			"elapsed_ms": 2172,
+			"kind": "pointer_motion",
+			"location": "post_office",
+			"minute": 540,
+			"modal": "res://scripts/rebuild/mail_workbench.gd",
+			"view": "counter"
+		},
+		{
+			"carried": "",
+			"detail": {
+				"held": true,
+				"x": 1039.0,
+				"y": 470.0
+			},
+			"elapsed_ms": 2178,
+			"kind": "pointer_motion",
+			"location": "post_office",
+			"minute": 540,
+			"modal": "res://scripts/rebuild/mail_workbench.gd",
+			"view": "counter"
+		},
+		{
+			"carried": "",
+			"detail": {
+				"held": true,
+				"x": 1052.75,
+				"y": 470.0
+			},
+			"elapsed_ms": 2184,
+			"kind": "pointer_motion",
+			"location": "post_office",
+			"minute": 540,
+			"modal": "res://scripts/rebuild/mail_workbench.gd",
+			"view": "counter"
+		},
+		{
+			"carried": "",
+			"detail": {
+				"held": true,
+				"x": 1066.5,
+				"y": 470.0
+			},
+			"elapsed_ms": 2190,
+			"kind": "pointer_motion",
+			"location": "post_office",
+			"minute": 540,
+			"modal": "res://scripts/rebuild/mail_workbench.gd",
+			"view": "counter"
+		},
+		{
+			"carried": "",
+			"detail": {
+				"held": true,
+				"x": 1080.25,
+				"y": 470.0
+			},
+			"elapsed_ms": 2196,
+			"kind": "pointer_motion",
+			"location": "post_office",
+			"minute": 540,
+			"modal": "res://scripts/rebuild/mail_workbench.gd",
+			"view": "counter"
+		},
+		{
+			"carried": "",
+			"detail": {
+				"held": true,
+				"x": 1094.0,
+				"y": 470.0
+			},
+			"elapsed_ms": 2202,
+			"kind": "pointer_motion",
+			"location": "post_office",
+			"minute": 540,
+			"modal": "res://scripts/rebuild/mail_workbench.gd",
+			"view": "counter"
+		},
+		{
+			"carried": "",
+			"detail": {
+				"button": 1,
+				"pressed": false,
+				"x": 1094.0,
+				"y": 470.0
+			},
+			"elapsed_ms": 2208,
+			"kind": "pointer_button",
+			"location": "post_office",
+			"minute": 540,
+			"modal": "res://scripts/rebuild/mail_workbench.gd",
+			"view": "counter"
+		}
+	],
+	"save_path": "C:\\Users\\22416\\Documents\\Codex\\2026-10-01\\github\\work\\100letter-studio-publish\\test-results\\window-close-20261004-044631\\isolated-state.json",
+	"scope": "Actual box take, seam strokes and partial paper extraction; still awaiting an OS WM_CLOSE from the owning test harness.",
+	"screenshots": [
+		"res://artifacts/final_five_case/window_close/before_os_window_close.png"
+	],
+	"source_sha256": {
+		"assets/faefever_v2/backgrounds/BG_bus_stop.png": "c4518108a2a7e466b7f9a0b379bd8c8e000ec8d8f6acc6153bdd58842655fc45",
+		"assets/faefever_v2/backgrounds/BG_chess_stall.png": "a5ddaabce8b7438762b53f60d98e245a5295795e29d3f07738300e23db1c7d6c",
+		"assets/faefever_v2/backgrounds/BG_community_center.png": "9c97448ddbbdc5108d08cffccf5a3afa6836bb29f7999b08a32bc13fbff7de0a",
+		"assets/faefever_v2/backgrounds/BG_lookout.png": "98a2514c362b1fbc4b8d9dcf111b1e0785f164d5db1a0b083d95d5d472f30978",
+		"assets/faefever_v2/backgrounds/BG_post_office.png": "d40281359039d7feca6ff539dff4ba81aa750560ca1cabb84656ebfdd1975cca",
+		"assets/faefever_v2/backgrounds/BG_residential.png": "bdabb2a20ddd4e612a767404884c0f6aadbb6c67356c4102c0afa993604486ae",
+		"assets/faefever_v2/backgrounds/BG_tarot_shop.png": "626c8c94150bd891bdd81206958e435aa3fea6a84cf3f016ba807eb04af78796",
+		"assets/faefever_v2/backgrounds/BG_workroom.png": "d6a68a90792a3b140c76a2b560efa984bb3650481a5496c5fa0b63307a1a4218",
+		"assets/faefever_v2/backgrounds/cover.png": "1632af45da57bd2767f36bdc9b64c54d09247c7a5f9f0256b6fc3afb755faaab",
+		"assets/faefever_v2/backgrounds/wall_closeup.png": "7b6159f2210bdc8f686526b2ac3174d8a268f27d8dac154b3cd4ed87e2e2121f",
+		"assets/faefever_v2/characters/CHAR_chenyuan.png": "b4751d59acec1f07c18db198e912bd7057818963fe7446cfd1b94a5d8011e315",
+		"assets/faefever_v2/characters/CHAR_clerk.png": "bc69adc9d7c763343da5f735dd606f1f6e57aa8d62569e19971a6c8c9cbf1842",
+		"assets/faefever_v2/characters/CHAR_courier.png": "3b24efd80bb4736c2a74866e345e6ca62445a6f8812abb997f759e1518778a4e",
+		"assets/faefever_v2/characters/CHAR_courier_walk.png": "68521ded3103d7a5af2bcca60393bb849c3f862423a88891da4778d5de60f5c0",
+		"assets/faefever_v2/characters/CHAR_elsie.png": "653851a681f60cc9996e8be405cdd11f0f938ceceecf3c05098e1ea4128c4b0f",
+		"assets/faefever_v2/characters/CHAR_june.png": "0f2aace7b9a077b1b62527df09465cee6769bad57ff32ce4252865fac8d17c7f",
+		"assets/faefever_v2/characters/CHAR_mira.png": "d70d5305d7b8f356694d133753137a786343d645412b65a98fb2264871c91bd1",
+		"assets/faefever_v2/characters/courier_walk_regions.json": "ac1e428a2878b8f6003a92343bb7a181220075cd0f9504b671777c08da575db2",
+		"assets/faefever_v2/manifest.json": "9cd7a8cb7e91834b32d1d6c9a6fc8551edeea0a35424e6179184186bf07f0cfa",
+		"assets/faefever_v2/props/attachment_photo.png": "317a06c011412b41180e309ffafdb240d0cfd7fc4ca9c4b5d9499151538a2f1a",
+		"assets/faefever_v2/props/book_index_tab.png": "7dbb9432d714fe02feb7e639068227c13f5e98b86d888044d33d907d4b423482",
+		"assets/faefever_v2/props/drawer_front.png": "218be351c999cfd95b208eb6ea3cf15624bffd30680c499740bac7dfb9ca0e52",
+		"assets/faefever_v2/props/drawer_open.png": "c2f1316e22e1c84855beb0cc96a9e02a7d3574041284bebbcb9dd3807f35d74e",
+		"assets/faefever_v2/props/envelope_back.png": "f617aab27438330711320804bbc3f558a09e603ef59450bf240ffa6450097f4e",
+		"assets/faefever_v2/props/envelope_flap.png": "482cd7ae81b608f8a581fc17d1cb310bf2f0d86370c9524740ef2a8f0bee1d6d",
+		"assets/faefever_v2/props/envelope_front.png": "321aa5cb9f108f9686d9b06a4658ad571fa26a279d47d16fb06ebb52c37b9178",
+		"assets/faefever_v2/props/eraser.png": "a766663e706ad985b711e55ccb1229455b148fdb023e957da8edc55561a24600",
+		"assets/faefever_v2/props/game_icon.png": "990e39ea01e54d54f931479c564b86b6043367102137619027b9e7467263d777",
+		"assets/faefever_v2/props/handbook_closed.png": "43018dbfd794405a6649c808a8e97b976e9cc91f547415f304ab7a716aed90fb",
+		"assets/faefever_v2/props/handbook_open.png": "2ae462630fd50d1ad121c46c620ec6a0ca3b817b4a368955b1a3c8dfe51a450c",
+		"assets/faefever_v2/props/letter_paper.png": "91500aa2ab2dfa766eaec4bbfd7533ca562d50afde96aab154cc9d2544f9a6b7",
+		"assets/faefever_v2/props/magnifier.png": "599468f934068167d01c7b1bf9913c1d1946569c0a231fdde6351b464cae148d",
+		"assets/faefever_v2/props/mail_box_base.png": "9b10052b5d4702591c0c99006859efc1b2f1fc391539cf659246888dfef66d1d",
+		"assets/faefever_v2/props/mail_box_latch.png": "49c3d053d55ef7b9b175a03d505deaee3cc7f9e209c7bf1eeef7bc24d5ba69a4",
+		"assets/faefever_v2/props/mail_box_lid.png": "954ec8c320819ae9415e8b0c9fe7fc706b6f979d3fa40dfbf2d03eda07ac7525",
+		"assets/faefever_v2/props/old_music_photo.png": "12da8206f208e247489d1e32661cdc916b8f733ba808abbe76d9c2dc1cbdbdb9",
+		"assets/faefever_v2/props/opener.png": "c2cdb53ef010f5d45a342517793e240e9cd1c0565980e5a1e6f2e66dce04f3fd",
+		"assets/faefever_v2/props/pen.png": "03e023aee4d00481a4968f4b8af047d72c482de2643433b226aa82717659e8c4",
+		"assets/faefever_v2/props/postal_seal.png": "239700b92605e1e275c12b5ccc2bec647db39faec01ddf64f6e9004457eed132",
+		"assets/faefever_v2/props/press.png": "f3cfb452a9fb64debbb53e1b2cc7260e3c1ad460331fedcf40ee047f8baafaff",
+		"assets/faefever_v2/props/protector.png": "5b95716253f3308351ec66faddaab3721ba7f182e4ff699a8acb4612639a3aef",
+		"assets/faefever_v2/props/repair_label.png": "52acc925211f6ddb8f3f7fc0eec0bd66ce02f0e7b4a2829ce0e7e6186a969eef",
+		"assets/faefever_v2/props/replacement_strip.png": "3cbc19dfbaaf014d28ce9d50ac239084e381057f27c1f1c0d56be2a16d8a1f32",
+		"assets/faefever_v2/props/resolution_slip.png": "4689e1248b6f6366d1fcdd9976c3516961e75f72be7bfa14092fdabcd07aba30",
+		"assets/faefever_v2/props/restorer.png": "7fcaaa744396685510ee984bb72895b2939fa71cd26462d97fb20f2935375479",
+		"assets/faefever_v2/props/satchel.png": "290a53b944e2d0c8f5c38a3ca16786f527e0745c1337c8d1a5a4705f09302128",
+		"assets/faefever_v2/props/seal_mark.png": "5c0884402c513fd76c9f281df1185685d22d42bf234a009b9ec21992f2b24bf9",
+		"assets/faefever_v2/props/sealer.png": "34f23a82a5726e1ca11caa0a96a3ef1b2b7fef2745235bf70555d3a14b968bc6",
+		"assets/faefever_v2/props/town_map.png": "46953dcb9916ebedf48161903da434695673fb450f5322622c7578f09ead35e1",
+		"assets/faefever_v2/props/wall_plate_new.png": "071ce2c519660c0dc4ec753614795f7fe8751622ab9a5921e3eb1276c5f1fd25",
+		"assets/faefever_v2/props/wall_plate_old.png": "1226149921c5b3320258407775dada5442a6a04c9144344f1d33ca8538b62351",
+		"data/rebuild/final_cases.json": "ea98a7158186b658575af93bf6eb31e29a374be6d9b6647e7d5c362dc6792744",
+		"data/rebuild/final_dialogues.json": "f2fa37f5f6b7d09a3729cbdc28a8050e64cbb33a6b76079f5619d374b54a53cd",
+		"data/rebuild/player_amendments.json": "da965670ec3be342e6559ec9d9e1208056f7b896ef90837a8b44cf00b46602a4",
+		"scripts/rebuild/field_book.gd": "087d4153758ac7e6b81b79d927ff4be684717020ddafc20a082db0f7b728678f",
+		"scripts/rebuild/field_observation.gd": "0fb63883ee9fe7a0a7c9eb07773948361977115518da3d9c6e1affa06b9bfbb6",
+		"scripts/rebuild/final_case_state.gd": "958fcbf5fdfb1e7f3fea06c622ea071c0d8a9ec1b12c913a56deba80d43d5fd0",
+		"scripts/rebuild/final_paper_map.gd": "d4206706d68246071dcedb7345c8831c54b58023721b51fd4713a6a46d165e47",
+		"scripts/rebuild/final_playable.gd": "9c8581bca0f998d11ad520508e6db9e44b2397233243d2913978ef0906dc1667",
+		"scripts/rebuild/final_walker.gd": "293ad1cb201e7cfef0eef3e3db8d85f67af1df5aea671e71ad1081a5e266e95f",
+		"scripts/rebuild/mail_physics_state.gd": "c7bc4306835ba08cb24a05996ec2ba2423ffe63ed61d39730a7902ff90268a1d",
+		"scripts/rebuild/mail_workbench.gd": "01e23f29d896a4425e6de6752e72b2a5e134ce7a6217d288f7d7cad118eef217",
+		"scripts/rebuild/physical_art.gd": "2dd4281d0f514bf2ab8e4a2416920a139e1dec3edda6d09f6fcc1d47350d0f39",
+		"scripts/rebuild/postal_desk.gd": "bab560dd74c551ad05c5d401d6dde14bcc4a490677eb4b445f43570e6c51adb5",
+		"scripts/rebuild/resolution_draft_store.gd": "f9a45b82a82e9f703939251057ca6d667602c37560f58b401eb0512f1fa32551",
+		"scripts/rebuild/resolution_slip.gd": "b1ce24b405938e4c4978b61acbaaaf89d7517a87a7224bae8f3698b9dce325d7",
+		"scripts/rebuild/scene_dialogue.gd": "d60c87b637f6d7a5fe3c373194125b12b80a3afc3db5bd4b7359714199d44514",
+		"scripts/rebuild/tool_drawer.gd": "c0083b7dd71dea9bca27af63280f8fc8ba46c5d5c3e102d4e17641a028676876",
+		"scripts/ui/audio_feedback.gd": "8b228acd1631255b6e5952b03ef7912098ee8ab4d42c3e2a4be20d8b42a79a1f",
+		"scripts/ui/paper_ui.gd": "a55a285ef83bf966cabb5c6ffb5d66216f0d596fde4f27789318f3bcee444f24",
+		"tests/final_five_case_input.gd": "bbdd3ded8ba2b7d6c9f225adb3dda13f9d4caf926915b38a759f5c66a00cb14a",
+		"tests/final_playable_input_smoke.gd": "d111ebe5b801ad63123c7a070e2985c6180554563870269dfe51f4e8b2f1f3c7",
+		"tests/final_window_close_input.gd": "594f24ecf8bdcadbcc15468b8e83895838531b71cccacc8fe27f94fe827ee503"
+	},
+	"source_sha256_at_ready": {
+		"assets/faefever_v2/backgrounds/BG_bus_stop.png": "c4518108a2a7e466b7f9a0b379bd8c8e000ec8d8f6acc6153bdd58842655fc45",
+		"assets/faefever_v2/backgrounds/BG_chess_stall.png": "a5ddaabce8b7438762b53f60d98e245a5295795e29d3f07738300e23db1c7d6c",
+		"assets/faefever_v2/backgrounds/BG_community_center.png": "9c97448ddbbdc5108d08cffccf5a3afa6836bb29f7999b08a32bc13fbff7de0a",
+		"assets/faefever_v2/backgrounds/BG_lookout.png": "98a2514c362b1fbc4b8d9dcf111b1e0785f164d5db1a0b083d95d5d472f30978",
+		"assets/faefever_v2/backgrounds/BG_post_office.png": "d40281359039d7feca6ff539dff4ba81aa750560ca1cabb84656ebfdd1975cca",
+		"assets/faefever_v2/backgrounds/BG_residential.png": "bdabb2a20ddd4e612a767404884c0f6aadbb6c67356c4102c0afa993604486ae",
+		"assets/faefever_v2/backgrounds/BG_tarot_shop.png": "626c8c94150bd891bdd81206958e435aa3fea6a84cf3f016ba807eb04af78796",
+		"assets/faefever_v2/backgrounds/BG_workroom.png": "d6a68a90792a3b140c76a2b560efa984bb3650481a5496c5fa0b63307a1a4218",
+		"assets/faefever_v2/backgrounds/cover.png": "1632af45da57bd2767f36bdc9b64c54d09247c7a5f9f0256b6fc3afb755faaab",
+		"assets/faefever_v2/backgrounds/wall_closeup.png": "7b6159f2210bdc8f686526b2ac3174d8a268f27d8dac154b3cd4ed87e2e2121f",
+		"assets/faefever_v2/characters/CHAR_chenyuan.png": "b4751d59acec1f07c18db198e912bd7057818963fe7446cfd1b94a5d8011e315",
+		"assets/faefever_v2/characters/CHAR_clerk.png": "bc69adc9d7c763343da5f735dd606f1f6e57aa8d62569e19971a6c8c9cbf1842",
+		"assets/faefever_v2/characters/CHAR_courier.png": "3b24efd80bb4736c2a74866e345e6ca62445a6f8812abb997f759e1518778a4e",
+		"assets/faefever_v2/characters/CHAR_courier_walk.png": "68521ded3103d7a5af2bcca60393bb849c3f862423a88891da4778d5de60f5c0",
+		"assets/faefever_v2/characters/CHAR_elsie.png": "653851a681f60cc9996e8be405cdd11f0f938ceceecf3c05098e1ea4128c4b0f",
+		"assets/faefever_v2/characters/CHAR_june.png": "0f2aace7b9a077b1b62527df09465cee6769bad57ff32ce4252865fac8d17c7f",
+		"assets/faefever_v2/characters/CHAR_mira.png": "d70d5305d7b8f356694d133753137a786343d645412b65a98fb2264871c91bd1",
+		"assets/faefever_v2/characters/courier_walk_regions.json": "ac1e428a2878b8f6003a92343bb7a181220075cd0f9504b671777c08da575db2",
+		"assets/faefever_v2/manifest.json": "9cd7a8cb7e91834b32d1d6c9a6fc8551edeea0a35424e6179184186bf07f0cfa",
+		"assets/faefever_v2/props/attachment_photo.png": "317a06c011412b41180e309ffafdb240d0cfd7fc4ca9c4b5d9499151538a2f1a",
+		"assets/faefever_v2/props/book_index_tab.png": "7dbb9432d714fe02feb7e639068227c13f5e98b86d888044d33d907d4b423482",
+		"assets/faefever_v2/props/drawer_front.png": "218be351c999cfd95b208eb6ea3cf15624bffd30680c499740bac7dfb9ca0e52",
+		"assets/faefever_v2/props/drawer_open.png": "c2f1316e22e1c84855beb0cc96a9e02a7d3574041284bebbcb9dd3807f35d74e",
+		"assets/faefever_v2/props/envelope_back.png": "f617aab27438330711320804bbc3f558a09e603ef59450bf240ffa6450097f4e",
+		"assets/faefever_v2/props/envelope_flap.png": "482cd7ae81b608f8a581fc17d1cb310bf2f0d86370c9524740ef2a8f0bee1d6d",
+		"assets/faefever_v2/props/envelope_front.png": "321aa5cb9f108f9686d9b06a4658ad571fa26a279d47d16fb06ebb52c37b9178",
+		"assets/faefever_v2/props/eraser.png": "a766663e706ad985b711e55ccb1229455b148fdb023e957da8edc55561a24600",
+		"assets/faefever_v2/props/game_icon.png": "990e39ea01e54d54f931479c564b86b6043367102137619027b9e7467263d777",
+		"assets/faefever_v2/props/handbook_closed.png": "43018dbfd794405a6649c808a8e97b976e9cc91f547415f304ab7a716aed90fb",
+		"assets/faefever_v2/props/handbook_open.png": "2ae462630fd50d1ad121c46c620ec6a0ca3b817b4a368955b1a3c8dfe51a450c",
+		"assets/faefever_v2/props/letter_paper.png": "91500aa2ab2dfa766eaec4bbfd7533ca562d50afde96aab154cc9d2544f9a6b7",
+		"assets/faefever_v2/props/magnifier.png": "599468f934068167d01c7b1bf9913c1d1946569c0a231fdde6351b464cae148d",
+		"assets/faefever_v2/props/mail_box_base.png": "9b10052b5d4702591c0c99006859efc1b2f1fc391539cf659246888dfef66d1d",
+		"assets/faefever_v2/props/mail_box_latch.png": "49c3d053d55ef7b9b175a03d505deaee3cc7f9e209c7bf1eeef7bc24d5ba69a4",
+		"assets/faefever_v2/props/mail_box_lid.png": "954ec8c320819ae9415e8b0c9fe7fc706b6f979d3fa40dfbf2d03eda07ac7525",
+		"assets/faefever_v2/props/old_music_photo.png": "12da8206f208e247489d1e32661cdc916b8f733ba808abbe76d9c2dc1cbdbdb9",
+		"assets/faefever_v2/props/opener.png": "c2cdb53ef010f5d45a342517793e240e9cd1c0565980e5a1e6f2e66dce04f3fd",
+		"assets/faefever_v2/props/pen.png": "03e023aee4d00481a4968f4b8af047d72c482de2643433b226aa82717659e8c4",
+		"assets/faefever_v2/props/postal_seal.png": "239700b92605e1e275c12b5ccc2bec647db39faec01ddf64f6e9004457eed132",
+		"assets/faefever_v2/props/press.png": "f3cfb452a9fb64debbb53e1b2cc7260e3c1ad460331fedcf40ee047f8baafaff",
+		"assets/faefever_v2/props/protector.png": "5b95716253f3308351ec66faddaab3721ba7f182e4ff699a8acb4612639a3aef",
+		"assets/faefever_v2/props/repair_label.png": "52acc925211f6ddb8f3f7fc0eec0bd66ce02f0e7b4a2829ce0e7e6186a969eef",
+		"assets/faefever_v2/props/replacement_strip.png": "3cbc19dfbaaf014d28ce9d50ac239084e381057f27c1f1c0d56be2a16d8a1f32",
+		"assets/faefever_v2/props/resolution_slip.png": "4689e1248b6f6366d1fcdd9976c3516961e75f72be7bfa14092fdabcd07aba30",
+		"assets/faefever_v2/props/restorer.png": "7fcaaa744396685510ee984bb72895b2939fa71cd26462d97fb20f2935375479",
+		"assets/faefever_v2/props/satchel.png": "290a53b944e2d0c8f5c38a3ca16786f527e0745c1337c8d1a5a4705f09302128",
+		"assets/faefever_v2/props/seal_mark.png": "5c0884402c513fd76c9f281df1185685d22d42bf234a009b9ec21992f2b24bf9",
+		"assets/faefever_v2/props/sealer.png": "34f23a82a5726e1ca11caa0a96a3ef1b2b7fef2745235bf70555d3a14b968bc6",
+		"assets/faefever_v2/props/town_map.png": "46953dcb9916ebedf48161903da434695673fb450f5322622c7578f09ead35e1",
+		"assets/faefever_v2/props/wall_plate_new.png": "071ce2c519660c0dc4ec753614795f7fe8751622ab9a5921e3eb1276c5f1fd25",
+		"assets/faefever_v2/props/wall_plate_old.png": "1226149921c5b3320258407775dada5442a6a04c9144344f1d33ca8538b62351",
+		"data/rebuild/final_cases.json": "ea98a7158186b658575af93bf6eb31e29a374be6d9b6647e7d5c362dc6792744",
+		"data/rebuild/final_dialogues.json": "f2fa37f5f6b7d09a3729cbdc28a8050e64cbb33a6b76079f5619d374b54a53cd",
+		"data/rebuild/player_amendments.json": "da965670ec3be342e6559ec9d9e1208056f7b896ef90837a8b44cf00b46602a4",
+		"scripts/rebuild/field_book.gd": "087d4153758ac7e6b81b79d927ff4be684717020ddafc20a082db0f7b728678f",
+		"scripts/rebuild/field_observation.gd": "0fb63883ee9fe7a0a7c9eb07773948361977115518da3d9c6e1affa06b9bfbb6",
+		"scripts/rebuild/final_case_state.gd": "958fcbf5fdfb1e7f3fea06c622ea071c0d8a9ec1b12c913a56deba80d43d5fd0",
+		"scripts/rebuild/final_paper_map.gd": "d4206706d68246071dcedb7345c8831c54b58023721b51fd4713a6a46d165e47",
+		"scripts/rebuild/final_playable.gd": "9c8581bca0f998d11ad520508e6db9e44b2397233243d2913978ef0906dc1667",
+		"scripts/rebuild/final_walker.gd": "293ad1cb201e7cfef0eef3e3db8d85f67af1df5aea671e71ad1081a5e266e95f",
+		"scripts/rebuild/mail_physics_state.gd": "c7bc4306835ba08cb24a05996ec2ba2423ffe63ed61d39730a7902ff90268a1d",
+		"scripts/rebuild/mail_workbench.gd": "01e23f29d896a4425e6de6752e72b2a5e134ce7a6217d288f7d7cad118eef217",
+		"scripts/rebuild/physical_art.gd": "2dd4281d0f514bf2ab8e4a2416920a139e1dec3edda6d09f6fcc1d47350d0f39",
+		"scripts/rebuild/postal_desk.gd": "bab560dd74c551ad05c5d401d6dde14bcc4a490677eb4b445f43570e6c51adb5",
+		"scripts/rebuild/resolution_draft_store.gd": "f9a45b82a82e9f703939251057ca6d667602c37560f58b401eb0512f1fa32551",
+		"scripts/rebuild/resolution_slip.gd": "b1ce24b405938e4c4978b61acbaaaf89d7517a87a7224bae8f3698b9dce325d7",
+		"scripts/rebuild/scene_dialogue.gd": "d60c87b637f6d7a5fe3c373194125b12b80a3afc3db5bd4b7359714199d44514",
+		"scripts/rebuild/tool_drawer.gd": "c0083b7dd71dea9bca27af63280f8fc8ba46c5d5c3e102d4e17641a028676876",
+		"scripts/ui/audio_feedback.gd": "8b228acd1631255b6e5952b03ef7912098ee8ab4d42c3e2a4be20d8b42a79a1f",
+		"scripts/ui/paper_ui.gd": "a55a285ef83bf966cabb5c6ffb5d66216f0d596fde4f27789318f3bcee444f24",
+		"tests/final_five_case_input.gd": "bbdd3ded8ba2b7d6c9f225adb3dda13f9d4caf926915b38a759f5c66a00cb14a",
+		"tests/final_playable_input_smoke.gd": "d111ebe5b801ad63123c7a070e2985c6180554563870269dfe51f4e8b2f1f3c7",
+		"tests/final_window_close_input.gd": "594f24ecf8bdcadbcc15468b8e83895838531b71cccacc8fe27f94fe827ee503"
+	},
+	"steps": [
+		{
+			"check": "isolated save and report destinations supplied",
+			"elapsed_ms": 430,
+			"passed": true
+		},
+		{
+			"check": "input target exists: NewShift",
+			"elapsed_ms": 433,
+			"passed": true
+		},
+		{
+			"check": "short supervisor briefing appears",
+			"elapsed_ms": 1413,
+			"passed": true
+		},
+		{
+			"check": "input target exists: FinishBriefing",
+			"elapsed_ms": 1418,
+			"passed": true
+		},
+		{
+			"check": "real hand drag opens box lid",
+			"elapsed_ms": 1584,
+			"passed": true
+		},
+		{
+			"check": "actual box-to-inspection movement opens case01",
+			"elapsed_ms": 1728,
+			"passed": true
+		},
+		{
+			"check": "physical take transfers custody case01",
+			"elapsed_ms": 1729,
+			"passed": true
+		},
+		{
+			"check": "real blade movement breaches the seal once",
+			"elapsed_ms": 2208,
+			"passed": true
+		},
+		{
+			"check": "actual paper drag leaves the letter halfway extracted",
+			"elapsed_ms": 2209,
+			"passed": true
+		},
+		{
+			"check": "half-extracted paper is drawn continuously from the physical mouth",
+			"elapsed_ms": 2210,
+			"passed": true
+		},
+		{
+			"check": "half-extracted drawing covers its actual grip rather than floating as a separate strip",
+			"elapsed_ms": 2210,
+			"passed": true
+		},
+		{
+			"check": "window close will interrupt a real active material operation",
+			"elapsed_ms": 2211,
+			"passed": true
+		},
+		{
+			"check": "breach is recorded without falsely reading the folded body",
+			"elapsed_ms": 2211,
+			"passed": true
+		},
+		{
+			"check": "GPU capture before_os_window_close",
+			"elapsed_ms": 2760,
+			"passed": true
+		}
+	],
+	"suite": "final_window_close_prepare",
+	"window_handle": 23801130
+}

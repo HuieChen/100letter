@@ -1,0 +1,13 @@
+{
+  "limits": [
+    "No full native input playthrough, visual reference acceptance or audio listening is implied.",
+    "Review stderr logs separately; Windows root certificate store warnings may occur."
+  ],
+  "executable_sha256": "d34d36f3be1a6c49c56525ae86469b92e4f417ddf0b43cf00dd80c385c4b0562",
+  "packaged_content_checks": 167,
+  "release_frames_requested": 120,
+  "pck_sha256": "cddb5f6c6f3f3cef310ad1379c431e1dc25ad17e5d9ece26b1e826123ce603ff",
+  "packaged_content_failures": [],
+  "release_gpu_boot_exit": 0,
+  "scope": "Actual PCK decoding using the matching editor inspector, then the official release executable GPU boot. Isolated saves; no source game fallback."
+}

@@ -25,3 +25,6 @@ docs/testing/tabs-guide_20261004/** -text -eol -whitespace
 docs/testing/TABS_GUIDE_20261004.md -text -eol -whitespace
 docs/testing/gut_20261004/** -text -eol -whitespace
 addons/gut/** -text -eol -whitespace
+third_party/gut-font-licenses/** -text -eol -whitespace
+docs/testing/corner-review_20261004/** -text -eol -whitespace
+docs/testing/CORNER_REVIEW_20261004.md -text -eol -whitespace

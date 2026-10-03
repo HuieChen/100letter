@@ -25,8 +25,8 @@
       "severity": "acceptance_gap",
       "owner": "qa-lead",
       "status": "NOT_ASSESSED",
-      "observed": "Partial native book/bag checks exist; a fresh isolated native attempt confirmed title/new game/supervisor cross, then screenshot ID loss and another app occluded the target. Full native/listening/novice acceptance remains unverified.",
-      "evidence": "QA_REPORT.md"
+      "observed": "Fresh isolated formal-package mouse input proves painted paper corners forward/back, visible cross/Esc, reentry and preserved letter observation after actual process restart. Full responsive/bilingual native, focus-loss, audio listening and novice acceptance remain unverified.",
+      "evidence": "docs/testing/CORNER_REVIEW_20261004.md"
     },
     {
       "id": "NEW-THREE-LETTER",
@@ -57,6 +57,12 @@
       "owner": "qa-lead",
       "fix": "Book input fixture now uses selected public BG_workroom.png and asserts the actual path.",
       "evidence": "tests/field_book_smoke.gd"
+    },
+    {
+      "id": "BOOK-PAINTED-CORNER",
+      "owner": "ui-programmer",
+      "fix": "Actual paper corner clicks now hit page navigation; fixture sends independent painted-corner coordinates, confirmed by real Windows mouse forward/back.",
+      "evidence": "docs/testing/CORNER_REVIEW_20261004.md"
     }
   ]
 }

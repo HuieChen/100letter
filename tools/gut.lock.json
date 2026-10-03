@@ -1045,5 +1045,31 @@
       "path": "addons/gut/warnings_manager.gd.uid",
       "sha256": "fc3374ebf126e113962225b7252df80aa6dd837743dce1e3149aa232828aa6cb"
     }
+  ],
+  "font_licenses": [
+    {
+      "path": "third_party/gut-font-licenses/AnonymousPro-OFL.txt",
+      "source": "https://raw.githubusercontent.com/google/fonts/main/ofl/anonymouspro/OFL.txt",
+      "license": "OFL-1.1",
+      "sha256": "8594350034ab1cb85a1946ef8852e69290255816c311450a66fed6eeda9d6292"
+    },
+    {
+      "path": "third_party/gut-font-licenses/CourierPrime-OFL.txt",
+      "source": "https://raw.githubusercontent.com/google/fonts/main/ofl/courierprime/OFL.txt",
+      "license": "OFL-1.1",
+      "sha256": "9a755af092b494944c99f471be6fddd19b006a448fefdc4717e4ee0aa09a97b0"
+    },
+    {
+      "path": "third_party/gut-font-licenses/LobsterTwo-OFL.txt",
+      "source": "https://raw.githubusercontent.com/google/fonts/main/ofl/lobstertwo/OFL.txt",
+      "license": "OFL-1.1",
+      "sha256": "f46c3ea04f38ea73c0731d73dfba3d7361d4b38970feb31a3558bd1b75e0656a"
+    },
+    {
+      "path": "third_party/gut-font-licenses/SourceCodePro-LICENSE.md",
+      "source": "https://raw.githubusercontent.com/adobe-fonts/source-code-pro/release/LICENSE.md",
+      "license": "OFL-1.1",
+      "sha256": "7c940e28a5388e9bba866cf0e408edda45fe0899ba98665b8f6ab31dc5e4b8ff"
+    }
   ]
 }

@@ -1,6 +1,18 @@
 # QA report · 2026-10-03
 
+## Actual paper-corner repair — 2026-10-04
+
+Real mouse testing found that the drawn bottom page corner did not respond: the old hit region was inside page content. Both hit regions now align with painted corners, with no modern rectangular hover background. The regression fixture clicks independent artwork coordinates rather than control centers. Existing art, story and saves are unchanged.
+
+Fresh full run `check-20261004-044026`: 17 engine suites / 7,494 assertions / zero failures; new book run: 1,626 assertions / 25 GPU images; window close/reload: 29; studio Python tests: 28. Formal PCK verification: 167 checks and release GPU boot of 120 frames, PCK SHA256 `cddb5f6c6f3f3cef310ad1379c431e1dc25ad17e5d9ece26b1e826123ce603ff`.
+
+Actual isolated Windows-package restart/Continue retained observed envelope/return addresses. Mouse clicks on painted right and left corners successfully changed people pages 1/2 -> 2/2 -> 1/2. The visible cross and Esc both returned to the real scene; reentry retained records. 1285×751 logical native captures and separate full 1920×1080 GPU captures are retained in `docs/testing/corner-review_20261004`. See `docs/testing/CORNER_REVIEW_20261004.md`. The old native helper failures below are historical, preserved as failures rather than replaced by this result.
+
+The first rebuild omitted the bundled Python path and failed its asset precheck; supplying the same verified Python runtime fixed packaging. An isolated EXE copy initially remained locked during process cleanup, so its copy failed; subsequent exact EXE/PCK byte hashes were verified before native testing. No user-owned process or production save was replaced. Listening, novice usability and the complete native matrix remain pending; CORE-BOOK stays in review and the new long three-letter/wax story remains incomplete. This is a development repair checkpoint, not final acceptance.
+
 ## Open-source QA adoption — 2026-10-04
+
+License review distinguishes GUT's MIT code from its OFL 1.1 bundled fonts. Four official font notices are retained separately and checked by the pinned-dependency verifier. This documentation-only follow-up does not change gameplay, the 259 upstream files or the exported review package.
 
 GUT 9.7.1 is pinned with its MIT license and 259 byte-verified upstream files, without enabling plugins/autoloads/update hooks. Fresh production model run: 8 tests, 580 assertions, zero failures/skips. Independent save locations test invalid-command atomicity, repeated custody, hidden information, UI copies, corrupt-save recovery, tool cancellation and remote NPC guards. See docs/OPEN_SOURCE_ADOPTION_20261004.md and docs/testing/GUT_20261004.md. Original 7,496 engine assertions remain a distinct earlier current-runtime run; GUT is not native/UI/audio/player acceptance.
 

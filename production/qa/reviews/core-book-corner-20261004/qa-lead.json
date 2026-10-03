@@ -1,0 +1,74 @@
+{
+  "role": "qa-lead",
+  "chain": "book",
+  "execution": "sequential_role_passes",
+  "executor": "Codex /root; sequential responsibility passes, zero spawned agents",
+  "basis": {
+    "CURRENT_SPEC.md": "1e0d82afea679ac1b2266f8ecc22e0beadaff6494ad16809f54ad85f094c0d08",
+    "LATEST_USER_FEEDBACK.md": "94e4737d93509f0626c6846debe3db2b1fc82a9700936ec32f59fc9a8534befb",
+    "LOCKED_ASSETS.md": "c0ae8380e54dafae9b1f8721a06cf4dc1dfeb28f6c884ca39c8578eba2360581",
+    "QA_GATES.md": "cf47a23ba5514dcec0eb5ffd15d4a6a260a8dbb06e0d9c6214a9166450eace69",
+    "assets/faefever_v2/manifest.json": "873fe79adcf7c8a10ba9dbc0e98212a920553ad652c985447240c89195ab5b2a",
+    "assets/faefever_v2/props/book_index_tab.png": "7dbb9432d714fe02feb7e639068227c13f5e98b86d888044d33d907d4b423482",
+    "design/game-brief.md": "ff84e1907e755c1777191d114d5525510c753fc80baa0ca76814bea2770fd0e4",
+    "design/ux/physical-objects.md": "9a1eaecec62849adb8e60e7181719fbad566006b6198bd58ade5c8c1442cb98d",
+    "docs/REQUIREMENTS_REVIEW_20261003.md": "fab4fe00d54131679c633def4421b2e7b81ab026f98f5108ff5f5ec19b5bbda4",
+    "docs/architecture/STUDIO_BOUNDARIES.md": "1b1f2defc7a39cb12e904076f735d758c8202122c899915c522a4d702809959b",
+    "production/epics/core-usability/story-book.json": "57abd7044b488348ee3cb98ba1ce1988b8b6d33f9e175804650d9e1cb2b7b2b7",
+    "production/studio-board.json": "423b26d59320f51b3190a9bd0b7bdb3f05323aba53cf4fed9e3f3a5330187cae",
+    "project.yaml": "cef29968a12884ee71b7238a4903aaa28f8273865676fd40b3286dce43df1314",
+    "scripts/rebuild/field_book.gd": "087d4153758ac7e6b81b79d927ff4be684717020ddafc20a082db0f7b728678f",
+    "scripts/ui/paper_ui.gd": "a55a285ef83bf966cabb5c6ffb5d66216f0d596fde4f27789318f3bcee444f24",
+    "tests/field_book_smoke.gd": "433e6e383fd91fa83fe84bea840d7b36c825a6696f17d51adf8376db1b482b28",
+    "tools/studio.py": "8754680fe0f349fdf403d3f4369119fbec32bd51738f1bc814b1d7ae342fefb2",
+    "tools/studio/config.json": "8794e25bd3ccb12eb496bb5145813fa7341988f9afac083321a2ccfa5554356d",
+    "tools/studio/pipeline.py": "bf3f38ad8fce8732c74626fd09c84637b838d4dabe77e96bf359dbc6ce9c5181",
+    "tools/studio/upstream.lock.json": "6790a1ccb85cf8cb32f1400078a337c65f05b95022ec45216556b780af4a4f7d"
+  },
+  "observed": "17 suites / 7,494 checks, 29 close/reload checks, 28 workflow tests; formal PCK 167 checks/120 GPU frames. Actual native restart, corners, cross/Esc and reentry were observed. Full native matrix and novice remain missing.",
+  "criterion_results": {
+    "CORE-BOOK-AC1": {
+      "status": "PASS",
+      "observed": "17 suites / 7,494 checks, 29 close/reload checks, 28 workflow tests; formal PCK 167 checks/120 GPU frames. Actual native restart, corners, cross/Esc and reentry were observed. Full native matrix and novice remain missing."
+    },
+    "CORE-BOOK-AC2": {
+      "status": "PASS",
+      "observed": "17 suites / 7,494 checks, 29 close/reload checks, 28 workflow tests; formal PCK 167 checks/120 GPU frames. Actual native restart, corners, cross/Esc and reentry were observed. Full native matrix and novice remain missing."
+    },
+    "CORE-BOOK-AC3": {
+      "status": "NOT_ASSESSED",
+      "observed": "Observed records survive actual process restart, but actual sound listening and novice/full native evidence are absent."
+    }
+  },
+  "artifacts": [
+    {
+      "path": "docs/testing/CORNER_REVIEW_20261004.md",
+      "sha256": "95cb2cd05f3709cbf59fe38624a5167b4c4db471074c1927f22317a93aaf2c67"
+    },
+    {
+      "path": "docs/testing/corner-review_20261004/book-evidence.json",
+      "sha256": "079d0250c41e5b14a3da2a3237adacb4592e21d207b012a7a6118003a58989f4"
+    },
+    {
+      "path": "docs/testing/corner-review_20261004/native_corner_next.jpg",
+      "sha256": "e6ab1494733c7676b3e0c0da203f717cad6c0512302bc7cfbcde9955c96bc98d"
+    },
+    {
+      "path": "docs/testing/corner-review_20261004/native_save_reentry.jpg",
+      "sha256": "e72c06cdfbea782de8c460191c35d537b2facc8bcef816c874e770ac465dc774"
+    },
+    {
+      "path": "docs/testing/corner-review_20261004/package-verification.json",
+      "sha256": "481c992a54f66f28a0d96875dda9e30bbf81d9c73246a19c75f0ac70d0a59e08"
+    }
+  ],
+  "verdict": "NOT_ASSESSED",
+  "findings": [
+    {
+      "id": "REMAINING-AUDIO-NOVICE-NATIVE",
+      "severity": "acceptance_gap",
+      "step": "Actual listening, novice and remaining native matrix require evidence; no approval waived or inferred.",
+      "owner": "qa-lead"
+    }
+  ]
+}

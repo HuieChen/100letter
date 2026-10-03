@@ -79,7 +79,7 @@ func _run() -> void:
 	var before_minute: int = game.state.minute
 	var before_score: int = game.state.work_reliability
 	var before_privacy: Dictionary = game.state.privacy.duplicate(true)
-	await _click("NextPage")
+	await _click_painted_corner(Vector2(1465,759))
 	_check(book.page == 1, "corner page control navigates actual sources")
 	_check(book._turn_progress > 0.0 and book._turn_progress < 1.0, "real next-page input starts a bound leaf transition")
 	_check(book._canvas.modulate.a == 1.0, "turning a leaf does not fade the entire book or the background")
@@ -88,7 +88,7 @@ func _run() -> void:
 		RenderingServer.force_draw(false)
 		_check(root.get_texture().get_image().save_png("res://test-results/field_book_turning.png") == OK, "capture actual intermediate turning leaf")
 		artifacts.append("res://test-results/field_book_turning.png")
-	await _click("PreviousPage")
+	await _click_painted_corner(Vector2(135,759))
 	_check(book.page == 0, "previous corner returns to first leaf")
 	await _select_id("helena_rota")
 	_check((_find("EvidenceText") as RichTextLabel).text == "Helena Voss — Desk B.", "source text shown verbatim, no synthesized conclusion")
@@ -268,6 +268,18 @@ func _mouse(point: Vector2, pressed: bool) -> void:
 	event.button_index = MOUSE_BUTTON_LEFT; event.pressed = pressed
 	event.button_mask=MOUSE_BUTTON_MASK_LEFT if pressed else 0
 	root.push_input(event, true)
+	await process_frame
+
+
+func _click_painted_corner(canvas_point: Vector2) -> void:
+	# Sample the visible bitmap's paper edge, independently of the control bounds.
+	# A center-of-button test missed the real Windows corner click failure.
+	var point: Vector2 = book._canvas.get_global_transform() * canvas_point
+	var motion := InputEventMouseMotion.new()
+	motion.position = point; motion.global_position = point
+	root.push_input(motion,true); await process_frame
+	await _mouse(point,true)
+	await _mouse(point,false)
 	await process_frame
 
 

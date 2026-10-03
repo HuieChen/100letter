@@ -12,6 +12,8 @@
 
 ## 可复跑的实际测试
 
+GUT 的代码使用 MIT；它随附的 Anonymous Pro、Courier Prime、Lobster Two 和 Source Code Pro 字体另使用 OFL 1.1。四份官方版权/许可文本保存在 `third_party/gut-font-licenses/`，来源和原始字节哈希纳入同一个依赖锁及 CI 核对。259 个上游文件未改动；这些测试字体没有替换玩家界面字体，也不进入选定的游戏导出。
+
 ```text
 python tools/check_gut.py --verify-only
 python tools/check_gut.py --godot <Godot 4.7.x 可执行文件>

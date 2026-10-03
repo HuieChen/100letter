@@ -144,9 +144,19 @@ func _rebuild() -> void:
 	var pages := maxi(1, ceili(float(_items.size()) / page_size()))
 	if section != 3:
 		var previous := _button("PreviousPage", "", Rect2(256,642,118,88), _flip.bind(-1), 38)
+		# The illustrated folded corners are outside the text-column transform.
+		# Place hit areas on those visible paper corners, not on empty page space.
+		previous.position = Vector2(105,692)
+		previous.size = Vector2(160,104)
+		previous.add_theme_stylebox_override("hover", StyleBoxEmpty.new())
+		previous.add_theme_stylebox_override("pressed", StyleBoxEmpty.new())
 		previous.disabled = page == 0
 		previous.mouse_default_cursor_shape = Control.CURSOR_ARROW if previous.disabled else Control.CURSOR_POINTING_HAND
 		var next := _button("NextPage", "", Rect2(1210,642,118,88), _flip.bind(1), 38)
+		next.position = Vector2(1335,692)
+		next.size = Vector2(160,104)
+		next.add_theme_stylebox_override("hover", StyleBoxEmpty.new())
+		next.add_theme_stylebox_override("pressed", StyleBoxEmpty.new())
 		next.disabled = page + 1 >= pages
 		next.mouse_default_cursor_shape = Control.CURSOR_ARROW if next.disabled else Control.CURSOR_POINTING_HAND
 	var folio := _label("%d  /  %d" % [page+1, pages], Rect2(686,702,210,32), 18, MUTED)
