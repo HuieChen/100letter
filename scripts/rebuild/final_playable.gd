@@ -497,6 +497,7 @@ func _book() -> void:
 	modal=book
 	UI.place(book,self,Rect2(0,0,1600,900))
 	book.configure(core)
+	book.cue.connect(sound.play)
 	_hide_courier_for_closeup()
 	book.closed.connect(func():
 		_close();_save()

@@ -16,7 +16,7 @@ func _initialize() -> void:
 
 
 func _run() -> void:
-	root.size = Vector2i(1280, 720)
+	root.size = Vector2i(1920, 1080)
 	root.content_scale_size = Vector2i(1600, 900)
 	root.content_scale_mode = Window.CONTENT_SCALE_MODE_CANVAS_ITEMS
 	root.gui_embed_subwindows = true
@@ -48,15 +48,11 @@ func _run() -> void:
 	var opaque_height: float = painted.get_used_rect().size.y * Book.BOOK_RECT.size.y / painted.get_height()
 	_check(opaque_height / Book.CANVAS.y >= 0.88 and opaque_height / Book.CANVAS.y <= 0.95, "book silhouette occupies about ninety percent of game area height")
 	for tab_index: int in range(4):
-		var tab: Button = _find("Tab" + str(tab_index))
-		_check(tab.text==Book.SECTIONS[tab_index] and not tab.tooltip_text.is_empty(), "chapter uses labelled physical upper paper tab " + str(tab_index))
-	_check(not _all_text(book).contains("Helena") and not _all_text(book).contains("Mira") and not _all_text(book).contains("Leonie"), "fresh displayed book does not enumerate hidden people")
-	_check(book.find_child("KnownPortrait", true, false) == null, "unmet identity does not show author portrait")
-	await _click("Tab2")
-	_check(book._items.is_empty() and not _all_text(book).contains("blue bowl"), "uninspected mail is absent from records")
-	await _click("Tab3")
-	var people: OptionButton = _find("PersonSelect")
-	_check(people == null and not _all_text(book).contains("HV"), "fresh conclusion leaf does not leak an unseen archive mark")
+		_check(_find("Tab" + str(tab_index)) == null, "unused chapter has no fake empty tab " + str(tab_index))
+	_check(not _all_text(book).contains("Helena") and not _all_text(book).contains("Mira") and not _all_text(book).contains("Leonie"), "fresh book does not enumerate hidden people")
+	_check(book.find_child("KnownPortrait", true, false) == null, "unmet identity has no portrait")
+	_check(_find("PersonSelect") == null, "empty deduction controls absent")
+	var people: OptionButton
 	_check(_find("DeskEntry") == null, "desk answer not offered before actual archival evidence")
 	_check(_find("CodeSelect") == null, "no formal-code solution options before relevant observation")
 	await _shot("field_book_unknown")
@@ -265,10 +261,10 @@ func _select_id(id: String) -> void:
 	var index: int = book._items.find(id)
 	_check(index >= 0, "visible record exists " + id)
 	if index < 0: return
-	var target_page := index / Book.PAGE_SIZE
+	var target_page: int = index / int(book.page_size())
 	while book.page < target_page: await _click("NextPage")
 	while book.page > target_page: await _click("PreviousPage")
-	await _click("Entry" + str(index))
+	if book.section != 0: await _click("Entry" + str(index))
 	_check(book.selected_id == id, "pointer opens selected record " + id)
 
 

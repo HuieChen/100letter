@@ -38,6 +38,10 @@ function Invoke-TaskGodot {
 
 Push-Location $taskRepo
 try {
+    & $taskPython tools/studio.py verify
+    if ($LASTEXITCODE -ne 0) { throw 'Studio upstream/adapter integrity failed' }
+    & $taskPython -m unittest discover -s tests -p test_studio_workflow.py -v
+    if ($LASTEXITCODE -ne 0) { throw 'Studio evidence gate regression failed' }
     if ($ArchiveChecks) {
         if (-not $ArchiveRoot) { $ArchiveRoot = $taskRepo }
         $taskArchive = (Resolve-Path -LiteralPath $ArchiveRoot).Path

@@ -14,3 +14,5 @@ specification/** -text -whitespace
 assets/audio/foley/KENNEY_CC0.txt -text -whitespace
 # Preserve captured tool output verbatim, including progress-line padding.
 docs/testing/video_evidence/*.txt -text -whitespace
+# Pinned third-party snapshot hashes must survive Windows/Linux checkout.
+third_party/claude-code-game-studios/** -text -eol -whitespace

@@ -2,6 +2,7 @@ class_name FinalFieldBook
 extends Control
 ## Physical notebook UI. Author-only catalog/case_data are deliberately never read.
 signal closed
+signal cue(kind: String)
 
 const CANVAS := Vector2(1600, 900)
 const FONT = preload("res://assets/fonts/SolmereSans.ttf")
@@ -15,6 +16,7 @@ const PAPER := Color("#F9F5EC")
 const SHADE := Color("#E6E1CB")
 const SECTIONS := ["人物", "见闻", "信件", "推断"]
 const PAGE_SIZE := 6
+const PORTRAITS := {"chenyuan":"CHAR_chenyuan","mira_vale":"CHAR_mira","june_arlen":"CHAR_june","elsie_moran":"CHAR_elsie","community_clerk":"CHAR_clerk"}
 const PLACE_NAMES := {"post_office": "邮局", "community_center": "社区中心", "residential": "居民楼", "bus_stop": "公交站", "lookout": "观景台", "chess_stall": "棋摊", "tarot_shop": "塔罗店"}
 const SOURCE_NAMES := {"community_notice": "市政通知", "residential_wall": "旧瓷牌", "public_resident_note": "住户公示", "mira_home": "Mira 门口", "equipment_checkout_sheet": "器材借还簿", "public_bus_timetable": "站点时刻表", "local_service_guide": "本地邮件服务规则", "physical_label": "修复后的转寄标签", "current_resident_list": "现行住户表", "public_volunteer_roster": "志愿者收信登记", "case04_envelope_back": "旧件背面", "community_archive_photo": "历年活动照片", "current_volunteer_board": "现行志愿者公告", "old_desk_ledger": "旧值台账簿", "old_shift_rota": "旧值班表", "official_procedure_guide": "正式处置规则"}
 const FIELD_LABELS := {"recipient": "收件人", "address": "地址", "return": "回信地址", "sender": "寄件人", "date": "日期", "service_mark": "服务标记", "counter_note": "柜台附记", "status": "类别", "back": "背面", "archive_mark": "档案标记", "original_address": "原地址", "forwarding_recipient": "转寄姓名", "forwarding_destination": "转寄地点", "forwarding_valid_from": "起始日期", "forwarding_valid_until": "终止日期"}
@@ -67,7 +69,16 @@ func _draw() -> void:
 	draw_rect(Rect2(Vector2.ZERO, size), Color(0.08, 0.11, 0.13, 0.52))
 	draw_set_transform((size - CANVAS * factor) * 0.5, 0, Vector2.ONE * factor)
 	# Blank painted material only. Text, identity permissions and navigation remain live controls.
-	Art.paint(self,"handbook_open",BOOK_RECT)
+	var material := Art.texture("handbook_open")
+	if material != null:
+		# Preserve the original bitmap; render its body and only useful physical tabs.
+		var cut := 58.0
+		var ratio := BOOK_RECT.size / material.get_size()
+		draw_texture_rect_region(material, Rect2(BOOK_RECT.position + Vector2(0,cut)*ratio, Vector2(material.get_width(),material.get_height()-cut)*ratio), Rect2(0,cut,material.get_width(),material.get_height()-cut))
+		var regions := [Rect2(208,0,118,cut),Rect2(408,0,116,cut),Rect2(1055,0,112,cut),Rect2(1275,0,117,cut)]
+		for index: int in _available_sections():
+			var source: Rect2 = regions[index]
+			draw_texture_rect_region(material,Rect2(BOOK_RECT.position+source.position*ratio,source.size*ratio),source)
 	draw_set_transform(Vector2.ZERO)
 
 
@@ -91,13 +102,15 @@ func _rebuild() -> void:
 	close.add_theme_stylebox_override("normal", _tab_style(false))
 	close.add_theme_stylebox_override("hover", _tab_style(true))
 	close.add_theme_stylebox_override("pressed", _tab_style(true))
-	_label("Solmere / Local Exceptions", Rect2(286,148,430,40), 28, TEAL, HAND)
-	_label(SECTIONS[section], Rect2(285,183,430,35), 27)
+	var available := _available_sections()
+	if not available.is_empty() and section not in available:
+		section = int(available[0]); page = 0; selected_id = ""
+	if not available.is_empty(): _label(SECTIONS[section], Rect2(285,183,430,35), 27)
 	_label("随身记录", Rect2(846,176,420,36), 24, MUTED)
-	for index: int in range(SECTIONS.size()):
+	for index: int in available:
 		var tab := _button("Tab" + str(index), SECTIONS[index], Rect2(), _select_section.bind(index), 20)
-		tab.position = Vector2([213,390,999,1191][index],66)
-		tab.size = Vector2(120,46)
+		tab.position = Vector2([208,385,962,1148][index],66)
+		tab.size = Vector2(110,46)
 		tab.alignment = HORIZONTAL_ALIGNMENT_CENTER
 		tab.add_theme_stylebox_override("hover", StyleBoxEmpty.new())
 		tab.add_theme_stylebox_override("pressed", StyleBoxEmpty.new())
@@ -106,7 +119,7 @@ func _rebuild() -> void:
 		tab.mouse_exited.connect(tab.queue_redraw)
 		tab.tooltip_text = "翻到" + SECTIONS[index]
 	_items = _section_items()
-	page = clampi(page, 0, maxi(0, ceili(float(_items.size()) / PAGE_SIZE) - 1))
+	page = clampi(page, 0, maxi(0, ceili(float(_items.size()) / page_size()) - 1))
 	if section == 3:
 		_draw_draft()
 	else:
@@ -115,11 +128,11 @@ func _rebuild() -> void:
 			0: _draw_person()
 			1: _draw_evidence()
 			2: _draw_letter()
-	var pages := maxi(1, ceili(float(_items.size()) / PAGE_SIZE))
+	var pages := maxi(1, ceili(float(_items.size()) / page_size()))
 	if section != 3:
-		var previous := _button("PreviousPage", "‹", Rect2(286,680,62,47), _flip.bind(-1), 38)
+		var previous := _button("PreviousPage", "", Rect2(256,642,118,88), _flip.bind(-1), 38)
 		previous.disabled = page == 0
-		var next := _button("NextPage", "›", Rect2(1240,680,62,47), _flip.bind(1), 38)
+		var next := _button("NextPage", "", Rect2(1210,642,118,88), _flip.bind(1), 38)
 		next.disabled = page + 1 >= pages
 	_label("%d  /  %d" % [page+1, pages], Rect2(686,702,210,32), 18, MUTED)
 	if not notice.is_empty(): _label(notice, Rect2(855,650,420,42), 18, TEAL)
@@ -131,6 +144,19 @@ func _rebuild() -> void:
 	_canvas.add_child(_turn_surface)
 	_layout()
 	queue_redraw()
+
+
+func _available_sections() -> Array[int]:
+	var result: Array[int] = []
+	if not _view.get("known_people", {}).is_empty(): result.append(0)
+	if not _view.get("observations", []).is_empty(): result.append(1)
+	if is_instance_valid(core):
+		for id: String in core.CASE_IDS:
+			var item: Dictionary = core.case_view(id)
+			if not item.is_empty() and (not item.front.is_empty() or not item.back.is_empty() or not item.body.is_empty()):
+				result.append(2); break
+	if not _fact("case04_archive_mark").is_empty() or not _fact("case04_manual_hold").is_empty() or not _fact("ledger_hv_repeat").is_empty(): result.append(3)
+	return result
 
 
 func _section_items() -> Array:
@@ -146,9 +172,15 @@ func _section_items() -> Array:
 	return []
 
 
+func page_size() -> int:
+	return 1 if section == 0 else PAGE_SIZE
+
+
 func _draw_index() -> void:
 	if _items.is_empty():
-		_label(["还没有记下谁的姓名。", "这里等着第一条亲眼看到的记录。", "先亲手查看一封信。"] [section], Rect2(289,263,410,120), 24, MUTED)
+		return
+	if section == 0:
+		selected_id = str(_items[page])
 		return
 	if selected_id not in _items: selected_id = str(_items[page*PAGE_SIZE])
 	for index: int in range(page * PAGE_SIZE, mini(_items.size(), (page+1)*PAGE_SIZE)):
@@ -156,7 +188,6 @@ func _draw_index() -> void:
 		var text := _item_label(id)
 		var mark := "— " if id == selected_id else "   "
 		_button("Entry" + str(index), mark + text, Rect2(278,249+(index%PAGE_SIZE)*61,448,53), _select_item.bind(id), 22)
-	_label("点击条目翻看；边签可直接换章。", Rect2(290,636,420,30), 17, MUTED)
 
 
 func _item_label(id: String) -> String:
@@ -171,23 +202,22 @@ func _item_label(id: String) -> String:
 
 func _draw_person() -> void:
 	if selected_id not in _view.known_people:
-		_label("未知的姓名留空。\n记录从相遇或实际看到的纸面开始。", Rect2(850,271,410,130), 25, MUTED)
 		return
 	_label(core.known_person_label(selected_id), Rect2(848,244,420,47), 29)
 	var encounters: Dictionary = core.get("state").get("encounters", {})
 	var encountered := encounters.has(selected_id)
-	var portrait_rect := Rect2(875,308,165,279)
+	var portrait_rect := Rect2(315,268,310,366)
 	# Only an encountered resident receives their generated gameplay portrait.
-	if selected_id == "chenyuan" and encountered:
+	if PORTRAITS.has(selected_id) and encountered:
 		var portrait := TextureRect.new()
 		portrait.name = "KnownPortrait"
-		portrait.texture = Art.texture("CHAR_chenyuan")
+		portrait.texture = Art.texture(str(PORTRAITS[selected_id]))
 		portrait.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
 		portrait.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
 		portrait.mouse_filter = Control.MOUSE_FILTER_IGNORE
 		_place(portrait, portrait_rect)
 	else:
-		_label("未留肖像" if encountered else "尚未见面", Rect2(871,340,180,72), 23, MUTED)
+		_label("未留肖像" if encountered else "尚未见面", Rect2(348,376,260,72), 23, MUTED)
 	var lines: Array[String] = []
 	if encountered:
 		var entry: Dictionary = encounters[selected_id]
@@ -195,15 +225,13 @@ func _draw_person() -> void:
 	else: lines.append("名字来自已查看的邮件或公开记录。")
 	for fact: Dictionary in _view.observations:
 		if str(fact.source) == selected_id or str(fact.text).contains(core.known_person_label(selected_id)):
-			lines.append("见闻：" + _source_name(str(fact.source)) + "\n" + _place_name(str(fact.location)) + " · " + _clock(int(fact.observed_minute)))
-	_reading("PersonNotes", "\n\n".join(lines), Rect2(1057,303,222,288), 21)
-	_label("名字与肖像只按已经取得的记录出现。", Rect2(851,610,425,35), 17, MUTED)
+			lines.append(_source_name(str(fact.source)) + " · " + _clock(int(fact.observed_minute)) + "\n" + str(fact.text))
+	_reading("PersonNotes", "\n\n".join(lines), Rect2(849,310,425,323), 21)
 
 
 func _draw_evidence() -> void:
 	var fact := _fact(selected_id)
 	if fact.is_empty():
-		_label("保留原话，也保留它来自哪里。", Rect2(850,274,420,90), 26, MUTED)
 		return
 	_label(_source_name(str(fact.source)), Rect2(846,246,427,48), 28)
 	_label(_place_name(str(fact.location)) + "  ·  " + _clock(int(fact.observed_minute)), Rect2(849,302,420,36), 20, MUTED)
@@ -237,9 +265,6 @@ func _draw_letter() -> void:
 func _draw_draft() -> void:
 	var has_archive_source := not _fact("case04_archive_mark").is_empty() or not _fact("case04_manual_hold").is_empty() or not _fact("ledger_hv_repeat").is_empty()
 	if not has_archive_source:
-		_label("留给需要核对的记录", Rect2(288,260,415,55), 26)
-		_label("先把亲眼看到的资料记下来。\n还没有档案痕迹需要在这里填写。", Rect2(289,338,413,130), 24, MUTED)
-		_label("这一页暂时留白。", Rect2(850,286,420,70), 26, MUTED)
 		return
 	_label("夹入的来源", Rect2(288,251,415,40), 26)
 	var lines: Array[String] = []
@@ -317,6 +342,7 @@ func _select_section(index: int) -> void:
 
 
 func _select_item(id: String) -> void:
+	cue.emit("paper")
 	selected_id = id
 	notice = ""
 	_rebuild()
@@ -332,6 +358,7 @@ func _flip(direction: int) -> void:
 
 func _turn_page() -> void:
 	if not is_inside_tree(): return
+	cue.emit("flip")
 	if _turn != null: _turn.kill()
 	_turn_progress = 0.0
 	_turn = create_tween()
@@ -388,7 +415,10 @@ func _reading(node_name: String, text: String, rect: Rect2, font_size: int) -> R
 	var label := RichTextLabel.new()
 	label.name = node_name
 	label.text = text
-	label.add_theme_font_override("normal_font", FONT)
+	var reading_font := FontVariation.new()
+	reading_font.base_font = ThemeDB.fallback_font
+	reading_font.fallbacks = [FONT]
+	label.add_theme_font_override("normal_font", reading_font)
 	label.add_theme_font_size_override("normal_font_size", font_size)
 	label.add_theme_color_override("default_color", INK)
 	label.scroll_active = true
@@ -476,4 +506,5 @@ func _close() -> void:
 	if _closed: return
 	_closed = true
 	hide()
+	cue.emit("paper")
 	closed.emit()
