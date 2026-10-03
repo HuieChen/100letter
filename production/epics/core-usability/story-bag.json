@@ -1,0 +1,62 @@
+{
+  "schema_version": 1,
+  "id": "CORE-BAG",
+  "chain": "bag",
+  "title": "信袋与同一信封：取出、翻面、拖放、缩放、放回",
+  "type": "UI / Integration / Visual-Feel",
+  "state": "queued",
+  "implementation_status": "Existing fixes; automatic review evidence exists, final acceptance pending",
+  "owner": "gameplay-programmer",
+  "reviews_required": [
+    "ux-designer",
+    "art-director",
+    "godot-gdscript-specialist",
+    "qa-lead",
+    "sound-designer"
+  ],
+  "depends_on": [
+    "CORE-BOOK"
+  ],
+  "inputs": [
+    "CURRENT_SPEC.md",
+    "LATEST_USER_FEEDBACK.md",
+    "QA_GATES.md",
+    "LOCKED_ASSETS.md",
+    "docs/REQUIREMENTS_REVIEW_20261003.md",
+    "design/game-brief.md",
+    "design/ux/physical-objects.md",
+    "docs/architecture/STUDIO_BOUNDARIES.md"
+  ],
+  "files": [
+    "scripts/rebuild/final_playable.gd",
+    "scripts/rebuild/mail_workbench.gd",
+    "scripts/rebuild/mail_physics_state.gd",
+    "tests/core_review_input.gd"
+  ],
+  "requirement_refs": [
+    "R04",
+    "R05",
+    "R06",
+    "R07",
+    "R08",
+    "R36"
+  ],
+  "acceptance": [
+    {
+      "id": "CORE-BAG-AC1",
+      "requirement": "点真实信封直接抬起到原桌面，没有拿在手上或查看详情按钮",
+      "check": "Current relevant engine/input check + actual rendered frame inspection"
+    },
+    {
+      "id": "CORE-BAG-AC2",
+      "requirement": "同一物件翻面、移动、缩放、关闭和重开；错误动作有自然反馈",
+      "check": "Normal/exit/error/repeat/rapid input/save boundary checks and native observation"
+    },
+    {
+      "id": "CORE-BAG-AC3",
+      "requirement": "中英纸上字层、独立存档及实际纸张声音与反馈核验",
+      "check": "Actual OS input/listening/novice observation as applicable; save/reentry evidence"
+    }
+  ],
+  "completion": null
+}

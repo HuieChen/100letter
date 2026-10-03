@@ -17,3 +17,6 @@ The latest direct request authorizes a new continuous three-letter session (esti
 
 ## Latest user update — all prior issues and plain cover
 2026-10-03: Recheck every earlier issue, self-find and fix bugs against the highest requirements. Cover is a blank plain background with the game name; no image generation. Preserve the accepted framework/art. Fresh automated, native and novice evidence remain distinct. Prior main publication authorization remains valid.
+
+## Latest user update — studio structure
+2026-10-03: The user says Claude Code Game Studios has not been used sufficiently and asks subsequent structure to follow it. Implement real project-local production coordination, ordered stories, named responsibilities, dependencies, ownership, review evidence and handoffs. This does not replace accepted art or lower product acceptance. Sequential responsibility passes must be reported honestly; no implication of 49 concurrent agents.

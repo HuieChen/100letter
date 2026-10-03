@@ -1,0 +1,62 @@
+{
+  "schema_version": 1,
+  "active_story": "CORE-BOOK",
+  "stories": [
+    "production/epics/core-usability/story-book.json",
+    "production/epics/core-usability/story-bag.json",
+    "production/epics/core-usability/story-map.json",
+    "production/epics/core-usability/story-npc.json",
+    "production/epics/core-usability/story-walk.json",
+    "production/epics/three-letter-session/story-letter01.json",
+    "production/epics/three-letter-session/story-letter02.json",
+    "production/epics/three-letter-session/story-letter03.json"
+  ],
+  "open_bugs": [
+    {
+      "id": "CORE-SOURCE-OPEN",
+      "severity": "S2",
+      "owner": "gameplay-programmer",
+      "status": "UNRESOLVED_NOT_REPRODUCED",
+      "observed": "Earlier current-resident source failed to open once. Diagnostics added, root cause not proved.",
+      "evidence": "QA_REPORT.md"
+    },
+    {
+      "id": "NATIVE-REVIEW",
+      "severity": "acceptance_gap",
+      "owner": "qa-lead",
+      "status": "NOT_ASSESSED",
+      "observed": "Last actual-window capture was Windows lock screen; no native/listening acceptance.",
+      "evidence": "QA_REPORT.md"
+    },
+    {
+      "id": "NEW-THREE-LETTER",
+      "severity": "delivery_gap",
+      "owner": "writer",
+      "status": "NOT_IMPLEMENTED",
+      "observed": "New 30-minute / long letters / distributed edits / actual wax sequence remain pending.",
+      "evidence": "docs/REQUIREMENTS_REVIEW_20261003.md"
+    },
+    {
+      "id": "QA-RUN-INCOMPLETE",
+      "severity": "S2",
+      "owner": "tools-programmer",
+      "status": "OBSERVATION_NOT_REPRODUCED",
+      "observed": "One console-editor run exited 0 before writing its complete report. The adapter rejected it. A subsequent exact GUI-editor run passed; root cause remains unproved.",
+      "evidence": "docs/testing/STUDIO_PRODUCTION_20261003.md"
+    }
+  ],
+  "resolved_bugs": [
+    {
+      "id": "QA-CHECKOUT-FINGERPRINT",
+      "owner": "tools-programmer",
+      "fix": "Normalize only CRLF/LF in source fingerprints; keep retained evidence byte-exact and bind reviews to adapter logic.",
+      "evidence": "tests/test_studio_pipeline.py"
+    },
+    {
+      "id": "QA-FIXTURE-ART",
+      "owner": "qa-lead",
+      "fix": "Book input fixture now uses selected public BG_workroom.png and asserts the actual path.",
+      "evidence": "tests/field_book_smoke.gd"
+    }
+  ]
+}

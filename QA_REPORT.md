@@ -1,5 +1,13 @@
 # QA report · 2026-10-03
 
+## Latest studio production integration
+
+CCGS now has project-local production stories, responsibility boundaries, design inputs, active-board/dependency checks, materialized handoff briefs, adversarial role records, change-impact routing and finish/handoff commands. This is sequential responsibility review, not independent multi-agent or 49-agent execution. See [actual use report](docs/testing/STUDIO_PRODUCTION_20261003.md).
+
+28 workflow/evidence rejection tests pass. The first new test run had a Windows GBK/UTF-8 read failure; explicit UTF-8 fixed it. Role QA found the book input fixture depended on an ignored local background; it now uses the selected public BG_workroom bitmap with a resource-path assertion. The current selected-art book run `test-results/studio/book/20261003T135546061667Z` passes 1,484 checks, retains 25 GPU captures and unchanged runtime/test inputs during the run. Three resolutions and component language headings are covered, not full-game English or actual player input.
+
+A prior run `20261003T134329678948Z` returned zero without a fresh final report and was correctly rejected. Its partial engine log is retained in docs/testing/studio_20261003/incomplete-engine.log. The subsequent exact GUI-editor run completed, but the interruption's root cause is not proved. The producer board keeps this observation open. Required native, listening and novice criteria still lack evidence; real finish/handoff must remain NOT_COMPLETE. No runtime script, art or original save changed. Older full-core/Windows results below belong to 5402b72 and are historical, not a new full regression for this tooling phase.
+
 Scope: historical-requirement review, plain-title cover, archive, direct bag/letter manipulation, immediate map transitions, dialogue exits, movement loading and regression against the existing five-case campaign. This is a development checkpoint, not final game/Steam-quality acceptance.
 
 ## Latest core review — 2026-10-03 evening

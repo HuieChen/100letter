@@ -1,0 +1,61 @@
+{
+  "schema_version": 1,
+  "id": "CORE-WALK",
+  "chain": "walk",
+  "title": "自然移动与小中大反馈",
+  "type": "UI / Integration / Visual-Feel",
+  "state": "queued",
+  "implementation_status": "Existing fixes; automatic review evidence exists, final acceptance pending",
+  "owner": "gameplay-programmer",
+  "reviews_required": [
+    "ux-designer",
+    "art-director",
+    "godot-gdscript-specialist",
+    "qa-lead",
+    "sound-designer",
+    "performance-analyst"
+  ],
+  "depends_on": [
+    "CORE-NPC"
+  ],
+  "inputs": [
+    "CURRENT_SPEC.md",
+    "LATEST_USER_FEEDBACK.md",
+    "QA_GATES.md",
+    "LOCKED_ASSETS.md",
+    "docs/REQUIREMENTS_REVIEW_20261003.md",
+    "design/game-brief.md",
+    "design/ux/physical-objects.md",
+    "docs/architecture/STUDIO_BOUNDARIES.md"
+  ],
+  "files": [
+    "scripts/rebuild/final_walker.gd",
+    "scripts/ui/audio_feedback.gd",
+    "tests/final_walker_smoke.gd"
+  ],
+  "requirement_refs": [
+    "R16",
+    "R17",
+    "R23",
+    "R24",
+    "R25"
+  ],
+  "acceptance": [
+    {
+      "id": "CORE-WALK-AC1",
+      "requirement": "真实窗口走路脚底稳定、输入及时；记录帧/输入观测而非猜测",
+      "check": "Current relevant engine/input check + actual rendered frame inspection"
+    },
+    {
+      "id": "CORE-WALK-AC2",
+      "requirement": "每个突出的门、柜和箱有响应；不可用装饰降级",
+      "check": "Normal/exit/error/repeat/rapid input/save boundary checks and native observation"
+    },
+    {
+      "id": "CORE-WALK-AC3",
+      "requirement": "试听纸、木、脚步和场景完成反馈，记录触发与层次",
+      "check": "Actual OS input/listening/novice observation as applicable; save/reentry evidence"
+    }
+  ],
+  "completion": null
+}

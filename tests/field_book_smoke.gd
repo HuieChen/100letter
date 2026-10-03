@@ -28,7 +28,9 @@ func _run() -> void:
 	host.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
 	root.add_child(host)
 	var scene := TextureRect.new()
-	scene.texture = load("res://assets/generated/post_office_interior.png")
+	# QA must use the selected public bitmap, not a local ignored/private image.
+	scene.texture = load("res://assets/faefever_v2/backgrounds/BG_workroom.png")
+	_check(scene.texture != null and scene.texture.resource_path == "res://assets/faefever_v2/backgrounds/BG_workroom.png", "fixture uses selected public runtime art")
 	scene.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
 	scene.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_COVERED
 	scene.mouse_filter = Control.MOUSE_FILTER_IGNORE

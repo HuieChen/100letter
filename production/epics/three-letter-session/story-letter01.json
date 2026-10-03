@@ -1,0 +1,62 @@
+{
+  "schema_version": 1,
+  "id": "STORY-LETTER01",
+  "chain": "letter01",
+  "title": "公共线索与多轮人物推理",
+  "type": "UI / Integration / Visual-Feel",
+  "state": "queued",
+  "implementation_status": "Not implemented",
+  "owner": "gameplay-programmer",
+  "reviews_required": [
+    "systems-designer",
+    "writer",
+    "ux-designer",
+    "godot-gdscript-specialist",
+    "qa-lead",
+    "sound-designer"
+  ],
+  "depends_on": [
+    "CORE-WALK"
+  ],
+  "inputs": [
+    "CURRENT_SPEC.md",
+    "LATEST_USER_FEEDBACK.md",
+    "QA_GATES.md",
+    "LOCKED_ASSETS.md",
+    "docs/REQUIREMENTS_REVIEW_20261003.md",
+    "design/game-brief.md",
+    "design/ux/physical-objects.md",
+    "docs/architecture/STUDIO_BOUNDARIES.md"
+  ],
+  "files": [
+    "scripts/rebuild/final_case_state.gd",
+    "scripts/rebuild/final_playable.gd",
+    "data/rebuild/final_cases.json",
+    "tests/final_case_state_smoke.gd"
+  ],
+  "requirement_refs": [
+    "R26",
+    "R27",
+    "R30",
+    "R34",
+    "R38"
+  ],
+  "acceptance": [
+    {
+      "id": "STORY-LETTER01-AC1",
+      "requirement": "主管自然引出特殊邮件，至少两个独立来源交叉验证且无身份泄漏",
+      "check": "Current relevant engine/input check + actual rendered frame inspection"
+    },
+    {
+      "id": "STORY-LETTER01-AC2",
+      "requirement": "约1000字独特信件与丰富多轮对话，观察是必要线索",
+      "check": "Normal/exit/error/repeat/rapid input/save boundary checks and native observation"
+    },
+    {
+      "id": "STORY-LETTER01-AC3",
+      "requirement": "送达与错判有人的反馈，无强制跑腿等时填充",
+      "check": "Actual OS input/listening/novice observation as applicable; save/reentry evidence"
+    }
+  ],
+  "completion": null
+}

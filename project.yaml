@@ -1,0 +1,155 @@
+{
+  "schema_version": 1,
+  "name": "Solmere Post / 一百信",
+  "upstream_revision": "b21fa0f7f289fc3e726cf36fb12b9bc1e7a51e4d",
+  "engine": {
+    "name": "Godot",
+    "version": "4.7.2",
+    "language": "GDScript",
+    "source_root": "scripts/rebuild",
+    "entry": "scenes/final_slice.tscn"
+  },
+  "phase": "production",
+  "phases": [
+    "concept",
+    "systems-design",
+    "technical-setup",
+    "pre-production",
+    "production",
+    "polish",
+    "release"
+  ],
+  "modes": {
+    "rigor": "full",
+    "automation": "autonomous_within_user_scope",
+    "review_mode": "full_responsibility_checks"
+  },
+  "execution": "sequential_role_passes",
+  "upstream_hooks_activated": false,
+  "departments": {
+    "producer": {
+      "parent": "user",
+      "task": "Order one state chain; track unresolved work, conflicts and recorded handoff.",
+      "write_domains": [
+        "production/**",
+        "RUN_STATE.md",
+        "TASK_QUEUE.md"
+      ]
+    },
+    "ux-designer": {
+      "parent": "art-director",
+      "task": "Specify real object actions, visible exit, errors and novice legibility before implementation.",
+      "write_domains": [
+        "design/ux/**"
+      ]
+    },
+    "ui-programmer": {
+      "parent": "lead-programmer",
+      "task": "Implement bounded paper/UI controls with actual input, close paths and saved state.",
+      "write_domains": [
+        "scripts/rebuild/field_book.gd",
+        "scripts/rebuild/final_paper_map.gd",
+        "scripts/ui/**"
+      ]
+    },
+    "gameplay-programmer": {
+      "parent": "lead-programmer",
+      "task": "Keep physical state transitions, ownership and save/travel accounting consistent.",
+      "write_domains": [
+        "scripts/rebuild/final_playable.gd",
+        "scripts/rebuild/mail*",
+        "scripts/rebuild/postal_desk.gd",
+        "scripts/rebuild/final_case_state.gd",
+        "scripts/rebuild/final_walker.gd"
+      ]
+    },
+    "art-director": {
+      "parent": "creative-director",
+      "task": "Inspect actual frames: accepted bitmap unchanged, writing within paper, clear silhouettes; identify concrete fixes.",
+      "write_domains": [
+        "design/art/**"
+      ]
+    },
+    "godot-gdscript-specialist": {
+      "parent": "lead-programmer",
+      "task": "Review actual Godot 4.7.2 input, focus, anchoring, lifecycle and allocation boundaries.",
+      "write_domains": [
+        "docs/architecture/**"
+      ]
+    },
+    "qa-lead": {
+      "parent": "technical-director",
+      "task": "Adversarial coverage audit; reproduce failures; reject stale or absent native evidence.",
+      "write_domains": [
+        "production/qa/**",
+        "tests/**",
+        "QA_REPORT.md"
+      ]
+    },
+    "sound-designer": {
+      "parent": "audio-director",
+      "task": "Verify real trigger timing, material sound, levels, repetition and completion feedback by listening.",
+      "write_domains": [
+        "design/audio/**"
+      ]
+    },
+    "writer": {
+      "parent": "narrative-director",
+      "task": "Write substantial distinct voices, clue-bearing dialogue and morally ambiguous letters without explanatory narration.",
+      "write_domains": [
+        "design/narrative/**",
+        "data/rebuild/**"
+      ]
+    },
+    "systems-designer": {
+      "parent": "game-designer",
+      "task": "Map multi-source inference, fair puzzle prerequisites and wrong choices without softlocks.",
+      "write_domains": [
+        "design/gdd/**"
+      ]
+    },
+    "performance-analyst": {
+      "parent": "technical-director",
+      "task": "Measure input/frame timing and real animation continuity; separate preloading from player smoothness.",
+      "write_domains": [
+        "production/qa/performance/**"
+      ]
+    },
+    "release-manager": {
+      "parent": "producer",
+      "task": "Verify remote main, package identity, content/license inventory and unresolved acceptance before release.",
+      "write_domains": [
+        "production/releases/**",
+        "tools/build.ps1",
+        "tools/verify-package.ps1"
+      ]
+    },
+    "tools-programmer": {
+      "parent": "lead-programmer",
+      "task": "Maintain real evidence capture, production state checks and CI without bypassing incomplete runs.",
+      "write_domains": [
+        "tools/studio.py",
+        "tools/studio/**",
+        "tests/test_studio_*.py",
+        ".github/workflows/studio-adapter.yml"
+      ]
+    }
+  },
+  "roots": {
+    "design": "design",
+    "source": "scripts/rebuild",
+    "assets": "assets/faefever_v2",
+    "tests": "tests",
+    "tools": "tools",
+    "production": "production",
+    "prototypes": "review"
+  },
+  "principles": [
+    "Newest user request is authoritative.",
+    "Preserve accepted art, original saves and collaborator history.",
+    "One complete interaction chain at a time.",
+    "No explanatory narration or fake object actions.",
+    "Native/novice/listening evidence cannot be replaced by automated counts.",
+    "Available role definitions are not simultaneous agents."
+  ]
+}

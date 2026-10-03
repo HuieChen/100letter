@@ -1,6 +1,8 @@
 # Task queue — reviewed 2026-10-03
 Use CURRENT_SPEC.md and docs/REQUIREMENTS_REVIEW_20261003.md. CCGS adapter is part of QA, not proof of product completion.
 
+Current authoritative ordering/owners/dependencies: production/studio-board.json and production/epics/. Run studio.py status/ready/dispatch; inspect changed-file impact; record role findings and current evidence; finish/handoff before advancing. CORE-BOOK remains active; native/listening/novice evidence and the retained incomplete-engine observation prevent completion. Existing automatic implementation below is not a closed story.
+
 1. Native/novice review of corrected book/bag/map/NPC chains when the Windows desktop is unlocked; investigate the earlier intermittent current-resident source-opening miss. Automated source-frozen regression passes, not final acceptance.
 2. Direct bag/envelope chain has no Inspect_/Carry_ buttons; recheck visual and tactile quality under actual OS input.
 3. Direct map/one-trip accounting and transition HUD guards pass; inspect natural scene progression under actual OS input.

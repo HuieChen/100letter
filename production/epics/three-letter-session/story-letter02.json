@@ -1,0 +1,62 @@
+{
+  "schema_version": 1,
+  "id": "STORY-LETTER02",
+  "chain": "letter02",
+  "title": "信封本身的谜题与修复",
+  "type": "UI / Integration / Visual-Feel",
+  "state": "queued",
+  "implementation_status": "Not implemented",
+  "owner": "gameplay-programmer",
+  "reviews_required": [
+    "systems-designer",
+    "writer",
+    "ux-designer",
+    "godot-gdscript-specialist",
+    "qa-lead",
+    "sound-designer"
+  ],
+  "depends_on": [
+    "STORY-LETTER01"
+  ],
+  "inputs": [
+    "CURRENT_SPEC.md",
+    "LATEST_USER_FEEDBACK.md",
+    "QA_GATES.md",
+    "LOCKED_ASSETS.md",
+    "docs/REQUIREMENTS_REVIEW_20261003.md",
+    "design/game-brief.md",
+    "design/ux/physical-objects.md",
+    "docs/architecture/STUDIO_BOUNDARIES.md"
+  ],
+  "files": [
+    "scripts/rebuild/mail_workbench.gd",
+    "scripts/rebuild/mail_physics_state.gd",
+    "data/rebuild/final_cases.json",
+    "tests/mail_workbench_input_smoke.gd"
+  ],
+  "requirement_refs": [
+    "R26",
+    "R28",
+    "R30",
+    "R32",
+    "R36"
+  ],
+  "acceptance": [
+    {
+      "id": "STORY-LETTER02-AC1",
+      "requirement": "折痕、邮戳或破损在同一信封上，规则可推理不靠现代卡片",
+      "check": "Current relevant engine/input check + actual rendered frame inspection"
+    },
+    {
+      "id": "STORY-LETTER02-AC2",
+      "requirement": "真实工具动作修复出地址，材料和错误路径可信",
+      "check": "Normal/exit/error/repeat/rapid input/save boundary checks and native observation"
+    },
+    {
+      "id": "STORY-LETTER02-AC3",
+      "requirement": "完整取信、修复、确认与送达，退出重进不丢进度",
+      "check": "Actual OS input/listening/novice observation as applicable; save/reentry evidence"
+    }
+  ],
+  "completion": null
+}

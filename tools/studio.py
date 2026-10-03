@@ -7,6 +7,7 @@ from __future__ import annotations
 
 import argparse
 import hashlib
+import importlib.util
 import json
 import os
 from pathlib import Path
@@ -29,6 +30,18 @@ def digest(path: Path) -> str:
     return hashlib.sha256(path.read_bytes()).hexdigest()
 
 
+def source_digest(path: Path) -> str:
+    """Source fingerprints survive Git's CRLF/LF checkout normalization.
+
+    Retained evidence still uses digest(): an artifact must match its exact bytes.
+    Only the normal CRLF checkout pair is normalized, not content or whitespace.
+    """
+    content = path.read_bytes()
+    if path.suffix.lower() in (".gd", ".tscn", ".json", ".md", ".py", ".yaml", ".godot", ".cfg"):
+        content = content.replace(b"\r\n", b"\n")
+    return hashlib.sha256(content).hexdigest()
+
+
 def within(root: Path, relative: str) -> Path:
     if not isinstance(relative, str) or not relative or "\\" in relative:
         raise ValueError("Expected a nonempty forward-slash relative path")
@@ -47,7 +60,7 @@ def fingerprint(root: Path) -> dict[str, str]:
     for directory in ("scripts", "scenes", "data", "tests", "assets/faefever_v2", "assets/fonts", "assets/generated", "assets/characters/generated", "assets/audio"):
         paths += [p for p in (root / directory).rglob("*") if p.is_file()
                   and p.suffix.lower() in (".gd", ".tscn", ".json", ".png", ".ttf", ".wav", ".ogg")]
-    return {p.relative_to(root).as_posix(): digest(p) for p in sorted(set(paths)) if p.is_file()}
+    return {p.relative_to(root).as_posix(): source_digest(p) for p in sorted(set(paths)) if p.is_file()}
 
 
 def verify(root: Path) -> dict:
@@ -143,8 +156,9 @@ def gate(root: Path, chain_id: str, report: dict) -> dict:
     try:
         raw = read_json(artifact(root, engine["result"]))
         artifact(root, engine["log"])
-        expected_suite = config["chains"][chain_id].get("suite_name")
-        if raw.get("suite") != expected_suite or raw.get("checks") != engine.get("checks") or raw.get("failures") != []:
+        chain = config["chains"][chain_id]
+        expected_suite = chain.get("suite_name")
+        if raw.get(chain.get("suite_key", "suite")) != expected_suite or raw.get("checks") != engine.get("checks") or raw.get("failures") != []:
             problems.append("Engine result does not match recorded summary/suite")
     except (KeyError, ValueError, OSError, json.JSONDecodeError) as error:
         problems.append(f"Engine artifacts unverifiable: {error}")
@@ -191,7 +205,7 @@ def run(root: Path, chain_id: str, godot: Path) -> Path:
     prior_time = result_path.stat().st_mtime_ns if result_path.exists() else None
     args = [str(godot.resolve()), "--path", str(root), "--rendering-driver", "opengl3",
             "--position=-12000,-12000", "--audio-driver", "Dummy", "--resolution", "1920x1080",
-            "--script", "res://" + chain["suite"], "--log-file", str(log)]
+            "--script", "res://" + chain["suite"], "--log-file", str(log), *chain.get("suite_args", [])]
     startup = None
     if os.name == "nt":
         startup = subprocess.STARTUPINFO()
@@ -236,14 +250,38 @@ def run(root: Path, chain_id: str, godot: Path) -> Path:
 
 
 def main() -> int:
+    # PowerShell pipelines otherwise decode Windows' legacy Python code page as
+    # UTF-8, corrupting Chinese criteria in the JSON shown to collaborators.
+    for stream in (sys.stdout, sys.stderr):
+        if hasattr(stream, "reconfigure"):
+            stream.reconfigure(encoding="utf-8")
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("action", choices=("verify", "roles", "brief", "run", "gate"))
+    parser.add_argument("action", choices=("verify", "roles", "brief", "run", "gate", "status", "ready", "dispatch", "finish", "handoff", "impact"))
     parser.add_argument("--chain", default="book")
     parser.add_argument("--godot", type=Path)
     parser.add_argument("--evidence", type=Path)
+    parser.add_argument("--review", action="append", default=[], help="Explicit project-relative review JSON; repeat per role")
+    parser.add_argument("--path", action="append", default=[], help="Changed project-relative path for impact review")
     args = parser.parse_args()
     try:
-        if args.action == "verify":
+        if args.action in ("status", "ready", "dispatch", "finish", "handoff", "impact"):
+            spec = importlib.util.spec_from_file_location("studio_pipeline", ROOT / "tools/studio/pipeline.py")
+            pipeline = importlib.util.module_from_spec(spec)
+            spec.loader.exec_module(pipeline)
+            api = sys.modules[__name__]
+            if args.action == "status":
+                output = pipeline.status(ROOT, api)
+            elif args.action == "ready":
+                output = pipeline.ready(ROOT, args.chain, api)
+            elif args.action == "dispatch":
+                output = pipeline.dispatch(ROOT, args.chain, api)
+            elif args.action in ("finish", "handoff"):
+                output = getattr(pipeline, args.action)(ROOT, args.chain, args.evidence.as_posix() if args.evidence else None, args.review, api)
+            else:
+                if not args.path:
+                    raise ValueError("Supply at least one --path for change propagation")
+                output = pipeline.impact(ROOT, args.path, api)
+        elif args.action == "verify":
             output = verify(ROOT)
         elif args.action == "roles":
             verify(ROOT)

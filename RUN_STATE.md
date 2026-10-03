@@ -1,5 +1,7 @@
 # Run state
 
+2026-10-03 STUDIO_PRODUCTION: project.yaml + design/ + ordered production stories + ownership/dispatch/impact/review/handoff applied. Actual six responsibility records, sequential execution, zero spawned agents. 28 workflow tests pass; selected-public-art book run 20261003T135546061667Z passes 1484 checks. QA fixture dependency fixed; one earlier exit-0/no-fresh-result interruption remains unexplained. Current active story CORE-BOOK is not complete because native/listening/novice acceptance is absent. Details: docs/testing/STUDIO_PRODUCTION_20261003.md. Runtime and art unchanged; prior full-core/package results below belong to 5402b72.
+
 2026-10-03 WORKFLOW_ADAPTER: Donchitos/Claude-Code-Game-Studios pinned at b21fa0f7f289fc3e726cf36fb12b9bc1e7a51e4d, 49 available roles / 74 skills, MIT. Codex adapter integrity and evidence-rejection tests pass. This does not close the existing book chain; native/bilingual/responsive acceptance remains pending. No new runtime art or original saves changed by adoption. See docs/STUDIO_WORKFLOW.md.
 
 STATUS: CORE_AUTOMATED_REGRESSION_PASS / FINAL_ACCEPTANCE_NOT_COMPLETE

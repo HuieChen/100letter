@@ -1,0 +1,71 @@
+{
+  "schema_version": 1,
+  "id": "STORY-LETTER03",
+  "chain": "letter03",
+  "title": "迟到的私人信、语义修改与真实火漆",
+  "type": "UI / Integration / Visual-Feel",
+  "state": "queued",
+  "implementation_status": "Not implemented",
+  "owner": "gameplay-programmer",
+  "reviews_required": [
+    "systems-designer",
+    "writer",
+    "ux-designer",
+    "godot-gdscript-specialist",
+    "qa-lead",
+    "sound-designer"
+  ],
+  "depends_on": [
+    "STORY-LETTER02"
+  ],
+  "inputs": [
+    "CURRENT_SPEC.md",
+    "LATEST_USER_FEEDBACK.md",
+    "QA_GATES.md",
+    "LOCKED_ASSETS.md",
+    "docs/REQUIREMENTS_REVIEW_20261003.md",
+    "design/game-brief.md",
+    "design/ux/physical-objects.md",
+    "docs/architecture/STUDIO_BOUNDARIES.md"
+  ],
+  "files": [
+    "scripts/rebuild/mail_workbench.gd",
+    "scripts/rebuild/mail_physics_state.gd",
+    "scripts/rebuild/final_case_state.gd",
+    "data/rebuild/final_cases.json",
+    "tests/final_amended_handoff_input.gd"
+  ],
+  "requirement_refs": [
+    "R26",
+    "R29",
+    "R30",
+    "R31",
+    "R32",
+    "R33",
+    "R34",
+    "R35"
+  ],
+  "acceptance": [
+    {
+      "id": "STORY-LETTER03-AC1",
+      "requirement": "公开调查没有唯一答案，玩家自己选择拆信，工具不提示正确选择",
+      "check": "Current relevant engine/input check + actual rendered frame inspection"
+    },
+    {
+      "id": "STORY-LETTER03-AC2",
+      "requirement": "约1000字旧分手信，分散修改与删词双关、原文和改痕可追溯",
+      "check": "Normal/exit/error/repeat/rapid input/save boundary checks and native observation"
+    },
+    {
+      "id": "STORY-LETTER03-AC3",
+      "requirement": "蜡、匙、火、倒、压、冷却、抬章真实状态链；装回信并修复封口",
+      "check": "Normal/exit/error/repeat/rapid input/save boundary checks and native observation"
+    },
+    {
+      "id": "STORY-LETTER03-AC4",
+      "requirement": "实测三信连续≥30分钟有效游玩；道德后果有戏剧张力，不评善恶",
+      "check": "Actual OS input/listening/novice observation as applicable; save/reentry evidence"
+    }
+  ],
+  "completion": null
+}

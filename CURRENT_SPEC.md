@@ -29,3 +29,6 @@ WeChat File Transfer Assistant reporting is authorized but tool-blocked: retain 
 
 ## Latest user update — all prior issues and plain cover
 2026-10-03: Recheck every earlier issue, self-find and fix bugs against the highest requirements. Cover is a blank plain background with the game name; no image generation. Preserve the accepted framework/art. Fresh automated, native and novice evidence remain distinct. Prior main publication authorization remains valid.
+
+## Latest user update — genuinely use the studio workflow
+2026-10-03: The prior studio adoption was insufficient. Use its production structure and responsibilities for subsequent work. Project-local project.yaml, design/, production/epics/, ownership boundaries and executable dispatch/readiness/review/handoff/change propagation now organize work. Preserve all previous quality and art constraints. Role passes must produce actual findings and current evidence; definitions or documents alone do not mean agents worked or game quality passed.

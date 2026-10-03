@@ -80,6 +80,15 @@ class StudioGateTests(unittest.TestCase):
         result = self.rejected(self.report)
         self.assertIn("Source/test/art fingerprint is missing or stale", result["blockers"])
 
+    def test_source_crlf_checkout_is_equivalent_but_artifact_bytes_are_strict(self):
+        self.write("scripts/book.gd", b"same source\nnext line\n")
+        report = copy.deepcopy(self.report)
+        report["source_fingerprint"] = studio.fingerprint(self.root)
+        self.write("scripts/book.gd", b"same source\r\nnext line\r\n")
+        self.assertEqual(studio.gate(self.root, "book", report)["status"], "READY_FOR_PHASE_REPORT")
+        self.write("evidence/engine.log", b"fixture successful engine output\r\n")
+        self.rejected(report)
+
     def test_source_change_during_capture_is_rejected(self):
         report = copy.deepcopy(self.report)
         report["source_unchanged_during_run"] = False

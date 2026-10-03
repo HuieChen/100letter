@@ -1,0 +1,58 @@
+{
+  "schema_version": 1,
+  "id": "CORE-MAP",
+  "chain": "map",
+  "title": "纸图选地点、收起、场景推进、到达",
+  "type": "UI / Integration / Visual-Feel",
+  "state": "queued",
+  "implementation_status": "Existing fixes; automatic review evidence exists, final acceptance pending",
+  "owner": "ui-programmer",
+  "reviews_required": [
+    "ux-designer",
+    "art-director",
+    "godot-gdscript-specialist",
+    "qa-lead",
+    "sound-designer"
+  ],
+  "depends_on": [
+    "CORE-BAG"
+  ],
+  "inputs": [
+    "CURRENT_SPEC.md",
+    "LATEST_USER_FEEDBACK.md",
+    "QA_GATES.md",
+    "LOCKED_ASSETS.md",
+    "docs/REQUIREMENTS_REVIEW_20261003.md",
+    "design/game-brief.md",
+    "design/ux/physical-objects.md",
+    "docs/architecture/STUDIO_BOUNDARIES.md"
+  ],
+  "files": [
+    "scripts/rebuild/final_paper_map.gd",
+    "scripts/rebuild/final_playable.gd",
+    "tests/core_review_input.gd"
+  ],
+  "requirement_refs": [
+    "R14",
+    "R15",
+    "R36"
+  ],
+  "acceptance": [
+    {
+      "id": "CORE-MAP-AC1",
+      "requirement": "点一个已知地点直接推进，没有额外沿路线步行确认",
+      "check": "Current relevant engine/input check + actual rendered frame inspection"
+    },
+    {
+      "id": "CORE-MAP-AC2",
+      "requirement": "当前地点不计时，快速重复输入只发生一次行程",
+      "check": "Normal/exit/error/repeat/rapid input/save boundary checks and native observation"
+    },
+    {
+      "id": "CORE-MAP-AC3",
+      "requirement": "转场不能插入背包或档案，到达后恢复控制，实机观感自然",
+      "check": "Actual OS input/listening/novice observation as applicable; save/reentry evidence"
+    }
+  ],
+  "completion": null
+}

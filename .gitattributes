@@ -1,5 +1,6 @@
 * text=auto
 *.gd text eol=lf
+*.py text eol=lf
 *.tscn text eol=lf
 *.json text eol=lf
 *.md text eol=lf
@@ -16,3 +17,6 @@ assets/audio/foley/KENNEY_CC0.txt -text -whitespace
 docs/testing/video_evidence/*.txt -text -whitespace
 # Pinned third-party snapshot hashes must survive Windows/Linux checkout.
 third_party/claude-code-game-studios/** -text -eol -whitespace
+# Retained evidence hashes bind exact bytes on every collaborator's checkout.
+production/qa/** -text -eol -whitespace
+docs/testing/studio_20261003/** -text -eol -whitespace

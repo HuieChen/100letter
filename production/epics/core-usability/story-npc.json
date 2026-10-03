@@ -1,0 +1,63 @@
+{
+  "schema_version": 1,
+  "id": "CORE-NPC",
+  "chain": "npc",
+  "title": "人物响应、追问、线索、退出、下一步",
+  "type": "UI / Integration / Visual-Feel",
+  "state": "queued",
+  "implementation_status": "Existing fixes; automatic review evidence exists, final acceptance pending",
+  "owner": "gameplay-programmer",
+  "reviews_required": [
+    "writer",
+    "ux-designer",
+    "art-director",
+    "godot-gdscript-specialist",
+    "qa-lead",
+    "sound-designer"
+  ],
+  "depends_on": [
+    "CORE-MAP"
+  ],
+  "inputs": [
+    "CURRENT_SPEC.md",
+    "LATEST_USER_FEEDBACK.md",
+    "QA_GATES.md",
+    "LOCKED_ASSETS.md",
+    "docs/REQUIREMENTS_REVIEW_20261003.md",
+    "design/game-brief.md",
+    "design/ux/physical-objects.md",
+    "docs/architecture/STUDIO_BOUNDARIES.md"
+  ],
+  "files": [
+    "scripts/rebuild/scene_dialogue.gd",
+    "scripts/rebuild/final_playable.gd",
+    "data/rebuild/final_cases.json",
+    "tests/scene_dialogue_input_smoke.gd",
+    "data/rebuild/final_dialogues.json"
+  ],
+  "requirement_refs": [
+    "R19",
+    "R20",
+    "R21",
+    "R22",
+    "R38"
+  ],
+  "acceptance": [
+    {
+      "id": "CORE-NPC-AC1",
+      "requirement": "人物可点，走近交谈，对白和话题均有清晰叉号",
+      "check": "Current relevant engine/input check + actual rendered frame inspection"
+    },
+    {
+      "id": "CORE-NPC-AC2",
+      "requirement": "回复包含可用线索与人物立场，记得追问，不用解释性旁白",
+      "check": "Normal/exit/error/repeat/rapid input/save boundary checks and native observation"
+    },
+    {
+      "id": "CORE-NPC-AC3",
+      "requirement": "首次玩家能理解第一动作与下一目标；对白不溢出且重复进退不死锁",
+      "check": "Actual OS input/listening/novice observation as applicable; save/reentry evidence"
+    }
+  ],
+  "completion": null
+}

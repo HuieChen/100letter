@@ -5,15 +5,131 @@
   "automation": "autonomous_within_user_scope",
   "review_mode": "solo_sequential",
   "current_chain": "book",
-  "required_native_checks": ["normal_path", "visible_cross", "escape", "invalid_actions", "rapid_input", "reentry", "save_restore", "focus_loss", "zh_en_layout", "responsive_layout"],
+  "required_native_checks": [
+    "normal_path",
+    "visible_cross",
+    "escape",
+    "invalid_actions",
+    "rapid_input",
+    "reentry",
+    "save_restore",
+    "focus_loss",
+    "zh_en_layout",
+    "responsive_layout",
+    "audio_listening",
+    "novice_clarity"
+  ],
   "chains": {
-    "book": {"title": "Book open / real pages / visible cross / reopen", "roles": ["ui-programmer", "godot-gdscript-specialist", "ux-designer", "qa-tester"], "suite": "tests/field_book_smoke.gd", "suite_report": "test-results/field_book_results.json", "suite_name": "field_book"},
-    "bag": {"title": "Bag / envelope pickup / direct inspect / return", "roles": ["gameplay-programmer", "ux-designer", "sound-designer", "qa-tester"]},
-    "map": {"title": "Destination selection / close map / transition / arrival", "roles": ["level-designer", "ui-programmer", "ux-designer", "qa-tester"]},
-    "npc": {"title": "NPC affordance / useful dialogue / visible close", "roles": ["writer", "narrative-director", "ux-designer", "qa-tester"]},
-    "walk": {"title": "Preloaded walk frames / stable feet / responsive movement", "roles": ["gameplay-programmer", "technical-artist", "performance-analyst", "qa-tester"]},
-    "letter01": {"title": "Public observation / multi-round dialogue / justified delivery", "roles": ["systems-designer", "writer", "gameplay-programmer", "qa-tester"]},
-    "letter02": {"title": "Physical envelope puzzle / recovered address / verified delivery", "roles": ["systems-designer", "technical-artist", "gameplay-programmer", "qa-tester"]},
-    "letter03": {"title": "Unresolved investigation / optional opening / distributed edits / wax seal / consequences", "roles": ["narrative-director", "writer", "gameplay-programmer", "qa-tester"]}
+    "book": {
+      "title": "Book open / real pages / visible cross / reopen",
+      "roles": [
+        "ui-programmer",
+        "godot-gdscript-specialist",
+        "ux-designer",
+        "qa-tester"
+      ],
+      "suite": "tests/field_book_smoke.gd",
+      "suite_report": "test-results/field_book_results.json",
+      "suite_name": "field_book"
+    },
+    "bag": {
+      "title": "Bag / envelope pickup / direct inspect / return",
+      "roles": [
+        "gameplay-programmer",
+        "ux-designer",
+        "sound-designer",
+        "qa-tester"
+      ],
+      "suite": "tests/core_review_input.gd",
+      "suite_report": "test-results/core-review/all.json",
+      "suite_name": "all",
+      "suite_key": "phase",
+      "suite_args": [
+        "--",
+        "--phase=all"
+      ],
+      "coverage_scope": "Shared hosted core suite, not an isolated chain or native playtest"
+    },
+    "map": {
+      "title": "Destination selection / close map / transition / arrival",
+      "roles": [
+        "level-designer",
+        "ui-programmer",
+        "ux-designer",
+        "qa-tester"
+      ],
+      "suite": "tests/core_review_input.gd",
+      "suite_report": "test-results/core-review/all.json",
+      "suite_name": "all",
+      "suite_key": "phase",
+      "suite_args": [
+        "--",
+        "--phase=all"
+      ],
+      "coverage_scope": "Shared hosted core suite, not an isolated chain or native playtest"
+    },
+    "npc": {
+      "title": "NPC affordance / useful dialogue / visible close",
+      "roles": [
+        "writer",
+        "narrative-director",
+        "ux-designer",
+        "qa-tester"
+      ],
+      "suite": "tests/core_review_input.gd",
+      "suite_report": "test-results/core-review/all.json",
+      "suite_name": "all",
+      "suite_key": "phase",
+      "suite_args": [
+        "--",
+        "--phase=all"
+      ],
+      "coverage_scope": "Shared hosted core suite, not an isolated chain or native playtest"
+    },
+    "walk": {
+      "title": "Preloaded walk frames / stable feet / responsive movement",
+      "roles": [
+        "gameplay-programmer",
+        "technical-artist",
+        "performance-analyst",
+        "qa-tester"
+      ],
+      "suite": "tests/core_review_input.gd",
+      "suite_report": "test-results/core-review/all.json",
+      "suite_name": "all",
+      "suite_key": "phase",
+      "suite_args": [
+        "--",
+        "--phase=all"
+      ],
+      "coverage_scope": "Shared hosted core suite, not an isolated chain or native playtest"
+    },
+    "letter01": {
+      "title": "Public observation / multi-round dialogue / justified delivery",
+      "roles": [
+        "systems-designer",
+        "writer",
+        "gameplay-programmer",
+        "qa-tester"
+      ]
+    },
+    "letter02": {
+      "title": "Physical envelope puzzle / recovered address / verified delivery",
+      "roles": [
+        "systems-designer",
+        "technical-artist",
+        "gameplay-programmer",
+        "qa-tester"
+      ]
+    },
+    "letter03": {
+      "title": "Unresolved investigation / optional opening / distributed edits / wax seal / consequences",
+      "roles": [
+        "narrative-director",
+        "writer",
+        "gameplay-programmer",
+        "qa-tester"
+      ]
+    }
   }
 }

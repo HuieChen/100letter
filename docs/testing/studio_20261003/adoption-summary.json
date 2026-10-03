@@ -1,0 +1,106 @@
+{
+  "status": "PRODUCTION_STRUCTURE_APPLIED",
+  "game_acceptance": "NOT_COMPLETE",
+  "active_story": "CORE-BOOK",
+  "execution": "sequential_role_passes",
+  "spawned_agents": 0,
+  "responsibility_records": [
+    "ui-programmer",
+    "ux-designer",
+    "art-director",
+    "godot-gdscript-specialist",
+    "qa-lead",
+    "sound-designer"
+  ],
+  "workflow_tests": 28,
+  "current_book_engine_checks": 1484,
+  "book_engine_failures": [],
+  "retained_screenshots": 25,
+  "unchanged_runtime_and_art": true,
+  "fixed": "QA fixture uses selected public background; source fingerprints handle Git line endings, evidence remains byte-exact, and adapter changes invalidate reviews.",
+  "finish": {
+    "chain": "book",
+    "story": "CORE-BOOK",
+    "status": "NOT_COMPLETE",
+    "blockers": [
+      "Review pending/rework: ux-designer",
+      "Acceptance criterion pending/unverifiable: CORE-BOOK-AC1",
+      "Acceptance criterion pending/unverifiable: CORE-BOOK-AC2",
+      "Acceptance criterion pending/unverifiable: CORE-BOOK-AC3",
+      "Review pending/rework: art-director",
+      "Review pending/rework: qa-lead",
+      "Acceptance criterion pending/unverifiable: CORE-BOOK-AC1",
+      "Acceptance criterion pending/unverifiable: CORE-BOOK-AC2",
+      "Acceptance criterion pending/unverifiable: CORE-BOOK-AC3",
+      "Review pending/rework: sound-designer",
+      "Acceptance criterion pending/unverifiable: CORE-BOOK-AC1",
+      "Acceptance criterion pending/unverifiable: CORE-BOOK-AC2",
+      "Acceptance criterion pending/unverifiable: CORE-BOOK-AC3",
+      "Acceptance criterion not verified: CORE-BOOK-AC1",
+      "Acceptance criterion not verified: CORE-BOOK-AC2",
+      "Acceptance criterion not verified: CORE-BOOK-AC3",
+      "Actual OS-input/visual review not recorded",
+      "Native check pending/failed: normal_path",
+      "Native check pending/failed: visible_cross",
+      "Native check pending/failed: escape",
+      "Native check pending/failed: invalid_actions",
+      "Native check pending/failed: rapid_input",
+      "Native check pending/failed: reentry",
+      "Native check pending/failed: save_restore",
+      "Native check pending/failed: focus_loss",
+      "Native check pending/failed: zh_en_layout",
+      "Native check pending/failed: responsive_layout",
+      "Native check pending/failed: audio_listening",
+      "Native check pending/failed: novice_clarity",
+      "No verified full 1920x1080 native screenshot",
+      "Unresolved blocker list missing or nonempty"
+    ],
+    "reviews": {
+      "ux-designer": "NOT_ASSESSED",
+      "art-director": "NOT_ASSESSED",
+      "godot-gdscript-specialist": "PASS",
+      "qa-lead": "REWORK",
+      "sound-designer": "NOT_ASSESSED"
+    },
+    "basis": {
+      "CURRENT_SPEC.md": "c090b55fce8ec3378ed6577ed4514ec1419cc532110160edbea3aaed205d9395",
+      "LATEST_USER_FEEDBACK.md": "9ba8e6263eef5d897c8f117ee13a4d5d59103a00f8cd9b00d484264ee3220cc2",
+      "LOCKED_ASSETS.md": "83420650619d5a95390298e86186866fc4c28b530a7f4ef012a00f84ef964bcd",
+      "QA_GATES.md": "cf47a23ba5514dcec0eb5ffd15d4a6a260a8dbb06e0d9c6214a9166450eace69",
+      "design/game-brief.md": "ff84e1907e755c1777191d114d5525510c753fc80baa0ca76814bea2770fd0e4",
+      "design/ux/physical-objects.md": "9a1eaecec62849adb8e60e7181719fbad566006b6198bd58ade5c8c1442cb98d",
+      "docs/REQUIREMENTS_REVIEW_20261003.md": "fab4fe00d54131679c633def4421b2e7b81ab026f98f5108ff5f5ec19b5bbda4",
+      "docs/architecture/STUDIO_BOUNDARIES.md": "1b1f2defc7a39cb12e904076f735d758c8202122c899915c522a4d702809959b",
+      "production/epics/core-usability/story-book.json": "467a9d538ffca216a64523efccdb5cf198ec112af069607392a4e8ad1e547c2b",
+      "production/studio-board.json": "0c4b53f02c12dc3f48840807a1f57d41ff9174c40ef1c3b0bbb39729f3ee88dd",
+      "project.yaml": "cef29968a12884ee71b7238a4903aaa28f8273865676fd40b3286dce43df1314",
+      "scripts/rebuild/field_book.gd": "7de2fa73e15edc069a15273c756ea162be50e95f66937896765bcebe93fe9b48",
+      "scripts/ui/paper_ui.gd": "a55a285ef83bf966cabb5c6ffb5d66216f0d596fde4f27789318f3bcee444f24",
+      "tests/field_book_smoke.gd": "52501496d1af6fcadc3463f19a80df1acdca95901f7d96dee1357480afb78635",
+      "tools/studio.py": "8754680fe0f349fdf403d3f4369119fbec32bd51738f1bc814b1d7ae342fefb2",
+      "tools/studio/config.json": "8794e25bd3ccb12eb496bb5145813fa7341988f9afac083321a2ccfa5554356d",
+      "tools/studio/pipeline.py": "bf3f38ad8fce8732c74626fd09c84637b838d4dabe77e96bf359dbc6ce9c5181",
+      "tools/studio/upstream.lock.json": "6790a1ccb85cf8cb32f1400078a337c65f05b95022ec45216556b780af4a4f7d"
+    },
+    "state_was_changed": false,
+    "player_acceptance": "NOT_INFERRED"
+  },
+  "evidence_paths": [
+    {
+      "path": "docs/testing/studio_20261003/book-engine-result.json",
+      "sha256": "3c88ba004546aa1c2b198a69577bf228b1e898eb7237627761e812cf5a8f50a1"
+    },
+    {
+      "path": "docs/testing/studio_20261003/book-engine.log",
+      "sha256": "8fdea61cb24d9de7d7f5cd960025e61496af48545b9e8242ed3fc070cfa5b23b"
+    },
+    {
+      "path": "docs/testing/studio_20261003/field_book_person_zh_1920.png",
+      "sha256": "0cc5d0870d8b149dbda2d57ce39a0d69636894c4018f0b1201173e512f2f35b3"
+    },
+    {
+      "path": "docs/testing/studio_20261003/field_book_source_en_1920.png",
+      "sha256": "44b4cfb89241cd8b2b88607b1f139077fb8868f83d55b736cc283ad0a08661bc"
+    }
+  ]
+}

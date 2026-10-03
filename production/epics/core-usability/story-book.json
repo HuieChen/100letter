@@ -1,0 +1,60 @@
+{
+  "schema_version": 1,
+  "id": "CORE-BOOK",
+  "chain": "book",
+  "title": "实体档案：打开、翻页、记录、关闭、重进",
+  "type": "UI / Integration / Visual-Feel",
+  "state": "review",
+  "implementation_status": "Existing fixes; automatic review evidence exists, final acceptance pending",
+  "owner": "ui-programmer",
+  "reviews_required": [
+    "ux-designer",
+    "art-director",
+    "godot-gdscript-specialist",
+    "qa-lead",
+    "sound-designer"
+  ],
+  "depends_on": [],
+  "inputs": [
+    "CURRENT_SPEC.md",
+    "LATEST_USER_FEEDBACK.md",
+    "QA_GATES.md",
+    "LOCKED_ASSETS.md",
+    "docs/REQUIREMENTS_REVIEW_20261003.md",
+    "design/game-brief.md",
+    "design/ux/physical-objects.md",
+    "docs/architecture/STUDIO_BOUNDARIES.md"
+  ],
+  "files": [
+    "scripts/rebuild/field_book.gd",
+    "scripts/ui/paper_ui.gd",
+    "tests/field_book_smoke.gd"
+  ],
+  "requirement_refs": [
+    "R04",
+    "R09",
+    "R10",
+    "R11",
+    "R12",
+    "R13",
+    "R25"
+  ],
+  "acceptance": [
+    {
+      "id": "CORE-BOOK-AC1",
+      "requirement": "纸内排版与肖像清楚，中英三尺寸没有字出纸外",
+      "check": "Current relevant engine/input check + actual rendered frame inspection"
+    },
+    {
+      "id": "CORE-BOOK-AC2",
+      "requirement": "页角、×、Esc、错误输入及快速翻页可操作，回现场后能继续",
+      "check": "Normal/exit/error/repeat/rapid input/save boundary checks and native observation"
+    },
+    {
+      "id": "CORE-BOOK-AC3",
+      "requirement": "已观察记录与暂定推断保存重开；翻页声音实际试听",
+      "check": "Actual OS input/listening/novice observation as applicable; save/reentry evidence"
+    }
+  ],
+  "completion": null
+}

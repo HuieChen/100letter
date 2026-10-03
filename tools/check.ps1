@@ -50,7 +50,9 @@ Push-Location $taskRepo
 try {
     & $taskPython tools/studio.py verify
     if ($LASTEXITCODE -ne 0) { throw 'Studio upstream/adapter integrity failed' }
-    & $taskPython -m unittest discover -s tests -p test_studio_workflow.py -v
+    & $taskPython tools/studio.py status
+    if ($LASTEXITCODE -ne 0) { throw 'Studio production structure failed' }
+    & $taskPython -m unittest discover -s tests -p 'test_studio_*.py' -v
     if ($LASTEXITCODE -ne 0) { throw 'Studio evidence gate regression failed' }
     if ($ArchiveChecks) {
         if (-not $ArchiveRoot) { $ArchiveRoot = $taskRepo }
