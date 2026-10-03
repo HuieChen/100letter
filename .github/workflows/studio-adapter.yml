@@ -16,5 +16,6 @@ jobs:
           python-version: '3.12'
       - run: python tools/studio.py verify
       - run: python tools/check_gut.py --verify-only
+      - run: python tools/check_evidence_bytes.py
       - run: python tools/studio.py status
       - run: python -m unittest discover -s tests -p 'test_studio_*.py' -v
