@@ -27,7 +27,7 @@ func _run() -> void:
 	await process_frame
 	_check(host.view=="title", "real playable title is mounted")
 	await _shot("01_title")
-	await _text("开始这个夏日")
+	await _named("NewShift")
 	_check(host.view=="counter" and host.core.state.location=="post_office","new day starts directly at the working counter")
 	await _wait(func():return _node("FinishBriefing")!=null,"brief supervisor scene appears before work")
 	await _shot("01b_counter_supervisor")
@@ -67,7 +67,7 @@ func _run() -> void:
 	await _key(KEY_ESCAPE)
 	_check(host.walker.visible and host.walker.manual_enabled and not is_instance_valid(host.modal),"closing world notebook restores visible playable courier")
 	await _named("OpenBag")
-	await _named("Inspect_case01")
+	await _named("Envelope_case01")
 	_check(_modal_script().ends_with("mail_workbench.gd") and not host.walker.visible,"world bag-to-workbench route also hides courier")
 	await _key(KEY_ESCAPE)
 	_check(host.walker.visible and host.walker.manual_enabled,"safe world workbench close restores actor and input")
@@ -122,7 +122,8 @@ func _run() -> void:
 	await _named("AdvanceDialogue")
 	await _text("结束交谈")
 	await _named("OpenBag")
-	await _named("Carry_case01")
+	await _named("Envelope_case01")
+	await _click(Vector2(1495,60))
 	_check(host.carried=="case01" and _node("CarriedLetter")!=null,"physical bag choice carries the first letter in world")
 	await _named("Talk_elsie_moran")
 	await _wait(func():return is_instance_valid(host.modal),"carried letter approaches recipient before handoff")
@@ -212,14 +213,11 @@ func _run() -> void:
 	_finish()
 
 func _travel(id: String) -> void:
-	var previous: String=host.core.state.location
 	var minute: int=host.core.state.minute
 	await _named("OpenMap")
 	await _named("Map_"+id)
-	_check(host.core.state.location==previous and host.core.state.minute==minute,"map selection only previews "+id)
-	await _shot("map_preview_"+id)
-	await _text("沿这条路步行")
-	await _wait(func():return not host.busy and host.core.state.location==id,"explicit departure reaches "+id)
+	_check(host.busy and not is_instance_valid(host.modal),"map folds and starts selected trip to "+id)
+	await _wait(func():return not host.busy and host.core.state.location==id,"destination click reaches "+id)
 	_check(host.core.state.minute==minute+15,"actual short trip charges one 15-minute event to "+id)
 
 func _recover_pause() -> void:
@@ -305,7 +303,14 @@ func _visible_text(node: Node, fragment: String) -> bool:
 func _wait(condition: Callable, label: String, limit: float=12.0) -> void:
 	var deadline:=Time.get_ticks_msec()+int(limit*1000)
 	while not condition.call() and Time.get_ticks_msec()<deadline: await process_frame
-	_check(bool(condition.call()),label)
+	var passed:=bool(condition.call())
+	_check(passed,label)
+	if not passed:
+		var diagnostics:={"view":host.view,"busy":host.busy,"location":host.core.state.location,"minute":host.core.state.minute,"modal":_modal_script(),"context":host.get_meta("last_context_event",""),"active_operation":host.core.state.active_operation}
+		if is_instance_valid(host.walker):
+			diagnostics["walker"]={"foot":str(host.walker.foot),"target":str(host.walker.target),"walking":host.walker.walking,"focused":host.walker._window_focused,"pending_action":host.walker._pending_action.is_valid()}
+		print("WAIT DIAGNOSTICS ",JSON.stringify(diagnostics))
+		await _shot("failed_"+label.validate_filename())
 
 func _move(point: Vector2) -> void:
 	var event:=InputEventMouseMotion.new();event.position=point;event.global_position=point;event.relative=point-pointer
@@ -341,7 +346,7 @@ func _key(key: Key, control:bool=false) -> void:
 
 func _shot(file_name: String) -> void:
 	if "--capture-input" not in OS.get_cmdline_user_args():return
-	await process_frame;await RenderingServer.frame_post_draw
+	await process_frame;RenderingServer.force_draw(false)
 	DirAccess.make_dir_recursive_absolute(OUT)
 	var path:=OUT+file_name+".png"
 	_check(root.get_texture().get_image().save_png(path)==OK,"GPU screenshot "+file_name)

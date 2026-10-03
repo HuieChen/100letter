@@ -50,6 +50,7 @@ var _lens: ColorRect
 var _glass_sprite: TextureRect
 var _presentation_from := Rect2()
 var _presentation := 1.0
+var _rejection := 0.0
 const EDIT_ORIGIN := Vector2(570,170)
 const EDIT_ZOOM := 2.15
 
@@ -427,6 +428,9 @@ func _feedback(error: String) -> void:
 	var explanations: Dictionary={"visible_crease":"纸边出现了新的折伤。停下看清封线再继续。","inspect_both_sides_on_mat_first":"先把信封拖放到垫上，并查看正反面。","align_and_protect_first":"先对齐标签，再把保护片盖到它上面。","move_to_opening_area":"右侧空间不足。先把信封向左上方移一些。","refold_before_insertion":"纸页还展开着，先沿原折线折回。","seam_not_open":"封口只松开了一部分，先完成已经开始的封线操作。","release_object_first":"先放下手中的纸件。","hand_busy":"先归还工具或放下纸件。","label_not_movable":"标签边还未托起，或已经压合。","already_unfolded":"这一轮纸页已经展开，可双击阅读或选择折回。"}
 	if error in ["no_material_contact","seam_already_open","already_facing"]: return
 	_message=explanations.get(error,"这一步还不能进行。先检查纸件的当前位置和折线。")
+	_rejection=1.0
+	cue.emit("tool")
+	create_tween().tween_method(func(value:float):_rejection=value;queue_redraw(),1.0,0.0,0.18)
 	queue_redraw()
 
 func _instruction() -> String:
@@ -482,12 +486,14 @@ func _draw() -> void:
 	if _presentation<1.0:
 		var target:=Rect2(to_canvas(model.object_rect("envelope").position)/_fit,model.object_rect("envelope").size*float(_snapshot.zoom))
 		Art.paint(self,"envelope_front",Rect2(_presentation_from.position.lerp(target.position,_presentation),_presentation_from.size.lerp(target.size,_presentation)))
-	_overlay_text("收起阅读 ×" if _reading else ("返回整封 ↗" if _amending else "放稳离开 ↗"),Vector2(1410,49),156,19)
-	if not _hover_tool.is_empty() and drawer.opened:_overlay_text(LABELS.get(_hover_tool,"放大镜"),Vector2(1150,640),350,18)
-	if _hint_shade!=null:draw_texture_rect(_hint_shade,Rect2(0,823,1120,77),false)
-	var hint:String=_message if not _message.is_empty() else _instruction()
-	if _reading:hint="滚轮阅读纸页。可查看保留的原文；Esc 收起后回到这封信。"
-	_text(hint,Vector2(50,847),1020,19,Color("ffd6c9") if _save_problem else Color("fff9e9"))
+	_overlay_text("×",Vector2(1460,32),70,38)
+	# Routine controls are conveyed by the physical object/cursor, never a
+	# narrator strip. Disk-save failure is a system problem and stays visible.
+	if _save_problem:_text(_message,Vector2(50,847),1020,19,Color("ffd6c9"))
+	if _rejection>0.0:
+		var item:=model.object_rect("envelope")
+		var at:=to_canvas(item.position)/_fit
+		draw_rect(Rect2(at,item.size*float(_snapshot.zoom)).grow(3),Color(0.74,0.33,0.23,_rejection*0.55),false,2)
 	draw_set_transform(Vector2.ZERO)
 
 func _tool_is_enabled(id: String) -> bool:
@@ -505,30 +511,24 @@ func _draw_sprite(id:String,rect:Rect2,tint:Color=Color.WHITE,_shadow:bool=false
 func _draw_envelope() -> void:
 	var rect: Rect2=model.object_rect("envelope")
 	_draw_sprite("envelope_front" if _snapshot.face=="front" else "envelope_back",rect,Color.WHITE,true)
-	if _snapshot.face=="front":
-		var y:=rect.position.y+35.0
-		var fields: Dictionary=_view.get("front",{})
-		for key: String in fields:
-			if key=="address" and str(fields[key])=="water-damaged":
-				# A material-condition sentinel is not literal writing on the envelope.
-				for row: int in range(3):
-					draw_line(Vector2(rect.position.x+31,y+5+row*8),Vector2(rect.position.x+130+row*13,y+7+row*8),Color(0.34,0.47,0.43,0.17),3.0,true)
-				y+=34;continue
-			y+=_text(str(fields[key]),Vector2(rect.position.x+28,y),310,21 if key=="recipient" else 16,INK)+8
-	else:
-		var y:=rect.position.y+126.0
-		var fields: Dictionary=_view.get("back",{})
-		for key: String in fields:
-			if key=="recovered_fields": continue
-			if key=="back" and case_id=="case03": continue
-			y+=_text(str(fields[key]),Vector2(rect.position.x+25,y),330,18,INK)+8
-		if case_id=="case03" and not _snapshot.exterior_repaired:
-			var label: Rect2=model.object_rect("label")
-			Art.paint(self,"repair_label",label)
-			_text("—  /  —",label.position+Vector2(8,12),75,14,Color("958d7e"))
-		if fields.has("recovered_fields"):
-			var recovered: Dictionary=fields.recovered_fields
-			_text("%s · %s\n%s\n%s — %s"%[recovered.original_address,recovered.forwarding_recipient,recovered.forwarding_destination,recovered.forwarding_valid_from,recovered.forwarding_valid_until],rect.position+Vector2(27,142),360,17,INK)
+	var lines:Array[String]=[]
+	var fields:Dictionary=_view.get(str(_snapshot.face),{})
+	for key:String in fields:
+		if key=="recovered_fields" or (key=="back" and case_id=="case03"):continue
+		if key=="address" and str(fields[key])=="water-damaged":
+			for row:int in range(3):draw_line(rect.position+Vector2(32,183+row*7),rect.position+Vector2(130+row*13,185+row*7),Color(0.34,0.47,0.43,0.17),3.0,true)
+			continue
+		if not str(fields[key]).is_empty():lines.append(str(fields[key]))
+	var safe:=Rect2(rect.position+Vector2(30,34),Vector2(340,148)) if _snapshot.face=="front" else Rect2(rect.position+Vector2(27,126),Vector2(362,88))
+	if fields.has("recovered_fields"):
+		var recovered:Dictionary=fields.recovered_fields
+		lines.append("%s · %s\n%s\n%s — %s"%[recovered.original_address,recovered.forwarding_recipient,recovered.forwarding_destination,recovered.forwarding_valid_from,recovered.forwarding_valid_until])
+	var text_layout:=envelope_text_layout("\n".join(lines),safe,20 if _snapshot.face=="front" else 17)
+	(text_layout.paragraph as TextParagraph).draw(get_canvas_item(),safe.position,INK)
+	if case_id=="case03" and _snapshot.face=="back" and not _snapshot.exterior_repaired:
+		var label:Rect2=model.object_rect("label")
+		Art.paint(self,"repair_label",label)
+		_text("—  /  —",label.position+Vector2(8,12),75,14,Color("958d7e"))
 	if _snapshot.operation_mode=="open":
 		for index: int in range(9): draw_circle(model.seam_point(index),2.2,Color("bd8068") if index>=int(_snapshot.seam_count) else Color("547e70"))
 	if _snapshot.permanent_damage>0:
@@ -537,6 +537,16 @@ func _draw_envelope() -> void:
 	if _snapshot.operation_mode=="reseal" and _snapshot.paper_location=="inside":
 		var flap: Rect2=model.object_rect("flap")
 		_text("↓",flap.position+Vector2(10,24),40,24,INK)
+
+func envelope_text_layout(text:String,safe:Rect2,font_size:int) -> Dictionary:
+	var paragraph:TextParagraph
+	for candidate:int in range(font_size,9,-1):
+		paragraph=TextParagraph.new();paragraph.width=safe.size.x
+		paragraph.add_string(text,get_theme_font("font"),candidate)
+		if paragraph.get_size().y<=safe.size.y:return {"paragraph":paragraph,"rect":Rect2(safe.position,paragraph.get_size()),"font_size":candidate,"safe":safe}
+	# Current envelope fields are short postal inscriptions. Reject oversized
+	# data in QA instead of silently drawing beyond the material's safe area.
+	return {"paragraph":paragraph,"rect":Rect2(safe.position,paragraph.get_size()),"font_size":10,"safe":safe}
 
 func _paint_envelope_flap(envelope:Rect2) -> void:
 	# The generated triangle keeps its shape, hinged along the envelope's right mouth.
@@ -557,7 +567,6 @@ func _draw_repair() -> void:
 		Art.paint(self,"repair_label",Rect2(-rect.size*0.5,rect.size))
 		draw_set_transform((ORIGIN+Vector2(_snapshot.pan[0],_snapshot.pan[1]))*_fit,0,Vector2.ONE*_fit*float(_snapshot.zoom))
 	if _snapshot.label_aligned:Art.paint(self,"protector",model.object_rect("protector"),Color(1,1,1,0.75))
-	if _snapshot.label_pressed:_text("沿折痕捋平 ↓",model.object_rect("exterior_fold").position+Vector2(55,1),145,13,INK)
 
 func paper_display_rect() -> Rect2:
 	var grab:Rect2=model.object_rect("paper")
@@ -584,7 +593,6 @@ func _draw_paper() -> void:
 		_text("→" if index==0 else "↓",fold.position+Vector2(4,7),70,18,INK)
 	if model.body_is_currently_visible() and not core.body_text(case_id).is_empty():
 		_text(core.body_text(case_id).left(80)+"…",rect.position+Vector2(16,18),170,11,INK)
-		_text("双击阅读",rect.position+Vector2(20,146),165,14,INK)
 		if _snapshot.attachment_location!="none":Art.paint(self,"attachment_photo",model.object_rect("attachment"))
 
 func _draw_amendments() -> void:
@@ -594,14 +602,13 @@ func _draw_amendments() -> void:
 		var slot: Rect2=model.object_rect("attachment_slot")
 		draw_rect(slot,Color("a4b8b4"),false,0.8)
 		var tray: Rect2=model.object_rect("attachment_tray")
-		draw_rect(tray,Color(0.62,0.70,0.69,0.13));_edit_text("照片暂放处",tray.position+Vector2(7,84),155,11,INK)
+		draw_rect(tray,Color(0.62,0.70,0.69,0.13))
 		var photo: Rect2=model.object_rect("attachment")
 		Art.paint(self,"attachment_photo",photo)
 		return
 	var slots: Array=_amendment_options.get("slots",[])
 	if slots.is_empty():return
 	var slot: Dictionary=slots[0]
-	_edit_text("仅此句可改；其他段落保留",paper.position+Vector2(13,17),196,10,INK)
 	var phrase: Rect2=model.object_rect("phrase")
 	_edit_text(str(slot.original),phrase.position+Vector2(3,5),190,11,INK)
 	for segment: int in range(8):
@@ -612,7 +619,6 @@ func _draw_amendments() -> void:
 		_paint_replacement_strip(replacement)
 		for option: Dictionary in slot.options:
 			if option.get("operation","")=="replace":_edit_text(str(option.text),replacement.position+Vector2(8,17),180,10,INK)
-		if not _snapshot.replacement_placed:_edit_text("拿起这张替换纸条",replacement.position-Vector2(0,14),196,9,INK)
 
 func _paper_patch(paper:Rect2, patch:Rect2) -> void:
 	# Erasing exposes this same generated paper, rather than cloning eight paper borders.

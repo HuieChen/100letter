@@ -1,12 +1,12 @@
 # Task queue — reviewed 2026-10-03
 Use CURRENT_SPEC.md and docs/REQUIREMENTS_REVIEW_20261003.md. CCGS adapter is part of QA, not proof of product completion.
 
-1. ACTIVE: finish book chain: visible cross, physical pages/portrait/source context, language/readability, rapid input/reentry/save; record current actual-window limitations.
-2. Bag → single envelope lift/focus → drag/flip/zoom → return. Remove Inspect_ and misleading hand/details actions; custody/delivery stays explicit.
-3. Map click → map closes → short scene movement/fade → arrival, no walking confirmation.
-4. NPC click → natural clue-bearing dialogue → clear cross → return; contextual progress and previously asked topics.
-5. Walking preload/feet consistency; remove explanatory scene/control captions; verify genuine prop response.
-6. Full regression, listening/native review, matching Windows build, package integrity, exact main publication.
+1. Native/novice review of corrected book/bag/map/NPC chains when the Windows desktop is unlocked; investigate the earlier intermittent current-resident source-opening miss. Automated source-frozen regression passes, not final acceptance.
+2. Direct bag/envelope chain has no Inspect_/Carry_ buttons; recheck visual and tactile quality under actual OS input.
+3. Direct map/one-trip accounting and transition HUD guards pass; inspect natural scene progression under actual OS input.
+4. NPC cross/response pages and initial supervisor guidance pass automated checks; human clarity and richer clue-bearing dialogue still need work.
+5. Nine poses preloaded; test actual motion/audio and all door/prop rejection feedback. Do not equate preloading with smoothness approval.
+6. Current local Windows review package passes PCK and executable boot checks; publish the reviewed source to main and verify exact remote SHA. Final native/listening/style gates remain open.
 7. Isolated three-letter session: first public multi-source investigation; second envelope puzzle/repair; third optional opening/distributed semantic edits/actual wax sequence/human consequences.
 8. Novice continuous playtest: measure at least 30 minutes of meaningful play, no padding. Old saves remain supported.
 

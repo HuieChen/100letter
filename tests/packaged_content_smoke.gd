@@ -48,6 +48,9 @@ func _run() -> void:
 		root.add_child(instance)
 		await process_frame; await process_frame
 		_check(instance.get("view") == "title", "packaged host starts at actual title")
+		_check(instance.find_child("TitleArtwork",true,false)==null and instance.find_child("TitleGround",true,false)!=null,"actual package uses the plain title instead of old illustration")
+		var title:Label=instance.find_child("GameTitle",true,false) as Label
+		_check(title!=null and title.text=="一百信","actual package displays the game name on its cover")
 		for player: Node in instance.find_children("*", "AudioStreamPlayer", true, false):
 			player.stop(); player.stream = null
 		await create_timer(0.15).timeout

@@ -26,3 +26,6 @@ This supersedes the old Cases02–05 content freeze, not the old campaign/save s
 Publish reviewed source and matching playable package to HuieChen/100letter main. Fetch first, preserve collaborator commits, no force push/private-history merge. Verify exact remote SHA/CI. Historical Windows ZIP is not current delivery.
 Per mode: normal/visible-exit/Esc/error/rapid-input/reentry/save-restore/focus-loss/language/responsive checks, fresh automated AND actual-window evidence. Never call blocked checks passed or scripted input human testing. Root QA_REPORT.md lists blockers.
 WeChat File Transfer Assistant reporting is authorized but tool-blocked: retain local phase packages and continue without bypass. Denied videos stay unviewed; no exhaustive frame-analysis claim.
+
+## Latest user update — all prior issues and plain cover
+2026-10-03: Recheck every earlier issue, self-find and fix bugs against the highest requirements. Cover is a blank plain background with the game name; no image generation. Preserve the accepted framework/art. Fresh automated, native and novice evidence remain distinct. Prior main publication authorization remains valid.

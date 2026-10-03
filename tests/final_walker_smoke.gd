@@ -18,6 +18,7 @@ func _initialize() -> void:
 func _run() -> void:
 	walker = Walker.new()
 	root.add_child(walker)
+	_check(walker._poses.size()==9 and not walker._poses.values().has(null), "all real walk poses are warm before first step")
 	walker.arrived.connect(func() -> void: arrivals += 1)
 	walker.footstep.connect(func() -> void: footsteps += 1)
 	walker.configure(null, Rect2(40, 170, 900, 230), Vector2(120, 300))
@@ -62,6 +63,12 @@ func _run() -> void:
 	_finish_walk()
 	_check(not "screen_closed" in callbacks, "closing the screen from arrived cancels the former action safely")
 	walker.arrived.disconnect(cancel_on_arrival)
+	walker.walk_to(Vector2(800,300),func():callbacks.append("unfocused_stale"))
+	walker._notification(Control.NOTIFICATION_WM_WINDOW_FOCUS_OUT)
+	var focus_foot:Vector2=walker.foot
+	walker._process(1.0)
+	_check(not walker.walking and walker.foot==focus_foot and not "unfocused_stale" in callbacks,"losing focus cancels click movement and stale action")
+	walker._notification(Control.NOTIFICATION_WM_WINDOW_FOCUS_IN)
 	_test_manual()
 	var reference := Image.create_empty(24, 48, false, Image.FORMAT_RGBA8)
 	reference.fill(Color("#548679"))

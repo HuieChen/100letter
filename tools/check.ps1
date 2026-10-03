@@ -32,7 +32,17 @@ function Invoke-TaskGodot {
         $taskArguments = @('--rendering-driver','opengl3','--position=-12000,-12000') + $taskArguments
     }
     $taskQuoted = ($taskArguments | ForEach-Object { '"' + $_.Replace('"','\"') + '"' }) -join ' '
-    $taskProcess = Start-Process -FilePath $taskGodot -ArgumentList $taskQuoted -WindowStyle Hidden -PassThru -Wait
+    $taskProcess = Start-Process -FilePath $taskGodot -ArgumentList $taskQuoted -WindowStyle Hidden -PassThru
+    $taskTimer=[Diagnostics.Stopwatch]::StartNew()
+    while (-not $taskProcess.WaitForExit(1000)) {
+        $taskScriptError=(Test-Path -LiteralPath $taskLog) -and ((Get-Content -LiteralPath $taskLog -Raw) -match 'SCRIPT ERROR:')
+        if ($taskScriptError -or $taskTimer.Elapsed.TotalSeconds -gt 600) {
+            # Stop only this harness's launcher and engine carrying its exact log.
+            Get-CimInstance Win32_Process -Filter "Name LIKE 'Godot%'" | Where-Object { $_.CommandLine.Contains($taskLog) } | ForEach-Object { Stop-Process -Id $_.ProcessId -ErrorAction SilentlyContinue }
+            throw "$Name stopped after script error or 600-second bound; see $taskLog"
+        }
+    }
+    if ((Get-Content -LiteralPath $taskLog -Raw) -match 'SCRIPT ERROR:') { throw "$Name script error; see $taskLog" }
     if ($taskProcess.ExitCode -ne 0) { throw "$Name failed; see $taskLog" }
 }
 
@@ -59,11 +69,11 @@ try {
     }
     Invoke-TaskGodot 'import' @('--editor','--import','--quit')
     # Current models and independent compatible components, not old GameSession.
-    foreach ($taskSuite in @('mail_physics_state_smoke','final_case_state_smoke','final_walker_smoke','scene_dialogue_input_smoke','postal_desk_live_queue')) {
+    foreach ($taskSuite in @('mail_physics_state_smoke','final_case_state_smoke','final_walker_smoke','scene_dialogue_input_smoke','postal_desk_live_queue','envelope_text_bounds_smoke')) {
         Invoke-TaskGodot $taskSuite @('--script',"res://tests/$taskSuite.gd")
     }
     if ($GpuChecks) {
-        foreach ($taskSuite in @('field_observation_smoke','field_book_smoke','mail_workbench_input_smoke','resolution_slip_smoke','final_host_boundary_smoke','final_resolution_draft_smoke')) {
+        foreach ($taskSuite in @('field_observation_smoke','field_book_smoke','mail_workbench_input_smoke','resolution_slip_smoke','final_host_boundary_smoke','final_resolution_draft_smoke','core_review_input')) {
             Invoke-TaskGodot $taskSuite @('--script',"res://tests/$taskSuite.gd",'--resolution','1600x900','--audio-driver','Dummy') -Gpu
         }
         foreach ($taskRoute in @('sealed','delegate')) {

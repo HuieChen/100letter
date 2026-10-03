@@ -1,6 +1,57 @@
 # QA report · 2026-10-03
 
-Scope: archive/book layout correction, source requirement reconciliation, and regression against the existing five-case campaign. This is a development checkpoint, not final game/Steam-quality acceptance.
+Scope: historical-requirement review, plain-title cover, archive, direct bag/letter manipulation, immediate map transitions, dialogue exits, movement loading and regression against the existing five-case campaign. This is a development checkpoint, not final game/Steam-quality acceptance.
+
+## Latest core review — 2026-10-03 evening
+
+No new ImageGen artwork was created. The accepted scene/character/material bitmaps and original player saves are preserved. The cover uses a plain cream ground and the game name. Bag envelopes directly enter the same physical workbench, with no Inspect_/Carry_ action buttons. Map destination selection puts away the map and begins one transition; busy guards prevent bag/book/pause interference. Dialogue and topic pages have a visible cross. Crosses over changing backgrounds have their own light ground. Routine narrator/control strips are removed; the supervisor explains the first real task in dialogue. Current postal writing wraps within the envelope's actual safe area; nine existing walking poses are preloaded and focus loss cancels stale walk callbacks.
+
+Frozen-source run **test-results/check-20261003-210543** completed all 16 engine suites with **7,297 assertions and zero failures**. Its separate exact-PID window-close/reload probe **test-results/window-close-20261003-211039** passed another **29 assertions**, both exits zero. Combined: **7,326 engine/probe assertions**. These counts are not independent players, measured quality scores or acceptance votes.
+
+| Suite | Checks |
+|---|---:|
+| mail_physics_state_smoke | 728 |
+| final_case_state_smoke | 3348 |
+| final_walker_smoke | 33 |
+| scene_dialogue_input_smoke | 19 |
+| postal_desk_live_queue | 28 |
+| envelope_text_bounds_smoke | 21 |
+| field_observation_smoke | 218 |
+| field_book_smoke | 1483 |
+| mail_workbench_input_smoke | 170 |
+| resolution_slip_smoke | 75 |
+| final_host_boundary_smoke | 32 |
+| final_resolution_draft_smoke | 42 |
+| core_review_input | 196 |
+| five_case_sealed | 344 |
+| five_case_delegate | 346 |
+| amended_handoff | 214 |
+| Exact-owned-window close / fresh-process reload | 14 / 15 |
+
+The new hosted review checks visible cross and Esc, actual bag envelope flip/drag/wheel/reentry, single-trip charging and rapid HUD clicks during travel, repeated NPC conversation and return to control, at 1280×720, 1920×1080 and 2560×1440. Book component headings are checked in Chinese and English. The full hosted routes use actual engine-routed pointer/keyboard events; full-route source hashes remain unchanged. Component tests have isolated fixtures, not invented player runs. Workflow inventory verification and 12 evidence-rejection tests also pass; that adapter result is separate from gameplay.
+
+### Retained failures and fixes
+
+- **check-20261003-204049:** a 2560-size synthetic chapter click missed; the test then accessed a null editor. The test now supplies correct mouse masks/motion and stops on missing controls instead of hanging. Final 1,483 book checks pass.
+- **check-20261003-204506:** three title assertions used the default save slot; one dialogue cross release did not close. Isolated fixture slots now redraw before assertions, and cross activation is on press with duplicate-close protection. Final hosted checks pass at all three sizes.
+- **check-20261003-204846:** one current-resident source did not open, then the harness cascaded into invalid targets/null access. Added bounded scene/walker/core diagnostics and stopped the continuation before dereferencing a wrong modal. A focused sealed route and two subsequent full runs did not reproduce the source miss. Its root cause is **not proved**; keep it as an intermittent observation requiring native investigation.
+- **five-diagnosis-20261003.log:** a diagnostic command accidentally used the headless dummy renderer while requesting PNGs. That invocation was stopped and is not passing GPU evidence; the rerun used the actual OpenGL renderer.
+- Screenshot review found a dark-on-dark bag cross and a capture taken during the envelope lift. Crosses now have light backing; reviewed envelope captures wait for the real lift to finish. The final frozen-source run includes these changes.
+- Code review found that HUD bag/book/pause could interrupt the pre-fade part of an already committed journey. Added guards and rapid real pointer checks. One destination still costs one journey and arrival restores control.
+
+### Matching package and native limits
+
+Current local package: `outputs/100letter-Windows-Core-Review-20261003` outside this source checkout. Built with the SHA-verified official 4.7.2 template after the final run; SkipChecks avoided repeating the completed run, and is not a new validation result. Actual PCK inspection and release executable GPU boot passed in **test-results/verify-package-20261003-211229**. The PCK inspector checks the new plain cover, not just that a title loads. Selected export inventory excludes private originals, old entries, reference pictures, tests and development files.
+
+EXE SHA256: `d34d36f3be1a6c49c56525ae86469b92e4f417ddf0b43cf00dd80c385c4b0562`. PCK SHA256: `d96b2cbdd6874725109d101bec3b0bada2093f44a0b64a614c75374b675b337e`. Exported GDScript is compiled; raw source files are not falsely compared to compiled bytecode.
+
+For native review, an identical EXE/PCK copy with a QA-only configuration was verified to use a separate `Solmere-Native-Core-Review-20261003` user-data folder. Computer Use returned its unique real game window, but activation failed and a refreshed capture showed the Windows lock screen. **No native mouse action or audio listening was performed.** Native checks stop at lock-screen protection; the owned QA child was closed, and original saves remain untouched. Automated OS WM_CLOSE does not replace this missing real playthrough.
+
+Final game acceptance remains **NOT_COMPLETE**. Pending: the intermittent source-opening observation, full native and novice usability, audio listening, all-scene door/prop response review, full-game English switching, new meaningful 30-minute/three-letter session, approximately 1,000-character letters, distributed semantic edits, actual wax-making sequence and all reference-footage analysis. See the 42-row requirement review; no old-campaign pass closes these requirements. The older public Release is not this current package.
+
+Screenshots/state explanation: [core phase report](docs/testing/CORE_REVIEW_20261003.md). Sanitized current suite/source/package evidence is stored in `docs/testing/CORE_QA_20261003.json`. Main publication and exact remote SHA/CI are verified separately from local tests.
+
+## Earlier book phase — historical evidence
 
 ## Implemented and inspected
 

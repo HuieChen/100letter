@@ -126,7 +126,7 @@ func _build() -> void:
 	_label(_canvas, _t("desk"), Rect2(576,69,484,27), 17, TEAL)
 	_label(_canvas, _t("title"), Rect2(576,103,488,49), 32)
 	_label(_canvas, str(_payload.get("case_label", _payload.case_id)), Rect2(576,153,486,29), 17, MUTED)
-	_button("Close", _t("close")+"  ↗", Rect2(1375,66,159,43), request_close, 21)
+	_button("Close", "×", Rect2(1375,66,159,43), request_close, 34)
 	_label(_canvas, _t("facts"), Rect2(105,130,350,40), 25, Color("fff5df"))
 	var facts_scroll := ScrollContainer.new()
 	facts_scroll.name = "ObservedFacts"
@@ -139,7 +139,6 @@ func _build() -> void:
 	if _payload.known_facts.is_empty(): _evidence_note(facts, "", _t("empty"), "")
 	for fact: Dictionary in _payload.known_facts:
 		_evidence_note(facts, str(fact.get("label", "")), str(fact.text), str(fact.get("source", "")))
-	_label(_canvas, _t("fact_note"), Rect2(106,743,350,58), 17, Color("fff5df"))
 	_label(_canvas, _t("determination"), Rect2(576,199,485,34), 21)
 	var field_scroll := ScrollContainer.new()
 	field_scroll.name = "DeterminationFields"
@@ -204,8 +203,8 @@ func _build() -> void:
 	_seal_button.gui_input.connect(_seal_input)
 	_seal_button.focus_entered.connect(queue_redraw)
 	_seal_button.focus_exited.connect(queue_redraw)
-	_label(_canvas, _t("seal"), Rect2(1164,787,215,35), 17, MUTED).horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 	_notice = _label(_canvas, _t("draft_hint"), Rect2(165,844,1270,43), 18, INK)
+	_notice.hide()
 	_notice.add_theme_color_override("font_outline_color", Color("f6f3df"))
 	_notice.add_theme_constant_override("outline_size", 4)
 	_notice.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
@@ -329,9 +328,10 @@ func _toggle_review() -> void:
 		_notice.text = _t("draft_hint")
 	else:
 		var error := _validation_error()
-		if not error.is_empty(): _notice.text = error; return
+		if not error.is_empty(): _notice.text = error; _notice.show(); return
 		_reviewing = true
 		_notice.text = _t("review_hint")
+	_notice.hide()
 	_sync()
 	cue.emit("paper")
 

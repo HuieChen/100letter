@@ -69,6 +69,17 @@ static func button(parent: Node, text: String, rect: Rect2, callback: Callable, 
 	b.add_theme_stylebox_override("pressed",line)
 	b.add_theme_stylebox_override("focus",line)
 	b.add_theme_stylebox_override("disabled",StyleBoxEmpty.new())
+	if text=="×":
+		# A close control sits over many differently colored world surfaces.
+		# Give the cross its own quiet, readable ground instead of relying on
+		# whatever happens to be painted behind it.
+		b.add_theme_font_size_override("font_size",32)
+		b.action_mode=BaseButton.ACTION_MODE_BUTTON_PRESS
+		for state:String in ["normal","hover","pressed","focus"]:
+			var close_style:=style(PAPER if state=="normal" else Color("eee2ca"),Color("53716a"),24)
+			close_style.content_margin_left=0;close_style.content_margin_right=0
+			close_style.content_margin_top=0;close_style.content_margin_bottom=0
+			b.add_theme_stylebox_override(state,close_style)
 	b.mouse_default_cursor_shape = Control.CURSOR_POINTING_HAND
 	place(b, parent, rect)
 	b.pressed.connect(callback)

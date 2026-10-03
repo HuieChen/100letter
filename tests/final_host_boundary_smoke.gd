@@ -26,14 +26,18 @@ func _run()->void:
 	game._workbench("case02")
 	_check(not is_instance_valid(game.modal) and game.core.case_state("case02").owner=="desk_b","direct workbench entry cannot substitute for real box pickup")
 	game._bag();await process_frame
-	_check(game.find_child("Carry_case02",true,false)==null,"bag has no uncollected letter")
+	_check(game.find_child("Envelope_case02",true,false)==null,"bag has no uncollected letter")
 	game._close();game._registry();await process_frame
 	await _click("RecordedResolution_case01")
 	_check(_count_editors(game.modal)==0,"completed resolution is a read-only paper")
 	_check(game.core.resolution_view("case01").note=="保留原记录","reading cannot overwrite stamped content")
 	game._close()
 	_ok(game.core.take_case("case02"),"fixture courier owns a second actual object")
-	game._bag();await process_frame;await _click("Carry_case02")
+	game._bag();await process_frame;await _click("Envelope_case02")
+	for down in [true,false]:
+		var e:=InputEventMouseButton.new();e.position=Vector2(1495,60);e.global_position=e.position;e.button_index=MOUSE_BUTTON_LEFT;e.pressed=down
+		root.push_input(e,true);await process_frame
+	_check(not is_instance_valid(game.modal),"actual envelope inspection closes before onward journey")
 	_ok(game.core.travel("community_center",15),"fixture reaches real cubby location")
 	game._world();await process_frame
 	await _click("MailCubby")

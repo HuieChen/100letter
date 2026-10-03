@@ -9,7 +9,7 @@ const DESIGN := Vector2(1600, 900)
 const PAPER := Rect2(315, 164, 970, 568)
 const PHOTO := Rect2(390,175,820,560)
 const CLOSE := Rect2(1302, 105, 126, 54)
-const OPEN := Rect2(953, 619, 272, 71)
+const OPEN := Rect2(1232, 679, 57, 57)
 const OLD_PLATE := Rect2(483, 316, 236, 154)
 const NEW_PLATE := Rect2(457, 285, 344, 212)
 const INK := Color("34454b")
@@ -299,22 +299,13 @@ func _draw() -> void:
 	draw_rect(Rect2(Vector2.ZERO, size), Color(0.10, 0.14, 0.15, 0.72))
 	draw_set_transform(_origin, 0, Vector2.ONE * _factor)
 	_text(str(_spec.get("subtitle", "现场资料")), Vector2(318, 130), 22, Color("e9e4d6"))
-	_text("返回  Esc", CLOSE.position + Vector2(8, 33), 22, Color("e9e4d6"))
+	_text("×", CLOSE.position + Vector2(38, 39), 36, Color("e9e4d6"))
 	if not _spec.is_empty():
 		match str(_spec.kind):
 			"plate": _draw_plate()
 			"door": _draw_door()
 			"paper": _draw_paper()
 			"photo": _draw_photo()
-	var guidance := _status
-	if guidance.is_empty():
-		match str(_spec.get("kind", "")):
-			"plate": guidance = "按住现门牌向右移开。键盘也可用 ← / →。"
-			"door": guidance = "叩门看看；门牌上的姓名仍可核对。"
-			"photo": guidance = "滚轮拿近看；右键或 F 翻看背面。照片不会自行记入册中。"
-			_: guidance = "掀开页角查看；Tab 切换，Enter 操作，Esc 返回。"
-	_text(guidance, Vector2(315, 809), 24, Color("f0e9dc"), 1020)
-	draw_line(Vector2(315, 778), Vector2(1285, 778), Color(0.9, 0.87, 0.79, 0.25), 1)
 	var regions := interaction_regions()
 	for index: int in range(regions.size()):
 		var rect: Rect2 = regions[index].rect
@@ -332,7 +323,6 @@ func _draw_paper() -> void:
 		_text(str(_spec.subtitle), Vector2(389, 287), 24, SOFT)
 		draw_line(Vector2(391, 323), Vector2(1124, 323), Color("c9baa4"), 1)
 		_text("现场留存", Vector2(391, 374), 24, SOFT)
-		_text("掀开登记页  →", OPEN.position + Vector2(13, 43), 24, INK)
 		
 		Art.paint(self,"paper_corner",Rect2(1236,683,49,49))
 	else:
@@ -377,7 +367,6 @@ func _draw_door() -> void:
 	Art.paint(self,"door_closeup",Rect2(514,40,570,1040))
 	_text("Mira",Vector2(730,399),25,INK)
 	_text("Vale",Vector2(731,430),25,INK)
-	_text("叩门",Vector2(888,766),23,INK)
 
 func _text(value: String, at: Vector2, font_size: int, color: Color, width: float = -1) -> void:
 	if width < 0:

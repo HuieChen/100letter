@@ -10,6 +10,7 @@ signal foot_position_changed(at: Vector2)
 const PhysicalArt = preload("res://scripts/rebuild/physical_art.gd")
 const WALK_GEOMETRY := "res://assets/faefever_v2/characters/courier_walk_regions.json"
 var _frame_geometry: Dictionary = {}
+var _poses: Dictionary = {}
 
 var max_speed: float = 200.0
 var acceleration: float = 720.0
@@ -49,6 +50,12 @@ func _ready() -> void:
 		var data:Variant=JSON.parse_string(FileAccess.get_file_as_string(WALK_GEOMETRY))
 		if data is Dictionary:
 			for frame:Dictionary in data.get("frames",[]):_frame_geometry[str(frame.key)]=frame
+	# Warm all eight frames at scene creation, before the first visible step.
+	# Drawing never decodes a new bitmap while the actor is already moving.
+	_poses["CHAR_courier"]=PhysicalArt.texture("CHAR_courier")
+	for index:int in range(8):
+		var key:="CHAR_courier_walk_"+str(index)
+		_poses[key]=PhysicalArt.texture(key)
 	texture_filter = CanvasItem.TEXTURE_FILTER_LINEAR_WITH_MIPMAPS
 	mouse_filter = Control.MOUSE_FILTER_IGNORE
 	set_process(true)
@@ -111,7 +118,7 @@ func gesture(kind: String) -> void:
 func _notification(what: int) -> void:
 	if what == NOTIFICATION_WM_WINDOW_FOCUS_OUT:
 		_window_focused = false
-		if _manual_active: cancel()
+		if _manual_active or walking: cancel()
 	elif what == NOTIFICATION_WM_WINDOW_FOCUS_IN:
 		_window_focused = true
 		set_process(true)
@@ -144,8 +151,8 @@ func _draw() -> void:
 	if _motion_blend>0.12:
 		var frame:int=int(floor(fposmod(_walk_phase,TAU)/TAU*8.0))%8
 		var candidate:="CHAR_courier_walk_"+str(frame)
-		if PhysicalArt.texture(candidate)!=null:key=candidate
-	var art:Texture2D=PhysicalArt.texture(key)
+		if _poses.get(candidate)!=null:key=candidate
+	var art:Texture2D=_poses.get(key)
 	if art==null:return
 	var ratio:float=actor_height/art.get_height()
 	var anchor:=Vector2(art.get_width()*0.44,art.get_height())

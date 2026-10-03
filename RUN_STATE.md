@@ -2,12 +2,12 @@
 
 2026-10-03 WORKFLOW_ADAPTER: Donchitos/Claude-Code-Game-Studios pinned at b21fa0f7f289fc3e726cf36fb12b9bc1e7a51e4d, 49 available roles / 74 skills, MIT. Codex adapter integrity and evidence-rejection tests pass. This does not close the existing book chain; native/bilingual/responsive acceptance remains pending. No new runtime art or original saves changed by adoption. See docs/STUDIO_WORKFLOW.md.
 
-STATUS: MORNING_BASELINE_RESTORED / BOOK_AUTOMATED_LAYOUT_PASS_NATIVE_REVIEW_PENDING
+STATUS: CORE_AUTOMATED_REGRESSION_PASS / FINAL_ACCEPTANCE_NOT_COMPLETE
 BASELINE: 1fefd070fa35edbf7f6eb3c221933bd876197bba
 MAIN_MERGE: d244017440f825428d0d92fdf767c3b5e2c7a005 (PR1 merged)
 Active project/manifest restored to morning selection; new desk/box/test candidates archived under review/rejected_20261002_core_redesign, never selected.
-CURRENT_CHAIN: physical book open → chapter → visible cross close → reopen. Preserve original book artwork. Next: bag/letter direct manipulation, then map/NPC/movement corrections.
-No new runtime story/art in this phase. Original player saves are untouched; isolated QA userdata required. WeChat tool-blocked; phase reports local. All authorized fixes continue without approval waits.
+CURRENT_CHAIN: book, direct bag/letter, map and NPC exits have current automated input/rendering checks; native review is blocked by Windows lock screen. Final run check-20261003-210543 plus owned close/reload probe: 7,326 assertions, zero failures. One earlier source-opening miss remains unexplained. New 30-minute three-letter story and genuine wax-making are not yet runtime-complete.
+No new runtime story/art in this phase. Plain-color/title cover replaces the illustrated title. Matching current Windows review package is built and PCK/GPU-boot checked. Original player saves are untouched; isolated QA userdata required. WeChat tool-blocked; phase reports local. All authorized fixes/main publication continue without approval waits.
 
 ## Latest user update — archive layout
 2026-10-03: the archive looks unattractive, misaligned, and its writing extends beyond the artwork. Make it a more natural physical record book without a realistic art style. Current changes preserve the accepted bitmap, bind all writing to clipped left/right paper leaves, crop existing hand-drawn portraits to readable busts, fit chapter labels to actual paper tabs, and check Chinese/English headings at 1280×720, 1920×1080 and 2560×1440. Only observed information is recorded. Engine/input checks and screenshot inspection do not imply native usability or final art acceptance. See QA_REPORT.md and docs/REQUIREMENTS_REVIEW_20261003.md for the final evidence of this phase.

@@ -52,7 +52,7 @@ func _ready() -> void:
 	for arg in OS.get_cmdline_user_args():
 		if arg.begins_with("--final-save="): core.save_path=arg.trim_prefix("--final-save=")
 	add_child(core)
-	core.save_failed.connect(func(message:String): _say("记录未写入磁盘："+message))
+	core.save_failed.connect(func(message:String): _show_save_problem("记录未写入磁盘："+message))
 	sound=Sound.new()
 	sound.settings_path="user://final_v2/audio_settings.cfg"
 	add_child(sound)
@@ -139,14 +139,11 @@ func _footer(message:String="") -> void:
 	_say(message)
 
 func _say(message:String) -> void:
-	if not is_instance_valid(status):return
-	status.text=message
-	status.visible=not message.strip_edges().is_empty()
-	if view=="counter" and is_instance_valid(_desk_surface):_desk_surface.caption_suppressed=status.visible
-	if is_instance_valid(_footer_shade):_footer_shade.visible=status.visible
-	if is_instance_valid(_footer_timer):
-		_footer_timer.stop()
-		if status.visible:_footer_timer.start(clampf(4.0+message.length()*0.065,5.0,11.0))
+	# Keep diagnostics for QA without rendering a narrator/control strip.
+	set_meta("last_context_event",message)
+	if is_instance_valid(status):status.text="";status.hide()
+	if is_instance_valid(_footer_shade):_footer_shade.hide()
+	if is_instance_valid(_footer_timer):_footer_timer.stop()
 
 func _save() -> void:
 	core.save_game()
@@ -165,15 +162,25 @@ func _sprite(parent:Node, key:String, rect:Rect2, preserve_aspect:bool=false) ->
 func _title() -> void:
 	_new_stage("title")
 	PhysicalArt.reload_manifest()
-	_sprite(stage,"cover",Rect2(0,0,1600,900)).name="TitleArtwork"
-	var start:=UI.button(stage,"开始这个夏日  →",Rect2(122,620,450,57),_start)
+	var ground:=ColorRect.new()
+	ground.name="TitleGround"
+	ground.color=Color("f3f0e6")
+	ground.mouse_filter=Control.MOUSE_FILTER_IGNORE
+	UI.place(ground,stage,Rect2(0,0,1600,900))
+	ground.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
+	var title:=UI.label(stage,"一百信",Rect2(400,275,800,150),100,Color("365955"))
+	title.name="GameTitle"
+	title.horizontal_alignment=HORIZONTAL_ALIGNMENT_CENTER
+	var subtitle:=UI.label(stage,"SOLMERE POST",Rect2(400,442,800,50),24,Color("697d77"))
+	subtitle.horizontal_alignment=HORIZONTAL_ALIGNMENT_CENTER
+	var start:=UI.button(stage,"开始",Rect2(575,580,450,57),_start)
 	start.name="NewShift"
-	var resume:=UI.button(stage,"继续上次的班次  →",Rect2(122,687,450,57),_resume)
+	var resume:=UI.button(stage,"继续",Rect2(575,652,450,57),_resume)
 	resume.name="ContinueShift"
 	resume.disabled=not core.has_save()
-	var options:=UI.button(stage,"声音与操作",Rect2(122,754,450,52),_settings_page)
+	var options:=UI.button(stage,"设置",Rect2(575,724,450,52),_settings_page)
 	for button in [start,resume,options]:
-		button.alignment=HORIZONTAL_ALIGNMENT_LEFT
+		button.alignment=HORIZONTAL_ALIGNMENT_CENTER
 		for button_state:String in ["normal","hover","pressed","focus","disabled"]:button.add_theme_stylebox_override(button_state,StyleBoxEmpty.new())
 		button.add_theme_color_override("font_color",Color("3b3127"))
 		button.add_theme_color_override("font_hover_color",Color("986548"))
@@ -228,14 +235,13 @@ func _begin_briefing() -> void:
 	var briefing:=SceneDialogue.new()
 	modal=briefing
 	UI.place(briefing,self,Rect2(0,0,1600,900))
-	briefing.configure("主管 · 柜台另一端","先打开桌上邮件箱，取出第一封。地址有疑点，就去现场核实。办好后回这里，把判断和去向写清，再盖章。")
+	briefing.configure("主管 · 柜台另一端","早。第一封在桌上的手提箱里，锁扣扣着，免得海风把纸吹走。是 Ruth 寄给 Elsie 的，写着旧街名。联系不上寄件人，退回去也只是再绕一圈。你去看看门牌；社区中心还留着改名记录。见到住户，问清是本人再交。办好回来，把依据和实际去向写在处置单上，盖邮局章。查不清就留待核实——晚一点到，总比交错人好。")
 	briefing.find_child("AdvanceDialogue",true,false).name="FinishBriefing"
 	briefing.advanced.connect(_finish_briefing)
 	briefing.closed.connect(_finish_briefing)
 
 func _finish_briefing() -> void:
 	_briefing_pending=false;busy=false;_close();_counter()
-	_say("主管去整理后面的邮架了。桌上邮件箱里留着第一封。")
 
 func _resume() -> void:
 	if not core.load_game():
@@ -333,10 +339,14 @@ func _hud(_id:String, show_carried:bool=true) -> void:
 	clock.add_theme_color_override("font_outline_color",Color("fff4dd"))
 	clock.add_theme_constant_override("outline_size",2)
 	UI.button(stage,"⋮",Rect2(1520,20,55,50),_pause)
-	if show_carried and not carried.is_empty():
-		var item:=_icon(stage,"letter","手中的信 · 点击放回邮袋",Rect2(1380,713,145,119),func():carried="";_world())
-		item.name="CarriedLetter"
-		UI.label(stage,"已拿出第 %s 件"%carried.right(2),Rect2(1340,819,215,28),17).name="CarriedCaption"
+	if show_carried:_refresh_selected_letter()
+
+func _refresh_selected_letter() -> void:
+	var previous:=stage.find_child("CarriedLetter",true,false)
+	if is_instance_valid(previous):stage.remove_child(previous);previous.queue_free()
+	if carried.is_empty():return
+	var item:=_icon(stage,"letter","",Rect2(1380,713,145,119),func():_workbench(carried))
+	item.name="CarriedLetter"
 
 func _icon(parent:Node, kind:String, caption:String, rect:Rect2, callback:Callable) -> Control:
 	var keys:Dictionary={"bag":"satchel","book":"handbook_closed","map":"town_map","letter":"envelope_front"}
@@ -344,7 +354,7 @@ func _icon(parent:Node, kind:String, caption:String, rect:Rect2, callback:Callab
 	icon.texture_normal=PhysicalArt.texture(str(keys.get(kind,kind)))
 	icon.ignore_texture_size=true
 	icon.stretch_mode=TextureButton.STRETCH_KEEP_ASPECT_CENTERED
-	icon.tooltip_text=caption
+	# Item artwork/cursor supplies affordance; no shortcut/tutorial tooltip.
 	icon.mouse_default_cursor_shape=Control.CURSOR_POINTING_HAND
 	icon.texture_filter=CanvasItem.TEXTURE_FILTER_LINEAR_WITH_MIPMAPS
 	UI.place(icon,parent,rect)
@@ -358,7 +368,6 @@ func _hotspot(node_name:String, tip:String, rect:Rect2, foot:Vector2, callback:C
 	var hit:=Button.new()
 	hit.name=node_name
 	hit.flat=true
-	hit.tooltip_text=tip
 	hit.mouse_default_cursor_shape=Control.CURSOR_POINTING_HAND
 	for state in ["normal","hover","pressed","focus"]: hit.add_theme_stylebox_override(state,StyleBoxEmpty.new())
 	UI.place(hit,layer,rect)
@@ -442,7 +451,6 @@ func _surface_hotspot(parent:Node, node_name:String, tip:String, rect:Rect2, cal
 	var hit:=Button.new()
 	hit.name=node_name
 	hit.flat=true
-	hit.tooltip_text=tip
 	hit.mouse_default_cursor_shape=Control.CURSOR_POINTING_HAND
 	for state in ["normal","hover","pressed","focus","disabled"]:hit.add_theme_stylebox_override(state,StyleBoxEmpty.new())
 	UI.place(hit,parent,rect)
@@ -456,6 +464,7 @@ func _counter_reference_books() -> void:
 	_sheet("柜台资料簿","封面内页放着现行服务规程，后面按年份保留旧件处理记录。",[["查阅服务规程",func():_observe("trusted_handoff_rule")],["翻开旧账簿",_ledger]])
 
 func _workbench(id:String,from_rect:Rect2=Rect2()) -> void:
+	if busy:return
 	var item:Dictionary=core.case_state(id)
 	if item.is_empty() or str(item.owner)!="courier":
 		_say("先从柜台的实体邮件箱取出这封信，再放到面前查看。");return
@@ -470,7 +479,7 @@ func _workbench(id:String,from_rect:Rect2=Rect2()) -> void:
 	if from_rect.has_area() and bench.has_method("present_from"):bench.present_from(from_rect)
 	_hide_courier_for_closeup()
 	bench.cue.connect(sound.play)
-	bench.closed.connect(func(): _close();_save();_say(_objective()))
+	bench.closed.connect(func(): _close();_save())
 	bench.inspection_completed.connect(func(_mode:String):_save())
 
 func _observe(id:String) -> void:
@@ -491,6 +500,7 @@ func _observe(id:String) -> void:
 	sound.play("paper")
 
 func _book() -> void:
+	if busy:return
 	_close()
 	var script=load("res://scripts/rebuild/field_book.gd")
 	var book:Control=script.new()
@@ -549,22 +559,26 @@ func _sheet(title:String, copy:String, actions:Array) -> Control:
 	return paper
 
 func _bag() -> void:
+	if busy:return
 	var root:=_overlay()
+	root.name="MailBag"
 	_sprite(root,"satchel",Rect2(110,300,340,415),true).name="OpenSatchelArtwork"
-	UI.label(root,"随身邮袋",Rect2(112,203,400,58),32,Color("fff5de"))
-	UI.button(root,"收好邮袋  ×",Rect2(1190,190,270,55),_close)
+	UI.button(root,"×",Rect2(1450,45,70,64),_close).name="CloseBag"
 	var index:=0
 	for id:String in core.CASE_IDS:
 		var item:Dictionary=core.case_state(id)
 		if not item.available or item.owner!="courier" or not str(item.disposition).is_empty():continue
 		var at:=Vector2(510+(index%3)*292,292+(index/3)*236)
-		var mail:=_icon(root,"letter","拿起这封邮件",Rect2(at,Vector2(270,175)),func():carried=id;_close();_world();_say("把信拿在手里，走近实际收件人或批准收信格。"))
-		mail.name="Carry_"+id
-		UI.label(root,"邮件 "+id.right(2),Rect2(at+Vector2(20,48),Vector2(175,44)),22)
-		var inspect:=UI.button(root,"放下细看  →",Rect2(at+Vector2(16,179),Vector2(230,42)),func():_workbench(id))
-		inspect.name="Inspect_"+id
+		var source:=Rect2(at,Vector2(270,175))
+		var mail:=_icon(root,"letter","",source,func():
+			carried=id
+			_refresh_selected_letter()
+			_workbench(id,source))
+		mail.name="Envelope_"+id
+		var front:Dictionary=core.case_view(id).get("front",{})
+		var addressee:=UI.label(mail,str(front.get("recipient","")),Rect2(24,58,215,45),19)
+		addressee.clip_text=true
 		index+=1
-	if index==0:UI.label(root,"邮袋里暂时没有需要交付的邮件。",Rect2(530,395,780,85),27,Color("fff5de"))
 
 func _talk(id:String) -> void:
 	var error:String=core.meet(id)
@@ -812,21 +826,16 @@ func _resolution(id:String) -> void:
 		_say("首封处理单已经归档。邮件箱里的另两封现在可以取走。" if id=="case01" else "判断和实物去向已分别保留在盖章处理单上。"))
 
 func _map() -> void:
+	if busy:return
 	var root:=_overlay()
+	root.name="MapInspection"
 	var map:=PaperMap.new()
 	map.name="PaperTownMap"
-	UI.place(map,root,Rect2(54,140,1080,650))
+	UI.place(map,root,Rect2(175,80,1250,740))
 	map.place_source_points([Vector2(215,594),Vector2(667,360),Vector2(992,570),Vector2(1359,296),Vector2(690,834),Vector2(311,326),Vector2(1345,824)])
 	map.current_index=LOCATIONS.find(str(core.state.location))
 	map.target_index=map.current_index
-	var note_page:=Control.new()
-	UI.place(note_page,root,Rect2(1170,165,348,620))
-	_sprite(note_page,"letter_paper",Rect2(-15,-15,378,650))
-	UI.label(note_page,"沿海邮路",Rect2(26,28,295,45),29)
-	var note:=UI.label(note_page,"点地图上的地点，先核对路程与抵达时刻。",Rect2(28,102,290,252),24)
-	var buttons:=Control.new()
-	UI.place(buttons,note_page,Rect2(17,420,315,150))
-	UI.button(note_page,"收好地图  ×",Rect2(25,548,292,48),_close)
+	UI.button(root,"×",Rect2(1460,35,65,64),_close).name="CloseMap"
 	for index:int in LOCATIONS.size():
 		var id:String=LOCATIONS[index]
 		var pt:Vector2=map.points[index]
@@ -843,20 +852,10 @@ func _map() -> void:
 		for style:String in ["normal","hover","pressed","focus"]:marker.add_theme_stylebox_override(style,StyleBoxEmpty.new())
 		UI.place(marker,map,Rect2(pt-Vector2(93,34),Vector2(186,68)))
 		marker.pressed.connect(func():
-			map.target_index=LOCATIONS.find(id)
-			map.route_progress=0.0
-			for child in buttons.get_children():buttons.remove_child(child);child.queue_free()
-			if id==core.state.location:note.text="你正在"+NAMES[id]+"。";return
+			if busy:return
+			if id==core.state.location:_close();return
 			var minutes:=_walk_cost(str(core.state.location),id)
-			var arrive:=int(core.state.minute)+minutes
-			note.text=NAMES[id]+"\n步行 %d 分钟\n抵达 %02d:%02d"%[minutes,arrive/60,arrive%60]
-			UI.button(buttons,"沿这条路步行 →",Rect2(0,0,315,58),func():_depart(id,minutes,map)).name="DepartWalking"
-			if core.state.location=="bus_stop" and id=="lookout":
-				var cost:=_shuttle_cost(int(core.state.minute))
-				if cost>0:
-					note.text+="\n电车含候车 %d 分钟"%cost
-					UI.button(buttons,"候车并上山 →",Rect2(0,70,315,58),func():sound.play("tram");_depart(id,cost,map)).name="DepartShuttle"
-				else:note.text+="\n今日上行电车已结束。")
+			_depart(id,minutes,map))
 	sound.play("map")
 
 func _walk_cost(origin:String,destination:String) -> int:
@@ -866,18 +865,33 @@ func _shuttle_cost(minute:int) -> int:
 	var next:int=int(ceil(float(minute)/30.0))*30
 	return next-minute+15 if next>=540 and next<=1020 else -1
 
-func _depart(id:String,minutes:int,map:Control) -> void:
-	if busy:return
+func _depart(id:String,minutes:int,_map:Control=null) -> void:
+	if busy or not id in LOCATIONS or id==core.state.location:return
 	busy=true
-	var t:=create_tween()
-	t.tween_property(map,"route_progress",1.0,0.72)
-	await t.finished
+	_close()
+	# The paper is put away before the world starts moving. The route is a
+	# destination choice, not a transport-planning confirmation panel.
+	if view=="world" and is_instance_valid(walker) and minutes<=15:
+		walker.manual_enabled=false
+		walker.walk_to(walker.foot+Vector2(82 if LOCATIONS.find(id)>LOCATIONS.find(str(core.state.location)) else -82,0))
+		await get_tree().create_timer(0.28).timeout
+	var fade:=ColorRect.new()
+	fade.name="TravelFade";fade.color=Color(0.08,0.12,0.13,0)
+	UI.place(fade,self,Rect2(0,0,1600,900))
+	var out:=create_tween();out.tween_property(fade,"color:a",1.0,0.2)
+	await out.finished
 	var error:String=core.travel(id,minutes)
-	busy=false
-	if not error.is_empty():_close();_say(error);return
-	_save()
-	if not core.state.failure.is_empty():_failure()
-	else:_world()
+	if error.is_empty():
+		_save()
+		if not core.state.failure.is_empty():_failure()
+		else:_world()
+	# Newly created stage stays under this overlay during the arrival fade.
+	move_child(fade,get_child_count()-1)
+	var arrival:=create_tween();arrival.tween_property(fade,"color:a",0.0,0.25)
+	await arrival.finished
+	fade.queue_free();busy=false
+	if is_instance_valid(walker):walker.manual_enabled=view=="world"
+	if not error.is_empty():_say(error)
 
 func _settings_page() -> void:
 	var p:=_sheet("声音与操作","点击地面 / WASD：走动\n人物与物件：走近后交互\nM 地图 · B 邮袋 · J 档案 · Esc 返回 · F11 全屏\n信封：右键翻面，滚轮放大。",[])
@@ -893,6 +907,7 @@ func _save_to_title() -> void:
 	else:_show_save_problem("工作记录没有保存成功，仍保留在当前班次。"+core.last_save_error)
 
 func _pause() -> void:
+	if busy:return
 	_sheet("暂歇一会儿","这段阅读与停留不会改变邮路上的时间。",[["回到场景",_close],["声音与操作",_settings_page],["保存并回到封面",_save_to_title]])
 
 func _ending() -> void:

@@ -29,7 +29,7 @@ func _render() -> void:
 		remove_child(child)
 		child.queue_free()
 	mouse_filter = Control.MOUSE_FILTER_STOP
-	var height := 270.0 if _showing_choices else 256.0
+	var height := 270.0 if _showing_choices else (320.0 if _line.length()>150 else 256.0)
 	var top := 900.0 - height
 	var fade := Gradient.new()
 	fade.offsets = PackedFloat32Array([0.0, 0.18, 1.0])
@@ -45,6 +45,11 @@ func _render() -> void:
 	ribbon.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
 	ribbon.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	UI.place(ribbon, self, Rect2(0, top, 1600, height))
+	var close:=_text_button("×",Rect2(1510,top+36,58,52))
+	close.name="CloseDialogue"
+	close.action_mode=BaseButton.ACTION_MODE_BUTTON_PRESS
+	close.add_theme_font_size_override("font_size",34)
+	close.pressed.connect(request_close)
 	if _showing_choices:
 		var first := _choice_page * CHOICES_PER_PAGE
 		for index in range(first, mini(first + CHOICES_PER_PAGE, _choices.size())):
@@ -63,12 +68,16 @@ func _render() -> void:
 			next_page.pressed.connect(func(): _choice_page += 1; _render())
 	else:
 		UI.label(self, _speaker, Rect2(126, top + 49, 1280, 40), 29, WORDS).name = "Speaker"
-		var spoken := UI.label(self, _line, Rect2(126, top + 100, 1320, 100), 26, WORDS)
+		var spoken:=RichTextLabel.new()
 		spoken.name = "SpokenLine"
-		spoken.add_theme_constant_override("line_spacing", 7)
-		var next := _text_button("继续  ›", Rect2(682, 831, 236, 48))
+		spoken.text=_line
+		spoken.scroll_active=true
+		spoken.add_theme_color_override("default_color",WORDS)
+		spoken.add_theme_font_size_override("normal_font_size",26)
+		spoken.add_theme_constant_override("line_separation",7)
+		UI.place(spoken,self,Rect2(126,top+96,1320,148 if height==320.0 else 84))
+		var next := _text_button("›", Rect2(682, 839, 236, 48))
 		next.name = "AdvanceDialogue"
-		next.tooltip_text = "继续 · 空格 / Enter"
 		next.pressed.connect(_advance)
 
 func _text_button(text: String, rect: Rect2) -> Button:

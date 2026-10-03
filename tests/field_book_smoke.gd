@@ -83,7 +83,7 @@ func _run() -> void:
 	_check(book._canvas.modulate.a == 1.0, "turning a leaf does not fade the entire book or the background")
 	if DisplayServer.get_name() != "headless":
 		await create_timer(0.08).timeout
-		await RenderingServer.frame_post_draw
+		RenderingServer.force_draw(false)
 		_check(root.get_texture().get_image().save_png("res://test-results/field_book_turning.png") == OK, "capture actual intermediate turning leaf")
 		artifacts.append("res://test-results/field_book_turning.png")
 	await _click("PreviousPage")
@@ -169,7 +169,10 @@ func _run() -> void:
 			_assert_layout()
 			await _shot("field_book_source_%s_%d" % [language, dimensions.x])
 			await _click("Tab3")
-			_check((_find("DeskEntry") as LineEdit).text == "Desk B", "changing locale does not destroy recorded draft")
+			var desk_entry:=_find("DeskEntry") as LineEdit
+			_check(desk_entry!=null,"draft editor exists after actual tab click")
+			if desk_entry==null:quit(1);return
+			_check(desk_entry.text == "Desk B", "changing locale does not destroy recorded draft")
 			_assert_layout()
 			await _shot("field_book_draft_%s_%d" % [language, dimensions.x])
 			# Fast alternating chapters/corners must not duplicate modal children,
@@ -250,6 +253,8 @@ func _click(node_name: String) -> void:
 	_check(control != null, "input target exists " + node_name)
 	if control == null: return
 	var point := control.get_global_rect().get_center()
+	var motion:=InputEventMouseMotion.new();motion.position=point;motion.global_position=point
+	root.push_input(motion,true);await process_frame
 	await _mouse(point, true)
 	await _mouse(point, false)
 	await process_frame
@@ -259,6 +264,7 @@ func _mouse(point: Vector2, pressed: bool) -> void:
 	var event := InputEventMouseButton.new()
 	event.position = point; event.global_position = point
 	event.button_index = MOUSE_BUTTON_LEFT; event.pressed = pressed
+	event.button_mask=MOUSE_BUTTON_MASK_LEFT if pressed else 0
 	root.push_input(event, true)
 	await process_frame
 
@@ -350,7 +356,7 @@ func _shot(name: String) -> void:
 	print("BOOK CAPTURE ", name)
 	await create_timer(0.36).timeout
 	if DisplayServer.get_name() == "headless": return
-	await RenderingServer.frame_post_draw
+	RenderingServer.force_draw(false)
 	var path := "res://test-results/" + name + ".png"
 	_check(root.get_texture().get_image().save_png(path) == OK, "actual viewport screenshot " + name)
 	artifacts.append(path)

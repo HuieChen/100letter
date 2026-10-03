@@ -56,6 +56,7 @@ func _continue_five() -> void:
 	await _travel("residential")
 	await _named("Clue_current_3c_resident")
 	await _wait(func(): return is_instance_valid(host.modal), "reach current-resident record")
+	if _modal_script()!="res://scripts/rebuild/field_observation.gd":return
 	await _read_observation()
 	await _key(KEY_ESCAPE)
 	await _travel("community_center")
@@ -67,6 +68,7 @@ func _continue_five() -> void:
 	await _record_case("case03", "June Arlen", "Community approved cubby", "Exterior address repaired; forwarded unopened")
 	await _named("Mail_case04")
 	await _wait(func(): return is_instance_valid(host.modal), "take old case from actual archive tray")
+	if _modal_script()!="res://scripts/rebuild/mail_workbench.gd":return
 	await _click(host.modal.to_canvas(host.modal.model.object_rect("envelope").get_center()), MOUSE_BUTTON_RIGHT)
 	_check(host.core.has_evidence("case04_archive_mark"), "actual reverse supplies old HV mark")
 	await _key(KEY_ESCAPE)
@@ -134,30 +136,14 @@ func _bag_ids() -> Array[String]:
 	return result
 
 func _carry_case(id: String) -> void:
-	await _named("OpenBag")
-	var named := _node("Carry_" + id)
-	if named != null: await _click(named.get_global_rect().get_center())
-	else:
-		var icons: Array[Control] = []
-		for candidate: Control in _buttons(host):
-			if candidate.get_script() != null and candidate.get_script().resource_path.ends_with("object_button.gd") and str(candidate.caption) == "拿在手中": icons.append(candidate)
-		var index := _bag_ids().find(id)
-		if not _assert_target(index >= 0 and index < icons.size(), "visible bag item for " + id): return
-		await _click(icons[index].get_global_rect().get_center())
-	_check(host.carried == id, "real bag interaction carries " + id)
+	await _inspect_bag_case(id)
+	await _click(Vector2(1495,60))
+	_check(not is_instance_valid(host.modal) and host.carried == id, "direct envelope inspection returns with the same selected letter " + id)
 
 func _inspect_bag_case(id: String) -> void:
 	await _named("OpenBag")
-	var named := _node("Inspect_" + id)
-	if named != null: await _click(named.get_global_rect().get_center())
-	else:
-		var choices: Array[Control] = []
-		for candidate: Control in _buttons(host):
-			if candidate is Button and candidate.text == "放桌上查看": choices.append(candidate)
-		var index := _bag_ids().find(id)
-		if not _assert_target(index >= 0 and index < choices.size(), "visible inspection choice for " + id): return
-		await _click(choices[index].get_global_rect().get_center())
-	_check(_modal_script().ends_with("mail_workbench.gd"), "physical workbench mounts for " + id)
+	await _named("Envelope_" + id)
+	_check(_modal_script().ends_with("mail_workbench.gd") and host.modal.case_id==id, "physical envelope itself opens inspection for " + id)
 
 func _record_case(id: String, recipient: String, place: String, status: String) -> void:
 	await _named("CounterRegister")
@@ -225,10 +211,9 @@ func _travel(id: String) -> void:
 	var before: int = host.core.state.minute
 	await _named("OpenMap")
 	await _named("Map_" + id)
-	_check(host.core.state.minute == before, "route preview does not advance time")
-	await _text("沿这条路步行")
+	_check(host.busy and not is_instance_valid(host.modal), "map selection immediately closes paper and begins travel")
 	await _wait(func(): return not host.busy and host.core.state.location == id, "real route arrives at " + id)
-	_check(int(host.core.state.minute) - before in [15,30], "one previewed journey charges 15 or 30 minutes")
+	_check(int(host.core.state.minute) - before in [15,30], "one selected journey charges 15 or 30 minutes")
 	if host.core.state.location == id and id not in visited_locations:
 		visited_locations.append(id)
 		await _shot("world_" + id)

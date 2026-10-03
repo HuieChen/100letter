@@ -33,6 +33,7 @@ var _fit := 1.0
 var _message := ""
 var _message_left := 0.0
 var _pending := false
+var _rejection := 0.0
 
 func configure(game:Node) -> void:
 	if is_instance_valid(core) and core.changed.is_connected(refresh):core.changed.disconnect(refresh)
@@ -59,6 +60,7 @@ func refresh() -> void:
 
 func _process(delta: float) -> void:
 	_message_left=maxf(0.0,_message_left-delta)
+	_rejection=maxf(0.0,_rejection-delta)
 	_latch_pose=move_toward(_latch_pose,1.0 if latch_open else 0.0,delta*7.0)
 	queue_redraw()
 
@@ -96,7 +98,7 @@ func _gui_input(event: InputEvent) -> void:
 		accept_event();queue_redraw()
 
 func _any_target(p:Vector2) -> bool:
-	return LATCH.has_point(p) or _lid_rect().has_point(p) or BOOK.has_point(p) or SLIP.has_point(p) or (lid_open>0.88 and LETTER.has_point(p))
+	return LATCH.has_point(p) or _lid_rect().has_point(p) or BOOK.has_point(p) or SLIP.has_point(p) or Rect2(16,50,157,285).has_point(p) or Rect2(26,767,148,73).has_point(p) or (lid_open>0.88 and not waiting.is_empty() and LETTER.has_point(p))
 
 func _lid_rect() -> Rect2:
 	var edge:=lerpf(627,289,lid_open)
@@ -111,11 +113,12 @@ func _paint_lid() -> void:
 
 func _paint_latch() -> void:
 	# The upper cylinder is the hinge; a single generated hasp rotates clear of its receiver.
-	draw_set_transform(Vector2(810,611)*_fit,lerpf(0.0,-1.72,_latch_pose),Vector2.ONE*_fit)
+	draw_set_transform(Vector2(810,611)*_fit,lerpf(0.0,-1.72,_latch_pose)+sin(_rejection*65.0)*_rejection,Vector2.ONE*_fit)
 	Art.paint(self,"mail_box_latch",Rect2(-10,-4,20,58),Color.WHITE,true)
 	draw_set_transform(Vector2.ZERO,0,Vector2.ONE*_fit)
 func _say(message:String) -> void:
 	_message=message;_message_left=4.5
+	if not latch_open:_rejection=0.18;cue.emit("tool")
 
 func get_desk_snapshot() -> Dictionary:
 	return {"waiting":waiting.duplicate(),"latch_open":latch_open,"lid_open":lid_open,"held":held,"pending":_pending,
@@ -144,6 +147,4 @@ func _draw() -> void:
 	if held=="letter":Art.paint(self,"envelope_front",Rect2(letter_rect.position,Vector2(390,219)))
 	var font:Font=get_theme_font("font")
 	draw_string(font,Vector2(35,813),"← 门外",HORIZONTAL_ALIGNMENT_LEFT,-1,22,Color("ede4ca"))
-	if _message_left>0 and not caption_suppressed:
-		draw_string(font,Vector2(355,867),_message,HORIZONTAL_ALIGNMENT_LEFT,1030,22,Color("f5ebd1"))
 	draw_set_transform(Vector2.ZERO)
