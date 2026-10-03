@@ -18,6 +18,8 @@ def main() -> None:
         for record in sorted(records.glob("*.json")):
             if record.name != "finish.json":
                 items += json.loads(record.read_text(encoding="utf-8"))["artifacts"]
+    followup = json.loads((ROOT / "docs/testing/corner-review_20261004/native-followup.json").read_text(encoding="utf-8"))
+    items += followup["artifacts"]
     observed = {}
     for item in items:
         path = (ROOT / item["path"]).resolve()

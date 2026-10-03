@@ -1,0 +1,24 @@
+{
+  "runtime_commit": "48774fce4751a5660f5007dec0f9f278c562bd32",
+  "method": "Actual Windows mouse/keyboard and real app focus changes; same verified formal PCK and isolated QA slot",
+  "scope": "Supplementary fullscreen, repeated click and focus-loss observations; not a full native matrix, listening or novice test",
+  "artifacts": [
+    {
+      "path": "docs/testing/corner-review_20261004/native_fullscreen_corner.jpg",
+      "sha256": "5969966d1869d7a58a59c685934e2bc59ce9ed10405b824d5b7099eb1e00d8c5"
+    },
+    {
+      "path": "docs/testing/corner-review_20261004/native_focus_recovered.jpg",
+      "sha256": "e18057d4f4b3f1c4a3b0bcedaa4932563ea42961acbeb628de2929f74f8b8a8a"
+    },
+    {
+      "path": "docs/testing/corner-review_20261004/publication.json",
+      "sha256": "7fb02172b792468e28936ed24f430091286efc49d730288fdb3e24296347c518"
+    },
+    {
+      "path": "docs/testing/corner-review_20261004/PUBLICATION_AND_FOLLOWUP.md",
+      "sha256": "3fb61eb15db191791c1088f3ed7d20bacfb532f5c43039208378f599decd2d70"
+    }
+  ],
+  "game_acceptance": "NOT_COMPLETE"
+}
