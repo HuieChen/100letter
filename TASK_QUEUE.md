@@ -1,6 +1,8 @@
 # Task queue — reviewed 2026-10-03
 Use CURRENT_SPEC.md and docs/REQUIREMENTS_REVIEW_20261003.md. CCGS adapter is part of QA, not proof of product completion.
 
+Latest 2026-10-04 override: global generated artwork now follows the supplied soft pastel picture-book reference, preserving framework and saves. Fresh source regression passes; finish matching package/native evidence and publish to main, then continue ordered core quality gates. Earlier no-restyle queue wording is superseded. Do not treat a global visual update as acceptance of audio, novice or the new three-letter story.
+
 Current authoritative ordering/owners/dependencies: production/studio-board.json and production/epics/. Run studio.py status/ready/dispatch; inspect changed-file impact; record role findings and current evidence; finish/handoff before advancing. CORE-BOOK remains active; native/listening/novice evidence and the retained incomplete-engine observation prevent completion. Existing automatic implementation below is not a closed story.
 
 1. Native/novice review of corrected book/bag/map/NPC chains when the Windows desktop is unlocked; investigate the earlier intermittent current-resident source-opening miss. Automated source-frozen regression passes, not final acceptance.

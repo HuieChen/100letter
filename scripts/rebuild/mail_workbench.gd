@@ -8,8 +8,9 @@ signal inspection_completed(mode: String)
 const Paper = preload("res://scripts/rebuild/mail_physics_state.gd")
 const Art = preload("res://scripts/rebuild/physical_art.gd")
 const Drawer = preload("res://scripts/rebuild/tool_drawer.gd")
+const Imprint = preload("res://scripts/rebuild/mail_imprint.gd")
 const ORIGIN := Vector2(210,145)
-const INK := Color("365955")
+const INK := Color("4f3847")
 const CREAM := Color("f3efdf")
 const PAPER := Color("fff8e8")
 const TOOLS := ["hand","restorer","press","opener","amend","eraser","reseal","sealer"]
@@ -64,6 +65,10 @@ var _lift := 0.0
 var _returning := false
 var _text_layout_cache: Dictionary = {}
 var _text_layout_builds := 0
+var return_rect := Rect2(36,27,70,40)
+var _flip_candidate := false
+var _flip_press := Vector2.ZERO
+var _edge_hover := false
 const EDIT_ORIGIN := Vector2(570,170)
 const EDIT_ZOOM := 2.15
 
@@ -208,7 +213,7 @@ func _return_to_bag() -> void:
 	var from:=_displayed_envelope_rect()
 	_finish_presentation()
 	_closing=true;_returning=true;body_reader.hide()
-	_presentation_from=from;_presentation_to=Rect2(36,27,70,40);_presentation=0.0
+	_presentation_from=from;_presentation_to=return_rect;_presentation=0.0
 	_presentation_motion=create_tween()
 	_presentation_motion.tween_method(func(value:float):_presentation=value;queue_redraw(),0.0,1.0,0.18).set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_IN)
 	_presentation_motion.tween_callback(func():closed.emit())
@@ -285,6 +290,10 @@ func _gui_input(event: InputEvent) -> void:
 			model.set_inspection(float(_snapshot.zoom),_pan_start+(event.position-_pointer_start)/_fit)
 		elif not _drag.is_empty(): _feedback(model.drag_to(_to_table(event.position)))
 		elif _tool_down: _stroke(_to_table(event.position))
+		var edge_hover:=_tool.is_empty() and _drag.is_empty() and not _reading and str(_snapshot.operation_mode).is_empty() and _turn_edge().has_point(_to_table(event.position))
+		if edge_hover!=_edge_hover:
+			_edge_hover=edge_hover
+			if _drag.is_empty():_set_lift(0.55 if _edge_hover else 0.0)
 		queue_redraw()
 		return
 	if not event is InputEventMouseButton: return
@@ -336,6 +345,7 @@ func _gui_input(event: InputEvent) -> void:
 		accept_event();return
 	if event.button_index!=MOUSE_BUTTON_LEFT: return
 	if event.pressed:
+		if _flip_progress<1.0:accept_event();return
 		_stop_view_motion()
 		_finish_presentation()
 		if _flip_motion!=null:_flip_motion.kill();_flip_progress=1.0
@@ -352,11 +362,18 @@ func _gui_input(event: InputEvent) -> void:
 					if id in ["attachment","replacement"] and _snapshot.operation_mode!="amend":
 						if not _start_amend():break
 					var error: String=model.begin_drag(id,point)
-					if error.is_empty(): _drag=id;_set_lift(1.0);cue.emit("paper");break
+					if error.is_empty():
+						_drag=id;_set_lift(1.0);cue.emit("paper")
+						_flip_candidate=id=="envelope" and str(_snapshot.operation_mode).is_empty() and _turn_edge().has_point(point)
+						_flip_press=event.position
+						break
 					_feedback(error)
 	else:
 		if not _drag.is_empty():
+			var turn:bool=_flip_candidate and _drag=="envelope" and event.position.distance_to(_flip_press)<=6.0*_fit
 			_feedback(model.release_drag());_drag="";_set_lift(0.0);cue.emit("paper")
+			_flip_candidate=false
+			if turn:_flip()
 		if _tool_down:
 			_tool_down=false
 			if _tool=="eraser":model.return_tool();_tool="";_message=_instruction()
@@ -379,6 +396,10 @@ func _pick_order() -> Array[String]:
 		if _snapshot.face=="back" and _snapshot.label_lifted: ids.append("label")
 	ids.append("envelope")
 	return ids
+
+func _turn_edge() -> Rect2:
+	var envelope:Rect2=model.object_rect("envelope")
+	return Rect2(envelope.end.x-30.0,envelope.position.y,30.0,envelope.size.y)
 
 func _take_tool(id: String) -> void:
 	if not _drag.is_empty(): _message="先放下手中的纸件。";return
@@ -449,7 +470,7 @@ func _flip() -> void:
 
 func _checkpoint(exit_after: bool, save_now: bool=true) -> bool:
 	if core==null or _snapshot.is_empty(): return false
-	model.cancel_operation();_drag="";_tool="";_tool_down=false;_panning=false;_magnifier_held=false;drawer.held=false
+	model.cancel_operation();_drag="";_tool="";_tool_down=false;_panning=false;_magnifier_held=false;drawer.held=false;_flip_candidate=false;_edge_hover=false
 	_stop_view_motion();_set_lift(0.0)
 	var error: String
 	if not core.state.active_operation.is_empty(): error=core.cancel_operation(model.export_state())
@@ -568,7 +589,10 @@ func _draw() -> void:
 	if _presentation<1.0:
 		var displayed:=_displayed_envelope_rect()
 		Art.paint(self,"envelope_front",Rect2(displayed.position+Vector2(7,9),displayed.size),Color(0.03,0.05,0.04,0.18))
-		Art.paint(self,"envelope_front" if _snapshot.face=="front" else "envelope_back",displayed)
+		var scale:=displayed.size/Paper.ENVELOPE_SIZE
+		draw_set_transform((displayed.position-model.object_rect("envelope").position*scale)*_fit,0,scale*_fit)
+		_draw_envelope(str(_snapshot.face),false)
+		draw_set_transform(Vector2.ZERO,0,Vector2.ONE*_fit)
 	_overlay_text("×",Vector2(1460,32),70,38)
 	# Routine controls are conveyed by the physical object/cursor, never a
 	# narrator strip. Disk-save failure is a system problem and stays visible.
@@ -591,22 +615,16 @@ func _draw_table_tool(_id:String) -> void:
 func _draw_sprite(id:String,rect:Rect2,tint:Color=Color.WHITE,_shadow:bool=false,keep_aspect:bool=false) -> void:
 	Art.paint(self,"letter_paper" if id=="letter" else id,rect,tint,keep_aspect)
 
-func _draw_envelope(face:String) -> void:
+func _draw_envelope(face:String,physical_details:bool=true) -> void:
 	var rect: Rect2=model.object_rect("envelope")
 	_draw_sprite("envelope_front" if face=="front" else "envelope_back",rect,Color.WHITE,true)
-	var lines:Array[String]=[]
 	var fields:Dictionary=_view.get(face,{})
 	for key:String in fields:
-		if key=="recovered_fields" or (key=="back" and case_id=="case03"):continue
 		if key=="address" and str(fields[key])=="water-damaged":
 			for row:int in range(3):draw_line(rect.position+Vector2(32,183+row*7),rect.position+Vector2(130+row*13,185+row*7),Color(0.34,0.47,0.43,0.17),3.0,true)
-			continue
-		if not str(fields[key]).is_empty():lines.append(str(fields[key]))
-	var safe:=Rect2(rect.position+Vector2(30,34),Vector2(340,148)) if face=="front" else Rect2(rect.position+Vector2(27,126),Vector2(362,88))
-	if fields.has("recovered_fields"):
-		var recovered:Dictionary=fields.recovered_fields
-		lines.append("%s · %s\n%s\n%s — %s"%[recovered.original_address,recovered.forwarding_recipient,recovered.forwarding_destination,recovered.forwarding_valid_from,recovered.forwarding_valid_until])
-	var inscription:="\n".join(lines)
+	var safe:=Imprint.safe_rect(face)
+	safe.position+=rect.position
+	var inscription:=Imprint.inscription(fields,case_id)
 	var key:=[face,inscription,get_theme_font("font").get_instance_id()]
 	if not _text_layout_cache.has(key):
 		if _text_layout_cache.size()>=6:_text_layout_cache.clear()
@@ -622,20 +640,13 @@ func _draw_envelope(face:String) -> void:
 		for index: int in range(9): draw_circle(model.seam_point(index),2.2,Color("bd8068") if index>=int(_snapshot.seam_count) else Color("547e70"))
 	if _snapshot.permanent_damage>0:
 		for index: int in range(mini(6,int(_snapshot.permanent_damage))): draw_line(rect.position+Vector2(35+index*21,52),rect.position+Vector2(47+index*21,65),Color("ba957b"),1.3)
-	if _snapshot.seal_condition in ["open","closed_unsealed"]:_paint_envelope_flap(rect)
-	if _snapshot.operation_mode=="reseal" and _snapshot.paper_location=="inside":
+	if physical_details and _snapshot.seal_condition in ["open","closed_unsealed"]:_paint_envelope_flap(rect)
+	if physical_details and _snapshot.operation_mode=="reseal" and _snapshot.paper_location=="inside":
 		var flap: Rect2=model.object_rect("flap")
 		_text("↓",flap.position+Vector2(10,24),40,24,INK)
 
 func envelope_text_layout(text:String,safe:Rect2,font_size:int) -> Dictionary:
-	var paragraph:TextParagraph
-	for candidate:int in range(font_size,9,-1):
-		paragraph=TextParagraph.new();paragraph.width=safe.size.x
-		paragraph.add_string(text,get_theme_font("font"),candidate)
-		if paragraph.get_size().y<=safe.size.y:return {"paragraph":paragraph,"rect":Rect2(safe.position,paragraph.get_size()),"font_size":candidate,"safe":safe}
-	# Current envelope fields are short postal inscriptions. Reject oversized
-	# data in QA instead of silently drawing beyond the material's safe area.
-	return {"paragraph":paragraph,"rect":Rect2(safe.position,paragraph.get_size()),"font_size":10,"safe":safe}
+	return Imprint.layout(get_theme_font("font"),text,safe,font_size)
 
 func _paint_envelope_flap(envelope:Rect2) -> void:
 	# The generated triangle keeps its shape, hinged along the envelope's right mouth.

@@ -1,0 +1,37 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+OpenGL API 3.3.0 NVIDIA 566.24 - Compatibility - Using Device: NVIDIA - NVIDIA GeForce RTX 4050 Laptop GPU
+
+ERROR: real held stroke opens seam without instant body
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] _check (res://tests/mail_workbench_input_smoke.gd:372)
+       [1] _open_paper (res://tests/mail_workbench_input_smoke.gd:291)
+       [2] _button (res://tests/mail_workbench_input_smoke.gd:342)
+ERROR: optional Case04 physical opening records real private-body knowledge
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] _check (res://tests/mail_workbench_input_smoke.gd:372)
+       [1] _run (res://tests/mail_workbench_input_smoke.gd:126)
+       [2] _open_paper (res://tests/mail_workbench_input_smoke.gd:296)
+       [3] _drag_object (res://tests/mail_workbench_input_smoke.gd:331)
+       [4] _button (res://tests/mail_workbench_input_smoke.gd:342)
+ERROR: actual wheel scroll reveals later original paragraphs
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] _check (res://tests/mail_workbench_input_smoke.gd:372)
+       [1] _run (res://tests/mail_workbench_input_smoke.gd:133)
+       [2] _click (res://tests/mail_workbench_input_smoke.gd:346)
+       [3] _settle_motion (res://tests/mail_workbench_input_smoke.gd:352)
+ERROR: Case04 is physically refolded and sealed before archival disposition
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] _check (res://tests/mail_workbench_input_smoke.gd:372)
+       [1] _run (res://tests/mail_workbench_input_smoke.gd:137)
+       [2] _reseal (res://tests/mail_workbench_input_smoke.gd:323)
+       [3] _click (res://tests/mail_workbench_input_smoke.gd:346)
+       [4] _button (res://tests/mail_workbench_input_smoke.gd:342)
+MAIL WORKBENCH INPUT: 170 checks, 4 failures
+real held stroke opens seam without instant body
+optional Case04 physical opening records real private-body knowledge
+actual wheel scroll reveals later original paragraphs
+Case04 is physically refolded and sealed before archival disposition

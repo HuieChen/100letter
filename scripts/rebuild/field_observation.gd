@@ -12,9 +12,9 @@ const CLOSE := Rect2(1302, 105, 126, 54)
 const OPEN := Rect2(1232, 679, 57, 57)
 const OLD_PLATE := Rect2(483, 316, 236, 154)
 const NEW_PLATE := Rect2(457, 285, 344, 212)
-const INK := Color("34454b")
+const INK := Color("4f3847")
 const SOFT := Color("73736b")
-const TEAL := Color("427e86")
+const TEAL := Color("49745b")
 const CREAM := Color("eee7d3")
 const PUBLIC_IDS := ["street_renaming", "ceramic_17", "moran_entry", "mira_absent",
 	"telescope_checkout", "telescope_returned", "shuttle_timetable", "trusted_handoff_rule",

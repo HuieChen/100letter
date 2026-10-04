@@ -1,0 +1,135 @@
+WorkerThreadPool: 16 threads, 4 max low-priority.
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+TextServer: Added interface "Dummy"
+TextServer: Added interface "ICU / HarfBuzz / Graphite (Built-in)"
+Accessibility: AccessKit driver loaded.
+Native OpenGL API detected: 3.3: NVIDIA - NVIDIA GeForce RTX 4050 Laptop GPU
+NVAPI: Init OK!
+NVAPI: Application not found in profile, creating...
+NVAPI: Error creating application: NVAPI_EXECUTABLE_ALREADY_IN_USE(code -167)
+Accessibility: window 0 adapter created.
+SDL: Init OK!
+Using "winink" pen tablet driver...
+Shader 'CanvasSdfShaderGLES3' SHA256: 6f4471a5d42cbb3f816409eac4a1f4dc700ea4e46a691096dab815f165b65fb6
+Shader 'SkeletonShaderGLES3' SHA256: 8d4d590923385d0206db1e43210c91ce25406c9077687aa18c3dbeb1887d5068
+Shader 'ParticlesShaderGLES3' SHA256: ab7a7c2d932f8e479086a2eefdb3516da88c1802c71b8764c646b234bd3b6e0f
+Shader 'ParticlesCopyShaderGLES3' SHA256: 4a33913ee18f87de0eb4ef68f3a43f1141b5dea4109c8d635cb2bfc38e69ecfd
+Shader 'CopyShaderGLES3' SHA256: c10ee62a0adb0d8d90ab3aa388a2451942c0483094a1fab8a9d3ca39d508cbec
+Shader 'CubemapFilterShaderGLES3' SHA256: 465099f5624538db591bd33e78e8c41c01c52538b779736f2ca93ac0bf106464
+Shader 'GlowShaderGLES3' SHA256: a37d815f9b1e4072c6b2073fda936c81ece72450e18af88c625285a52eef6a79
+Shader 'PostShaderGLES3' SHA256: 3af764305c1ca2955a0bff1adaab3461ee9135d36e5249e9b02fb4fb81095b0c
+Shader 'FeedShaderGLES3' SHA256: a1ea3e92d447f3772eec061c558128349c0f373fbe61dd62bbf1af1006e2ecc6
+Shader 'CanvasShaderGLES3' SHA256: b588aa4790e5560979bf534c7f872dab297cb232554481c5fd4e446029d961b6
+Shader 'CanvasOcclusionShaderGLES3' SHA256: e44913da9e5ec862c2546b6d7af182873ea6b3573d0abd2087702e4dc91a5f21
+Shader 'SceneShaderGLES3' SHA256: 41bd7b313d56b9a25831ec2d8694cfaea0a85b82cdd2da28b9fa0b5eedec85f6
+Shader 'SkyShaderGLES3' SHA256: 70ec61da28038cac189524b56cac26caa587928a7de13e7f99518caef4bd69eb
+Shader 'TexBlitShaderGLES3' SHA256: 563c58603e9f4e982295bec07b60cfafc7de91759af85f6c2158f2b562d50295
+OpenGL API 3.3.0 NVIDIA 566.24 - Compatibility - Using Device: NVIDIA - NVIDIA GeForce RTX 4050 Laptop GPU
+
+TextServer: Primary interface set to: "ICU / HarfBuzz / Graphite (Built-in)".
+CORE API HASH: 2004498165
+EDITOR API HASH: 1696660745
+Loading resource: res://tests/final_window_close_input.gd remapped: res://tests/final_window_close_input.gd
+Loading resource: res://assets/fonts/SolmereSans.ttf remapped: res://assets/fonts/SolmereSans.ttf
+Loading resource: res://.godot/imported/SolmereSans.ttf-a7b1141a9168b24d53e57f84c6a7030d.fontdata remapped: res://.godot/imported/SolmereSans.ttf-a7b1141a9168b24d53e57f84c6a7030d.fontdata
+Completed load for: 'res://assets/fonts/SolmereSans.ttf' remapped 'res://assets/fonts/SolmereSans.ttf' at thread -1
+Completed load for: 'res://tests/final_window_close_input.gd' remapped 'res://tests/final_window_close_input.gd' at thread -1
+SceneTreeFTI: traversal method DEFAULT
+Loaded system CA certificates
+Accessibility: window 0 adapter activated.
+Loading resource: res://assets/audio/afternoon.wav remapped: res://assets/audio/afternoon.wav
+Loading resource: res://.godot/imported/afternoon.wav-303932845e66db6a4d68ba31040dcc3b.sample remapped: res://.godot/imported/afternoon.wav-303932845e66db6a4d68ba31040dcc3b.sample
+Completed load for: 'res://assets/audio/afternoon.wav' remapped 'res://assets/audio/afternoon.wav' at thread -1
+Loading resource: res://assets/audio/foley/sea_bed.ogg remapped: res://assets/audio/foley/sea_bed.ogg
+Loading resource: res://.godot/imported/sea_bed.ogg-bc65e0df705a6e846979a4f9fb8ade13.oggvorbisstr remapped: res://.godot/imported/sea_bed.ogg-bc65e0df705a6e846979a4f9fb8ade13.oggvorbisstr
+Completed load for: 'res://assets/audio/foley/sea_bed.ogg' remapped 'res://assets/audio/foley/sea_bed.ogg' at thread -1
+Loading resource: res://assets/audio/foley/town_bed.ogg remapped: res://assets/audio/foley/town_bed.ogg
+Loading resource: res://.godot/imported/town_bed.ogg-3192bb4130b6bce1abc9e36b1f0df920.oggvorbisstr remapped: res://.godot/imported/town_bed.ogg-3192bb4130b6bce1abc9e36b1f0df920.oggvorbisstr
+Completed load for: 'res://assets/audio/foley/town_bed.ogg' remapped 'res://assets/audio/foley/town_bed.ogg' at thread -1
+Loading resource: res://assets/audio/foley/wind_bed.ogg remapped: res://assets/audio/foley/wind_bed.ogg
+Loading resource: res://.godot/imported/wind_bed.ogg-e223511262b37d55854bfd8fdc84f5d6.oggvorbisstr remapped: res://.godot/imported/wind_bed.ogg-e223511262b37d55854bfd8fdc84f5d6.oggvorbisstr
+Completed load for: 'res://assets/audio/foley/wind_bed.ogg' remapped 'res://assets/audio/foley/wind_bed.ogg' at thread -1
+Loading resource: res://assets/audio/foley/room_bed.ogg remapped: res://assets/audio/foley/room_bed.ogg
+Loading resource: res://.godot/imported/room_bed.ogg-91d30e4e369484ab82f03a9b0f11bb73.oggvorbisstr remapped: res://.godot/imported/room_bed.ogg-91d30e4e369484ab82f03a9b0f11bb73.oggvorbisstr
+Completed load for: 'res://assets/audio/foley/room_bed.ogg' remapped 'res://assets/audio/foley/room_bed.ogg' at thread -1
+PASS isolated save and report destinations supplied
+Accessibility: window 0 adapter initial update completed.
+PASS input target exists: NewShift
+Loading resource: res://assets/audio/foley/door_open.wav remapped: res://assets/audio/foley/door_open.wav
+Loading resource: res://.godot/imported/door_open.wav-ffe745f5969823eaa5dcd7c472a0c99a.sample remapped: res://.godot/imported/door_open.wav-ffe745f5969823eaa5dcd7c472a0c99a.sample
+Completed load for: 'res://assets/audio/foley/door_open.wav' remapped 'res://assets/audio/foley/door_open.wav' at thread -1
+Loading resource: res://assets/faefever_v2/props/pastel_misc_20261004.png remapped: res://assets/faefever_v2/props/pastel_misc_20261004.png
+Loading resource: res://.godot/imported/pastel_misc_20261004.png-47c34b09a0ace3eead2b82f295bf99aa.ctex remapped: res://.godot/imported/pastel_misc_20261004.png-47c34b09a0ace3eead2b82f295bf99aa.ctex
+Completed load for: 'res://assets/faefever_v2/props/pastel_misc_20261004.png' remapped 'res://assets/faefever_v2/props/pastel_misc_20261004.png' at thread -1
+Loading resource: res://assets/faefever_v2/props/pastel_docs_20261004.png remapped: res://assets/faefever_v2/props/pastel_docs_20261004.png
+Loading resource: res://.godot/imported/pastel_docs_20261004.png-729b8474a67de17706a7bbb0a56de06a.ctex remapped: res://.godot/imported/pastel_docs_20261004.png-729b8474a67de17706a7bbb0a56de06a.ctex
+Completed load for: 'res://assets/faefever_v2/props/pastel_docs_20261004.png' remapped 'res://assets/faefever_v2/props/pastel_docs_20261004.png' at thread -1
+Loading resource: res://assets/faefever_v2/props/town_map.png remapped: res://assets/faefever_v2/props/town_map.png
+Loading resource: res://.godot/imported/town_map.png-c0b02b5c7ef6bf17e12a285c8b4adbbf.ctex remapped: res://.godot/imported/town_map.png-c0b02b5c7ef6bf17e12a285c8b4adbbf.ctex
+Completed load for: 'res://assets/faefever_v2/props/town_map.png' remapped 'res://assets/faefever_v2/props/town_map.png' at thread -1
+Loading resource: res://assets/faefever_v2/backgrounds/BG_workroom.png remapped: res://assets/faefever_v2/backgrounds/BG_workroom.png
+Loading resource: res://.godot/imported/BG_workroom.png-b6d4b45648f248d9d02027ee9735eea5.ctex remapped: res://.godot/imported/BG_workroom.png-b6d4b45648f248d9d02027ee9735eea5.ctex
+Completed load for: 'res://assets/faefever_v2/backgrounds/BG_workroom.png' remapped 'res://assets/faefever_v2/backgrounds/BG_workroom.png' at thread -1
+Loading resource: res://assets/faefever_v2/props/pastel_case_lid_20261004.png remapped: res://assets/faefever_v2/props/pastel_case_lid_20261004.png
+Loading resource: res://.godot/imported/pastel_case_lid_20261004.png-7cfd8b300c143b93e7e3d986db469163.ctex remapped: res://.godot/imported/pastel_case_lid_20261004.png-7cfd8b300c143b93e7e3d986db469163.ctex
+Completed load for: 'res://assets/faefever_v2/props/pastel_case_lid_20261004.png' remapped 'res://assets/faefever_v2/props/pastel_case_lid_20261004.png' at thread -1
+PASS short supervisor briefing appears
+PASS input target exists: FinishBriefing
+Loading resource: res://assets/audio/foley/tool_metal.wav remapped: res://assets/audio/foley/tool_metal.wav
+Loading resource: res://.godot/imported/tool_metal.wav-bec237d57488c8ec6414d8721a69daad.sample remapped: res://.godot/imported/tool_metal.wav-bec237d57488c8ec6414d8721a69daad.sample
+Completed load for: 'res://assets/audio/foley/tool_metal.wav' remapped 'res://assets/audio/foley/tool_metal.wav' at thread -1
+PASS real hand drag opens box lid
+Loading resource: res://assets/audio/foley/paper_3.wav remapped: res://assets/audio/foley/paper_3.wav
+Loading resource: res://.godot/imported/paper_3.wav-a2dc7909c10746261bd2a127703507fc.sample remapped: res://.godot/imported/paper_3.wav-a2dc7909c10746261bd2a127703507fc.sample
+Completed load for: 'res://assets/audio/foley/paper_3.wav' remapped 'res://assets/audio/foley/paper_3.wav' at thread -1
+Loading resource: res://assets/faefever_v2/props/pastel_tools_20261004.png remapped: res://assets/faefever_v2/props/pastel_tools_20261004.png
+Loading resource: res://.godot/imported/pastel_tools_20261004.png-b0c0a29f0c19ae54029757e5cd71b952.ctex remapped: res://.godot/imported/pastel_tools_20261004.png-b0c0a29f0c19ae54029757e5cd71b952.ctex
+Completed load for: 'res://assets/faefever_v2/props/pastel_tools_20261004.png' remapped 'res://assets/faefever_v2/props/pastel_tools_20261004.png' at thread -1
+PASS actual box-to-inspection movement opens case01
+PASS physical take transfers custody case01
+Loading resource: res://assets/audio/foley/paper_2.wav remapped: res://assets/audio/foley/paper_2.wav
+Loading resource: res://.godot/imported/paper_2.wav-aa22ee3c8930673fb6be873e85b372a6.sample remapped: res://.godot/imported/paper_2.wav-aa22ee3c8930673fb6be873e85b372a6.sample
+Completed load for: 'res://assets/audio/foley/paper_2.wav' remapped 'res://assets/audio/foley/paper_2.wav' at thread -1
+Loading resource: res://assets/faefever_v2/props/pastel_envelope_back_20261004.png remapped: res://assets/faefever_v2/props/pastel_envelope_back_20261004.png
+Loading resource: res://.godot/imported/pastel_envelope_back_20261004.png-dad719afb59f6707548caae1548b5db3.ctex remapped: res://.godot/imported/pastel_envelope_back_20261004.png-dad719afb59f6707548caae1548b5db3.ctex
+Completed load for: 'res://assets/faefever_v2/props/pastel_envelope_back_20261004.png' remapped 'res://assets/faefever_v2/props/pastel_envelope_back_20261004.png' at thread -1
+Loading resource: res://assets/audio/foley/paper_slide.wav remapped: res://assets/audio/foley/paper_slide.wav
+Loading resource: res://.godot/imported/paper_slide.wav-ff7c8a69658d746f1ec99ddd4642a1c1.sample remapped: res://.godot/imported/paper_slide.wav-ff7c8a69658d746f1ec99ddd4642a1c1.sample
+Completed load for: 'res://assets/audio/foley/paper_slide.wav' remapped 'res://assets/audio/foley/paper_slide.wav' at thread -1
+PASS real blade movement breaches the seal once
+PASS actual paper drag leaves the letter halfway extracted
+PASS half-extracted paper is drawn continuously from the physical mouth
+PASS half-extracted drawing covers its actual grip rather than floating as a separate strip
+PASS window close will interrupt a real active material operation
+PASS breach is recorded without falsely reading the folded body
+PASS GPU capture before_os_window_close
+XR: Clearing primary interface
+XR: Removed interface "Native mobile"
+XR: Removed interface "OpenXR"
+Accessibility: window 0 adapter destroyed.
+Leaked instance: AudioStreamWAV:9223372074838394342 - Reference count: 1
+Leaked instance: AudioStreamPlaybackWAV:9223372074855171560 - Reference count: 1
+Leaked instance: AudioStreamOggVorbis:9223372075157161450 - Reference count: 1
+Leaked instance: AudioStreamPlaybackOggVorbis:9223372075190715883 - Reference count: 1
+Leaked instance: OggPacketSequence:9223372075073275372 - Reference count: 3
+Leaked instance: OggPacketSequencePlayback:9223372075207493102 - Reference count: 1
+Leaked instance: AudioStreamOggVorbis:9223372075509482993 - Reference count: 1
+Leaked instance: AudioStreamPlaybackOggVorbis:9223372075543037426 - Reference count: 1
+Leaked instance: OggPacketSequence:9223372075425596915 - Reference count: 3
+Leaked instance: OggPacketSequencePlayback:9223372075559814645 - Reference count: 1
+Leaked instance: AudioStreamOggVorbis:9223372075861804536 - Reference count: 1
+Leaked instance: AudioStreamPlaybackOggVorbis:9223372075895358969 - Reference count: 1
+Leaked instance: OggPacketSequence:9223372075777918458 - Reference count: 3
+Leaked instance: OggPacketSequencePlayback:9223372075912136188 - Reference count: 1
+Leaked instance: AudioStreamOggVorbis:9223372076214126079 - Reference count: 1
+Leaked instance: AudioStreamPlaybackOggVorbis:9223372076247680512 - Reference count: 1
+Leaked instance: OggPacketSequence:9223372076130240001 - Reference count: 3
+Leaked instance: OggPacketSequencePlayback:9223372076264457731 - Reference count: 1
+Hint: Leaked instances typically happen when nodes are removed from the scene tree (with `remove_child()`) but not freed (with `free()` or `queue_free()`).
+Resource still in use: res://assets/audio/foley/sea_bed.ogg::OggPacketSequence_fu5kv (OggPacketSequence)
+Resource still in use: res://assets/audio/foley/town_bed.ogg::OggPacketSequence_gjn7d (OggPacketSequence)
+Resource still in use: res://assets/audio/foley/wind_bed.ogg::OggPacketSequence_xikg3 (OggPacketSequence)
+Resource still in use: res://assets/audio/foley/room_bed.ogg::OggPacketSequence_er5ar (OggPacketSequence)
+Orphan StringName: SolmereAmbience (static: 0, total: 8)
+Orphan StringName: SolmereMusic (static: 0, total: 2)
+StringName: 2 unclaimed string names at exit.

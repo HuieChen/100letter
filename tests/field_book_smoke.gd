@@ -21,6 +21,7 @@ func _run() -> void:
 	root.content_scale_mode = Window.CONTENT_SCALE_MODE_CANVAS_ITEMS
 	root.gui_embed_subwindows = true
 	root.title = "Field book isolated input QA"
+	root.unfocusable = true
 	game = Core.new()
 	game.save_path = "user://qa/field-book-" + str(Time.get_ticks_usec()) + ".json"
 	root.add_child(game)
@@ -195,7 +196,7 @@ func _run() -> void:
 	await process_frame
 	var report := {"suite": "field_book", "checks": checks, "failures": failures, "runtime": Engine.get_version_info(), "screenshots": artifacts,
 		"scope": "Standalone book, actual Godot viewport mouse/keyboard GUI input, public core fixture setup. Not OS-input validation, whole-game reference parity, player testing or final art acceptance.",
-		"source_sha256": FileAccess.get_sha256("res://scripts/rebuild/field_book.gd"), "core_sha256": FileAccess.get_sha256("res://scripts/rebuild/final_case_state.gd"), "test_sha256": FileAccess.get_sha256("res://tests/field_book_smoke.gd"), "painted_asset_sha256": FileAccess.get_sha256("res://assets/faefever_v2/props/handbook_open.png")}
+		"source_sha256": FileAccess.get_sha256("res://scripts/rebuild/field_book.gd"), "core_sha256": FileAccess.get_sha256("res://scripts/rebuild/final_case_state.gd"), "test_sha256": FileAccess.get_sha256("res://tests/field_book_smoke.gd"), "painted_asset_sha256": FileAccess.get_sha256(Book.Art._entry("handbook_open").path)}
 	var file := FileAccess.open("res://test-results/field_book_results.json", FileAccess.WRITE)
 	file.store_string(JSON.stringify(report, "\t")); file.close()
 	print("FIELD BOOK UI: %d checks, %d failures" % [checks, failures.size()])

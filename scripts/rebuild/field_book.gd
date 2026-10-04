@@ -15,9 +15,9 @@ const LEFT_SAFE := Rect2(178,154,548,566)
 const RIGHT_SAFE := Rect2(865,154,548,566)
 const TAB_SIZE := Vector2(136,54)
 const TAB_CENTERS := [285.0,465.0,1035.0,1235.0]
-const INK := Color("#303238")
+const INK := Color("#4f3847")
 const MUTED := Color("#6B7376")
-const TEAL := Color("#397C82")
+const TEAL := Color("#49745b")
 const PAPER := Color("#F9F5EC")
 const SHADE := Color("#E6E1CB")
 const SECTIONS := ["人物", "见闻", "信件", "推断"]
@@ -82,12 +82,11 @@ func _draw() -> void:
 	# Blank painted material only. Text, identity permissions and navigation remain live controls.
 	var material := Art.texture("handbook_open")
 	if material != null:
-		# Separate upright index slips tuck behind the unchanged painted book.
+		# This blank book has no baked chapter slips to crop away. Its complete
+		# paper silhouette must remain beneath the headings and every live record.
+		draw_texture_rect(material, BOOK_RECT, false)
 		for index: int in _available_sections():
 			Art.paint(self,"book_index_tab",painted_tab_rect(index))
-		var cut := 58.0
-		var ratio := BOOK_RECT.size / material.get_size()
-		draw_texture_rect_region(material, Rect2(BOOK_RECT.position + Vector2(0,cut)*ratio, Vector2(material.get_width(),material.get_height()-cut)*ratio), Rect2(0,cut,material.get_width(),material.get_height()-cut))
 	draw_set_transform(Vector2.ZERO)
 
 

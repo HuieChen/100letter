@@ -8,13 +8,16 @@ signal archive_requested
 signal depart_requested
 signal cue(name: String)
 const Art = preload("res://scripts/rebuild/physical_art.gd")
+const Imprint = preload("res://scripts/rebuild/mail_imprint.gd")
 const CAMERA := Rect2(-640,-697,2880,1620)
 const BOX_BASE := Rect2(500,490,620,250)
 const LETTER := Rect2(617,509,390,112)
 const INSPECTION := Rect2(340,145,900,650)
 const BOOK := Rect2(155,511,220,273)
 const SLIP := Rect2(1285,444,143,210)
-const LATCH := Rect2(777,618,71,52)
+const LATCH := Rect2(777,635,71,56)
+const LID_HINGE_Y := 505.0
+const LID_FLAT_FRACTION := (627.0-LID_HINGE_Y)/(627.0-289.0)
 var caption_suppressed: bool = false:
 	set(value):
 		caption_suppressed=value
@@ -40,6 +43,7 @@ var _rejection := 0.0
 var _lid_motion: Tween
 var _letter_motion: Tween
 var _returning_letter := false
+var _mail_paragraphs:Dictionary={}
 
 func configure(game:Node) -> void:
 	if is_instance_valid(core) and core.changed.is_connected(refresh):core.changed.disconnect(refresh)
@@ -131,19 +135,35 @@ func _any_target(p:Vector2) -> bool:
 
 func _lid_rect() -> Rect2:
 	var edge:=lerpf(627,289,lid_open)
-	return Rect2(501,minf(edge,490),620,maxf(6,absf(edge-490)))
+	return Rect2(501,minf(edge,LID_HINGE_Y),620,maxf(6,absf(edge-LID_HINGE_Y)))
 
 func _paint_lid() -> void:
 	var rect:=_lid_rect()
-	if lid_open<0.405:
+	# The replacement panel's hinges are painted on its upper edge. Closed,
+	# they meet the back rim; raised, that edge must remain on the same hinge.
+	if lid_open>LID_FLAT_FRACTION:
 		draw_set_transform(Vector2(0,rect.position.y+rect.end.y)*_fit,0,Vector2(_fit,-_fit))
 	Art.paint(self,"mail_box_lid",rect)
 	draw_set_transform(Vector2.ZERO,0,Vector2.ONE*_fit)
 
 func _paint_latch() -> void:
 	# The upper cylinder is the hinge; a single generated hasp rotates clear of its receiver.
-	draw_set_transform(Vector2(810,611)*_fit,lerpf(0.0,-1.72,_latch_pose)+sin(_rejection*65.0)*_rejection,Vector2.ONE*_fit)
+	draw_set_transform(Vector2(810,637)*_fit,lerpf(0.0,-1.72,_latch_pose)+sin(_rejection*65.0)*_rejection,Vector2.ONE*_fit)
 	Art.paint(self,"mail_box_latch",Rect2(-10,-4,20,58),Color.WHITE,true)
+	draw_set_transform(Vector2.ZERO,0,Vector2.ONE*_fit)
+
+func _paint_mail(id:String,rect:Rect2) -> void:
+	Art.paint(self,"envelope_front",rect)
+	if not is_instance_valid(core):return
+	if not _mail_paragraphs.has(id):
+		var fields:Dictionary={}
+		var envelope:Dictionary=core.case_data(id).get("envelope",{})
+		for key:String in ["recipient","address","return","sender","date","service_mark","counter_note","status"]:
+			if envelope.has(key):fields[key]=envelope[key]
+		_mail_paragraphs[id]=Imprint.layout(get_theme_font("font"),Imprint.inscription(fields,id),Rect2(Vector2.ZERO,Imprint.safe_rect("front").size),20).paragraph
+	var fit:=rect.size/Vector2(420,240)
+	draw_set_transform(rect.position*_fit,0,fit*_fit)
+	(_mail_paragraphs[id] as TextParagraph).draw(get_canvas_item(),Vector2(30,34),Color("4f3847"))
 	draw_set_transform(Vector2.ZERO,0,Vector2.ONE*_fit)
 func _say(message:String) -> void:
 	_message=message;_message_left=4.5
@@ -159,23 +179,23 @@ func _draw() -> void:
 	draw_set_transform(Vector2.ZERO,0,Vector2.ONE*_fit)
 	Art.paint(self,"BG_workroom",CAMERA)
 	# Lid is a separate asset whose lower edge is the hinge. All motion is input-driven.
-	if lid_open>0.405:_paint_lid()
+	if lid_open>LID_FLAT_FRACTION:_paint_lid()
 	Art.paint(self,"mail_box_base",BOX_BASE)
 	if lid_open>0.82:
 		for index:int in range(waiting.size()-1,-1,-1):
 			if index==0 and (held=="letter" or _returning_letter):continue
-			Art.paint(self,"envelope_front",Rect2(LETTER.position+Vector2(index*7,-index*8),Vector2(390,219)))
+			_paint_mail(waiting[index],Rect2(LETTER.position+Vector2(index*7,-index*8),Vector2(390,219)))
 		var base:Texture2D=Art.texture("mail_box_base")
 		if base!=null:
 			var fraction:=0.525
 			draw_texture_rect_region(base,Rect2(BOX_BASE.position+Vector2(0,BOX_BASE.size.y*fraction),Vector2(BOX_BASE.size.x,BOX_BASE.size.y*(1-fraction))),Rect2(0,base.get_height()*fraction,base.get_width(),base.get_height()*(1-fraction)))
-	if lid_open<=0.405:_paint_lid()
+	if lid_open<=LID_FLAT_FRACTION:_paint_lid()
 	_paint_latch()
 	Art.paint(self,"handbook_closed",BOOK)
 	Art.paint(self,"resolution_slip",SLIP)
 	if held=="letter" or _returning_letter:
 		Art.paint(self,"envelope_front",Rect2(letter_rect.position+Vector2(6,8),Vector2(390,219)),Color(0.03,0.05,0.04,0.18))
-		Art.paint(self,"envelope_front",Rect2(letter_rect.position,Vector2(390,219)))
+		_paint_mail(waiting[0],Rect2(letter_rect.position,Vector2(390,219)))
 	var font:Font=get_theme_font("font")
 	draw_string(font,Vector2(35,813),"← 门外",HORIZONTAL_ALIGNMENT_LEFT,-1,22,Color("ede4ca"))
 	draw_set_transform(Vector2.ZERO)

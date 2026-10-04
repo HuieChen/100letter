@@ -1,11 +1,11 @@
 class_name PaperUI
 extends RefCounted
 
-const INK = Color("294b4b")
-const PAPER = Color("fff9ea")
-const TEAL = Color("3d706a")
-const MUTED = Color("687b76")
-const CORAL = Color("bd614a")
+const INK = Color("4f3847")
+const PAPER = Color("fff1df")
+const TEAL = Color("49745b")
+const MUTED = Color("7c7378")
+const CORAL = Color("bc416b")
 
 static func place(node: Control, parent: Node, rect: Rect2) -> Control:
 	parent.add_child(node)

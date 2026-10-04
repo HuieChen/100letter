@@ -1,0 +1,206 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+OpenGL API 3.3.0 NVIDIA 566.24 - Compatibility - Using Device: NVIDIA - NVIDIA GeForce RTX 4050 Laptop GPU
+
+PASS plain title has no illustration
+PASS game name is the cover
+PASS empty save cannot pretend to continue
+PASS actual GPU capture title_1280
+PASS input target exists: NewShift
+PASS supervisor starts after title
+PASS input target exists: FinishBriefing
+PASS visible dialogue advance starts playable counter
+PASS real hand drag opens box lid
+PASS real hand drag opens box lid
+PASS actual box-to-inspection movement opens case01
+PASS physical take transfers custody case01
+PASS physical take opens one envelope
+PASS inspector visible cross closes without Esc
+PASS input target exists: OpenBag
+PASS bag contains directly interactive envelope, no details button
+PASS bag cross stays readable against a dark scene
+PASS actual GPU capture bag_1280
+PASS input target exists: Envelope_case01
+PASS envelope click lifts and selects the same object
+PASS inspection does not show a duplicate carried envelope
+PASS direct flip exposes reverse
+PASS envelope really moves under drag
+PASS wheel enlarges actual paper
+PASS visible envelope finishes its lift before capture
+PASS actual GPU capture inspect_1280
+PASS cross puts paper down safely
+PASS returned envelope restores its scene affordance
+PASS input target exists: OpenBag
+PASS input target exists: Envelope_case01
+PASS reentry keeps the observed face
+PASS Esc is the second safe exit
+PASS input target exists: OpenBag
+PASS input target exists: CloseBag
+PASS bag closes without keyboard knowledge
+PASS input target exists: OpenMap
+PASS map has no second walking confirmation
+PASS actual GPU capture map_1280
+PASS input target exists: Map_residential
+PASS destination immediately folds map and starts transition
+PASS input target exists: OpenBag
+PASS bag cannot interrupt a committed transition
+PASS input target exists: OpenBook
+PASS book cannot interrupt a committed transition
+PASS arrival completes under rapid input
+PASS one destination click charges exactly one journey
+PASS arrival restores visible controlled actor
+PASS input target exists: OpenMap
+PASS input target exists: Map_residential
+PASS current-place click closes map without journey cost
+PASS input target exists: OpenMap
+PASS input target exists: CloseMap
+PASS map visible cross closes
+PASS input target exists: OpenMap
+PASS map Escape closes without pause leakage
+PASS input target exists: Talk_elsie_moran
+PASS walk reaches resident and exposes visible conversation exit
+PASS dialogue retains scene actors but stops walking
+PASS actual GPU capture dialogue_1280
+PASS input target exists: CloseDialogue
+PASS conversation cross returns full control without Esc
+PASS input target exists: Talk_elsie_moran
+PASS repeat conversation is available
+PASS input target exists: AdvanceDialogue
+PASS response topics also have visible cross
+PASS input target exists: CloseDialogue
+PASS topic cancel leaves no selected answer
+PASS plain title has no illustration
+PASS game name is the cover
+PASS empty save cannot pretend to continue
+PASS actual GPU capture title_1920
+PASS input target exists: NewShift
+PASS supervisor starts after title
+PASS input target exists: FinishBriefing
+PASS visible dialogue advance starts playable counter
+PASS real hand drag opens box lid
+PASS real hand drag opens box lid
+PASS actual box-to-inspection movement opens case01
+PASS physical take transfers custody case01
+PASS physical take opens one envelope
+PASS inspector visible cross closes without Esc
+PASS input target exists: OpenBag
+PASS bag contains directly interactive envelope, no details button
+PASS bag cross stays readable against a dark scene
+PASS actual GPU capture bag_1920
+PASS input target exists: Envelope_case01
+PASS envelope click lifts and selects the same object
+PASS inspection does not show a duplicate carried envelope
+PASS direct flip exposes reverse
+PASS envelope really moves under drag
+PASS wheel enlarges actual paper
+PASS visible envelope finishes its lift before capture
+PASS actual GPU capture inspect_1920
+PASS cross puts paper down safely
+PASS returned envelope restores its scene affordance
+PASS input target exists: OpenBag
+PASS input target exists: Envelope_case01
+PASS reentry keeps the observed face
+PASS Esc is the second safe exit
+PASS input target exists: OpenBag
+PASS input target exists: CloseBag
+PASS bag closes without keyboard knowledge
+PASS input target exists: OpenMap
+PASS map has no second walking confirmation
+PASS actual GPU capture map_1920
+PASS input target exists: Map_residential
+PASS destination immediately folds map and starts transition
+PASS input target exists: OpenBag
+PASS bag cannot interrupt a committed transition
+PASS input target exists: OpenBook
+PASS book cannot interrupt a committed transition
+PASS arrival completes under rapid input
+PASS one destination click charges exactly one journey
+PASS arrival restores visible controlled actor
+PASS input target exists: OpenMap
+PASS input target exists: Map_residential
+PASS current-place click closes map without journey cost
+PASS input target exists: OpenMap
+PASS input target exists: CloseMap
+PASS map visible cross closes
+PASS input target exists: OpenMap
+PASS map Escape closes without pause leakage
+PASS input target exists: Talk_elsie_moran
+PASS walk reaches resident and exposes visible conversation exit
+PASS dialogue retains scene actors but stops walking
+PASS actual GPU capture dialogue_1920
+PASS input target exists: CloseDialogue
+PASS conversation cross returns full control without Esc
+PASS input target exists: Talk_elsie_moran
+PASS repeat conversation is available
+PASS input target exists: AdvanceDialogue
+PASS response topics also have visible cross
+PASS input target exists: CloseDialogue
+PASS topic cancel leaves no selected answer
+PASS plain title has no illustration
+PASS game name is the cover
+PASS empty save cannot pretend to continue
+PASS actual GPU capture title_2560
+PASS input target exists: NewShift
+PASS supervisor starts after title
+PASS input target exists: FinishBriefing
+PASS visible dialogue advance starts playable counter
+PASS real hand drag opens box lid
+PASS real hand drag opens box lid
+PASS actual box-to-inspection movement opens case01
+PASS physical take transfers custody case01
+PASS physical take opens one envelope
+PASS inspector visible cross closes without Esc
+PASS input target exists: OpenBag
+PASS bag contains directly interactive envelope, no details button
+PASS bag cross stays readable against a dark scene
+PASS actual GPU capture bag_2560
+PASS input target exists: Envelope_case01
+PASS envelope click lifts and selects the same object
+PASS inspection does not show a duplicate carried envelope
+PASS direct flip exposes reverse
+PASS envelope really moves under drag
+PASS wheel enlarges actual paper
+PASS visible envelope finishes its lift before capture
+PASS actual GPU capture inspect_2560
+PASS cross puts paper down safely
+PASS returned envelope restores its scene affordance
+PASS input target exists: OpenBag
+PASS input target exists: Envelope_case01
+PASS reentry keeps the observed face
+PASS Esc is the second safe exit
+PASS input target exists: OpenBag
+PASS input target exists: CloseBag
+PASS bag closes without keyboard knowledge
+PASS input target exists: OpenMap
+PASS map has no second walking confirmation
+PASS actual GPU capture map_2560
+PASS input target exists: Map_residential
+PASS destination immediately folds map and starts transition
+PASS input target exists: OpenBag
+PASS bag cannot interrupt a committed transition
+PASS input target exists: OpenBook
+PASS book cannot interrupt a committed transition
+PASS arrival completes under rapid input
+PASS one destination click charges exactly one journey
+PASS arrival restores visible controlled actor
+PASS input target exists: OpenMap
+PASS input target exists: Map_residential
+PASS current-place click closes map without journey cost
+PASS input target exists: OpenMap
+PASS input target exists: CloseMap
+PASS map visible cross closes
+PASS input target exists: OpenMap
+PASS map Escape closes without pause leakage
+PASS input target exists: Talk_elsie_moran
+PASS walk reaches resident and exposes visible conversation exit
+PASS dialogue retains scene actors but stops walking
+PASS actual GPU capture dialogue_2560
+PASS input target exists: CloseDialogue
+PASS conversation cross returns full control without Esc
+PASS input target exists: Talk_elsie_moran
+PASS repeat conversation is available
+PASS input target exists: AdvanceDialogue
+PASS response topics also have visible cross
+PASS input target exists: CloseDialogue
+PASS topic cancel leaves no selected answer
+PASS source frozen during phase
+CORE REVIEW all: 202 checks, 0 failures

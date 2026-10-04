@@ -1,5 +1,7 @@
 # Current specification — reviewed 2026-10-03
 
+2026-10-04 highest-priority visual update: replace generated runtime artwork globally using the user's latest Girl & Duck image as the style reference. Earlier restrictions on globally restyling generated art are superseded. Preserve existing scene layout, interactions, campaign and saves; originals stay immutable. Soft chalk/pastel picture-book forms, broken painted edges, restrained grain, sparse muted outlines, cream/pink/leaf-green/plum across scenes, characters, portraits, world documents, tools and maps. Do not reproduce its title, girl/duck cast or watermark. The game cover remains plain typography. No claim that style replacement completes pending story/novice/audio acceptance.
+
 2026-10-04 latest direct feedback: "体验感不真实不流畅". Prioritize correcting the existing extraction/inspection/return chain. Preserve accepted art and scenery. Keep the original counter visible; interpolate flip and zoom without adding drag latency; settle invalid drops; reproduce and fix ordinary manipulation that prevents closing/saving. This is corrective work, not authorization to declare the book gate or later story complete.
 
 2026-10-04 asset intake: export all five pages of the supplied letter 1.pdf and the supplied brown wax-sealed envelope as transparent PNG cutouts. Exterior AND existing white paper pinholes must be transparent; colored wax highlights stay. This specifically authorizes background removal of these two sources; preserve their originals and content. Keep exported intake separate from runtime selection until a physical letter chain is wired and verified. Adopt applicable open-source game/interaction tools after primary-source license/version verification and actual checks, within the ordered work.
@@ -10,7 +12,7 @@ Authority: newest explicit user feedback → this file → Master Runbook/refere
 
 ## Preserve the accepted game
 Active entry: scenes/final_slice.tscn. Retain the morning framework at 1fefd070fa35edbf7f6eb3c221933bd876197bba, scene composition, selected generated art, campaign and player saves. No exact 10:30 snapshot was located. Rejected empty teal desk/coral box stays inactive. External PSD/source packs and collaborator history stay intact; user-filled/locked art is excluded from public runtime selection.
-Visual target: simple illustrated 2D, irregular dark outlines, large flat shapes, low detail, cream/teal/dusty blue/coral/lemon. No 3D/isometric/photorealism or excessive damaged textures. Necessary new bitmap objects use ImageGen and visual inspection; no global scenery replacement. Cover direction: simple large game name; the older illustrated-cover request is superseded.
+Visual target: simple illustrated 2D, irregular dark outlines, large flat shapes, low detail, cream/teal/dusty blue/coral/lemon. No 3D/isometric/photorealism or excessive damaged textures. Latest global visual override replaces generated scenery and objects through inspected ImageGen outputs; preserve external originals. Cover direction: simple large game name; the older illustrated-cover request is superseded.
 
 ## Complete physical interactions first
 Work one complete chain at a time: book → bag/letter → map → NPC → walking/guidance. Current failure log and phase screenshots/state walkthrough are required. Existing approval is sufficient; silence is not acceptance.

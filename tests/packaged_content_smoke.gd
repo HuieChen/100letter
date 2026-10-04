@@ -41,6 +41,9 @@ func _run() -> void:
 	for path: String in ["res://assets/display_user/street_scenery_USER_20261001_LOCKED.png", "res://assets/locked_user/street_scenery_USER_20261001_LOCKED.psd", "res://assets/characters/generated/courier_sheet.png", "res://assets/characters/generated/chenyuan.png", "res://data/game.json", "res://scenes/main.tscn", "res://scenes/reference_fidelity_prototype.tscn"]:
 		_check(not FileAccess.file_exists(path) and not ResourceLoader.exists(path), "superseded source is absent from runtime: " + path)
 	_check(load("res://scripts/rebuild/resolution_draft_store.gd") is Script,"unsealed draft persistence helper is packaged")
+	for helper:String in ["mail_imprint","physical_envelope"]:
+		_check(load("res://scripts/rebuild/"+helper+".gd") is Script,"physical envelope helper decodes from the actual package: "+helper)
+	_check(manifest.get("style_lock","")=="SOLMERE_SOFT_PASTEL_20261004","actual package selects the latest globally requested visual style")
 	var main: Variant = load("res://scenes/final_slice.tscn")
 	_check(main is PackedScene, "release entry decodes as PackedScene")
 	if main is PackedScene:

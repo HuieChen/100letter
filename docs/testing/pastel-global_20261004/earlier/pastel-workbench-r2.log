@@ -1,0 +1,16 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+OpenGL API 3.3.0 NVIDIA 566.24 - Compatibility - Using Device: NVIDIA - NVIDIA GeForce RTX 4050 Laptop GPU
+
+OPEN DIAGNOSTIC case01 tool=opener mode=open zoom=1.2 pan=[129.999969482422, 14.0] pos=[140.0, 160.0] message=这是私人邮件；实际动手破坏会留下越界记录。按住工具，从封线左端缓缓向右移动。
+OPEN STROKE case01 seam=9.0 message=归还工具，拿住右侧露出的纸边，向右抽出。
+OPEN DIAGNOSTIC case04 tool=opener mode=open zoom=1.0 pan=[200.0, 70.0] pos=[140.0, 160.0] message=这是私人邮件；实际动手破坏会留下越界记录。按住工具，从封线左端缓缓向右移动。
+OPEN STROKE case04 seam=9.0 message=归还工具，拿住右侧露出的纸边，向右抽出。
+OPEN DIAGNOSTIC case05 tool=opener mode=open zoom=1.0 pan=[200.0, 70.0] pos=[140.0, 160.0] message=这是内部工作件。按住工具，从封线左端缓缓向右移动。
+OPEN STROKE case05 seam=9.0 message=归还工具，拿住右侧露出的纸边，向右抽出。
+OPEN DIAGNOSTIC case02 tool=opener mode=open zoom=1.0 pan=[200.0, 70.0] pos=[140.0, 160.0] message=这是私人邮件；实际动手破坏会留下越界记录。按住工具，从封线左端缓缓向右移动。
+OPEN STROKE case02 seam=9 message=归还工具，拿住右侧露出的纸边，向右抽出。
+OPEN DIAGNOSTIC case03 tool=opener mode=open zoom=1.0 pan=[200.0, 70.0] pos=[140.0, 160.0] message=这是私人邮件；实际动手破坏会留下越界记录。按住工具，从封线左端缓缓向右移动。
+OPEN STROKE case03 seam=9.0 message=归还工具，拿住右侧露出的纸边，向右抽出。
+OPEN DIAGNOSTIC case04 tool=opener mode=open zoom=1.0 pan=[200.0, 70.0] pos=[140.0, 160.0] message=这是私人邮件；实际动手破坏会留下越界记录。按住工具，从封线左端缓缓向右移动。
+OPEN STROKE case04 seam=9.0 message=归还工具，拿住右侧露出的纸边，向右抽出。
+MAIL WORKBENCH INPUT: 170 checks, 0 failures

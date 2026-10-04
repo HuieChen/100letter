@@ -48,6 +48,19 @@ func _run() -> void:
 	await _capture("02_inspect_same_counter")
 	for i:int in range(4):await process_frame
 	var center:Vector2=bench.to_canvas(bench.model.object_rect("envelope").get_center())
+	# Independent edge coordinates on the actual paper, no right-click shortcut.
+	var paper_rect:Rect2=bench.model.object_rect("envelope")
+	var edge:Vector2=bench.to_canvas(Vector2(paper_rect.end.x-15,paper_rect.get_center().y))
+	await _move(edge);await create_timer(0.12).timeout
+	_check(bench._edge_hover and bench._lift>0.0,"physical right edge offers a small lift without a text label")
+	await _button(MOUSE_BUTTON_LEFT,true);await _button(MOUSE_BUTTON_LEFT,false)
+	_check(bench.model.export_state().face=="back","left click on paper edge turns the actual envelope")
+	for repeat:int in range(3):await _button(MOUSE_BUTTON_LEFT,true);await _button(MOUSE_BUTTON_LEFT,false)
+	_check(bench.model.export_state().face=="back","repeat left clicks during turn cannot toggle back or capture paper")
+	await create_timer(0.24).timeout
+	await _move(edge);await _button(MOUSE_BUTTON_LEFT,true);await _button(MOUSE_BUTTON_LEFT,false)
+	await create_timer(0.24).timeout
+	_check(bench.model.export_state().face=="front","same paper edge turns back without a shortcut")
 	var anchor:Vector2=bench._to_table(center)
 	await _move(center);await _button(MOUSE_BUTTON_WHEEL_UP,true);await _button(MOUSE_BUTTON_WHEEL_UP,false)
 	var intermediate_zoom:=false
@@ -100,6 +113,7 @@ func _run() -> void:
 	var layouts:int=bench._text_layout_builds
 	for i:int in range(32):await _move(Vector2(80+i,170))
 	_check(bench._text_layout_builds==layouts,"mouse motion reuses envelope typography instead of rebuilding glyphs")
+	var expected_return:Rect2=bench.return_rect
 	await _move(Vector2(1495,60)*bench._fit);await _button(MOUSE_BUTTON_LEFT,true);await _button(MOUSE_BUTTON_LEFT,false)
 	diagnostics["close_pointer"]=str(bench._pointer);diagnostics["injected_pointer"]=str(pointer);diagnostics["close_flags"]={"save_problem":bench._save_problem,"message":bench._message,"reading":bench._reading,"amending":bench._amending,"closing":bench._closing}
 	_check(is_instance_valid(host.modal) and bench._returning,"cross settles the actual object before releasing the surface")
@@ -107,6 +121,10 @@ func _run() -> void:
 	await _wait(func():return not is_instance_valid(host.modal),"rapid cross input closes exactly once",1.0)
 	_check(host.view=="counter" and not host.busy and host.core.state.active_operation.is_empty(),"return leaves a playable desk without pause or captured input")
 	await _capture("04_returned_counter")
+	var resting:Control=_node("CarriedLetter")
+	_check(resting.visible and resting.position==Vector2(150,280),"returned envelope rests on the actual clear tabletop, not a HUD corner")
+	_check(resting.face=="back" and resting.fields==host.core.case_view("case01").back,"resting letter preserves its actual observed face without inventing reverse writing")
+	_check(expected_return==Rect2(resting.position,resting.size),"closing flight ends exactly where the same scene envelope appears")
 	var probe:=Core.new();probe.save_path=host.core.save_path
 	_check(probe.load_game() and probe.case_state("case01").physical.inspected_back,"settled return persists the same observed envelope")
 	probe.free()
@@ -123,6 +141,9 @@ func _run() -> void:
 	await _key(KEY_ESCAPE)
 	_check(not is_instance_valid(host.modal),"Escape returns paper and never opens a second pause page")
 	_check(_node("CarriedLetter").visible,"Escape restores the returned envelope's actual scene affordance")
+	await _named("CarriedLetter");await create_timer(0.27).timeout
+	_check(_modal_script().ends_with("mail_workbench.gd") and not _node("CarriedLetter").visible,"clicking the actual resting envelope picks up one object directly")
+	await _key(KEY_ESCAPE)
 	_check(initial_hashes==_source_hashes(),"runtime source stays frozen during tactile input review")
 	frame_times.sort()
 	var report:={"suite":"tactile_mail_input","checks":checks,"failures":failures,"steps":steps,"screenshots":screenshots,"diagnostics":diagnostics,"source_sha256":initial_hashes,"idle_redraws":sampled_idle_draws,"idle_frames":90,"frame_wall_ms":{"median":frame_times[45],"p95":frame_times[85],"max":frame_times[-1]},"scope":"Actual routed viewport input with live GPU frames. Interruptions, rapid clicks and save recovery are checked. Wall frame timing belongs to this machine/offscreen process, not a promised player FPS. Native input and audio listening are separate."}

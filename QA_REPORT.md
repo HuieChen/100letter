@@ -1,5 +1,9 @@
 # QA report · 2026-10-03
 
+## Global pastel bitmap replacement — 2026-10-04
+
+Latest direct instruction globally supersedes earlier art locking. All 63 selected runtime roles now use 17 inspected soft pastel/picture-book ImageGen outputs, with unchanged generated PNG bytes and registered transparent atlas regions. Retain the morning framework, campaign and saves; external originals remain immutable; cover remains plain game-name typography. Fix complete book-paper registration, upright tabs, same physical envelope/visible address on return, left paper-edge flipping, and box hinge/latch placement. Final frozen check-20261004-172827: 18 suites / 7,594 assertions / zero failures, mail input 86, book 1,626, window close/reload 29, workflow 28, actual bitmap/export tests 3. Retained failures and role findings: [phase report](docs/testing/PASTEL_GLOBAL_20261004.md). Package and native evidence are separate; novice/listening/full native matrix/new three-letter wax story remain unaccepted. CORE-BOOK remains review.
+
 ## Physical mail continuity repair — 2026-10-04
 
 Latest feedback: the experience feels unreal and unresponsive. This phase only corrects the existing hand-carried box → extraction → inspection → return chain. It retains accepted scenery, letter assets, story and save schema. Inspection keeps the actual open counter behind the same envelope; zoom remains anchored to the pointer, and dragging can immediately take over an unfinished zoom. Pickup, flip, invalid drop and return have short physical transitions. Static counter redraws and repeated postal-text layout were removed.

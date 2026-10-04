@@ -19,6 +19,9 @@ func _initialize() -> void: _run.call_deferred()
 func _run() -> void:
 	root.size=Vector2i(1600,900);root.content_scale_size=Vector2i(1600,900)
 	root.title="100letter independent workbench input test"
+	# This offscreen renderer fixture must not compete with native review for
+	# Windows focus. Focus-loss recovery is exercised explicitly below.
+	root.unfocusable=true
 	core=Core.new();core.save_path="user://qa/mail-workbench/"+run_id+"/input.json";core.new_game()
 	await _show("case01")
 	_check(not bench.drawer.opened,"tool drawer begins closed")

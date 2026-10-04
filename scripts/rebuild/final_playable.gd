@@ -39,8 +39,6 @@ var _footer_shade: ColorRect
 var _footer_timer: Timer
 var _resolution_drafts: Dictionary = {}
 var _desk_surface: Control
-const COUNTER_ART := "res://assets/generated/post_office_counter_integrated_v4.png"
-const COUNTER_ENVELOPE := "res://assets/generated/props/counter_envelope_v4.png"
 
 func _ready() -> void:
 	get_tree().auto_accept_quit=false
@@ -345,7 +343,11 @@ func _refresh_selected_letter() -> void:
 	var previous:=stage.find_child("CarriedLetter",true,false)
 	if is_instance_valid(previous):stage.remove_child(previous);previous.queue_free()
 	if carried.is_empty():return
-	var item:=_icon(stage,"letter","",Rect2(1380,713,145,119),func():_workbench(carried))
+	var rect:=Rect2(150,280,300,171.43) if view=="counter" else Rect2(1380,713,145,119)
+	var item=preload("res://scripts/rebuild/physical_envelope.gd").new()
+	UI.place(item,stage,rect)
+	item.configure(core,carried)
+	item.pressed.connect(func():_workbench(carried,rect))
 	item.name="CarriedLetter"
 	item.visible=not is_instance_valid(modal)
 
@@ -437,6 +439,8 @@ func _counter() -> void:
 		var take_error:String=core.take_case(id)
 		if not take_error.is_empty():
 			_say(take_error);desk.refresh();return
+		carried=id
+		_refresh_selected_letter()
 		_workbench(id,from)
 		if is_instance_valid(desk):desk.refresh())
 	desk.handbook_requested.connect(_counter_reference_books)
@@ -445,6 +449,7 @@ func _counter() -> void:
 	desk.depart_requested.connect(_world)
 	desk.cue.connect(sound.play)
 	_hud("post_office",false)
+	if not carried.is_empty():_refresh_selected_letter()
 	clock.text=core.time_text()
 	_footer()
 
@@ -474,6 +479,7 @@ func _workbench(id:String,from_rect:Rect2=Rect2()) -> void:
 	_close()
 	var bench:=Workbench.new()
 	bench.retain_counter_surface=view=="counter"
+	if view=="counter":bench.return_rect=Rect2(150,280,300,171.43)
 	modal=bench
 	UI.place(bench,self,Rect2(0,0,1600,900))
 	error=bench.configure(core,id)
@@ -534,7 +540,9 @@ func _close() -> void:
 		modal.queue_free()
 	modal=null
 	var carried_icon:=stage.find_child("CarriedLetter",true,false) if is_instance_valid(stage) else null
-	if is_instance_valid(carried_icon):carried_icon.show()
+	if is_instance_valid(carried_icon):
+		if carried_icon.has_method("configure") and not carried.is_empty():carried_icon.configure(core,carried)
+		carried_icon.show()
 	if view=="world" and is_instance_valid(actors):actors.show()
 	if is_instance_valid(walker):
 		walker.manual_enabled=view=="world"

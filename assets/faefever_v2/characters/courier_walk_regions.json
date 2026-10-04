@@ -1,139 +1,139 @@
 {
   "source": "CHAR_courier_walk.png",
-  "source_sha256": "68521ded3103d7a5af2bcca60393bb849c3f862423a88891da4778d5de60f5c0",
+  "source_sha256": "5d77500169e5f2fc97e8546f911706f806932953fa4fe08cc9dd63e54f040f26",
   "dimensions": [
     1774,
     887
   ],
-  "method": "8 separate alpha>128 connected silhouettes; region padded 2px. Horizontal foot pivot is manually inspected hip axis, vertical pivot at bottom opaque shoe line. One fixed reference height prevents per-frame rescaling. No pixels changed.",
+  "method": "Reviewed generated eight-pose atlas. All pixels unchanged. Common 420px scale; opaque shoe baseline and head/torso axis bind frames to world feet.",
   "frames": [
     {
       "key": "CHAR_courier_walk_0",
       "region": [
-        224,
-        11,
-        212,
-        422
+        175,
+        15,
+        258,
+        423
       ],
       "foot_anchor_px": [
-        91,
-        420
+        124.0,
+        419
       ],
       "reference_height_px": 420,
       "alpha_threshold": 128,
-      "connected_component_area": 31632
+      "connected_component_area": 60760
     },
     {
       "key": "CHAR_courier_walk_1",
       "region": [
-        624,
-        11,
-        131,
-        423
+        552,
+        13,
+        233,
+        425
       ],
       "foot_anchor_px": [
-        80,
+        121.0,
         421
       ],
       "reference_height_px": 420,
       "alpha_threshold": 128,
-      "connected_component_area": 26333
+      "connected_component_area": 53427
     },
     {
       "key": "CHAR_courier_walk_2",
       "region": [
-        985,
-        10,
-        209,
-        423
+        961,
+        14,
+        266,
+        424
       ],
       "foot_anchor_px": [
-        87,
-        421
+        120.0,
+        420
       ],
       "reference_height_px": 420,
       "alpha_threshold": 128,
-      "connected_component_area": 31565
+      "connected_component_area": 59128
     },
     {
       "key": "CHAR_courier_walk_3",
       "region": [
-        1384,
-        11,
-        179,
-        424
+        1371,
+        15,
+        275,
+        426
       ],
       "foot_anchor_px": [
-        86,
+        122.0,
         422
       ],
       "reference_height_px": 420,
       "alpha_threshold": 128,
-      "connected_component_area": 31085
+      "connected_component_area": 60179
     },
     {
       "key": "CHAR_courier_walk_4",
       "region": [
-        219,
-        453,
-        229,
-        422
+        176,
+        450,
+        257,
+        421
       ],
       "foot_anchor_px": [
-        97,
-        420
+        122.0,
+        417
       ],
       "reference_height_px": 420,
       "alpha_threshold": 128,
-      "connected_component_area": 31839
+      "connected_component_area": 59059
     },
     {
       "key": "CHAR_courier_walk_5",
       "region": [
-        630,
-        453,
-        125,
-        422
+        557,
+        450,
+        228,
+        421
       ],
       "foot_anchor_px": [
-        74,
-        420
+        121.0,
+        418
       ],
       "reference_height_px": 420,
       "alpha_threshold": 128,
-      "connected_component_area": 27786
+      "connected_component_area": 50507
     },
     {
       "key": "CHAR_courier_walk_6",
       "region": [
-        984,
-        453,
-        217,
-        422
+        967,
+        451,
+        260,
+        420
       ],
       "foot_anchor_px": [
-        89,
-        420
+        119.0,
+        417
       ],
       "reference_height_px": 420,
       "alpha_threshold": 128,
-      "connected_component_area": 31207
+      "connected_component_area": 59113
     },
     {
       "key": "CHAR_courier_walk_7",
       "region": [
-        1385,
-        453,
-        164,
-        422
+        1378,
+        450,
+        270,
+        421
       ],
       "foot_anchor_px": [
-        86,
-        420
+        120.0,
+        418
       ],
       "reference_height_px": 420,
       "alpha_threshold": 128,
-      "connected_component_area": 29898
+      "connected_component_area": 60898
     }
   ]
 }

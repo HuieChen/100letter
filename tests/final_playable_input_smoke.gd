@@ -376,6 +376,7 @@ func _check(condition: bool, label: String) -> void:
 func _source_hashes() -> Dictionary:
 	var hashes: Dictionary={}
 	var paths: Array[String] = ["scripts/rebuild/final_playable.gd","scripts/rebuild/postal_desk.gd","scripts/rebuild/physical_art.gd","scripts/rebuild/mail_workbench.gd","scripts/rebuild/mail_physics_state.gd","scripts/rebuild/field_observation.gd","scripts/rebuild/field_book.gd","scripts/rebuild/final_case_state.gd","scripts/rebuild/resolution_slip.gd","scripts/rebuild/resolution_draft_store.gd","scripts/rebuild/scene_dialogue.gd","scripts/rebuild/final_walker.gd","scripts/rebuild/final_paper_map.gd","scripts/rebuild/tool_drawer.gd","scripts/ui/audio_feedback.gd","scripts/ui/paper_ui.gd","data/rebuild/final_cases.json","data/rebuild/final_dialogues.json","data/rebuild/player_amendments.json","assets/faefever_v2/manifest.json","assets/faefever_v2/characters/courier_walk_regions.json","tests/final_playable_input_smoke.gd"]
+	paths.append_array(["scripts/rebuild/mail_imprint.gd","scripts/rebuild/physical_envelope.gd"])
 	var manifest: Variant = JSON.parse_string(FileAccess.get_file_as_string("res://assets/faefever_v2/manifest.json"))
 	if manifest is Dictionary:
 		for entry: Dictionary in manifest.get("assets", {}).values():

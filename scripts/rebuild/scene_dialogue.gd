@@ -6,7 +6,7 @@ signal closed
 
 const UI = preload("res://scripts/ui/paper_ui.gd")
 const WORDS := Color("fff6e7")
-const ACCENT := Color("f3c18e")
+const ACCENT := Color("f4aecc")
 var _speaker := ""
 var _line := ""
 var _choices: Array = []
@@ -33,7 +33,7 @@ func _render() -> void:
 	var top := 900.0 - height
 	var fade := Gradient.new()
 	fade.offsets = PackedFloat32Array([0.0, 0.18, 1.0])
-	fade.colors = PackedColorArray([Color(0.055,0.05,0.065,0.0), Color(0.055,0.05,0.065,0.87), Color(0.055,0.05,0.065,0.96)])
+	fade.colors = PackedColorArray([Color(0.31,0.22,0.28,0.0), Color(0.31,0.22,0.28,0.92), Color(0.31,0.22,0.28,0.98)])
 	var texture := GradientTexture2D.new()
 	texture.gradient = fade
 	texture.fill_from = Vector2(0,0)
