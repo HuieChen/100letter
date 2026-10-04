@@ -1,0 +1,171 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+[   0% ] first_scan_filesystem | Started 项目初始化 (5 steps)
+[   0% ] first_scan_filesystem | 正在扫描文件结构……
+[  16% ] first_scan_filesystem | 正在加载全局类名……
+[  33% ] first_scan_filesystem | 正在校验 GDExtension……
+[  50% ] first_scan_filesystem | 正在创建自动加载脚本……
+[  66% ] first_scan_filesystem | 正在初始化插件……
+[  83% ] first_scan_filesystem | 正在启动文件扫描……
+[ DONE ] first_scan_filesystem
+
+[   0% ] _update_scan_actions | Started 正在扫描动作…… (131 steps)
+[   0% ] _update_scan_actions | 01b_counter_supervisor.png
+[   0% ] _update_scan_actions | 01_title.png
+[   1% ] _update_scan_actions | 02a_counter_tray.png
+[   2% ] _update_scan_actions | 02d_counter_empty_tray.png
+[   3% ] _update_scan_actions | 02_counter_first_mail.png
+[   3% ] _update_scan_actions | 03_notice_closed.png
+[   4% ] _update_scan_actions | 04_plate_revealed.png
+[   5% ] _update_scan_actions | 05a_courier_question.png
+[   6% ] _update_scan_actions | 05_elsie_dialogue.png
+[   6% ] _update_scan_actions | 06b_resolution_filled.png
+[   7% ] _update_scan_actions | 06c_counter_after_first_resolution.png
+[   8% ] _update_scan_actions | 06_delivered_world.png
+[   9% ] _update_scan_actions | 07_field_archive.png
+[   9% ] _update_scan_actions | 08_resumed_world.png
+[  10% ] _update_scan_actions | case02_review.png
+[  11% ] _update_scan_actions | mira_witnessed_reaction.png
+[  12% ] _update_scan_actions | replacement_placed.png
+[  12% ] _update_scan_actions | selected_original_phrase.png
+[  13% ] _update_scan_actions | world_community_aligned.png
+[  14% ] _update_scan_actions | world_community_center.png
+[  15% ] _update_scan_actions | world_lookout.png
+[  15% ] _update_scan_actions | world_post_office.png
+[  16% ] _update_scan_actions | world_residential.png
+[  17% ] _update_scan_actions | world_residential_aligned.png
+[  18% ] _update_scan_actions | 01b_counter_supervisor.png
+[  18% ] _update_scan_actions | 01_title.png
+[  19% ] _update_scan_actions | 02a_counter_tray.png
+[  20% ] _update_scan_actions | 02d_counter_empty_tray.png
+[  21% ] _update_scan_actions | 02_counter_first_mail.png
+[  21% ] _update_scan_actions | 03_notice_closed.png
+[  22% ] _update_scan_actions | 04_plate_revealed.png
+[  23% ] _update_scan_actions | 05a_courier_question.png
+[  24% ] _update_scan_actions | 05_elsie_dialogue.png
+[  25% ] _update_scan_actions | 06b_resolution_filled.png
+[  25% ] _update_scan_actions | 06c_counter_after_first_resolution.png
+[  26% ] _update_scan_actions | 06_delivered_world.png
+[  27% ] _update_scan_actions | 07_field_archive.png
+[  28% ] _update_scan_actions | 08_resumed_world.png
+[  28% ] _update_scan_actions | case02_review.png
+[  29% ] _update_scan_actions | case03_authorized_repair.png
+[  30% ] _update_scan_actions | case03_review.png
+[  31% ] _update_scan_actions | case04_review.png
+[  31% ] _update_scan_actions | case05_review.png
+[  32% ] _update_scan_actions | complete_ending.png
+[  33% ] _update_scan_actions | five_cases_recorded.png
+[  34% ] _update_scan_actions | world_bus_stop.png
+[  34% ] _update_scan_actions | world_chess_stall.png
+[  35% ] _update_scan_actions | world_community_aligned.png
+[  36% ] _update_scan_actions | world_community_center.png
+[  37% ] _update_scan_actions | world_lookout.png
+[  37% ] _update_scan_actions | world_post_office.png
+[  38% ] _update_scan_actions | world_residential.png
+[  39% ] _update_scan_actions | world_residential_aligned.png
+[  40% ] _update_scan_actions | world_tarot_shop.png
+[  40% ] _update_scan_actions | 01b_counter_supervisor.png
+[  41% ] _update_scan_actions | 01_title.png
+[  42% ] _update_scan_actions | 02a_counter_tray.png
+[  43% ] _update_scan_actions | 02d_counter_empty_tray.png
+[  43% ] _update_scan_actions | 02_counter_first_mail.png
+[  44% ] _update_scan_actions | 03_notice_closed.png
+[  45% ] _update_scan_actions | 04_plate_revealed.png
+[  46% ] _update_scan_actions | 05a_courier_question.png
+[  46% ] _update_scan_actions | 05_elsie_dialogue.png
+[  47% ] _update_scan_actions | 06b_resolution_filled.png
+[  48% ] _update_scan_actions | 06c_counter_after_first_resolution.png
+[  49% ] _update_scan_actions | 06_delivered_world.png
+[  50% ] _update_scan_actions | 07_field_archive.png
+[  50% ] _update_scan_actions | 08_resumed_world.png
+[  51% ] _update_scan_actions | case02_review.png
+[  52% ] _update_scan_actions | case03_authorized_repair.png
+[  53% ] _update_scan_actions | case03_review.png
+[  53% ] _update_scan_actions | case04_review.png
+[  54% ] _update_scan_actions | case05_review.png
+[  55% ] _update_scan_actions | complete_ending.png
+[  56% ] _update_scan_actions | five_cases_recorded.png
+[  56% ] _update_scan_actions | world_bus_stop.png
+[  57% ] _update_scan_actions | world_chess_stall.png
+[  58% ] _update_scan_actions | world_community_aligned.png
+[  59% ] _update_scan_actions | world_community_center.png
+[  59% ] _update_scan_actions | world_lookout.png
+[  60% ] _update_scan_actions | world_post_office.png
+[  61% ] _update_scan_actions | world_residential.png
+[  62% ] _update_scan_actions | world_residential_aligned.png
+[  62% ] _update_scan_actions | world_tarot_shop.png
+[  63% ] _update_scan_actions | before_os_window_close.png
+[  64% ] _update_scan_actions | all_bag_1280.png
+[  65% ] _update_scan_actions | all_bag_1920.png
+[  65% ] _update_scan_actions | all_bag_2560.png
+[  66% ] _update_scan_actions | all_dialogue_1280.png
+[  67% ] _update_scan_actions | all_dialogue_1920.png
+[  68% ] _update_scan_actions | all_dialogue_2560.png
+[  68% ] _update_scan_actions | all_inspect_1280.png
+[  69% ] _update_scan_actions | all_inspect_1920.png
+[  70% ] _update_scan_actions | all_inspect_2560.png
+[  71% ] _update_scan_actions | all_map_1280.png
+[  71% ] _update_scan_actions | all_map_1920.png
+[  72% ] _update_scan_actions | all_map_2560.png
+[  73% ] _update_scan_actions | all_onboarding_click_inspect_1920.png
+[  74% ] _update_scan_actions | all_onboarding_supervisor_1920.png
+[  75% ] _update_scan_actions | all_title_1280.png
+[  75% ] _update_scan_actions | all_title_1920.png
+[  76% ] _update_scan_actions | all_title_2560.png
+[  77% ] _update_scan_actions | 01_open_box.png
+[  78% ] _update_scan_actions | 02_inspect_same_counter.png
+[  78% ] _update_scan_actions | 03_reverse_after_interrupted_zoom.png
+[  79% ] _update_scan_actions | 04_returned_counter.png
+[  80% ] _update_scan_actions | field_book_2000.png
+[  81% ] _update_scan_actions | field_book_confirmed.png
+[  81% ] _update_scan_actions | field_book_draft.png
+[  82% ] _update_scan_actions | field_book_draft_en_1280.png
+[  83% ] _update_scan_actions | field_book_draft_en_1920.png
+[  84% ] _update_scan_actions | field_book_draft_en_2560.png
+[  84% ] _update_scan_actions | field_book_draft_zh_1280.png
+[  85% ] _update_scan_actions | field_book_draft_zh_1920.png
+[  86% ] _update_scan_actions | field_book_draft_zh_2560.png
+[  87% ] _update_scan_actions | field_book_evidence.png
+[  87% ] _update_scan_actions | field_book_person.png
+[  88% ] _update_scan_actions | field_book_person_en_1280.png
+[  89% ] _update_scan_actions | field_book_person_en_1920.png
+[  90% ] _update_scan_actions | field_book_person_en_2560.png
+[  90% ] _update_scan_actions | field_book_person_zh_1280.png
+[  91% ] _update_scan_actions | field_book_person_zh_1920.png
+[  92% ] _update_scan_actions | field_book_person_zh_2560.png
+[  93% ] _update_scan_actions | field_book_source_en_1280.png
+[  93% ] _update_scan_actions | field_book_source_en_1920.png
+[  94% ] _update_scan_actions | field_book_source_en_2560.png
+[  95% ] _update_scan_actions | field_book_source_zh_1280.png
+[  96% ] _update_scan_actions | field_book_source_zh_1920.png
+[  96% ] _update_scan_actions | field_book_source_zh_2560.png
+[  97% ] _update_scan_actions | field_book_turning.png
+[  98% ] _update_scan_actions | field_book_unknown.png
+[ DONE ] _update_scan_actions
+
+[   0% ] reimport | Started 正在导入或重新导入资产 (6 steps)
+[   0% ] reimport | 正在准备重新导入文件……
+[  14% ] reimport | 正在准备重新导入文件……
+[  28% ] reimport | 正在准备重新导入文件……
+[  42% ] reimport | 正在准备重新导入文件……
+[  57% ] reimport | 正在准备重新导入文件……
+[  71% ] reimport | 正在准备重新导入文件……
+[   0% ] reimport | 正在执行重新导入的前置操作……
+[   0% ] reimport | 07_field_archive.png
+[  14% ] reimport | 07_field_archive.png
+[  28% ] reimport | 07_field_archive.png
+[  42% ] reimport | before_os_window_close.png
+[  57% ] reimport | 03_reverse_after_interrupted_zoom.png
+[  71% ] reimport | field_book_turning.png
+[  85% ] reimport | 正在结束资产导入……
+[ DONE ] reimport
+
+[   0% ] reimport | Started 正在导入或重新导入资产 (6 steps)
+[   0% ] reimport | 正在执行重新导入的后置操作……
+[ DONE ] reimport
+
+[   0% ] loading_editor_layout | Started 正在加载编辑器 (5 steps)
+[   0% ] loading_editor_layout | 正在加载编辑器布局……
+[  16% ] loading_editor_layout | 正在加载停靠面板……
+[ DONE ] loading_editor_layout
+

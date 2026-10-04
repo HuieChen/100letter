@@ -1,0 +1,39 @@
+{
+  "metadata_source": "https://api.github.com/repos/godotengine/godot-builds/releases/tags/4.7.2-stable",
+  "download_url": "https://github.com/godotengine/godot-builds/releases/download/4.7.2-stable/Godot_v4.7.2-stable_export_templates.tpz",
+  "expected_size": 1281349702,
+  "expected_digest": "sha256:f298490b8d44d934be425a5a65a51bf15f422428b229a06a6e11d9ffea248011",
+  "retrieved": "2026-10-02",
+  "executed": true,
+  "resolved_url": "https://release-assets.githubusercontent.com/github-production-release-asset/688986521/6bec7ddc-8c73-4f99-9f8f-fa495fbfc57d",
+  "verified_archive_sha256": "f298490b8d44d934be425a5a65a51bf15f422428b229a06a6e11d9ffea248011",
+  "members": [
+    {
+      "member": "templates/version.txt",
+      "file": "work\\official_godot_4_7_2\\version.txt",
+      "sha256": "38885c88f75abbc797a1db7559719800279a00cfb9fa8b2e2868a7f6f84bad2e",
+      "bytes": 13
+    },
+    {
+      "member": "templates/windows_debug_x86_64.exe",
+      "file": "work\\official_godot_4_7_2\\windows_debug_x86_64.exe",
+      "sha256": "51498b72b3a237f882ebd7d1787f06a4bc1eaf0572daab93837adcfd3cfdc107",
+      "bytes": 103176704
+    },
+    {
+      "member": "templates/windows_release_x86_64.exe",
+      "file": "work\\official_godot_4_7_2\\windows_release_x86_64.exe",
+      "sha256": "d34d36f3be1a6c49c56525ae86469b92e4f417ddf0b43cf00dd80c385c4b0562",
+      "bytes": 109268480
+    }
+  ],
+  "version": "4.7.2.stable",
+  "execution_scope": {
+    "arguments": [
+      "--version"
+    ],
+    "exit_code": 0,
+    "reported_version": "4.7.2.stable.official.ed1daf0bf",
+    "gameplay_tested": false
+  }
+}

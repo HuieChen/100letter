@@ -1,0 +1,29 @@
+{
+  "source_commit": "1fc42e6199e03e91d41cf3b4b91fad131e2d76f3",
+  "release_url": "https://github.com/HuieChen/100letter/releases/tag/solmere-tactile-mail-2026-10-04",
+  "release_id": 402877622,
+  "prerelease": true,
+  "assets": [
+    {
+      "name": "100letter-Windows-Tactile-Mail-20261004.zip",
+      "url": "https://github.com/HuieChen/100letter/releases/download/solmere-tactile-mail-2026-10-04/100letter-Windows-Tactile-Mail-20261004.zip",
+      "bytes": 94506183,
+      "sha256": "34b8135fb4eb29ba429e34ffe94cecf5115f1987356334f78306430c66fbe409",
+      "github_digest": "sha256:34b8135fb4eb29ba429e34ffe94cecf5115f1987356334f78306430c66fbe409"
+    }
+  ],
+  "workflow_runs": [
+    {
+      "head_sha": "1fc42e6199e03e91d41cf3b4b91fad131e2d76f3",
+      "url": "https://github.com/HuieChen/100letter/actions/runs/37182817976",
+      "status": "completed",
+      "conclusion": "success"
+    },
+    {
+      "head_sha": "1fc42e6199e03e91d41cf3b4b91fad131e2d76f3",
+      "url": "https://github.com/HuieChen/100letter/actions/runs/37182561375",
+      "status": "completed",
+      "conclusion": "success"
+    }
+  ]
+}

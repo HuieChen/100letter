@@ -1,0 +1,120 @@
+{
+  "status": "PARTIAL_NOT_ACCEPTED",
+  "package_source_commit": "1fc42e6199e03e91d41cf3b4b91fad131e2d76f3",
+  "pck_sha256": "40a0b66dcf169330be34f624f64400c2dc9f4759ce8696837d684684a24a3144",
+  "matching_package_observed": [
+    "plain title",
+    "mouse New game",
+    "visible supervisor dialogue"
+  ],
+  "matching_package_input_failure": {
+    "action": "visible supervisor cross",
+    "error": "unknown screenshotId screenshot-0",
+    "recovery": "Fresh list/window/state and one retry returned the same error; stopped native input. No close/chain success inferred."
+  },
+  "earlier_source_review": [
+    "lid click exposed stale rendering before redraw fix",
+    "drag extraction, move, wheel zoom, right-click reverse, visible inspection cross and bag reentry",
+    "bag reentry exposed duplicate lower-right envelope before hiding fix"
+  ],
+  "earlier_source_limits": "01-05 captures predate final duplicate-view and legacy replay changes. These are diagnostic records, not matching final-package acceptance.",
+  "matching_package_capture": "06_matching_package_supervisor.jpg",
+  "qa_save": "user://qa/tactile-package-20261004-1425/progress.json",
+  "untouched": "User-owned old game and actual progress; CUT game process.",
+  "not_assessed": [
+    "audio listening",
+    "first-time novice",
+    "complete native input chain",
+    "complete native bilingual/responsive matrix"
+  ],
+  "artifacts": [
+    {
+      "path": "docs/testing/tactile-mail_20261004/native/01_clicked_box_open.jpg",
+      "sha256": "b361453257826e57ad0cf02788072afa1ffe5b63c3f790aa767d30ba5e2587d9",
+      "width": 1283,
+      "height": 751
+    },
+    {
+      "path": "docs/testing/tactile-mail_20261004/native/02_dragged_zoom_front.jpg",
+      "sha256": "42ea993e825477b2b3232e8da4b31f5a44b3a743f1b3f2d80c53847aa848a65d",
+      "width": 1283,
+      "height": 751
+    },
+    {
+      "path": "docs/testing/tactile-mail_20261004/native/03_reverse.jpg",
+      "sha256": "26fce1c8f0a7a449dad9886c8fd72e941b8a2854b528f518577c20eb8237ca53",
+      "width": 1283,
+      "height": 751
+    },
+    {
+      "path": "docs/testing/tactile-mail_20261004/native/04_returned_counter.jpg",
+      "sha256": "7f73f96dbbc822373151b11e5c8c8d67636137d18bf131158cd0a541ab65bc0c",
+      "width": 1283,
+      "height": 751
+    },
+    {
+      "path": "docs/testing/tactile-mail_20261004/native/05_reentry_duplicate_before_fix.jpg",
+      "sha256": "911b5df2b16e221dae75426661255788a6f46205ad486c5716de64cfac26bb35",
+      "width": 1283,
+      "height": 751
+    },
+    {
+      "path": "docs/testing/tactile-mail_20261004/native/06_matching_package_supervisor.jpg",
+      "sha256": "359dc4128e7651017cfb428f80857482b481b67ff2f5f12857b2820e8ee7dc26",
+      "width": 1283,
+      "height": 751
+    },
+    {
+      "path": "docs/testing/tactile-mail_20261004/package/content.json",
+      "sha256": "f3c647db85ea04c458c4d9a009e5d6806e073b84ca8d195282c97e31fa7ab331"
+    },
+    {
+      "path": "docs/testing/tactile-mail_20261004/package/content.stderr.log",
+      "sha256": "a797ada4520776562c8d6fc8223aedd60055d2a661518390b867c5026191884a"
+    },
+    {
+      "path": "docs/testing/tactile-mail_20261004/package/content.stdout.log",
+      "sha256": "7e95d5036eb7f11aa82ec216d5fbe3a25966efc2ab2efb5ed34c22ed5f77a760"
+    },
+    {
+      "path": "docs/testing/tactile-mail_20261004/package/release-gpu-boot.stderr.log",
+      "sha256": "a797ada4520776562c8d6fc8223aedd60055d2a661518390b867c5026191884a"
+    },
+    {
+      "path": "docs/testing/tactile-mail_20261004/package/release-gpu-boot.stdout.log",
+      "sha256": "5fdebc47089d9a3ed2aaf0644bbe398ffcb056d4454dcf3d52e710226ecd6b18"
+    },
+    {
+      "path": "docs/testing/tactile-mail_20261004/package/verification.json",
+      "sha256": "e0e13a8df5bf0b6043205f7e035e85d2a03752cdac4aa8534713a57a380110de"
+    },
+    {
+      "path": "docs/testing/tactile-mail_20261004/package/build-export-audit.json",
+      "sha256": "ce33ae1f7b5cacb19933df211b6f366ed38ad4d7db97684ed79520f3a8e18147"
+    },
+    {
+      "path": "docs/testing/tactile-mail_20261004/package/build-import.log",
+      "sha256": "e683ba10afd2059840117a3044abe3200da925ab8666d8a4625843d8f39cf546"
+    },
+    {
+      "path": "docs/testing/tactile-mail_20261004/package/build-export-audit.log",
+      "sha256": "11dbefbc257f5945b9f5c8ab60084070c15d1a4875ac83075bb3cdf10e5aee2f"
+    },
+    {
+      "path": "docs/testing/tactile-mail_20261004/package/SOURCE_AND_QA.json",
+      "sha256": "44ba5b9bceafa9313ce0014d5462f2b1e876e72c19b43bd56a09db751d6507c3"
+    },
+    {
+      "path": "docs/testing/tactile-mail_20261004/package/GODOT_TEMPLATE_SOURCE.json",
+      "sha256": "6d216eaa6942e4b3818d9f794b580f23e331eceb6dd7a20c4a0d8ec760b7d5f0"
+    },
+    {
+      "path": "docs/testing/tactile-mail_20261004/publication.json",
+      "sha256": "1c73482874037e8dc429b41f6865e72511bc514c737feeaaae3357b5b4e7c7e2"
+    },
+    {
+      "path": "docs/testing/tactile-mail_20261004/source-main-ci.json",
+      "sha256": "6f150b58aedbfd5bd56b19ff1b8577282daab407597f12f5480ec6c28f000b25"
+    }
+  ]
+}

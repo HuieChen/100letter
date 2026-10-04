@@ -1,0 +1,21 @@
+{
+  "source_commit": "1fc42e6199e03e91d41cf3b4b91fad131e2d76f3",
+  "repository": "https://github.com/HuieChen/100letter",
+  "scope": "Existing mail operation correction; development review, not final game acceptance",
+  "exe_sha256": "d34d36f3be1a6c49c56525ae86469b92e4f417ddf0b43cf00dd80c385c4b0562",
+  "pck_sha256": "40a0b66dcf169330be34f624f64400c2dc9f4759ce8696837d684684a24a3144",
+  "checks": {
+    "engine": 7585,
+    "engine_suites": 18,
+    "window_close_reload": 29,
+    "workflow": 28,
+    "pck_content": 167,
+    "release_boot_frames": 120
+  },
+  "unverified": [
+    "actual audio listening",
+    "first-time novice",
+    "complete native matrix",
+    "new long three-letter/wax story"
+  ]
+}
