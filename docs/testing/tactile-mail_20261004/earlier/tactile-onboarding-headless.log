@@ -1,0 +1,71 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+PASS input target exists: NewShift
+PASS supervisor appears
+PASS first conversation gives one concise investigation purpose
+PASS opening NPC line fits without hidden scrolling
+PASS input target exists: CloseDialogue
+PASS visible cross ends briefing without shortcuts
+PASS locked lid cannot reveal contents
+PASS wrong locked-lid input gives physical resistance
+PASS visible latch releases before lid
+PASS click opens actual lid; rapid second click cannot reverse pending motion
+PASS same physical lid closes by click
+PASS single envelope click lifts actual letter into inspection
+PASS click take assigns real custody once
+PASS visible cross returns to original desk
+PASS taken envelope does not remain as duplicate scenery
+PASS close checkpoints observed face and custody
+PASS physical desk exit reaches explorable scene
+PASS input target exists: NewShift
+PASS supervisor appears
+PASS first conversation gives one concise investigation purpose
+PASS opening NPC line fits without hidden scrolling
+ERROR: Parameter "t" is null.
+   at: texture_2d_get (./servers/rendering/dummy/storage/texture_storage.h:110)
+   GDScript backtrace (most recent call first):
+       [0] _shot (res://tests/core_review_input.gd:135)
+SCRIPT ERROR: Cannot call method 'save_png' on a null value.
+   at: _shot (res://tests/core_review_input.gd:135)
+   GDScript backtrace (most recent call first):
+       [0] _shot (res://tests/core_review_input.gd:135)
+PASS input target exists: CloseDialogue
+PASS visible cross ends briefing without shortcuts
+PASS locked lid cannot reveal contents
+PASS wrong locked-lid input gives physical resistance
+PASS visible latch releases before lid
+PASS click opens actual lid; rapid second click cannot reverse pending motion
+PASS same physical lid closes by click
+PASS single envelope click lifts actual letter into inspection
+PASS click take assigns real custody once
+PASS visible envelope finishes its lift before capture
+ERROR: Parameter "t" is null.
+   at: texture_2d_get (./servers/rendering/dummy/storage/texture_storage.h:110)
+   GDScript backtrace (most recent call first):
+       [0] _shot (res://tests/core_review_input.gd:135)
+SCRIPT ERROR: Cannot call method 'save_png' on a null value.
+   at: _shot (res://tests/core_review_input.gd:135)
+   GDScript backtrace (most recent call first):
+       [0] _shot (res://tests/core_review_input.gd:135)
+PASS visible cross returns to original desk
+PASS taken envelope does not remain as duplicate scenery
+PASS close checkpoints observed face and custody
+PASS physical desk exit reaches explorable scene
+PASS input target exists: NewShift
+PASS supervisor appears
+PASS first conversation gives one concise investigation purpose
+PASS opening NPC line fits without hidden scrolling
+PASS input target exists: CloseDialogue
+PASS visible cross ends briefing without shortcuts
+PASS locked lid cannot reveal contents
+PASS wrong locked-lid input gives physical resistance
+PASS visible latch releases before lid
+PASS click opens actual lid; rapid second click cannot reverse pending motion
+PASS same physical lid closes by click
+PASS single envelope click lifts actual letter into inspection
+PASS click take assigns real custody once
+PASS visible cross returns to original desk
+PASS taken envelope does not remain as duplicate scenery
+PASS close checkpoints observed face and custody
+PASS physical desk exit reaches explorable scene
+COUNTER ONBOARDING: 52 checks, 0 failures

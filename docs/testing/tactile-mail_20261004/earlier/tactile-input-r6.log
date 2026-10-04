@@ -1,0 +1,77 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+OpenGL API 3.3.0 NVIDIA 566.24 - Compatibility - Using Device: NVIDIA - NVIDIA GeForce RTX 4050 Laptop GPU
+
+PASS clicked lid visibly redraws its hinge without more mouse input
+PASS 1920x1080 GPU capture 01_open_box
+PASS short unplaced drag settles back instead of teleporting
+PASS invalid drop retains intermediate visible paper position
+PASS settling completes at the same physical stack
+PASS idle box does not redraw its entire surface every frame
+PASS physical extraction opens the owned envelope
+PASS inspection retains the actual opened box and original desk
+PASS 1920x1080 GPU capture 02_inspect_same_counter
+PASS wheel traverses intermediate zoom instead of jumping
+PASS zoom keeps the pointed paper detail anchored
+PASS wheel ends at exact intended zoom
+PASS rapid wheel input preserves every requested notch
+PASS rapid zoom settles without overshoot
+PASS visible moving paper can be grabbed during zoom
+PASS held envelope follows each pointer position without delayed interpolation
+PASS interrupted zoom leaves real object draggable
+PASS cancelled zoom cannot move the paper after release
+PASS paper settles and releases input after drop
+PASS flip presents the old face before crossing the hinge
+PASS fast repeated clicks do not queue delayed contradictory flips
+PASS reverse finishes physically and records observation
+PASS 1920x1080 GPU capture 03_reverse_after_interrupted_zoom
+PASS fractional re-grab 0 passes unchanged strict material replay
+PASS fractional re-grab 1 passes unchanged strict material replay
+PASS fractional re-grab 2 passes unchanged strict material replay
+PASS fractional re-grab 3 passes unchanged strict material replay
+PASS fractional re-grab 4 passes unchanged strict material replay
+PASS fractional re-grab 5 passes unchanged strict material replay
+PASS fractional re-grab 6 passes unchanged strict material replay
+PASS fractional re-grab 7 passes unchanged strict material replay
+PASS fractional re-grab 8 passes unchanged strict material replay
+PASS fractional re-grab 9 passes unchanged strict material replay
+PASS fractional re-grab 10 passes unchanged strict material replay
+PASS fractional re-grab 11 passes unchanged strict material replay
+PASS fractional re-grab 12 passes unchanged strict material replay
+PASS fractional re-grab 13 passes unchanged strict material replay
+PASS fractional re-grab 14 passes unchanged strict material replay
+PASS fractional re-grab 15 passes unchanged strict material replay
+PASS fractional re-grab 16 passes unchanged strict material replay
+PASS fractional re-grab 17 passes unchanged strict material replay
+PASS fractional re-grab 18 passes unchanged strict material replay
+PASS fractional re-grab 19 passes unchanged strict material replay
+PASS fractional re-grab 20 passes unchanged strict material replay
+PASS fractional re-grab 21 passes unchanged strict material replay
+PASS fractional re-grab 22 passes unchanged strict material replay
+PASS fractional re-grab 23 passes unchanged strict material replay
+PASS fractional re-grab 24 passes unchanged strict material replay
+PASS fractional re-grab 25 passes unchanged strict material replay
+PASS fractional re-grab 26 passes unchanged strict material replay
+PASS fractional re-grab 27 passes unchanged strict material replay
+PASS fractional re-grab 28 passes unchanged strict material replay
+PASS fractional re-grab 29 passes unchanged strict material replay
+PASS fractional re-grab 30 passes unchanged strict material replay
+PASS fractional re-grab 31 passes unchanged strict material replay
+PASS fractional re-grab 32 passes unchanged strict material replay
+PASS fractional re-grab 33 passes unchanged strict material replay
+PASS fractional re-grab 34 passes unchanged strict material replay
+PASS fractional re-grab 35 passes unchanged strict material replay
+PASS fractional re-grab 36 passes unchanged strict material replay
+PASS fractional re-grab 37 passes unchanged strict material replay
+PASS fractional re-grab 38 passes unchanged strict material replay
+PASS fractional re-grab 39 passes unchanged strict material replay
+PASS mouse motion reuses envelope typography instead of rebuilding glyphs
+PASS cross settles the actual object before releasing the surface
+PASS rapid cross input closes exactly once
+PASS return leaves a playable desk without pause or captured input
+PASS 1920x1080 GPU capture 04_returned_counter
+PASS settled return persists the same observed envelope
+PASS reentry restores the same physical face
+PASS focus-loss checkpoint stops animation and releases material capture
+PASS Escape returns paper and never opens a second pause page
+PASS runtime source stays frozen during tactile input review
+TACTILE MAIL: 73 checks / 0 failures

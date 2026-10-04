@@ -1,0 +1,43 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+OpenGL API 3.3.0 NVIDIA 566.24 - Compatibility - Using Device: NVIDIA - NVIDIA GeForce RTX 4050 Laptop GPU
+
+PASS clicked lid visibly redraws its hinge without more mouse input
+PASS 1920x1080 GPU capture 01_open_box
+PASS short unplaced drag settles back instead of teleporting
+PASS invalid drop retains intermediate visible paper position
+PASS settling completes at the same physical stack
+PASS idle box does not redraw its entire surface every frame
+PASS physical extraction opens the owned envelope
+PASS inspection retains the actual opened box and original desk
+PASS 1920x1080 GPU capture 02_inspect_same_counter
+PASS wheel traverses intermediate zoom instead of jumping
+PASS zoom keeps the pointed paper detail anchored
+PASS wheel ends at exact intended zoom
+PASS rapid wheel input preserves every requested notch
+PASS rapid zoom settles without overshoot
+PASS visible moving paper can be grabbed during zoom
+PASS held envelope follows each pointer position without delayed interpolation
+PASS interrupted zoom leaves real object draggable
+PASS cancelled zoom cannot move the paper after release
+PASS paper settles and releases input after drop
+PASS flip presents the old face before crossing the hinge
+PASS fast repeated clicks do not queue delayed contradictory flips
+PASS reverse finishes physically and records observation
+PASS 1920x1080 GPU capture 03_reverse_after_interrupted_zoom
+PASS fractional re-grab 0 passes unchanged strict material replay
+PASS fractional re-grab 1 passes unchanged strict material replay
+FAIL fractional re-grab 2 passes unchanged strict material replay
+PASS mouse motion reuses envelope typography instead of rebuilding glyphs
+FAIL cross settles the actual object before releasing the surface
+FAIL rapid cross input closes exactly once
+WAIT DIAGNOSTICS {"active_operation":{},"busy":false,"context":"","location":"post_office","minute":540,"modal":"res://scripts/rebuild/mail_workbench.gd","view":"counter"}
+PASS visible envelope finishes its lift before capture
+PASS actual GPU capture failed_rapid cross input closes exactly once
+PASS return leaves a playable desk without pause or captured input
+PASS 1920x1080 GPU capture 04_returned_counter
+FAIL settled return persists the same observed envelope
+PASS reentry restores the same physical face
+PASS focus-loss checkpoint stops animation and releases material capture
+PASS Escape returns paper and never opens a second pause page
+PASS runtime source stays frozen during tactile input review
+TACTILE MAIL: 38 checks / 4 failures

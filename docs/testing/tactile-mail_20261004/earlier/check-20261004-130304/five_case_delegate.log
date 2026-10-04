@@ -1,0 +1,167 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+OpenGL API 3.3.0 NVIDIA 566.24 - Compatibility - Using Device: NVIDIA - NVIDIA GeForce RTX 4050 Laptop GPU
+
+PASS real playable title is mounted
+PASS GPU capture 01_title
+PASS input target exists: NewShift
+PASS new day starts directly at the working counter
+PASS brief supervisor scene appears before work
+PASS GPU capture 01b_counter_supervisor
+PASS input target exists: FinishBriefing
+PASS player finishes short briefing and receives control
+PASS physical closed box contains only first teaching mail
+PASS registry cannot bypass actually taking and inspecting the first envelope
+PASS GPU capture 02a_counter_tray
+PASS closed counter ledger opens separate readable service manual
+PASS reading actual manual rows supplies service rule without private mail access
+PASS closing manual preserves unopened physical box
+PASS clicking where hidden mail lies cannot take it through closed lid
+PASS real hand drag opens box lid
+PASS later mail remains unavailable before first recorded disposition
+PASS GPU capture 02_counter_first_mail
+PASS real hand drag opens box lid
+PASS actual box-to-inspection movement opens case01
+PASS physical take transfers custody case01
+PASS counter mail click opens integrated physical workbench
+PASS immediate Escape can exit newly opened workbench
+PASS taken envelope is removed from the physical box
+PASS GPU capture 02d_counter_empty_tray
+PASS immediate workbench Escape checkpoints inspected face and custody on disk
+PASS counter exit returns to actual world
+PASS ground pointer starts an actual local walk
+PASS input target exists: OpenBook
+PASS field book hides courier and cancels pending walk rather than moving behind closeup
+PASS closing world notebook restores visible playable courier
+PASS input target exists: OpenBag
+PASS input target exists: Envelope_case01
+PASS world bag-to-workbench route also hides courier
+PASS safe world workbench close restores actor and input
+PASS input target exists: OpenMap
+PASS input target exists: Map_community_center
+PASS map selection immediately closes paper and begins travel
+PASS real route arrives at community_center
+PASS one selected journey charges 15 or 30 minutes
+PASS GPU capture world_community_center
+PASS community evidence has visible on-screen interaction regions
+PASS approved mailpoint uses existing small wall slots rather than a floating envelope
+PASS GPU capture world_community_aligned
+PASS input target exists: Clue_street_renaming
+FAIL clue first approaches before opening observation
+FAIL walk to community notice opens source observation
+WAIT DIAGNOSTICS {"active_operation":{},"busy":false,"context":"","location":"community_center","minute":555,"modal":"","view":"world","walker":{"focused":false,"foot":"(350.2005, 775.932)","pending_action":false,"target":"(350.2005, 775.932)","walking":false}}
+PASS GPU capture failed_walk to community notice opens source observation
+FAIL physical source closeup hides courier, resident feet, and world controls
+PASS entering close observation does not auto-grant evidence
+PASS GPU capture 03_notice_closed
+FAIL observation has real hit regions
+FAIL actual cover and row clicks acquire the public notice
+FAIL observation Escape returns visible actors and control to the world
+FAIL Escape unexpectedly opened pause; visible recovery does not count as success
+VISIBLE RECOVERY: dismiss unintended pause to continue investigation
+PASS input target exists: Clue_june_current_mailpoint
+PASS reach public mailpoint register
+PASS actual second source inspection enables later archive discovery
+PASS input target exists: OpenMap
+PASS input target exists: Map_residential
+PASS map selection immediately closes paper and begins travel
+PASS real route arrives at residential
+PASS one selected journey charges 15 or 30 minutes
+PASS GPU capture world_residential
+PASS Elsie has an on-screen conversation region
+PASS current-resident source has an on-screen region
+PASS GPU capture world_residential_aligned
+PASS input target exists: Clue_ceramic_17
+PASS reach the two physical street plates
+PASS dragging upper plate reveals and records actual old plate
+PASS GPU capture 04_plate_revealed
+PASS input target exists: Talk_elsie_moran
+PASS NPC conversation is delayed until courier reaches doorway
+PASS courier arrives for Elsie conversation
+PASS actual on-site conversation records encountered person
+PASS in-scene dialogue keeps courier visible but stops movement
+PASS greeting line appears before any response menu
+PASS input target exists: AdvanceDialogue
+PASS input target exists: Choice_topic_elsie_address
+PASS choosing topic speaks full courier question before recipient answer grants source
+PASS GPU capture 05a_courier_question
+PASS input target exists: AdvanceDialogue
+PASS dialogue source is recorded without artificial time advancement
+PASS GPU capture 05_elsie_dialogue
+PASS input target exists: AdvanceDialogue
+PASS input target exists: OpenBag
+PASS input target exists: Envelope_case01
+PASS physical bag choice carries the first letter in world
+PASS input target exists: Talk_elsie_moran
+PASS carried letter approaches recipient before handoff
+PASS input target exists: AdvanceDialogue
+PASS onsite handoff transfers actual custody
+PASS first actual delivery alone does not bypass the postal resolution slip
+PASS delivered but unrecorded first mail correctly directs player back to postal resolution
+PASS handoff clears logical carried item
+PASS input target exists: AdvanceDialogue
+PASS handoff also clears visible carried letter HUD
+PASS handoff clears the visible carried-letter caption as well as its icon
+PASS GPU capture 06_delivered_world
+PASS input target exists: OpenMap
+PASS input target exists: Map_post_office
+PASS map selection immediately closes paper and begins travel
+PASS real route arrives at post_office
+PASS one selected journey charges 15 or 30 minutes
+PASS GPU capture world_post_office
+PASS input target exists: PostDoor
+PASS world door click starts walking without instant counter transition
+PASS return physically to Desk B
+PASS world door approach starts sufficiently far away
+PASS input target exists: Resolution_case01
+PASS registry mounts actual physical resolution component
+PASS input target exists: ReviewSlip
+PASS empty factual fields cannot advance to actual stamp
+PASS input target exists: Field_recipient
+PASS input target exists: Field_location
+PASS input target exists: Field_status
+PASS input target exists: ResolutionNote
+PASS GPU capture 06b_resolution_filled
+PASS input target exists: ReviewSlip
+PASS reviewing filled paper still does not record a stamp
+PASS physical seal drop commits resolution then returns to counter
+PASS first resolution is stored only after actual drag and stamp
+PASS first stamped resolution unlocks second and third letters
+PASS physical box now holds exactly the two newly unlocked desk-owned envelopes
+PASS GPU capture 06c_counter_after_first_resolution
+PASS input target exists: Register_case02
+PASS registry cannot take newly unlocked mail out of the physical box
+PASS registry redirects to actual box without inspecting private content
+PASS real hand drag opens box lid
+PASS actual box-to-inspection movement opens case02
+PASS physical take transfers custody case02
+PASS real right click exposes unlocked envelope reverse for case02
+PASS focused workbench Escape returns safely for case02
+PASS courier-owned envelope stays absent from box: case02
+PASS remaining envelope retains physical dimensions after taking the top one
+PASS real hand drag opens box lid
+PASS actual box-to-inspection movement opens case03
+PASS physical take transfers custody case03
+PASS real right click exposes unlocked envelope reverse for case03
+PASS focused workbench Escape returns safely for case03
+PASS courier-owned envelope stays absent from box: case03
+PASS archive discovery exposes old case in the physical box
+PASS same physical closed book also reaches the separate old ledger after discovery
+PASS old ledger closes back to counter without taking archive mail
+PASS counter J shortcut opens real field archive notebook
+PASS input target exists: Tab1
+PASS notebook evidence tab responds through actual pointer
+PASS GPU capture 07_field_archive
+PASS notebook Escape returns to counter
+PASS pause save returns to title
+PASS input target exists: NewShift
+PASS new game over an existing save requires a visible explicit confirmation
+PASS dismissing new-game confirmation preserves saved bytes
+PASS input target exists: NewShift
+PASS actual Continue reloads route time and world location
+PASS resume retains delivered custody and archive availability
+PASS resume preserves actual stamped resolution independently of custody
+FAIL resume retains separately acquired public and dialogue sources
+PASS external inspection and authorized handoff never create private-body access
+PASS GPU capture 08_resumed_world
+PASS sources stayed unchanged throughout complete route
+FINAL FIVE CASE INPUT delegate: 161 checks / 8 failures
