@@ -1,5 +1,7 @@
 # QA report · 2026-10-03
 
+Latest map follow-up: native roof click missed the old label-only target; complete landmark hit regions now preserve label placement. Final check-20261004-183533: 18 suites / 7615 checks / zero failures; independent roof input checks arrival at three resolutions. This supersedes the earlier 7,594-check source for packaging. See docs/testing/PASTEL_GLOBAL_20261004.md.
+
 ## Global pastel bitmap replacement — 2026-10-04
 
 Latest direct instruction globally supersedes earlier art locking. All 63 selected runtime roles now use 17 inspected soft pastel/picture-book ImageGen outputs, with unchanged generated PNG bytes and registered transparent atlas regions. Retain the morning framework, campaign and saves; external originals remain immutable; cover remains plain game-name typography. Fix complete book-paper registration, upright tabs, same physical envelope/visible address on return, left paper-edge flipping, and box hinge/latch placement. Final frozen check-20261004-172827: 18 suites / 7,594 assertions / zero failures, mail input 86, book 1,626, window close/reload 29, workflow 28, actual bitmap/export tests 3. Retained failures and role findings: [phase report](docs/testing/PASTEL_GLOBAL_20261004.md). Package and native evidence are separate; novice/listening/full native matrix/new three-letter wax story remain unaccepted. CORE-BOOK remains review.

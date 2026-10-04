@@ -1,0 +1,234 @@
+{
+  "scope": "Final runtime after actual map-roof miss was fixed. Global bitmap freeze unchanged.",
+  "engine_run": "check-20261004-183533",
+  "engine_suites": [
+    {
+      "suite": "amended_handoff",
+      "checks": 214,
+      "failures": 0
+    },
+    {
+      "suite": "core_review_input",
+      "checks": 223,
+      "failures": 0
+    },
+    {
+      "suite": "counter_onboarding_input",
+      "checks": 54,
+      "failures": 0
+    },
+    {
+      "suite": "envelope_text_bounds_smoke",
+      "checks": 21,
+      "failures": 0
+    },
+    {
+      "suite": "field_book_smoke",
+      "checks": 1626,
+      "failures": 0
+    },
+    {
+      "suite": "field_observation_smoke",
+      "checks": 218,
+      "failures": 0
+    },
+    {
+      "suite": "final_case_state_smoke",
+      "checks": 3356,
+      "failures": 0
+    },
+    {
+      "suite": "final_host_boundary_smoke",
+      "checks": 32,
+      "failures": 0
+    },
+    {
+      "suite": "final_resolution_draft_smoke",
+      "checks": 42,
+      "failures": 0
+    },
+    {
+      "suite": "final_walker_smoke",
+      "checks": 33,
+      "failures": 0
+    },
+    {
+      "suite": "five_case_delegate",
+      "checks": 346,
+      "failures": 0
+    },
+    {
+      "suite": "five_case_sealed",
+      "checks": 344,
+      "failures": 0
+    },
+    {
+      "suite": "mail_physics_state_smoke",
+      "checks": 728,
+      "failures": 0
+    },
+    {
+      "suite": "mail_workbench_input_smoke",
+      "checks": 170,
+      "failures": 0
+    },
+    {
+      "suite": "postal_desk_live_queue",
+      "checks": 28,
+      "failures": 0
+    },
+    {
+      "suite": "resolution_slip_smoke",
+      "checks": 75,
+      "failures": 0
+    },
+    {
+      "suite": "scene_dialogue_input_smoke",
+      "checks": 19,
+      "failures": 0
+    },
+    {
+      "suite": "tactile_mail_input",
+      "checks": 86,
+      "failures": 0
+    }
+  ],
+  "engine_checks": 7615,
+  "window_checks": 29,
+  "workflow_tests": 28,
+  "asset_tests": 3,
+  "artifacts": [
+    {
+      "path": "docs/testing/pastel-global_20261004/map-followup/engine/amended_handoff.log",
+      "sha256": "d46459340b6b20db2f8b0fe7b7f2a34a04dff41e392abc3759ae979b8414c074"
+    },
+    {
+      "path": "docs/testing/pastel-global_20261004/map-followup/engine/core_review_input.log",
+      "sha256": "23804332a23e62a9bd62db58201faf1dce8e091aaab2ee03180bebbb9604b599"
+    },
+    {
+      "path": "docs/testing/pastel-global_20261004/map-followup/engine/counter_onboarding_input.log",
+      "sha256": "19dcf34e06416eb12d4c916229938b4a4781d6700f120011df4c463e2e4cd56d"
+    },
+    {
+      "path": "docs/testing/pastel-global_20261004/map-followup/engine/envelope_text_bounds_smoke.log",
+      "sha256": "4a14c39efe0c00c09ebaa7a798eea9497cb857ae14aae26ad87e17c98f8822d5"
+    },
+    {
+      "path": "docs/testing/pastel-global_20261004/map-followup/engine/field_book_smoke.log",
+      "sha256": "e40ff99b59ac88fe5a91aa89734494b5c6b8ffa6aab6d8b58f739db2af056c67"
+    },
+    {
+      "path": "docs/testing/pastel-global_20261004/map-followup/engine/field_observation_smoke.log",
+      "sha256": "811933eb6ac0f2e96079a59a49cc257e920c2ec745e35f6de67621c899a22d82"
+    },
+    {
+      "path": "docs/testing/pastel-global_20261004/map-followup/engine/final_case_state_smoke.log",
+      "sha256": "1d415096141938b58a453044776fbde6d3ba77897bca6fdd0f13bc52745f3c2a"
+    },
+    {
+      "path": "docs/testing/pastel-global_20261004/map-followup/engine/final_host_boundary_smoke.log",
+      "sha256": "7522268ae5c9f28b9f9dabb46a3425de68aecd05e69d4e6e24cfc9d53c72198c"
+    },
+    {
+      "path": "docs/testing/pastel-global_20261004/map-followup/engine/final_resolution_draft_smoke.log",
+      "sha256": "b59576f9818c04f4d3b41442b33339c38e06d2e43874c41bf27b5f92f0ad6d50"
+    },
+    {
+      "path": "docs/testing/pastel-global_20261004/map-followup/engine/final_walker_smoke.log",
+      "sha256": "e1f57e2b1236fb3abc503d9dc2b5ca60247df26ed13b6bf2440eac7150249a95"
+    },
+    {
+      "path": "docs/testing/pastel-global_20261004/map-followup/engine/five_case_delegate.log",
+      "sha256": "c75d0f723b23206270d9612025a9dbdfd92b9c29aab59dbff84f731840a57e49"
+    },
+    {
+      "path": "docs/testing/pastel-global_20261004/map-followup/engine/five_case_sealed.log",
+      "sha256": "6ec9b93b8c1fe70cf27df1b5b43c750434e17faf2ad3967144b2d7dc2764ed4f"
+    },
+    {
+      "path": "docs/testing/pastel-global_20261004/map-followup/engine/import.log",
+      "sha256": "380592269bf93b2cea17a3b7f460eb282c15fb93e2edbdc386fd653bb69fae40"
+    },
+    {
+      "path": "docs/testing/pastel-global_20261004/map-followup/engine/mail_physics_state_smoke.log",
+      "sha256": "75cee30ca671f8085b6b733c543df8999bf335b19e050f73c834d057c478245b"
+    },
+    {
+      "path": "docs/testing/pastel-global_20261004/map-followup/engine/mail_workbench_input_smoke.log",
+      "sha256": "44cd4cf8c44d5616b195df2faa926f3620c3ee16d3d7c30e0fcb5b661134e855"
+    },
+    {
+      "path": "docs/testing/pastel-global_20261004/map-followup/engine/postal_desk_live_queue.log",
+      "sha256": "2d890813e2b3c8cd4b33b94d08d286609657c80ef6ba809a3ebaa74d00b21ee8"
+    },
+    {
+      "path": "docs/testing/pastel-global_20261004/map-followup/engine/resolution_slip_smoke.log",
+      "sha256": "f76170808408518a2a72ef54209151855b29b923bb50c79e34f5c85a6f5ff33a"
+    },
+    {
+      "path": "docs/testing/pastel-global_20261004/map-followup/engine/scene_dialogue_input_smoke.log",
+      "sha256": "8484f90784adce7ab17276b09ac8819a764e50e2bbf925c70563102258fcfdb7"
+    },
+    {
+      "path": "docs/testing/pastel-global_20261004/map-followup/engine/tactile_mail_input.log",
+      "sha256": "5f165212d859ce1ac63cf144d70e5152234a0f37e5a963ffce824b1eed54f067"
+    },
+    {
+      "path": "docs/testing/pastel-global_20261004/map-followup/tactile-mail-result.json",
+      "sha256": "73e810669c250e2ab2efd9792c3fdfcd88c2d79e7cb9b386cde0797e89111d8d"
+    },
+    {
+      "path": "docs/testing/pastel-global_20261004/map-followup/core-review-result.json",
+      "sha256": "79b8e6c1dbddb999ef3a2f05030c1747c7b604210f366c04ecb7a2ad410ce39b"
+    },
+    {
+      "path": "docs/testing/pastel-global_20261004/map-followup/map/all_map_1280.png",
+      "sha256": "d612550906c5e40bb5ed898b6aefe512e4cd0890c123bb788a22b50b0054154a"
+    },
+    {
+      "path": "docs/testing/pastel-global_20261004/map-followup/map/all_map_1920.png",
+      "sha256": "001ae420d5dc457393034fadc9fd8754e0433b3613194a2350cc82e31383d082"
+    },
+    {
+      "path": "docs/testing/pastel-global_20261004/map-followup/map/all_map_2560.png",
+      "sha256": "12bc736afe0d6100a323ed242fd0f1df06bab8511ee741f6bdfbe40e16d93fb5"
+    },
+    {
+      "path": "docs/testing/pastel-global_20261004/map-followup/mail/01_open_box.png",
+      "sha256": "c74738ee342fa6e55b2de5c040c3838ea49da61a1fbbb046304a89bab6937eb0"
+    },
+    {
+      "path": "docs/testing/pastel-global_20261004/map-followup/mail/02_inspect_same_counter.png",
+      "sha256": "605b47d0e4f2145687c748691c29320fd71ad73bcb13a2acc8813543c0003eab"
+    },
+    {
+      "path": "docs/testing/pastel-global_20261004/map-followup/mail/03_reverse_after_interrupted_zoom.png",
+      "sha256": "367708c7b4dbd0c4aeeb8ddbfbf9278a37cbf3ab0a990e5e5eaba07eed55488a"
+    },
+    {
+      "path": "docs/testing/pastel-global_20261004/map-followup/mail/04_returned_counter.png",
+      "sha256": "eb2509032ef07d790cd1cd900ac5bb08f9a1419c82a36cca40026be4f41d27f6"
+    },
+    {
+      "path": "docs/testing/pastel-global_20261004/map-followup/window-close/report.json",
+      "sha256": "0c450802c5391e16f315a75177d45160025c25b2d2dd26b177cd3e1d006cc0e8"
+    },
+    {
+      "path": "docs/testing/pastel-global_20261004/map-followup/window-close/input.stdout.log",
+      "sha256": "e7c6b536abed034d18cf37b254716a622ddfecbc70e6d411b3fd009b93122b19"
+    },
+    {
+      "path": "docs/testing/pastel-global_20261004/map-followup/window-close/input.stderr.log",
+      "sha256": "66894c95acd6af0631be417c3bf9c31a2ceab00c02d4a5a3e92b780256865b04"
+    },
+    {
+      "path": "docs/testing/pastel-global_20261004/map-followup/window-close/reload.stdout.log",
+      "sha256": "91ce5afce08b12a110306d3d9663773b1af78139346c6f385e58299608693e37"
+    },
+    {
+      "path": "docs/testing/pastel-global_20261004/map-followup/window-close/reload.stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  ]
+}

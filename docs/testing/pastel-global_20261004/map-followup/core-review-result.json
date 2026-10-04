@@ -1,0 +1,1184 @@
+{
+	"checks": 223,
+	"failures": [],
+	"phase": "all",
+	"scope": "Godot routed GUI events and actual GPU capture; isolated saves; not native input, listening or novice acceptance",
+	"screenshots": [
+		"res://test-results/core-review/all_title_1280.png",
+		"res://test-results/core-review/all_bag_1280.png",
+		"res://test-results/core-review/all_inspect_1280.png",
+		"res://test-results/core-review/all_map_1280.png",
+		"res://test-results/core-review/all_dialogue_1280.png",
+		"res://test-results/core-review/all_title_1920.png",
+		"res://test-results/core-review/all_bag_1920.png",
+		"res://test-results/core-review/all_inspect_1920.png",
+		"res://test-results/core-review/all_map_1920.png",
+		"res://test-results/core-review/all_dialogue_1920.png",
+		"res://test-results/core-review/all_title_2560.png",
+		"res://test-results/core-review/all_bag_2560.png",
+		"res://test-results/core-review/all_inspect_2560.png",
+		"res://test-results/core-review/all_map_2560.png",
+		"res://test-results/core-review/all_dialogue_2560.png"
+	],
+	"source_sha256": {
+		"assets/faefever_v2/backgrounds/BG_bus_stop.png": "41edfe69f53b911f9d47abbb86c9c911e693b112ad71a69182c720bf6686f4a9",
+		"assets/faefever_v2/backgrounds/BG_chess_stall.png": "f01ec796d536dc02561ce197a7b425e193d65c1511ff178d7fa826dfd2fb6536",
+		"assets/faefever_v2/backgrounds/BG_community_center.png": "c8e039837773e66d1fc7c1a889f18b9a852406c5458190a78540ceeba6392e24",
+		"assets/faefever_v2/backgrounds/BG_lookout.png": "362f838d16bb63e3b0390f7d07908701f5592ef5c18ecd9ae4a4649a54005372",
+		"assets/faefever_v2/backgrounds/BG_post_office.png": "f69e632b329e7bfced98fa6ec98dc510e698a481cdbebe37fe755f0fd8e2f176",
+		"assets/faefever_v2/backgrounds/BG_residential.png": "bc428d8fca388af02a4aab4e92e8f030faecc69f213bf51f41753a0fb4512c1e",
+		"assets/faefever_v2/backgrounds/BG_tarot_shop.png": "9e167e71475871d38d2d44ec7aa66162a4f8de5b9af79caafba7b666a1e7b011",
+		"assets/faefever_v2/backgrounds/BG_workroom.png": "6fd58e787d448502fe6637c547689353f1ae084876da412c11d8b500fac0bb3f",
+		"assets/faefever_v2/backgrounds/wall_closeup.png": "73f2948ff955c73c3041bb6b9492ce9e669a49a090173e30b5f0ad3eb6a86351",
+		"assets/faefever_v2/characters/CHAR_courier_walk.png": "5d77500169e5f2fc97e8546f911706f806932953fa4fe08cc9dd63e54f040f26",
+		"assets/faefever_v2/characters/courier_walk_regions.json": "28230595891800d03c7a7e625d3124c6f80788b5a1d65f2dc9f17157bb54b783",
+		"assets/faefever_v2/characters/pastel_cast_20261004.png": "0d3817e791122ed5c8049f533c3e80d5c1ce64b17e13ec97d7a979679a7750cb",
+		"assets/faefever_v2/manifest.json": "7fdca5324cf0313b589128424674f4ae4397796a0947cd28f57f720029e54c7a",
+		"assets/faefever_v2/props/pastel_case_lid_20261004.png": "daef7d150753849627f89eb4bd436138fcfabd89b8288b481d239af52a16b20e",
+		"assets/faefever_v2/props/pastel_docs_20261004.png": "5a2c471e07ccd1ba193c0e4917957acacf0216f8ad094d069161161509882563",
+		"assets/faefever_v2/props/pastel_envelope_back_20261004.png": "e4ddc7af9312fa953d2c1f7d072ad5f6d413f0a8ee7e81df55f804b895bee1dd",
+		"assets/faefever_v2/props/pastel_misc_20261004.png": "ab56aca2232b2b4e35061bdfc96d09cb1242a009a58694016f212c2248ba60df",
+		"assets/faefever_v2/props/pastel_tools_20261004.png": "97c7900f34e7942bc3d581fed7cca74d43cae48a3c6e9ff5de971870d44e59a9",
+		"assets/faefever_v2/props/town_map.png": "0daecd1d64e282d0691826f9e5fb686a33934d3a2513d161da97c1a16e7e0c14",
+		"data/rebuild/final_cases.json": "ea98a7158186b658575af93bf6eb31e29a374be6d9b6647e7d5c362dc6792744",
+		"data/rebuild/final_dialogues.json": "f2fa37f5f6b7d09a3729cbdc28a8050e64cbb33a6b76079f5619d374b54a53cd",
+		"data/rebuild/player_amendments.json": "da965670ec3be342e6559ec9d9e1208056f7b896ef90837a8b44cf00b46602a4",
+		"scripts/rebuild/field_book.gd": "eef45659799173cf4f42bb7aeffbe5a45ba355a93141e69e04ab720a2d847793",
+		"scripts/rebuild/field_observation.gd": "9c03fa15e1d6ea5fc9f7553a671204e19ac732352548dc2459bea8359adff21b",
+		"scripts/rebuild/final_case_state.gd": "640207716867fe6dda2a0a5eabe7515517788ddbfa4b06cbf31bea1cb6324e72",
+		"scripts/rebuild/final_paper_map.gd": "d4206706d68246071dcedb7345c8831c54b58023721b51fd4713a6a46d165e47",
+		"scripts/rebuild/final_playable.gd": "dc5d89c313c240a61ba2429e1e0281516e21a7c5dea2f89d79c3738803c74278",
+		"scripts/rebuild/final_walker.gd": "293ad1cb201e7cfef0eef3e3db8d85f67af1df5aea671e71ad1081a5e266e95f",
+		"scripts/rebuild/mail_imprint.gd": "cd98861f9cf68f9f3989a07479915ac9343da2219af834dc0ff42fee2ccb7f10",
+		"scripts/rebuild/mail_physics_state.gd": "811cffd97d0fc3206d9729d8f1b77fa399085293a2eca08bfd6604a3473e7cd5",
+		"scripts/rebuild/mail_workbench.gd": "f203e7f2f0f0fd87745c7f8ede3834478d30e08326f37038b5476295847c0ca3",
+		"scripts/rebuild/physical_art.gd": "2dd4281d0f514bf2ab8e4a2416920a139e1dec3edda6d09f6fcc1d47350d0f39",
+		"scripts/rebuild/physical_envelope.gd": "1e0ad27a535edef1f06c2d51fc098f1627507350113f91bcf93552c99bb89de9",
+		"scripts/rebuild/postal_desk.gd": "68f2540c80f188a8e365bfb86ee37a757c0f3d4a2bc706e54fb423a5683f9bf9",
+		"scripts/rebuild/resolution_draft_store.gd": "f9a45b82a82e9f703939251057ca6d667602c37560f58b401eb0512f1fa32551",
+		"scripts/rebuild/resolution_slip.gd": "a07f9bd4c6da23b295e8291651ad1e45f38ad852b4faffb189cca4e36144a51f",
+		"scripts/rebuild/scene_dialogue.gd": "0aea90f800b4ef46237581d69170c67638f44d5c24ba985d6ee129f50bc0c932",
+		"scripts/rebuild/tool_drawer.gd": "c0083b7dd71dea9bca27af63280f8fc8ba46c5d5c3e102d4e17641a028676876",
+		"scripts/ui/audio_feedback.gd": "8b228acd1631255b6e5952b03ef7912098ee8ab4d42c3e2a4be20d8b42a79a1f",
+		"scripts/ui/paper_ui.gd": "8ed9fcd9d4379c2d1ae3b0038104371f84591d8d7087d6841c309d2f27880dfd",
+		"tests/core_review_input.gd": "5ab1611f22a234319c15994781314f633ea0039ec93b96086eaba090ef86d9e6",
+		"tests/final_playable_input_smoke.gd": "941d56f4751aca5f2865e23196fbbc9c1d1257e032d9c0e04553088e766b89d6"
+	},
+	"steps": [
+		{
+			"check": "plain title has no illustration",
+			"elapsed_ms": 576,
+			"passed": true
+		},
+		{
+			"check": "game name is the cover",
+			"elapsed_ms": 576,
+			"passed": true
+		},
+		{
+			"check": "empty save cannot pretend to continue",
+			"elapsed_ms": 576,
+			"passed": true
+		},
+		{
+			"check": "actual GPU capture title_1280",
+			"elapsed_ms": 652,
+			"passed": true
+		},
+		{
+			"check": "input target exists: NewShift",
+			"elapsed_ms": 652,
+			"passed": true
+		},
+		{
+			"check": "supervisor starts after title",
+			"elapsed_ms": 1451,
+			"passed": true
+		},
+		{
+			"check": "input target exists: FinishBriefing",
+			"elapsed_ms": 1452,
+			"passed": true
+		},
+		{
+			"check": "visible dialogue advance starts playable counter",
+			"elapsed_ms": 1484,
+			"passed": true
+		},
+		{
+			"check": "real hand drag opens box lid",
+			"elapsed_ms": 1592,
+			"passed": true
+		},
+		{
+			"check": "real hand drag opens box lid",
+			"elapsed_ms": 1592,
+			"passed": true
+		},
+		{
+			"check": "actual box-to-inspection movement opens case01",
+			"elapsed_ms": 1693,
+			"passed": true
+		},
+		{
+			"check": "physical take transfers custody case01",
+			"elapsed_ms": 1697,
+			"passed": true
+		},
+		{
+			"check": "physical take opens one envelope",
+			"elapsed_ms": 1698,
+			"passed": true
+		},
+		{
+			"check": "inspector visible cross closes without Esc",
+			"elapsed_ms": 1912,
+			"passed": true
+		},
+		{
+			"check": "input target exists: OpenBag",
+			"elapsed_ms": 1912,
+			"passed": true
+		},
+		{
+			"check": "bag contains directly interactive envelope, no details button",
+			"elapsed_ms": 1936,
+			"passed": true
+		},
+		{
+			"check": "bag cross stays readable against a dark scene",
+			"elapsed_ms": 1937,
+			"passed": true
+		},
+		{
+			"check": "actual GPU capture bag_1280",
+			"elapsed_ms": 2534,
+			"passed": true
+		},
+		{
+			"check": "input target exists: Envelope_case01",
+			"elapsed_ms": 2534,
+			"passed": true
+		},
+		{
+			"check": "envelope click lifts and selects the same object",
+			"elapsed_ms": 2554,
+			"passed": true
+		},
+		{
+			"check": "inspection does not show a duplicate carried envelope",
+			"elapsed_ms": 2554,
+			"passed": true
+		},
+		{
+			"check": "direct flip exposes reverse",
+			"elapsed_ms": 2765,
+			"passed": true
+		},
+		{
+			"check": "envelope really moves under drag",
+			"elapsed_ms": 2839,
+			"passed": true
+		},
+		{
+			"check": "wheel enlarges actual paper",
+			"elapsed_ms": 2979,
+			"passed": true
+		},
+		{
+			"check": "visible envelope finishes its lift before capture",
+			"elapsed_ms": 2980,
+			"passed": true
+		},
+		{
+			"check": "actual GPU capture inspect_1280",
+			"elapsed_ms": 3584,
+			"passed": true
+		},
+		{
+			"check": "cross puts paper down safely",
+			"elapsed_ms": 3682,
+			"passed": true
+		},
+		{
+			"check": "returned envelope restores its scene affordance",
+			"elapsed_ms": 3682,
+			"passed": true
+		},
+		{
+			"check": "input target exists: OpenBag",
+			"elapsed_ms": 3682,
+			"passed": true
+		},
+		{
+			"check": "input target exists: Envelope_case01",
+			"elapsed_ms": 3699,
+			"passed": true
+		},
+		{
+			"check": "reentry keeps the observed face",
+			"elapsed_ms": 3736,
+			"passed": true
+		},
+		{
+			"check": "Esc is the second safe exit",
+			"elapsed_ms": 3939,
+			"passed": true
+		},
+		{
+			"check": "input target exists: OpenBag",
+			"elapsed_ms": 3940,
+			"passed": true
+		},
+		{
+			"check": "input target exists: CloseBag",
+			"elapsed_ms": 3959,
+			"passed": true
+		},
+		{
+			"check": "bag closes without keyboard knowledge",
+			"elapsed_ms": 3977,
+			"passed": true
+		},
+		{
+			"check": "input target exists: OpenMap",
+			"elapsed_ms": 4180,
+			"passed": true
+		},
+		{
+			"check": "painted community roof directly selects destination",
+			"elapsed_ms": 4239,
+			"passed": true
+		},
+		{
+			"check": "painted destination arrival completes",
+			"elapsed_ms": 4972,
+			"passed": true
+		},
+		{
+			"check": "roof click reaches its actual scene",
+			"elapsed_ms": 4973,
+			"passed": true
+		},
+		{
+			"check": "input target exists: OpenMap",
+			"elapsed_ms": 4974,
+			"passed": true
+		},
+		{
+			"check": "input target exists: Map_post_office",
+			"elapsed_ms": 5006,
+			"passed": true
+		},
+		{
+			"check": "return after roof input",
+			"elapsed_ms": 5748,
+			"passed": true
+		},
+		{
+			"check": "input target exists: OpenMap",
+			"elapsed_ms": 5748,
+			"passed": true
+		},
+		{
+			"check": "map has no second walking confirmation",
+			"elapsed_ms": 5777,
+			"passed": true
+		},
+		{
+			"check": "actual GPU capture map_1280",
+			"elapsed_ms": 6424,
+			"passed": true
+		},
+		{
+			"check": "input target exists: Map_residential",
+			"elapsed_ms": 6425,
+			"passed": true
+		},
+		{
+			"check": "destination immediately folds map and starts transition",
+			"elapsed_ms": 6444,
+			"passed": true
+		},
+		{
+			"check": "input target exists: OpenBag",
+			"elapsed_ms": 6444,
+			"passed": true
+		},
+		{
+			"check": "bag cannot interrupt a committed transition",
+			"elapsed_ms": 6459,
+			"passed": true
+		},
+		{
+			"check": "input target exists: OpenBook",
+			"elapsed_ms": 6459,
+			"passed": true
+		},
+		{
+			"check": "book cannot interrupt a committed transition",
+			"elapsed_ms": 6476,
+			"passed": true
+		},
+		{
+			"check": "arrival completes under rapid input",
+			"elapsed_ms": 7171,
+			"passed": true
+		},
+		{
+			"check": "one destination click charges exactly one journey",
+			"elapsed_ms": 7171,
+			"passed": true
+		},
+		{
+			"check": "arrival restores visible controlled actor",
+			"elapsed_ms": 7171,
+			"passed": true
+		},
+		{
+			"check": "input target exists: OpenMap",
+			"elapsed_ms": 7171,
+			"passed": true
+		},
+		{
+			"check": "input target exists: Map_residential",
+			"elapsed_ms": 7192,
+			"passed": true
+		},
+		{
+			"check": "current-place click closes map without journey cost",
+			"elapsed_ms": 7209,
+			"passed": true
+		},
+		{
+			"check": "input target exists: OpenMap",
+			"elapsed_ms": 7209,
+			"passed": true
+		},
+		{
+			"check": "input target exists: CloseMap",
+			"elapsed_ms": 7231,
+			"passed": true
+		},
+		{
+			"check": "map visible cross closes",
+			"elapsed_ms": 7250,
+			"passed": true
+		},
+		{
+			"check": "input target exists: OpenMap",
+			"elapsed_ms": 7251,
+			"passed": true
+		},
+		{
+			"check": "map Escape closes without pause leakage",
+			"elapsed_ms": 7281,
+			"passed": true
+		},
+		{
+			"check": "input target exists: Talk_elsie_moran",
+			"elapsed_ms": 7282,
+			"passed": true
+		},
+		{
+			"check": "walk reaches resident and exposes visible conversation exit",
+			"elapsed_ms": 10249,
+			"passed": true
+		},
+		{
+			"check": "dialogue retains scene actors but stops walking",
+			"elapsed_ms": 10249,
+			"passed": true
+		},
+		{
+			"check": "actual GPU capture dialogue_1280",
+			"elapsed_ms": 10859,
+			"passed": true
+		},
+		{
+			"check": "input target exists: CloseDialogue",
+			"elapsed_ms": 10859,
+			"passed": true
+		},
+		{
+			"check": "conversation cross returns full control without Esc",
+			"elapsed_ms": 10878,
+			"passed": true
+		},
+		{
+			"check": "input target exists: Talk_elsie_moran",
+			"elapsed_ms": 10878,
+			"passed": true
+		},
+		{
+			"check": "repeat conversation is available",
+			"elapsed_ms": 10961,
+			"passed": true
+		},
+		{
+			"check": "input target exists: AdvanceDialogue",
+			"elapsed_ms": 10961,
+			"passed": true
+		},
+		{
+			"check": "response topics also have visible cross",
+			"elapsed_ms": 10988,
+			"passed": true
+		},
+		{
+			"check": "input target exists: CloseDialogue",
+			"elapsed_ms": 10989,
+			"passed": true
+		},
+		{
+			"check": "topic cancel leaves no selected answer",
+			"elapsed_ms": 11007,
+			"passed": true
+		},
+		{
+			"check": "plain title has no illustration",
+			"elapsed_ms": 11105,
+			"passed": true
+		},
+		{
+			"check": "game name is the cover",
+			"elapsed_ms": 11105,
+			"passed": true
+		},
+		{
+			"check": "empty save cannot pretend to continue",
+			"elapsed_ms": 11106,
+			"passed": true
+		},
+		{
+			"check": "actual GPU capture title_1920",
+			"elapsed_ms": 11239,
+			"passed": true
+		},
+		{
+			"check": "input target exists: NewShift",
+			"elapsed_ms": 11239,
+			"passed": true
+		},
+		{
+			"check": "supervisor starts after title",
+			"elapsed_ms": 12117,
+			"passed": true
+		},
+		{
+			"check": "input target exists: FinishBriefing",
+			"elapsed_ms": 12117,
+			"passed": true
+		},
+		{
+			"check": "visible dialogue advance starts playable counter",
+			"elapsed_ms": 12154,
+			"passed": true
+		},
+		{
+			"check": "real hand drag opens box lid",
+			"elapsed_ms": 12305,
+			"passed": true
+		},
+		{
+			"check": "real hand drag opens box lid",
+			"elapsed_ms": 12305,
+			"passed": true
+		},
+		{
+			"check": "actual box-to-inspection movement opens case01",
+			"elapsed_ms": 12465,
+			"passed": true
+		},
+		{
+			"check": "physical take transfers custody case01",
+			"elapsed_ms": 12465,
+			"passed": true
+		},
+		{
+			"check": "physical take opens one envelope",
+			"elapsed_ms": 12465,
+			"passed": true
+		},
+		{
+			"check": "inspector visible cross closes without Esc",
+			"elapsed_ms": 12691,
+			"passed": true
+		},
+		{
+			"check": "input target exists: OpenBag",
+			"elapsed_ms": 12691,
+			"passed": true
+		},
+		{
+			"check": "bag contains directly interactive envelope, no details button",
+			"elapsed_ms": 12725,
+			"passed": true
+		},
+		{
+			"check": "bag cross stays readable against a dark scene",
+			"elapsed_ms": 12725,
+			"passed": true
+		},
+		{
+			"check": "actual GPU capture bag_1920",
+			"elapsed_ms": 13915,
+			"passed": true
+		},
+		{
+			"check": "input target exists: Envelope_case01",
+			"elapsed_ms": 13915,
+			"passed": true
+		},
+		{
+			"check": "envelope click lifts and selects the same object",
+			"elapsed_ms": 13947,
+			"passed": true
+		},
+		{
+			"check": "inspection does not show a duplicate carried envelope",
+			"elapsed_ms": 13948,
+			"passed": true
+		},
+		{
+			"check": "direct flip exposes reverse",
+			"elapsed_ms": 14169,
+			"passed": true
+		},
+		{
+			"check": "envelope really moves under drag",
+			"elapsed_ms": 14291,
+			"passed": true
+		},
+		{
+			"check": "wheel enlarges actual paper",
+			"elapsed_ms": 14420,
+			"passed": true
+		},
+		{
+			"check": "visible envelope finishes its lift before capture",
+			"elapsed_ms": 14420,
+			"passed": true
+		},
+		{
+			"check": "actual GPU capture inspect_1920",
+			"elapsed_ms": 15620,
+			"passed": true
+		},
+		{
+			"check": "cross puts paper down safely",
+			"elapsed_ms": 15742,
+			"passed": true
+		},
+		{
+			"check": "returned envelope restores its scene affordance",
+			"elapsed_ms": 15743,
+			"passed": true
+		},
+		{
+			"check": "input target exists: OpenBag",
+			"elapsed_ms": 15743,
+			"passed": true
+		},
+		{
+			"check": "input target exists: Envelope_case01",
+			"elapsed_ms": 15774,
+			"passed": true
+		},
+		{
+			"check": "reentry keeps the observed face",
+			"elapsed_ms": 15808,
+			"passed": true
+		},
+		{
+			"check": "Esc is the second safe exit",
+			"elapsed_ms": 16075,
+			"passed": true
+		},
+		{
+			"check": "input target exists: OpenBag",
+			"elapsed_ms": 16076,
+			"passed": true
+		},
+		{
+			"check": "input target exists: CloseBag",
+			"elapsed_ms": 16110,
+			"passed": true
+		},
+		{
+			"check": "bag closes without keyboard knowledge",
+			"elapsed_ms": 16140,
+			"passed": true
+		},
+		{
+			"check": "input target exists: OpenMap",
+			"elapsed_ms": 16321,
+			"passed": true
+		},
+		{
+			"check": "painted community roof directly selects destination",
+			"elapsed_ms": 16401,
+			"passed": true
+		},
+		{
+			"check": "painted destination arrival completes",
+			"elapsed_ms": 17121,
+			"passed": true
+		},
+		{
+			"check": "roof click reaches its actual scene",
+			"elapsed_ms": 17121,
+			"passed": true
+		},
+		{
+			"check": "input target exists: OpenMap",
+			"elapsed_ms": 17122,
+			"passed": true
+		},
+		{
+			"check": "input target exists: Map_post_office",
+			"elapsed_ms": 17153,
+			"passed": true
+		},
+		{
+			"check": "return after roof input",
+			"elapsed_ms": 17900,
+			"passed": true
+		},
+		{
+			"check": "input target exists: OpenMap",
+			"elapsed_ms": 17900,
+			"passed": true
+		},
+		{
+			"check": "map has no second walking confirmation",
+			"elapsed_ms": 17939,
+			"passed": true
+		},
+		{
+			"check": "actual GPU capture map_1920",
+			"elapsed_ms": 19328,
+			"passed": true
+		},
+		{
+			"check": "input target exists: Map_residential",
+			"elapsed_ms": 19329,
+			"passed": true
+		},
+		{
+			"check": "destination immediately folds map and starts transition",
+			"elapsed_ms": 19360,
+			"passed": true
+		},
+		{
+			"check": "input target exists: OpenBag",
+			"elapsed_ms": 19360,
+			"passed": true
+		},
+		{
+			"check": "bag cannot interrupt a committed transition",
+			"elapsed_ms": 19391,
+			"passed": true
+		},
+		{
+			"check": "input target exists: OpenBook",
+			"elapsed_ms": 19391,
+			"passed": true
+		},
+		{
+			"check": "book cannot interrupt a committed transition",
+			"elapsed_ms": 19421,
+			"passed": true
+		},
+		{
+			"check": "arrival completes under rapid input",
+			"elapsed_ms": 20086,
+			"passed": true
+		},
+		{
+			"check": "one destination click charges exactly one journey",
+			"elapsed_ms": 20087,
+			"passed": true
+		},
+		{
+			"check": "arrival restores visible controlled actor",
+			"elapsed_ms": 20087,
+			"passed": true
+		},
+		{
+			"check": "input target exists: OpenMap",
+			"elapsed_ms": 20087,
+			"passed": true
+		},
+		{
+			"check": "input target exists: Map_residential",
+			"elapsed_ms": 20122,
+			"passed": true
+		},
+		{
+			"check": "current-place click closes map without journey cost",
+			"elapsed_ms": 20153,
+			"passed": true
+		},
+		{
+			"check": "input target exists: OpenMap",
+			"elapsed_ms": 20153,
+			"passed": true
+		},
+		{
+			"check": "input target exists: CloseMap",
+			"elapsed_ms": 20189,
+			"passed": true
+		},
+		{
+			"check": "map visible cross closes",
+			"elapsed_ms": 20220,
+			"passed": true
+		},
+		{
+			"check": "input target exists: OpenMap",
+			"elapsed_ms": 20221,
+			"passed": true
+		},
+		{
+			"check": "map Escape closes without pause leakage",
+			"elapsed_ms": 20280,
+			"passed": true
+		},
+		{
+			"check": "input target exists: Talk_elsie_moran",
+			"elapsed_ms": 20280,
+			"passed": true
+		},
+		{
+			"check": "walk reaches resident and exposes visible conversation exit",
+			"elapsed_ms": 23237,
+			"passed": true
+		},
+		{
+			"check": "dialogue retains scene actors but stops walking",
+			"elapsed_ms": 23237,
+			"passed": true
+		},
+		{
+			"check": "actual GPU capture dialogue_1920",
+			"elapsed_ms": 24322,
+			"passed": true
+		},
+		{
+			"check": "input target exists: CloseDialogue",
+			"elapsed_ms": 24323,
+			"passed": true
+		},
+		{
+			"check": "conversation cross returns full control without Esc",
+			"elapsed_ms": 24357,
+			"passed": true
+		},
+		{
+			"check": "input target exists: Talk_elsie_moran",
+			"elapsed_ms": 24358,
+			"passed": true
+		},
+		{
+			"check": "repeat conversation is available",
+			"elapsed_ms": 24426,
+			"passed": true
+		},
+		{
+			"check": "input target exists: AdvanceDialogue",
+			"elapsed_ms": 24426,
+			"passed": true
+		},
+		{
+			"check": "response topics also have visible cross",
+			"elapsed_ms": 24464,
+			"passed": true
+		},
+		{
+			"check": "input target exists: CloseDialogue",
+			"elapsed_ms": 24464,
+			"passed": true
+		},
+		{
+			"check": "topic cancel leaves no selected answer",
+			"elapsed_ms": 24497,
+			"passed": true
+		},
+		{
+			"check": "plain title has no illustration",
+			"elapsed_ms": 24620,
+			"passed": true
+		},
+		{
+			"check": "game name is the cover",
+			"elapsed_ms": 24621,
+			"passed": true
+		},
+		{
+			"check": "empty save cannot pretend to continue",
+			"elapsed_ms": 24621,
+			"passed": true
+		},
+		{
+			"check": "actual GPU capture title_2560",
+			"elapsed_ms": 24805,
+			"passed": true
+		},
+		{
+			"check": "input target exists: NewShift",
+			"elapsed_ms": 24806,
+			"passed": true
+		},
+		{
+			"check": "supervisor starts after title",
+			"elapsed_ms": 25660,
+			"passed": true
+		},
+		{
+			"check": "input target exists: FinishBriefing",
+			"elapsed_ms": 25661,
+			"passed": true
+		},
+		{
+			"check": "visible dialogue advance starts playable counter",
+			"elapsed_ms": 25717,
+			"passed": true
+		},
+		{
+			"check": "real hand drag opens box lid",
+			"elapsed_ms": 25971,
+			"passed": true
+		},
+		{
+			"check": "real hand drag opens box lid",
+			"elapsed_ms": 25971,
+			"passed": true
+		},
+		{
+			"check": "actual box-to-inspection movement opens case01",
+			"elapsed_ms": 26205,
+			"passed": true
+		},
+		{
+			"check": "physical take transfers custody case01",
+			"elapsed_ms": 26205,
+			"passed": true
+		},
+		{
+			"check": "physical take opens one envelope",
+			"elapsed_ms": 26205,
+			"passed": true
+		},
+		{
+			"check": "inspector visible cross closes without Esc",
+			"elapsed_ms": 26433,
+			"passed": true
+		},
+		{
+			"check": "input target exists: OpenBag",
+			"elapsed_ms": 26433,
+			"passed": true
+		},
+		{
+			"check": "bag contains directly interactive envelope, no details button",
+			"elapsed_ms": 26490,
+			"passed": true
+		},
+		{
+			"check": "bag cross stays readable against a dark scene",
+			"elapsed_ms": 26490,
+			"passed": true
+		},
+		{
+			"check": "actual GPU capture bag_2560",
+			"elapsed_ms": 28343,
+			"passed": true
+		},
+		{
+			"check": "input target exists: Envelope_case01",
+			"elapsed_ms": 28344,
+			"passed": true
+		},
+		{
+			"check": "envelope click lifts and selects the same object",
+			"elapsed_ms": 28408,
+			"passed": true
+		},
+		{
+			"check": "inspection does not show a duplicate carried envelope",
+			"elapsed_ms": 28408,
+			"passed": true
+		},
+		{
+			"check": "direct flip exposes reverse",
+			"elapsed_ms": 28643,
+			"passed": true
+		},
+		{
+			"check": "envelope really moves under drag",
+			"elapsed_ms": 28839,
+			"passed": true
+		},
+		{
+			"check": "wheel enlarges actual paper",
+			"elapsed_ms": 28977,
+			"passed": true
+		},
+		{
+			"check": "visible envelope finishes its lift before capture",
+			"elapsed_ms": 28978,
+			"passed": true
+		},
+		{
+			"check": "actual GPU capture inspect_2560",
+			"elapsed_ms": 30785,
+			"passed": true
+		},
+		{
+			"check": "cross puts paper down safely",
+			"elapsed_ms": 30952,
+			"passed": true
+		},
+		{
+			"check": "returned envelope restores its scene affordance",
+			"elapsed_ms": 30952,
+			"passed": true
+		},
+		{
+			"check": "input target exists: OpenBag",
+			"elapsed_ms": 30952,
+			"passed": true
+		},
+		{
+			"check": "input target exists: Envelope_case01",
+			"elapsed_ms": 31016,
+			"passed": true
+		},
+		{
+			"check": "reentry keeps the observed face",
+			"elapsed_ms": 31081,
+			"passed": true
+		},
+		{
+			"check": "Esc is the second safe exit",
+			"elapsed_ms": 31315,
+			"passed": true
+		},
+		{
+			"check": "input target exists: OpenBag",
+			"elapsed_ms": 31315,
+			"passed": true
+		},
+		{
+			"check": "input target exists: CloseBag",
+			"elapsed_ms": 31364,
+			"passed": true
+		},
+		{
+			"check": "bag closes without keyboard knowledge",
+			"elapsed_ms": 31413,
+			"passed": true
+		},
+		{
+			"check": "input target exists: OpenMap",
+			"elapsed_ms": 31630,
+			"passed": true
+		},
+		{
+			"check": "painted community roof directly selects destination",
+			"elapsed_ms": 31777,
+			"passed": true
+		},
+		{
+			"check": "painted destination arrival completes",
+			"elapsed_ms": 32500,
+			"passed": true
+		},
+		{
+			"check": "roof click reaches its actual scene",
+			"elapsed_ms": 32500,
+			"passed": true
+		},
+		{
+			"check": "input target exists: OpenMap",
+			"elapsed_ms": 32500,
+			"passed": true
+		},
+		{
+			"check": "input target exists: Map_post_office",
+			"elapsed_ms": 32559,
+			"passed": true
+		},
+		{
+			"check": "return after roof input",
+			"elapsed_ms": 33317,
+			"passed": true
+		},
+		{
+			"check": "input target exists: OpenMap",
+			"elapsed_ms": 33317,
+			"passed": true
+		},
+		{
+			"check": "map has no second walking confirmation",
+			"elapsed_ms": 33371,
+			"passed": true
+		},
+		{
+			"check": "actual GPU capture map_2560",
+			"elapsed_ms": 35775,
+			"passed": true
+		},
+		{
+			"check": "input target exists: Map_residential",
+			"elapsed_ms": 35776,
+			"passed": true
+		},
+		{
+			"check": "destination immediately folds map and starts transition",
+			"elapsed_ms": 35825,
+			"passed": true
+		},
+		{
+			"check": "input target exists: OpenBag",
+			"elapsed_ms": 35825,
+			"passed": true
+		},
+		{
+			"check": "bag cannot interrupt a committed transition",
+			"elapsed_ms": 35879,
+			"passed": true
+		},
+		{
+			"check": "input target exists: OpenBook",
+			"elapsed_ms": 35879,
+			"passed": true
+		},
+		{
+			"check": "book cannot interrupt a committed transition",
+			"elapsed_ms": 35927,
+			"passed": true
+		},
+		{
+			"check": "arrival completes under rapid input",
+			"elapsed_ms": 36559,
+			"passed": true
+		},
+		{
+			"check": "one destination click charges exactly one journey",
+			"elapsed_ms": 36559,
+			"passed": true
+		},
+		{
+			"check": "arrival restores visible controlled actor",
+			"elapsed_ms": 36559,
+			"passed": true
+		},
+		{
+			"check": "input target exists: OpenMap",
+			"elapsed_ms": 36559,
+			"passed": true
+		},
+		{
+			"check": "input target exists: Map_residential",
+			"elapsed_ms": 36616,
+			"passed": true
+		},
+		{
+			"check": "current-place click closes map without journey cost",
+			"elapsed_ms": 36669,
+			"passed": true
+		},
+		{
+			"check": "input target exists: OpenMap",
+			"elapsed_ms": 36669,
+			"passed": true
+		},
+		{
+			"check": "input target exists: CloseMap",
+			"elapsed_ms": 36726,
+			"passed": true
+		},
+		{
+			"check": "map visible cross closes",
+			"elapsed_ms": 36777,
+			"passed": true
+		},
+		{
+			"check": "input target exists: OpenMap",
+			"elapsed_ms": 36777,
+			"passed": true
+		},
+		{
+			"check": "map Escape closes without pause leakage",
+			"elapsed_ms": 36865,
+			"passed": true
+		},
+		{
+			"check": "input target exists: Talk_elsie_moran",
+			"elapsed_ms": 36866,
+			"passed": true
+		},
+		{
+			"check": "walk reaches resident and exposes visible conversation exit",
+			"elapsed_ms": 39844,
+			"passed": true
+		},
+		{
+			"check": "dialogue retains scene actors but stops walking",
+			"elapsed_ms": 39844,
+			"passed": true
+		},
+		{
+			"check": "actual GPU capture dialogue_2560",
+			"elapsed_ms": 41567,
+			"passed": true
+		},
+		{
+			"check": "input target exists: CloseDialogue",
+			"elapsed_ms": 41568,
+			"passed": true
+		},
+		{
+			"check": "conversation cross returns full control without Esc",
+			"elapsed_ms": 41619,
+			"passed": true
+		},
+		{
+			"check": "input target exists: Talk_elsie_moran",
+			"elapsed_ms": 41620,
+			"passed": true
+		},
+		{
+			"check": "repeat conversation is available",
+			"elapsed_ms": 41708,
+			"passed": true
+		},
+		{
+			"check": "input target exists: AdvanceDialogue",
+			"elapsed_ms": 41708,
+			"passed": true
+		},
+		{
+			"check": "response topics also have visible cross",
+			"elapsed_ms": 41772,
+			"passed": true
+		},
+		{
+			"check": "input target exists: CloseDialogue",
+			"elapsed_ms": 41772,
+			"passed": true
+		},
+		{
+			"check": "topic cancel leaves no selected answer",
+			"elapsed_ms": 41823,
+			"passed": true
+		},
+		{
+			"check": "source frozen during phase",
+			"elapsed_ms": 42543,
+			"passed": true
+		}
+	]
+}

@@ -850,6 +850,14 @@ func _map() -> void:
 	map.current_index=LOCATIONS.find(str(core.state.location))
 	map.target_index=map.current_index
 	UI.button(root,"×",Rect2(1460,35,65,64),_close).name="CloseMap"
+	# Source-space painted landmarks, including their roofs, not just captions.
+	var landmark_bounds:Array[Rect2]=[
+		Rect2(75,395,340,225),Rect2(505,178,323,204),Rect2(870,400,286,212),
+		Rect2(1250,55,209,257),Rect2(488,600,403,250),Rect2(135,110,411,226),Rect2(1150,600,309,245)]
+	var map_art:Texture2D=PhysicalArt.texture("town_map")
+	var map_source_origin:Vector2=map_art.region.position if map_art is AtlasTexture else Vector2.ZERO
+	var map_scale:float=minf(map.size.x/map_art.get_width(),map.size.y/map_art.get_height())
+	var map_origin:Vector2=(map.size-map_art.get_size()*map_scale)*0.5
 	for index:int in LOCATIONS.size():
 		var id:String=LOCATIONS[index]
 		var pt:Vector2=map.points[index]
@@ -863,8 +871,17 @@ func _map() -> void:
 		for color_state:String in ["font_hover_color","font_focus_color","font_pressed_color"]:marker.add_theme_color_override(color_state,Color("944c39"))
 		marker.add_theme_color_override("font_outline_color",Color("faf0d8"))
 		marker.add_theme_constant_override("outline_size",3)
-		for style:String in ["normal","hover","pressed","focus"]:marker.add_theme_stylebox_override(style,StyleBoxEmpty.new())
-		UI.place(marker,map,Rect2(pt-Vector2(93,34),Vector2(186,68)))
+		var caption_rect:=Rect2(pt-Vector2(93,34),Vector2(186,68))
+		var painted_rect:=Rect2(map_origin+(landmark_bounds[index].position-map_source_origin)*map_scale,landmark_bounds[index].size*map_scale)
+		var hit_rect:Rect2=painted_rect.merge(caption_rect)
+		for style:String in ["normal","hover","pressed","focus"]:
+			var empty:=StyleBoxEmpty.new()
+			empty.content_margin_left=caption_rect.position.x-hit_rect.position.x
+			empty.content_margin_top=caption_rect.position.y-hit_rect.position.y
+			empty.content_margin_right=hit_rect.end.x-caption_rect.end.x
+			empty.content_margin_bottom=hit_rect.end.y-caption_rect.end.y
+			marker.add_theme_stylebox_override(style,empty)
+		UI.place(marker,map,hit_rect)
 		marker.pressed.connect(func():
 			if busy:return
 			if id==core.state.location:_close();return

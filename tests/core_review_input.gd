@@ -70,6 +70,19 @@ func _remaining_checks() -> void:
 	_check(not is_instance_valid(host.modal),"bag closes without keyboard knowledge")
 	if phase=="bag":return
 	host._world();await process_frame
+	# Independent painted roof point: the label-only map previously ignored it.
+	await _named("OpenMap")
+	var picture:Control=_node("PaperTownMap")
+	var texture:Texture2D=preload("res://scripts/rebuild/physical_art.gd").texture("town_map")
+	var image_scale:float=minf(picture.size.x/texture.get_width(),picture.size.y/texture.get_height())
+	var image_origin:Vector2=(picture.size-texture.get_size()*image_scale)*0.5
+	var image_source_origin:Vector2=texture.region.position if texture is AtlasTexture else Vector2.ZERO
+	await _click(picture.global_position+image_origin+(Vector2(667,265)-image_source_origin)*image_scale)
+	_check(host.busy and not is_instance_valid(host.modal),"painted community roof directly selects destination")
+	await _wait(func():return not host.busy,"painted destination arrival completes",3.0)
+	_check(host.core.state.location=="community_center","roof click reaches its actual scene")
+	await _named("OpenMap");await _named("Map_post_office")
+	await _wait(func():return not host.busy,"return after roof input",3.0)
 	var minute:int=host.core.state.minute
 	await _named("OpenMap")
 	_check(_node("DepartWalking")==null,"map has no second walking confirmation")

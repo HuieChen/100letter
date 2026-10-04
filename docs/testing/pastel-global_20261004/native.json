@@ -1,0 +1,118 @@
+{
+  "scope": "Actual Windows mouse via computer-use, raw bounded window captures; internal 1920x1080 and DPI-scaled capture 1283x751. Earlier package diagnostic, not final R2 input evidence.",
+  "earlier_package": {
+    "source_commit": "56eb245fc1102e7fcc4aaf2d0f7daa141816302d",
+    "pck_sha256": "0b6f2fd3b1e3a48b519e0450d3057522357653a2d0ef73acaf42b1ddcd0131f7",
+    "observed": [
+      "Plain title and New game",
+      "Supervisor and visible cross",
+      "Latch moved; lid opened about its hinge",
+      "Actual drag from box into inspection with writing",
+      "Left paper-edge flip",
+      "Wheel zoom and physical drag",
+      "Cross returns same reverse face; direct reentry retains position/scale",
+      "Escape returns object",
+      "Counter document cross",
+      "Field book upright slips, paper-contained text and physical paper-corner flip",
+      "Field book cross"
+    ],
+    "misses": [
+      "First flip click used an entry-transition coordinate outside the settled envelope; correct paper edge worked.",
+      "First page click used green cover border; actual white-paper corner worked.",
+      "Community map roof did not respond; original target covered its caption only. Fixed and independently retested in R2."
+    ]
+  },
+  "final_package": null,
+  "wechat_report": {
+    "text_report_sent": true,
+    "image_report_sent": false,
+    "scope": "File Transfer Assistant observed and a clearly labelled Codex report sent; own reports are not treated as human instructions."
+  },
+  "limits": [
+    "Not a full native bilingual/responsive matrix",
+    "No audio listening or first-player blind test",
+    "No completed new three-letter long-form story / actual wax-material flow"
+  ],
+  "artifacts": [
+    {
+      "path": "docs/testing/pastel-global_20261004/native/01_title.png",
+      "sha256": "5550c415524aad01938bc7ce0e3829cc41fdb7eedb09e2adf638aa98a48db27b"
+    },
+    {
+      "path": "docs/testing/pastel-global_20261004/native/02_supervisor.png",
+      "sha256": "ecc1acee2cd1bc2f74bb8c08d2592a43d2e7be0436389e42c52f039b263e818f"
+    },
+    {
+      "path": "docs/testing/pastel-global_20261004/native/03_closed_box.png",
+      "sha256": "292833fbdfee83682459f8245f6dafe069756f9d8e808837075f9bb81dd01fda"
+    },
+    {
+      "path": "docs/testing/pastel-global_20261004/native/04_latch.png",
+      "sha256": "46f5fd6bea1683156699449198f6413f673fa22796e0c7fa05009e5d8a5a0c07"
+    },
+    {
+      "path": "docs/testing/pastel-global_20261004/native/05_open_box.png",
+      "sha256": "2f54cf01f1c384c27307e9b3d699b4f786768f2604eda74dc2737efe6ac6f0b8"
+    },
+    {
+      "path": "docs/testing/pastel-global_20261004/native/06_inspect.png",
+      "sha256": "5edb051986234a8a965c4286356252bbb8acaa1c280bba9f18183c271b6d8e93"
+    },
+    {
+      "path": "docs/testing/pastel-global_20261004/native/07_edge_flip.png",
+      "sha256": "ef75f6d4f1926935208efe6c8054729f7e4f0e269c4cfa498ec5cbc6d000c020"
+    },
+    {
+      "path": "docs/testing/pastel-global_20261004/native/08_edge_flip_back.png",
+      "sha256": "3d113fb09ad15930777e282ddc25eed170635e9d86aae697baf247524cceed4c"
+    },
+    {
+      "path": "docs/testing/pastel-global_20261004/native/09_zoom.png",
+      "sha256": "bc1eac02b37ff3914522151cd5f9c4675c13ec77585ea362389211d505d15d2d"
+    },
+    {
+      "path": "docs/testing/pastel-global_20261004/native/10_dragged.png",
+      "sha256": "c5a5659a5b645a6fca6aa09221ec32bfe8cc8ca73dd589a9b573ba1d75be3ec3"
+    },
+    {
+      "path": "docs/testing/pastel-global_20261004/native/11_cross_return.png",
+      "sha256": "192f8e461aa540545186b4a6f56929ae9652347d51dfb35eeea448f1bea56483"
+    },
+    {
+      "path": "docs/testing/pastel-global_20261004/native/12_reopened.png",
+      "sha256": "5ad6aab0de82abf5b6fc93b9820598d8cfd53f930ac14f36a9ae556adf4fad45"
+    },
+    {
+      "path": "docs/testing/pastel-global_20261004/native/13_esc_return.png",
+      "sha256": "af9fe524d83a3ae2f2341af5691b6f998e810ba4520c40ba3b156dc2eabda208"
+    },
+    {
+      "path": "docs/testing/pastel-global_20261004/native/14_book.png",
+      "sha256": "e595673477f5e916f34b8be2d70196c3ca3d65e5f21dc1d85f87d0017ff6c586"
+    },
+    {
+      "path": "docs/testing/pastel-global_20261004/native/15_field_book.png",
+      "sha256": "64c635e5e50a49e8b9f407365e1c91bc9e8a5f52a8b92aa6304dd8f63663ec86"
+    },
+    {
+      "path": "docs/testing/pastel-global_20261004/native/16_book_corner.png",
+      "sha256": "8fac97cfd822c6b3626c254e7c62f69a4a3d550523ea326350a5033e9bdb30c7"
+    },
+    {
+      "path": "docs/testing/pastel-global_20261004/native/17_book_turned.png",
+      "sha256": "8fac97cfd822c6b3626c254e7c62f69a4a3d550523ea326350a5033e9bdb30c7"
+    },
+    {
+      "path": "docs/testing/pastel-global_20261004/native/18_book_corner_inside.png",
+      "sha256": "0a5c15cd55531141cb0f6b669dad65476428190e8e20076f5d4d4680b123b159"
+    },
+    {
+      "path": "docs/testing/pastel-global_20261004/native/19_map.png",
+      "sha256": "beaf5339e6c812bc9c42bf706856311f8a664b346089db049261fb67b4f6ba9d"
+    },
+    {
+      "path": "docs/testing/pastel-global_20261004/native/20_map_transition.png",
+      "sha256": "bcec1a349865efbcfc775ff5e9aafa854c790a3d71fb8ccb3ca17cdc85dbeacf"
+    }
+  ]
+}

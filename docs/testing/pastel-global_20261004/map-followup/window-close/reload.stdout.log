@@ -1,0 +1,18 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+PASS input preparation completed without failures
+PASS fresh process loads the window-close checkpoint
+PASS WM_CLOSE preserves material field: seam_count
+PASS WM_CLOSE preserves material field: opened_count
+PASS WM_CLOSE preserves material field: seal_condition
+PASS WM_CLOSE preserves material field: tampering_started
+PASS WM_CLOSE preserves material field: privacy_violation
+PASS WM_CLOSE preserves material field: paper_location
+PASS WM_CLOSE preserves material field: extraction_progress
+PASS WM_CLOSE preserves material field: paper_position
+PASS WM_CLOSE preserves material field: body_exposed
+PASS quit checkpoint clears input operation rather than serializing a live grab
+PASS OS close cannot refund an actual private opening
+PASS custody survives while folded body stays unread
+PASS runtime and test sources remain stable across actual window close and reload
+FINAL WINDOW CLOSE RELOAD 15 checks / 0 failures

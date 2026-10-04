@@ -1,0 +1,519 @@
+{
+	"checks": 86,
+	"diagnostics": {
+		"bench_size": "(1600.0, 900.0)",
+		"close_flags": {
+			"amending": false,
+			"closing": true,
+			"message": "拿住信封可以移动。右键翻面，滚轮放大；中键拖动画面。",
+			"reading": false,
+			"save_problem": false
+		},
+		"close_pointer": "(1495.0, 60.0)",
+		"first_zoom_samples": [
+			1.11909203529358,
+			1.14436781406403,
+			1.1637410402298,
+			1.17799661159515,
+			1.18791941404343,
+			1.19429441690445
+		],
+		"fit": 1.0,
+		"grip_error": 0.00482641067355871,
+		"host_size": "(1600.0, 900.0)",
+		"injected_pointer": "(1495.0, 60.0)"
+	},
+	"failures": [],
+	"frame_wall_ms": {
+		"max": 15.771,
+		"median": 10.566,
+		"p95": 12.531
+	},
+	"idle_frames": 90,
+	"idle_redraws": 0,
+	"scope": "Actual routed viewport input with live GPU frames. Interruptions, rapid clicks and save recovery are checked. Wall frame timing belongs to this machine/offscreen process, not a promised player FPS. Native input and audio listening are separate.",
+	"screenshots": [
+		"res://test-results/tactile-mail/01_open_box.png",
+		"res://test-results/tactile-mail/02_inspect_same_counter.png",
+		"res://test-results/tactile-mail/03_reverse_after_interrupted_zoom.png",
+		"res://test-results/tactile-mail/04_returned_counter.png"
+	],
+	"source_sha256": {
+		"assets/faefever_v2/backgrounds/BG_bus_stop.png": "41edfe69f53b911f9d47abbb86c9c911e693b112ad71a69182c720bf6686f4a9",
+		"assets/faefever_v2/backgrounds/BG_chess_stall.png": "f01ec796d536dc02561ce197a7b425e193d65c1511ff178d7fa826dfd2fb6536",
+		"assets/faefever_v2/backgrounds/BG_community_center.png": "c8e039837773e66d1fc7c1a889f18b9a852406c5458190a78540ceeba6392e24",
+		"assets/faefever_v2/backgrounds/BG_lookout.png": "362f838d16bb63e3b0390f7d07908701f5592ef5c18ecd9ae4a4649a54005372",
+		"assets/faefever_v2/backgrounds/BG_post_office.png": "f69e632b329e7bfced98fa6ec98dc510e698a481cdbebe37fe755f0fd8e2f176",
+		"assets/faefever_v2/backgrounds/BG_residential.png": "bc428d8fca388af02a4aab4e92e8f030faecc69f213bf51f41753a0fb4512c1e",
+		"assets/faefever_v2/backgrounds/BG_tarot_shop.png": "9e167e71475871d38d2d44ec7aa66162a4f8de5b9af79caafba7b666a1e7b011",
+		"assets/faefever_v2/backgrounds/BG_workroom.png": "6fd58e787d448502fe6637c547689353f1ae084876da412c11d8b500fac0bb3f",
+		"assets/faefever_v2/backgrounds/wall_closeup.png": "73f2948ff955c73c3041bb6b9492ce9e669a49a090173e30b5f0ad3eb6a86351",
+		"assets/faefever_v2/characters/CHAR_courier_walk.png": "5d77500169e5f2fc97e8546f911706f806932953fa4fe08cc9dd63e54f040f26",
+		"assets/faefever_v2/characters/courier_walk_regions.json": "28230595891800d03c7a7e625d3124c6f80788b5a1d65f2dc9f17157bb54b783",
+		"assets/faefever_v2/characters/pastel_cast_20261004.png": "0d3817e791122ed5c8049f533c3e80d5c1ce64b17e13ec97d7a979679a7750cb",
+		"assets/faefever_v2/manifest.json": "7fdca5324cf0313b589128424674f4ae4397796a0947cd28f57f720029e54c7a",
+		"assets/faefever_v2/props/pastel_case_lid_20261004.png": "daef7d150753849627f89eb4bd436138fcfabd89b8288b481d239af52a16b20e",
+		"assets/faefever_v2/props/pastel_docs_20261004.png": "5a2c471e07ccd1ba193c0e4917957acacf0216f8ad094d069161161509882563",
+		"assets/faefever_v2/props/pastel_envelope_back_20261004.png": "e4ddc7af9312fa953d2c1f7d072ad5f6d413f0a8ee7e81df55f804b895bee1dd",
+		"assets/faefever_v2/props/pastel_misc_20261004.png": "ab56aca2232b2b4e35061bdfc96d09cb1242a009a58694016f212c2248ba60df",
+		"assets/faefever_v2/props/pastel_tools_20261004.png": "97c7900f34e7942bc3d581fed7cca74d43cae48a3c6e9ff5de971870d44e59a9",
+		"assets/faefever_v2/props/town_map.png": "0daecd1d64e282d0691826f9e5fb686a33934d3a2513d161da97c1a16e7e0c14",
+		"data/rebuild/final_cases.json": "ea98a7158186b658575af93bf6eb31e29a374be6d9b6647e7d5c362dc6792744",
+		"data/rebuild/final_dialogues.json": "f2fa37f5f6b7d09a3729cbdc28a8050e64cbb33a6b76079f5619d374b54a53cd",
+		"data/rebuild/player_amendments.json": "da965670ec3be342e6559ec9d9e1208056f7b896ef90837a8b44cf00b46602a4",
+		"scripts/rebuild/field_book.gd": "eef45659799173cf4f42bb7aeffbe5a45ba355a93141e69e04ab720a2d847793",
+		"scripts/rebuild/field_observation.gd": "9c03fa15e1d6ea5fc9f7553a671204e19ac732352548dc2459bea8359adff21b",
+		"scripts/rebuild/final_case_state.gd": "640207716867fe6dda2a0a5eabe7515517788ddbfa4b06cbf31bea1cb6324e72",
+		"scripts/rebuild/final_paper_map.gd": "d4206706d68246071dcedb7345c8831c54b58023721b51fd4713a6a46d165e47",
+		"scripts/rebuild/final_playable.gd": "dc5d89c313c240a61ba2429e1e0281516e21a7c5dea2f89d79c3738803c74278",
+		"scripts/rebuild/final_walker.gd": "293ad1cb201e7cfef0eef3e3db8d85f67af1df5aea671e71ad1081a5e266e95f",
+		"scripts/rebuild/mail_imprint.gd": "cd98861f9cf68f9f3989a07479915ac9343da2219af834dc0ff42fee2ccb7f10",
+		"scripts/rebuild/mail_physics_state.gd": "811cffd97d0fc3206d9729d8f1b77fa399085293a2eca08bfd6604a3473e7cd5",
+		"scripts/rebuild/mail_workbench.gd": "f203e7f2f0f0fd87745c7f8ede3834478d30e08326f37038b5476295847c0ca3",
+		"scripts/rebuild/physical_art.gd": "2dd4281d0f514bf2ab8e4a2416920a139e1dec3edda6d09f6fcc1d47350d0f39",
+		"scripts/rebuild/physical_envelope.gd": "1e0ad27a535edef1f06c2d51fc098f1627507350113f91bcf93552c99bb89de9",
+		"scripts/rebuild/postal_desk.gd": "68f2540c80f188a8e365bfb86ee37a757c0f3d4a2bc706e54fb423a5683f9bf9",
+		"scripts/rebuild/resolution_draft_store.gd": "f9a45b82a82e9f703939251057ca6d667602c37560f58b401eb0512f1fa32551",
+		"scripts/rebuild/resolution_slip.gd": "a07f9bd4c6da23b295e8291651ad1e45f38ad852b4faffb189cca4e36144a51f",
+		"scripts/rebuild/scene_dialogue.gd": "0aea90f800b4ef46237581d69170c67638f44d5c24ba985d6ee129f50bc0c932",
+		"scripts/rebuild/tool_drawer.gd": "c0083b7dd71dea9bca27af63280f8fc8ba46c5d5c3e102d4e17641a028676876",
+		"scripts/ui/audio_feedback.gd": "8b228acd1631255b6e5952b03ef7912098ee8ab4d42c3e2a4be20d8b42a79a1f",
+		"scripts/ui/paper_ui.gd": "8ed9fcd9d4379c2d1ae3b0038104371f84591d8d7087d6841c309d2f27880dfd",
+		"tests/core_review_input.gd": "5ab1611f22a234319c15994781314f633ea0039ec93b96086eaba090ef86d9e6",
+		"tests/final_playable_input_smoke.gd": "941d56f4751aca5f2865e23196fbbc9c1d1257e032d9c0e04553088e766b89d6",
+		"tests/tactile_mail_input.gd": "ab92d73ac8ba616ed8bb0e75d2f6722d1afee22f61c49330d65ae9afb07fc063"
+	},
+	"steps": [
+		{
+			"check": "clicked lid visibly redraws its hinge without more mouse input",
+			"elapsed_ms": 1244,
+			"passed": true
+		},
+		{
+			"check": "1920x1080 GPU capture 01_open_box",
+			"elapsed_ms": 2521,
+			"passed": true
+		},
+		{
+			"check": "short unplaced drag settles back instead of teleporting",
+			"elapsed_ms": 2571,
+			"passed": true
+		},
+		{
+			"check": "invalid drop retains intermediate visible paper position",
+			"elapsed_ms": 2571,
+			"passed": true
+		},
+		{
+			"check": "settling completes at the same physical stack",
+			"elapsed_ms": 2752,
+			"passed": true
+		},
+		{
+			"check": "idle box does not redraw its entire surface every frame",
+			"elapsed_ms": 3712,
+			"passed": true
+		},
+		{
+			"check": "physical extraction opens the owned envelope",
+			"elapsed_ms": 3809,
+			"passed": true
+		},
+		{
+			"check": "inspection retains the actual opened box and original desk",
+			"elapsed_ms": 3810,
+			"passed": true
+		},
+		{
+			"check": "1920x1080 GPU capture 02_inspect_same_counter",
+			"elapsed_ms": 5152,
+			"passed": true
+		},
+		{
+			"check": "physical right edge offers a small lift without a text label",
+			"elapsed_ms": 5312,
+			"passed": true
+		},
+		{
+			"check": "left click on paper edge turns the actual envelope",
+			"elapsed_ms": 5334,
+			"passed": true
+		},
+		{
+			"check": "repeat left clicks during turn cannot toggle back or capture paper",
+			"elapsed_ms": 5402,
+			"passed": true
+		},
+		{
+			"check": "same paper edge turns back without a shortcut",
+			"elapsed_ms": 5902,
+			"passed": true
+		},
+		{
+			"check": "wheel traverses intermediate zoom instead of jumping",
+			"elapsed_ms": 5996,
+			"passed": true
+		},
+		{
+			"check": "zoom keeps the pointed paper detail anchored",
+			"elapsed_ms": 5997,
+			"passed": true
+		},
+		{
+			"check": "wheel ends at exact intended zoom",
+			"elapsed_ms": 6141,
+			"passed": true
+		},
+		{
+			"check": "rapid wheel input preserves every requested notch",
+			"elapsed_ms": 6274,
+			"passed": true
+		},
+		{
+			"check": "rapid zoom settles without overshoot",
+			"elapsed_ms": 6420,
+			"passed": true
+		},
+		{
+			"check": "visible moving paper can be grabbed during zoom",
+			"elapsed_ms": 6463,
+			"passed": true
+		},
+		{
+			"check": "held envelope follows each pointer position without delayed interpolation",
+			"elapsed_ms": 6553,
+			"passed": true
+		},
+		{
+			"check": "interrupted zoom leaves real object draggable",
+			"elapsed_ms": 6553,
+			"passed": true
+		},
+		{
+			"check": "cancelled zoom cannot move the paper after release",
+			"elapsed_ms": 6712,
+			"passed": true
+		},
+		{
+			"check": "paper settles and releases input after drop",
+			"elapsed_ms": 6713,
+			"passed": true
+		},
+		{
+			"check": "flip presents the old face before crossing the hinge",
+			"elapsed_ms": 6757,
+			"passed": true
+		},
+		{
+			"check": "fast repeated clicks do not queue delayed contradictory flips",
+			"elapsed_ms": 6802,
+			"passed": true
+		},
+		{
+			"check": "reverse finishes physically and records observation",
+			"elapsed_ms": 7027,
+			"passed": true
+		},
+		{
+			"check": "1920x1080 GPU capture 03_reverse_after_interrupted_zoom",
+			"elapsed_ms": 8385,
+			"passed": true
+		},
+		{
+			"check": "fractional re-grab 0 passes unchanged strict material replay",
+			"elapsed_ms": 8494,
+			"passed": true
+		},
+		{
+			"check": "fractional re-grab 1 passes unchanged strict material replay",
+			"elapsed_ms": 8616,
+			"passed": true
+		},
+		{
+			"check": "fractional re-grab 2 passes unchanged strict material replay",
+			"elapsed_ms": 8744,
+			"passed": true
+		},
+		{
+			"check": "fractional re-grab 3 passes unchanged strict material replay",
+			"elapsed_ms": 8874,
+			"passed": true
+		},
+		{
+			"check": "fractional re-grab 4 passes unchanged strict material replay",
+			"elapsed_ms": 8996,
+			"passed": true
+		},
+		{
+			"check": "fractional re-grab 5 passes unchanged strict material replay",
+			"elapsed_ms": 9124,
+			"passed": true
+		},
+		{
+			"check": "fractional re-grab 6 passes unchanged strict material replay",
+			"elapsed_ms": 9251,
+			"passed": true
+		},
+		{
+			"check": "fractional re-grab 7 passes unchanged strict material replay",
+			"elapsed_ms": 9377,
+			"passed": true
+		},
+		{
+			"check": "fractional re-grab 8 passes unchanged strict material replay",
+			"elapsed_ms": 9504,
+			"passed": true
+		},
+		{
+			"check": "fractional re-grab 9 passes unchanged strict material replay",
+			"elapsed_ms": 9626,
+			"passed": true
+		},
+		{
+			"check": "fractional re-grab 10 passes unchanged strict material replay",
+			"elapsed_ms": 9752,
+			"passed": true
+		},
+		{
+			"check": "fractional re-grab 11 passes unchanged strict material replay",
+			"elapsed_ms": 9893,
+			"passed": true
+		},
+		{
+			"check": "fractional re-grab 12 passes unchanged strict material replay",
+			"elapsed_ms": 10013,
+			"passed": true
+		},
+		{
+			"check": "fractional re-grab 13 passes unchanged strict material replay",
+			"elapsed_ms": 10130,
+			"passed": true
+		},
+		{
+			"check": "fractional re-grab 14 passes unchanged strict material replay",
+			"elapsed_ms": 10250,
+			"passed": true
+		},
+		{
+			"check": "fractional re-grab 15 passes unchanged strict material replay",
+			"elapsed_ms": 10385,
+			"passed": true
+		},
+		{
+			"check": "fractional re-grab 16 passes unchanged strict material replay",
+			"elapsed_ms": 10510,
+			"passed": true
+		},
+		{
+			"check": "fractional re-grab 17 passes unchanged strict material replay",
+			"elapsed_ms": 10624,
+			"passed": true
+		},
+		{
+			"check": "fractional re-grab 18 passes unchanged strict material replay",
+			"elapsed_ms": 10753,
+			"passed": true
+		},
+		{
+			"check": "fractional re-grab 19 passes unchanged strict material replay",
+			"elapsed_ms": 10873,
+			"passed": true
+		},
+		{
+			"check": "fractional re-grab 20 passes unchanged strict material replay",
+			"elapsed_ms": 11007,
+			"passed": true
+		},
+		{
+			"check": "fractional re-grab 21 passes unchanged strict material replay",
+			"elapsed_ms": 11167,
+			"passed": true
+		},
+		{
+			"check": "fractional re-grab 22 passes unchanged strict material replay",
+			"elapsed_ms": 11290,
+			"passed": true
+		},
+		{
+			"check": "fractional re-grab 23 passes unchanged strict material replay",
+			"elapsed_ms": 11411,
+			"passed": true
+		},
+		{
+			"check": "fractional re-grab 24 passes unchanged strict material replay",
+			"elapsed_ms": 11538,
+			"passed": true
+		},
+		{
+			"check": "fractional re-grab 25 passes unchanged strict material replay",
+			"elapsed_ms": 11657,
+			"passed": true
+		},
+		{
+			"check": "fractional re-grab 26 passes unchanged strict material replay",
+			"elapsed_ms": 11777,
+			"passed": true
+		},
+		{
+			"check": "fractional re-grab 27 passes unchanged strict material replay",
+			"elapsed_ms": 11907,
+			"passed": true
+		},
+		{
+			"check": "fractional re-grab 28 passes unchanged strict material replay",
+			"elapsed_ms": 12039,
+			"passed": true
+		},
+		{
+			"check": "fractional re-grab 29 passes unchanged strict material replay",
+			"elapsed_ms": 12165,
+			"passed": true
+		},
+		{
+			"check": "fractional re-grab 30 passes unchanged strict material replay",
+			"elapsed_ms": 12306,
+			"passed": true
+		},
+		{
+			"check": "fractional re-grab 31 passes unchanged strict material replay",
+			"elapsed_ms": 12430,
+			"passed": true
+		},
+		{
+			"check": "fractional re-grab 32 passes unchanged strict material replay",
+			"elapsed_ms": 12548,
+			"passed": true
+		},
+		{
+			"check": "fractional re-grab 33 passes unchanged strict material replay",
+			"elapsed_ms": 12665,
+			"passed": true
+		},
+		{
+			"check": "fractional re-grab 34 passes unchanged strict material replay",
+			"elapsed_ms": 12784,
+			"passed": true
+		},
+		{
+			"check": "fractional re-grab 35 passes unchanged strict material replay",
+			"elapsed_ms": 12923,
+			"passed": true
+		},
+		{
+			"check": "fractional re-grab 36 passes unchanged strict material replay",
+			"elapsed_ms": 13039,
+			"passed": true
+		},
+		{
+			"check": "fractional re-grab 37 passes unchanged strict material replay",
+			"elapsed_ms": 13159,
+			"passed": true
+		},
+		{
+			"check": "fractional re-grab 38 passes unchanged strict material replay",
+			"elapsed_ms": 13280,
+			"passed": true
+		},
+		{
+			"check": "fractional re-grab 39 passes unchanged strict material replay",
+			"elapsed_ms": 13419,
+			"passed": true
+		},
+		{
+			"check": "mouse motion reuses envelope typography instead of rebuilding glyphs",
+			"elapsed_ms": 13783,
+			"passed": true
+		},
+		{
+			"check": "cross settles the actual object before releasing the surface",
+			"elapsed_ms": 13846,
+			"passed": true
+		},
+		{
+			"check": "rapid cross input closes exactly once",
+			"elapsed_ms": 14013,
+			"passed": true
+		},
+		{
+			"check": "return leaves a playable desk without pause or captured input",
+			"elapsed_ms": 14013,
+			"passed": true
+		},
+		{
+			"check": "1920x1080 GPU capture 04_returned_counter",
+			"elapsed_ms": 15321,
+			"passed": true
+		},
+		{
+			"check": "returned envelope rests on the actual clear tabletop, not a HUD corner",
+			"elapsed_ms": 15322,
+			"passed": true
+		},
+		{
+			"check": "resting letter preserves its actual observed face without inventing reverse writing",
+			"elapsed_ms": 15322,
+			"passed": true
+		},
+		{
+			"check": "closing flight ends exactly where the same scene envelope appears",
+			"elapsed_ms": 15322,
+			"passed": true
+		},
+		{
+			"check": "settled return persists the same observed envelope",
+			"elapsed_ms": 15335,
+			"passed": true
+		},
+		{
+			"check": "input target exists: OpenBag",
+			"elapsed_ms": 15335,
+			"passed": true
+		},
+		{
+			"check": "input target exists: Envelope_case01",
+			"elapsed_ms": 15363,
+			"passed": true
+		},
+		{
+			"check": "bag reentry has one focused envelope without duplicate scene icon",
+			"elapsed_ms": 15655,
+			"passed": true
+		},
+		{
+			"check": "reentry restores the same physical face",
+			"elapsed_ms": 15655,
+			"passed": true
+		},
+		{
+			"check": "focus-loss checkpoint stops animation and releases material capture",
+			"elapsed_ms": 15845,
+			"passed": true
+		},
+		{
+			"check": "Escape returns paper and never opens a second pause page",
+			"elapsed_ms": 16075,
+			"passed": true
+		},
+		{
+			"check": "Escape restores the returned envelope's actual scene affordance",
+			"elapsed_ms": 16075,
+			"passed": true
+		},
+		{
+			"check": "input target exists: CarriedLetter",
+			"elapsed_ms": 16075,
+			"passed": true
+		},
+		{
+			"check": "clicking the actual resting envelope picks up one object directly",
+			"elapsed_ms": 16372,
+			"passed": true
+		},
+		{
+			"check": "runtime source stays frozen during tactile input review",
+			"elapsed_ms": 17271,
+			"passed": true
+		}
+	],
+	"suite": "tactile_mail_input"
+}
