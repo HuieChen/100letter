@@ -17,6 +17,9 @@ var initial_hashes: Dictionary={}
 func _initialize() -> void: _run.call_deferred()
 
 func _run() -> void:
+	# Offscreen scripted input is not OS focus. Never steal focus from the user's
+	# game and then misdiagnose that real focus loss as a broken walking source.
+	root.unfocusable=true
 	began=Time.get_ticks_msec()
 	initial_hashes=_source_hashes()
 	root.size=Vector2i(1600,900);root.content_scale_size=Vector2i(1600,900)
@@ -325,6 +328,18 @@ func _button(button: MouseButton, down: bool) -> void:
 
 func _click(point: Vector2, button: MouseButton=MOUSE_BUTTON_LEFT) -> void:
 	await _move(point);await _button(button,true);await _button(button,false)
+	await _settle_material_motion()
+
+func _settle_material_motion() -> void:
+	# Discrete-path checks wait for actual bounded presentation. Rapid-input
+	# regression sends raw events instead, so this cannot conceal lost input.
+	var focused:Control=host.modal
+	if not is_instance_valid(focused) or not _modal_script().ends_with("mail_workbench.gd"):return
+	var deadline:=Time.get_ticks_msec()+1000
+	while is_instance_valid(focused) and host.modal==focused and Time.get_ticks_msec()<deadline:
+		var zooming:bool=focused._view_motion!=null and focused._view_motion.is_running()
+		if not focused._closing and focused._flip_progress>=1.0 and not zooming:break
+		await process_frame
 
 func _drag(start: Vector2, finish: Vector2) -> void:
 	await _move(start);await _button(MOUSE_BUTTON_LEFT,true)
@@ -343,6 +358,7 @@ func _key(key: Key, control:bool=false) -> void:
 	for down: bool in [true,false]:
 		var event:=InputEventKey.new();event.keycode=key;event.physical_keycode=key;event.pressed=down;event.ctrl_pressed=control
 		Input.parse_input_event(event);Input.flush_buffered_events();await process_frame
+	await _settle_material_motion()
 
 func _shot(file_name: String) -> void:
 	if "--capture-input" not in OS.get_cmdline_user_args():return

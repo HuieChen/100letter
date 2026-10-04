@@ -1,0 +1,356 @@
+{
+  "scope": "Development correction of the existing extraction, inspect and return chain; not final game or novice/listening acceptance.",
+  "engine_run": "check-20261004-140043",
+  "engine_suites": [
+    {
+      "suite": "amended_handoff",
+      "checks": 214,
+      "failures": 0
+    },
+    {
+      "suite": "core_review_input",
+      "checks": 202,
+      "failures": 0
+    },
+    {
+      "suite": "counter_onboarding_input",
+      "checks": 54,
+      "failures": 0
+    },
+    {
+      "suite": "envelope_text_bounds_smoke",
+      "checks": 21,
+      "failures": 0
+    },
+    {
+      "suite": "field_book_smoke",
+      "checks": 1626,
+      "failures": 0
+    },
+    {
+      "suite": "field_observation_smoke",
+      "checks": 218,
+      "failures": 0
+    },
+    {
+      "suite": "final_case_state_smoke",
+      "checks": 3356,
+      "failures": 0
+    },
+    {
+      "suite": "final_host_boundary_smoke",
+      "checks": 32,
+      "failures": 0
+    },
+    {
+      "suite": "final_resolution_draft_smoke",
+      "checks": 42,
+      "failures": 0
+    },
+    {
+      "suite": "final_walker_smoke",
+      "checks": 33,
+      "failures": 0
+    },
+    {
+      "suite": "five_case_delegate",
+      "checks": 346,
+      "failures": 0
+    },
+    {
+      "suite": "five_case_sealed",
+      "checks": 344,
+      "failures": 0
+    },
+    {
+      "suite": "mail_physics_state_smoke",
+      "checks": 728,
+      "failures": 0
+    },
+    {
+      "suite": "mail_workbench_input_smoke",
+      "checks": 170,
+      "failures": 0
+    },
+    {
+      "suite": "postal_desk_live_queue",
+      "checks": 28,
+      "failures": 0
+    },
+    {
+      "suite": "resolution_slip_smoke",
+      "checks": 75,
+      "failures": 0
+    },
+    {
+      "suite": "scene_dialogue_input_smoke",
+      "checks": 19,
+      "failures": 0
+    },
+    {
+      "suite": "tactile_mail_input",
+      "checks": 77,
+      "failures": 0
+    }
+  ],
+  "engine_checks": 7585,
+  "window_checks": 29,
+  "workflow_tests": 28,
+  "source_sha256": {
+    "assets/faefever_v2/backgrounds/BG_bus_stop.png": "c4518108a2a7e466b7f9a0b379bd8c8e000ec8d8f6acc6153bdd58842655fc45",
+    "assets/faefever_v2/backgrounds/BG_chess_stall.png": "a5ddaabce8b7438762b53f60d98e245a5295795e29d3f07738300e23db1c7d6c",
+    "assets/faefever_v2/backgrounds/BG_community_center.png": "9c97448ddbbdc5108d08cffccf5a3afa6836bb29f7999b08a32bc13fbff7de0a",
+    "assets/faefever_v2/backgrounds/BG_lookout.png": "98a2514c362b1fbc4b8d9dcf111b1e0785f164d5db1a0b083d95d5d472f30978",
+    "assets/faefever_v2/backgrounds/BG_post_office.png": "d40281359039d7feca6ff539dff4ba81aa750560ca1cabb84656ebfdd1975cca",
+    "assets/faefever_v2/backgrounds/BG_residential.png": "bdabb2a20ddd4e612a767404884c0f6aadbb6c67356c4102c0afa993604486ae",
+    "assets/faefever_v2/backgrounds/BG_tarot_shop.png": "626c8c94150bd891bdd81206958e435aa3fea6a84cf3f016ba807eb04af78796",
+    "assets/faefever_v2/backgrounds/BG_workroom.png": "d6a68a90792a3b140c76a2b560efa984bb3650481a5496c5fa0b63307a1a4218",
+    "assets/faefever_v2/backgrounds/cover.png": "1632af45da57bd2767f36bdc9b64c54d09247c7a5f9f0256b6fc3afb755faaab",
+    "assets/faefever_v2/backgrounds/wall_closeup.png": "7b6159f2210bdc8f686526b2ac3174d8a268f27d8dac154b3cd4ed87e2e2121f",
+    "assets/faefever_v2/characters/CHAR_chenyuan.png": "b4751d59acec1f07c18db198e912bd7057818963fe7446cfd1b94a5d8011e315",
+    "assets/faefever_v2/characters/CHAR_clerk.png": "bc69adc9d7c763343da5f735dd606f1f6e57aa8d62569e19971a6c8c9cbf1842",
+    "assets/faefever_v2/characters/CHAR_courier.png": "3b24efd80bb4736c2a74866e345e6ca62445a6f8812abb997f759e1518778a4e",
+    "assets/faefever_v2/characters/CHAR_courier_walk.png": "68521ded3103d7a5af2bcca60393bb849c3f862423a88891da4778d5de60f5c0",
+    "assets/faefever_v2/characters/CHAR_elsie.png": "653851a681f60cc9996e8be405cdd11f0f938ceceecf3c05098e1ea4128c4b0f",
+    "assets/faefever_v2/characters/CHAR_june.png": "0f2aace7b9a077b1b62527df09465cee6769bad57ff32ce4252865fac8d17c7f",
+    "assets/faefever_v2/characters/CHAR_mira.png": "d70d5305d7b8f356694d133753137a786343d645412b65a98fb2264871c91bd1",
+    "assets/faefever_v2/characters/courier_walk_regions.json": "ac1e428a2878b8f6003a92343bb7a181220075cd0f9504b671777c08da575db2",
+    "assets/faefever_v2/manifest.json": "9cd7a8cb7e91834b32d1d6c9a6fc8551edeea0a35424e6179184186bf07f0cfa",
+    "assets/faefever_v2/props/attachment_photo.png": "317a06c011412b41180e309ffafdb240d0cfd7fc4ca9c4b5d9499151538a2f1a",
+    "assets/faefever_v2/props/book_index_tab.png": "7dbb9432d714fe02feb7e639068227c13f5e98b86d888044d33d907d4b423482",
+    "assets/faefever_v2/props/drawer_front.png": "218be351c999cfd95b208eb6ea3cf15624bffd30680c499740bac7dfb9ca0e52",
+    "assets/faefever_v2/props/drawer_open.png": "c2f1316e22e1c84855beb0cc96a9e02a7d3574041284bebbcb9dd3807f35d74e",
+    "assets/faefever_v2/props/envelope_back.png": "f617aab27438330711320804bbc3f558a09e603ef59450bf240ffa6450097f4e",
+    "assets/faefever_v2/props/envelope_flap.png": "482cd7ae81b608f8a581fc17d1cb310bf2f0d86370c9524740ef2a8f0bee1d6d",
+    "assets/faefever_v2/props/envelope_front.png": "321aa5cb9f108f9686d9b06a4658ad571fa26a279d47d16fb06ebb52c37b9178",
+    "assets/faefever_v2/props/eraser.png": "a766663e706ad985b711e55ccb1229455b148fdb023e957da8edc55561a24600",
+    "assets/faefever_v2/props/game_icon.png": "990e39ea01e54d54f931479c564b86b6043367102137619027b9e7467263d777",
+    "assets/faefever_v2/props/handbook_closed.png": "43018dbfd794405a6649c808a8e97b976e9cc91f547415f304ab7a716aed90fb",
+    "assets/faefever_v2/props/handbook_open.png": "2ae462630fd50d1ad121c46c620ec6a0ca3b817b4a368955b1a3c8dfe51a450c",
+    "assets/faefever_v2/props/letter_paper.png": "91500aa2ab2dfa766eaec4bbfd7533ca562d50afde96aab154cc9d2544f9a6b7",
+    "assets/faefever_v2/props/magnifier.png": "599468f934068167d01c7b1bf9913c1d1946569c0a231fdde6351b464cae148d",
+    "assets/faefever_v2/props/mail_box_base.png": "9b10052b5d4702591c0c99006859efc1b2f1fc391539cf659246888dfef66d1d",
+    "assets/faefever_v2/props/mail_box_latch.png": "49c3d053d55ef7b9b175a03d505deaee3cc7f9e209c7bf1eeef7bc24d5ba69a4",
+    "assets/faefever_v2/props/mail_box_lid.png": "954ec8c320819ae9415e8b0c9fe7fc706b6f979d3fa40dfbf2d03eda07ac7525",
+    "assets/faefever_v2/props/old_music_photo.png": "12da8206f208e247489d1e32661cdc916b8f733ba808abbe76d9c2dc1cbdbdb9",
+    "assets/faefever_v2/props/opener.png": "c2cdb53ef010f5d45a342517793e240e9cd1c0565980e5a1e6f2e66dce04f3fd",
+    "assets/faefever_v2/props/pen.png": "03e023aee4d00481a4968f4b8af047d72c482de2643433b226aa82717659e8c4",
+    "assets/faefever_v2/props/postal_seal.png": "239700b92605e1e275c12b5ccc2bec647db39faec01ddf64f6e9004457eed132",
+    "assets/faefever_v2/props/press.png": "f3cfb452a9fb64debbb53e1b2cc7260e3c1ad460331fedcf40ee047f8baafaff",
+    "assets/faefever_v2/props/protector.png": "5b95716253f3308351ec66faddaab3721ba7f182e4ff699a8acb4612639a3aef",
+    "assets/faefever_v2/props/repair_label.png": "52acc925211f6ddb8f3f7fc0eec0bd66ce02f0e7b4a2829ce0e7e6186a969eef",
+    "assets/faefever_v2/props/replacement_strip.png": "3cbc19dfbaaf014d28ce9d50ac239084e381057f27c1f1c0d56be2a16d8a1f32",
+    "assets/faefever_v2/props/resolution_slip.png": "4689e1248b6f6366d1fcdd9976c3516961e75f72be7bfa14092fdabcd07aba30",
+    "assets/faefever_v2/props/restorer.png": "7fcaaa744396685510ee984bb72895b2939fa71cd26462d97fb20f2935375479",
+    "assets/faefever_v2/props/satchel.png": "290a53b944e2d0c8f5c38a3ca16786f527e0745c1337c8d1a5a4705f09302128",
+    "assets/faefever_v2/props/seal_mark.png": "5c0884402c513fd76c9f281df1185685d22d42bf234a009b9ec21992f2b24bf9",
+    "assets/faefever_v2/props/sealer.png": "34f23a82a5726e1ca11caa0a96a3ef1b2b7fef2745235bf70555d3a14b968bc6",
+    "assets/faefever_v2/props/town_map.png": "46953dcb9916ebedf48161903da434695673fb450f5322622c7578f09ead35e1",
+    "assets/faefever_v2/props/wall_plate_new.png": "071ce2c519660c0dc4ec753614795f7fe8751622ab9a5921e3eb1276c5f1fd25",
+    "assets/faefever_v2/props/wall_plate_old.png": "1226149921c5b3320258407775dada5442a6a04c9144344f1d33ca8538b62351",
+    "data/rebuild/final_cases.json": "ea98a7158186b658575af93bf6eb31e29a374be6d9b6647e7d5c362dc6792744",
+    "data/rebuild/final_dialogues.json": "f2fa37f5f6b7d09a3729cbdc28a8050e64cbb33a6b76079f5619d374b54a53cd",
+    "data/rebuild/player_amendments.json": "da965670ec3be342e6559ec9d9e1208056f7b896ef90837a8b44cf00b46602a4",
+    "scripts/rebuild/field_book.gd": "087d4153758ac7e6b81b79d927ff4be684717020ddafc20a082db0f7b728678f",
+    "scripts/rebuild/field_observation.gd": "0fb63883ee9fe7a0a7c9eb07773948361977115518da3d9c6e1affa06b9bfbb6",
+    "scripts/rebuild/final_case_state.gd": "640207716867fe6dda2a0a5eabe7515517788ddbfa4b06cbf31bea1cb6324e72",
+    "scripts/rebuild/final_paper_map.gd": "d4206706d68246071dcedb7345c8831c54b58023721b51fd4713a6a46d165e47",
+    "scripts/rebuild/final_playable.gd": "1c2040c467934005383036a1824635836daff3aa0368188bfc808f9ac91c167e",
+    "scripts/rebuild/final_walker.gd": "293ad1cb201e7cfef0eef3e3db8d85f67af1df5aea671e71ad1081a5e266e95f",
+    "scripts/rebuild/mail_physics_state.gd": "811cffd97d0fc3206d9729d8f1b77fa399085293a2eca08bfd6604a3473e7cd5",
+    "scripts/rebuild/mail_workbench.gd": "b9e28c45bcbe3fe539fe776e9c6fa4f322aa96fd81e20985b9d1e8610e84b2fb",
+    "scripts/rebuild/physical_art.gd": "2dd4281d0f514bf2ab8e4a2416920a139e1dec3edda6d09f6fcc1d47350d0f39",
+    "scripts/rebuild/postal_desk.gd": "7f43996cea069434b7423c6fc3390ea2f564f31ad7f9efb49d830990610afe11",
+    "scripts/rebuild/resolution_draft_store.gd": "f9a45b82a82e9f703939251057ca6d667602c37560f58b401eb0512f1fa32551",
+    "scripts/rebuild/resolution_slip.gd": "b1ce24b405938e4c4978b61acbaaaf89d7517a87a7224bae8f3698b9dce325d7",
+    "scripts/rebuild/scene_dialogue.gd": "d60c87b637f6d7a5fe3c373194125b12b80a3afc3db5bd4b7359714199d44514",
+    "scripts/rebuild/tool_drawer.gd": "c0083b7dd71dea9bca27af63280f8fc8ba46c5d5c3e102d4e17641a028676876",
+    "scripts/ui/audio_feedback.gd": "8b228acd1631255b6e5952b03ef7912098ee8ab4d42c3e2a4be20d8b42a79a1f",
+    "scripts/ui/paper_ui.gd": "a55a285ef83bf966cabb5c6ffb5d66216f0d596fde4f27789318f3bcee444f24",
+    "tests/core_review_input.gd": "688ec0c5735b47dd0bc0db2544aac32f0155293fe12a69b5826d252bc1b06af4",
+    "tests/final_playable_input_smoke.gd": "9e171ddc08b11b79d48a77c0d820365d49e274dce1bff03f79d0a38cd66256c4",
+    "tests/tactile_mail_input.gd": "ed44bcdd43a5f56474cb8a8afa0204eb154b07dab0c59d7076a7e88db5828524"
+  },
+  "artifacts": [
+    {
+      "path": "docs/testing/tactile-mail_20261004/engine/amended_handoff.log",
+      "sha256": "d46459340b6b20db2f8b0fe7b7f2a34a04dff41e392abc3759ae979b8414c074"
+    },
+    {
+      "path": "docs/testing/tactile-mail_20261004/engine/core_review_input.log",
+      "sha256": "07e425c267e276b52e667cb87368dcf90182c80ebaf35b59ad72745c60d0c70d"
+    },
+    {
+      "path": "docs/testing/tactile-mail_20261004/engine/counter_onboarding_input.log",
+      "sha256": "19dcf34e06416eb12d4c916229938b4a4781d6700f120011df4c463e2e4cd56d"
+    },
+    {
+      "path": "docs/testing/tactile-mail_20261004/engine/envelope_text_bounds_smoke.log",
+      "sha256": "4a14c39efe0c00c09ebaa7a798eea9497cb857ae14aae26ad87e17c98f8822d5"
+    },
+    {
+      "path": "docs/testing/tactile-mail_20261004/engine/field_book_smoke.log",
+      "sha256": "e40ff99b59ac88fe5a91aa89734494b5c6b8ffa6aab6d8b58f739db2af056c67"
+    },
+    {
+      "path": "docs/testing/tactile-mail_20261004/engine/field_observation_smoke.log",
+      "sha256": "811933eb6ac0f2e96079a59a49cc257e920c2ec745e35f6de67621c899a22d82"
+    },
+    {
+      "path": "docs/testing/tactile-mail_20261004/engine/final_case_state_smoke.log",
+      "sha256": "1d415096141938b58a453044776fbde6d3ba77897bca6fdd0f13bc52745f3c2a"
+    },
+    {
+      "path": "docs/testing/tactile-mail_20261004/engine/final_host_boundary_smoke.log",
+      "sha256": "7522268ae5c9f28b9f9dabb46a3425de68aecd05e69d4e6e24cfc9d53c72198c"
+    },
+    {
+      "path": "docs/testing/tactile-mail_20261004/engine/final_resolution_draft_smoke.log",
+      "sha256": "b59576f9818c04f4d3b41442b33339c38e06d2e43874c41bf27b5f92f0ad6d50"
+    },
+    {
+      "path": "docs/testing/tactile-mail_20261004/engine/final_walker_smoke.log",
+      "sha256": "e1f57e2b1236fb3abc503d9dc2b5ca60247df26ed13b6bf2440eac7150249a95"
+    },
+    {
+      "path": "docs/testing/tactile-mail_20261004/engine/five_case_delegate.log",
+      "sha256": "c75d0f723b23206270d9612025a9dbdfd92b9c29aab59dbff84f731840a57e49"
+    },
+    {
+      "path": "docs/testing/tactile-mail_20261004/engine/five_case_sealed.log",
+      "sha256": "6ec9b93b8c1fe70cf27df1b5b43c750434e17faf2ad3967144b2d7dc2764ed4f"
+    },
+    {
+      "path": "docs/testing/tactile-mail_20261004/engine/import.log",
+      "sha256": "91277035d3a118612759dffe9ac6886786bf397f185fee8b5b391a37aa88f3a3"
+    },
+    {
+      "path": "docs/testing/tactile-mail_20261004/engine/mail_physics_state_smoke.log",
+      "sha256": "75cee30ca671f8085b6b733c543df8999bf335b19e050f73c834d057c478245b"
+    },
+    {
+      "path": "docs/testing/tactile-mail_20261004/engine/mail_workbench_input_smoke.log",
+      "sha256": "44cd4cf8c44d5616b195df2faa926f3620c3ee16d3d7c30e0fcb5b661134e855"
+    },
+    {
+      "path": "docs/testing/tactile-mail_20261004/engine/postal_desk_live_queue.log",
+      "sha256": "2d890813e2b3c8cd4b33b94d08d286609657c80ef6ba809a3ebaa74d00b21ee8"
+    },
+    {
+      "path": "docs/testing/tactile-mail_20261004/engine/resolution_slip_smoke.log",
+      "sha256": "f76170808408518a2a72ef54209151855b29b923bb50c79e34f5c85a6f5ff33a"
+    },
+    {
+      "path": "docs/testing/tactile-mail_20261004/engine/scene_dialogue_input_smoke.log",
+      "sha256": "8484f90784adce7ab17276b09ac8819a764e50e2bbf925c70563102258fcfdb7"
+    },
+    {
+      "path": "docs/testing/tactile-mail_20261004/engine/tactile_mail_input.log",
+      "sha256": "aa75cfe7133776a605e8139ce36406b618fd580c4ce8256f3fd436133ab6f5df"
+    },
+    {
+      "path": "docs/testing/tactile-mail_20261004/result.json",
+      "sha256": "939e561d7a9a232a34d9e1315ab1114248f8be6d9400dfb86f3e59976ec44c83"
+    },
+    {
+      "path": "docs/testing/tactile-mail_20261004/01_open_box.png",
+      "sha256": "a7e02a9f6a4c67d5a98569bc76f80e02868dd1473bb1983decc5efe234b5efd1"
+    },
+    {
+      "path": "docs/testing/tactile-mail_20261004/02_inspect_same_counter.png",
+      "sha256": "e46bd29fc76c9833294414c93ac6041f0b960d3f4f920cbedc0d385ef193dc86"
+    },
+    {
+      "path": "docs/testing/tactile-mail_20261004/03_reverse_after_interrupted_zoom.png",
+      "sha256": "5dcda30d0e0f4faeb5c58652bbbf010b30e6aa835f6a72c052192f641da56866"
+    },
+    {
+      "path": "docs/testing/tactile-mail_20261004/04_returned_counter.png",
+      "sha256": "87ed6691c032af7d9efb96dc6cfaf7783ac093b978531d8685474cfc0c8cc00f"
+    },
+    {
+      "path": "docs/testing/tactile-mail_20261004/window-close/report.json",
+      "sha256": "fa8843cc1e52448431c0d65afab425a1647f5dfb05094320737c341fbc74e3ae"
+    },
+    {
+      "path": "docs/testing/tactile-mail_20261004/window-close/input.stdout.log",
+      "sha256": "d37f6598e8aaaa8a4b6c07eff7473889721075c369b26a5b41dad05a28ba8e73"
+    },
+    {
+      "path": "docs/testing/tactile-mail_20261004/window-close/input.stderr.log",
+      "sha256": "66894c95acd6af0631be417c3bf9c31a2ceab00c02d4a5a3e92b780256865b04"
+    },
+    {
+      "path": "docs/testing/tactile-mail_20261004/window-close/reload.stdout.log",
+      "sha256": "91ce5afce08b12a110306d3d9663773b1af78139346c6f385e58299608693e37"
+    },
+    {
+      "path": "docs/testing/tactile-mail_20261004/window-close/reload.stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "docs/testing/tactile-mail_20261004/earlier/check-20261004-124610/tactile_mail_input.log",
+      "sha256": "0b1bfd89c1bda7e49e4c9becec8c4edab418e539184f0b3afbc0122311efef5b"
+    },
+    {
+      "path": "docs/testing/tactile-mail_20261004/earlier/check-20261004-130304/tactile_mail_input.log",
+      "sha256": "8cfee3e2c6aaa536d0008e414a016ba9cd0e59f032c63ad52430c3eba629784e"
+    },
+    {
+      "path": "docs/testing/tactile-mail_20261004/earlier/check-20261004-130304/five_case_delegate.log",
+      "sha256": "c31927511f046b55603a75204a09a864fa9569c7c47d233fe924ad8113e30cf7"
+    },
+    {
+      "path": "docs/testing/tactile-mail_20261004/earlier/check-20261004-131250/tactile_mail_input.log",
+      "sha256": "34ae50d5f7dce2681cb7d9fbda7cbfc16a27ae80a943e2cec1bb323df204a796"
+    },
+    {
+      "path": "docs/testing/tactile-mail_20261004/earlier/check-20261004-131250/five_case_delegate.log",
+      "sha256": "c75d0f723b23206270d9612025a9dbdfd92b9c29aab59dbff84f731840a57e49"
+    },
+    {
+      "path": "docs/testing/tactile-mail_20261004/earlier/check-20261004-133053/tactile_mail_input.log",
+      "sha256": "3e973c0cda48b9756b065afb87349b3f26a9d69c75eecd8b1e20f30f4a717455"
+    },
+    {
+      "path": "docs/testing/tactile-mail_20261004/earlier/check-20261004-135123/tactile_mail_input.log",
+      "sha256": "aa75cfe7133776a605e8139ce36406b618fd580c4ce8256f3fd436133ab6f5df"
+    },
+    {
+      "path": "docs/testing/tactile-mail_20261004/earlier/check-20261004-135123/five_case_delegate.log",
+      "sha256": "c75d0f723b23206270d9612025a9dbdfd92b9c29aab59dbff84f731840a57e49"
+    },
+    {
+      "path": "docs/testing/tactile-mail_20261004/earlier/tactile-input.log",
+      "sha256": "55a5d9aee62f52f6f96938abe35affa5c40b4422e4c5fa3a69e02648c9cc7581"
+    },
+    {
+      "path": "docs/testing/tactile-mail_20261004/earlier/tactile-input-r2.log",
+      "sha256": "2399754238f3c371c428651ca96f42014dfdad7c3ff4a66d0b10bef46397d842"
+    },
+    {
+      "path": "docs/testing/tactile-mail_20261004/earlier/tactile-input-r3.log",
+      "sha256": "0b1bfd89c1bda7e49e4c9becec8c4edab418e539184f0b3afbc0122311efef5b"
+    },
+    {
+      "path": "docs/testing/tactile-mail_20261004/earlier/tactile-input-r4.log",
+      "sha256": "c8b8fd20e5f5b35a88e49c1fbd9286a0fe738189718577dd9b51d0705492bd61"
+    },
+    {
+      "path": "docs/testing/tactile-mail_20261004/earlier/tactile-input-r5.log",
+      "sha256": "8cfee3e2c6aaa536d0008e414a016ba9cd0e59f032c63ad52430c3eba629784e"
+    },
+    {
+      "path": "docs/testing/tactile-mail_20261004/earlier/tactile-input-r6.log",
+      "sha256": "a68e7eb97a67ea86d34366b12ea358511cbbd8de482aa98e2bf3e085cf5ca6dc"
+    },
+    {
+      "path": "docs/testing/tactile-mail_20261004/earlier/tactile-onboarding-headless.log",
+      "sha256": "7c487f812c262a2acb67964399ecd660227bb1bb29e17dcd0559d93972a2c9fb"
+    },
+    {
+      "path": "docs/testing/tactile-mail_20261004/earlier/legacy-pose-probe.log",
+      "sha256": "7114b78ab24fc8afe006275691711b32803fd3dfcd42da15a7419479caa39ed8"
+    }
+  ]
+}

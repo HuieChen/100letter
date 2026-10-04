@@ -23,7 +23,10 @@ var core: Node
 var waiting: Array[String] = []
 var latch_open := false
 var _latch_pose := 0.0
-var lid_open := 0.0
+var lid_open := 0.0:
+	set(value):
+		lid_open=value
+		queue_redraw()
 var held := ""
 var letter_rect := LETTER
 var _drag_start := Vector2.ZERO
@@ -35,6 +38,8 @@ var _message_left := 0.0
 var _pending := false
 var _rejection := 0.0
 var _lid_motion: Tween
+var _letter_motion: Tween
+var _returning_letter := false
 
 func configure(game:Node) -> void:
 	if is_instance_valid(core) and core.changed.is_connected(refresh):core.changed.disconnect(refresh)
@@ -60,10 +65,24 @@ func refresh() -> void:
 	queue_redraw()
 
 func _process(delta: float) -> void:
+	var previous_pose:=_latch_pose
+	var previous_rejection:=_rejection
 	_message_left=maxf(0.0,_message_left-delta)
 	_rejection=maxf(0.0,_rejection-delta)
 	_latch_pose=move_toward(_latch_pose,1.0 if latch_open else 0.0,delta*7.0)
-	queue_redraw()
+	if previous_pose!=_latch_pose or previous_rejection!=_rejection:queue_redraw()
+
+func _return_letter() -> void:
+	if _letter_motion!=null:_letter_motion.kill()
+	_returning_letter=true
+	_letter_motion=create_tween()
+	_letter_motion.tween_method(func(point:Vector2):letter_rect.position=point;queue_redraw(),letter_rect.position,LETTER.position,0.16).set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_OUT)
+	_letter_motion.tween_callback(func():_returning_letter=false;letter_rect=LETTER;queue_redraw())
+
+func _notification(what:int) -> void:
+	if what==NOTIFICATION_WM_WINDOW_FOCUS_OUT:
+		if held=="letter":held="";_return_letter()
+		elif held=="lid":held="";lid_open=1.0 if lid_open>0.5 else 0.0;queue_redraw()
 
 func _gui_input(event: InputEvent) -> void:
 	if _pending:return
@@ -77,7 +96,9 @@ func _gui_input(event: InputEvent) -> void:
 		var p:Vector2=event.position/_fit
 		if event.pressed:
 			grab_focus()
-			if lid_open>0.88 and not waiting.is_empty() and LETTER.has_point(p):
+			if lid_open>0.88 and not waiting.is_empty() and (Rect2(letter_rect.position,Vector2(390,219)) if _returning_letter else LETTER).has_point(p):
+				if _letter_motion!=null:_letter_motion.kill()
+				_returning_letter=false
 				held="letter";_drag_start=p;_offset=p-letter_rect.position;cue.emit("paper")
 			elif LATCH.has_point(p) and lid_open<0.1:
 				latch_open=not latch_open;cue.emit("tool");_say("扣已经松开。拿住箱盖向上掀。" if latch_open else "锁扣合上了。")
@@ -102,7 +123,7 @@ func _gui_input(event: InputEvent) -> void:
 				var placed:=p.distance_to(_drag_start)>95 and INSPECTION.has_point(p) and not LETTER.has_point(p)
 				if clicked or placed:
 					_pending=true;mail_taken.emit(waiting[0],Rect2(letter_rect.position,Vector2(390,219)))
-				else:letter_rect=LETTER;cue.emit("paper")
+				else:_return_letter();cue.emit("paper")
 		accept_event();queue_redraw()
 
 func _any_target(p:Vector2) -> bool:
@@ -142,7 +163,7 @@ func _draw() -> void:
 	Art.paint(self,"mail_box_base",BOX_BASE)
 	if lid_open>0.82:
 		for index:int in range(waiting.size()-1,-1,-1):
-			if index==0 and held=="letter":continue
+			if index==0 and (held=="letter" or _returning_letter):continue
 			Art.paint(self,"envelope_front",Rect2(LETTER.position+Vector2(index*7,-index*8),Vector2(390,219)))
 		var base:Texture2D=Art.texture("mail_box_base")
 		if base!=null:
@@ -152,7 +173,9 @@ func _draw() -> void:
 	_paint_latch()
 	Art.paint(self,"handbook_closed",BOOK)
 	Art.paint(self,"resolution_slip",SLIP)
-	if held=="letter":Art.paint(self,"envelope_front",Rect2(letter_rect.position,Vector2(390,219)))
+	if held=="letter" or _returning_letter:
+		Art.paint(self,"envelope_front",Rect2(letter_rect.position+Vector2(6,8),Vector2(390,219)),Color(0.03,0.05,0.04,0.18))
+		Art.paint(self,"envelope_front",Rect2(letter_rect.position,Vector2(390,219)))
 	var font:Font=get_theme_font("font")
 	draw_string(font,Vector2(35,813),"← 门外",HORIZONTAL_ALIGNMENT_LEFT,-1,22,Color("ede4ca"))
 	draw_set_transform(Vector2.ZERO)

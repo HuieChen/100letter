@@ -343,11 +343,20 @@ func _button(button: MouseButton, pressed: bool, double_click: bool=false) -> vo
 
 func _click(point: Vector2, button: MouseButton=MOUSE_BUTTON_LEFT, twice: bool=false) -> void:
 	await _move(point);await _button(button,true,twice);await _button(button,false)
+	await _settle_motion()
+
+func _settle_motion() -> void:
+	var deadline:=Time.get_ticks_msec()+1000
+	while is_instance_valid(bench) and Time.get_ticks_msec()<deadline:
+		var zooming:bool=bench._view_motion!=null and bench._view_motion.is_running()
+		if not zooming and bench._flip_progress>=1.0 and not (bench._presentation_motion!=null and bench._presentation_motion.is_running()):break
+		await process_frame
 
 func _key(key: Key) -> void:
 	for down: bool in [true,false]:
 		var event:=InputEventKey.new();event.keycode=key;event.physical_keycode=key;event.pressed=down
 		Input.parse_input_event(event);Input.flush_buffered_events();await process_frame
+	await _settle_motion()
 
 func _shot(name: String) -> void:
 	if "--capture-input" not in OS.get_cmdline_user_args(): return

@@ -4,6 +4,7 @@ var phase := "all"
 const REVIEW_OUT := "res://test-results/core-review/"
 
 func _run() -> void:
+	root.unfocusable=true
 	began=Time.get_ticks_msec()
 	for arg:String in OS.get_cmdline_user_args():
 		if arg.begins_with("--phase="):phase=arg.trim_prefix("--phase=")
@@ -47,6 +48,7 @@ func _remaining_checks() -> void:
 	await _shot("bag_"+str(root.size.x))
 	await _named("Envelope_case01")
 	_check(_modal_script().ends_with("mail_workbench.gd") and host.carried=="case01","envelope click lifts and selects the same object")
+	_check(_node("CarriedLetter")!=null and not _node("CarriedLetter").visible,"inspection does not show a duplicate carried envelope")
 	var bench:Control=host.modal
 	await _click(bench.to_canvas(bench.model.object_rect("envelope").get_center()),MOUSE_BUTTON_RIGHT)
 	_check(bench.model.export_state().face=="back","direct flip exposes reverse")
@@ -59,6 +61,7 @@ func _remaining_checks() -> void:
 	var physical:Dictionary=bench.model.export_state()
 	await _click(Vector2(1495,60))
 	_check(not is_instance_valid(host.modal) and host.core.state.active_operation.is_empty(),"cross puts paper down safely")
+	_check(_node("CarriedLetter").visible,"returned envelope restores its scene affordance")
 	await _named("OpenBag");await _named("Envelope_case01")
 	_check(host.modal.model.export_state().face==physical.face,"reentry keeps the observed face")
 	await _key(KEY_ESCAPE)
@@ -124,6 +127,7 @@ func _key(code:Key,control:bool=false) -> void:
 	for down:bool in [true,false]:
 		var e:=InputEventKey.new();e.keycode=code;e.physical_keycode=code;e.pressed=down;e.ctrl_pressed=control
 		root.push_input(e,true);await process_frame
+	await _settle_material_motion()
 
 func _shot(label:String) -> void:
 	if _modal_script().ends_with("mail_workbench.gd"):

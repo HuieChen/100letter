@@ -347,6 +347,7 @@ func _refresh_selected_letter() -> void:
 	if carried.is_empty():return
 	var item:=_icon(stage,"letter","",Rect2(1380,713,145,119),func():_workbench(carried))
 	item.name="CarriedLetter"
+	item.visible=not is_instance_valid(modal)
 
 func _icon(parent:Node, kind:String, caption:String, rect:Rect2, callback:Callable) -> Control:
 	var keys:Dictionary={"bag":"satchel","book":"handbook_closed","map":"town_map","letter":"envelope_front"}
@@ -472,6 +473,7 @@ func _workbench(id:String,from_rect:Rect2=Rect2()) -> void:
 	if view=="counter":_refresh_counter_mail()
 	_close()
 	var bench:=Workbench.new()
+	bench.retain_counter_surface=view=="counter"
 	modal=bench
 	UI.place(bench,self,Rect2(0,0,1600,900))
 	error=bench.configure(core,id)
@@ -515,6 +517,8 @@ func _book() -> void:
 	sound.play("paper")
 
 func _hide_courier_for_closeup() -> void:
+	var carried_icon:=stage.find_child("CarriedLetter",true,false) if is_instance_valid(stage) else null
+	if is_instance_valid(carried_icon):carried_icon.hide()
 	# Residents share the actor layer; hide it too so feet cannot poke out below
 	# a large document while the player is examining its closeup.
 	if is_instance_valid(actors):actors.hide()
@@ -529,6 +533,8 @@ func _close() -> void:
 		remove_child(modal)
 		modal.queue_free()
 	modal=null
+	var carried_icon:=stage.find_child("CarriedLetter",true,false) if is_instance_valid(stage) else null
+	if is_instance_valid(carried_icon):carried_icon.show()
 	if view=="world" and is_instance_valid(actors):actors.show()
 	if is_instance_valid(walker):
 		walker.manual_enabled=view=="world"

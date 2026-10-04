@@ -51,6 +51,19 @@ var _glass_sprite: TextureRect
 var _presentation_from := Rect2()
 var _presentation := 1.0
 var _rejection := 0.0
+var retain_counter_surface := false
+var _presentation_to := Rect2()
+var _presentation_motion: Tween
+var _view_motion: Tween
+var _flip_motion: Tween
+var _lift_motion: Tween
+var _zoom_goal := 1.0
+var _flip_progress := 1.0
+var _previous_face := "front"
+var _lift := 0.0
+var _returning := false
+var _text_layout_cache: Dictionary = {}
+var _text_layout_builds := 0
 const EDIT_ORIGIN := Vector2(570,170)
 const EDIT_ZOOM := 2.15
 
@@ -77,6 +90,7 @@ func configure(game: Node, id: String) -> String:
 	model.inspect_face(str(_snapshot.face))
 	error=core.inspect_envelope(id,str(_snapshot.face))
 	_view=core.case_view(id)
+	_zoom_goal=float(_snapshot.zoom)
 	_ensure_reader()
 	_resize()
 	return error
@@ -152,11 +166,55 @@ func drawer_handle_rect() -> Rect2:
 
 func present_from(rect:Rect2) -> void:
 	_presentation_from=rect
+	_presentation_to=_envelope_canvas_rect()
 	_presentation=0.0
-	create_tween().tween_method(func(value:float):_presentation=value;queue_redraw(),0.0,1.0,0.24)
+	_presentation_motion=create_tween()
+	_presentation_motion.tween_method(func(value:float):_presentation=value;queue_redraw(),0.0,1.0,0.24).set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_OUT)
+
+func _envelope_canvas_rect() -> Rect2:
+	return Rect2(to_canvas(model.object_rect("envelope").position)/_fit,model.object_rect("envelope").size*float(_snapshot.zoom))
+
+func _displayed_envelope_rect() -> Rect2:
+	return Rect2(_presentation_from.position.lerp(_presentation_to.position,_presentation),_presentation_from.size.lerp(_presentation_to.size,_presentation)) if _presentation<1.0 else _envelope_canvas_rect()
+
+func _stop_view_motion() -> void:
+	# The material state follows the visible transform on every frame. Grabbing
+	# interrupts at that transform, never at a future zoom target.
+	if _view_motion!=null:_view_motion.kill()
+	_zoom_goal=float(_snapshot.zoom)
+
+func _zoom_at(canvas:Vector2, direction:float) -> void:
+	var point:=_to_table(canvas*_fit)
+	var goal:=clampf(_zoom_goal+direction*0.2,1.0,3.0)
+	_stop_view_motion()
+	_zoom_goal=goal
+	var start_zoom:float=_snapshot.zoom
+	var start_pan:=Vector2(_snapshot.pan[0],_snapshot.pan[1])
+	var goal_pan:Vector2=(canvas-ORIGIN-point*goal).clamp(Vector2(-500,-300),Vector2(500,300))
+	_view_motion=create_tween()
+	_view_motion.tween_method(func(value:float):model.set_inspection(lerpf(start_zoom,goal,value),start_pan.lerp(goal_pan,value)),0.0,1.0,0.12).set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_OUT)
+
+func _set_lift(value:float) -> void:
+	if _lift_motion!=null:_lift_motion.kill()
+	_lift_motion=create_tween()
+	_lift_motion.tween_method(func(amount:float):_lift=amount;queue_redraw(),_lift,value,0.09).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_OUT)
+
+func _finish_presentation() -> void:
+	if _presentation_motion!=null:_presentation_motion.kill()
+	_presentation=1.0
+
+func _return_to_bag() -> void:
+	_stop_view_motion()
+	var from:=_displayed_envelope_rect()
+	_finish_presentation()
+	_closing=true;_returning=true;body_reader.hide()
+	_presentation_from=from;_presentation_to=Rect2(36,27,70,40);_presentation=0.0
+	_presentation_motion=create_tween()
+	_presentation_motion.tween_method(func(value:float):_presentation=value;queue_redraw(),0.0,1.0,0.18).set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_IN)
+	_presentation_motion.tween_callback(func():closed.emit())
 
 func get_workbench_snapshot() -> Dictionary:
-	return {"case_id":case_id,"physical":model.export_state(),"held":_drag,"tool":_tool,"reading":_reading,"amending":_amending,"drawer":drawer.snapshot(),"magnifier_active":_magnifier,"magnifier_held":_magnifier_held,"magnifier_rect":Rect2(_magnifier_at,Vector2(146,204)),"presentation":_presentation,"art":Art.readiness(["BG_workroom","envelope_front","envelope_back","letter_paper","drawer_open","drawer_front","magnifier","opener","restorer","press","eraser","sealer","repair_label","protector","envelope_flap","attachment_photo","replacement_strip"])}
+	return {"case_id":case_id,"physical":model.export_state(),"held":_drag,"tool":_tool,"reading":_reading,"amending":_amending,"drawer":drawer.snapshot(),"magnifier_active":_magnifier,"magnifier_held":_magnifier_held,"magnifier_rect":Rect2(_magnifier_at,Vector2(146,204)),"presentation":_presentation,"motion":{"flip":_flip_progress,"lift":_lift,"zoom_target":_zoom_goal,"returning":_returning,"counter_retained":retain_counter_surface,"text_layout_builds":_text_layout_builds},"art":Art.readiness(["BG_workroom","envelope_front","envelope_back","letter_paper","drawer_open","drawer_front","magnifier","opener","restorer","press","eraser","sealer","repair_label","protector","envelope_flap","attachment_photo","replacement_strip"])}
 
 func reader_toggle_rect() -> Rect2:
 	return Rect2(Vector2(882,90)*_fit,Vector2(169,29)*_fit)
@@ -165,6 +223,7 @@ func request_close() -> bool:
 	# Consume before a synchronous closed handler removes this Control from its
 	# viewport; otherwise the same Escape can open the host's pause menu.
 	if is_inside_tree(): get_viewport().set_input_as_handled()
+	if _closing:return true
 	if _reading:
 		_close_reading()
 		return false
@@ -185,7 +244,7 @@ func _notification(what: int) -> void:
 
 func _input(event:InputEvent) -> void:
 	# A held glass keeps pointer capture above the scrollable letter text.
-	if not _magnifier or not is_visible_in_tree():return
+	if _closing or not _magnifier or not is_visible_in_tree():return
 	if event is InputEventMouseMotion and _magnifier_held:
 		_magnifier_at=(event.position/_fit-_magnifier_offset).clamp(Vector2(35,75),Vector2(1410,690))
 		_update_lens();queue_redraw();get_viewport().set_input_as_handled()
@@ -199,6 +258,7 @@ func _input(event:InputEvent) -> void:
 
 func _gui_input(event: InputEvent) -> void:
 	if _snapshot.is_empty(): return
+	if _closing:accept_event();return
 	if event is InputEventKey and event.pressed:
 		if event.keycode==KEY_ESCAPE:
 			accept_event()
@@ -259,11 +319,11 @@ func _gui_input(event: InputEvent) -> void:
 	if event.button_index in [MOUSE_BUTTON_WHEEL_UP,MOUSE_BUTTON_WHEEL_DOWN] and event.pressed:
 		if _amending:accept_event();return
 		if not _drag.is_empty() or _tool_down: return
-		var point:=_to_table(event.position)
-		var zoom:=clampf(float(_snapshot.zoom)+(0.2 if event.button_index==MOUSE_BUTTON_WHEEL_UP else -0.2),1.0,3.0)
-		model.set_inspection(zoom,canvas-ORIGIN-point*zoom)
+		_finish_presentation()
+		_zoom_at(canvas,1.0 if event.button_index==MOUSE_BUTTON_WHEEL_UP else -1.0)
 		accept_event();return
 	if event.button_index==MOUSE_BUTTON_MIDDLE:
+		_stop_view_motion()
 		_panning=event.pressed
 		_pan_start=Vector2(_snapshot.pan[0],_snapshot.pan[1]);_pointer_start=event.position
 		accept_event();return
@@ -276,6 +336,9 @@ func _gui_input(event: InputEvent) -> void:
 		accept_event();return
 	if event.button_index!=MOUSE_BUTTON_LEFT: return
 	if event.pressed:
+		_stop_view_motion()
+		_finish_presentation()
+		if _flip_motion!=null:_flip_motion.kill();_flip_progress=1.0
 		if event.double_click and model.body_is_currently_visible() and model.object_rect("paper").has_point(point):
 			_open_reading();accept_event();return
 		if not _tool.is_empty():
@@ -289,11 +352,11 @@ func _gui_input(event: InputEvent) -> void:
 					if id in ["attachment","replacement"] and _snapshot.operation_mode!="amend":
 						if not _start_amend():break
 					var error: String=model.begin_drag(id,point)
-					if error.is_empty(): _drag=id;cue.emit("paper");break
+					if error.is_empty(): _drag=id;_set_lift(1.0);cue.emit("paper");break
 					_feedback(error)
 	else:
 		if not _drag.is_empty():
-			_feedback(model.release_drag());_drag="";cue.emit("paper")
+			_feedback(model.release_drag());_drag="";_set_lift(0.0);cue.emit("paper")
 		if _tool_down:
 			_tool_down=false
 			if _tool=="eraser":model.return_tool();_tool="";_message=_instruction()
@@ -369,6 +432,9 @@ func _start_amend() -> bool:
 	_amending=true;_message=_instruction();queue_redraw();return true
 
 func _flip() -> void:
+	if _flip_progress<1.0:return
+	_stop_view_motion();_finish_presentation()
+	_previous_face=str(_snapshot.face)
 	var face: String="back" if _snapshot.face=="front" else "front"
 	var error: String=model.inspect_face(face)
 	if not error.is_empty(): _feedback(error);return
@@ -377,10 +443,14 @@ func _flip() -> void:
 	if face=="back" and _snapshot.exterior_repaired and str(_snapshot.operation_mode).is_empty(): core.observe("label_reconstructed")
 	if face=="back" and case_id=="case04" and str(_snapshot.operation_mode).is_empty(): core.observe("case04_archive_mark")
 	_message=_instruction();cue.emit("paper");queue_redraw()
+	_flip_progress=0.0
+	_flip_motion=create_tween()
+	_flip_motion.tween_method(func(value:float):_flip_progress=value;queue_redraw(),0.0,1.0,0.20).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
 
 func _checkpoint(exit_after: bool, save_now: bool=true) -> bool:
 	if core==null or _snapshot.is_empty(): return false
 	model.cancel_operation();_drag="";_tool="";_tool_down=false;_panning=false;_magnifier_held=false;drawer.held=false
+	_stop_view_motion();_set_lift(0.0)
 	var error: String
 	if not core.state.active_operation.is_empty(): error=core.cancel_operation(model.export_state())
 	elif core.has_method("accept_inspection"): error=core.accept_inspection(case_id,model.export_state())
@@ -389,7 +459,7 @@ func _checkpoint(exit_after: bool, save_now: bool=true) -> bool:
 	if save_now and not core.save_game():
 		_message="保存没有成功。物件仍在桌上，请重试离开。";_save_problem=true;queue_redraw();return false
 	_save_problem=false
-	if exit_after: _closing=true;closed.emit()
+	if exit_after:_return_to_bag()
 	return true
 
 func _on_changed(snapshot: Dictionary) -> void:
@@ -459,7 +529,9 @@ func _instruction() -> String:
 
 func _draw() -> void:
 	draw_set_transform(Vector2.ZERO,0,Vector2.ONE*_fit)
-	Art.paint(self,"BG_workroom",Rect2(-640,-697,2880,1620))
+	if retain_counter_surface:
+		draw_rect(Rect2(0,0,1600,900),Color(0.08,0.15,0.13,0.28*(1.0-_presentation if _returning else _presentation)))
+	else:Art.paint(self,"BG_workroom",Rect2(-640,-697,2880,1620))
 	if _snapshot.is_empty():return
 	var available:Array[String]=["magnifier","opener"]
 	if case_id=="case03":available.append_array(["restorer","press"])
@@ -470,12 +542,22 @@ func _draw() -> void:
 	var zoom:float=_snapshot.zoom
 	if _amending:draw_set_transform((EDIT_ORIGIN-model.object_rect("paper").position*EDIT_ZOOM)*_fit,0,Vector2.ONE*_fit*EDIT_ZOOM)
 	else:draw_set_transform((ORIGIN+pan)*_fit,0,Vector2.ONE*_fit*zoom)
-	if not _amending and _presentation>=1.0:_draw_envelope()
+	if not _amending and _presentation>=1.0:
+		var item:=model.object_rect("envelope")
+		var turn:=maxf(0.025,absf(cos(_flip_progress*PI)))
+		var raised:=Vector2(0,-4.0*_lift-7.0*sin(_flip_progress*PI))
+		var center:Vector2=item.get_center()
+		var envelope_origin:Vector2=ORIGIN+pan+center*zoom-(center*Vector2(turn,1))*zoom+raised
+		draw_set_transform((envelope_origin+Vector2(7,9)*_lift)*_fit,0,Vector2(turn,1)*_fit*zoom)
+		Art.paint(self,"envelope_front",item,Color(0.03,0.05,0.04,0.22*_lift))
+		draw_set_transform(envelope_origin*_fit,0,Vector2(turn,1)*_fit*zoom)
+		_draw_envelope(_previous_face if _flip_progress<0.5 else str(_snapshot.face))
+		draw_set_transform((ORIGIN+pan)*_fit,0,Vector2.ONE*_fit*zoom)
 	if _snapshot.operation_mode=="repair_exterior":_draw_repair()
 	if not _reading and _snapshot.seal_condition in ["open","closed_unsealed"]:_draw_paper()
 	if _amending:_draw_amendments()
 	draw_set_transform(Vector2.ZERO,0,Vector2.ONE*_fit)
-	drawer.paint(self)
+	if not _returning:drawer.paint(self)
 	if not _tool.is_empty() and not _reading:
 		Art.paint(self,_tool,Rect2(_pointer/_fit-Vector2(72,0),Vector2(110,95)),Color.WHITE,true)
 	if _reading:
@@ -484,8 +566,9 @@ func _draw() -> void:
 		_text("原文记录" if _reading_original else "当前纸面",Vector2(551,91),250,16,INK)
 		_text("查看现稿 ↔" if _reading_original else "查看原文 ↔",Vector2(882,91),169,16,INK)
 	if _presentation<1.0:
-		var target:=Rect2(to_canvas(model.object_rect("envelope").position)/_fit,model.object_rect("envelope").size*float(_snapshot.zoom))
-		Art.paint(self,"envelope_front",Rect2(_presentation_from.position.lerp(target.position,_presentation),_presentation_from.size.lerp(target.size,_presentation)))
+		var displayed:=_displayed_envelope_rect()
+		Art.paint(self,"envelope_front",Rect2(displayed.position+Vector2(7,9),displayed.size),Color(0.03,0.05,0.04,0.18))
+		Art.paint(self,"envelope_front" if _snapshot.face=="front" else "envelope_back",displayed)
 	_overlay_text("×",Vector2(1460,32),70,38)
 	# Routine controls are conveyed by the physical object/cursor, never a
 	# narrator strip. Disk-save failure is a system problem and stays visible.
@@ -508,24 +591,30 @@ func _draw_table_tool(_id:String) -> void:
 func _draw_sprite(id:String,rect:Rect2,tint:Color=Color.WHITE,_shadow:bool=false,keep_aspect:bool=false) -> void:
 	Art.paint(self,"letter_paper" if id=="letter" else id,rect,tint,keep_aspect)
 
-func _draw_envelope() -> void:
+func _draw_envelope(face:String) -> void:
 	var rect: Rect2=model.object_rect("envelope")
-	_draw_sprite("envelope_front" if _snapshot.face=="front" else "envelope_back",rect,Color.WHITE,true)
+	_draw_sprite("envelope_front" if face=="front" else "envelope_back",rect,Color.WHITE,true)
 	var lines:Array[String]=[]
-	var fields:Dictionary=_view.get(str(_snapshot.face),{})
+	var fields:Dictionary=_view.get(face,{})
 	for key:String in fields:
 		if key=="recovered_fields" or (key=="back" and case_id=="case03"):continue
 		if key=="address" and str(fields[key])=="water-damaged":
 			for row:int in range(3):draw_line(rect.position+Vector2(32,183+row*7),rect.position+Vector2(130+row*13,185+row*7),Color(0.34,0.47,0.43,0.17),3.0,true)
 			continue
 		if not str(fields[key]).is_empty():lines.append(str(fields[key]))
-	var safe:=Rect2(rect.position+Vector2(30,34),Vector2(340,148)) if _snapshot.face=="front" else Rect2(rect.position+Vector2(27,126),Vector2(362,88))
+	var safe:=Rect2(rect.position+Vector2(30,34),Vector2(340,148)) if face=="front" else Rect2(rect.position+Vector2(27,126),Vector2(362,88))
 	if fields.has("recovered_fields"):
 		var recovered:Dictionary=fields.recovered_fields
 		lines.append("%s · %s\n%s\n%s — %s"%[recovered.original_address,recovered.forwarding_recipient,recovered.forwarding_destination,recovered.forwarding_valid_from,recovered.forwarding_valid_until])
-	var text_layout:=envelope_text_layout("\n".join(lines),safe,20 if _snapshot.face=="front" else 17)
+	var inscription:="\n".join(lines)
+	var key:=[face,inscription,get_theme_font("font").get_instance_id()]
+	if not _text_layout_cache.has(key):
+		if _text_layout_cache.size()>=6:_text_layout_cache.clear()
+		_text_layout_cache[key]=envelope_text_layout(inscription,Rect2(Vector2.ZERO,safe.size),20 if face=="front" else 17)
+		_text_layout_builds+=1
+	var text_layout:Dictionary=_text_layout_cache[key]
 	(text_layout.paragraph as TextParagraph).draw(get_canvas_item(),safe.position,INK)
-	if case_id=="case03" and _snapshot.face=="back" and not _snapshot.exterior_repaired:
+	if case_id=="case03" and face=="back" and not _snapshot.exterior_repaired:
 		var label:Rect2=model.object_rect("label")
 		Art.paint(self,"repair_label",label)
 		_text("—  /  —",label.position+Vector2(8,12),75,14,Color("958d7e"))

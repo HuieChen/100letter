@@ -20,6 +20,11 @@ def main() -> None:
                 items += json.loads(record.read_text(encoding="utf-8"))["artifacts"]
     followup = json.loads((ROOT / "docs/testing/corner-review_20261004/native-followup.json").read_text(encoding="utf-8"))
     items += followup["artifacts"]
+    tactile = json.loads((ROOT / "docs/testing/tactile-mail_20261004/evidence.json").read_text(encoding="utf-8"))
+    items += tactile["artifacts"]
+    native_path = ROOT / "docs/testing/tactile-mail_20261004/native.json"
+    if native_path.exists():
+        items += json.loads(native_path.read_text(encoding="utf-8"))["artifacts"]
     observed = {}
     for item in items:
         path = (ROOT / item["path"]).resolve()

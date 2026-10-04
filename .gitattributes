@@ -6,6 +6,7 @@
 *.md text eol=lf
 *.png binary
 *.jpeg binary
+*.jpg binary
 *.ttf binary
 *.wav binary
 *.gd whitespace=-blank-at-eof
@@ -28,3 +29,5 @@ addons/gut/** -text -eol -whitespace
 third_party/gut-font-licenses/** -text -eol -whitespace
 docs/testing/corner-review_20261004/** -text -eol -whitespace
 docs/testing/CORNER_REVIEW_20261004.md -text -eol -whitespace
+docs/testing/tactile-mail_20261004/** -text -eol -whitespace
+docs/testing/TACTILE_MAIL_20261004.md -text -eol -whitespace

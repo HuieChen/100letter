@@ -1,6 +1,7 @@
 extends "res://tests/core_review_input.gd"
 ## Newcomer route uses only visible objects and crosses, with actual viewport input.
 func _run() -> void:
+	root.unfocusable=true
 	for dimensions: Vector2i in [Vector2i(1280,720),Vector2i(1920,1080),Vector2i(2560,1440)]:
 		root.size=dimensions;root.content_scale_size=Vector2i(1600,900)
 		root.content_scale_mode=Window.CONTENT_SCALE_MODE_CANVAS_ITEMS

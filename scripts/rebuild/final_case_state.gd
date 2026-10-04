@@ -177,7 +177,9 @@ func accept_inspection(id: String, snapshot: Dictionary) -> String:
 	model.set_inspection(float(snapshot.zoom), Vector2(float(snapshot.pan[0]), float(snapshot.pan[1])))
 	var position := Vector2(float(snapshot.envelope_position[0]), float(snapshot.envelope_position[1]))
 	var current: Rect2 = model.object_rect("envelope")
-	if not current.position.is_equal_approx(position) or model.export_state().exterior_on_mat != snapshot.exterior_on_mat:
+	# Even a subpixel move from an older save must replay. Approximate equality
+	# could skip that legitimate translation, then reject its dependent poses.
+	if current.position != position or model.export_state().exterior_on_mat != snapshot.exterior_on_mat:
 		if not model.begin_drag("envelope", current.get_center()).is_empty(): return "当前实物不能作为完整信封移动。"
 		model.drag_to(current.get_center() + position - current.position)
 		model.release_drag()

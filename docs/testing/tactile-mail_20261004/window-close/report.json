@@ -1,0 +1,10 @@
+{
+  "reload_checks": 15,
+  "reload_exit": 0,
+  "input_events": 70,
+  "child_exit": 0,
+  "input_checks": 14,
+  "warning": "Automated OS event, not human X-click, audio listening, or art acceptance. See retained stderr logs.",
+  "scope": "Actual input in an isolated GPU child, then Win32 WM_CLOSE to that exact PID-owned HWND, then fresh-process reload.",
+  "failures": []
+}

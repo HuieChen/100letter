@@ -63,6 +63,36 @@
       "owner": "ui-programmer",
       "fix": "Actual paper corner clicks now hit page navigation; fixture sends independent painted-corner coordinates, confirmed by real Windows mouse forward/back.",
       "evidence": "docs/testing/CORNER_REVIEW_20261004.md"
+    },
+    {
+      "id": "MAIL-POSE-DRIFT",
+      "owner": "gameplay-programmer",
+      "fix": "Rigid attached translation and subpixel coordinate grid prevent normal multi-frame drag from failing strict material replay; 40 re-grabs and old-save micro movement tested.",
+      "evidence": "docs/testing/TACTILE_MAIL_20261004.md"
+    },
+    {
+      "id": "COUNTER-LID-REDRAW",
+      "owner": "godot-gdscript-specialist",
+      "fix": "Every lid tween update queues a redraw; real Windows click had reproduced a visually closed box despite its open logical state.",
+      "evidence": "docs/testing/TACTILE_MAIL_20261004.md"
+    },
+    {
+      "id": "MAIL-DUPLICATE-VIEW",
+      "owner": "ui-programmer",
+      "fix": "Focus surfaces hide the selected scene mail icon, restored on return; native reentry found the duplicate before this correction.",
+      "evidence": "docs/testing/TACTILE_MAIL_20261004.md"
+    },
+    {
+      "id": "MAIL-CONTINUOUS-TRANSFORM",
+      "owner": "gameplay-programmer",
+      "fix": "Retain the real counter, interpolate flip/zoom/return, interrupt at displayed transform and settle invalid drops without teleporting.",
+      "evidence": "docs/testing/TACTILE_MAIL_20261004.md"
+    },
+    {
+      "id": "QA-OFFSCREEN-FOCUS",
+      "owner": "qa-lead",
+      "fix": "Rendered fixtures are unfocusable to avoid competing for OS focus; a current delegate-path failure recorded actual focus_out. The older source-opening observation is still unresolved.",
+      "evidence": "docs/testing/TACTILE_MAIL_20261004.md"
     }
   ]
 }

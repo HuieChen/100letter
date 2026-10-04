@@ -30,6 +30,7 @@ var _start_progress := 0.0
 var _moved := false
 var _amendments: Dictionary = {}
 var _drag_origin := Vector2.ZERO
+var _drag_label_offset := Vector2.ZERO
 
 
 func setup(case_id: String) -> String:
@@ -240,6 +241,7 @@ func begin_drag(object_id: String, pointer: Vector2) -> String:
 	_grab = pointer - original_rect.position
 	_start_pointer = pointer
 	_drag_origin=original_rect.position
+	_drag_label_offset=(_point(_s.label_position)-_point(_s.envelope_position)).snapped(Vector2(0.01,0.01))
 	if object_id=="attachment":_s.attachment_position=_array(_drag_origin)
 	_moved = false
 	match object_id:
@@ -261,9 +263,14 @@ func drag_to(pointer: Vector2) -> String:
 			position = position.clamp(TABLE.position, TABLE.end - ENVELOPE_SIZE)
 			if _s.operation_mode == "open":
 				position = position.clamp(TABLE.position, OPENING_MAX_ORIGIN)
-			var offset := position - _point(_s.envelope_position)
+			# A hundredth of a table pixel is below visible pointer resolution, but
+			# gives repeated UI moves and the trusted single-move replay one pose.
+			position=position.snapped(Vector2(0.01,0.01))
 			_s.envelope_position = _array(position)
-			if not _s.label_lifted or _s.label_pressed: _s.label_position = _array(_point(_s.label_position) + offset)
+			# Attached paper shares one rigid translation. Incremental floating-point
+			# additions drifted from the host's legitimate-move replay and could
+			# reject a perfectly ordinary fractional drag when putting mail down.
+			if not _s.label_lifted or _s.label_pressed: _s.label_position = _array((position + _drag_label_offset).snapped(Vector2(0.01,0.01)))
 			_s.paper_position = _array(_mouth())
 			_s.exterior_on_mat = false
 		"label":

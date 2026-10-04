@@ -1,5 +1,15 @@
 # QA report · 2026-10-03
 
+## Physical mail continuity repair — 2026-10-04
+
+Latest feedback: the experience feels unreal and unresponsive. This phase only corrects the existing hand-carried box → extraction → inspection → return chain. It retains accepted scenery, letter assets, story and save schema. Inspection keeps the actual open counter behind the same envelope; zoom remains anchored to the pointer, and dragging can immediately take over an unfinished zoom. Pickup, flip, invalid drop and return have short physical transitions. Static counter redraws and repeated postal-text layout were removed.
+
+Actual raw input exposed two close/save blockers: attached label rounding drift after fractional multi-frame drags, and approximate replay skipping a tiny real move in an old save. Both now preserve rigid attachment while retaining strict full material comparison; independently forged label changes still fail. Native mouse review also exposed a stale box-lid rendering and a duplicate envelope icon on reentry; both were fixed and checked explicitly.
+
+Frozen-source final run `check-20261004-140043`: **18 suites / 7,585 assertions / zero failures**, including 77 direct rapid/fractional input checks and the existing complete case routes. Window close/reload: **29**, studio workflow tests: **28**. Four full 1920×1080 captures, source fingerprints, earlier failing runs and a state walkthrough are retained in [phase report](docs/testing/TACTILE_MAIL_20261004.md). Repeated drag coverage was expanded to 40 regrabs after the first rigid-position fix still failed. Offscreen QA windows no longer steal desktop focus; real game focus-loss behavior remains intact.
+
+Matching release/native follow-up and publication are being verified separately. No audio listening, novice acceptance, complete native bilingual/responsive matrix or new three-letter/wax story acceptance is implied. CORE-BOOK remains review; this is a development correction checkpoint.
+
 ## Actual paper-corner repair — 2026-10-04
 
 Real mouse testing found that the drawn bottom page corner did not respond: the old hit region was inside page content. Both hit regions now align with painted corners, with no modern rectangular hover background. The regression fixture clicks independent artwork coordinates rather than control centers. Existing art, story and saves are unchanged.

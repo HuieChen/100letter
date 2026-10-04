@@ -1,5 +1,7 @@
 # Current specification — reviewed 2026-10-03
 
+2026-10-04 latest direct feedback: "体验感不真实不流畅". Prioritize correcting the existing extraction/inspection/return chain. Preserve accepted art and scenery. Keep the original counter visible; interpolate flip and zoom without adding drag latency; settle invalid drops; reproduce and fix ordinary manipulation that prevents closing/saving. This is corrective work, not authorization to declare the book gate or later story complete.
+
 2026-10-04 asset intake: export all five pages of the supplied letter 1.pdf and the supplied brown wax-sealed envelope as transparent PNG cutouts. Exterior AND existing white paper pinholes must be transparent; colored wax highlights stay. This specifically authorizes background removal of these two sources; preserve their originals and content. Keep exported intake separate from runtime selection until a physical letter chain is wired and verified. Adopt applicable open-source game/interaction tools after primary-source license/version verification and actual checks, within the ordered work.
 
 2026-10-04 feedback: publish every scoped fix to main; upright physical chapter slips with consistent writing and full-silhouette hit areas. Make first action discoverable through real click/drag object response and a concise supervisor purpose. Dialogue height must follow real wrapped glyph metrics. Preserve accepted book/scenery, no global redesign.

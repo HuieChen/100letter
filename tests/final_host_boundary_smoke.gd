@@ -37,6 +37,7 @@ func _run()->void:
 	for down in [true,false]:
 		var e:=InputEventMouseButton.new();e.position=Vector2(1495,60);e.global_position=e.position;e.button_index=MOUSE_BUTTON_LEFT;e.pressed=down
 		root.push_input(e,true);await process_frame
+	await create_timer(0.22).timeout
 	_check(not is_instance_valid(game.modal),"actual envelope inspection closes before onward journey")
 	_ok(game.core.travel("community_center",15),"fixture reaches real cubby location")
 	game._world();await process_frame

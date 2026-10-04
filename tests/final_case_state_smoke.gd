@@ -548,6 +548,28 @@ func _inspection_bridge() -> void:
 	_ok(game.begin_operation("case03", "repair_exterior"), "legitimate tool mode starts")
 	_reject(game.accept_inspection("case03", model.export_state()), "inspection cannot bypass active-operation boundary")
 	_ok(game.cancel_operation(model.export_state()), "safe exit legitimate tool mode")
+	# Pre-grid saves legitimately contain float32 coordinates. A tiny move from
+	# those poses must still replay; material and attached-pose guards remain strict.
+	var legacy_game=_new("legacy-subpixel-inspection")
+	_ok(legacy_game.take_case("case01"),"legacy fixture takes its actual envelope")
+	var legacy:Dictionary=legacy_game.case_state("case01").physical
+	var origin:=Vector2(680.0013,280.0014)
+	var delta:=origin-Vector2(legacy.envelope_position[0],legacy.envelope_position[1])
+	var label:=Vector2(legacy.label_position[0],legacy.label_position[1])+delta
+	var mouth:=origin+Vector2(420,65)
+	legacy.envelope_position=[origin.x,origin.y];legacy.label_position=[label.x,label.y];legacy.paper_position=[mouth.x,mouth.y]
+	legacy_game.state.cases.case01.physical=legacy
+	_check(legacy_game.save_game() and legacy_game.load_game(),"older valid fractional pose survives isolated save recovery")
+	var recovered=Paper.new()
+	_ok(recovered.restore_state(legacy_game.case_state("case01").physical),"restore older pose before tiny real movement")
+	var start:Vector2=recovered.object_rect("envelope").get_center()
+	_ok(recovered.begin_drag("envelope",start),"grab restored fractional envelope")
+	_ok(recovered.drag_to(start+Vector2(0.001,0.001)),"legitimate subpixel move reaches canonical rigid pose")
+	_ok(recovered.release_drag(),"release restored fractional envelope")
+	_ok(legacy_game.accept_inspection("case01",recovered.export_state()),"tiny movement of older pose is replayed before strict comparison")
+	var forged:Dictionary=recovered.export_state()
+	forged.label_position[0]+=1.0
+	_reject(legacy_game.accept_inspection("case01",forged),"legacy compatibility does not permit independent label mutation")
 
 
 func _routing_and_deadline() -> void:

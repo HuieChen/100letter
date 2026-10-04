@@ -1,5 +1,7 @@
 # Latest user feedback — authoritative order
 
+2026-10-04 newest: "体验感不真实不流畅". Correct the actual physical loop and input continuity first, within the existing framework. The latest correction pass targets extraction, preserved counter, movable envelope, flip/zoom/put-down and safe return. Do not substitute another visual redesign or additional explanatory labels. Existing main publication authorization remains valid.
+
 2026-10-04 newest: cutouts must also make the existing white texture pinholes INSIDE the paper transparent, not only the exterior. The first cutout prompt incorrectly kept these flecks opaque; discard that version. Process all five PDF pages plus the supplied envelope into alpha PNGs; preserve original files, writing and colored wax highlights. This is targeted background removal, not a global restyle or automatic gameplay substitution. The user additionally authorizes applicable open-source game/interaction projects and uninterrupted work within prior authorization; research, license/version-check and actually test adopted dependencies.
 
 2026-10-04 latest: Publish all scoped work to HuieChen/100letter main. Physical chapter tabs are too slanted; make their silhouette, writing baseline and attachment natural without replacing accepted art. Guidance remains unclear: repair actual object response and concise NPC purpose. No approval question, dashboard, narrator hint, arrow or empty tab.
