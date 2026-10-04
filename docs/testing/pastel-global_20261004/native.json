@@ -1,5 +1,5 @@
 {
-  "scope": "Actual Windows mouse via computer-use, raw bounded window captures; internal 1920x1080 and DPI-scaled capture 1283x751. Earlier package diagnostic, not final R2 input evidence.",
+  "scope": "Actual Windows mouse in earlier diagnostic package and matching final R2 executable. Raw bounded/DPI-scaled captures are separate from the full 1920x1080 engine captures.",
   "earlier_package": {
     "source_commit": "56eb245fc1102e7fcc4aaf2d0f7daa141816302d",
     "pck_sha256": "0b6f2fd3b1e3a48b519e0450d3057522357653a2d0ef73acaf42b1ddcd0131f7",
@@ -22,11 +22,31 @@
       "Community map roof did not respond; original target covered its caption only. Fixed and independently retested in R2."
     ]
   },
-  "final_package": null,
+  "final_package": {
+    "source_commit": "3f7b452d8807acccb533015cf9e5fa59dd03f557",
+    "executable_sha256": "d34d36f3be1a6c49c56525ae86469b92e4f417ddf0b43cf00dd80c385c4b0562",
+    "pck_sha256": "9830370f5d55c358c732b2cb6b6806795f18470aa48206139c606231c77b8437",
+    "observed": [
+      "Plain title/New/Supervisor cross",
+      "Closed case -> latch movement -> hinged lid -> exposed letter",
+      "Actual drag into inspection retains counter",
+      "Left paper-edge flip -> wheel zoom -> physical movement",
+      "Cross return -> same reverse face on desk -> reentry retains pose -> Esc return",
+      "Field book title/slips inside paper; click actual paper corner advances to Ruth page 2/2; visible cross closes",
+      "Same previously missed map building point x537 y275 now puts map away and reaches community center at 09:15",
+      "New generated walking frames appear during actual approach",
+      "Click actual June NPC -> walking reaches conversation; visible advance shows choices; cross restores scene control"
+    ],
+    "limits": [
+      "One native Chinese/window-size flow, not all bilingual/resolution modes",
+      "No new story, human first-player or listening acceptance"
+    ]
+  },
   "wechat_report": {
     "text_report_sent": true,
     "image_report_sent": false,
-    "scope": "File Transfer Assistant observed and a clearly labelled Codex report sent; own reports are not treated as human instructions."
+    "scope": "File Transfer Assistant observed and a clearly labelled Codex report sent; own reports are not treated as human instructions.",
+    "limit": "Subsequent UI input was interrupted by user input detection. Fresh state showed a new draft; it was preserved and no image/send operation continued."
   },
   "limits": [
     "Not a full native bilingual/responsive matrix",
@@ -113,6 +133,114 @@
     {
       "path": "docs/testing/pastel-global_20261004/native/20_map_transition.png",
       "sha256": "bcec1a349865efbcfc775ff5e9aafa854c790a3d71fb8ccb3ca17cdc85dbeacf"
+    },
+    {
+      "path": "docs/testing/pastel-global_20261004/native/final-package/01_title.png",
+      "sha256": "f9e45e5ff709ee17049d21d88afc224a2507a87f0adb5ff1927a23ce135e9e8a"
+    },
+    {
+      "path": "docs/testing/pastel-global_20261004/native/final-package/02_supervisor.png",
+      "sha256": "be873a5ee02a1bd4ce79b53d56bba9dfbb3ad52f318e395ad27bbc4fed74c4f9"
+    },
+    {
+      "path": "docs/testing/pastel-global_20261004/native/final-package/03_closed_box.png",
+      "sha256": "af6d0ac3b991d036d8f5306d1cac0efa47551bac272cbe9dc8eda9519ff8c7eb"
+    },
+    {
+      "path": "docs/testing/pastel-global_20261004/native/final-package/04_latch.png",
+      "sha256": "df96b6434a196d5d82b7c8664d35bf44f92771aa7d350f69e05940866a488260"
+    },
+    {
+      "path": "docs/testing/pastel-global_20261004/native/final-package/05_open_box.png",
+      "sha256": "bdb13a47d36dce0b131eaa2ac6a607f201c9c0eebc6f43b6d94e036b8f381fea"
+    },
+    {
+      "path": "docs/testing/pastel-global_20261004/native/final-package/06_inspect.png",
+      "sha256": "a338c0a1b41ff8ffc046f24aa783f92bf9b980169250ebc4d65ae672dd37126a"
+    },
+    {
+      "path": "docs/testing/pastel-global_20261004/native/final-package/07_back.png",
+      "sha256": "e31497efbff8cb4447715cf1b86e4c2c1f62d29bf0686ff8a296a4e24b6ace92"
+    },
+    {
+      "path": "docs/testing/pastel-global_20261004/native/final-package/08_zoom.png",
+      "sha256": "436d9ec21bf11edb8893e09180ff6894caab95e731681aee306d6e6b793bd914"
+    },
+    {
+      "path": "docs/testing/pastel-global_20261004/native/final-package/09_drag.png",
+      "sha256": "c5a5659a5b645a6fca6aa09221ec32bfe8cc8ca73dd589a9b573ba1d75be3ec3"
+    },
+    {
+      "path": "docs/testing/pastel-global_20261004/native/final-package/10_cross_return.png",
+      "sha256": "a4290dd0198ecdfe39488be97642307e1e7eb2343a71bcce2bf5cb2c2468af07"
+    },
+    {
+      "path": "docs/testing/pastel-global_20261004/native/final-package/11_reopened.png",
+      "sha256": "09bdeae319428196c433a4655503079f7f9e3f2fc40539ad53fdca73885e46d6"
+    },
+    {
+      "path": "docs/testing/pastel-global_20261004/native/final-package/12_esc_return.png",
+      "sha256": "af9fe524d83a3ae2f2341af5691b6f998e810ba4520c40ba3b156dc2eabda208"
+    },
+    {
+      "path": "docs/testing/pastel-global_20261004/native/final-package/13_field_book.png",
+      "sha256": "c87ccaa1512e5df1749563f4856a1a917b01dc0ea612afb2d9c2ae720259cd41"
+    },
+    {
+      "path": "docs/testing/pastel-global_20261004/native/final-package/14_paper_corner.png",
+      "sha256": "b1a4d6080aaaaf216dda96aceedc2ae5a10200d895907408108bf4d8358d4876"
+    },
+    {
+      "path": "docs/testing/pastel-global_20261004/native/final-package/15_book_cross.png",
+      "sha256": "237f5bb64193e80c1026ea7357ff42f9f7268c274a096ba630cc782c568a0b60"
+    },
+    {
+      "path": "docs/testing/pastel-global_20261004/native/final-package/16_map.png",
+      "sha256": "905a6e5965b5288dc9ac368ae8a392815d75f9abe7b98460b572cbc0e13f3641"
+    },
+    {
+      "path": "docs/testing/pastel-global_20261004/native/final-package/17_roof_departure.png",
+      "sha256": "a79a56855d653ecfc576577198b85cc8baf885977ea272595d5dbb08eaa88f5f"
+    },
+    {
+      "path": "docs/testing/pastel-global_20261004/native/final-package/18_npc_approach.png",
+      "sha256": "780dfaa6458880206c50f2acbf9bf348f53d8aed51faa57afdbb58cb36289526"
+    },
+    {
+      "path": "docs/testing/pastel-global_20261004/native/final-package/19_npc_dialogue.png",
+      "sha256": "7c5559fb454f655fe3483fb4403cd2371dc3c037fec3f2644d211081d68f383f"
+    },
+    {
+      "path": "docs/testing/pastel-global_20261004/native/final-package/20_npc_topics.png",
+      "sha256": "541f6becd8025795c068ae375f116be4a9c4999777df1d975d118719a5e5c098"
+    },
+    {
+      "path": "docs/testing/pastel-global_20261004/native/final-package/21_npc_cross.png",
+      "sha256": "196ece7bfa64fe455b8cdfa7e9390f33e5b5a3b2631a9dc6aaa8113813718e01"
+    },
+    {
+      "path": "docs/testing/pastel-global_20261004/package/verification.json",
+      "sha256": "643362e3bc76e596e3a0a49ef9028df0deb62eb557009a86aa94fb902527652b"
+    },
+    {
+      "path": "docs/testing/pastel-global_20261004/package/content.json",
+      "sha256": "5783b6f7862c26a29eff740211b97be8da2289f2735605b502dbedeb0d8f85d0"
+    },
+    {
+      "path": "docs/testing/pastel-global_20261004/package/content.stdout.log",
+      "sha256": "581176e6c7e159d08756e72763db2625428df891b9d763f15a22f14ed56618c3"
+    },
+    {
+      "path": "docs/testing/pastel-global_20261004/package/content.stderr.log",
+      "sha256": "a797ada4520776562c8d6fc8223aedd60055d2a661518390b867c5026191884a"
+    },
+    {
+      "path": "docs/testing/pastel-global_20261004/package/release-gpu-boot.stdout.log",
+      "sha256": "5fdebc47089d9a3ed2aaf0644bbe398ffcb056d4454dcf3d52e710226ecd6b18"
+    },
+    {
+      "path": "docs/testing/pastel-global_20261004/package/release-gpu-boot.stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
     }
   ]
 }

@@ -1,0 +1,29 @@
+{
+  "source_commit": "3f7b452d8807acccb533015cf9e5fa59dd03f557",
+  "release_url": "https://github.com/HuieChen/100letter/releases/tag/solmere-pastel-2026-10-04",
+  "release_id": 402981033,
+  "prerelease": true,
+  "assets": [
+    {
+      "name": "100letter-Windows-Pastel-20261004-R2.zip",
+      "url": "https://github.com/HuieChen/100letter/releases/download/solmere-pastel-2026-10-04/100letter-Windows-Pastel-20261004-R2.zip",
+      "bytes": 74014707,
+      "sha256": "664cd4d294a9b8f64e4b879c86d33934a614015fed1c89d198f48d8d398b4498",
+      "github_digest": "sha256:664cd4d294a9b8f64e4b879c86d33934a614015fed1c89d198f48d8d398b4498"
+    }
+  ],
+  "workflow_runs": [
+    {
+      "head_sha": "3f7b452d8807acccb533015cf9e5fa59dd03f557",
+      "url": "https://github.com/HuieChen/100letter/actions/runs/37198041102",
+      "status": "completed",
+      "conclusion": "success"
+    },
+    {
+      "head_sha": "3f7b452d8807acccb533015cf9e5fa59dd03f557",
+      "url": "https://github.com/HuieChen/100letter/actions/runs/37196572985",
+      "status": "completed",
+      "conclusion": "success"
+    }
+  ]
+}

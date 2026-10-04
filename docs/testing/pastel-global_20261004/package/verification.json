@@ -1,0 +1,13 @@
+{
+  "scope": "Actual PCK decoding using the matching editor inspector, then the official release executable GPU boot. Isolated saves; no source game fallback.",
+  "executable_sha256": "d34d36f3be1a6c49c56525ae86469b92e4f417ddf0b43cf00dd80c385c4b0562",
+  "limits": [
+    "No full native input playthrough, visual reference acceptance or audio listening is implied.",
+    "Review stderr logs separately; Windows root certificate store warnings may occur."
+  ],
+  "release_frames_requested": 120,
+  "packaged_content_checks": 170,
+  "release_gpu_boot_exit": 0,
+  "pck_sha256": "9830370f5d55c358c732b2cb6b6806795f18470aa48206139c606231c77b8437",
+  "packaged_content_failures": []
+}

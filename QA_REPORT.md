@@ -1,5 +1,13 @@
 # QA report · 2026-10-03
 
+## Current published pastel package and native review — 2026-10-04
+
+Game source `3f7b452d8807acccb533015cf9e5fa59dd03f557` is on main; both source-commit CI runs succeeded. The [matching Windows prerelease](https://github.com/HuieChen/100letter/releases/tag/solmere-pastel-2026-10-04) has a GitHub-verified 74,014,707-byte ZIP and SHA256 `664cd4d294a9b8f64e4b879c86d33934a614015fed1c89d198f48d8d398b4498`. Its actual PCK passes 170 content checks and the official release EXE passes 120 GPU boot frames. Final source-frozen regression is 18 suites / 7,615 assertions / zero failures, with separate window/reload 29, workflow 28 and PNG/atlas tests 3.
+
+Actual mouse input in this same R2 package confirms case latch/hinge/extraction, the same envelope's edge flip/zoom/drag/cross return/reentry/Esc, book paper-corner turn/cross, whole painted map landmark arrival and NPC approach/dialogue topics/cross. Twenty-one final-package native captures and six package artifacts are retained in [native.json](docs/testing/pastel-global_20261004/native.json). Earlier package failures remain separately labelled; no passed result is substituted for the map roof miss before its fix.
+
+This closes the current global visual-update/publication phase, not highest final acceptance. Native coverage is one Chinese window flow, with separate automated bilingual/responsive frames. Listening, novice blind test, full native matrix and the requested new long three-letter/actual wax-material story remain incomplete; CORE-BOOK remains review. WeChat phase text was sent with a Codex label; image sending stopped after user-input detection and a new draft was preserved. Source screenshots and final-package raw captures remain available locally and on main.
+
 Latest map follow-up: native roof click missed the old label-only target; complete landmark hit regions now preserve label placement. Final check-20261004-183533: 18 suites / 7615 checks / zero failures; independent roof input checks arrival at three resolutions. This supersedes the earlier 7,594-check source for packaging. See docs/testing/PASTEL_GLOBAL_20261004.md.
 
 ## Global pastel bitmap replacement — 2026-10-04
