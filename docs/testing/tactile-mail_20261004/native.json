@@ -115,6 +115,14 @@
     {
       "path": "docs/testing/tactile-mail_20261004/source-main-ci.json",
       "sha256": "6f150b58aedbfd5bd56b19ff1b8577282daab407597f12f5480ec6c28f000b25"
+    },
+    {
+      "path": "docs/testing/tactile-mail_20261004/sync.json",
+      "sha256": "a65de78f8e78e44b8109fd8f0a52b283c9d563c695fa5287bde01d2b3ba187a1"
+    },
+    {
+      "path": "docs/testing/tactile-mail_20261004/followup-main-ci.json",
+      "sha256": "fa38b2ace1df2c3e12a999d7216a8713fc6edeb065b2901dad6a5c49765272d5"
     }
   ]
 }

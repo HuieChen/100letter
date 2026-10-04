@@ -1,0 +1,456 @@
+{
+  "source_commit": "06d768edc7af618c03405498f925ed2996e75157",
+  "base": "61840f1df84be7817abfe0e8fdc9a5c26e393ee9",
+  "backup": "C:\\Users\\22416\\Documents\\Codex\\2026-10-01\\github\\outputs\\sync-tactile-backup-20261004-144048",
+  "synced": [
+    {
+      "path": ".gitattributes",
+      "prior_sha256": "738424d4b8294145a3cf2dc09cf3baf0f335633da0f01d6b5a18c4c3ab8b70ab",
+      "copied_sha256": "0e5a1462487bb01aafc2966cd2060f22b6df38a22ef6b4c12c4e991763d75f53"
+    },
+    {
+      "path": ".github/workflows/studio-adapter.yml",
+      "prior_sha256": "ddb30d796278357148b84b56431f5664661553c387f19f006f40b9d73cd446e0",
+      "copied_sha256": "60371b486ae9589e5fae0056db60101635b05b5de10ab83be797adfdae648082"
+    },
+    {
+      "path": "CURRENT_SPEC.md",
+      "prior_sha256": "24a4de9ee0acfcfd8bd000320360cfb43171f060539e99f741ba7a4c4e043472",
+      "copied_sha256": "2729da90ef0b52e4d6cd3e1a770f535d80f403fe5740034ea737efeb47a7e4e8"
+    },
+    {
+      "path": "LATEST_USER_FEEDBACK.md",
+      "prior_sha256": "2cb77399966637ce428ab66de1a61b2fd2842df9f0f6339fd7699a3155e065e1",
+      "copied_sha256": "c5219862cad8c52d6051ff47d8cc140bfbff20fa61d4258aafade82567b53306"
+    },
+    {
+      "path": "QA_REPORT.md",
+      "prior_sha256": "a73f21b45f1ef5147dfcb93e04c52a844d69c228946b5da9862d8df578b4d7b4",
+      "copied_sha256": "520f6a763b6ef2dec96f74e14852ade896c3e809e13fe30433c078bb37c02902"
+    },
+    {
+      "path": "RUN_STATE.md",
+      "prior_sha256": "0bd06cadc55d49f1b311bc642c0322db88b2e72ac1c5c33c5a2165faf5bb1e33",
+      "copied_sha256": "e5a178a367d9aee13088b575660766e24cc4c030dd7e623239c8f2e38aad7a2f"
+    },
+    {
+      "path": "docs/testing/TACTILE_MAIL_20261004.md",
+      "prior_sha256": null,
+      "copied_sha256": "6f6356e8b06447510650ef5728e94ad7416d08e299eb23fd7d77fede7acd42fc"
+    },
+    {
+      "path": "docs/testing/tactile-mail_20261004/.gdignore",
+      "prior_sha256": null,
+      "copied_sha256": "c1af256a7d0efee5ceaef8617844a8cb84151483f96b7f28c0fa3d62a9371cc8"
+    },
+    {
+      "path": "docs/testing/tactile-mail_20261004/01_open_box.png",
+      "prior_sha256": null,
+      "copied_sha256": "a7e02a9f6a4c67d5a98569bc76f80e02868dd1473bb1983decc5efe234b5efd1"
+    },
+    {
+      "path": "docs/testing/tactile-mail_20261004/02_inspect_same_counter.png",
+      "prior_sha256": null,
+      "copied_sha256": "e46bd29fc76c9833294414c93ac6041f0b960d3f4f920cbedc0d385ef193dc86"
+    },
+    {
+      "path": "docs/testing/tactile-mail_20261004/03_reverse_after_interrupted_zoom.png",
+      "prior_sha256": null,
+      "copied_sha256": "5dcda30d0e0f4faeb5c58652bbbf010b30e6aa835f6a72c052192f641da56866"
+    },
+    {
+      "path": "docs/testing/tactile-mail_20261004/04_returned_counter.png",
+      "prior_sha256": null,
+      "copied_sha256": "87ed6691c032af7d9efb96dc6cfaf7783ac093b978531d8685474cfc0c8cc00f"
+    },
+    {
+      "path": "docs/testing/tactile-mail_20261004/earlier/check-20261004-124610/tactile_mail_input.log",
+      "prior_sha256": null,
+      "copied_sha256": "0b1bfd89c1bda7e49e4c9becec8c4edab418e539184f0b3afbc0122311efef5b"
+    },
+    {
+      "path": "docs/testing/tactile-mail_20261004/earlier/check-20261004-130304/five_case_delegate.log",
+      "prior_sha256": null,
+      "copied_sha256": "c31927511f046b55603a75204a09a864fa9569c7c47d233fe924ad8113e30cf7"
+    },
+    {
+      "path": "docs/testing/tactile-mail_20261004/earlier/check-20261004-130304/tactile_mail_input.log",
+      "prior_sha256": null,
+      "copied_sha256": "8cfee3e2c6aaa536d0008e414a016ba9cd0e59f032c63ad52430c3eba629784e"
+    },
+    {
+      "path": "docs/testing/tactile-mail_20261004/earlier/check-20261004-131250/five_case_delegate.log",
+      "prior_sha256": null,
+      "copied_sha256": "c75d0f723b23206270d9612025a9dbdfd92b9c29aab59dbff84f731840a57e49"
+    },
+    {
+      "path": "docs/testing/tactile-mail_20261004/earlier/check-20261004-131250/tactile_mail_input.log",
+      "prior_sha256": null,
+      "copied_sha256": "34ae50d5f7dce2681cb7d9fbda7cbfc16a27ae80a943e2cec1bb323df204a796"
+    },
+    {
+      "path": "docs/testing/tactile-mail_20261004/earlier/check-20261004-133053/tactile_mail_input.log",
+      "prior_sha256": null,
+      "copied_sha256": "3e973c0cda48b9756b065afb87349b3f26a9d69c75eecd8b1e20f30f4a717455"
+    },
+    {
+      "path": "docs/testing/tactile-mail_20261004/earlier/check-20261004-135123/five_case_delegate.log",
+      "prior_sha256": null,
+      "copied_sha256": "c75d0f723b23206270d9612025a9dbdfd92b9c29aab59dbff84f731840a57e49"
+    },
+    {
+      "path": "docs/testing/tactile-mail_20261004/earlier/check-20261004-135123/tactile_mail_input.log",
+      "prior_sha256": null,
+      "copied_sha256": "aa75cfe7133776a605e8139ce36406b618fd580c4ce8256f3fd436133ab6f5df"
+    },
+    {
+      "path": "docs/testing/tactile-mail_20261004/earlier/legacy-pose-probe.log",
+      "prior_sha256": null,
+      "copied_sha256": "7114b78ab24fc8afe006275691711b32803fd3dfcd42da15a7419479caa39ed8"
+    },
+    {
+      "path": "docs/testing/tactile-mail_20261004/earlier/tactile-input-r2.log",
+      "prior_sha256": null,
+      "copied_sha256": "2399754238f3c371c428651ca96f42014dfdad7c3ff4a66d0b10bef46397d842"
+    },
+    {
+      "path": "docs/testing/tactile-mail_20261004/earlier/tactile-input-r3.log",
+      "prior_sha256": null,
+      "copied_sha256": "0b1bfd89c1bda7e49e4c9becec8c4edab418e539184f0b3afbc0122311efef5b"
+    },
+    {
+      "path": "docs/testing/tactile-mail_20261004/earlier/tactile-input-r4.log",
+      "prior_sha256": null,
+      "copied_sha256": "c8b8fd20e5f5b35a88e49c1fbd9286a0fe738189718577dd9b51d0705492bd61"
+    },
+    {
+      "path": "docs/testing/tactile-mail_20261004/earlier/tactile-input-r5.log",
+      "prior_sha256": null,
+      "copied_sha256": "8cfee3e2c6aaa536d0008e414a016ba9cd0e59f032c63ad52430c3eba629784e"
+    },
+    {
+      "path": "docs/testing/tactile-mail_20261004/earlier/tactile-input-r6.log",
+      "prior_sha256": null,
+      "copied_sha256": "a68e7eb97a67ea86d34366b12ea358511cbbd8de482aa98e2bf3e085cf5ca6dc"
+    },
+    {
+      "path": "docs/testing/tactile-mail_20261004/earlier/tactile-input.log",
+      "prior_sha256": null,
+      "copied_sha256": "55a5d9aee62f52f6f96938abe35affa5c40b4422e4c5fa3a69e02648c9cc7581"
+    },
+    {
+      "path": "docs/testing/tactile-mail_20261004/earlier/tactile-onboarding-headless.log",
+      "prior_sha256": null,
+      "copied_sha256": "7c487f812c262a2acb67964399ecd660227bb1bb29e17dcd0559d93972a2c9fb"
+    },
+    {
+      "path": "docs/testing/tactile-mail_20261004/engine/amended_handoff.log",
+      "prior_sha256": null,
+      "copied_sha256": "d46459340b6b20db2f8b0fe7b7f2a34a04dff41e392abc3759ae979b8414c074"
+    },
+    {
+      "path": "docs/testing/tactile-mail_20261004/engine/core_review_input.log",
+      "prior_sha256": null,
+      "copied_sha256": "07e425c267e276b52e667cb87368dcf90182c80ebaf35b59ad72745c60d0c70d"
+    },
+    {
+      "path": "docs/testing/tactile-mail_20261004/engine/counter_onboarding_input.log",
+      "prior_sha256": null,
+      "copied_sha256": "19dcf34e06416eb12d4c916229938b4a4781d6700f120011df4c463e2e4cd56d"
+    },
+    {
+      "path": "docs/testing/tactile-mail_20261004/engine/envelope_text_bounds_smoke.log",
+      "prior_sha256": null,
+      "copied_sha256": "4a14c39efe0c00c09ebaa7a798eea9497cb857ae14aae26ad87e17c98f8822d5"
+    },
+    {
+      "path": "docs/testing/tactile-mail_20261004/engine/field_book_smoke.log",
+      "prior_sha256": null,
+      "copied_sha256": "e40ff99b59ac88fe5a91aa89734494b5c6b8ffa6aab6d8b58f739db2af056c67"
+    },
+    {
+      "path": "docs/testing/tactile-mail_20261004/engine/field_observation_smoke.log",
+      "prior_sha256": null,
+      "copied_sha256": "811933eb6ac0f2e96079a59a49cc257e920c2ec745e35f6de67621c899a22d82"
+    },
+    {
+      "path": "docs/testing/tactile-mail_20261004/engine/final_case_state_smoke.log",
+      "prior_sha256": null,
+      "copied_sha256": "1d415096141938b58a453044776fbde6d3ba77897bca6fdd0f13bc52745f3c2a"
+    },
+    {
+      "path": "docs/testing/tactile-mail_20261004/engine/final_host_boundary_smoke.log",
+      "prior_sha256": null,
+      "copied_sha256": "7522268ae5c9f28b9f9dabb46a3425de68aecd05e69d4e6e24cfc9d53c72198c"
+    },
+    {
+      "path": "docs/testing/tactile-mail_20261004/engine/final_resolution_draft_smoke.log",
+      "prior_sha256": null,
+      "copied_sha256": "b59576f9818c04f4d3b41442b33339c38e06d2e43874c41bf27b5f92f0ad6d50"
+    },
+    {
+      "path": "docs/testing/tactile-mail_20261004/engine/final_walker_smoke.log",
+      "prior_sha256": null,
+      "copied_sha256": "e1f57e2b1236fb3abc503d9dc2b5ca60247df26ed13b6bf2440eac7150249a95"
+    },
+    {
+      "path": "docs/testing/tactile-mail_20261004/engine/five_case_delegate.log",
+      "prior_sha256": null,
+      "copied_sha256": "c75d0f723b23206270d9612025a9dbdfd92b9c29aab59dbff84f731840a57e49"
+    },
+    {
+      "path": "docs/testing/tactile-mail_20261004/engine/five_case_sealed.log",
+      "prior_sha256": null,
+      "copied_sha256": "6ec9b93b8c1fe70cf27df1b5b43c750434e17faf2ad3967144b2d7dc2764ed4f"
+    },
+    {
+      "path": "docs/testing/tactile-mail_20261004/engine/import.log",
+      "prior_sha256": null,
+      "copied_sha256": "91277035d3a118612759dffe9ac6886786bf397f185fee8b5b391a37aa88f3a3"
+    },
+    {
+      "path": "docs/testing/tactile-mail_20261004/engine/mail_physics_state_smoke.log",
+      "prior_sha256": null,
+      "copied_sha256": "75cee30ca671f8085b6b733c543df8999bf335b19e050f73c834d057c478245b"
+    },
+    {
+      "path": "docs/testing/tactile-mail_20261004/engine/mail_workbench_input_smoke.log",
+      "prior_sha256": null,
+      "copied_sha256": "44cd4cf8c44d5616b195df2faa926f3620c3ee16d3d7c30e0fcb5b661134e855"
+    },
+    {
+      "path": "docs/testing/tactile-mail_20261004/engine/postal_desk_live_queue.log",
+      "prior_sha256": null,
+      "copied_sha256": "2d890813e2b3c8cd4b33b94d08d286609657c80ef6ba809a3ebaa74d00b21ee8"
+    },
+    {
+      "path": "docs/testing/tactile-mail_20261004/engine/resolution_slip_smoke.log",
+      "prior_sha256": null,
+      "copied_sha256": "f76170808408518a2a72ef54209151855b29b923bb50c79e34f5c85a6f5ff33a"
+    },
+    {
+      "path": "docs/testing/tactile-mail_20261004/engine/scene_dialogue_input_smoke.log",
+      "prior_sha256": null,
+      "copied_sha256": "8484f90784adce7ab17276b09ac8819a764e50e2bbf925c70563102258fcfdb7"
+    },
+    {
+      "path": "docs/testing/tactile-mail_20261004/engine/tactile_mail_input.log",
+      "prior_sha256": null,
+      "copied_sha256": "aa75cfe7133776a605e8139ce36406b618fd580c4ce8256f3fd436133ab6f5df"
+    },
+    {
+      "path": "docs/testing/tactile-mail_20261004/evidence.json",
+      "prior_sha256": null,
+      "copied_sha256": "5794160316ebcdd43984348a4aef09fe6f1bb9fd09d9b6e009d18df6737bc732"
+    },
+    {
+      "path": "docs/testing/tactile-mail_20261004/native.json",
+      "prior_sha256": null,
+      "copied_sha256": "b5e60e13aa1c729835554271027288202e65acf1b074bf01d7b1a3d84cb569fd"
+    },
+    {
+      "path": "docs/testing/tactile-mail_20261004/native/01_clicked_box_open.jpg",
+      "prior_sha256": null,
+      "copied_sha256": "b361453257826e57ad0cf02788072afa1ffe5b63c3f790aa767d30ba5e2587d9"
+    },
+    {
+      "path": "docs/testing/tactile-mail_20261004/native/02_dragged_zoom_front.jpg",
+      "prior_sha256": null,
+      "copied_sha256": "42ea993e825477b2b3232e8da4b31f5a44b3a743f1b3f2d80c53847aa848a65d"
+    },
+    {
+      "path": "docs/testing/tactile-mail_20261004/native/03_reverse.jpg",
+      "prior_sha256": null,
+      "copied_sha256": "26fce1c8f0a7a449dad9886c8fd72e941b8a2854b528f518577c20eb8237ca53"
+    },
+    {
+      "path": "docs/testing/tactile-mail_20261004/native/04_returned_counter.jpg",
+      "prior_sha256": null,
+      "copied_sha256": "7f73f96dbbc822373151b11e5c8c8d67636137d18bf131158cd0a541ab65bc0c"
+    },
+    {
+      "path": "docs/testing/tactile-mail_20261004/native/05_reentry_duplicate_before_fix.jpg",
+      "prior_sha256": null,
+      "copied_sha256": "911b5df2b16e221dae75426661255788a6f46205ad486c5716de64cfac26bb35"
+    },
+    {
+      "path": "docs/testing/tactile-mail_20261004/native/06_matching_package_supervisor.jpg",
+      "prior_sha256": null,
+      "copied_sha256": "359dc4128e7651017cfb428f80857482b481b67ff2f5f12857b2820e8ee7dc26"
+    },
+    {
+      "path": "docs/testing/tactile-mail_20261004/package/GODOT_TEMPLATE_SOURCE.json",
+      "prior_sha256": null,
+      "copied_sha256": "6d216eaa6942e4b3818d9f794b580f23e331eceb6dd7a20c4a0d8ec760b7d5f0"
+    },
+    {
+      "path": "docs/testing/tactile-mail_20261004/package/SOURCE_AND_QA.json",
+      "prior_sha256": null,
+      "copied_sha256": "44ba5b9bceafa9313ce0014d5462f2b1e876e72c19b43bd56a09db751d6507c3"
+    },
+    {
+      "path": "docs/testing/tactile-mail_20261004/package/build-export-audit.json",
+      "prior_sha256": null,
+      "copied_sha256": "ce33ae1f7b5cacb19933df211b6f366ed38ad4d7db97684ed79520f3a8e18147"
+    },
+    {
+      "path": "docs/testing/tactile-mail_20261004/package/build-export-audit.log",
+      "prior_sha256": null,
+      "copied_sha256": "11dbefbc257f5945b9f5c8ab60084070c15d1a4875ac83075bb3cdf10e5aee2f"
+    },
+    {
+      "path": "docs/testing/tactile-mail_20261004/package/build-import.log",
+      "prior_sha256": null,
+      "copied_sha256": "e683ba10afd2059840117a3044abe3200da925ab8666d8a4625843d8f39cf546"
+    },
+    {
+      "path": "docs/testing/tactile-mail_20261004/package/content.json",
+      "prior_sha256": null,
+      "copied_sha256": "f3c647db85ea04c458c4d9a009e5d6806e073b84ca8d195282c97e31fa7ab331"
+    },
+    {
+      "path": "docs/testing/tactile-mail_20261004/package/content.stderr.log",
+      "prior_sha256": null,
+      "copied_sha256": "a797ada4520776562c8d6fc8223aedd60055d2a661518390b867c5026191884a"
+    },
+    {
+      "path": "docs/testing/tactile-mail_20261004/package/content.stdout.log",
+      "prior_sha256": null,
+      "copied_sha256": "7e95d5036eb7f11aa82ec216d5fbe3a25966efc2ab2efb5ed34c22ed5f77a760"
+    },
+    {
+      "path": "docs/testing/tactile-mail_20261004/package/release-gpu-boot.stderr.log",
+      "prior_sha256": null,
+      "copied_sha256": "a797ada4520776562c8d6fc8223aedd60055d2a661518390b867c5026191884a"
+    },
+    {
+      "path": "docs/testing/tactile-mail_20261004/package/release-gpu-boot.stdout.log",
+      "prior_sha256": null,
+      "copied_sha256": "5fdebc47089d9a3ed2aaf0644bbe398ffcb056d4454dcf3d52e710226ecd6b18"
+    },
+    {
+      "path": "docs/testing/tactile-mail_20261004/package/verification.json",
+      "prior_sha256": null,
+      "copied_sha256": "e0e13a8df5bf0b6043205f7e035e85d2a03752cdac4aa8534713a57a380110de"
+    },
+    {
+      "path": "docs/testing/tactile-mail_20261004/publication.json",
+      "prior_sha256": null,
+      "copied_sha256": "1c73482874037e8dc429b41f6865e72511bc514c737feeaaae3357b5b4e7c7e2"
+    },
+    {
+      "path": "docs/testing/tactile-mail_20261004/result.json",
+      "prior_sha256": null,
+      "copied_sha256": "939e561d7a9a232a34d9e1315ab1114248f8be6d9400dfb86f3e59976ec44c83"
+    },
+    {
+      "path": "docs/testing/tactile-mail_20261004/source-main-ci.json",
+      "prior_sha256": null,
+      "copied_sha256": "6f150b58aedbfd5bd56b19ff1b8577282daab407597f12f5480ec6c28f000b25"
+    },
+    {
+      "path": "docs/testing/tactile-mail_20261004/window-close/input.stderr.log",
+      "prior_sha256": null,
+      "copied_sha256": "66894c95acd6af0631be417c3bf9c31a2ceab00c02d4a5a3e92b780256865b04"
+    },
+    {
+      "path": "docs/testing/tactile-mail_20261004/window-close/input.stdout.log",
+      "prior_sha256": null,
+      "copied_sha256": "d37f6598e8aaaa8a4b6c07eff7473889721075c369b26a5b41dad05a28ba8e73"
+    },
+    {
+      "path": "docs/testing/tactile-mail_20261004/window-close/reload.stderr.log",
+      "prior_sha256": null,
+      "copied_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "docs/testing/tactile-mail_20261004/window-close/reload.stdout.log",
+      "prior_sha256": null,
+      "copied_sha256": "91ce5afce08b12a110306d3d9663773b1af78139346c6f385e58299608693e37"
+    },
+    {
+      "path": "docs/testing/tactile-mail_20261004/window-close/report.json",
+      "prior_sha256": null,
+      "copied_sha256": "fa8843cc1e52448431c0d65afab425a1647f5dfb05094320737c341fbc74e3ae"
+    },
+    {
+      "path": "production/studio-board.json",
+      "prior_sha256": "f7096cb64d9d5ea5003e983bddcbb18a4d421f06d4201f14286f0fc11ffeb47e",
+      "copied_sha256": "dda2f519c5b194005d434fa56af865fa2dcc05811e0d7869f0b52577de8d211b"
+    },
+    {
+      "path": "scripts/rebuild/final_case_state.gd",
+      "prior_sha256": "958fcbf5fdfb1e7f3fea06c622ea071c0d8a9ec1b12c913a56deba80d43d5fd0",
+      "copied_sha256": "640207716867fe6dda2a0a5eabe7515517788ddbfa4b06cbf31bea1cb6324e72"
+    },
+    {
+      "path": "scripts/rebuild/final_playable.gd",
+      "prior_sha256": "9c8581bca0f998d11ad520508e6db9e44b2397233243d2913978ef0906dc1667",
+      "copied_sha256": "1c2040c467934005383036a1824635836daff3aa0368188bfc808f9ac91c167e"
+    },
+    {
+      "path": "scripts/rebuild/mail_physics_state.gd",
+      "prior_sha256": "c7bc4306835ba08cb24a05996ec2ba2423ffe63ed61d39730a7902ff90268a1d",
+      "copied_sha256": "811cffd97d0fc3206d9729d8f1b77fa399085293a2eca08bfd6604a3473e7cd5"
+    },
+    {
+      "path": "scripts/rebuild/mail_workbench.gd",
+      "prior_sha256": "01e23f29d896a4425e6de6752e72b2a5e134ce7a6217d288f7d7cad118eef217",
+      "copied_sha256": "b9e28c45bcbe3fe539fe776e9c6fa4f322aa96fd81e20985b9d1e8610e84b2fb"
+    },
+    {
+      "path": "scripts/rebuild/postal_desk.gd",
+      "prior_sha256": "bab560dd74c551ad05c5d401d6dde14bcc4a490677eb4b445f43570e6c51adb5",
+      "copied_sha256": "7f43996cea069434b7423c6fc3390ea2f564f31ad7f9efb49d830990610afe11"
+    },
+    {
+      "path": "tests/core_review_input.gd",
+      "prior_sha256": "55bb2a9558279dd1c1d0b82651722e6aed5b7be7a91c46e7df7ae01d029628ad",
+      "copied_sha256": "688ec0c5735b47dd0bc0db2544aac32f0155293fe12a69b5826d252bc1b06af4"
+    },
+    {
+      "path": "tests/counter_onboarding_input.gd",
+      "prior_sha256": "f9771dec487b55fe318944e7b6270ad6d235dbbb21cdbcaa898cf3a335eb6c73",
+      "copied_sha256": "28c6672b9eb05686c36ac3e0c363abb0336a67f1b05cb6d03fcc56fbdba748de"
+    },
+    {
+      "path": "tests/final_case_state_smoke.gd",
+      "prior_sha256": "e48e991e547f6855e4d8c5f67f82149a96092b32e1b69facbaaa26e9c85ad0de",
+      "copied_sha256": "76b7651d0108b3b69b2b6b5c210aeff0a81a4747973f26bb8c5af6cb1dcf66b9"
+    },
+    {
+      "path": "tests/final_host_boundary_smoke.gd",
+      "prior_sha256": "cdba8ee476568e3a2f8dd6c3dcf533f060b1d32d7c98cd72980a40e5d99b5652",
+      "copied_sha256": "a70dec4ecb3f5db645750bd031d7f38101296f09444c71f09f1a0b5cb63df632"
+    },
+    {
+      "path": "tests/final_playable_input_smoke.gd",
+      "prior_sha256": "d111ebe5b801ad63123c7a070e2985c6180554563870269dfe51f4e8b2f1f3c7",
+      "copied_sha256": "9e171ddc08b11b79d48a77c0d820365d49e274dce1bff03f79d0a38cd66256c4"
+    },
+    {
+      "path": "tests/mail_workbench_input_smoke.gd",
+      "prior_sha256": "7be4113c5718fec424da3ed223e36c9d1b6f2ac4f2c974c01ca05158fcd6ba88",
+      "copied_sha256": "f2fc0ab2ea2bba2ad83848a270738f284375aa80a72454847021522fca938ef0"
+    },
+    {
+      "path": "tests/tactile_mail_input.gd",
+      "prior_sha256": null,
+      "copied_sha256": "ed44bcdd43a5f56474cb8a8afa0204eb154b07dab0c59d7076a7e88db5828524"
+    },
+    {
+      "path": "tools/check.ps1",
+      "prior_sha256": "b04ccc88add09b24a0fefeb5456ea53fb5d0b10cad2df8efee85cde32bd4a540",
+      "copied_sha256": "3446c7e1cd9129714914383699b344931b4b3f781afe7c668df7d500378b970f"
+    },
+    {
+      "path": "tools/check_evidence_bytes.py",
+      "prior_sha256": "516eec92498675f43825cc443359664d805bafa1e2720fa1857e2de7d98a737e",
+      "copied_sha256": "87ac88fbd63827b43559fa2a60358e99df061a948bfc92449939adf5ef6133e5"
+    }
+  ],
+  "original_saves_modified": false,
+  "user_assets_modified": false,
+  "git_history_modified": false,
+  "scope": "Copy this correction only; backup every replaced file and verify bytes."
+}
