@@ -48,4 +48,6 @@ R2 源码 3f7b452d8807acccb533015cf9e5fa59dd03f557，PCK SHA256 `9830370f5d55c35
 
 游戏源码 `3f7b452d8807acccb533015cf9e5fa59dd03f557` 已正常推到 main，未强推或覆盖协作者历史。该提交的两个 GitHub CI 运行均成功。[Windows R2 试玩](https://github.com/HuieChen/100letter/releases/tag/solmere-pastel-2026-10-04)已上传并核对 GitHub 返回的大小及 SHA256：74,014,707 字节，`664cd4d294a9b8f64e4b879c86d33934a614015fed1c89d198f48d8d398b4498`。原发布回执见 [publication.json](pastel-global_20261004/publication.json)。本报告后续提交仅保留证据与说明，不改变试玩包游戏内容。
 
+包解码检查的退出日志仍有 `18 ObjectDB instances were leaked` 与 `4 resources still in use at exit`，原文已保留，未记为“日志零错误”。170 项断言通过；正式 EXE 的独立 GPU 启动 stderr 为空。这是检查进程结束时的资源清理观察，根因尚未归属，不扩大为正式游戏无资源问题的结论。
+
 当前包的[社区中心实机图](pastel-global_20261004/native/final-package/21_npc_cross.png)和[柜台信件实机图](pastel-global_20261004/native/final-package/06_inspect.png)直接来自真实窗口；1920×1080 引擎状态图在本阶段证据清单中。没有把窗口 DPI 缩放截图改称完整 1920×1080，未伪造录屏。
