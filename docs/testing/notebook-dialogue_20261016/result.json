@@ -1,0 +1,19 @@
+{
+	"checks": 54,
+	"failures": [],
+	"images": [
+		"res://test-results/ui-reference-20261016/dialogue/cast_zh_1280.png",
+		"res://test-results/ui-reference-20261016/dialogue/topics_zh_1280.png",
+		"res://test-results/ui-reference-20261016/dialogue/long_zh_1280.png",
+		"res://test-results/ui-reference-20261016/dialogue/long_en_1280.png",
+		"res://test-results/ui-reference-20261016/dialogue/cast_zh_1920.png",
+		"res://test-results/ui-reference-20261016/dialogue/topics_zh_1920.png",
+		"res://test-results/ui-reference-20261016/dialogue/long_zh_1920.png",
+		"res://test-results/ui-reference-20261016/dialogue/long_en_1920.png",
+		"res://test-results/ui-reference-20261016/dialogue/cast_zh_2560.png",
+		"res://test-results/ui-reference-20261016/dialogue/topics_zh_2560.png",
+		"res://test-results/ui-reference-20261016/dialogue/long_zh_2560.png",
+		"res://test-results/ui-reference-20261016/dialogue/long_en_2560.png"
+	],
+	"scope": "Own-game automated viewport clicks/rendering, three resolutions, long bilingual glyphs; not OS input or novice approval."
+}

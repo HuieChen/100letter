@@ -1,0 +1,78 @@
+{
+  "scope": "Notebook dialogue: actual viewport input/rendering, three sizes, two long glyph samples, existing cast, close/pagination. Native, listening and novice not certified.",
+  "checks": 54,
+  "component_input_checks": 19,
+  "earlier_failures": "First fixture recomputed a freed close button position; cached the point. Next fixture did not meet/travel to NPC correctly; fixed the setup and asserted visible greeting. Not production bug fixes.",
+  "artifacts": [
+    {
+      "path": "docs/testing/notebook-dialogue_20261016/cast_zh_1280.png",
+      "sha256": "7f366cfd4e431b2e8a56bfaeeb7df5e55cbbbe8ca48e2db0ddc343182acc357a"
+    },
+    {
+      "path": "docs/testing/notebook-dialogue_20261016/cast_zh_1920.png",
+      "sha256": "1db6d8763ff019c8144c83628a8889740039f48736f166fb8df794ebff391010"
+    },
+    {
+      "path": "docs/testing/notebook-dialogue_20261016/cast_zh_2560.png",
+      "sha256": "33667c520b30660f58829389b638c30186c61bc68f2ead1ce9bf8ced54a61292"
+    },
+    {
+      "path": "docs/testing/notebook-dialogue_20261016/earlier-fixture-error.log",
+      "sha256": "0dc8806117677a0562e436f5e9dc3fae5948d10dfff6f0cee24c8e20922188fb"
+    },
+    {
+      "path": "docs/testing/notebook-dialogue_20261016/final.log",
+      "sha256": "4348511a1424ee508f4d67bee85e35bafb29c9df228d65fd762896e79cd798c3"
+    },
+    {
+      "path": "docs/testing/notebook-dialogue_20261016/input.log",
+      "sha256": "8484f90784adce7ab17276b09ac8819a764e50e2bbf925c70563102258fcfdb7"
+    },
+    {
+      "path": "docs/testing/notebook-dialogue_20261016/long_en_1280.png",
+      "sha256": "acf872db153a11bc7f9e953fa749b63479b179daf1630d9acf5b4bbd89cae065"
+    },
+    {
+      "path": "docs/testing/notebook-dialogue_20261016/long_en_1920.png",
+      "sha256": "5c6d8efd89ebe0c54695070d0e46ac3d9ae22fee8d4e684ecf2874f66d6a7277"
+    },
+    {
+      "path": "docs/testing/notebook-dialogue_20261016/long_en_2560.png",
+      "sha256": "efee7f3ed1a85fb6cf7a710a4daebcab8e520b88433c5450a64afc3d08335f52"
+    },
+    {
+      "path": "docs/testing/notebook-dialogue_20261016/long_zh_1280.png",
+      "sha256": "d9b09be936e38e15707d3d1001ce7498916f0ce5be9c3ad933ef9da4573ee4aa"
+    },
+    {
+      "path": "docs/testing/notebook-dialogue_20261016/long_zh_1920.png",
+      "sha256": "9b207836d3dd6a5efe9d3b156f1eb5bb3443ecdbced292fa61835f35326ea873"
+    },
+    {
+      "path": "docs/testing/notebook-dialogue_20261016/long_zh_2560.png",
+      "sha256": "95222ade1eeaba34f3557fb315d3eea9d844187ac658feb838166b4dec679593"
+    },
+    {
+      "path": "docs/testing/notebook-dialogue_20261016/result.json",
+      "sha256": "bb7429463e03065bede80dcd76b1c36868aeb24d42e4e3c5b791d8e7c29cd9e2"
+    },
+    {
+      "path": "docs/testing/notebook-dialogue_20261016/topics_zh_1280.png",
+      "sha256": "888e0f0fcad105bf612edcf19cac5bab031f3fbec20837dcf60978c96ddcf3f2"
+    },
+    {
+      "path": "docs/testing/notebook-dialogue_20261016/topics_zh_1920.png",
+      "sha256": "204573b2ccb3c7b046d3554c9ac6155b3f245c485ebc5966d9d0ea3356a5dd72"
+    },
+    {
+      "path": "docs/testing/notebook-dialogue_20261016/topics_zh_2560.png",
+      "sha256": "a0d0f6bbb8f41192d9d154c1208026d60c744d4e6b32a96a882b82ff016d55f4"
+    }
+  ],
+  "source": {
+    "scripts\\rebuild\\scene_dialogue.gd": "d0a3b03c2081d593782e8a8871ef5dadf1ec608bf13dd49df694229db815d8fe",
+    "scripts\\rebuild\\final_playable.gd": "c1df392fc291c547dc03b78596f7ab3a84bea430643997ec22088ddade7aed3a",
+    "assets\\faefever_v2\\ui\\dialogue_notebook_20261016.png": "63df5bd460d7edf93d50fc561fc816c11d7ef8a8479c89b86568d89353a3188b",
+    "tests\\notebook_dialogue_input.gd": "d2a53e8df343cd644e93e01132e58e8a7388673228d4095cf197abea5f213007"
+  }
+}

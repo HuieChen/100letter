@@ -13,7 +13,7 @@ class PastelAssets(unittest.TestCase):
     def test_every_active_role_is_reviewed_new_bitmap_and_decodes(self):
         m=json.loads((ROOT/'assets/faefever_v2/manifest.json').read_text(encoding='utf-8'))
         self.assertEqual(m['style_lock'],'SOLMERE_SOFT_PASTEL_20261004')
-        self.assertEqual(len(m['assets']),61)  # six supplied poses supersede eight generated poses
+        self.assertEqual(len(m['assets']),62)  # six supplied poses supersede eight generated poses
         for role,entry in m['assets'].items():
             with self.subTest(role=role):
                 p=ROOT/entry['path'].removeprefix('res://')

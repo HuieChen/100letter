@@ -1404,6 +1404,19 @@
         215,
         315
       ]
+    },
+    "dialogue_notebook": {
+      "path": "res://assets/faefever_v2/ui/dialogue_notebook_20261016.png",
+      "native_dimensions": [
+        2086,
+        754
+      ],
+      "ai_generated": true,
+      "style_lock": "SOLMERE_SOFT_PASTEL_20261004",
+      "sha256": "63df5bd460d7edf93d50fc561fc816c11d7ef8a8479c89b86568d89353a3188b",
+      "source_sha256": "63df5bd460d7edf93d50fc561fc816c11d7ef8a8479c89b86568d89353a3188b",
+      "source_kind": "imagegen",
+      "review": "Blank notebook leaf, binding holes, text-safe center and attached name slip; inspected 2026-10-16. New dialogue layout only."
     }
   },
   "generation_receipts": {

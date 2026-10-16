@@ -39,6 +39,7 @@ var _footer_shade: ColorRect
 var _footer_timer: Timer
 var _resolution_drafts: Dictionary = {}
 var _desk_surface: Control
+var _conversation_person := ""
 
 func _ready() -> void:
 	get_tree().auto_accept_quit=false
@@ -602,7 +603,7 @@ func _talk(id:String) -> void:
 
 func _dialogue(id:String, line:String) -> void:
 	_close()
-	if is_instance_valid(walker):walker.gesture("talk");walker.manual_enabled=false
+	if is_instance_valid(walker):walker.gesture("talk");walker.manual_enabled=false;walker.hide()
 	var dialogue:=SceneDialogue.new()
 	modal=dialogue
 	UI.place(dialogue,self,Rect2(0,0,1600,900))
@@ -618,7 +619,9 @@ func _dialogue(id:String, line:String) -> void:
 		choices.append({"id":"deliver","text":"交出手中的这封信"})
 	else: choices.append({"id":"bag","text":"从邮袋取出邮件"})
 	choices.append({"id":"leave","text":"结束交谈 →"})
-	dialogue.configure(core.known_person_label(id),line,choices)
+	_conversation_person=id
+	dialogue.configure(core.known_person_label(id),line,choices,"CHAR_courier",str(PERSON_ART.get(id,"")))
+	dialogue.cue.connect(sound.play)
 	dialogue.closed.connect(_close)
 	dialogue.chosen.connect(func(choice:String):_choose_dialogue(id,choice))
 
@@ -651,11 +654,12 @@ func _choose_dialogue(id:String, choice:String) -> void:
 
 func _spoken_question(line:String, reply:Callable) -> void:
 	_close()
-	if is_instance_valid(walker):walker.gesture("talk");walker.manual_enabled=false
+	if is_instance_valid(walker):walker.gesture("talk");walker.manual_enabled=false;walker.hide()
 	var dialogue:=SceneDialogue.new()
 	modal=dialogue
 	UI.place(dialogue,self,Rect2(0,0,1600,900))
-	dialogue.configure("你",line)
+	dialogue.configure("你",line,[],"CHAR_courier",str(PERSON_ART.get(_conversation_person,"")))
+	dialogue.cue.connect(sound.play)
 	dialogue.closed.connect(_close)
 	dialogue.advanced.connect(reply)
 

@@ -1,0 +1,16 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+OpenGL API 3.3.0 NVIDIA 566.24 - Compatibility - Using Device: NVIDIA - NVIDIA GeForce RTX 4050 Laptop GPU
+
+SCRIPT ERROR: Cannot call method 'get_global_rect' on a previously freed instance.
+   at: _click (res://tests/notebook_dialogue_input.gd:47)
+   GDScript backtrace (most recent call first):
+       [0] _click (res://tests/notebook_dialogue_input.gd:47)
+SCRIPT ERROR: Cannot call method 'get_global_rect' on a previously freed instance.
+   at: _click (res://tests/notebook_dialogue_input.gd:47)
+   GDScript backtrace (most recent call first):
+       [0] _click (res://tests/notebook_dialogue_input.gd:47)
+SCRIPT ERROR: Cannot call method 'get_global_rect' on a previously freed instance.
+   at: _click (res://tests/notebook_dialogue_input.gd:47)
+   GDScript backtrace (most recent call first):
+       [0] _click (res://tests/notebook_dialogue_input.gd:47)
+NOTEBOOK DIALOGUE: 48 checks / 0 failures

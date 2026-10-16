@@ -1,0 +1,29 @@
+{
+  "source_commit": "d054a04e5e54a872517e6cd807df4b6f6dc83ddb",
+  "release_url": "https://github.com/HuieChen/100letter/releases/tag/solmere-courier-video-2026-10-16",
+  "release_id": 415037853,
+  "prerelease": true,
+  "assets": [
+    {
+      "name": "100letter-Windows-Courier-20261016.zip",
+      "url": "https://github.com/HuieChen/100letter/releases/download/solmere-courier-video-2026-10-16/100letter-Windows-Courier-20261016.zip",
+      "bytes": 73038395,
+      "sha256": "cda4ec77d94415dba38ad14c4d8c9464fa4ae36a72d928e67207b22d1420264f",
+      "github_digest": "sha256:cda4ec77d94415dba38ad14c4d8c9464fa4ae36a72d928e67207b22d1420264f"
+    }
+  ],
+  "workflow_runs": [
+    {
+      "head_sha": "d054a04e5e54a872517e6cd807df4b6f6dc83ddb",
+      "url": "https://github.com/HuieChen/100letter/actions/runs/38913881770",
+      "status": "in_progress",
+      "conclusion": null
+    },
+    {
+      "head_sha": "d054a04e5e54a872517e6cd807df4b6f6dc83ddb",
+      "url": "https://github.com/HuieChen/100letter/actions/runs/38913740758",
+      "status": "completed",
+      "conclusion": "success"
+    }
+  ]
+}
