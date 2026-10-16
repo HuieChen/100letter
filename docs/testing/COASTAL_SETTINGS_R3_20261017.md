@@ -98,3 +98,7 @@ and preserved privately. The immediate close assertion raced asynchronous window
 closure; fresh enumeration proves original HWND gone and one new HWND. Native
 record lists exact remaining coverage, including the other sliders/passive-speed
 paths automated rather than inventing current native approval.
+
+## Publication
+
+Source `987de19bc4caec714262d04f5869e70b253241c2` pushed to main; both exact-source CI runs completed successfully. [Windows R3 prerelease](https://github.com/HuieChen/100letter/releases/tag/solmere-coastal-water-r3-2026-10-17). ZIP93681989 bytes, SHA256 `94d9d208545c7594d1a7101036fa006822d8b2eacff3db1a75db0c42ff46de84`, GitHub digest identical. Actual ZIP CRC and embedded EXE/PCK fingerprints checked. [Receipt](coastal-settings_20261017-r3/publication.json). This publication is a focused UI review and does not mark full-game acceptance complete; later documentation-only commits preserve the packaged runtime.

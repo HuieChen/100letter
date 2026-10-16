@@ -1,0 +1,29 @@
+{
+  "source_commit": "987de19bc4caec714262d04f5869e70b253241c2",
+  "release_url": "https://github.com/HuieChen/100letter/releases/tag/solmere-coastal-water-r3-2026-10-17",
+  "release_id": 415223875,
+  "prerelease": true,
+  "assets": [
+    {
+      "name": "100letter-Windows-Coastal-20261017-R3.zip",
+      "url": "https://github.com/HuieChen/100letter/releases/download/solmere-coastal-water-r3-2026-10-17/100letter-Windows-Coastal-20261017-R3.zip",
+      "bytes": 93681989,
+      "sha256": "94d9d208545c7594d1a7101036fa006822d8b2eacff3db1a75db0c42ff46de84",
+      "github_digest": "sha256:94d9d208545c7594d1a7101036fa006822d8b2eacff3db1a75db0c42ff46de84"
+    }
+  ],
+  "workflow_runs": [
+    {
+      "head_sha": "987de19bc4caec714262d04f5869e70b253241c2",
+      "url": "https://github.com/HuieChen/100letter/actions/runs/38942361144",
+      "status": "completed",
+      "conclusion": "success"
+    },
+    {
+      "head_sha": "987de19bc4caec714262d04f5869e70b253241c2",
+      "url": "https://github.com/HuieChen/100letter/actions/runs/38942176471",
+      "status": "completed",
+      "conclusion": "success"
+    }
+  ]
+}
