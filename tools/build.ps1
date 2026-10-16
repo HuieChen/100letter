@@ -110,12 +110,13 @@ try {
     $taskLicenses = Join-Path $taskDestination 'Licenses'
     New-Item -ItemType Directory -Force -Path $taskLicenses | Out-Null
     $taskLicenseSources = @(
-        'assets/fonts/OFL.txt','assets/fonts/Caveat-OFL.txt',
+        'assets/fonts/OFL.txt','assets/fonts/Caveat-OFL.txt','assets/fonts/DynaPuff-OFL.txt','assets/fonts/LilitaOne-OFL.txt','assets/fonts/NotoSansSC-OFL.txt','assets/fonts/ZCOOLKuaiLe-OFL.txt','assets/fonts/settings-font-provenance.json',
         'docs/GODOT_LICENSE.txt','docs/GODOT_COPYRIGHT.txt','docs/THIRD_PARTY.md',
         'docs/AUDIO_PROVENANCE.md',
         'assets/faefever_v2/manifest.json',
         'assets/audio/foley/KENNEY_CC0.txt','assets/audio/foley/sample_manifest.json',
-        'assets/audio/foley/source_downloads.json'
+        'assets/audio/foley/source_downloads.json','assets/audio/foley/WATER_CC0.txt','assets/audio/foley/water-provenance.json','assets/faefever_v2/characters/courier_video_provenance_20261016.json',
+        'assets/audio/SETTINGS_MUSIC_CC0.txt','assets/audio/settings-music-provenance.json','third_party/webgl-water/LICENSE-MIT.txt','third_party/webgl-water/upstream.json','assets/faefever_v2/ui/settings_pdf_20261017/provenance.json'
     )
     foreach ($taskRecord in $taskLicenseSources) {
         Copy-Item -LiteralPath (Join-Path $taskRepo $taskRecord) -Destination $taskLicenses

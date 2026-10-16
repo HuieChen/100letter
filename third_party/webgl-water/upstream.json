@@ -1,0 +1,8 @@
+{
+  "repository": "https://github.com/evanw/webgl-water",
+  "commit": "9c85a661c96768796227d9bb6a5b5457a88cac68",
+  "file": "water.js",
+  "sha256": "87f1377aa9bce86065a8e4b50aebc7888b8cdea6f6735353b30ef08ef06d3f69",
+  "license": "MIT; original source header says Copyright2011 Evan Wallace, Released under MIT",
+  "adoption": "Step/drop height-field equations ported to Godot PackedFloat32Array; no upstream JS executed and no demo textures/photos copied."
+}

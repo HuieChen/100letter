@@ -1,0 +1,5 @@
+Water splashes by ezwa, cut by qubodup, licensed CC0 1.0.
+Original license and download: https://opengameart.org/content/6-short-water-splashes
+Runtime samples 1,2,3 are original excerpts 01,02,05 decoded to mono PCM16 44100 Hz with FFmpeg 7.1. No trimming or invented recording credit.
+Original reference recording retained privately under test-results/water-audio-source.
+Derived hashes and provenance are in water-provenance.json.

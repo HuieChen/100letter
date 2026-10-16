@@ -58,6 +58,8 @@ try {
     if ($LASTEXITCODE -ne 0) { throw 'Active generated art/export integrity failed' }
     & $taskPython -m unittest discover -s tests -p 'test_video_courier.py' -v
     if ($LASTEXITCODE -ne 0) { throw 'Supplied courier frame/transparency/provenance checks failed' }
+    & $taskPython -m unittest discover -s tests -p 'test_settings_media.py' -v
+    if ($LASTEXITCODE -ne 0) { throw 'Commercial font and water audio integrity failed' }
     if ($ArchiveChecks) {
         if (-not $ArchiveRoot) { $ArchiveRoot = $taskRepo }
         $taskArchive = (Resolve-Path -LiteralPath $ArchiveRoot).Path
@@ -75,11 +77,11 @@ try {
     }
     Invoke-TaskGodot 'import' @('--editor','--import','--quit')
     # Current models and independent compatible components, not old GameSession.
-    foreach ($taskSuite in @('mail_physics_state_smoke','final_case_state_smoke','final_walker_smoke','scene_dialogue_input_smoke','postal_desk_live_queue','envelope_text_bounds_smoke')) {
+    foreach ($taskSuite in @('preferences_smoke','mail_physics_state_smoke','final_case_state_smoke','final_walker_smoke','scene_dialogue_input_smoke','postal_desk_live_queue','envelope_text_bounds_smoke')) {
         Invoke-TaskGodot $taskSuite @('--script',"res://tests/$taskSuite.gd")
     }
     if ($GpuChecks) {
-        foreach ($taskSuite in @('field_observation_smoke','field_book_smoke','mail_workbench_input_smoke','tactile_mail_input','resolution_slip_smoke','final_host_boundary_smoke','final_resolution_draft_smoke','counter_onboarding_input','core_review_input')) {
+        foreach ($taskSuite in @('display_preferences_input','notebook_dialogue_input','coastal_settings_input','coastal_physics_input','water_field_input','settings_manipulation_input','field_observation_smoke','field_book_smoke','mail_workbench_input_smoke','tactile_mail_input','resolution_slip_smoke','final_host_boundary_smoke','final_resolution_draft_smoke','counter_onboarding_input','core_review_input')) {
             Invoke-TaskGodot $taskSuite @('--script',"res://tests/$taskSuite.gd",'--resolution','1600x900','--audio-driver','Dummy') -Gpu
         }
         foreach ($taskRoute in @('sealed','delegate')) {

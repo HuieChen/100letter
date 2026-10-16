@@ -1,0 +1,140 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+OpenGL API 3.3.0 NVIDIA 566.24 - Compatibility - Using Device: NVIDIA - NVIDIA GeForce RTX 4050 Laptop GPU
+
+LAYOUT 设置 rect [P: (603.0, 18.0), S: (444.0, 348.0)] font-height 114.0
+LAYOUT 语言 rect [P: (636.0, 165.0), S: (217.0, 135.0)] font-height 43.0
+LAYOUT 显示模式 rect [P: (526.0, 252.0), S: (297.0, 227.0)] font-height 43.0
+LAYOUT 分辨率 rect [P: (526.0, 310.0), S: (295.0, 181.0)] font-height 43.0
+LAYOUT 总音量 rect [P: (526.0, 418.0), S: (271.0, 181.0)] font-height 43.0
+LAYOUT 音乐音量 rect [P: (526.0, 476.0), S: (271.0, 227.0)] font-height 43.0
+LAYOUT 音效音量 rect [P: (526.0, 534.0), S: (271.0, 227.0)] font-height 43.0
+LAYOUT 鼠标灵敏度 rect [P: (526.0, 648.0), S: (271.0, 273.0)] font-height 43.0
+LAYOUT 文字速度 rect [P: (526.0, 718.0), S: (274.0, 227.0)] font-height 43.0
+LAYOUT  rect [P: (504.0, 788.0), S: (491.0, 73.0)] font-height 25.0
+ERROR: actual popup chooses English UI
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] _check (res://tests/coastal_settings_input.gd:105)
+       [1] _run (res://tests/coastal_settings_input.gd:48)
+       [2] _option (res://tests/coastal_settings_input.gd:96)
+ERROR: language changes real title menu
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] _check (res://tests/coastal_settings_input.gd:105)
+       [1] _run (res://tests/coastal_settings_input.gd:50)
+       [2] _shot (res://tests/coastal_settings_input.gd:102)
+ERROR: text speed selects actual dialogue rate
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] _check (res://tests/coastal_settings_input.gd:105)
+       [1] _run (res://tests/coastal_settings_input.gd:52)
+       [2] _option (res://tests/coastal_settings_input.gd:96)
+ERROR: resolution selection persists; OS mode mutation tested separately
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] _check (res://tests/coastal_settings_input.gd:105)
+       [1] _run (res://tests/coastal_settings_input.gd:54)
+       [2] _option (res://tests/coastal_settings_input.gd:96)
+ERROR: display selection persists; native behavior separate
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] _check (res://tests/coastal_settings_input.gd:105)
+       [1] _run (res://tests/coastal_settings_input.gd:56)
+       [2] _option (res://tests/coastal_settings_input.gd:96)
+ERROR: slow rate actually reveals a partial line
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] _check (res://tests/coastal_settings_input.gd:105)
+       [1] _run (res://tests/coastal_settings_input.gd:74)
+ERROR: first advance completes typing without advancing
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] _check (res://tests/coastal_settings_input.gd:105)
+       [1] _run (res://tests/coastal_settings_input.gd:76)
+       [2] _click_named (res://tests/coastal_settings_input.gd:85)
+       [3] _button (res://tests/coastal_settings_input.gd:87)
+ERROR: actual popup chooses English UI
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] _check (res://tests/coastal_settings_input.gd:105)
+       [1] _run (res://tests/coastal_settings_input.gd:48)
+       [2] _option (res://tests/coastal_settings_input.gd:96)
+ERROR: language changes real title menu
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] _check (res://tests/coastal_settings_input.gd:105)
+       [1] _run (res://tests/coastal_settings_input.gd:50)
+       [2] _shot (res://tests/coastal_settings_input.gd:102)
+ERROR: text speed selects actual dialogue rate
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] _check (res://tests/coastal_settings_input.gd:105)
+       [1] _run (res://tests/coastal_settings_input.gd:52)
+       [2] _option (res://tests/coastal_settings_input.gd:96)
+ERROR: resolution selection persists; OS mode mutation tested separately
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] _check (res://tests/coastal_settings_input.gd:105)
+       [1] _run (res://tests/coastal_settings_input.gd:54)
+       [2] _option (res://tests/coastal_settings_input.gd:96)
+ERROR: display selection persists; native behavior separate
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] _check (res://tests/coastal_settings_input.gd:105)
+       [1] _run (res://tests/coastal_settings_input.gd:56)
+       [2] _option (res://tests/coastal_settings_input.gd:96)
+ERROR: slow rate actually reveals a partial line
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] _check (res://tests/coastal_settings_input.gd:105)
+       [1] _run (res://tests/coastal_settings_input.gd:74)
+ERROR: first advance completes typing without advancing
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] _check (res://tests/coastal_settings_input.gd:105)
+       [1] _run (res://tests/coastal_settings_input.gd:76)
+       [2] _click_named (res://tests/coastal_settings_input.gd:85)
+       [3] _button (res://tests/coastal_settings_input.gd:87)
+ERROR: actual popup chooses English UI
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] _check (res://tests/coastal_settings_input.gd:105)
+       [1] _run (res://tests/coastal_settings_input.gd:48)
+       [2] _option (res://tests/coastal_settings_input.gd:96)
+ERROR: language changes real title menu
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] _check (res://tests/coastal_settings_input.gd:105)
+       [1] _run (res://tests/coastal_settings_input.gd:50)
+       [2] _shot (res://tests/coastal_settings_input.gd:102)
+ERROR: text speed selects actual dialogue rate
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] _check (res://tests/coastal_settings_input.gd:105)
+       [1] _run (res://tests/coastal_settings_input.gd:52)
+       [2] _option (res://tests/coastal_settings_input.gd:96)
+ERROR: resolution selection persists; OS mode mutation tested separately
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] _check (res://tests/coastal_settings_input.gd:105)
+       [1] _run (res://tests/coastal_settings_input.gd:54)
+       [2] _option (res://tests/coastal_settings_input.gd:96)
+ERROR: display selection persists; native behavior separate
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] _check (res://tests/coastal_settings_input.gd:105)
+       [1] _run (res://tests/coastal_settings_input.gd:56)
+       [2] _option (res://tests/coastal_settings_input.gd:96)
+ERROR: slow rate actually reveals a partial line
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] _check (res://tests/coastal_settings_input.gd:105)
+       [1] _run (res://tests/coastal_settings_input.gd:74)
+ERROR: first advance completes typing without advancing
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] _check (res://tests/coastal_settings_input.gd:105)
+       [1] _run (res://tests/coastal_settings_input.gd:76)
+       [2] _click_named (res://tests/coastal_settings_input.gd:85)
+       [3] _button (res://tests/coastal_settings_input.gd:87)
+COASTAL SETTINGS: 135 checks / 21 failures

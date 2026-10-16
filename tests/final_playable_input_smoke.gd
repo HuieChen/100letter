@@ -112,7 +112,7 @@ func _run() -> void:
 	_check(not is_instance_valid(host.modal),"NPC conversation is delayed until courier reaches doorway")
 	await _wait(func():return is_instance_valid(host.modal),"courier arrives for Elsie conversation")
 	_check(host.core.state.encounters.has("elsie_moran"),"actual on-site conversation records encountered person")
-	_check(host.walker.visible and not host.walker.manual_enabled,"in-scene dialogue keeps courier visible but stops movement")
+	_check(not host.walker.visible and not host.walker.manual_enabled and _node("CHAR_courier")!=null,"foreground courier is visible without a small duplicate and movement stops")
 	var conversation_minute: int=host.core.state.minute
 	_check(_node("Choice_topic_elsie_address")==null and _node("SpokenLine")!=null,"greeting line appears before any response menu")
 	await _named("AdvanceDialogue")

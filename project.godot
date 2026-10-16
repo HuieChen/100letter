@@ -26,5 +26,5 @@ environment/defaults/default_clear_color=Color(0.94,0.92,0.87,1)
 driver/enable_input=false
 
 [editor]
-movie_writer/video_quality=0.55
+movie_writer/video_quality=1.0
 movie_writer/fps=24

@@ -1,0 +1,32 @@
+{
+  "scope": "Matching R2 Windows package, actual restart/title and Settings opening. Not complete native input matrix.",
+  "pck_sha256": "ddb9d517e5d642a6d7cf51e4747e9f96ce944352dc607c5dd00cee6a580737f0",
+  "events": [
+    {
+      "step": "01_restart_title_saved_english",
+      "path": "C:/Users/22416/Documents/Codex/2026-10-01/github/work/100letter-studio-publish/docs/testing/coastal-settings_20261016/native-r2/01_restart_title_saved_english.jpg",
+      "sha256": "296e7a256015804de5dd80ea940c26b7e0b5bb3f6fee0be78eae90503429ce08",
+      "width": 856,
+      "height": 511
+    },
+    {
+      "step": "02_settings_restart_saved_tracks",
+      "path": "C:/Users/22416/Documents/Codex/2026-10-01/github/work/100letter-studio-publish/docs/testing/coastal-settings_20261016/native-r2/02_settings_restart_saved_tracks.jpg",
+      "sha256": "85f58729a765fa5aacd6967ebce9f997a84e82b21559b946b755e478970a0530",
+      "width": 856,
+      "height": 511
+    }
+  ],
+  "confirmed": [
+    "English UI and saved R1 track values restored on R2 restart",
+    "Actual mouse Settings opened",
+    "Readable labels/controls observed"
+  ],
+  "unconfirmed": [
+    "Water click: input detection interrupted before action confirmation",
+    "F11 label fix native operation",
+    "Esc native operation",
+    "Audio listening"
+  ],
+  "interruption": "Fresh observation showed changed window size/resolution/tracks after other input. Those changes are not attributed to our actions. Preview remains open; no subsequent GUI action is inferred."
+}

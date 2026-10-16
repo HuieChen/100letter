@@ -22,7 +22,8 @@ const POOLS := {
 	"door_close": ["door_close.wav"],
 	"tram": ["tram_pass.wav"],
 	"birds": ["birds.wav"],
-	"wood": ["wood_piece.wav"]
+	"wood": ["wood_piece.wav"],
+	"water": ["water_touch_1.wav", "water_touch_2.wav", "water_touch_3.wav"]
 }
 const BEDS := ["sea_bed.ogg", "town_bed.ogg", "wind_bed.ogg", "room_bed.ogg"]
 
@@ -49,6 +50,9 @@ var _configured: bool = false
 var _music_volume: float = 0.75
 var _sfx_volume: float = 0.85
 var _ambience_volume: float = 0.85
+var menu_music:AudioStreamPlayer
+var _settings_mode:=false
+var _menu_gain:=0.0
 
 
 func _ready() -> void:
@@ -84,6 +88,13 @@ func _ready() -> void:
 	ambience = _beds["sea_bed.ogg"]
 	set_volumes(_music_volume, _sfx_volume, _ambience_volume)
 	set_location(location_id, minute, indoors)
+	menu_music=AudioStreamPlayer.new();menu_music.bus=MUSIC_BUS;add_child(menu_music)
+	var menu_track:=load("res://assets/audio/settings_vaporware.ogg") as AudioStreamOggVorbis
+	menu_track=menu_track.duplicate();menu_track.loop=true;menu_music.stream=menu_track;menu_music.volume_db=-80
+
+func settings_music(enabled:bool)->void:
+	_settings_mode=enabled
+	if enabled and is_instance_valid(menu_music) and not menu_music.playing:menu_music.play()
 
 
 func set_location(id: String, at_minute: int = 540, inside: bool = false) -> void:
@@ -155,6 +166,7 @@ func play(kind: String = "paper") -> void:
 	elif kind in ["snap", "tool", "repair"]: gain = -18.0
 	elif kind in ["stamp", "door", "door_close"]: gain = -14.0
 	elif kind == "tram": gain = -25.0
+	elif kind == "water":gain=-22.0
 	_spawn(kind, str(variants[index]), gain, SFX_BUS, _rng.randf_range(0.97, 1.03))
 
 
@@ -226,6 +238,20 @@ func _spawn(kind: String, file: String, gain: float, bus: String, pitch: float =
 	shot.play()
 	cue_played.emit(kind, file)
 
+func play_water_touch(point:Vector2,strength:float=1.0,body_contact:bool=false)->void:
+	if muted or _sfx_volume<=0.0:return
+	var value:=clampf(strength,0.1,1.0)
+	# Distinct close touch / lighter surface contact; original CC0 PCM remains unchanged.
+	var file:="water_touch_3.wav" if body_contact or value<0.45 else ("water_touch_2.wav" if int(point.x+point.y)%2==0 else "water_touch_1.wav")
+	var bus:=SFX_BUS
+	var side:=0 if point.x<550.0 else (2 if point.x>1050.0 else 1)
+	var pan_bus:="SolmereWater"+str(side)
+	if AudioServer.get_bus_index(pan_bus)==-1:
+		AudioServer.add_bus();var index:=AudioServer.bus_count-1;AudioServer.set_bus_name(index,pan_bus);AudioServer.set_bus_send(index,SFX_BUS)
+		var pan:=AudioEffectPanner.new();pan.pan=float(side-1)*0.3;AudioServer.add_bus_effect(index,pan)
+	bus=pan_bus
+	_spawn("water",file,-7.0+linear_to_db(lerpf(0.35,1.0,value)),bus,_rng.randf_range(0.96,1.04))
+
 
 func _clean_shots() -> void:
 	var alive: Array[AudioStreamPlayer] = []
@@ -244,8 +270,13 @@ func _process(delta: float) -> void:
 		_bed_gains[file] = current
 		(_beds[file] as AudioStreamPlayer).volume_db = linear_to_db(maxf(current, 0.0001))
 	var target_music: float = db_to_linear(-30.0 if _quiet else -25.0)
+	if _settings_mode:target_music=0.0
 	_music_gain = lerpf(_music_gain, target_music, 1.0 - exp(-delta * 1.3))
 	if music: music.volume_db = linear_to_db(maxf(_music_gain, 0.0001))
+	_menu_gain=lerpf(_menu_gain,db_to_linear(-15.0) if _settings_mode else 0.0,1.0-exp(-delta*3.0))
+	if is_instance_valid(menu_music):
+		menu_music.volume_db=linear_to_db(maxf(_menu_gain,0.0001))
+		if not _settings_mode and _menu_gain<0.0002:menu_music.stop()
 	_detail_after -= delta
 	if _detail_after <= 0.0:
 		_detail_after = _rng.randf_range(20.0, 42.0) * (1.4 if minute >= 1020 else 1.0)

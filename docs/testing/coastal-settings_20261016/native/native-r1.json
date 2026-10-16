@@ -1,0 +1,106 @@
+{
+  "scope": "R1 Windows package; historical before refraction revision",
+  "pck_sha256": "63a63621b7c53e5a0a583bf2815e9c4df58ccf5257da26e9cdc693ca0632a059",
+  "events": [
+    {
+      "step": "01_title",
+      "path": "docs/testing/coastal-settings_20261016/native/01_title.jpg",
+      "sha256": "759675dfb817f73ecd50a6b59958322cd7f3cff94b4e15be3723f2096d09e6f4",
+      "width": 856,
+      "height": 511
+    },
+    {
+      "step": "02_settings",
+      "path": "docs/testing/coastal-settings_20261016/native/02_settings.jpg",
+      "sha256": "15100514a5a51ea1fa1dee828b7f3ad084f9e5c57f7de2c9ed7d0f7d2c5d1df8",
+      "width": 856,
+      "height": 511
+    },
+    {
+      "step": "03_water_click",
+      "path": "docs/testing/coastal-settings_20261016/native/03_water_click.jpg",
+      "sha256": "263f5bd9d71be270ed903cc1256e19cc780c947f97ad3f340fe0b162c59a9039",
+      "width": 856,
+      "height": 511
+    },
+    {
+      "step": "04_master_drag",
+      "path": "docs/testing/coastal-settings_20261016/native/04_master_drag.jpg",
+      "sha256": "b031e5c83a0a9d2205434b691b7c8247155b504f7e80dff662fdc9b48cf7a04a",
+      "width": 856,
+      "height": 511
+    },
+    {
+      "step": "05_music_after_recovery",
+      "path": "docs/testing/coastal-settings_20261016/native/05_music_after_recovery.jpg",
+      "sha256": "4eaf62a93bcaa3db20bf05cb9c8c325074333301c11c06d6716cd7a6a1cf8055",
+      "width": 856,
+      "height": 511
+    },
+    {
+      "step": "06_sfx_after_drag",
+      "path": "docs/testing/coastal-settings_20261016/native/06_sfx_after_drag.jpg",
+      "sha256": "53ee59008bda665f57bc640de488794b41cdb72be76abc52bdd72d973e4203b3",
+      "width": 856,
+      "height": 511
+    },
+    {
+      "step": "07_language_menu",
+      "path": "docs/testing/coastal-settings_20261016/native/07_language_menu.jpg",
+      "sha256": "1810f4916fa12338c3db63bbf455a64150bf82453c63e27e765a9722dab72bf8",
+      "width": 856,
+      "height": 511
+    },
+    {
+      "step": "08_english_ui",
+      "path": "docs/testing/coastal-settings_20261016/native/08_english_ui.jpg",
+      "sha256": "06bd26b27beb7d39e9db4c0a21de0744eb03b5e3febed7ad7a13271c60b68105",
+      "width": 856,
+      "height": 511
+    },
+    {
+      "step": "09_display_menu",
+      "path": "docs/testing/coastal-settings_20261016/native/09_display_menu.jpg",
+      "sha256": "b68bde4621d163627fde85de3239630949ec1f8a73929460274cfc216b03423a",
+      "width": 856,
+      "height": 511
+    },
+    {
+      "step": "10_fullscreen",
+      "path": "docs/testing/coastal-settings_20261016/native/10_fullscreen.jpg",
+      "sha256": "c771d7ab875c1dc051477ec8f86be827eb79c4f274e4df0fc807f75da60249f4",
+      "width": 1707,
+      "height": 1067
+    },
+    {
+      "step": "11_windowed_f11",
+      "path": "docs/testing/coastal-settings_20261016/native/11_windowed_f11.jpg",
+      "sha256": "17f4f56af4bad87d4576f25afa020969b3846364ce8faf628db2823fd25c1676",
+      "width": 856,
+      "height": 511
+    },
+    {
+      "step": "12_cross_returns_title",
+      "path": "docs/testing/coastal-settings_20261016/native/12_cross_returns_title.jpg",
+      "sha256": "475bda43ffc90a23af62848309bfb3545a3c47af7fcbe1b232deedf0f7f7438f",
+      "width": 856,
+      "height": 511
+    },
+    {
+      "step": "13_reentry_saved_values",
+      "path": "docs/testing/coastal-settings_20261016/native/13_reentry_saved_values.jpg",
+      "sha256": "10b0d19db693a48c8a99189b94e68c659206667b0be609d6fcf06e0aa61b1f37",
+      "width": 856,
+      "height": 511
+    }
+  ],
+  "notes": [
+    "Music slider changed, but first capture contained an external floating toolbar and is excluded from public evidence.",
+    "R1 bug reproduced: F11 returned to windowed but current display button text still said Full Screen. Package must be rebuilt after model-to-view synchronization fix."
+  ],
+  "esc": "Input interrupted before confirmation",
+  "remaining": [
+    "F11 label stale found in R1",
+    "User rejected bright overlaid ripple rings"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "source": "https://opengameart.org/content/6-short-water-splashes",
+  "download": "https://opengameart.org/sites/default/files/ezwa-water_splash.7z",
+  "author": "ezwa; cut by qubodup",
+  "license": "CC0 1.0",
+  "conversion": "Original excerpts 01,02,05, untrimmed mono PCM16 44100 Hz via FFmpeg7.1",
+  "files": [
+    {"name":"water_touch_1.wav","sha256":"4c033651ffef8e4eea158a9675a46315e11c59a2faf328617c113343809fac52"},
+    {"name":"water_touch_2.wav","sha256":"f645662b9cdcb3d27b518230daff076d775ea953424318d5165a8bdb11dafa57"},
+    {"name":"water_touch_3.wav","sha256":"384e9deed5234ee7baeaa6f4b7e817cfbbdc851d49624af8dade4d1a4ae98906"}
+  ]
+}

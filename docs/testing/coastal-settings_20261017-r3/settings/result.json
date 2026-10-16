@@ -1,0 +1,19 @@
+{
+	"checks": 267,
+	"failures": [],
+	"images": [
+		"res://test-results/ui-reference-20261016/settings/zh_1280.png",
+		"res://test-results/ui-reference-20261016/settings/ripple_early_1280.png",
+		"res://test-results/ui-reference-20261016/settings/ripple_spread_1280.png",
+		"res://test-results/ui-reference-20261016/settings/en_1280.png",
+		"res://test-results/ui-reference-20261016/settings/zh_1920.png",
+		"res://test-results/ui-reference-20261016/settings/ripple_early_1920.png",
+		"res://test-results/ui-reference-20261016/settings/ripple_spread_1920.png",
+		"res://test-results/ui-reference-20261016/settings/en_1920.png",
+		"res://test-results/ui-reference-20261016/settings/zh_2560.png",
+		"res://test-results/ui-reference-20261016/settings/ripple_early_2560.png",
+		"res://test-results/ui-reference-20261016/settings/ripple_spread_2560.png",
+		"res://test-results/ui-reference-20261016/settings/en_2560.png"
+	],
+	"scope": "Automated own-game input/GPU/audio routing. OS fullscreen/window resolution is excluded here to avoid stealing desktop; separate native verification required. Language is UI-only, story/documents retain original text."
+}

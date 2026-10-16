@@ -109,7 +109,7 @@ func _remaining_checks() -> void:
 	if phase=="map":return
 	await _named("Talk_elsie_moran")
 	await _wait(func():return _node("CloseDialogue")!=null,"walk reaches resident and exposes visible conversation exit")
-	_check(host.walker.visible and not host.walker.manual_enabled,"dialogue retains scene actors but stops walking")
+	_check(not host.walker.visible and not host.walker.manual_enabled and host.modal.find_child("CHAR_courier",true,false)!=null,"foreground courier replaces its small duplicate and walking stops")
 	await _shot("dialogue_"+str(root.size.x))
 	await _named("CloseDialogue")
 	_check(not is_instance_valid(host.modal) and host.walker.manual_enabled,"conversation cross returns full control without Esc")
@@ -150,3 +150,4 @@ func _shot(label:String) -> void:
 	var path:=REVIEW_OUT+phase+"_"+label+".png"
 	_check(root.get_texture().get_image().save_png(path)==OK,"actual GPU capture "+label)
 	screenshots.append(path)
+

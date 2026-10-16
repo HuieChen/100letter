@@ -1,0 +1,32 @@
+{
+  "execution": "sequential responsibility passes by current agent, no independent reviewer impersonation or spawned agents",
+  "scope": "focused courier/dialogue/Settings UI, not CORE-BOOK completion",
+  "passes": [
+    {
+      "role": "ux-designer",
+      "observed": "Real arrow/Esc, direct sliders and paper-silhouette exclusion; localized safe columns; actual native reentry/restart",
+      "remaining": "first-time novice comprehension not assessed"
+    },
+    {
+      "role": "art-director",
+      "observed": "Original PDF embedded JPEG bytes preserved, native1080 rendered images inspected; hollow/thin title and bottom caption overlap corrected; water refracts original texture, no additive bright rings",
+      "remaining": "subjective user acceptance remains theirs"
+    },
+    {
+      "role": "godot-gdscript-specialist",
+      "observed": "60Hz bounded wave field; separate native World2D, mass/inertia/contact/damping; source25-suite and package406 decode/current release120",
+      "remaining": "inspector shutdown cleanup diagnostics unresolved"
+    },
+    {
+      "role": "qa-lead",
+      "observed": "Wrong action, rapid input, save/reload, all8 actual controls, bilingual/3dimensions source; native14captures and package check separate",
+      "remaining": "complete current native matrix incomplete"
+    },
+    {
+      "role": "sound-designer",
+      "observed": "Original licensed samples and full CC0 track, genuine buses/crossfade; actual recorded non-silent PCM",
+      "remaining": "human listening not assessed"
+    }
+  ],
+  "full_game_acceptance": "NOT_COMPLETE"
+}

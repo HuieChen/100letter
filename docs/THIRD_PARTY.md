@@ -8,6 +8,9 @@
 | assets/fonts/NotoSansSC.ttf | https://github.com/google/fonts/tree/main/ofl/notosanssc | SIL OFL 1.1；版权原文在 assets/fonts/OFL.txt。用于中文排版。 |
 | assets/fonts/SolmereSans.ttf | 上述 Noto Sans SC 的本地静态 wght=450 实例 | 同为 SIL OFL 1.1；避免变量字体默认过细。构建方法见 tools/build_font.py。不是原创字库，不单独销售字体。 |
 | assets/fonts/Caveat.ttf | https://github.com/google/fonts/tree/main/ofl/caveat | SIL OFL 1.1；版权原文在 assets/fonts/Caveat-OFL.txt。用于可对照的手写物证。 |
+| assets/fonts/DynaPuff.ttf | https://github.com/google/fonts/tree/main/ofl/dynapuff | SIL OFL 1.1；设置英文圆润手绘字体；保留 DynaPuff-OFL.txt 与 pinned provenance。 |
+| assets/fonts/ZCOOLKuaiLe.ttf | https://github.com/google/fonts/tree/main/ofl/zcoolkuaile | SIL OFL 1.1；设置中文快乐体后备；保留 ZCOOLKuaiLe-OFL.txt 与 pinned provenance。 |
+| assets/audio/foley/water_touch_*.wav | https://opengameart.org/content/6-short-water-splashes | ezwa / qubodup；CC0 1.0；原样解码为 PCM，原页、文件与 SHA256 见 water-provenance.json。 |
 | assets/audio/foley/ | 下表列明的作者与原始页面 | CC0 1.0；剪辑、滤波与混音用于游戏声音。加工清单见 sample_manifest.json。 |
 
 引擎与上述字体允许商业项目使用；分发时保留其版权及许可文本。录音与拟音的原始页面均明确标示 CC0 1.0，可用于商业项目与改编。Windows 成品的 Licenses 目录包含字体和引擎许可、声音来源说明与清单、Kenney 素材包自带的许可原文。没有另外引入需联网调用的游戏服务、付费素材库、开源玩法插件或他人游戏代码。
@@ -42,3 +45,6 @@
 ## 仅制作时使用
 
 Python、NumPy、Pillow、SciPy、fontTools 用于音频加工、合成配乐、授权的透明显示副本与静态字体，不随 Windows 程序打包其解释器或库。FFmpeg 用于声音采样转换与演示视频转码，成品不附转码程序。工具各自许可不替代素材本身的来源记录。
+
+
+Settings R3 sources (2026-10-17): exact original authored PDF JPEG layers (user authorized grouping); runtime white-matte compositing, no AI repaint. Lilita One, DynaPuff, ZCOOL KuaiLe and Noto Sans SC: original SIL OFL1.1 notices and pinned font hashes in assets/fonts. Evan Wallace WebGL Water: pinned MIT water.js step/drop equations ported into scripts/ui/water_field.gd; third_party/webgl-water retains original source/header, commit/hash and full MIT notice. No upstream JavaScript or demo photographs executed. Native GodotPhysics2D (Godot MIT) supplies actual 2D rigid-body contacts. Vaporware by The Cynic Project / cynicmusic.com / pixelsphere.org: complete CC0 track, source https://opengameart.org/content/calm-piano-1-vaporware; assets/audio/settings-music-provenance.json records unchanged source fingerprint and Ogg transcode.

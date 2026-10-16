@@ -9,6 +9,17 @@ func _initialize() -> void:
 	_run.call_deferred()
 
 func _run() -> void:
+	for path:String in ["res://assets/fonts/DynaPuff-OFL.txt","res://assets/fonts/ZCOOLKuaiLe-OFL.txt","res://assets/fonts/LilitaOne-OFL.txt","res://assets/fonts/NotoSansSC-OFL.txt","res://assets/fonts/settings-font-provenance.json","res://assets/audio/foley/WATER_CC0.txt","res://assets/audio/foley/water-provenance.json","res://assets/audio/SETTINGS_MUSIC_CC0.txt","res://assets/audio/settings-music-provenance.json","res://third_party/webgl-water/LICENSE-MIT.txt"]:
+		_check(FileAccess.file_exists(path),"settings license/provenance exists in actual package "+path)
+	for name:String in ["DynaPuff","ZCOOLKuaiLe","LilitaOne"]:
+		var font:Font=load("res://assets/fonts/"+name+".ttf")
+		_check(font!=null,"actual settings font decodes "+name)
+		var chars:String="SettingsLanguageDisplayModeResolutionMasterVolumeMusicSFXMouseSensitivityTextSpeed" if name!="ZCOOLKuaiLe" else "设置语言显示模式分辨率总音乐效量鼠标灵敏度文字速度中文界面窗口全屏无边框慢快即时"
+		for c:String in chars:_check(font.has_char(c.unicode_at(0)),"actual font glyph "+c)
+	_check(load("res://scripts/ui/settings_water.gdshader") is Shader,"water shader exists in actual package")
+	_check(load("res://scripts/ui/water_field.gd") is Script,"continuous surface-wave port exists in actual package")
+	var soundtrack:=load("res://assets/audio/settings_vaporware.ogg") as AudioStreamOggVorbis
+	_check(soundtrack!=null and soundtrack.get_length()>160,"Settings soundtrack is decoded from actual PCK")
 	_check(FileAccess.file_exists("res://data/rebuild/final_cases.json"), "runtime catalog exists in package")
 	var catalog: Variant = JSON.parse_string(FileAccess.get_file_as_string("res://data/rebuild/final_cases.json"))
 	_check(catalog is Dictionary and catalog.get("cases", []).size() == 5, "package contains all five authored cases")
@@ -22,7 +33,8 @@ func _run() -> void:
 			var path: String = str(entry.get("path", ""))
 			var video_role:bool=id=="CHAR_courier" or id=="CHAR_courier_walk" or (id.begins_with("CHAR_courier_walk_") and int(id.trim_prefix("CHAR_courier_walk_")) in range(6))
 			var authorized_video:bool=video_role and entry.get("source_kind","")=="user_video_extraction" and entry.get("source_video_sha256","")==manifest.get("user_animation_override",{}).get("source_video_sha256","missing")
-			_check(path.begins_with("res://assets/faefever_v2/") and (entry.get("ai_generated", false) or authorized_video), id + " has reviewed generated or explicitly supplied video provenance")
+			var authorized_pdf:bool=id in manifest.get("settings_ui_override",{}).get("scope",[]) and entry.get("source_kind","")=="user_pdf_embedded_image_exact_bytes" and entry.get("source_pdf_sha256","")=="ff54771c8c7d98ee2d9cfeeac496eb203a324ebc96a3b9a5dcba9853f19c191f"
+			_check(path.begins_with("res://assets/faefever_v2/") and (entry.get("ai_generated", false) or authorized_video or authorized_pdf), id + " has reviewed generated or explicitly supplied source provenance")
 			_check(ResourceLoader.exists(path) and load(path) is Texture2D, id + " actually decodes from packaged import resource")
 	var required_roles: Array[String] = ["BG_workroom", "workroom", "mail_box_base", "mail_box_lid", "mail_box_latch", "envelope_front", "envelope_back", "letter_paper", "handbook_closed", "handbook_open", "resolution_slip", "postal_seal", "drawer_open", "drawer_front", "magnifier", "opener", "restorer", "press", "eraser", "sealer", "repair_label", "protector", "envelope_flap", "attachment_photo", "old_music_photo", "replacement_strip", "service_paper", "paper_corner", "wall_closeup", "wall_plate_old", "wall_plate_new", "door_closeup", "door_plate", "pen", "seal_mark", "satchel", "cover", "town_map", "BG_post_office", "BG_community_center", "BG_bus_stop", "BG_lookout", "BG_residential", "BG_chess_stall", "BG_tarot_shop", "CHAR_courier", "CHAR_mira", "CHAR_june", "CHAR_chenyuan", "CHAR_elsie", "CHAR_clerk"]
 	var walk_geometry: Variant = JSON.parse_string(FileAccess.get_file_as_string("res://assets/faefever_v2/characters/courier_walk_regions.json"))

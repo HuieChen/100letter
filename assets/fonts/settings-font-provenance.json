@@ -1,0 +1,26 @@
+{
+  "DynaPuff": {
+    "commit": "d4cc17c373d3c60e98e332099c1462b98305101e",
+    "sha256": "c3752fc6dd8aaa46a88637f061a9a4e6ab44c02c5f0afd65528b91ae8ff6f948",
+    "license": "SIL OFL 1.1",
+    "upstream": "https://github.com/google/fonts/tree/d4cc17c373d3c60e98e332099c1462b98305101e/ofl/dynapuff"
+  },
+  "ZCOOLKuaiLe": {
+    "commit": "6d49995f5d8f1c7d476760a580ffb89ce1e52c5d",
+    "sha256": "812a6fc1fe54b6d73a419245c32dfeba8aa33104d5be90d1cf6af082007cb71d",
+    "license": "SIL OFL 1.1",
+    "upstream": "https://github.com/google/fonts/tree/6d49995f5d8f1c7d476760a580ffb89ce1e52c5d/ofl/zcoolkuaile"
+  },
+  "LilitaOne": {
+    "commit": "90abd17b4f97671435798b6147b698aa9087612f",
+    "sha256": "f5b641c45c69d772ee4eda687bc9fda411d5cad6b0b45371491da4580cbc8d59",
+    "license": "SIL OFL 1.1",
+    "upstream": "https://github.com/google/fonts/tree/90abd17b4f97671435798b6147b698aa9087612f/ofl/lilitaone"
+  },
+  "NotoSansSC": {
+    "commit": "a85815a42757630ce188fdad368c2dfc444d4773",
+    "sha256": "a3041811a78c361b1de50f953c805e0244951c21c5bd412f7232ef0d899af0da",
+    "license": "SIL OFL 1.1",
+    "upstream": "https://github.com/google/fonts/tree/a85815a42757630ce188fdad368c2dfc444d4773/ofl/notosanssc"
+  }
+}

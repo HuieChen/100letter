@@ -1,0 +1,10 @@
+Vaporware — The Cynic Project / cynicmusic.com / pixelsphere.org
+Original page: https://opengameart.org/content/calm-piano-1-vaporware
+License selected by the author on that page: CC0 1.0 Universal
+License: https://creativecommons.org/publicdomain/zero/1.0/
+Original download: https://opengameart.org/sites/default/files/003_Vaporware_2.mp3
+The complete original 164.96-second stereo track is transcoded to Ogg Vorbis
+for local game playback; no AI generation, trimming, musical remix or upload
+of private user media. Source/output fingerprints are in the adjacent JSON.
+Settings crossfades this track in through SolmereMusic; Master and Music
+controls remain authoritative. Return restores the original game's motif.

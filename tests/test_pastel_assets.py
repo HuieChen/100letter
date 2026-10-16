@@ -13,7 +13,7 @@ class PastelAssets(unittest.TestCase):
     def test_every_active_role_is_reviewed_new_bitmap_and_decodes(self):
         m=json.loads((ROOT/'assets/faefever_v2/manifest.json').read_text(encoding='utf-8'))
         self.assertEqual(m['style_lock'],'SOLMERE_SOFT_PASTEL_20261004')
-        self.assertEqual(len(m['assets']),62)  # six supplied poses supersede eight generated poses
+        self.assertEqual(len(m['assets']),73)  # authored PDF layers are independently registered, courier poses remain unchanged
         for role,entry in m['assets'].items():
             with self.subTest(role=role):
                 p=ROOT/entry['path'].removeprefix('res://')
@@ -22,9 +22,13 @@ class PastelAssets(unittest.TestCase):
                     self.assertEqual(entry['source_kind'],'user_video_extraction')
                     self.assertEqual(entry['style_lock'],'USER_VIDEO_COURIER_20261016')
                     self.assertEqual(entry['source_video_sha256'],m['user_animation_override']['source_video_sha256'])
+                elif role in m['settings_ui_override']['scope']:
+                    self.assertFalse(entry['ai_generated'])
+                    self.assertEqual(entry['source_kind'],'user_pdf_embedded_image_exact_bytes')
+                    self.assertEqual(entry['style_lock'],'SOLMERE_COASTAL_PDF_20261017')
                 else:
                     self.assertTrue(entry['ai_generated'])
-                    self.assertEqual(entry['style_lock'],m['style_lock'])
+                    self.assertEqual(entry['style_lock'],'SOLMERE_COASTAL_UI_20261016' if role in {'settings_water','settings_stationery'} else m['style_lock'])
                 self.assertEqual(entry['sha256'],hashlib.sha256(p.read_bytes()).hexdigest())
                 self.assertEqual(entry['source_sha256'],entry['sha256'])
                 im=Image.open(p);im.load()

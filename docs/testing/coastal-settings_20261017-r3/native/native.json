@@ -1,0 +1,126 @@
+{
+  "scope": "Actual R3 official Windows executable using isolated QA userdata; old user R2 preview preserved.",
+  "pck_sha256": "8e5ed175012ab670ecd9d96edd949fa9e832718999fe40a0c00b49440077a229",
+  "method": "@oai/sky actual window and OS input; unedited target-window captures. OS cursor/click indicators can appear; a foreign floating-toolbar frame excluded privately.",
+  "observed": [
+    "title → Settings",
+    "near-lemon water click and later displaced slice",
+    "held water drag; menu remains stationary",
+    "Master knob changed via actual drag",
+    "Chinese → English layout",
+    "F11 Full Screen → Windowed and selector synchronization",
+    "visible back arrow → title",
+    "reentry preserves language and Master",
+    "Esc → title",
+    "real process restart; saved language and Master restore"
+  ],
+  "limits": [
+    "Three other sliders currently automated; earlier R1 native drags historical",
+    "passive motion speed comparisons automated, not current native recordings",
+    "human audio listening not certified",
+    "full native/novice matrix pending"
+  ],
+  "notes": [
+    "Immediate window enumeration still listed closing window; later fresh enumeration confirms old HWND gone and exactly one new HWND. No close-failure claim."
+  ],
+  "artifacts": [
+    {
+      "step": "01_title",
+      "path": "docs/testing/coastal-settings_20261017-r3/native/01_title.jpg",
+      "sha256": "2edde274b7fdd149825a828848500345155ad48e2379cda4bc41c20abb9cc693",
+      "width": 856,
+      "height": 511
+    },
+    {
+      "step": "02_settings",
+      "path": "docs/testing/coastal-settings_20261017-r3/native/02_settings.jpg",
+      "sha256": "6f94ee608866b60f13d0b507faa39f28fe18ef03c11e261f902e908d5f5f8b1e",
+      "width": 856,
+      "height": 511
+    },
+    {
+      "step": "03_near_lemon_water",
+      "path": "docs/testing/coastal-settings_20261017-r3/native/03_near_lemon_water.jpg",
+      "sha256": "739ab6cb401781fe1867eb5f76de578d1124aaa04569b92575073f84e9b5012e",
+      "width": 856,
+      "height": 511
+    },
+    {
+      "step": "04_water_drag",
+      "path": "docs/testing/coastal-settings_20261017-r3/native/04_water_drag.jpg",
+      "sha256": "8ba7b4fc6ba60e49a65b1b8185ff45d120a5604c855b0151802882f9f8438f85",
+      "width": 856,
+      "height": 511
+    },
+    {
+      "step": "05_master_after_fresh_observation",
+      "path": "docs/testing/coastal-settings_20261017-r3/native/05_master_after_fresh_observation.jpg",
+      "sha256": "ac3fc3212e7f653e240ed3010bf0e118a747d2a3872b8e29813523c86885f0f1",
+      "width": 856,
+      "height": 511
+    },
+    {
+      "step": "06_language_menu",
+      "path": "docs/testing/coastal-settings_20261017-r3/native/06_language_menu.jpg",
+      "sha256": "5b41b3455d3b2b2bd724645a14014b9079e8a2c8c8070d62d55dd96650c49dd0",
+      "width": 856,
+      "height": 511
+    },
+    {
+      "step": "07_english",
+      "path": "docs/testing/coastal-settings_20261017-r3/native/07_english.jpg",
+      "sha256": "6edfa246bc00cd27f1840f0d074769554b714241d9c4802e8565e39ae541a23d",
+      "width": 856,
+      "height": 511
+    },
+    {
+      "step": "08_f11_fullscreen",
+      "path": "docs/testing/coastal-settings_20261017-r3/native/08_f11_fullscreen.jpg",
+      "sha256": "969f72ac4ea1e98d65493156c39c2e9584616f914bba0af7fd61b14772f1b702",
+      "width": 1707,
+      "height": 1067
+    },
+    {
+      "step": "09_f11_windowed",
+      "path": "docs/testing/coastal-settings_20261017-r3/native/09_f11_windowed.jpg",
+      "sha256": "6edfa246bc00cd27f1840f0d074769554b714241d9c4802e8565e39ae541a23d",
+      "width": 856,
+      "height": 511
+    },
+    {
+      "step": "10_return_arrow",
+      "path": "docs/testing/coastal-settings_20261017-r3/native/10_return_arrow.jpg",
+      "sha256": "d73f58a8a0392b87223f1bd0ba021c0de2c0fdf7032b3b68f623b14bef161842",
+      "width": 856,
+      "height": 511
+    },
+    {
+      "step": "11_reentry_saved",
+      "path": "docs/testing/coastal-settings_20261017-r3/native/11_reentry_saved.jpg",
+      "sha256": "67c15a036a3803034aa136ee1b1c4195f6c602ed8a1a9ef1f42b138a147489a9",
+      "width": 856,
+      "height": 511
+    },
+    {
+      "step": "12_esc_return",
+      "path": "docs/testing/coastal-settings_20261017-r3/native/12_esc_return.jpg",
+      "sha256": "2d6510ce9210b6428fd279c159b6ad4931e8d6794ef4e7428635a88210ac8ff5",
+      "width": 856,
+      "height": 511
+    },
+    {
+      "step": "13_restart_title",
+      "path": "docs/testing/coastal-settings_20261017-r3/native/13_restart_title.jpg",
+      "sha256": "2e926cdb6975d0dd89dc33b0ce815d3b5de106fd4aea68617a9d51a6a9c47837",
+      "width": 856,
+      "height": 511
+    },
+    {
+      "step": "14_restart_settings_saved",
+      "path": "docs/testing/coastal-settings_20261017-r3/native/14_restart_settings_saved.jpg",
+      "sha256": "c0ac53807fae32b0091edafd9e38ea3d1d07448c36aff3bad5e7bd20da2c49b8",
+      "width": 856,
+      "height": 511
+    }
+  ]
+}

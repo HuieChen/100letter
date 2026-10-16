@@ -1,0 +1,11 @@
+Selected 87 resources from reviewed art, explicit courier-video override, current entry, fonts and licensed audio.
+This updates packaging scope only; it does not prove all runtime roles are present or playable.
+Automated checks explicitly skipped. This build is not a new validation result.
+
+Algorithm       Hash                                                                   Path
+---------       ----                                                                   ----
+SHA256          D34D36F3BE1A6C49C56525AE86469B92E4F417DDF0B43CF00DD80C385C4B0562       C:\Users\22416\Documents\Codex\2…
+SHA256          DDB9D517E5D642A6D7CF51E4747E9F96CE944352DC607C5DD00CEE6A580737F0       C:\Users\22416\Documents\Codex\2…
+
+Selected-resource inventory: C:\Users\22416\Documents\Codex\2026-10-01\github\work\100letter-studio-publish\test-results\package-20261017-000756/export-audit.json
+Local build created. Native playtest, reference review and GitHub publication remain separate steps.

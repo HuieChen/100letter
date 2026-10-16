@@ -1,0 +1,17 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+OpenGL API 3.3.0 NVIDIA 566.24 - Compatibility - Using Device: NVIDIA - NVIDIA GeForce RTX 4050 Laptop GPU
+
+SCRIPT ERROR: Parse Error: Cannot find member "min" in base "PackedFloat32Array".
+   at: GDScript::reload (res://tests/water_field_input.gd:18)
+SCRIPT ERROR: Parse Error: Function "min()" not found in base PackedFloat32Array.
+   at: GDScript::reload (res://tests/water_field_input.gd:18)
+SCRIPT ERROR: Parse Error: Cannot find member "max" in base "PackedFloat32Array".
+   at: GDScript::reload (res://tests/water_field_input.gd:18)
+SCRIPT ERROR: Parse Error: Function "max()" not found in base PackedFloat32Array.
+   at: GDScript::reload (res://tests/water_field_input.gd:18)
+SCRIPT ERROR: Parse Error: Cannot find member "all" in base "PackedFloat32Array".
+   at: GDScript::reload (res://tests/water_field_input.gd:28)
+SCRIPT ERROR: Parse Error: Function "all()" not found in base PackedFloat32Array.
+   at: GDScript::reload (res://tests/water_field_input.gd:28)
+ERROR: Failed to load script "res://tests/water_field_input.gd" with error "Parse error".
+   at: load (modules/gdscript/gdscript_resource_format.cpp:46)

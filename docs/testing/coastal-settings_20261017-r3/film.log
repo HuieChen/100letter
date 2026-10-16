@@ -1,0 +1,7 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+OpenGL API 3.3.0 NVIDIA 566.24 - Compatibility - Using Device: NVIDIA - NVIDIA GeForce RTX 4050 Laptop GPU
+
+Movie Maker mode enabled, recording movie in 1920×1080 @ 24 FPS...
+WARNING: Current available space on disk is low (5.34 GiB). MovieWriter will fail during movie recording if the disk runs out of available space.
+   at: begin (servers/movie_writer/movie_writer.cpp:117)
+SETTINGS FILM: (1920, 1080); actual 408 frames at24fps. Near-lemon click; slow skim; fast swipe; held drag; live music slider; English layout; heavy slice; return arrow. Test pointer is an annotation, not native mouse footage.

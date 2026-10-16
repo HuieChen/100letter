@@ -1,0 +1,83 @@
+{
+  "source_pdf_sha256": "ff54771c8c7d98ee2d9cfeeac496eb203a324ebc96a3b9a5dcba9853f19c191f",
+  "source_pages": 39,
+  "embedded_resolution": [
+    1920,
+    1080
+  ],
+  "alpha": false,
+  "items": [
+    {
+      "role": "settings_water_base",
+      "page": 1,
+      "path": "assets/faefever_v2/ui/settings_pdf_20261017/settings_water_base.jpeg",
+      "sha256": "0faf702f1e00836bed612b80dbf495355e37ee83fc5e02f3bd4e789c284362a6"
+    },
+    {
+      "role": "settings_water_pattern",
+      "page": 2,
+      "path": "assets/faefever_v2/ui/settings_pdf_20261017/settings_water_pattern.jpeg",
+      "sha256": "e31efd76da89503bf1b09fbc9a7731a37aa2b00013d2e20c7131da5dfeaee7bc"
+    },
+    {
+      "role": "settings_water",
+      "page": 4,
+      "path": "assets/faefever_v2/ui/settings_pdf_20261017/settings_water.jpeg",
+      "sha256": "f7d6b6a8cb743a366823adaee164bab11bd1b396a120b81f013969b9a215af38"
+    },
+    {
+      "role": "settings_paper_shadow",
+      "page": 11,
+      "path": "assets/faefever_v2/ui/settings_pdf_20261017/settings_paper_shadow.jpeg",
+      "sha256": "568ca9f166532a44bec6aa39ef43d0aede4d282bed313697276c785d901da2a4"
+    },
+    {
+      "role": "settings_tape",
+      "page": 12,
+      "path": "assets/faefever_v2/ui/settings_pdf_20261017/settings_tape.jpeg",
+      "sha256": "3e723b54f49c556f7dcc136ff35211c5e8a1d0d0f835aa060a62e8819e7d2641"
+    },
+    {
+      "role": "settings_papers",
+      "page": 13,
+      "path": "assets/faefever_v2/ui/settings_pdf_20261017/settings_papers.jpeg",
+      "sha256": "1f515f5803485abebcadfe1c35d490fc33dffd56ada6ea64912808335f32911f"
+    },
+    {
+      "role": "settings_stationery",
+      "page": 14,
+      "path": "assets/faefever_v2/ui/settings_pdf_20261017/settings_stationery.jpeg",
+      "sha256": "9fccd70a702fb1c4f0e433fd56e1b96c086fe4a5537b67b4585cab87f7314e3d"
+    },
+    {
+      "role": "settings_postcards",
+      "page": 38,
+      "path": "assets/faefever_v2/ui/settings_pdf_20261017/settings_postcards.jpeg",
+      "sha256": "15bc1b26bb2cffc4c6f3d5ed01f33bbc99f1e71bc7ca63637756cb55e4435d01"
+    },
+    {
+      "role": "settings_lemon_rind",
+      "page": 8,
+      "path": "assets/faefever_v2/ui/settings_pdf_20261017/settings_lemon_rind.jpeg",
+      "sha256": "63ef10b1cc75e16a162b1f895923ba3612f74443bbdae4321682422ad0ab0acf"
+    },
+    {
+      "role": "settings_lemon_flesh",
+      "page": 9,
+      "path": "assets/faefever_v2/ui/settings_pdf_20261017/settings_lemon_flesh.jpeg",
+      "sha256": "337ba6ef927b536fd3126917dd91a3d71091cdc4546bf6116af80751266418f5"
+    },
+    {
+      "role": "settings_lemon_segments",
+      "page": 10,
+      "path": "assets/faefever_v2/ui/settings_pdf_20261017/settings_lemon_segments.jpeg",
+      "sha256": "ddba03b5e14996841414bbd2881f3f455c44f318ca3be27a0344ea5037c9767f"
+    }
+  ],
+  "notes": [
+    "Source PDF is unchanged and remains in supplied location.",
+    "Large lemon uses complete small three-layer drawing at its supplied larger size to avoid the large source lemon top-cut showing during floating movement.",
+    "No AI blending or repainting; exact extracted JPEG bytes.",
+    "Unselected original white/title/text layers stay private in inspection results."
+  ]
+}

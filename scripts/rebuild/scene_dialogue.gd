@@ -18,10 +18,13 @@ var _choice_page := 0
 var _left_art := ""
 var _right_art := ""
 var locale := "zh"
+var advance_name := "AdvanceDialogue"
 var _leaf: TextureRect
 var _speaker_label: Label
 var _spoken: RichTextLabel
 var _close_button: Button
+var _text_rate:=0.0
+var _reveal:=0.0
 func configure(speaker: String, line: String, choices: Array = [], left_art: String = "", right_art: String = "") -> void:
 	_speaker=speaker;_line=line;_choices=choices.duplicate(true)
 	_left_art=left_art;_right_art=right_art
@@ -70,9 +73,32 @@ func _render() -> void:
 		_spoken.add_theme_font_size_override("normal_font_size",26)
 		_spoken.add_theme_constant_override("line_separation",6)
 		UI.place(_spoken,self,Rect2(378,676,840,148))
-		var next:=_text_button("▼",Rect2(744,835,112,42));next.name="AdvanceDialogue"
+		var next:=_text_button("▼",Rect2(744,835,112,42));next.name=advance_name
 		next.add_theme_font_size_override("font_size",20);next.pressed.connect(_advance)
 		_fit_spoken_line.call_deferred(_spoken)
+		_reveal=0.0
+		_spoken.visible_characters=0 if _text_rate>0.0 else -1
+	_focus_paper()
+
+func _focus_paper() -> void:
+	var items:Array=[]
+	for child in get_children():
+		if child is Button:items.append(child)
+	for i:int in items.size():
+		items[i].focus_next=items[i].get_path_to(items[(i+1)%items.size()])
+		items[i].focus_previous=items[i].get_path_to(items[(i-1+items.size())%items.size()])
+	if _showing_choices and items.size()>1:items[1].grab_focus()
+	elif has_node(advance_name):get_node(advance_name).grab_focus()
+
+func set_text_rate(rate:float) -> void:
+	_text_rate=maxf(rate,0.0);_reveal=0.0
+	if is_instance_valid(_spoken):_spoken.visible_characters=0 if _text_rate>0.0 else -1
+
+func _process(delta:float) -> void:
+	if _showing_choices or _locked or not is_instance_valid(_spoken) or _spoken.visible_characters<0:return
+	_reveal+=delta*_text_rate
+	_spoken.visible_characters=mini(int(_reveal),_spoken.get_total_character_count())
+	if _spoken.visible_characters>=_spoken.get_total_character_count():_spoken.visible_characters=-1
 func _fit_spoken_line(spoken:RichTextLabel) -> void:
 	await get_tree().process_frame
 	if not is_instance_valid(spoken) or _showing_choices:return
@@ -95,6 +121,8 @@ func _text_button(text:String,rect:Rect2) -> Button:
 	return button
 func _advance() -> void:
 	if _locked or _showing_choices:return
+	if is_instance_valid(_spoken) and _spoken.visible_characters>=0:
+		_spoken.visible_characters=-1;get_viewport().set_input_as_handled();return
 	get_viewport().set_input_as_handled();cue.emit("flip")
 	if _choices.is_empty():_locked=true;advanced.emit()
 	else:_showing_choices=true;_render()

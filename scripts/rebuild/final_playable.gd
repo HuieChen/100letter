@@ -12,6 +12,8 @@ const Workbench = preload("res://scripts/rebuild/mail_workbench.gd")
 const PostalDesk = preload("res://scripts/rebuild/postal_desk.gd")
 const ResolutionSlip = preload("res://scripts/rebuild/resolution_slip.gd")
 const SceneDialogue = preload("res://scripts/rebuild/scene_dialogue.gd")
+const Preferences = preload("res://scripts/ui/game_preferences.gd")
+const SettingsPage = preload("res://scripts/ui/coastal_settings.gd")
 const LOCATIONS = ["post_office","community_center","bus_stop","lookout","residential","chess_stall","tarot_shop"]
 const NAMES = {"post_office":"邮局","community_center":"社区中心","bus_stop":"海岸电车站","lookout":"观景台","residential":"海阶居民楼","chess_stall":"树下棋摊","tarot_shop":"塔楼屋"}
 const PEOPLE = {"post_office":[],"community_center":["june_arlen","community_clerk"],"bus_stop":["chenyuan"],"lookout":["mira_vale"],"residential":["elsie_moran"],"chess_stall":["chenyuan"],"tarot_shop":[]}
@@ -40,6 +42,9 @@ var _footer_timer: Timer
 var _resolution_drafts: Dictionary = {}
 var _desk_surface: Control
 var _conversation_person := ""
+var preferences:Node
+var preferences_path := "user://final_v2/preferences_v1.json"
+var allow_display_changes := true
 
 func _ready() -> void:
 	get_tree().auto_accept_quit=false
@@ -55,13 +60,64 @@ func _ready() -> void:
 	sound=Sound.new()
 	sound.settings_path="user://final_v2/audio_settings.cfg"
 	add_child(sound)
+	preferences=Preferences.new()
+	for arg in OS.get_cmdline_user_args():
+		if arg.begins_with("--preferences="):preferences_path=arg.trim_prefix("--preferences=")
+	if preferences_path=="user://final_v2/preferences_v1.json" and core.save_path.contains("/qa/"):preferences_path=core.save_path.get_base_dir()+"/preferences.json"
+	preferences.path=preferences_path;add_child(preferences);preferences.load_settings()
+	if not preferences.loaded:
+		var old:Dictionary=sound.get_volumes();preferences.values.music=old.music;preferences.values.sfx=old.effects
+		if sound.muted:preferences.values.master=0.0
+	# Old hidden mute becomes the visible master control, without an invisible second mute.
+	sound.set_muted(false)
+	preferences.changed.connect(_apply_preference)
+	_apply_audio_preferences()
+	if preferences.loaded:_apply_display_preferences()
 	_title()
+
+func _tr(zh:String,en:String) -> String:
+	return en if is_instance_valid(preferences) and preferences.values.language=="en" else zh
+func _apply_audio_preferences() -> void:
+	var index:=AudioServer.get_bus_index("Master");var master:float=preferences.values.master
+	AudioServer.set_bus_volume_db(index,linear_to_db(maxf(master,0.0001)));AudioServer.set_bus_mute(index,master<=0.0)
+	sound.set_volumes(preferences.values.music,preferences.values.sfx,preferences.values.sfx)
+func _apply_preference(key:String,_value:Variant) -> void:
+	if key in ["master","music","sfx"]:_apply_audio_preferences()
+	elif key in ["display_mode","resolution"]:_apply_display_preferences()
+	elif key=="language" and view=="title":
+		var start:=stage.find_child("NewShift",true,false);var resume:=stage.find_child("ContinueShift",true,false);var options:=stage.find_child("OpenSettings",true,false)
+		if start!=null:start.text=_tr("开始","New shift")
+		if resume!=null:resume.text=_tr("继续","Continue")
+		if options!=null:options.text=_tr("设置","Settings")
+func _apply_display_preferences() -> void:
+	if not allow_display_changes or DisplayServer.get_name()=="headless":return
+	var window:=get_window();var mode:String=preferences.values.display_mode
+	window.mode=Window.MODE_FULLSCREEN if mode=="fullscreen" else Window.MODE_WINDOWED
+	window.borderless=mode=="borderless"
+	var resolution:String=preferences.values.resolution
+	if resolution=="auto":
+		window.content_scale_mode=Window.CONTENT_SCALE_MODE_CANVAS_ITEMS;window.content_scale_size=Vector2i(1600,900);scale=Vector2.ONE
+		if mode!="fullscreen":
+			var area:=DisplayServer.screen_get_usable_rect(window.current_screen).size
+			var width:=mini(1280,maxi(960,area.x-40));window.size=Vector2i(width,int(width*9.0/16.0))
+	else:
+		var parts:=resolution.split("x");var pixels:=Vector2i(int(parts[0]),int(parts[1]))
+		# Fixed authored canvas into a real 2D render viewport, including fullscreen.
+		window.content_scale_mode=Window.CONTENT_SCALE_MODE_VIEWPORT;window.content_scale_size=pixels;scale=Vector2(pixels)/Vector2(1600,900)
+		if mode!="fullscreen":
+			var area:=DisplayServer.screen_get_usable_rect(window.current_screen).size
+			var factor:=minf(1.0,minf(float(area.x-40)/pixels.x,float(area.y-60)/pixels.y))
+			window.size=Vector2i(Vector2(pixels)*factor)
+
 
 func _notification(what:int) -> void:
 	if what==NOTIFICATION_WM_CLOSE_REQUEST:
 		if _prepare_quit():get_tree().quit()
 
 func _prepare_quit() -> bool:
+	if is_instance_valid(preferences) and not preferences.save_settings():
+		_show_save_problem(_tr("设置没有保存成功：","Settings could not be saved: ")+preferences.last_error)
+		return false
 	if not is_instance_valid(core) or view=="title":return true
 	if busy:
 		_show_save_problem("正在完成这次移动或交接，请稍等一下再关闭。")
@@ -91,7 +147,8 @@ func _show_save_problem(message:String) -> void:
 func _unhandled_input(event:InputEvent) -> void:
 	if event is InputEventKey and event.pressed and not event.echo:
 		if event.keycode==KEY_F11:
-			DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED if DisplayServer.window_get_mode()==DisplayServer.WINDOW_MODE_FULLSCREEN else DisplayServer.WINDOW_MODE_FULLSCREEN)
+			preferences.set_value("display_mode","windowed" if get_window().mode==Window.MODE_FULLSCREEN else "fullscreen")
+			preferences.save_settings()
 		elif event.keycode==KEY_ESCAPE and not busy:
 			if is_instance_valid(modal):
 				if modal.has_method("request_close"): modal.request_close()
@@ -172,12 +229,13 @@ func _title() -> void:
 	title.horizontal_alignment=HORIZONTAL_ALIGNMENT_CENTER
 	var subtitle:=UI.label(stage,"SOLMERE POST",Rect2(400,442,800,50),24,Color("697d77"))
 	subtitle.horizontal_alignment=HORIZONTAL_ALIGNMENT_CENTER
-	var start:=UI.button(stage,"开始",Rect2(575,580,450,57),_start)
+	var start:=UI.button(stage,_tr("开始","New shift"),Rect2(575,580,450,57),_start)
 	start.name="NewShift"
-	var resume:=UI.button(stage,"继续",Rect2(575,652,450,57),_resume)
+	var resume:=UI.button(stage,_tr("继续","Continue"),Rect2(575,652,450,57),_resume)
 	resume.name="ContinueShift"
 	resume.disabled=not core.has_save()
-	var options:=UI.button(stage,"设置",Rect2(575,724,450,52),_settings_page)
+	var options:=UI.button(stage,_tr("设置","Settings"),Rect2(575,724,450,52),_settings_page)
+	options.name="OpenSettings"
 	for button in [start,resume,options]:
 		button.alignment=HORIZONTAL_ALIGNMENT_CENTER
 		for button_state:String in ["normal","hover","pressed","focus","disabled"]:button.add_theme_stylebox_override(button_state,StyleBoxEmpty.new())
@@ -232,10 +290,12 @@ func _begin_briefing() -> void:
 	if not is_instance_valid(modal) or view!="counter":busy=false;return
 	_close()
 	var briefing:=SceneDialogue.new()
+	briefing.advance_name="FinishBriefing"
 	modal=briefing
 	UI.place(briefing,self,Rect2(0,0,1600,900))
 	briefing.configure("主管 · 柜台另一端","早。手提箱里这封一直没送到，锁扣还扣着。你先把信拿出来看看。信上是旧街名——社区中心窗边留着改名公告，先从那儿查起。别急着交，地址对得上，也得问清是谁家的信。")
-	briefing.find_child("AdvanceDialogue",true,false).name="FinishBriefing"
+	briefing.cue.connect(sound.play)
+	briefing.set_text_rate(preferences.text_rate())
 	briefing.advanced.connect(_finish_briefing)
 	briefing.closed.connect(_finish_briefing)
 
@@ -488,6 +548,7 @@ func _workbench(id:String,from_rect:Rect2=Rect2()) -> void:
 	if from_rect.has_area() and bench.has_method("present_from"):bench.present_from(from_rect)
 	_hide_courier_for_closeup()
 	bench.cue.connect(sound.play)
+	bench.manipulation_sensitivity=preferences.values.sensitivity
 	bench.closed.connect(func(): _close();_save())
 	bench.inspection_completed.connect(func(_mode:String):_save())
 
@@ -515,7 +576,7 @@ func _book() -> void:
 	var book:Control=script.new()
 	modal=book
 	UI.place(book,self,Rect2(0,0,1600,900))
-	book.configure(core)
+	book.configure(core,preferences.values.language)
 	book.cue.connect(sound.play)
 	_hide_courier_for_closeup()
 	book.closed.connect(func():
@@ -536,6 +597,7 @@ func _hide_courier_for_closeup() -> void:
 
 func _close() -> void:
 	if is_inside_tree(): get_viewport().set_input_as_handled()
+	if is_instance_valid(modal) and modal.get_script()==SettingsPage and is_instance_valid(sound):sound.settings_music(false)
 	if is_instance_valid(modal):
 		remove_child(modal)
 		modal.queue_free()
@@ -622,6 +684,7 @@ func _dialogue(id:String, line:String) -> void:
 	_conversation_person=id
 	dialogue.configure(core.known_person_label(id),line,choices,"CHAR_courier",str(PERSON_ART.get(id,"")))
 	dialogue.cue.connect(sound.play)
+	dialogue.set_text_rate(preferences.text_rate())
 	dialogue.closed.connect(_close)
 	dialogue.chosen.connect(func(choice:String):_choose_dialogue(id,choice))
 
@@ -660,6 +723,7 @@ func _spoken_question(line:String, reply:Callable) -> void:
 	UI.place(dialogue,self,Rect2(0,0,1600,900))
 	dialogue.configure("你",line,[],"CHAR_courier",str(PERSON_ART.get(_conversation_person,"")))
 	dialogue.cue.connect(sound.play)
+	dialogue.set_text_rate(preferences.text_rate())
 	dialogue.closed.connect(_close)
 	dialogue.advanced.connect(reply)
 
@@ -929,12 +993,18 @@ func _depart(id:String,minutes:int,_map:Control=null) -> void:
 	if not error.is_empty():_say(error)
 
 func _settings_page() -> void:
-	var p:=_sheet("声音与操作","点击地面 / WASD：走动\n人物与物件：走近后交互\nM 地图 · B 邮袋 · J 档案 · Esc 返回 · F11 全屏\n信封：右键翻面，滚轮放大。",[])
-	UI.label(p,"环境与音效音量",Rect2(45,375,390,45),22)
-	var slider:=HSlider.new()
-	slider.min_value=0;slider.max_value=1;slider.step=0.05;slider.value=_settings.volume
-	UI.place(slider,p,Rect2(46,441,760,42))
-	slider.value_changed.connect(func(value:float):_settings.volume=value;sound.set_volumes(value*0.65,value,value))
+	if busy:return
+	var return_pause:=view!="title"
+	_close()
+	if is_instance_valid(walker):walker.manual_enabled=false
+	var settings:=SettingsPage.new();modal=settings
+	UI.place(settings,self,Rect2(0,0,1600,900));settings.configure(preferences)
+	settings.cue.connect(sound.play)
+	settings.water_audio.connect(sound.play_water_touch)
+	sound.settings_music(true)
+	settings.closed.connect(func():
+		_close()
+		if return_pause:_pause())
 
 func _save_to_title() -> void:
 	if not _save_resolution_drafts():return
@@ -943,7 +1013,7 @@ func _save_to_title() -> void:
 
 func _pause() -> void:
 	if busy:return
-	_sheet("暂歇一会儿","这段阅读与停留不会改变邮路上的时间。",[["回到场景",_close],["声音与操作",_settings_page],["保存并回到封面",_save_to_title]])
+	_sheet(_tr("暂歇一会儿","Pause"),"",[[_tr("回到场景","Resume"),_close],[_tr("设置","Settings"),_settings_page],[_tr("保存并回到封面","Save and title"),_save_to_title]])
 
 func _ending() -> void:
 	_counter()

@@ -1,0 +1,23 @@
+{
+  "file": "test-results\\ui-reference-20261016\\settings-demo-r3-1920.mp4",
+  "native_dimensions": [
+    1920,
+    1080
+  ],
+  "frames": 410,
+  "fps": 24,
+  "duration": 17.088,
+  "peak": 0.42618051171302795,
+  "rms": 0.01191706769168377,
+  "nonzero_mix": true,
+  "frames_reviewed": [
+    "test-results\\film-inspect-r3\\frame-0.2.png",
+    "test-results\\film-inspect-r3\\frame-1.4.png",
+    "test-results\\film-inspect-r3\\frame-4.5.png",
+    "test-results\\film-inspect-r3\\frame-6.5.png",
+    "test-results\\film-inspect-r3\\frame-8.0.png",
+    "test-results\\film-inspect-r3\\frame-13.0.png",
+    "test-results\\film-inspect-r3\\frame-15.3.png"
+  ],
+  "method": "Complete FFmpeg decoding, native MovieWriter 1080, actual PCM mixer; not human listening"
+}

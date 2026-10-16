@@ -59,6 +59,7 @@ var _view_motion: Tween
 var _flip_motion: Tween
 var _lift_motion: Tween
 var _zoom_goal := 1.0
+var manipulation_sensitivity := 1.0
 var _flip_progress := 1.0
 var _previous_face := "front"
 var _lift := 0.0
@@ -190,7 +191,7 @@ func _stop_view_motion() -> void:
 
 func _zoom_at(canvas:Vector2, direction:float) -> void:
 	var point:=_to_table(canvas*_fit)
-	var goal:=clampf(_zoom_goal+direction*0.2,1.0,3.0)
+	var goal:=clampf(_zoom_goal+direction*0.2*manipulation_sensitivity,1.0,3.0)
 	_stop_view_motion()
 	_zoom_goal=goal
 	var start_zoom:float=_snapshot.zoom
@@ -250,13 +251,16 @@ func _notification(what: int) -> void:
 func _input(event:InputEvent) -> void:
 	# A held glass keeps pointer capture above the scrollable letter text.
 	if _closing or not _magnifier or not is_visible_in_tree():return
+	var local_pointer:=Vector2.ZERO
+	if event is InputEventMouseMotion or event is InputEventMouseButton:
+		local_pointer=get_global_transform().affine_inverse()*event.position
 	if event is InputEventMouseMotion and _magnifier_held:
-		_magnifier_at=(event.position/_fit-_magnifier_offset).clamp(Vector2(35,75),Vector2(1410,690))
+		_magnifier_at=(local_pointer/_fit-_magnifier_offset).clamp(Vector2(35,75),Vector2(1410,690))
 		_update_lens();queue_redraw();get_viewport().set_input_as_handled()
 	elif event is InputEventMouseButton:
 		if event.button_index==MOUSE_BUTTON_LEFT and not event.pressed and _magnifier_held:
 			_magnifier_held=false
-			if drawer.opened and Drawer.INNER.has_point(event.position/_fit):_magnifier=false
+			if drawer.opened and Drawer.INNER.has_point(local_pointer/_fit):_magnifier=false
 			_update_lens();queue_redraw();get_viewport().set_input_as_handled()
 		elif event.button_index==MOUSE_BUTTON_RIGHT and event.pressed:
 			_magnifier=false;_magnifier_held=false;_update_lens();queue_redraw();get_viewport().set_input_as_handled()
@@ -287,7 +291,7 @@ func _gui_input(event: InputEvent) -> void:
 			for object_id: String in _pick_order():
 				if model.object_rect(object_id).has_point(_to_table(event.position)): mouse_default_cursor_shape=Control.CURSOR_POINTING_HAND;break
 		if _panning:
-			model.set_inspection(float(_snapshot.zoom),_pan_start+(event.position-_pointer_start)/_fit)
+			model.set_inspection(float(_snapshot.zoom),_pan_start+(event.position-_pointer_start)/_fit*manipulation_sensitivity)
 		elif not _drag.is_empty(): _feedback(model.drag_to(_to_table(event.position)))
 		elif _tool_down: _stroke(_to_table(event.position))
 		var edge_hover:=_tool.is_empty() and _drag.is_empty() and not _reading and str(_snapshot.operation_mode).is_empty() and _turn_edge().has_point(_to_table(event.position))

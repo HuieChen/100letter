@@ -1,0 +1,13 @@
+{
+  "title": "Vaporware",
+  "artist": "The Cynic Project / cynicmusic.com / pixelsphere.org",
+  "license": "CC0 1.0",
+  "source": "https://opengameart.org/content/calm-piano-1-vaporware",
+  "download": "https://opengameart.org/sites/default/files/003_Vaporware_2.mp3",
+  "original_sha256": "1697fa1b7ed6f3fe1eca4daa4f9d1a2eb3db8fe40a0f3c283529ab47e57b5b38",
+  "sha256": "6e550217621281b37ee2744adca184cdf84920db497da44672735da50aba3c9c",
+  "duration_seconds": 164.96,
+  "channels": 2,
+  "sample_rate": 44100,
+  "transcode": "FFmpeg7.1 libvorbis q5; complete original, no trimming or remix"
+}
