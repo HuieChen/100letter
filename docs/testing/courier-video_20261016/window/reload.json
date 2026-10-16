@@ -1,0 +1,134 @@
+{
+	"checks": 15,
+	"elapsed_ms": 349,
+	"failures": [],
+	"limits": [
+		"Automated OS message, not a human clicking X.",
+		"No artwork acceptance or audio listening is implied."
+	],
+	"scope": "Fresh-process Core.load_game after the harness sent Win32 WM_CLOSE to its own isolated GPU process. No direct call to host quit helpers and no simulated state completion.",
+	"source_sha256": {
+		"assets/faefever_v2/backgrounds/BG_bus_stop.png": "41edfe69f53b911f9d47abbb86c9c911e693b112ad71a69182c720bf6686f4a9",
+		"assets/faefever_v2/backgrounds/BG_chess_stall.png": "f01ec796d536dc02561ce197a7b425e193d65c1511ff178d7fa826dfd2fb6536",
+		"assets/faefever_v2/backgrounds/BG_community_center.png": "c8e039837773e66d1fc7c1a889f18b9a852406c5458190a78540ceeba6392e24",
+		"assets/faefever_v2/backgrounds/BG_lookout.png": "362f838d16bb63e3b0390f7d07908701f5592ef5c18ecd9ae4a4649a54005372",
+		"assets/faefever_v2/backgrounds/BG_post_office.png": "f69e632b329e7bfced98fa6ec98dc510e698a481cdbebe37fe755f0fd8e2f176",
+		"assets/faefever_v2/backgrounds/BG_residential.png": "bc428d8fca388af02a4aab4e92e8f030faecc69f213bf51f41753a0fb4512c1e",
+		"assets/faefever_v2/backgrounds/BG_tarot_shop.png": "9e167e71475871d38d2d44ec7aa66162a4f8de5b9af79caafba7b666a1e7b011",
+		"assets/faefever_v2/backgrounds/BG_workroom.png": "6fd58e787d448502fe6637c547689353f1ae084876da412c11d8b500fac0bb3f",
+		"assets/faefever_v2/backgrounds/wall_closeup.png": "73f2948ff955c73c3041bb6b9492ce9e669a49a090173e30b5f0ad3eb6a86351",
+		"assets/faefever_v2/characters/courier_video_20261016.png": "e0f998cc9f34b53fd646f4601013452f15b405a684a5068b4f9c46839d29cd7f",
+		"assets/faefever_v2/characters/courier_video_idle_20261016.png": "4b82017b9cbebeb74249e3665e0c37fba4d82356e7ee88178d5efb0ec525ba38",
+		"assets/faefever_v2/characters/courier_walk_regions.json": "63516e8c13cfbb33213a3c7405b171ac9c064e2c20ad4b07bc0a03389d42c5de",
+		"assets/faefever_v2/characters/pastel_cast_20261004.png": "0d3817e791122ed5c8049f533c3e80d5c1ce64b17e13ec97d7a979679a7750cb",
+		"assets/faefever_v2/manifest.json": "4660dcf515caa566e5f2e4abb05ecfa84b623c8d9add1b16fd9f2314d81906e7",
+		"assets/faefever_v2/props/pastel_case_lid_20261004.png": "daef7d150753849627f89eb4bd436138fcfabd89b8288b481d239af52a16b20e",
+		"assets/faefever_v2/props/pastel_docs_20261004.png": "5a2c471e07ccd1ba193c0e4917957acacf0216f8ad094d069161161509882563",
+		"assets/faefever_v2/props/pastel_envelope_back_20261004.png": "e4ddc7af9312fa953d2c1f7d072ad5f6d413f0a8ee7e81df55f804b895bee1dd",
+		"assets/faefever_v2/props/pastel_misc_20261004.png": "ab56aca2232b2b4e35061bdfc96d09cb1242a009a58694016f212c2248ba60df",
+		"assets/faefever_v2/props/pastel_tools_20261004.png": "97c7900f34e7942bc3d581fed7cca74d43cae48a3c6e9ff5de971870d44e59a9",
+		"assets/faefever_v2/props/town_map.png": "0daecd1d64e282d0691826f9e5fb686a33934d3a2513d161da97c1a16e7e0c14",
+		"data/rebuild/final_cases.json": "ea98a7158186b658575af93bf6eb31e29a374be6d9b6647e7d5c362dc6792744",
+		"data/rebuild/final_dialogues.json": "f2fa37f5f6b7d09a3729cbdc28a8050e64cbb33a6b76079f5619d374b54a53cd",
+		"data/rebuild/player_amendments.json": "da965670ec3be342e6559ec9d9e1208056f7b896ef90837a8b44cf00b46602a4",
+		"scripts/rebuild/field_book.gd": "eef45659799173cf4f42bb7aeffbe5a45ba355a93141e69e04ab720a2d847793",
+		"scripts/rebuild/field_observation.gd": "9c03fa15e1d6ea5fc9f7553a671204e19ac732352548dc2459bea8359adff21b",
+		"scripts/rebuild/final_case_state.gd": "640207716867fe6dda2a0a5eabe7515517788ddbfa4b06cbf31bea1cb6324e72",
+		"scripts/rebuild/final_paper_map.gd": "d4206706d68246071dcedb7345c8831c54b58023721b51fd4713a6a46d165e47",
+		"scripts/rebuild/final_playable.gd": "dc5d89c313c240a61ba2429e1e0281516e21a7c5dea2f89d79c3738803c74278",
+		"scripts/rebuild/final_walker.gd": "bd6a2252fee26e5f9b649616713e2330069943498cf6ff462a337b329465b180",
+		"scripts/rebuild/mail_imprint.gd": "cd98861f9cf68f9f3989a07479915ac9343da2219af834dc0ff42fee2ccb7f10",
+		"scripts/rebuild/mail_physics_state.gd": "811cffd97d0fc3206d9729d8f1b77fa399085293a2eca08bfd6604a3473e7cd5",
+		"scripts/rebuild/mail_workbench.gd": "f203e7f2f0f0fd87745c7f8ede3834478d30e08326f37038b5476295847c0ca3",
+		"scripts/rebuild/physical_art.gd": "2dd4281d0f514bf2ab8e4a2416920a139e1dec3edda6d09f6fcc1d47350d0f39",
+		"scripts/rebuild/physical_envelope.gd": "1e0ad27a535edef1f06c2d51fc098f1627507350113f91bcf93552c99bb89de9",
+		"scripts/rebuild/postal_desk.gd": "68f2540c80f188a8e365bfb86ee37a757c0f3d4a2bc706e54fb423a5683f9bf9",
+		"scripts/rebuild/resolution_draft_store.gd": "f9a45b82a82e9f703939251057ca6d667602c37560f58b401eb0512f1fa32551",
+		"scripts/rebuild/resolution_slip.gd": "a07f9bd4c6da23b295e8291651ad1e45f38ad852b4faffb189cca4e36144a51f",
+		"scripts/rebuild/scene_dialogue.gd": "0aea90f800b4ef46237581d69170c67638f44d5c24ba985d6ee129f50bc0c932",
+		"scripts/rebuild/tool_drawer.gd": "c0083b7dd71dea9bca27af63280f8fc8ba46c5d5c3e102d4e17641a028676876",
+		"scripts/ui/audio_feedback.gd": "8b228acd1631255b6e5952b03ef7912098ee8ab4d42c3e2a4be20d8b42a79a1f",
+		"scripts/ui/paper_ui.gd": "8ed9fcd9d4379c2d1ae3b0038104371f84591d8d7087d6841c309d2f27880dfd",
+		"tests/final_five_case_input.gd": "bbdd3ded8ba2b7d6c9f225adb3dda13f9d4caf926915b38a759f5c66a00cb14a",
+		"tests/final_playable_input_smoke.gd": "941d56f4751aca5f2865e23196fbbc9c1d1257e032d9c0e04553088e766b89d6",
+		"tests/final_window_close_input.gd": "594f24ecf8bdcadbcc15468b8e83895838531b71cccacc8fe27f94fe827ee503"
+	},
+	"steps": [
+		{
+			"check": "input preparation completed without failures",
+			"elapsed_ms": 1,
+			"passed": true
+		},
+		{
+			"check": "fresh process loads the window-close checkpoint",
+			"elapsed_ms": 14,
+			"passed": true
+		},
+		{
+			"check": "WM_CLOSE preserves material field: seam_count",
+			"elapsed_ms": 16,
+			"passed": true
+		},
+		{
+			"check": "WM_CLOSE preserves material field: opened_count",
+			"elapsed_ms": 17,
+			"passed": true
+		},
+		{
+			"check": "WM_CLOSE preserves material field: seal_condition",
+			"elapsed_ms": 18,
+			"passed": true
+		},
+		{
+			"check": "WM_CLOSE preserves material field: tampering_started",
+			"elapsed_ms": 19,
+			"passed": true
+		},
+		{
+			"check": "WM_CLOSE preserves material field: privacy_violation",
+			"elapsed_ms": 20,
+			"passed": true
+		},
+		{
+			"check": "WM_CLOSE preserves material field: paper_location",
+			"elapsed_ms": 21,
+			"passed": true
+		},
+		{
+			"check": "WM_CLOSE preserves material field: extraction_progress",
+			"elapsed_ms": 23,
+			"passed": true
+		},
+		{
+			"check": "WM_CLOSE preserves material field: paper_position",
+			"elapsed_ms": 24,
+			"passed": true
+		},
+		{
+			"check": "WM_CLOSE preserves material field: body_exposed",
+			"elapsed_ms": 24,
+			"passed": true
+		},
+		{
+			"check": "quit checkpoint clears input operation rather than serializing a live grab",
+			"elapsed_ms": 25,
+			"passed": true
+		},
+		{
+			"check": "OS close cannot refund an actual private opening",
+			"elapsed_ms": 25,
+			"passed": true
+		},
+		{
+			"check": "custody survives while folded body stays unread",
+			"elapsed_ms": 26,
+			"passed": true
+		},
+		{
+			"check": "runtime and test sources remain stable across actual window close and reload",
+			"elapsed_ms": 345,
+			"passed": true
+		}
+	],
+	"suite": "final_window_close_verify"
+}

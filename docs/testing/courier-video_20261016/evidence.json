@@ -1,0 +1,333 @@
+{
+  "scope": "Six original right-hand video poses replace only courier idle/walk. No source recording published. Ordered dialogue/settings references remain next work, not delivered here.",
+  "engine_run": "check-20261016-213001",
+  "suites": [
+    {
+      "suite": "amended_handoff",
+      "checks": 214,
+      "failures": 0
+    },
+    {
+      "suite": "core_review_input",
+      "checks": 223,
+      "failures": 0
+    },
+    {
+      "suite": "counter_onboarding_input",
+      "checks": 54,
+      "failures": 0
+    },
+    {
+      "suite": "envelope_text_bounds_smoke",
+      "checks": 21,
+      "failures": 0
+    },
+    {
+      "suite": "field_book_smoke",
+      "checks": 1626,
+      "failures": 0
+    },
+    {
+      "suite": "field_observation_smoke",
+      "checks": 218,
+      "failures": 0
+    },
+    {
+      "suite": "final_case_state_smoke",
+      "checks": 3356,
+      "failures": 0
+    },
+    {
+      "suite": "final_host_boundary_smoke",
+      "checks": 32,
+      "failures": 0
+    },
+    {
+      "suite": "final_resolution_draft_smoke",
+      "checks": 42,
+      "failures": 0
+    },
+    {
+      "suite": "final_walker_smoke",
+      "checks": 40,
+      "failures": 0
+    },
+    {
+      "suite": "five_case_delegate",
+      "checks": 346,
+      "failures": 0
+    },
+    {
+      "suite": "five_case_sealed",
+      "checks": 344,
+      "failures": 0
+    },
+    {
+      "suite": "mail_physics_state_smoke",
+      "checks": 728,
+      "failures": 0
+    },
+    {
+      "suite": "mail_workbench_input_smoke",
+      "checks": 170,
+      "failures": 0
+    },
+    {
+      "suite": "postal_desk_live_queue",
+      "checks": 28,
+      "failures": 0
+    },
+    {
+      "suite": "resolution_slip_smoke",
+      "checks": 75,
+      "failures": 0
+    },
+    {
+      "suite": "scene_dialogue_input_smoke",
+      "checks": 19,
+      "failures": 0
+    },
+    {
+      "suite": "tactile_mail_input",
+      "checks": 86,
+      "failures": 0
+    }
+  ],
+  "engine_checks": 7622,
+  "window_checks": 29,
+  "workflow_tests": 28,
+  "asset_tests": 6,
+  "visual_checks": 48,
+  "native": "Source title/New/supervisor observed; subsequent input was interrupted/minimized. No source walking or final-package native success inferred.",
+  "failures": [
+    "Initial cutout clipped plume at x440; widened common crop to x420, retaining transparent borders.",
+    "First full run delegate route interrupted with walker focused=false; later invalid-modal call halted the test. Exact root cause unproved. Isolated full rerun passed both complete routes.",
+    "Visual fixture exit logs still record 18 ObjectDB instances and 4 resources in use; not classified as zero-error logs."
+  ],
+  "artifacts": [
+    {
+      "path": "docs/testing/courier-video_20261016/engine/amended_handoff.log",
+      "sha256": "d46459340b6b20db2f8b0fe7b7f2a34a04dff41e392abc3759ae979b8414c074"
+    },
+    {
+      "path": "docs/testing/courier-video_20261016/engine/core_review_input.log",
+      "sha256": "23804332a23e62a9bd62db58201faf1dce8e091aaab2ee03180bebbb9604b599"
+    },
+    {
+      "path": "docs/testing/courier-video_20261016/engine/counter_onboarding_input.log",
+      "sha256": "19dcf34e06416eb12d4c916229938b4a4781d6700f120011df4c463e2e4cd56d"
+    },
+    {
+      "path": "docs/testing/courier-video_20261016/engine/envelope_text_bounds_smoke.log",
+      "sha256": "4a14c39efe0c00c09ebaa7a798eea9497cb857ae14aae26ad87e17c98f8822d5"
+    },
+    {
+      "path": "docs/testing/courier-video_20261016/engine/field_book_smoke.log",
+      "sha256": "e40ff99b59ac88fe5a91aa89734494b5c6b8ffa6aab6d8b58f739db2af056c67"
+    },
+    {
+      "path": "docs/testing/courier-video_20261016/engine/field_observation_smoke.log",
+      "sha256": "811933eb6ac0f2e96079a59a49cc257e920c2ec745e35f6de67621c899a22d82"
+    },
+    {
+      "path": "docs/testing/courier-video_20261016/engine/final_case_state_smoke.log",
+      "sha256": "1d415096141938b58a453044776fbde6d3ba77897bca6fdd0f13bc52745f3c2a"
+    },
+    {
+      "path": "docs/testing/courier-video_20261016/engine/final_host_boundary_smoke.log",
+      "sha256": "7522268ae5c9f28b9f9dabb46a3425de68aecd05e69d4e6e24cfc9d53c72198c"
+    },
+    {
+      "path": "docs/testing/courier-video_20261016/engine/final_resolution_draft_smoke.log",
+      "sha256": "b59576f9818c04f4d3b41442b33339c38e06d2e43874c41bf27b5f92f0ad6d50"
+    },
+    {
+      "path": "docs/testing/courier-video_20261016/engine/final_walker_smoke.log",
+      "sha256": "3b2c4e1f7b5687e4bd9cdfcdbde3173c424d91855d322fa8e98ef16050ef538f"
+    },
+    {
+      "path": "docs/testing/courier-video_20261016/engine/five_case_delegate.log",
+      "sha256": "c75d0f723b23206270d9612025a9dbdfd92b9c29aab59dbff84f731840a57e49"
+    },
+    {
+      "path": "docs/testing/courier-video_20261016/engine/five_case_sealed.log",
+      "sha256": "6ec9b93b8c1fe70cf27df1b5b43c750434e17faf2ad3967144b2d7dc2764ed4f"
+    },
+    {
+      "path": "docs/testing/courier-video_20261016/engine/import.log",
+      "sha256": "b517431efeb245638686f49731a72fc8f2b0a25fc86573d05192e4af521f37ac"
+    },
+    {
+      "path": "docs/testing/courier-video_20261016/engine/mail_physics_state_smoke.log",
+      "sha256": "75cee30ca671f8085b6b733c543df8999bf335b19e050f73c834d057c478245b"
+    },
+    {
+      "path": "docs/testing/courier-video_20261016/engine/mail_workbench_input_smoke.log",
+      "sha256": "44cd4cf8c44d5616b195df2faa926f3620c3ee16d3d7c30e0fcb5b661134e855"
+    },
+    {
+      "path": "docs/testing/courier-video_20261016/engine/postal_desk_live_queue.log",
+      "sha256": "2d890813e2b3c8cd4b33b94d08d286609657c80ef6ba809a3ebaa74d00b21ee8"
+    },
+    {
+      "path": "docs/testing/courier-video_20261016/engine/resolution_slip_smoke.log",
+      "sha256": "f76170808408518a2a72ef54209151855b29b923bb50c79e34f5c85a6f5ff33a"
+    },
+    {
+      "path": "docs/testing/courier-video_20261016/engine/scene_dialogue_input_smoke.log",
+      "sha256": "8484f90784adce7ab17276b09ac8819a764e50e2bbf925c70563102258fcfdb7"
+    },
+    {
+      "path": "docs/testing/courier-video_20261016/engine/tactile_mail_input.log",
+      "sha256": "5f165212d859ce1ac63cf144d70e5152234a0f37e5a963ffce824b1eed54f067"
+    },
+    {
+      "path": "docs/testing/courier-video_20261016/tactile-mail-result.json",
+      "sha256": "ab5a8dc4b00bf54a5108367bf51bde8e108c513f7a776085867cb8002b3fb95a"
+    },
+    {
+      "path": "docs/testing/courier-video_20261016/core-review-result.json",
+      "sha256": "1c7fc4506e35ccbd6ffa21c2fd41bcc23e2189eb65d8cd9cfcb67f99b1dc3f9e"
+    },
+    {
+      "path": "docs/testing/courier-video_20261016/window/input.stderr.log",
+      "sha256": "66894c95acd6af0631be417c3bf9c31a2ceab00c02d4a5a3e92b780256865b04"
+    },
+    {
+      "path": "docs/testing/courier-video_20261016/window/input.stdout.log",
+      "sha256": "b964177db369ee7308ad1a39c3105bf0f0560b9183a609e4daf8e13ee26f1601"
+    },
+    {
+      "path": "docs/testing/courier-video_20261016/window/isolated-state.json",
+      "sha256": "ef392a79f3db9137a440118a7f0b21eb9bf16b18be71002668468cb55e0615ec"
+    },
+    {
+      "path": "docs/testing/courier-video_20261016/window/isolated-state.json.bak",
+      "sha256": "ef392a79f3db9137a440118a7f0b21eb9bf16b18be71002668468cb55e0615ec"
+    },
+    {
+      "path": "docs/testing/courier-video_20261016/window/isolated-state.json.drafts-v1.json",
+      "sha256": "8ee3b3acaccd2e486ab93226111949149120b8cd3217ba25a92d58175d4db6aa"
+    },
+    {
+      "path": "docs/testing/courier-video_20261016/window/isolated-state.json.drafts-v1.json.bak",
+      "sha256": "8ee3b3acaccd2e486ab93226111949149120b8cd3217ba25a92d58175d4db6aa"
+    },
+    {
+      "path": "docs/testing/courier-video_20261016/window/ready.json",
+      "sha256": "8e342774293ad242ab5b1d93364cac1a43b6e715d1ad16f5a7b79fe8d08a92b2"
+    },
+    {
+      "path": "docs/testing/courier-video_20261016/window/reload.json",
+      "sha256": "1d7ac06de22831ef6479f9fbcbae6a027b96b9b56659508b451778c9929c368d"
+    },
+    {
+      "path": "docs/testing/courier-video_20261016/window/reload.stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "docs/testing/courier-video_20261016/window/reload.stdout.log",
+      "sha256": "91ce5afce08b12a110306d3d9663773b1af78139346c6f385e58299608693e37"
+    },
+    {
+      "path": "docs/testing/courier-video_20261016/window/report.json",
+      "sha256": "88eaadab9a2798cc2036daf8379d7d0804a6a7106098d91375d3c9432163867b"
+    },
+    {
+      "path": "docs/testing/courier-video_20261016/visual/facing_left.png",
+      "sha256": "a8880dbe8617625e38e8f5167f0ecf16094a515b2c4c12e170cb5e0160cd0c56"
+    },
+    {
+      "path": "docs/testing/courier-video_20261016/visual/pose_0.png",
+      "sha256": "c8198228412133c5f2996450589d901fe5d1336ef6ba086b96489aac95079478"
+    },
+    {
+      "path": "docs/testing/courier-video_20261016/visual/pose_1.png",
+      "sha256": "886274c0bda7be42511b3ae6ad7a53c88b63497469ceb7bacc4c22bc6ad1f77e"
+    },
+    {
+      "path": "docs/testing/courier-video_20261016/visual/pose_2.png",
+      "sha256": "928b0ee716a4cfdfbac03b0bffbe7458637074ebd4923c89fbf7f4bed5cdaef6"
+    },
+    {
+      "path": "docs/testing/courier-video_20261016/visual/pose_3.png",
+      "sha256": "25faa189fad7e5073560b876c5ad548b43076535e25ec0417985212a3d115689"
+    },
+    {
+      "path": "docs/testing/courier-video_20261016/visual/pose_4.png",
+      "sha256": "3716d7b1c07cf4279b72d6a3483a7f2691c0be623ca8c00a85072f8aa990c527"
+    },
+    {
+      "path": "docs/testing/courier-video_20261016/visual/pose_5.png",
+      "sha256": "9b86f4f25c4381696952d1f4408f2f9bd814186162899c433666b6208fb643af"
+    },
+    {
+      "path": "docs/testing/courier-video_20261016/visual/result.json",
+      "sha256": "cf94327a217832a23c822c3f826e6329acb5f2d6cd6a864c26c4efe120bf70d3"
+    },
+    {
+      "path": "docs/testing/courier-video_20261016/visual/world_bus_stop.png",
+      "sha256": "3a042ba32bc36dce8080c1aa9738438a7cec1616902d27d71a23ef90ba3c0a14"
+    },
+    {
+      "path": "docs/testing/courier-video_20261016/visual/world_chess_stall.png",
+      "sha256": "fcfddd86d7e9704b7ac89c70360293d7a8215aa313791eb4436ac125786141d2"
+    },
+    {
+      "path": "docs/testing/courier-video_20261016/visual/world_community_center.png",
+      "sha256": "0082fbc8724dc91769c7c4ef433d94964cb1de3480f1cce32b307d69cb94ae43"
+    },
+    {
+      "path": "docs/testing/courier-video_20261016/visual/world_lookout.png",
+      "sha256": "3e631c72c68f863bd1acdcd26696c4a1eb64ec05213adb9748aede0eb8050fa5"
+    },
+    {
+      "path": "docs/testing/courier-video_20261016/visual/world_post_office.png",
+      "sha256": "bc7b75250e2cf807ddc65b1b87afdab82a057a9d2d0df8ac0efe06d47d0f49e9"
+    },
+    {
+      "path": "docs/testing/courier-video_20261016/visual/world_residential.png",
+      "sha256": "7e3c09cb1a71ed183e4f0da1ea285c77f1cbf520f6645119780b82eaed4b708f"
+    },
+    {
+      "path": "docs/testing/courier-video_20261016/visual/world_tarot_shop.png",
+      "sha256": "bee977bd7483a8cf2c7f92b3c2923883f2bc9f2f8c776e5d64650473270b7067"
+    },
+    {
+      "path": "docs/testing/courier-video_20261016/visual.stdout.log",
+      "sha256": "99f7ea6a38623fbd4a2bbafa08437a8499e5d4e100be689b3ccd3568ce2e5779"
+    },
+    {
+      "path": "docs/testing/courier-video_20261016/visual.stderr.log",
+      "sha256": "a797ada4520776562c8d6fc8223aedd60055d2a661518390b867c5026191884a"
+    },
+    {
+      "path": "docs/testing/courier-video_20261016/alpha-test.log",
+      "sha256": "9bdafbb922445e497c6f3e15803c24c5b59b34c9fcd1f28b09beb79fce23e239"
+    },
+    {
+      "path": "docs/testing/courier-video_20261016/manifest-test.log",
+      "sha256": "0bb1c100982675a658c4394a0216dd6fb30018689233177bca92c8232049118c"
+    },
+    {
+      "path": "docs/testing/courier-video_20261016/walker-test.log",
+      "sha256": "7c80db239de5b22697aadf91d47cf0ed695de249c94753136f121512f3182d7a"
+    },
+    {
+      "path": "docs/testing/courier-video_20261016/cutout-contact.png",
+      "sha256": "9da591ae2edb118933cf5ccebe3687dc0391d1a195f6b5c2924775e379e4ddc3"
+    },
+    {
+      "path": "docs/testing/courier-video_20261016/animation-preview.mp4",
+      "sha256": "63e382f6c32b6525cb7d07b0d06c1a1d717f5aa8aa70348eefd3987727a455de"
+    },
+    {
+      "path": "docs/testing/courier-video_20261016/transparent-loop.png",
+      "sha256": "9f67cdbb326b410d8b1ff5fa4578cbee7323b0c265fb70dfb43c35bacabb08b6"
+    },
+    {
+      "path": "docs/testing/courier-video_20261016/earlier-failures/focus-delegate.log",
+      "sha256": "5af439c5921702e316b0da46e9f24ecbce4defcc24e63dd88f618475162f692b"
+    }
+  ]
+}

@@ -11,6 +11,7 @@ const PhysicalArt = preload("res://scripts/rebuild/physical_art.gd")
 const WALK_GEOMETRY := "res://assets/faefever_v2/characters/courier_walk_regions.json"
 var _frame_geometry: Dictionary = {}
 var _poses: Dictionary = {}
+var _walk_keys: Array[String] = []
 
 var max_speed: float = 200.0
 var acceleration: float = 720.0
@@ -49,12 +50,16 @@ func _ready() -> void:
 	if FileAccess.file_exists(WALK_GEOMETRY):
 		var data:Variant=JSON.parse_string(FileAccess.get_file_as_string(WALK_GEOMETRY))
 		if data is Dictionary:
-			for frame:Dictionary in data.get("frames",[]):_frame_geometry[str(frame.key)]=frame
-	# Warm all eight frames at scene creation, before the first visible step.
+			for frame:Dictionary in data.get("frames",[]):
+				var key := str(frame.key)
+				_frame_geometry[key] = frame
+				_walk_keys.append(key)
+			if data.get("idle") is Dictionary:
+				_frame_geometry["CHAR_courier"] = data.idle
+	# Warm the source's complete ordered cycle before the first visible step.
 	# Drawing never decodes a new bitmap while the actor is already moving.
 	_poses["CHAR_courier"]=PhysicalArt.texture("CHAR_courier")
-	for index:int in range(8):
-		var key:="CHAR_courier_walk_"+str(index)
+	for key:String in _walk_keys:
 		_poses[key]=PhysicalArt.texture(key)
 	texture_filter = CanvasItem.TEXTURE_FILTER_LINEAR_WITH_MIPMAPS
 	mouse_filter = Control.MOUSE_FILTER_IGNORE
@@ -148,9 +153,9 @@ func _actor_rect() -> Rect2:
 
 func _draw() -> void:
 	var key:="CHAR_courier"
-	if _motion_blend>0.12:
-		var frame:int=int(floor(fposmod(_walk_phase,TAU)/TAU*8.0))%8
-		var candidate:="CHAR_courier_walk_"+str(frame)
+	if _motion_blend>0.12 and not _walk_keys.is_empty():
+		var frame:int=int(floor(fposmod(_walk_phase,TAU)/TAU*_walk_keys.size()))%_walk_keys.size()
+		var candidate:=_walk_keys[frame]
 		if _poses.get(candidate)!=null:key=candidate
 	var art:Texture2D=_poses.get(key)
 	if art==null:return

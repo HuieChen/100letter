@@ -18,7 +18,12 @@ func _initialize() -> void:
 func _run() -> void:
 	walker = Walker.new()
 	root.add_child(walker)
-	_check(walker._poses.size()==9 and not walker._poses.values().has(null), "all real walk poses are warm before first step")
+	_check(walker._poses.size()==7 and walker._walk_keys.size()==6 and not walker._poses.values().has(null), "all six original video walk poses and matching idle are warm before first step")
+	_check(walker._walk_keys==["CHAR_courier_walk_0","CHAR_courier_walk_1","CHAR_courier_walk_2","CHAR_courier_walk_3","CHAR_courier_walk_4","CHAR_courier_walk_5"], "complete authored cycle is ordered without obsolete generated frames")
+	var idle_geometry:Dictionary=walker._frame_geometry["CHAR_courier"]
+	for key:String in walker._walk_keys:
+		var geometry:Dictionary=walker._frame_geometry[key]
+		_check(geometry.foot_anchor_px==idle_geometry.foot_anchor_px and geometry.reference_height_px==idle_geometry.reference_height_px, "idle and walk share the actual source-stage anchor: "+key)
 	walker.arrived.connect(func() -> void: arrivals += 1)
 	walker.footstep.connect(func() -> void: footsteps += 1)
 	walker.configure(null, Rect2(40, 170, 900, 230), Vector2(120, 300))

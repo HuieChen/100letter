@@ -1,0 +1,77 @@
+{
+  "source_video_sha256": "0e55d83872399329ddf8aa075eb35df2231d133f5ba195783de244cdd733622c",
+  "original_modified": false,
+  "source_dimensions": [
+    1024,
+    720
+  ],
+  "source_fps": 30,
+  "source_duration_seconds": 3.3333333333333335,
+  "source_frames": [
+    3,
+    9,
+    15,
+    21,
+    27,
+    33
+  ],
+  "crop": [
+    420,
+    180,
+    635,
+    495
+  ],
+  "authored_fps": 5,
+  "loop_seconds": 1.2,
+  "method": "Original video frames; border-connected white removal preserves enclosed white detail; local edge white-unmatting; common unscaled canvas. No generative repaint.",
+  "excluded": "Left draft, frame numbers, recording UI and final system-overlay frames.",
+  "ai_generated": false,
+  "assets": {
+    "courier_video_20261016.png": "e0f998cc9f34b53fd646f4601013452f15b405a684a5068b4f9c46839d29cd7f",
+    "courier_video_idle_20261016.png": "4b82017b9cbebeb74249e3665e0c37fba4d82356e7ee88178d5efb0ec525ba38"
+  },
+  "frames": [
+    {
+      "source_frame": 3,
+      "decoded_frame_sha256": "3c49362ef34fa5e0ff1ee5ed4784a70bc2666f8d2e13e528bc0fe2823a20c231",
+      "opaque_interior_pixels": 18714,
+      "transparent_pixels": 47799,
+      "partial_edge_pixels": 1165
+    },
+    {
+      "source_frame": 9,
+      "decoded_frame_sha256": "149a55eff85fc57550292ec4d073c9789c5122d6c6adc5191b746b33cbb24418",
+      "opaque_interior_pixels": 17608,
+      "transparent_pixels": 49079,
+      "partial_edge_pixels": 991
+    },
+    {
+      "source_frame": 15,
+      "decoded_frame_sha256": "192872621416670c152d9d99f326345ae093877c20fdda0251944f6ad5dcd9d5",
+      "opaque_interior_pixels": 16715,
+      "transparent_pixels": 49998,
+      "partial_edge_pixels": 972
+    },
+    {
+      "source_frame": 21,
+      "decoded_frame_sha256": "c6a5399586beb63bb834b529b6548eaed35f7e8e9290397971fab89e1f411900",
+      "opaque_interior_pixels": 18304,
+      "transparent_pixels": 48161,
+      "partial_edge_pixels": 1205
+    },
+    {
+      "source_frame": 27,
+      "decoded_frame_sha256": "0b4c4ba0813860581f450aefebfa9d664aad46e6dd822d6ebbc5902d18960be4",
+      "opaque_interior_pixels": 18083,
+      "transparent_pixels": 48491,
+      "partial_edge_pixels": 1086
+    },
+    {
+      "source_frame": 33,
+      "decoded_frame_sha256": "57630739dd1dd2475dff716acadc20f03f249324455150712f509ea244b60bd1",
+      "opaque_interior_pixels": 19547,
+      "transparent_pixels": 46875,
+      "partial_edge_pixels": 1245
+    }
+  ]
+}

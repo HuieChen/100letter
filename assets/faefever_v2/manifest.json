@@ -1,6 +1,6 @@
 {
   "style_lock": "SOLMERE_SOFT_PASTEL_20261004",
-  "authority": "Latest direct user image and global-restyle instruction, 2026-10-04.",
+  "authority": "Latest direct user image and global-restyle instruction, 2026-10-04. Targeted 2026-10-16 exception: original user-video courier replaces generated courier only. Targeted 2026-10-16 exception: original user-video courier replaces generated courier only.",
   "assets": {
     "BG_post_office": {
       "path": "res://assets/faefever_v2/backgrounds/BG_post_office.png",
@@ -846,27 +846,30 @@
       ]
     },
     "CHAR_courier": {
-      "path": "res://assets/faefever_v2/characters/pastel_cast_20261004.png",
-      "source": "exec-72427f91-9338-4b78-bc17-a88080f8e473.png",
-      "generator": "image_gen.imagegen",
-      "ai_generated": true,
-      "style_lock": "SOLMERE_SOFT_PASTEL_20261004",
-      "prompt": "Use case: illustration-story. Production character SPRITE ATLAS for an existing 2D coastal letter-delivery adventure. Reference image is STYLE ONLY: soft chalk gouache, imperfect brushed patches, very sparse gentle pencil/plum contours, creamy flat skin, enormous simple expressive eyes and rounded heads, short storybook bodies (head about 1/3 height), affectionate human picture-book characters. NO dark comic inking, anime, gradients, detailed anatomy, realistic modeling or shiny digital painting. SAME SIZE throughout, standalone full-body side/three-quarter standing figures facing right. Genuine transparent background, no shadows/ground/writing/watermark/labels. Exactly SIX separated sprites in regular 3 columns by 2 rows grid, full silhouettes, wide clean gutters, within own cells. Row1 col1: young adult woman courier, short dark-plum bob, cream blouse, teal-green wide trousers, small raspberry neck scarf, brown-plum shoulder satchel, black simple shoes. Row1 col2: elderly woman Elsie, gray bun, glasses, coral-pink cardigan, olive-green skirt, quiet warm expression. Row1 col3: older man Chenyuan, wavy gray hair, cream rolled sleeves, green vest, beige trousers, kind lined face very few marks. Row2 col1: woman Mira, dark-plum tied hair, cream tee, teal apron/vest, raspberry trousers, hands hips, confident. Row2 col2: woman June, curly chestnut hair, coral shirt, pale lemon inner top, blue-green knee-length skirt, friendly. Row2 col3: community clerk woman, short dark hair, green vest over cream blouse, muted blue cropped trousers, attentive. Each has distinct readable silhouette/face, matches same material as reference. Do NOT copy reference girl/duck/title. Transparent 1536x1024 landscapeatlas, no background color or checkered pixels.",
-      "sha256": "0d3817e791122ed5c8049f533c3e80d5c1ce64b17e13ec97d7a979679a7750cb",
-      "source_sha256": "0d3817e791122ed5c8049f533c3e80d5c1ce64b17e13ec97d7a979679a7750cb",
+      "path": "res://assets/faefever_v2/characters/courier_video_idle_20261016.png",
+      "kind": "character",
+      "ai_generated": false,
+      "source_kind": "user_video_extraction",
+      "style_lock": "USER_VIDEO_COURIER_20261016",
+      "authority": "Direct user instruction: extract the right-hand colored animation and replace the courier, 2026-10-16.",
+      "source_video_sha256": "0e55d83872399329ddf8aa075eb35df2231d133f5ba195783de244cdd733622c",
+      "sha256": "4b82017b9cbebeb74249e3665e0c37fba4d82356e7ee88178d5efb0ec525ba38",
+      "source_sha256": "4b82017b9cbebeb74249e3665e0c37fba4d82356e7ee88178d5efb0ec525ba38",
       "native_dimensions": [
-        1536,
-        1024
+        215,
+        315
       ],
       "mode": "RGBA",
-      "review_status": "image_inspected_runtime_review_pending",
-      "notes": "Generated PNG bytes preserved unchanged; atlas selection only, no procedural painting or recoloring.",
-      "region": [
-        180,
+      "source_frames": [
+        3,
+        9,
+        15,
+        21,
         27,
-        251,
-        485
-      ]
+        33
+      ],
+      "review_status": "source_frames_inspected_runtime_review_pending",
+      "role": "courier_idle"
     },
     "CHAR_elsie": {
       "path": "res://assets/faefever_v2/characters/pastel_cast_20261004.png",
@@ -983,206 +986,31 @@
         485
       ]
     },
-    "CHAR_courier_walk_0": {
-      "path": "res://assets/faefever_v2/characters/CHAR_courier_walk.png",
-      "source": "exec-760a2c99-6683-4459-bcd3-b20b71886289.png",
-      "generator": "image_gen.imagegen",
-      "ai_generated": true,
-      "style_lock": "SOLMERE_SOFT_PASTEL_20261004",
-      "prompt": "Use case: illustration-story. Production eight-frame WALK CYCLE sprite sheet for a2D adventure. Image1 visual style; image2 contains new cast: use ONLY the TOP-LEFT young courier character as immutable identity/costume/proportions. Eight full-body sprites of that same adult courier walking SIDE PROFILE facing RIGHT. Short dark-plum bob, cream blouse, raspberry scarf, green wide cropped trousers (NOT skirt), plum shoulder satchel, dark shoes, big rounded storybook head/eyes. Same soft dry chalk/gouache edges and flat patches as reference; no thick black lines, detailed shading/realistic model/3D/vector. Exactly4columns x2rows on genuinely transparent background, clean gutters; no scene, shadow, label or frame border. All heads/hips same position within each cell, exact same apparent body height, same foot baseline, only arms/legs walk positions vary smoothly. Left-to-right top row frames0-3: right foot forward contact, weight down, legs passing, rising with left leg swing. Left-to-right bottom row frames4-7: left foot forward contact, weight down, legs passing, rising with right leg swing. Consistent head height, no exaggerated bounce/squash or costume changes, do not detach limbs. Whole silhouettes in cells. Transparent landscape2048x1024. No watermark/text/referencegirl/duck.",
-      "sha256": "5d77500169e5f2fc97e8546f911706f806932953fa4fe08cc9dd63e54f040f26",
-      "source_sha256": "5d77500169e5f2fc97e8546f911706f806932953fa4fe08cc9dd63e54f040f26",
-      "native_dimensions": [
-        1774,
-        887
-      ],
-      "mode": "RGBA",
-      "review_status": "image_inspected_runtime_review_pending",
-      "notes": "Generated PNG bytes preserved unchanged; atlas selection only, no procedural painting or recoloring.",
-      "region": [
-        175,
-        15,
-        258,
-        423
-      ]
-    },
-    "CHAR_courier_walk_1": {
-      "path": "res://assets/faefever_v2/characters/CHAR_courier_walk.png",
-      "source": "exec-760a2c99-6683-4459-bcd3-b20b71886289.png",
-      "generator": "image_gen.imagegen",
-      "ai_generated": true,
-      "style_lock": "SOLMERE_SOFT_PASTEL_20261004",
-      "prompt": "Use case: illustration-story. Production eight-frame WALK CYCLE sprite sheet for a2D adventure. Image1 visual style; image2 contains new cast: use ONLY the TOP-LEFT young courier character as immutable identity/costume/proportions. Eight full-body sprites of that same adult courier walking SIDE PROFILE facing RIGHT. Short dark-plum bob, cream blouse, raspberry scarf, green wide cropped trousers (NOT skirt), plum shoulder satchel, dark shoes, big rounded storybook head/eyes. Same soft dry chalk/gouache edges and flat patches as reference; no thick black lines, detailed shading/realistic model/3D/vector. Exactly4columns x2rows on genuinely transparent background, clean gutters; no scene, shadow, label or frame border. All heads/hips same position within each cell, exact same apparent body height, same foot baseline, only arms/legs walk positions vary smoothly. Left-to-right top row frames0-3: right foot forward contact, weight down, legs passing, rising with left leg swing. Left-to-right bottom row frames4-7: left foot forward contact, weight down, legs passing, rising with right leg swing. Consistent head height, no exaggerated bounce/squash or costume changes, do not detach limbs. Whole silhouettes in cells. Transparent landscape2048x1024. No watermark/text/referencegirl/duck.",
-      "sha256": "5d77500169e5f2fc97e8546f911706f806932953fa4fe08cc9dd63e54f040f26",
-      "source_sha256": "5d77500169e5f2fc97e8546f911706f806932953fa4fe08cc9dd63e54f040f26",
-      "native_dimensions": [
-        1774,
-        887
-      ],
-      "mode": "RGBA",
-      "review_status": "image_inspected_runtime_review_pending",
-      "notes": "Generated PNG bytes preserved unchanged; atlas selection only, no procedural painting or recoloring.",
-      "region": [
-        552,
-        13,
-        233,
-        425
-      ]
-    },
-    "CHAR_courier_walk_2": {
-      "path": "res://assets/faefever_v2/characters/CHAR_courier_walk.png",
-      "source": "exec-760a2c99-6683-4459-bcd3-b20b71886289.png",
-      "generator": "image_gen.imagegen",
-      "ai_generated": true,
-      "style_lock": "SOLMERE_SOFT_PASTEL_20261004",
-      "prompt": "Use case: illustration-story. Production eight-frame WALK CYCLE sprite sheet for a2D adventure. Image1 visual style; image2 contains new cast: use ONLY the TOP-LEFT young courier character as immutable identity/costume/proportions. Eight full-body sprites of that same adult courier walking SIDE PROFILE facing RIGHT. Short dark-plum bob, cream blouse, raspberry scarf, green wide cropped trousers (NOT skirt), plum shoulder satchel, dark shoes, big rounded storybook head/eyes. Same soft dry chalk/gouache edges and flat patches as reference; no thick black lines, detailed shading/realistic model/3D/vector. Exactly4columns x2rows on genuinely transparent background, clean gutters; no scene, shadow, label or frame border. All heads/hips same position within each cell, exact same apparent body height, same foot baseline, only arms/legs walk positions vary smoothly. Left-to-right top row frames0-3: right foot forward contact, weight down, legs passing, rising with left leg swing. Left-to-right bottom row frames4-7: left foot forward contact, weight down, legs passing, rising with right leg swing. Consistent head height, no exaggerated bounce/squash or costume changes, do not detach limbs. Whole silhouettes in cells. Transparent landscape2048x1024. No watermark/text/referencegirl/duck.",
-      "sha256": "5d77500169e5f2fc97e8546f911706f806932953fa4fe08cc9dd63e54f040f26",
-      "source_sha256": "5d77500169e5f2fc97e8546f911706f806932953fa4fe08cc9dd63e54f040f26",
-      "native_dimensions": [
-        1774,
-        887
-      ],
-      "mode": "RGBA",
-      "review_status": "image_inspected_runtime_review_pending",
-      "notes": "Generated PNG bytes preserved unchanged; atlas selection only, no procedural painting or recoloring.",
-      "region": [
-        961,
-        14,
-        266,
-        424
-      ]
-    },
-    "CHAR_courier_walk_3": {
-      "path": "res://assets/faefever_v2/characters/CHAR_courier_walk.png",
-      "source": "exec-760a2c99-6683-4459-bcd3-b20b71886289.png",
-      "generator": "image_gen.imagegen",
-      "ai_generated": true,
-      "style_lock": "SOLMERE_SOFT_PASTEL_20261004",
-      "prompt": "Use case: illustration-story. Production eight-frame WALK CYCLE sprite sheet for a2D adventure. Image1 visual style; image2 contains new cast: use ONLY the TOP-LEFT young courier character as immutable identity/costume/proportions. Eight full-body sprites of that same adult courier walking SIDE PROFILE facing RIGHT. Short dark-plum bob, cream blouse, raspberry scarf, green wide cropped trousers (NOT skirt), plum shoulder satchel, dark shoes, big rounded storybook head/eyes. Same soft dry chalk/gouache edges and flat patches as reference; no thick black lines, detailed shading/realistic model/3D/vector. Exactly4columns x2rows on genuinely transparent background, clean gutters; no scene, shadow, label or frame border. All heads/hips same position within each cell, exact same apparent body height, same foot baseline, only arms/legs walk positions vary smoothly. Left-to-right top row frames0-3: right foot forward contact, weight down, legs passing, rising with left leg swing. Left-to-right bottom row frames4-7: left foot forward contact, weight down, legs passing, rising with right leg swing. Consistent head height, no exaggerated bounce/squash or costume changes, do not detach limbs. Whole silhouettes in cells. Transparent landscape2048x1024. No watermark/text/referencegirl/duck.",
-      "sha256": "5d77500169e5f2fc97e8546f911706f806932953fa4fe08cc9dd63e54f040f26",
-      "source_sha256": "5d77500169e5f2fc97e8546f911706f806932953fa4fe08cc9dd63e54f040f26",
-      "native_dimensions": [
-        1774,
-        887
-      ],
-      "mode": "RGBA",
-      "review_status": "image_inspected_runtime_review_pending",
-      "notes": "Generated PNG bytes preserved unchanged; atlas selection only, no procedural painting or recoloring.",
-      "region": [
-        1371,
-        15,
-        275,
-        426
-      ]
-    },
-    "CHAR_courier_walk_4": {
-      "path": "res://assets/faefever_v2/characters/CHAR_courier_walk.png",
-      "source": "exec-760a2c99-6683-4459-bcd3-b20b71886289.png",
-      "generator": "image_gen.imagegen",
-      "ai_generated": true,
-      "style_lock": "SOLMERE_SOFT_PASTEL_20261004",
-      "prompt": "Use case: illustration-story. Production eight-frame WALK CYCLE sprite sheet for a2D adventure. Image1 visual style; image2 contains new cast: use ONLY the TOP-LEFT young courier character as immutable identity/costume/proportions. Eight full-body sprites of that same adult courier walking SIDE PROFILE facing RIGHT. Short dark-plum bob, cream blouse, raspberry scarf, green wide cropped trousers (NOT skirt), plum shoulder satchel, dark shoes, big rounded storybook head/eyes. Same soft dry chalk/gouache edges and flat patches as reference; no thick black lines, detailed shading/realistic model/3D/vector. Exactly4columns x2rows on genuinely transparent background, clean gutters; no scene, shadow, label or frame border. All heads/hips same position within each cell, exact same apparent body height, same foot baseline, only arms/legs walk positions vary smoothly. Left-to-right top row frames0-3: right foot forward contact, weight down, legs passing, rising with left leg swing. Left-to-right bottom row frames4-7: left foot forward contact, weight down, legs passing, rising with right leg swing. Consistent head height, no exaggerated bounce/squash or costume changes, do not detach limbs. Whole silhouettes in cells. Transparent landscape2048x1024. No watermark/text/referencegirl/duck.",
-      "sha256": "5d77500169e5f2fc97e8546f911706f806932953fa4fe08cc9dd63e54f040f26",
-      "source_sha256": "5d77500169e5f2fc97e8546f911706f806932953fa4fe08cc9dd63e54f040f26",
-      "native_dimensions": [
-        1774,
-        887
-      ],
-      "mode": "RGBA",
-      "review_status": "image_inspected_runtime_review_pending",
-      "notes": "Generated PNG bytes preserved unchanged; atlas selection only, no procedural painting or recoloring.",
-      "region": [
-        176,
-        450,
-        257,
-        421
-      ]
-    },
-    "CHAR_courier_walk_5": {
-      "path": "res://assets/faefever_v2/characters/CHAR_courier_walk.png",
-      "source": "exec-760a2c99-6683-4459-bcd3-b20b71886289.png",
-      "generator": "image_gen.imagegen",
-      "ai_generated": true,
-      "style_lock": "SOLMERE_SOFT_PASTEL_20261004",
-      "prompt": "Use case: illustration-story. Production eight-frame WALK CYCLE sprite sheet for a2D adventure. Image1 visual style; image2 contains new cast: use ONLY the TOP-LEFT young courier character as immutable identity/costume/proportions. Eight full-body sprites of that same adult courier walking SIDE PROFILE facing RIGHT. Short dark-plum bob, cream blouse, raspberry scarf, green wide cropped trousers (NOT skirt), plum shoulder satchel, dark shoes, big rounded storybook head/eyes. Same soft dry chalk/gouache edges and flat patches as reference; no thick black lines, detailed shading/realistic model/3D/vector. Exactly4columns x2rows on genuinely transparent background, clean gutters; no scene, shadow, label or frame border. All heads/hips same position within each cell, exact same apparent body height, same foot baseline, only arms/legs walk positions vary smoothly. Left-to-right top row frames0-3: right foot forward contact, weight down, legs passing, rising with left leg swing. Left-to-right bottom row frames4-7: left foot forward contact, weight down, legs passing, rising with right leg swing. Consistent head height, no exaggerated bounce/squash or costume changes, do not detach limbs. Whole silhouettes in cells. Transparent landscape2048x1024. No watermark/text/referencegirl/duck.",
-      "sha256": "5d77500169e5f2fc97e8546f911706f806932953fa4fe08cc9dd63e54f040f26",
-      "source_sha256": "5d77500169e5f2fc97e8546f911706f806932953fa4fe08cc9dd63e54f040f26",
-      "native_dimensions": [
-        1774,
-        887
-      ],
-      "mode": "RGBA",
-      "review_status": "image_inspected_runtime_review_pending",
-      "notes": "Generated PNG bytes preserved unchanged; atlas selection only, no procedural painting or recoloring.",
-      "region": [
-        557,
-        450,
-        228,
-        421
-      ]
-    },
-    "CHAR_courier_walk_6": {
-      "path": "res://assets/faefever_v2/characters/CHAR_courier_walk.png",
-      "source": "exec-760a2c99-6683-4459-bcd3-b20b71886289.png",
-      "generator": "image_gen.imagegen",
-      "ai_generated": true,
-      "style_lock": "SOLMERE_SOFT_PASTEL_20261004",
-      "prompt": "Use case: illustration-story. Production eight-frame WALK CYCLE sprite sheet for a2D adventure. Image1 visual style; image2 contains new cast: use ONLY the TOP-LEFT young courier character as immutable identity/costume/proportions. Eight full-body sprites of that same adult courier walking SIDE PROFILE facing RIGHT. Short dark-plum bob, cream blouse, raspberry scarf, green wide cropped trousers (NOT skirt), plum shoulder satchel, dark shoes, big rounded storybook head/eyes. Same soft dry chalk/gouache edges and flat patches as reference; no thick black lines, detailed shading/realistic model/3D/vector. Exactly4columns x2rows on genuinely transparent background, clean gutters; no scene, shadow, label or frame border. All heads/hips same position within each cell, exact same apparent body height, same foot baseline, only arms/legs walk positions vary smoothly. Left-to-right top row frames0-3: right foot forward contact, weight down, legs passing, rising with left leg swing. Left-to-right bottom row frames4-7: left foot forward contact, weight down, legs passing, rising with right leg swing. Consistent head height, no exaggerated bounce/squash or costume changes, do not detach limbs. Whole silhouettes in cells. Transparent landscape2048x1024. No watermark/text/referencegirl/duck.",
-      "sha256": "5d77500169e5f2fc97e8546f911706f806932953fa4fe08cc9dd63e54f040f26",
-      "source_sha256": "5d77500169e5f2fc97e8546f911706f806932953fa4fe08cc9dd63e54f040f26",
-      "native_dimensions": [
-        1774,
-        887
-      ],
-      "mode": "RGBA",
-      "review_status": "image_inspected_runtime_review_pending",
-      "notes": "Generated PNG bytes preserved unchanged; atlas selection only, no procedural painting or recoloring.",
-      "region": [
-        967,
-        451,
-        260,
-        420
-      ]
-    },
-    "CHAR_courier_walk_7": {
-      "path": "res://assets/faefever_v2/characters/CHAR_courier_walk.png",
-      "source": "exec-760a2c99-6683-4459-bcd3-b20b71886289.png",
-      "generator": "image_gen.imagegen",
-      "ai_generated": true,
-      "style_lock": "SOLMERE_SOFT_PASTEL_20261004",
-      "prompt": "Use case: illustration-story. Production eight-frame WALK CYCLE sprite sheet for a2D adventure. Image1 visual style; image2 contains new cast: use ONLY the TOP-LEFT young courier character as immutable identity/costume/proportions. Eight full-body sprites of that same adult courier walking SIDE PROFILE facing RIGHT. Short dark-plum bob, cream blouse, raspberry scarf, green wide cropped trousers (NOT skirt), plum shoulder satchel, dark shoes, big rounded storybook head/eyes. Same soft dry chalk/gouache edges and flat patches as reference; no thick black lines, detailed shading/realistic model/3D/vector. Exactly4columns x2rows on genuinely transparent background, clean gutters; no scene, shadow, label or frame border. All heads/hips same position within each cell, exact same apparent body height, same foot baseline, only arms/legs walk positions vary smoothly. Left-to-right top row frames0-3: right foot forward contact, weight down, legs passing, rising with left leg swing. Left-to-right bottom row frames4-7: left foot forward contact, weight down, legs passing, rising with right leg swing. Consistent head height, no exaggerated bounce/squash or costume changes, do not detach limbs. Whole silhouettes in cells. Transparent landscape2048x1024. No watermark/text/referencegirl/duck.",
-      "sha256": "5d77500169e5f2fc97e8546f911706f806932953fa4fe08cc9dd63e54f040f26",
-      "source_sha256": "5d77500169e5f2fc97e8546f911706f806932953fa4fe08cc9dd63e54f040f26",
-      "native_dimensions": [
-        1774,
-        887
-      ],
-      "mode": "RGBA",
-      "review_status": "image_inspected_runtime_review_pending",
-      "notes": "Generated PNG bytes preserved unchanged; atlas selection only, no procedural painting or recoloring.",
-      "region": [
-        1378,
-        450,
-        270,
-        421
-      ]
-    },
     "CHAR_courier_walk": {
-      "path": "res://assets/faefever_v2/characters/CHAR_courier_walk.png",
-      "source": "exec-760a2c99-6683-4459-bcd3-b20b71886289.png",
-      "generator": "image_gen.imagegen",
-      "ai_generated": true,
-      "style_lock": "SOLMERE_SOFT_PASTEL_20261004",
-      "prompt": "Use case: illustration-story. Production eight-frame WALK CYCLE sprite sheet for a2D adventure. Image1 visual style; image2 contains new cast: use ONLY the TOP-LEFT young courier character as immutable identity/costume/proportions. Eight full-body sprites of that same adult courier walking SIDE PROFILE facing RIGHT. Short dark-plum bob, cream blouse, raspberry scarf, green wide cropped trousers (NOT skirt), plum shoulder satchel, dark shoes, big rounded storybook head/eyes. Same soft dry chalk/gouache edges and flat patches as reference; no thick black lines, detailed shading/realistic model/3D/vector. Exactly4columns x2rows on genuinely transparent background, clean gutters; no scene, shadow, label or frame border. All heads/hips same position within each cell, exact same apparent body height, same foot baseline, only arms/legs walk positions vary smoothly. Left-to-right top row frames0-3: right foot forward contact, weight down, legs passing, rising with left leg swing. Left-to-right bottom row frames4-7: left foot forward contact, weight down, legs passing, rising with right leg swing. Consistent head height, no exaggerated bounce/squash or costume changes, do not detach limbs. Whole silhouettes in cells. Transparent landscape2048x1024. No watermark/text/referencegirl/duck.",
-      "sha256": "5d77500169e5f2fc97e8546f911706f806932953fa4fe08cc9dd63e54f040f26",
-      "source_sha256": "5d77500169e5f2fc97e8546f911706f806932953fa4fe08cc9dd63e54f040f26",
+      "path": "res://assets/faefever_v2/characters/courier_video_20261016.png",
+      "kind": "character",
+      "ai_generated": false,
+      "source_kind": "user_video_extraction",
+      "style_lock": "USER_VIDEO_COURIER_20261016",
+      "authority": "Direct user instruction: extract the right-hand colored animation and replace the courier, 2026-10-16.",
+      "source_video_sha256": "0e55d83872399329ddf8aa075eb35df2231d133f5ba195783de244cdd733622c",
+      "sha256": "e0f998cc9f34b53fd646f4601013452f15b405a684a5068b4f9c46839d29cd7f",
+      "source_sha256": "e0f998cc9f34b53fd646f4601013452f15b405a684a5068b4f9c46839d29cd7f",
       "native_dimensions": [
-        1774,
-        887
+        1290,
+        315
       ],
       "mode": "RGBA",
-      "review_status": "image_inspected_runtime_review_pending",
-      "notes": "Generated PNG bytes preserved unchanged; atlas selection only, no procedural painting or recoloring."
+      "source_frames": [
+        3,
+        9,
+        15,
+        21,
+        27,
+        33
+      ],
+      "review_status": "source_frames_inspected_runtime_review_pending",
+      "role": "courier_walk_sheet"
     },
     "town_map": {
       "path": "res://assets/faefever_v2/props/town_map.png",
@@ -1384,6 +1212,198 @@
         108,
         37
       ]
+    },
+    "CHAR_courier_walk_0": {
+      "path": "res://assets/faefever_v2/characters/courier_video_20261016.png",
+      "kind": "character",
+      "ai_generated": false,
+      "source_kind": "user_video_extraction",
+      "style_lock": "USER_VIDEO_COURIER_20261016",
+      "authority": "Direct user instruction: extract the right-hand colored animation and replace the courier, 2026-10-16.",
+      "source_video_sha256": "0e55d83872399329ddf8aa075eb35df2231d133f5ba195783de244cdd733622c",
+      "sha256": "e0f998cc9f34b53fd646f4601013452f15b405a684a5068b4f9c46839d29cd7f",
+      "source_sha256": "e0f998cc9f34b53fd646f4601013452f15b405a684a5068b4f9c46839d29cd7f",
+      "native_dimensions": [
+        1290,
+        315
+      ],
+      "mode": "RGBA",
+      "source_frames": [
+        3,
+        9,
+        15,
+        21,
+        27,
+        33
+      ],
+      "review_status": "source_frames_inspected_runtime_review_pending",
+      "role": "courier_walk_frame",
+      "region": [
+        0,
+        0,
+        215,
+        315
+      ]
+    },
+    "CHAR_courier_walk_1": {
+      "path": "res://assets/faefever_v2/characters/courier_video_20261016.png",
+      "kind": "character",
+      "ai_generated": false,
+      "source_kind": "user_video_extraction",
+      "style_lock": "USER_VIDEO_COURIER_20261016",
+      "authority": "Direct user instruction: extract the right-hand colored animation and replace the courier, 2026-10-16.",
+      "source_video_sha256": "0e55d83872399329ddf8aa075eb35df2231d133f5ba195783de244cdd733622c",
+      "sha256": "e0f998cc9f34b53fd646f4601013452f15b405a684a5068b4f9c46839d29cd7f",
+      "source_sha256": "e0f998cc9f34b53fd646f4601013452f15b405a684a5068b4f9c46839d29cd7f",
+      "native_dimensions": [
+        1290,
+        315
+      ],
+      "mode": "RGBA",
+      "source_frames": [
+        3,
+        9,
+        15,
+        21,
+        27,
+        33
+      ],
+      "review_status": "source_frames_inspected_runtime_review_pending",
+      "role": "courier_walk_frame",
+      "region": [
+        215,
+        0,
+        215,
+        315
+      ]
+    },
+    "CHAR_courier_walk_2": {
+      "path": "res://assets/faefever_v2/characters/courier_video_20261016.png",
+      "kind": "character",
+      "ai_generated": false,
+      "source_kind": "user_video_extraction",
+      "style_lock": "USER_VIDEO_COURIER_20261016",
+      "authority": "Direct user instruction: extract the right-hand colored animation and replace the courier, 2026-10-16.",
+      "source_video_sha256": "0e55d83872399329ddf8aa075eb35df2231d133f5ba195783de244cdd733622c",
+      "sha256": "e0f998cc9f34b53fd646f4601013452f15b405a684a5068b4f9c46839d29cd7f",
+      "source_sha256": "e0f998cc9f34b53fd646f4601013452f15b405a684a5068b4f9c46839d29cd7f",
+      "native_dimensions": [
+        1290,
+        315
+      ],
+      "mode": "RGBA",
+      "source_frames": [
+        3,
+        9,
+        15,
+        21,
+        27,
+        33
+      ],
+      "review_status": "source_frames_inspected_runtime_review_pending",
+      "role": "courier_walk_frame",
+      "region": [
+        430,
+        0,
+        215,
+        315
+      ]
+    },
+    "CHAR_courier_walk_3": {
+      "path": "res://assets/faefever_v2/characters/courier_video_20261016.png",
+      "kind": "character",
+      "ai_generated": false,
+      "source_kind": "user_video_extraction",
+      "style_lock": "USER_VIDEO_COURIER_20261016",
+      "authority": "Direct user instruction: extract the right-hand colored animation and replace the courier, 2026-10-16.",
+      "source_video_sha256": "0e55d83872399329ddf8aa075eb35df2231d133f5ba195783de244cdd733622c",
+      "sha256": "e0f998cc9f34b53fd646f4601013452f15b405a684a5068b4f9c46839d29cd7f",
+      "source_sha256": "e0f998cc9f34b53fd646f4601013452f15b405a684a5068b4f9c46839d29cd7f",
+      "native_dimensions": [
+        1290,
+        315
+      ],
+      "mode": "RGBA",
+      "source_frames": [
+        3,
+        9,
+        15,
+        21,
+        27,
+        33
+      ],
+      "review_status": "source_frames_inspected_runtime_review_pending",
+      "role": "courier_walk_frame",
+      "region": [
+        645,
+        0,
+        215,
+        315
+      ]
+    },
+    "CHAR_courier_walk_4": {
+      "path": "res://assets/faefever_v2/characters/courier_video_20261016.png",
+      "kind": "character",
+      "ai_generated": false,
+      "source_kind": "user_video_extraction",
+      "style_lock": "USER_VIDEO_COURIER_20261016",
+      "authority": "Direct user instruction: extract the right-hand colored animation and replace the courier, 2026-10-16.",
+      "source_video_sha256": "0e55d83872399329ddf8aa075eb35df2231d133f5ba195783de244cdd733622c",
+      "sha256": "e0f998cc9f34b53fd646f4601013452f15b405a684a5068b4f9c46839d29cd7f",
+      "source_sha256": "e0f998cc9f34b53fd646f4601013452f15b405a684a5068b4f9c46839d29cd7f",
+      "native_dimensions": [
+        1290,
+        315
+      ],
+      "mode": "RGBA",
+      "source_frames": [
+        3,
+        9,
+        15,
+        21,
+        27,
+        33
+      ],
+      "review_status": "source_frames_inspected_runtime_review_pending",
+      "role": "courier_walk_frame",
+      "region": [
+        860,
+        0,
+        215,
+        315
+      ]
+    },
+    "CHAR_courier_walk_5": {
+      "path": "res://assets/faefever_v2/characters/courier_video_20261016.png",
+      "kind": "character",
+      "ai_generated": false,
+      "source_kind": "user_video_extraction",
+      "style_lock": "USER_VIDEO_COURIER_20261016",
+      "authority": "Direct user instruction: extract the right-hand colored animation and replace the courier, 2026-10-16.",
+      "source_video_sha256": "0e55d83872399329ddf8aa075eb35df2231d133f5ba195783de244cdd733622c",
+      "sha256": "e0f998cc9f34b53fd646f4601013452f15b405a684a5068b4f9c46839d29cd7f",
+      "source_sha256": "e0f998cc9f34b53fd646f4601013452f15b405a684a5068b4f9c46839d29cd7f",
+      "native_dimensions": [
+        1290,
+        315
+      ],
+      "mode": "RGBA",
+      "source_frames": [
+        3,
+        9,
+        15,
+        21,
+        27,
+        33
+      ],
+      "review_status": "source_frames_inspected_runtime_review_pending",
+      "role": "courier_walk_frame",
+      "region": [
+        1075,
+        0,
+        215,
+        315
+      ]
     }
   },
   "generation_receipts": {
@@ -1455,5 +1475,12 @@
       "file": "town_map.png",
       "sha256": "0daecd1d64e282d0691826f9e5fb686a33934d3a2513d161da97c1a16e7e0c14"
     }
+  },
+  "user_animation_override": {
+    "source_kind": "user_video_extraction",
+    "style_lock": "USER_VIDEO_COURIER_20261016",
+    "source_video_sha256": "0e55d83872399329ddf8aa075eb35df2231d133f5ba195783de244cdd733622c",
+    "frame_count": 6,
+    "provenance": "res://assets/faefever_v2/characters/courier_video_provenance_20261016.json"
   }
 }

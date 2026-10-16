@@ -1,0 +1,8 @@
+test_dynamic_export_contains_only_active_reviewed_images (test_pastel_assets.PastelAssets.test_dynamic_export_contains_only_active_reviewed_images) ... ok
+test_every_active_role_is_reviewed_new_bitmap_and_decodes (test_pastel_assets.PastelAssets.test_every_active_role_is_reviewed_new_bitmap_and_decodes) ... ok
+test_six_original_walking_frames_share_feet_scale_and_source (test_pastel_assets.PastelAssets.test_six_original_walking_frames_share_feet_scale_and_source) ... ok
+
+----------------------------------------------------------------------
+Ran 3 tests in 1.525s
+
+OK

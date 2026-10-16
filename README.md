@@ -4,6 +4,10 @@
 
 当前包含五封案件、七处地点，以及从取信、调查、交接到回局盖单的完整班次流程。入口为 Godot 4.7.2 的 `scenes/final_slice.tscn`。
 
+2026-10-16 人物更新：直接从用户视频提取右侧彩色邮差，替换站立及行走；六个原姿势保持统一脚底定位与左右转向。其他人物、环境、剧情和存档保留。当前生成画面与此人物原稿混合使用，原稿未送入 AI 重画。[本阶段记录](docs/testing/COURIER_VIDEO_20261016.md)。新提供的对话/设置 UI 排在本阶段之后。
+
+![当前邮差替换后的 1920×1080 引擎检查画面](docs/testing/courier-video_20261016/visual/world_community_center.png)
+
 2026-10-04 最新画风：全局采用最新参考的柔软粉彩绘本语言，覆盖场景、人物、肖像、信件、档案、地图和工具共 63 个运行时美术角色。保留横版布局、既有案件与存档；封面仍为纯色游戏名。[Windows 试玩包](https://github.com/HuieChen/100letter/releases/tag/solmere-pastel-2026-10-04) 对应游戏源码 `3f7b452`，上传大小和 SHA256 已核对。当前源码位于 main；后续证据提交不改变该试玩包的游戏内容。
 
 ![当前 Windows 试玩包的社区中心实机画面](docs/testing/pastel-global_20261004/native/final-package/21_npc_cross.png)
@@ -67,7 +71,7 @@
 
 ## 美术、原稿与存档
 
-当前入口使用 `assets/faefever_v2/manifest.json` 登记的粉彩生成背景、人物与物件：63 个资源键对应 17 张选中 ImageGen PNG，包含透明图集区域和角色帧。箱盖、信封、抽屉工具与邮局章分别参与实际操作。源字节、来源提示词和图集区域均保留；最新检查见[全局粉彩报告](docs/testing/PASTEL_GLOBAL_20261004.md)。[2026-10-02 美术记录](docs/testing/ART_ACCEPTANCE_20261002.json)属于旧版本，不用它认证当前画风。
+当前入口使用 `assets/faefever_v2/manifest.json` 登记的 61 个资源角色、18 张选中 PNG，含粉彩生成环境/人物/物件与明确授权的视频邮差。六个原姿势取代八个生成姿势；不将原稿冒称 AI 生成。箱盖、信封、抽屉工具与邮局章分别参与实际操作。新邮差见[人物阶段报告](docs/testing/COURIER_VIDEO_20261016.md)，其余粉彩美术见[此前全局报告](docs/testing/PASTEL_GLOBAL_20261004.md)。[2026-10-02 美术记录](docs/testing/ART_ACCEPTANCE_20261002.json)属于历史版本。
 
 此前已发布的用户原画保留在仓库历史中，协作者的旧入口源码也完整保留。私人 PSD 及其导出留在独立本地归档，不新增到公开仓库，不送入 AI，也不是当前正式入口或 Windows 包依赖。此次选定资源导出排除旧版画面、原画及参考截图；新素材来源见 [当前美术清单](assets/faefever_v2/manifest.json)。
 

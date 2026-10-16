@@ -1,5 +1,7 @@
 # Locked original art
 
+2026-10-16 explicit exception: the supplied MP4's right-hand colored courier is authorized for transparent-frame extraction and runtime idle/walk replacement. Keep the original video immutable and private; only versioned extracted character assets enter runtime/public source. No AI repaint, no wholesale import of recording UI/left draft.
+
 Specific 2026-10-04 exception: the user explicitly requests transparent-background exports of letter 1.pdf (five pages) and the supplied brown wax-sealed envelope. Their originals stay immutable; only versioned cutout copies are authorized. Keep them in authoring intake, without changing existing runtime selection or other locked art.
 
 All user-supplied scene/character artwork is locked: no AI editing, restyling, paint-over or replacement of the original file. Source PSD “街道景色.psd” and supplied Solmere_Art_Pack.zip remain external originals. Do not delete them.

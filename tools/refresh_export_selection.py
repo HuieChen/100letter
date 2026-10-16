@@ -1,4 +1,4 @@
-"""Refresh the selected-resource export from adopted runtime AI artwork only.
+"""Refresh selected resources from reviewed generated art and the explicit video override.
 No download, model invocation, source art editing, or publication occurs here.
 """
 from pathlib import Path
@@ -20,7 +20,12 @@ def selection():
              'res://assets/fonts/SolmereSans.ttf',
              'res://assets/fonts/Caveat.ttf'}
     for key, entry in entries.items():
-        if not isinstance(entry, dict) or entry.get('ai_generated') is not True:
+        authorized_video = (isinstance(entry, dict) and key in {'CHAR_courier','CHAR_courier_walk',
+                            *('CHAR_courier_walk_'+str(i) for i in range(6))}
+                            and entry.get('source_kind') == 'user_video_extraction'
+                            and entry.get('source_video_sha256') == catalog.get('user_animation_override',{}).get('source_video_sha256')
+                            and len(entry.get('source_video_sha256','')) == 64)
+        if not isinstance(entry, dict) or not (entry.get('ai_generated') is True or authorized_video):
             raise ValueError(f'{key}: no explicit generated-asset provenance')
         path = entry.get('path', '')
         if not path.startswith('res://assets/faefever_v2/') or '..' in Path(path[6:]).parts:
@@ -61,12 +66,12 @@ def main():
     source, count = re.subn(r'^export_files=.*$', lambda _: line, source, flags=re.M)
     if count != 1:
         raise ValueError('Expected exactly one export selection.')
-    includes = 'data/rebuild/*.json,assets/faefever_v2/manifest.json,assets/faefever_v2/characters/courier_walk_regions.json,assets/fonts/OFL.txt,assets/fonts/Caveat-OFL.txt,assets/audio/foley/KENNEY_CC0.txt'
+    includes = 'data/rebuild/*.json,assets/faefever_v2/manifest.json,assets/faefever_v2/characters/courier_walk_regions.json,assets/faefever_v2/characters/courier_video_provenance_20261016.json,assets/fonts/OFL.txt,assets/fonts/Caveat-OFL.txt,assets/audio/foley/KENNEY_CC0.txt'
     source = re.sub(r'^include_filter=.*$', lambda _: 'include_filter="' + includes + '"', source, flags=re.M)
     exclusions = 'specification/*,docs/*,tools/*,tests/*,test-results/*,work/*,artifacts/*,local-data/*,builds/*,*.psd,assets/locked_user/*,assets/display_user/*,assets/generated/*,assets/characters/*,assets/reference_gate/*,scripts/reference_gate/*,scenes/reference_fidelity_prototype.tscn*,scripts/rebuild/post_office_room.gd*,scripts/rebuild/title_screen.gd*,scripts/main.gd*,scripts/core/*,scenes/main.tscn*,data/game.json'
     source = re.sub(r'^exclude_filter=.*$', lambda _: 'exclude_filter="' + exclusions + '"', source, flags=re.M)
     preset.write_text(source, encoding='utf-8')
-    print(f'Selected {len(paths)} resources from adopted AI manifest, current entry, fonts and licensed audio.')
+    print(f'Selected {len(paths)} resources from reviewed art, explicit courier-video override, current entry, fonts and licensed audio.')
     print('This updates packaging scope only; it does not prove all runtime roles are present or playable.')
 
 

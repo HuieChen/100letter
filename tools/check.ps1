@@ -56,6 +56,8 @@ try {
     if ($LASTEXITCODE -ne 0) { throw 'Studio evidence gate regression failed' }
     & $taskPython -m unittest discover -s tests -p 'test_pastel_assets.py' -v
     if ($LASTEXITCODE -ne 0) { throw 'Active generated art/export integrity failed' }
+    & $taskPython -m unittest discover -s tests -p 'test_video_courier.py' -v
+    if ($LASTEXITCODE -ne 0) { throw 'Supplied courier frame/transparency/provenance checks failed' }
     if ($ArchiveChecks) {
         if (-not $ArchiveRoot) { $ArchiveRoot = $taskRepo }
         $taskArchive = (Resolve-Path -LiteralPath $ArchiveRoot).Path

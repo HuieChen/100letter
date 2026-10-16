@@ -1,0 +1,8 @@
+test_complete_cycle_without_duplicate_or_recording_frames (test_video_courier.VideoCourier.test_complete_cycle_without_duplicate_or_recording_frames) ... ok
+test_idle_is_the_same_original_pose_with_common_anchor (test_video_courier.VideoCourier.test_idle_is_the_same_original_pose_with_common_anchor) ... ok
+test_provenance_is_honest_and_original_video_not_published (test_video_courier.VideoCourier.test_provenance_is_honest_and_original_video_not_published) ... ok
+
+----------------------------------------------------------------------
+Ran 3 tests in 0.104s
+
+OK

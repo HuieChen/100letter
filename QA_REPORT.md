@@ -1,5 +1,11 @@
 # QA report · 2026-10-03
 
+## Supplied courier animation — 2026-10-16
+
+Frozen isolated source: 18 suites / 7,622 assertions / zero failures. Separate close/reload 29, workflow 28, bitmap 3, video extraction 3 and GPU scene/pose probe 48 pass. Matching package: decoded PCK 162 / official release boot 120 frames pass. Both package exits retain 18 ObjectDB / 4 resource cleanup diagnostics. Native matching-package title observed; New interrupted by user-input detection, so native walking remains pending. Ordered notebook dialogue and interactive water Settings are next.
+
+Original video right-hand colored courier now replaces idle/walk, with six actual poses, shared feet/scale, preserved internal light areas and explicit non-AI provenance. Initial plume clipping was found and fixed by widening the common crop, not weakening the border test. Focus/interruption failure in the first full delegate route is retained; isolated full rerun and normal whole-game rendering passed. Native source check only reached title/New/supervisor; subsequent user-input/minimized-window interruptions prevent claiming native walking completion. See [phase report](docs/testing/COURIER_VIDEO_20261016.md) and retained raw evidence. New dialogue/settings references remain ordered next work. Original video, other art, campaign and saves are preserved.
+
 ## Current published pastel package and native review — 2026-10-04
 
 Game source `3f7b452d8807acccb533015cf9e5fa59dd03f557` is on main; both source-commit CI runs succeeded. The [matching Windows prerelease](https://github.com/HuieChen/100letter/releases/tag/solmere-pastel-2026-10-04) has a GitHub-verified 74,014,707-byte ZIP and SHA256 `664cd4d294a9b8f64e4b879c86d33934a614015fed1c89d198f48d8d398b4498`. Its actual PCK passes 170 content checks and the official release EXE passes 120 GPU boot frames. Final source-frozen regression is 18 suites / 7,615 assertions / zero failures, with separate window/reload 29, workflow 28 and PNG/atlas tests 3.

@@ -1,0 +1,33 @@
+{
+  "scope": "Matching package content and boot; native target activation observed title, New click interrupted by user-input detection. No native courier walking is inferred. Wrong occluded non-game capture was not retained or published.",
+  "pck_sha256": "799acda6a364af3870cec6bd982d0f7643eb00537d6073c1fc8dd380f809f951",
+  "package_checks": 162,
+  "boot_frames": 120,
+  "exit_diagnostics": "Both inspector and release boot report 18 ObjectDB instances and 4 resources in use at cleanup, with process exit 0. Root cause remains unassigned.",
+  "artifacts": [
+    {
+      "path": "docs/testing/courier-video_20261016/package/content.json",
+      "sha256": "6074faae8187a9aa1566190cdd3c4e493af15b45311b54ca5cdda9d68d2b638d"
+    },
+    {
+      "path": "docs/testing/courier-video_20261016/package/content.stderr.log",
+      "sha256": "a797ada4520776562c8d6fc8223aedd60055d2a661518390b867c5026191884a"
+    },
+    {
+      "path": "docs/testing/courier-video_20261016/package/content.stdout.log",
+      "sha256": "bc91adaa85c43626bc3de7b1960316661606fdb3d45e61d4a7819001fdb5024e"
+    },
+    {
+      "path": "docs/testing/courier-video_20261016/package/release-gpu-boot.stderr.log",
+      "sha256": "a797ada4520776562c8d6fc8223aedd60055d2a661518390b867c5026191884a"
+    },
+    {
+      "path": "docs/testing/courier-video_20261016/package/release-gpu-boot.stdout.log",
+      "sha256": "5fdebc47089d9a3ed2aaf0644bbe398ffcb056d4454dcf3d52e710226ecd6b18"
+    },
+    {
+      "path": "docs/testing/courier-video_20261016/package/verification.json",
+      "sha256": "74863ebc1727372c82fa622720864accfc35f7e536cf43772981719957808b58"
+    }
+  ]
+}

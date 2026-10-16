@@ -31,6 +31,10 @@ def main() -> None:
     pastel_native = ROOT / "docs/testing/pastel-global_20261004/native.json"
     if pastel_native.exists():
         items += json.loads(pastel_native.read_text(encoding="utf-8"))["artifacts"]
+    for name in ("evidence.json", "native.json"):
+        courier = ROOT / "docs/testing/courier-video_20261016" / name
+        if courier.exists():
+            items += json.loads(courier.read_text(encoding="utf-8"))["artifacts"]
     observed = {}
     for item in items:
         path = (ROOT / item["path"]).resolve()

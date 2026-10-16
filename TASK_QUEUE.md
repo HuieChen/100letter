@@ -1,6 +1,8 @@
 # Task queue — reviewed 2026-10-03
 Use CURRENT_SPEC.md and docs/REQUIREMENTS_REVIEW_20261003.md. CCGS adapter is part of QA, not proof of product completion.
 
+2026-10-16 direct ordered overrides: finish supplied right-hand courier video extraction/replacement and focused publication first; then implement the newly supplied notebook-paper dialogue layout. Keep existing campaign/saves/environment. A focused override does not waive pending broad game acceptance or advance CORE-BOOK automatically.
+
 Latest 2026-10-04 override: global generated artwork now follows the supplied soft pastel picture-book reference, preserving framework and saves. Matching R2 package/native evidence and main publication are complete for this visual update: source 3f7b452, final 18 suites / 7,615 checks, actual mouse physical mail/book/map/NPC flow. Continue ordered core quality gates; full native matrix/listening/novice remain open. Earlier no-restyle and package-pending queue wording is historical. Do not treat a global visual update as acceptance of audio, novice or the new three-letter story.
 
 Current authoritative ordering/owners/dependencies: production/studio-board.json and production/epics/. Run studio.py status/ready/dispatch; inspect changed-file impact; record role findings and current evidence; finish/handoff before advancing. CORE-BOOK remains active; native/listening/novice evidence and the retained incomplete-engine observation prevent completion. Existing automatic implementation below is not a closed story.
