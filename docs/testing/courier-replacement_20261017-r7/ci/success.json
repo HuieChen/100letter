@@ -1,0 +1,109 @@
+{
+  "source_sha": "170baeba7f666c4bd27ce1ad78ffef9dadd54d30",
+  "run_id": 39043063849,
+  "url": "https://github.com/HuieChen/100letter/actions/runs/39043063849",
+  "method": "Exact head_sha initial REST lookup tied this run to the source; latest first-party GitHub job inspection confirms sole adapter job and all required steps completed successfully. Intermittent local curl TLS failure did not alter this result.",
+  "jobs": [
+    {
+      "id": 117426276129,
+      "name": "adapter",
+      "status": "completed",
+      "conclusion": "success",
+      "run_id": 39043063849,
+      "logs_url": null,
+      "steps": [
+        {
+          "name": "Set up job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 1
+        },
+        {
+          "name": "Run actions/checkout@v4",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 2
+        },
+        {
+          "name": "Run actions/setup-python@v5",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 3
+        },
+        {
+          "name": "Run python tools/studio.py verify",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 4
+        },
+        {
+          "name": "Run python tools/check_gut.py --verify-only",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 5
+        },
+        {
+          "name": "Run python tools/check_evidence_bytes.py",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 6
+        },
+        {
+          "name": "Run python tools/studio.py status",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 7
+        },
+        {
+          "name": "Run python -m unittest discover -s tests -p 'test_studio_*.py' -v",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 8
+        },
+        {
+          "name": "Run python -m pip install Pillow numpy",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 9
+        },
+        {
+          "name": "Run python -m unittest discover -s tests -p 'test_pastel_assets.py' -v",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 10
+        },
+        {
+          "name": "Run python -m unittest discover -s tests -p 'test_video_courier.py' -v",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 11
+        },
+        {
+          "name": "Run python -m unittest discover -s tests -p 'test_settings_media.py' -v",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 12
+        },
+        {
+          "name": "Post Run actions/setup-python@v5",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 23
+        },
+        {
+          "name": "Post Run actions/checkout@v4",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 24
+        },
+        {
+          "name": "Complete job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 25
+        }
+      ]
+    }
+  ],
+  "all_success": true
+}

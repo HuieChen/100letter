@@ -1,0 +1,125 @@
+{
+  "source_commit": "bd04a2352531b9ff633824f62d3ebf281fd60780",
+  "release_url": "https://github.com/HuieChen/100letter/releases/tag/dear-somewhere-courier-r7-2026-10-17",
+  "release_id": 415859214,
+  "assets": [
+    {
+      "url": "https://github.com/HuieChen/100letter/releases/download/dear-somewhere-courier-r7-2026-10-17/DearSomewhere-Windows-Courier-20261017-R7.zip",
+      "bytes": 93809777,
+      "sha256": "4ec4d8155e34d5d526fe39b132fd75d0c8ff18ca9417e67317361a1ed6ac3330",
+      "github_digest": "sha256:4ec4d8155e34d5d526fe39b132fd75d0c8ff18ca9417e67317361a1ed6ac3330"
+    }
+  ],
+  "status": "verified uploaded matching ZIP through read-only remote recovery; no repeated upload",
+  "source_ci_note": "original source CI old metadata newline guard failed; QA-only correction and current CI followup pending",
+  "verified_ci": {
+    "source_sha": "170baeba7f666c4bd27ce1ad78ffef9dadd54d30",
+    "run_id": 39043063849,
+    "url": "https://github.com/HuieChen/100letter/actions/runs/39043063849",
+    "method": "Exact head_sha initial REST lookup tied this run to the source; latest first-party GitHub job inspection confirms sole adapter job and all required steps completed successfully. Intermittent local curl TLS failure did not alter this result.",
+    "jobs": [
+      {
+        "id": 117426276129,
+        "name": "adapter",
+        "status": "completed",
+        "conclusion": "success",
+        "run_id": 39043063849,
+        "logs_url": null,
+        "steps": [
+          {
+            "name": "Set up job",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 1
+          },
+          {
+            "name": "Run actions/checkout@v4",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 2
+          },
+          {
+            "name": "Run actions/setup-python@v5",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 3
+          },
+          {
+            "name": "Run python tools/studio.py verify",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 4
+          },
+          {
+            "name": "Run python tools/check_gut.py --verify-only",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 5
+          },
+          {
+            "name": "Run python tools/check_evidence_bytes.py",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 6
+          },
+          {
+            "name": "Run python tools/studio.py status",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 7
+          },
+          {
+            "name": "Run python -m unittest discover -s tests -p 'test_studio_*.py' -v",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 8
+          },
+          {
+            "name": "Run python -m pip install Pillow numpy",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 9
+          },
+          {
+            "name": "Run python -m unittest discover -s tests -p 'test_pastel_assets.py' -v",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 10
+          },
+          {
+            "name": "Run python -m unittest discover -s tests -p 'test_video_courier.py' -v",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 11
+          },
+          {
+            "name": "Run python -m unittest discover -s tests -p 'test_settings_media.py' -v",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 12
+          },
+          {
+            "name": "Post Run actions/setup-python@v5",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 23
+          },
+          {
+            "name": "Post Run actions/checkout@v4",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 24
+          },
+          {
+            "name": "Complete job",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 25
+          }
+        ]
+      }
+    ],
+    "all_success": true
+  },
+  "main_runtime_equivalence": "Source CI commit170baeb is a QA-only descendant of packaged sourcebd04a23. All107 selected production resources retain the same normalized text/binary hashes. Final publication receipt commit changes only documentation."
+}

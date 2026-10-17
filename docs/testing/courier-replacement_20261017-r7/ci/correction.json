@@ -21,7 +21,16 @@
     {
       "path": "docs/testing/courier-replacement_20261017-r7/ci/r7-lf-checkout-tests.log",
       "sha256": "84c1998e5736f61d0df32b95cc419f4f0a545057882a26e76720e8b98f6fe40a"
+    },
+    {
+      "path": "docs/testing/courier-replacement_20261017-r7/ci/success.json",
+      "sha256": "254983fea549d0d3ae4aba14c87efc1ccdbb466d1132d9293340a87a68245c9f"
     }
   ],
-  "followup_ci": "pending exact new main commit verification"
+  "followup_ci": {
+    "source_commit": "170baeba7f666c4bd27ce1ad78ffef9dadd54d30",
+    "run_id": 39043063849,
+    "url": "https://github.com/HuieChen/100letter/actions/runs/39043063849",
+    "all_success": true
+  }
 }
