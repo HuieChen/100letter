@@ -1,0 +1,10 @@
+{
+	"checks": 55,
+	"failures": [],
+	"images": [
+		"res://test-results/lemon-press-gui_20261017/before_1920.png",
+		"res://test-results/lemon-press-gui_20261017/held_1920.png",
+		"res://test-results/lemon-press-gui_20261017/released_1920.png"
+	],
+	"scope": "Automated actual Host root.push_input and GPU render. Focus/mouse-exit notification is simulated. No native OS or novice acceptance claim."
+}

@@ -1,0 +1,70 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+OpenGL API 3.3.0 NVIDIA 566.24 - Compatibility - Using Device: NVIDIA - NVIDIA GeForce RTX 4050 Laptop GPU
+
+ERROR: display did not settle within 30 frames: initial resolution 0; last={ "mode": 0, "borderless": false, "client": (1280, 720), "window": (1280, 720), "canvas_mode": 1, "canvas": (1600, 900), "render": (1024.0, 576.0), "scale": (1.0, 1.0), "button": [P: (864.0, 252.0), S: (159.0, 40.0)], "button_instance": 45231376042, "pending": false }
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] _check (res://tests/display_preferences_input.gd:137)
+       [1] _wait_display (res://tests/display_preferences_input.gd:132)
+DISPLAY_RENDER_DIAGNOSTIC image=(1280, 720) visible=[P: (0.0, 0.0), S: (1600.0, 900.0)] factor=1.0 stretch=[X: (0.8, 0.0), Y: (0.0, 0.8), O: (0.0, 0.0)] screen=[X: (0.8, 0.0), Y: (0.0, 0.8), O: (0.0, 0.0)]
+ERROR: display did not settle within 30 frames: cycle 0 resolution; last={ "mode": 0, "borderless": false, "client": (1280, 720), "window": (1280, 720), "canvas_mode": 1, "canvas": (1600, 900), "render": (1024.0, 576.0), "scale": (1.0, 1.0), "button": [P: (864.0, 252.0), S: (159.0, 40.0)], "button_instance": 45231376042, "pending": false }
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] _check (res://tests/display_preferences_input.gd:137)
+       [1] _wait_display (res://tests/display_preferences_input.gd:132)
+DISPLAY_RENDER_DIAGNOSTIC image=(1280, 720) visible=[P: (0.0, 0.0), S: (1600.0, 900.0)] factor=1.0 stretch=[X: (0.8, 0.0), Y: (0.0, 0.8), O: (0.0, 0.0)] screen=[X: (0.8, 0.0), Y: (0.0, 0.8), O: (0.0, 0.0)]
+ERROR: display did not settle within 30 frames: cycle 0 localized rebuild; last={ "mode": 0, "borderless": false, "client": (1280, 720), "window": (1280, 720), "canvas_mode": 1, "canvas": (1600, 900), "render": (1024.0, 576.0), "scale": (1.0, 1.0), "button": [P: (864.0, 252.0), S: (159.0, 40.0)], "button_instance": 58787366795, "pending": false }
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] _check (res://tests/display_preferences_input.gd:137)
+       [1] _wait_display (res://tests/display_preferences_input.gd:132)
+DISPLAY_RENDER_DIAGNOSTIC image=(1280, 720) visible=[P: (0.0, 0.0), S: (1600.0, 900.0)] factor=1.0 stretch=[X: (0.8, 0.0), Y: (0.0, 0.8), O: (0.0, 0.0)] screen=[X: (0.8, 0.0), Y: (0.0, 0.8), O: (0.0, 0.0)]
+ERROR: display did not settle within 30 frames: cycle 0 decoration; last={ "mode": 0, "borderless": true, "client": (1280, 720), "window": (1280, 720), "canvas_mode": 1, "canvas": (1600, 900), "render": (1024.0, 576.0), "scale": (1.0, 1.0), "button": [P: (864.0, 252.0), S: (159.0, 40.0)], "button_instance": 58787366795, "pending": false }
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] _check (res://tests/display_preferences_input.gd:137)
+       [1] _wait_display (res://tests/display_preferences_input.gd:132)
+DISPLAY_RENDER_DIAGNOSTIC image=(1280, 720) visible=[P: (0.0, 0.0), S: (1600.0, 900.0)] factor=1.0 stretch=[X: (0.8, 0.0), Y: (0.0, 0.8), O: (0.0, 0.0)] screen=[X: (0.8, 0.0), Y: (0.0, 0.8), O: (0.0, 0.0)]
+ERROR: display did not settle within 30 frames: cycle 4 resolution; last={ "mode": 0, "borderless": false, "client": (1280, 720), "window": (1280, 720), "canvas_mode": 1, "canvas": (1600, 900), "render": (1024.0, 576.0), "scale": (1.0, 1.0), "button": [P: (864.0, 252.0), S: (159.0, 40.0)], "button_instance": 84355843959, "pending": false }
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] _check (res://tests/display_preferences_input.gd:137)
+       [1] _wait_display (res://tests/display_preferences_input.gd:132)
+DISPLAY_RENDER_DIAGNOSTIC image=(1280, 720) visible=[P: (0.0, 0.0), S: (1600.0, 900.0)] factor=1.0 stretch=[X: (0.8, 0.0), Y: (0.0, 0.8), O: (0.0, 0.0)] screen=[X: (0.8, 0.0), Y: (0.0, 0.8), O: (0.0, 0.0)]
+ERROR: display did not settle within 30 frames: cycle 4 localized rebuild; last={ "mode": 0, "borderless": false, "client": (1280, 720), "window": (1280, 720), "canvas_mode": 1, "canvas": (1600, 900), "render": (1024.0, 576.0), "scale": (1.0, 1.0), "button": [P: (864.0, 252.0), S: (159.0, 40.0)], "button_instance": 93113550740, "pending": false }
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] _check (res://tests/display_preferences_input.gd:137)
+       [1] _wait_display (res://tests/display_preferences_input.gd:132)
+DISPLAY_RENDER_DIAGNOSTIC image=(1280, 720) visible=[P: (0.0, 0.0), S: (1600.0, 900.0)] factor=1.0 stretch=[X: (0.8, 0.0), Y: (0.0, 0.8), O: (0.0, 0.0)] screen=[X: (0.8, 0.0), Y: (0.0, 0.8), O: (0.0, 0.0)]
+ERROR: display did not settle within 30 frames: cycle 4 decoration; last={ "mode": 0, "borderless": true, "client": (1280, 720), "window": (1280, 720), "canvas_mode": 1, "canvas": (1600, 900), "render": (1024.0, 576.0), "scale": (1.0, 1.0), "button": [P: (864.0, 252.0), S: (159.0, 40.0)], "button_instance": 93113550740, "pending": false }
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] _check (res://tests/display_preferences_input.gd:137)
+       [1] _wait_display (res://tests/display_preferences_input.gd:132)
+DISPLAY_RENDER_DIAGNOSTIC image=(1280, 720) visible=[P: (0.0, 0.0), S: (1600.0, 900.0)] factor=1.0 stretch=[X: (0.8, 0.0), Y: (0.0, 0.8), O: (0.0, 0.0)] screen=[X: (0.8, 0.0), Y: (0.0, 0.8), O: (0.0, 0.0)]
+ERROR: display did not settle within 30 frames: cycle 8 resolution; last={ "mode": 0, "borderless": false, "client": (1280, 720), "window": (1280, 720), "canvas_mode": 1, "canvas": (1600, 900), "render": (1024.0, 576.0), "scale": (1.0, 1.0), "button": [P: (864.0, 252.0), S: (159.0, 40.0)], "button_instance": 118900131520, "pending": false }
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] _check (res://tests/display_preferences_input.gd:137)
+       [1] _wait_display (res://tests/display_preferences_input.gd:132)
+DISPLAY_RENDER_DIAGNOSTIC image=(1280, 720) visible=[P: (0.0, 0.0), S: (1600.0, 900.0)] factor=1.0 stretch=[X: (0.8, 0.0), Y: (0.0, 0.8), O: (0.0, 0.0)] screen=[X: (0.8, 0.0), Y: (0.0, 0.8), O: (0.0, 0.0)]
+ERROR: display did not settle within 30 frames: cycle 8 localized rebuild; last={ "mode": 0, "borderless": false, "client": (1280, 720), "window": (1280, 720), "canvas_mode": 1, "canvas": (1600, 900), "render": (1024.0, 576.0), "scale": (1.0, 1.0), "button": [P: (864.0, 252.0), S: (159.0, 40.0)], "button_instance": 127943051191, "pending": false }
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] _check (res://tests/display_preferences_input.gd:137)
+       [1] _wait_display (res://tests/display_preferences_input.gd:132)
+DISPLAY_RENDER_DIAGNOSTIC image=(1280, 720) visible=[P: (0.0, 0.0), S: (1600.0, 900.0)] factor=1.0 stretch=[X: (0.8, 0.0), Y: (0.0, 0.8), O: (0.0, 0.0)] screen=[X: (0.8, 0.0), Y: (0.0, 0.8), O: (0.0, 0.0)]
+ERROR: display did not settle within 30 frames: cycle 8 decoration; last={ "mode": 0, "borderless": true, "client": (1280, 720), "window": (1280, 720), "canvas_mode": 1, "canvas": (1600, 900), "render": (1024.0, 576.0), "scale": (1.0, 1.0), "button": [P: (864.0, 252.0), S: (159.0, 40.0)], "button_instance": 127943051191, "pending": false }
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] _check (res://tests/display_preferences_input.gd:137)
+       [1] _wait_display (res://tests/display_preferences_input.gd:132)
+DISPLAY_RENDER_DIAGNOSTIC image=(1280, 720) visible=[P: (0.0, 0.0), S: (1600.0, 900.0)] factor=1.0 stretch=[X: (0.8, 0.0), Y: (0.0, 0.8), O: (0.0, 0.0)] screen=[X: (0.8, 0.0), Y: (0.0, 0.8), O: (0.0, 0.0)]
+ERROR: display did not settle within 30 frames: coalescing baseline; last={ "mode": 0, "borderless": false, "client": (1280, 720), "window": (1280, 720), "canvas_mode": 1, "canvas": (1600, 900), "render": (1024.0, 576.0), "scale": (1.0, 1.0), "button": [P: (864.0, 252.0), S: (159.0, 40.0)], "button_instance": 154484606671, "pending": false }
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] _check (res://tests/display_preferences_input.gd:137)
+       [1] _wait_display (res://tests/display_preferences_input.gd:132)
+DISPLAY_RENDER_DIAGNOSTIC image=(1280, 720) visible=[P: (0.0, 0.0), S: (1600.0, 900.0)] factor=1.0 stretch=[X: (0.8, 0.0), Y: (0.0, 0.8), O: (0.0, 0.0)] screen=[X: (0.8, 0.0), Y: (0.0, 0.8), O: (0.0, 0.0)]
+DISPLAY PREFERENCES: 545 checks / 11 failures; fullscreen remains native-only

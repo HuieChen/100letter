@@ -1,8 +1,12 @@
-; 100letter — Solmere Post
+; Dear Somewhere
 config_version=5
 
 [application]
-config/name="一百信 · Solmere Post"
+config/name="Dear Somewhere"
+; Keep existing progress and preferences at their original directory.
+config/use_custom_user_dir=true
+config/custom_user_dir_name="Godot/app_userdata/一百信 · Solmere Post"
+config/custom_user_dir_name.linux="godot/app_userdata/一百信 · Solmere Post"
 run/main_scene="res://scenes/final_slice.tscn"
 config/features=PackedStringArray("4.3", "GL Compatibility")
 config/icon="res://assets/faefever_v2/props/game_icon.png"

@@ -18,7 +18,7 @@ func _run() -> void:
 		host._title() # Render the fixture's isolated slot, not the default slot.
 		await process_frame
 		_check(_node("TitleArtwork")==null and _node("TitleGround")!=null,"plain title has no illustration")
-		_check(_node("GameTitle").text=="一百信","game name is the cover")
+		_check(_node("GameTitle").text=="Dear Somewhere","game name is the cover")
 		_check(_node("ContinueShift").disabled,"empty save cannot pretend to continue")
 		await _shot("title_"+str(dimensions.x))
 		await _named("NewShift")

@@ -1,0 +1,4 @@
+ERROR: Can't change visibility of main window.
+   at: set_visible (scene/main/window.cpp:1017)
+   GDScript backtrace (most recent call first):
+       [0] _prepare_real_close (res://tests/final_window_close_input.gd:28)

@@ -6,10 +6,24 @@ $ErrorActionPreference = 'Stop'
 $taskRepo = Split-Path -Parent $PSScriptRoot
 $taskEngine = (Resolve-Path -LiteralPath $GodotPath).Path
 $taskPackage = (Resolve-Path -LiteralPath $PackageDirectory).Path
-$taskExecutable = Join-Path $taskPackage '100letter.exe'
-$taskPack = Join-Path $taskPackage '100letter.pck'
+$taskExecutable = Join-Path $taskPackage 'DearSomewhere.exe'
+$taskPack = Join-Path $taskPackage 'DearSomewhere.pck'
 foreach ($taskFile in @($taskExecutable,$taskPack)) {
     if (-not (Test-Path -LiteralPath $taskFile -PathType Leaf)) { throw "Missing package file: $taskFile" }
+}
+$taskShaderNames=@('settings_water','lemon_companion_water','pdf_tape_matte','pdf_color_matte')
+$taskShaderHashes=[ordered]@{}
+$taskShaderArguments=@()
+foreach ($taskShaderName in $taskShaderNames) {
+    $taskShaderPath=Join-Path $taskRepo ('scripts/ui/'+$taskShaderName+'.gdshader')
+    if (-not (Test-Path -LiteralPath $taskShaderPath -PathType Leaf)) { throw "Missing current shader source: $taskShaderName" }
+    $taskShaderCode=[Text.Encoding]::UTF8.GetString([IO.File]::ReadAllBytes($taskShaderPath)).Replace("`r`n","`n")
+    $taskShaderDigest=[Security.Cryptography.SHA256]::Create()
+    try {
+        $taskShaderHashes[$taskShaderName]=[BitConverter]::ToString($taskShaderDigest.ComputeHash([Text.Encoding]::UTF8.GetBytes($taskShaderCode))).Replace('-','').ToLowerInvariant()
+    } finally { $taskShaderDigest.Dispose() }
+    # Separate fixed-name hexadecimal flags are data, never interpolated code.
+    $taskShaderArguments+=('--shader-sha-'+$taskShaderName+'='+$taskShaderHashes[$taskShaderName])
 }
 $taskRun = Join-Path $taskRepo ('test-results/verify-package-' + (Get-Date -Format 'yyyyMMdd-HHmmss'))
 New-Item -ItemType Directory -Force -Path $taskRun | Out-Null
@@ -38,16 +52,25 @@ try {
     $taskReport = Join-Path $taskRun 'content.json'
     # The release executable intentionally disallows external --script overrides.
     # Inspect actual PCK imports with the matching editor, then boot the real exe.
-    Invoke-PackageProbe 'content' $taskEngine @('--headless','--audio-driver','Dummy','--main-pack',$taskPack,'--script',(Join-Path $taskRepo 'tests/packaged_content_smoke.gd'),'--',"--package-report=$taskReport")
+    Invoke-PackageProbe 'content' $taskEngine (@('--headless','--audio-driver','Dummy','--main-pack',$taskPack,'--script',(Join-Path $taskRepo 'tests/packaged_content_smoke.gd'),'--',"--package-report=$taskReport")+$taskShaderArguments)
     if (-not (Test-Path -LiteralPath $taskReport)) { throw 'PCK inspector did not write its result.' }
     $taskContent = Get-Content -LiteralPath $taskReport -Raw | ConvertFrom-Json
     if ($taskContent.failures.Count -ne 0) { throw 'Packaged resource assertions failed.' }
+    if ($taskContent.packaged_no_focus -ne $false) { throw 'The actual player package contains a QA startup flag or omitted its assertion result.' }
+    foreach ($taskShaderName in $taskShaderNames) {
+        if ($taskContent.observed_shader_sha256.$taskShaderName -ne $taskShaderHashes[$taskShaderName]) {
+            throw "Actual packaged shader code differs from current source: $taskShaderName"
+        }
+    }
     Invoke-PackageProbe 'release-gpu-boot' $taskExecutable @('--audio-driver','Dummy','--rendering-driver','opengl3','--position=-12000,-12000','--quit-after','120')
     @{
         executable_sha256=(Get-FileHash -LiteralPath $taskExecutable -Algorithm SHA256).Hash.ToLowerInvariant()
         pck_sha256=(Get-FileHash -LiteralPath $taskPack -Algorithm SHA256).Hash.ToLowerInvariant()
         packaged_content_checks=$taskContent.checks
         packaged_content_failures=$taskContent.failures
+        packaged_no_focus=$taskContent.packaged_no_focus
+        expected_shader_sha256=$taskShaderHashes
+        observed_shader_sha256=$taskContent.observed_shader_sha256
         release_gpu_boot_exit=0
         release_frames_requested=120
         scope='Actual PCK decoding using the matching editor inspector, then the official release executable GPU boot. Isolated saves; no source game fallback.'

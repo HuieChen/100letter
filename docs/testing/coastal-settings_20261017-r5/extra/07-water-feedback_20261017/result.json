@@ -1,0 +1,2656 @@
+{
+	"checks": 168,
+	"failures": [],
+	"images": [
+		"res://test-results/water-feedback_20261017/home_1920.png",
+		"res://test-results/water-feedback_20261017/click_1920.png",
+		"res://test-results/water-feedback_20261017/QA_nonperiodic_reference_not-game-art_1920.png",
+		"res://test-results/water-feedback_20261017/QA_production_shader_click_not-game-art_1920.png",
+		"res://test-results/water-feedback_20261017/wake_home_1920.png",
+		"res://test-results/water-feedback_20261017/held_fast_wake_1920.png",
+		"res://test-results/water-feedback_20261017/QA_production_shader_wake_not-game-art_1920.png"
+	],
+	"measurements": [
+		{
+			"field": {
+				"cells": 5184,
+				"energy": 2.05573760144261,
+				"last_tap": {
+					"amplitude": 0.779328400692062,
+					"angle": 5.03796323,
+					"radius": 2.4914631245267,
+					"stretch": "(1.044779, 0.964816)"
+				},
+				"peak": 0.698911190032959,
+				"steps": 0,
+				"strokes": 0,
+				"taps": 1
+			},
+			"moments": {
+				"center": "(1199.992, 260.0347)",
+				"signed_mass": 4.57396828021001,
+				"weight": 4.57396828021001
+			},
+			"phase": "cpu_contact_center",
+			"point": "(1200.0, 260.0)",
+			"tolerance_reason": "16.67worldpx cell spacing and compact sampled ellipse allow2.5px subcell quadrature error; an8.33px half-cell origin shift is rejected."
+		},
+		{
+			"field": {
+				"cells": 5184,
+				"energy": 1.90619412592349,
+				"last_tap": {
+					"amplitude": 0.767464337546163,
+					"angle": 4.73838323732422,
+					"radius": 2.44382268694874,
+					"stretch": "(1.003639, 0.997141)"
+				},
+				"peak": 0.724578142166138,
+				"steps": 0,
+				"strokes": 0,
+				"taps": 1
+			},
+			"moments": {
+				"center": "(802.1893, 423.669)",
+				"signed_mass": 4.2883435068652,
+				"weight": 4.2883435068652
+			},
+			"phase": "cpu_contact_center",
+			"point": "(802.3, 423.7)",
+			"tolerance_reason": "16.67worldpx cell spacing and compact sampled ellipse allow2.5px subcell quadrature error; an8.33px half-cell origin shift is rejected."
+		},
+		{
+			"field": {
+				"cells": 5184,
+				"energy": 1.73796659739486,
+				"last_tap": {
+					"amplitude": 0.752985298230597,
+					"angle": 4.11535528322266,
+					"radius": 2.40537512330414,
+					"stretch": "(0.921293, 1.061841)"
+				},
+				"peak": 0.705038130283356,
+				"steps": 0,
+				"strokes": 0,
+				"taps": 1
+			},
+			"moments": {
+				"center": "(302.9859, 521.7676)",
+				"signed_mass": 3.97754489257932,
+				"weight": 3.97754489257932
+			},
+			"phase": "cpu_contact_center",
+			"point": "(303.13, 521.77)",
+			"tolerance_reason": "16.67worldpx cell spacing and compact sampled ellipse allow2.5px subcell quadrature error; an8.33px half-cell origin shift is rejected."
+		},
+		{
+			"field": {
+				"cells": 5184,
+				"energy": 2.15528133973818,
+				"last_tap": {
+					"amplitude": 0.786665237686747,
+					"angle": 5.20167424379394,
+					"radius": 2.52311375833475,
+					"stretch": "(1.065799, 0.948301)"
+				},
+				"peak": 0.719138979911804,
+				"steps": 0,
+				"strokes": 0,
+				"taps": 1
+			},
+			"moments": {
+				"center": "(1313.607, 247.3637)",
+				"signed_mass": 4.73642871336779,
+				"weight": 4.73642871336779
+			},
+			"phase": "cpu_contact_center",
+			"point": "(1313.51, 247.28)",
+			"tolerance_reason": "16.67worldpx cell spacing and compact sampled ellipse allow2.5px subcell quadrature error; an8.33px half-cell origin shift is rejected."
+		},
+		{
+			"clock_grid_phase": 0.0,
+			"duration_seconds": 1.0,
+			"end": "(960.3, 380.7)",
+			"event_count": 30,
+			"field": {
+				"cells": 5184,
+				"energy": 0.0605604263985951,
+				"last_tap": {},
+				"peak": 0.0585296675562859,
+				"steps": 90,
+				"strokes": 30,
+				"taps": 0
+			},
+			"fixed_steps": 90,
+			"held": false,
+			"moments": {
+				"center": "(976.0974, 382.787)",
+				"signed_mass": 0.316354172090695,
+				"weight": 3.21645445638868
+			},
+			"phase": "cpu_equivalent_path",
+			"start": "(840.3, 350.7)"
+		},
+		{
+			"clock_grid_phase": 0.0,
+			"duration_seconds": 1.0,
+			"end": "(960.3, 380.7)",
+			"event_count": 60,
+			"field": {
+				"cells": 5184,
+				"energy": 0.061154796109241,
+				"last_tap": {},
+				"peak": 0.0589350797235966,
+				"steps": 90,
+				"strokes": 60,
+				"taps": 0
+			},
+			"fixed_steps": 90,
+			"held": false,
+			"moments": {
+				"center": "(974.3254, 382.3491)",
+				"signed_mass": 0.316846861141905,
+				"weight": 3.2110367938101
+			},
+			"phase": "cpu_equivalent_path",
+			"start": "(840.3, 350.7)"
+		},
+		{
+			"clock_grid_phase": 0.0,
+			"duration_seconds": 1.0,
+			"end": "(960.3, 380.7)",
+			"event_count": 144,
+			"field": {
+				"cells": 5184,
+				"energy": 0.0607140078034212,
+				"last_tap": {},
+				"peak": 0.0590160898864269,
+				"steps": 90,
+				"strokes": 144,
+				"taps": 0
+			},
+			"fixed_steps": 90,
+			"held": false,
+			"moments": {
+				"center": "(973.8408, 382.1659)",
+				"signed_mass": 0.317098417372559,
+				"weight": 3.20855160634704
+			},
+			"phase": "cpu_equivalent_path",
+			"start": "(840.3, 350.7)"
+		},
+		{
+			"absolute_mass_ratio": 1.00168720040487,
+			"centroid_error_px": 1.82533013820648,
+			"clock_grid_phase": 0.0,
+			"energy_ratio": 0.990280897845131,
+			"events": 30,
+			"field_cosine_similarity": 0.973727734505319,
+			"held": false,
+			"phase": "cpu_rate_comparison",
+			"reference_events": 60,
+			"tolerance_reason": "Same continuous123.7px/1s path; fixed60Hz deposition quantization and16.67px spatial cells justify20percent energy,15percent absolute-height weight,5px centroid and0.93cosine tolerance. It rejects event-count energy scaling without demanding bit equality of different quadratures."
+		},
+		{
+			"absolute_mass_ratio": 1.0,
+			"centroid_error_px": 0.0,
+			"clock_grid_phase": 0.0,
+			"energy_ratio": 1.0,
+			"events": 60,
+			"field_cosine_similarity": 1.0,
+			"held": false,
+			"phase": "cpu_rate_comparison",
+			"reference_events": 60,
+			"tolerance_reason": "Same continuous123.7px/1s path; fixed60Hz deposition quantization and16.67px spatial cells justify20percent energy,15percent absolute-height weight,5px centroid and0.93cosine tolerance. It rejects event-count energy scaling without demanding bit equality of different quadratures."
+		},
+		{
+			"absolute_mass_ratio": 0.999226048275793,
+			"centroid_error_px": 0.518089592456818,
+			"clock_grid_phase": 0.0,
+			"energy_ratio": 0.99279225287527,
+			"events": 144,
+			"field_cosine_similarity": 0.999715957799025,
+			"held": false,
+			"phase": "cpu_rate_comparison",
+			"reference_events": 60,
+			"tolerance_reason": "Same continuous123.7px/1s path; fixed60Hz deposition quantization and16.67px spatial cells justify20percent energy,15percent absolute-height weight,5px centroid and0.93cosine tolerance. It rejects event-count energy scaling without demanding bit equality of different quadratures."
+		},
+		{
+			"clock_grid_phase": 0.37,
+			"duration_seconds": 1.0,
+			"end": "(962.89, 378.85)",
+			"event_count": 30,
+			"field": {
+				"cells": 5184,
+				"energy": 0.0606806134771892,
+				"last_tap": {},
+				"peak": 0.0599436983466148,
+				"steps": 90,
+				"strokes": 30,
+				"taps": 0
+			},
+			"fixed_steps": 90,
+			"held": false,
+			"moments": {
+				"center": "(978.3568, 380.4958)",
+				"signed_mass": 0.320744137421921,
+				"weight": 3.21911642515705
+			},
+			"phase": "cpu_equivalent_path",
+			"start": "(842.89, 348.85)"
+		},
+		{
+			"clock_grid_phase": 0.37,
+			"duration_seconds": 1.0,
+			"end": "(962.89, 378.85)",
+			"event_count": 60,
+			"field": {
+				"cells": 5184,
+				"energy": 0.0612616838343452,
+				"last_tap": {},
+				"peak": 0.0581242814660072,
+				"steps": 90,
+				"strokes": 60,
+				"taps": 0
+			},
+			"fixed_steps": 90,
+			"held": false,
+			"moments": {
+				"center": "(977.0377, 380.1941)",
+				"signed_mass": 0.321109139144433,
+				"weight": 3.22208392278024
+			},
+			"phase": "cpu_equivalent_path",
+			"start": "(842.89, 348.85)"
+		},
+		{
+			"clock_grid_phase": 0.37,
+			"duration_seconds": 1.0,
+			"end": "(962.89, 378.85)",
+			"event_count": 144,
+			"field": {
+				"cells": 5184,
+				"energy": 0.0608622107621187,
+				"last_tap": {},
+				"peak": 0.0572723895311356,
+				"steps": 90,
+				"strokes": 144,
+				"taps": 0
+			},
+			"fixed_steps": 90,
+			"held": false,
+			"moments": {
+				"center": "(976.6249, 380.0287)",
+				"signed_mass": 0.321163890031354,
+				"weight": 3.21215730238827
+			},
+			"phase": "cpu_equivalent_path",
+			"start": "(842.89, 348.85)"
+		},
+		{
+			"absolute_mass_ratio": 0.999079012932528,
+			"centroid_error_px": 1.35321962833405,
+			"clock_grid_phase": 0.37,
+			"energy_ratio": 0.990514946361461,
+			"events": 30,
+			"field_cosine_similarity": 0.973943727839604,
+			"held": false,
+			"phase": "cpu_rate_comparison",
+			"reference_events": 60,
+			"tolerance_reason": "Same continuous123.7px/1s path; fixed60Hz deposition quantization and16.67px spatial cells justify20percent energy,15percent absolute-height weight,5px centroid and0.93cosine tolerance. It rejects event-count energy scaling without demanding bit equality of different quadratures."
+		},
+		{
+			"absolute_mass_ratio": 1.0,
+			"centroid_error_px": 0.0,
+			"clock_grid_phase": 0.37,
+			"energy_ratio": 1.0,
+			"events": 60,
+			"field_cosine_similarity": 1.0,
+			"held": false,
+			"phase": "cpu_rate_comparison",
+			"reference_events": 60,
+			"tolerance_reason": "Same continuous123.7px/1s path; fixed60Hz deposition quantization and16.67px spatial cells justify20percent energy,15percent absolute-height weight,5px centroid and0.93cosine tolerance. It rejects event-count energy scaling without demanding bit equality of different quadratures."
+		},
+		{
+			"absolute_mass_ratio": 0.99691919247609,
+			"centroid_error_px": 0.444687366485596,
+			"clock_grid_phase": 0.37,
+			"energy_ratio": 0.993479234535787,
+			"events": 144,
+			"field_cosine_similarity": 0.999102109484152,
+			"held": false,
+			"phase": "cpu_rate_comparison",
+			"reference_events": 60,
+			"tolerance_reason": "Same continuous123.7px/1s path; fixed60Hz deposition quantization and16.67px spatial cells justify20percent energy,15percent absolute-height weight,5px centroid and0.93cosine tolerance. It rejects event-count energy scaling without demanding bit equality of different quadratures."
+		},
+		{
+			"clock_grid_phase": 0.83,
+			"duration_seconds": 1.0,
+			"end": "(966.11, 376.55)",
+			"event_count": 30,
+			"field": {
+				"cells": 5184,
+				"energy": 0.06200005964498,
+				"last_tap": {},
+				"peak": 0.060500118881464,
+				"steps": 90,
+				"strokes": 30,
+				"taps": 0
+			},
+			"fixed_steps": 90,
+			"held": false,
+			"moments": {
+				"center": "(979.309, 377.3106)",
+				"signed_mass": 0.31981620856999,
+				"weight": 3.24044038991983
+			},
+			"phase": "cpu_equivalent_path",
+			"start": "(846.11, 346.55)"
+		},
+		{
+			"clock_grid_phase": 0.83,
+			"duration_seconds": 1.0,
+			"end": "(966.11, 376.55)",
+			"event_count": 60,
+			"field": {
+				"cells": 5184,
+				"energy": 0.0612639251506802,
+				"last_tap": {},
+				"peak": 0.0599494203925133,
+				"steps": 90,
+				"strokes": 60,
+				"taps": 0
+			},
+			"fixed_steps": 90,
+			"held": false,
+			"moments": {
+				"center": "(979.3853, 377.1639)",
+				"signed_mass": 0.320303396747479,
+				"weight": 3.23311386976232
+			},
+			"phase": "cpu_equivalent_path",
+			"start": "(846.11, 346.55)"
+		},
+		{
+			"clock_grid_phase": 0.83,
+			"duration_seconds": 1.0,
+			"end": "(966.11, 376.55)",
+			"event_count": 144,
+			"field": {
+				"cells": 5184,
+				"energy": 0.0612780858726188,
+				"last_tap": {},
+				"peak": 0.0590097308158875,
+				"steps": 90,
+				"strokes": 144,
+				"taps": 0
+			},
+			"fixed_steps": 90,
+			"held": false,
+			"moments": {
+				"center": "(978.6469, 376.989)",
+				"signed_mass": 0.320666784126413,
+				"weight": 3.23597441955069
+			},
+			"phase": "cpu_equivalent_path",
+			"start": "(846.11, 346.55)"
+		},
+		{
+			"absolute_mass_ratio": 1.0022660878808,
+			"centroid_error_px": 0.165269032120705,
+			"clock_grid_phase": 0.83,
+			"energy_ratio": 1.01201579057315,
+			"events": 30,
+			"field_cosine_similarity": 0.999559156533319,
+			"held": false,
+			"phase": "cpu_rate_comparison",
+			"reference_events": 60,
+			"tolerance_reason": "Same continuous123.7px/1s path; fixed60Hz deposition quantization and16.67px spatial cells justify20percent energy,15percent absolute-height weight,5px centroid and0.93cosine tolerance. It rejects event-count energy scaling without demanding bit equality of different quadratures."
+		},
+		{
+			"absolute_mass_ratio": 1.0,
+			"centroid_error_px": 0.0,
+			"clock_grid_phase": 0.83,
+			"energy_ratio": 1.0,
+			"events": 60,
+			"field_cosine_similarity": 1.0,
+			"held": false,
+			"phase": "cpu_rate_comparison",
+			"reference_events": 60,
+			"tolerance_reason": "Same continuous123.7px/1s path; fixed60Hz deposition quantization and16.67px spatial cells justify20percent energy,15percent absolute-height weight,5px centroid and0.93cosine tolerance. It rejects event-count energy scaling without demanding bit equality of different quadratures."
+		},
+		{
+			"absolute_mass_ratio": 1.00088476617391,
+			"centroid_error_px": 0.758833408355713,
+			"clock_grid_phase": 0.83,
+			"energy_ratio": 1.00023114291002,
+			"events": 144,
+			"field_cosine_similarity": 0.994745591353307,
+			"held": false,
+			"phase": "cpu_rate_comparison",
+			"reference_events": 60,
+			"tolerance_reason": "Same continuous123.7px/1s path; fixed60Hz deposition quantization and16.67px spatial cells justify20percent energy,15percent absolute-height weight,5px centroid and0.93cosine tolerance. It rejects event-count energy scaling without demanding bit equality of different quadratures."
+		},
+		{
+			"clock_grid_phase": 0.0,
+			"duration_seconds": 1.0,
+			"end": "(960.3, 380.7)",
+			"event_count": 30,
+			"field": {
+				"cells": 5184,
+				"energy": 0.102347114334812,
+				"last_tap": {},
+				"peak": 0.076088547706604,
+				"steps": 90,
+				"strokes": 30,
+				"taps": 0
+			},
+			"fixed_steps": 90,
+			"held": true,
+			"moments": {
+				"center": "(976.0975, 382.7872)",
+				"signed_mass": 0.411261039791421,
+				"weight": 4.18139075417524
+			},
+			"phase": "cpu_equivalent_path",
+			"start": "(840.3, 350.7)"
+		},
+		{
+			"clock_grid_phase": 0.0,
+			"duration_seconds": 1.0,
+			"end": "(960.3, 380.7)",
+			"event_count": 60,
+			"field": {
+				"cells": 5184,
+				"energy": 0.10335162858925,
+				"last_tap": {},
+				"peak": 0.0766156315803528,
+				"steps": 90,
+				"strokes": 60,
+				"taps": 0
+			},
+			"fixed_steps": 90,
+			"held": true,
+			"moments": {
+				"center": "(974.3253, 382.3492)",
+				"signed_mass": 0.411900860499392,
+				"weight": 4.1743483446977
+			},
+			"phase": "cpu_equivalent_path",
+			"start": "(840.3, 350.7)"
+		},
+		{
+			"clock_grid_phase": 0.0,
+			"duration_seconds": 1.0,
+			"end": "(960.3, 380.7)",
+			"event_count": 144,
+			"field": {
+				"cells": 5184,
+				"energy": 0.102606662440766,
+				"last_tap": {},
+				"peak": 0.0767209380865097,
+				"steps": 90,
+				"strokes": 144,
+				"taps": 0
+			},
+			"fixed_steps": 90,
+			"held": true,
+			"moments": {
+				"center": "(973.8415, 382.1658)",
+				"signed_mass": 0.412228834240611,
+				"weight": 4.17111701152372
+			},
+			"phase": "cpu_equivalent_path",
+			"start": "(840.3, 350.7)"
+		},
+		{
+			"absolute_mass_ratio": 1.00168706799146,
+			"centroid_error_px": 1.82547795772552,
+			"clock_grid_phase": 0.0,
+			"energy_ratio": 0.990280615137371,
+			"events": 30,
+			"field_cosine_similarity": 0.973727734599731,
+			"held": true,
+			"phase": "cpu_rate_comparison",
+			"reference_events": 60,
+			"tolerance_reason": "Same continuous123.7px/1s path; fixed60Hz deposition quantization and16.67px spatial cells justify20percent energy,15percent absolute-height weight,5px centroid and0.93cosine tolerance. It rejects event-count energy scaling without demanding bit equality of different quadratures."
+		},
+		{
+			"absolute_mass_ratio": 1.0,
+			"centroid_error_px": 0.0,
+			"clock_grid_phase": 0.0,
+			"energy_ratio": 1.0,
+			"events": 60,
+			"field_cosine_similarity": 1.0,
+			"held": true,
+			"phase": "cpu_rate_comparison",
+			"reference_events": 60,
+			"tolerance_reason": "Same continuous123.7px/1s path; fixed60Hz deposition quantization and16.67px spatial cells justify20percent energy,15percent absolute-height weight,5px centroid and0.93cosine tolerance. It rejects event-count energy scaling without demanding bit equality of different quadratures."
+		},
+		{
+			"absolute_mass_ratio": 0.999225907157919,
+			"centroid_error_px": 0.517423152923584,
+			"clock_grid_phase": 0.0,
+			"energy_ratio": 0.992791926371617,
+			"events": 144,
+			"field_cosine_similarity": 0.999715955119132,
+			"held": true,
+			"phase": "cpu_rate_comparison",
+			"reference_events": 60,
+			"tolerance_reason": "Same continuous123.7px/1s path; fixed60Hz deposition quantization and16.67px spatial cells justify20percent energy,15percent absolute-height weight,5px centroid and0.93cosine tolerance. It rejects event-count energy scaling without demanding bit equality of different quadratures."
+		},
+		{
+			"clock_grid_phase": 0.37,
+			"duration_seconds": 1.0,
+			"end": "(962.89, 378.85)",
+			"event_count": 30,
+			"field": {
+				"cells": 5184,
+				"energy": 0.102550232917036,
+				"last_tap": {},
+				"peak": 0.0779267996549606,
+				"steps": 90,
+				"strokes": 30,
+				"taps": 0
+			},
+			"fixed_steps": 90,
+			"held": true,
+			"moments": {
+				"center": "(978.3574, 380.4957)",
+				"signed_mass": 0.416967787753265,
+				"weight": 4.18485138229275
+			},
+			"phase": "cpu_equivalent_path",
+			"start": "(842.89, 348.85)"
+		},
+		{
+			"clock_grid_phase": 0.37,
+			"duration_seconds": 1.0,
+			"end": "(962.89, 378.85)",
+			"event_count": 60,
+			"field": {
+				"cells": 5184,
+				"energy": 0.103532271526282,
+				"last_tap": {},
+				"peak": 0.0755615755915642,
+				"steps": 90,
+				"strokes": 60,
+				"taps": 0
+			},
+			"fixed_steps": 90,
+			"held": true,
+			"moments": {
+				"center": "(977.0382, 380.1939)",
+				"signed_mass": 0.417441751095213,
+				"weight": 4.18870947768469
+			},
+			"phase": "cpu_equivalent_path",
+			"start": "(842.89, 348.85)"
+		},
+		{
+			"clock_grid_phase": 0.37,
+			"duration_seconds": 1.0,
+			"end": "(962.89, 378.85)",
+			"event_count": 144,
+			"field": {
+				"cells": 5184,
+				"energy": 0.102857144290753,
+				"last_tap": {},
+				"peak": 0.074454128742218,
+				"steps": 90,
+				"strokes": 144,
+				"taps": 0
+			},
+			"fixed_steps": 90,
+			"held": true,
+			"moments": {
+				"center": "(976.6251, 380.0291)",
+				"signed_mass": 0.417513628125759,
+				"weight": 4.17580458626521
+			},
+			"phase": "cpu_equivalent_path",
+			"start": "(842.89, 348.85)"
+		},
+		{
+			"absolute_mass_ratio": 0.999078929820151,
+			"centroid_error_px": 1.35328602790833,
+			"clock_grid_phase": 0.37,
+			"energy_ratio": 0.990514661807678,
+			"events": 30,
+			"field_cosine_similarity": 0.973943721300451,
+			"held": true,
+			"phase": "cpu_rate_comparison",
+			"reference_events": 60,
+			"tolerance_reason": "Same continuous123.7px/1s path; fixed60Hz deposition quantization and16.67px spatial cells justify20percent energy,15percent absolute-height weight,5px centroid and0.93cosine tolerance. It rejects event-count energy scaling without demanding bit equality of different quadratures."
+		},
+		{
+			"absolute_mass_ratio": 1.0,
+			"centroid_error_px": 0.0,
+			"clock_grid_phase": 0.37,
+			"energy_ratio": 1.0,
+			"events": 60,
+			"field_cosine_similarity": 1.0,
+			"held": true,
+			"phase": "cpu_rate_comparison",
+			"reference_events": 60,
+			"tolerance_reason": "Same continuous123.7px/1s path; fixed60Hz deposition quantization and16.67px spatial cells justify20percent energy,15percent absolute-height weight,5px centroid and0.93cosine tolerance. It rejects event-count energy scaling without demanding bit equality of different quadratures."
+		},
+		{
+			"absolute_mass_ratio": 0.996919124735619,
+			"centroid_error_px": 0.444800823926926,
+			"clock_grid_phase": 0.37,
+			"energy_ratio": 0.993479064782638,
+			"events": 144,
+			"field_cosine_similarity": 0.99910210590268,
+			"held": true,
+			"phase": "cpu_rate_comparison",
+			"reference_events": 60,
+			"tolerance_reason": "Same continuous123.7px/1s path; fixed60Hz deposition quantization and16.67px spatial cells justify20percent energy,15percent absolute-height weight,5px centroid and0.93cosine tolerance. It rejects event-count energy scaling without demanding bit equality of different quadratures."
+		},
+		{
+			"clock_grid_phase": 0.83,
+			"duration_seconds": 1.0,
+			"end": "(966.11, 376.55)",
+			"event_count": 30,
+			"field": {
+				"cells": 5184,
+				"energy": 0.10478010373901,
+				"last_tap": {},
+				"peak": 0.0786501690745354,
+				"steps": 90,
+				"strokes": 30,
+				"taps": 0
+			},
+			"fixed_steps": 90,
+			"held": true,
+			"moments": {
+				"center": "(979.3082, 377.3108)",
+				"signed_mass": 0.415758883744217,
+				"weight": 4.2125722860676
+			},
+			"phase": "cpu_equivalent_path",
+			"start": "(846.11, 346.55)"
+		},
+		{
+			"clock_grid_phase": 0.83,
+			"duration_seconds": 1.0,
+			"end": "(966.11, 376.55)",
+			"event_count": 60,
+			"field": {
+				"cells": 5184,
+				"energy": 0.103536036081675,
+				"last_tap": {},
+				"peak": 0.0779342576861382,
+				"steps": 90,
+				"strokes": 60,
+				"taps": 0
+			},
+			"fixed_steps": 90,
+			"held": true,
+			"moments": {
+				"center": "(979.3854, 377.1642)",
+				"signed_mass": 0.416393578993093,
+				"weight": 4.20304777728594
+			},
+			"phase": "cpu_equivalent_path",
+			"start": "(846.11, 346.55)"
+		},
+		{
+			"clock_grid_phase": 0.83,
+			"duration_seconds": 1.0,
+			"end": "(966.11, 376.55)",
+			"event_count": 144,
+			"field": {
+				"cells": 5184,
+				"energy": 0.103559978518865,
+				"last_tap": {},
+				"peak": 0.0767126455903053,
+				"steps": 90,
+				"strokes": 144,
+				"taps": 0
+			},
+			"fixed_steps": 90,
+			"held": true,
+			"moments": {
+				"center": "(978.6471, 376.9892)",
+				"signed_mass": 0.416867479599597,
+				"weight": 4.20676703516558
+			},
+			"phase": "cpu_equivalent_path",
+			"start": "(846.11, 346.55)"
+		},
+		{
+			"absolute_mass_ratio": 1.0022660957682,
+			"centroid_error_px": 0.165723204612732,
+			"clock_grid_phase": 0.83,
+			"energy_ratio": 1.01201579377015,
+			"events": 30,
+			"field_cosine_similarity": 0.999559156788297,
+			"held": true,
+			"phase": "cpu_rate_comparison",
+			"reference_events": 60,
+			"tolerance_reason": "Same continuous123.7px/1s path; fixed60Hz deposition quantization and16.67px spatial cells justify20percent energy,15percent absolute-height weight,5px centroid and0.93cosine tolerance. It rejects event-count energy scaling without demanding bit equality of different quadratures."
+		},
+		{
+			"absolute_mass_ratio": 1.0,
+			"centroid_error_px": 0.0,
+			"clock_grid_phase": 0.83,
+			"energy_ratio": 1.0,
+			"events": 60,
+			"field_cosine_similarity": 1.0,
+			"held": true,
+			"phase": "cpu_rate_comparison",
+			"reference_events": 60,
+			"tolerance_reason": "Same continuous123.7px/1s path; fixed60Hz deposition quantization and16.67px spatial cells justify20percent energy,15percent absolute-height weight,5px centroid and0.93cosine tolerance. It rejects event-count energy scaling without demanding bit equality of different quadratures."
+		},
+		{
+			"absolute_mass_ratio": 1.00088489545604,
+			"centroid_error_px": 0.758795142173767,
+			"clock_grid_phase": 0.83,
+			"energy_ratio": 1.00023124738107,
+			"events": 144,
+			"field_cosine_similarity": 0.994745591451932,
+			"held": true,
+			"phase": "cpu_rate_comparison",
+			"reference_events": 60,
+			"tolerance_reason": "Same continuous123.7px/1s path; fixed60Hz deposition quantization and16.67px spatial cells justify20percent energy,15percent absolute-height weight,5px centroid and0.93cosine tolerance. It rejects event-count energy scaling without demanding bit equality of different quadratures."
+		},
+		{
+			"method": "Actual Godot native impulse API units before one shared fixed physics tick, not a claimed real-time player gesture.12percent tolerance covers endpoint quadrature/native tick scheduling.",
+			"phase": "native_rate_unit",
+			"results": [
+				{
+					"events": 30,
+					"mass": 1.25,
+					"rotation": 0.0,
+					"speed": 0.711708426475525,
+					"velocity": "(0.660805, -0.264322)"
+				},
+				{
+					"events": 60,
+					"mass": 1.25,
+					"rotation": 0.0,
+					"speed": 0.707429707050323,
+					"velocity": "(0.656832, -0.262733)"
+				},
+				{
+					"events": 144,
+					"mass": 1.25,
+					"rotation": 0.0,
+					"speed": 0.70493096113205,
+					"velocity": "(0.654512, -0.261805)"
+				}
+			]
+		},
+		{
+			"field": {
+				"cells": 5184,
+				"energy": 1.85825308467392,
+				"last_tap": {
+					"amplitude": 0.786955488179279,
+					"angle": 5.20796323,
+					"radius": 2.52438920082367,
+					"stretch": "(1.066575, 0.947691)"
+				},
+				"peak": 0.639089047908783,
+				"steps": 13,
+				"strokes": 0,
+				"taps": 1
+			},
+			"method": "Actual root.push_input; independent absolute-height centroid at rendered texel centers, no drop helper called.",
+			"moments": {
+				"center": "(1299.985, 260.0639)",
+				"signed_mass": 4.75438301714222,
+				"weight": 4.75438301714222
+			},
+			"phase": "actual_click_center",
+			"point": "(1300.0, 260.0)"
+		},
+		{
+			"ambiguous_matches": 1,
+			"calibration_not_game_art": false,
+			"changed_contrast_patches": 17,
+			"confident_matches": 2,
+			"independent_source_patch_tracking": [
+				{
+					"source_native_pixel": "(1560, 265)",
+					"source_quality": {
+						"eigen_ratio": 0.0245071454265999,
+						"maximum_eigenvalue": 0.00545229967641535,
+						"minimum_eigenvalue": 0.000133620301079314
+					},
+					"status": "unobservable_source_aperture",
+					"unshifted_error": 0.000406018568195776
+				},
+				{
+					"source_native_pixel": "(1570, 265)",
+					"source_quality": {
+						"eigen_ratio": 0.00552580366715182,
+						"maximum_eigenvalue": 0.0055062191012875,
+						"minimum_eigenvalue": 0.0000304262857020359
+					},
+					"status": "unobservable_source_aperture",
+					"unshifted_error": 0.00015169464671061
+				},
+				{
+					"source_native_pixel": "(1560, 275)",
+					"source_quality": {
+						"eigen_ratio": 0.0312334582899594,
+						"maximum_eigenvalue": 0.00457872195365887,
+						"minimum_eigenvalue": 0.000143009321160925
+					},
+					"status": "unobservable_source_aperture",
+					"unshifted_error": 0.000718195689426437
+				},
+				{
+					"source_native_pixel": "(1570, 275)",
+					"source_quality": {
+						"eigen_ratio": 0.0457595667538622,
+						"maximum_eigenvalue": 0.00468678861134337,
+						"minimum_eigenvalue": 0.000214465416322008
+					},
+					"status": "unobservable_source_aperture",
+					"unshifted_error": 0.0019250573752565
+				},
+				{
+					"source_native_pixel": "(1560, 285)",
+					"source_quality": {
+						"eigen_ratio": 0.00805587186365352,
+						"maximum_eigenvalue": 0.00518082296927657,
+						"minimum_eigenvalue": 0.000041736045988765
+					},
+					"status": "unobservable_source_aperture",
+					"unshifted_error": 0.000518272606761627
+				},
+				{
+					"best_remote_rival_error": 0.000407273972168554,
+					"best_to_rival_ratio": 0.360390444387362,
+					"confident": true,
+					"rgb_patch_squared_error": 0.000146777647817231,
+					"source_native_pixel": "(1570, 285)",
+					"source_quality": {
+						"eigen_ratio": 0.102534538767355,
+						"maximum_eigenvalue": 0.005967323175958,
+						"minimum_eigenvalue": 0.000611856729522601
+					},
+					"status": "unique_correspondence",
+					"tracked_native_offset": "(1, -3)",
+					"unshifted_error": 0.00785705038062545,
+					"world_offset": "(0.833333, -2.5)"
+				},
+				{
+					"source_native_pixel": "(1560, 295)",
+					"source_quality": {
+						"eigen_ratio": 0.0032659552842403,
+						"maximum_eigenvalue": 0.00504883036308646,
+						"minimum_eigenvalue": 0.0000164892542035551
+					},
+					"status": "unobservable_source_aperture",
+					"unshifted_error": 0.000630003560338821
+				},
+				{
+					"best_remote_rival_error": 0.0000560747107840598,
+					"best_to_rival_ratio": 0.350746268656716,
+					"confident": true,
+					"rgb_patch_squared_error": 0.0000196679955735135,
+					"source_native_pixel": "(1570, 295)",
+					"source_quality": {
+						"eigen_ratio": 0.0651539760617552,
+						"maximum_eigenvalue": 0.00128358285240852,
+						"minimum_eigenvalue": 0.0000836305264391042
+					},
+					"status": "unique_correspondence",
+					"tracked_native_offset": "(1, -3)",
+					"unshifted_error": 0.000137048267028206,
+					"world_offset": "(0.833333, -2.5)"
+				},
+				{
+					"source_native_pixel": "(1580, 295)",
+					"source_quality": {
+						"eigen_ratio": 0.0142470000556206,
+						"maximum_eigenvalue": 0.00195737768662501,
+						"minimum_eigenvalue": 0.0000278867600102169
+					},
+					"status": "unobservable_source_aperture",
+					"unshifted_error": 0.00567442595695411
+				},
+				{
+					"source_native_pixel": "(1560, 305)",
+					"source_quality": {
+						"eigen_ratio": 0.00271752929973642,
+						"maximum_eigenvalue": 0.00533861317725519,
+						"minimum_eigenvalue": 0.0000145078377291499
+					},
+					"status": "unobservable_source_aperture",
+					"unshifted_error": 0.000495884569247096
+				},
+				{
+					"source_native_pixel": "(1580, 305)",
+					"source_quality": {
+						"eigen_ratio": 0.017289946820129,
+						"maximum_eigenvalue": 0.00532484498157228,
+						"minimum_eigenvalue": 0.0000920662865568156
+					},
+					"status": "unobservable_source_aperture",
+					"unshifted_error": 0.00355750100785812
+				},
+				{
+					"source_native_pixel": "(1560, 315)",
+					"source_quality": {
+						"eigen_ratio": 0.00791218838377146,
+						"maximum_eigenvalue": 0.00541440122638008,
+						"minimum_eigenvalue": 0.0000428397624884424
+					},
+					"status": "unobservable_source_aperture",
+					"unshifted_error": 0.000275979640015578
+				},
+				{
+					"source_native_pixel": "(1590, 315)",
+					"source_quality": {
+						"eigen_ratio": 0.0125529921346542,
+						"maximum_eigenvalue": 0.00685399199527476,
+						"minimum_eigenvalue": 0.0000860381076076668
+					},
+					"status": "unobservable_source_aperture",
+					"unshifted_error": 0.0046649765458433
+				},
+				{
+					"source_native_pixel": "(1560, 325)",
+					"source_quality": {
+						"eigen_ratio": 0.0046522273324646,
+						"maximum_eigenvalue": 0.00549718321999418,
+						"minimum_eigenvalue": 0.0000255741460276227
+					},
+					"status": "unobservable_source_aperture",
+					"unshifted_error": 0.000115287931500063
+				},
+				{
+					"best_remote_rival_error": 0.0000715580264483151,
+					"best_to_rival_ratio": 0.964912280701754,
+					"confident": false,
+					"rgb_patch_squared_error": 0.0000690472185027602,
+					"source_native_pixel": "(1600, 325)",
+					"source_quality": {
+						"eigen_ratio": 0.108470215378142,
+						"maximum_eigenvalue": 0.00171829894697341,
+						"minimum_eigenvalue": 0.000186384256862241
+					},
+					"status": "unobservable_ambiguous_correspondence",
+					"tracked_native_offset": "(-22, -23)",
+					"unshifted_error": 0.0000771027273280822,
+					"world_offset": "(-18.33333, -19.16667)"
+				},
+				{
+					"source_native_pixel": "(1560, 335)",
+					"source_quality": {
+						"eigen_ratio": 0.0166378343260046,
+						"maximum_eigenvalue": 0.00448477494064366,
+						"minimum_eigenvalue": 0.0000746169424518462
+					},
+					"status": "unobservable_source_aperture",
+					"unshifted_error": 0.000424012691805586
+				},
+				{
+					"source_native_pixel": "(1560, 345)",
+					"source_quality": {
+						"eigen_ratio": 0.0270294710532703,
+						"maximum_eigenvalue": 0.00435956164776563,
+						"minimum_eigenvalue": 0.000117836645363228
+					},
+					"status": "unobservable_source_aperture",
+					"unshifted_error": 0.00045089926022257
+				}
+			],
+			"method": "49dense RGB samples per patch. Independent source2D structure tensor rejects straight-line aperture; full+-40nativepx search with six minima refined to1px. Uniqueness compares all rival basins more than3px apart and requires best/rival<0.75.3worldpx contract plus0.6worldpx two-dimensional nearest-pixel quantization. No height-gradient/shader mapping mirrored. Supplemental mathematical texture uses actual production material/actual GUI-driven field without replacing registered game art.",
+			"out_of_bound_matches": 0,
+			"phase": "actual_click",
+			"source_aperture_rejections": 14,
+			"status": "unobservable_unique_source_correspondence"
+		},
+		{
+			"ambiguous_matches": 0,
+			"calibration_not_game_art": true,
+			"changed_contrast_patches": 54,
+			"confident_matches": 51,
+			"independent_source_patch_tracking": [
+				{
+					"best_remote_rival_error": 0.00235095381382896,
+					"best_to_rival_ratio": 0.0178444264638157,
+					"confident": true,
+					"rgb_patch_squared_error": 0.000041951422450698,
+					"source_native_pixel": "(1524, 265)",
+					"source_quality": {
+						"eigen_ratio": 0.343026571052311,
+						"maximum_eigenvalue": 0.00109413378459703,
+						"minimum_eigenvalue": 0.000375316960402808
+					},
+					"status": "unique_correspondence",
+					"tracked_native_offset": "(0, 0)",
+					"unshifted_error": 0.000041951422450698,
+					"world_offset": "(0.0, 0.0)"
+				},
+				{
+					"best_remote_rival_error": 0.00135594098869218,
+					"best_to_rival_ratio": 0.0177455444366659,
+					"confident": true,
+					"rgb_patch_squared_error": 0.0000240619110683338,
+					"source_native_pixel": "(1538, 265)",
+					"source_quality": {
+						"eigen_ratio": 0.401863449607014,
+						"maximum_eigenvalue": 0.00101351070815869,
+						"minimum_eigenvalue": 0.000407292909394298
+					},
+					"status": "unique_correspondence",
+					"tracked_native_offset": "(0, -1)",
+					"unshifted_error": 0.000339168365478865,
+					"world_offset": "(0.0, -0.833333)"
+				},
+				{
+					"best_remote_rival_error": 0.00227939599091258,
+					"best_to_rival_ratio": 0.0621442877563361,
+					"confident": true,
+					"rgb_patch_squared_error": 0.00014165144036991,
+					"source_native_pixel": "(1552, 265)",
+					"source_quality": {
+						"eigen_ratio": 0.511914132521615,
+						"maximum_eigenvalue": 0.00180178810967953,
+						"minimum_eigenvalue": 0.000922360797154359
+					},
+					"status": "unique_correspondence",
+					"tracked_native_offset": "(0, -2)",
+					"unshifted_error": 0.00145271196441863,
+					"world_offset": "(0.0, -1.666667)"
+				},
+				{
+					"best_remote_rival_error": 0.00184314261585338,
+					"best_to_rival_ratio": 0.018333521642274,
+					"confident": true,
+					"rgb_patch_squared_error": 0.0000337912950375454,
+					"source_native_pixel": "(1566, 265)",
+					"source_quality": {
+						"eigen_ratio": 0.664772078124156,
+						"maximum_eigenvalue": 0.000806792523888026,
+						"minimum_eigenvalue": 0.000536333142720076
+					},
+					"status": "unique_correspondence",
+					"tracked_native_offset": "(0, -2)",
+					"unshifted_error": 0.000882653940599802,
+					"world_offset": "(0.0, -1.666667)"
+				},
+				{
+					"best_remote_rival_error": 0.000699992425636714,
+					"best_to_rival_ratio": 0.026752357137571,
+					"confident": true,
+					"rgb_patch_squared_error": 0.000018726447364228,
+					"source_native_pixel": "(1580, 265)",
+					"source_quality": {
+						"eigen_ratio": 0.809760804437997,
+						"maximum_eigenvalue": 0.000228959482016625,
+						"minimum_eigenvalue": 0.00018540241434149
+					},
+					"status": "unique_correspondence",
+					"tracked_native_offset": "(0, -1)",
+					"unshifted_error": 0.000157867127491402,
+					"world_offset": "(0.0, -0.833333)"
+				},
+				{
+					"best_remote_rival_error": 0.00254271693127015,
+					"best_to_rival_ratio": 0.0283069306870693,
+					"confident": true,
+					"rgb_patch_squared_error": 0.0000719765119303017,
+					"source_native_pixel": "(1594, 265)",
+					"source_quality": {
+						"eigen_ratio": 0.380914801216989,
+						"maximum_eigenvalue": 0.00143082654039386,
+						"minimum_eigenvalue": 0.000545023007210121
+					},
+					"status": "unique_correspondence",
+					"tracked_native_offset": "(0, -1)",
+					"unshifted_error": 0.000236539076393469,
+					"world_offset": "(0.0, -0.833333)"
+				},
+				{
+					"best_remote_rival_error": 0.00228211527914929,
+					"best_to_rival_ratio": 0.0275511128693036,
+					"confident": true,
+					"rgb_patch_squared_error": 0.0000628748156366044,
+					"source_native_pixel": "(1510, 279)",
+					"source_quality": {
+						"eigen_ratio": 0.779851638121981,
+						"maximum_eigenvalue": 0.000818769823835875,
+						"minimum_eigenvalue": 0.000638518988363253
+					},
+					"status": "unique_correspondence",
+					"tracked_native_offset": "(0, 0)",
+					"unshifted_error": 0.0000628748156366044,
+					"world_offset": "(0.0, 0.0)"
+				},
+				{
+					"best_remote_rival_error": 0.00268007874240347,
+					"best_to_rival_ratio": 0.0119447283133877,
+					"confident": true,
+					"rgb_patch_squared_error": 0.0000320128124364953,
+					"source_native_pixel": "(1524, 279)",
+					"source_quality": {
+						"eigen_ratio": 0.252251668280742,
+						"maximum_eigenvalue": 0.00240685659349413,
+						"minimum_eigenvalue": 0.000607133591021398
+					},
+					"status": "unique_correspondence",
+					"tracked_native_offset": "(-1, -1)",
+					"unshifted_error": 0.000762762651307164,
+					"world_offset": "(-0.833333, -0.833333)"
+				},
+				{
+					"best_remote_rival_error": 0.0027721421281423,
+					"best_to_rival_ratio": 0.0264170850294905,
+					"confident": true,
+					"rgb_patch_squared_error": 0.0000732319143129679,
+					"source_native_pixel": "(1538, 279)",
+					"source_quality": {
+						"eigen_ratio": 0.836585246003178,
+						"maximum_eigenvalue": 0.00100110683649979,
+						"minimum_eigenvalue": 0.000837511209088641
+					},
+					"status": "unique_correspondence",
+					"tracked_native_offset": "(-1, -2)",
+					"unshifted_error": 0.00136567052213021,
+					"world_offset": "(-0.833333, -1.666667)"
+				},
+				{
+					"best_remote_rival_error": 0.000726565065145903,
+					"best_to_rival_ratio": 0.100935938236567,
+					"confident": true,
+					"rgb_patch_squared_error": 0.0000733365265404139,
+					"source_native_pixel": "(1552, 279)",
+					"source_quality": {
+						"eigen_ratio": 0.72356588589049,
+						"maximum_eigenvalue": 0.000599180360398933,
+						"minimum_eigenvalue": 0.000433546468280237
+					},
+					"status": "unique_correspondence",
+					"tracked_native_offset": "(-1, -3)",
+					"unshifted_error": 0.00148074903836412,
+					"world_offset": "(-0.833333, -2.5)"
+				},
+				{
+					"best_remote_rival_error": 0.001883106126126,
+					"best_to_rival_ratio": 0.0670555512990823,
+					"confident": true,
+					"rgb_patch_squared_error": 0.000126272719442058,
+					"source_native_pixel": "(1566, 279)",
+					"source_quality": {
+						"eigen_ratio": 0.312959244221614,
+						"maximum_eigenvalue": 0.00164107585580812,
+						"minimum_eigenvalue": 0.000513589859544048
+					},
+					"status": "unique_correspondence",
+					"tracked_native_offset": "(0, -3)",
+					"unshifted_error": 0.00131179266017211,
+					"world_offset": "(0.0, -2.5)"
+				},
+				{
+					"best_remote_rival_error": 0.00131974398132495,
+					"best_to_rival_ratio": 0.0181529926676251,
+					"confident": true,
+					"rgb_patch_squared_error": 0.0000239573028161342,
+					"source_native_pixel": "(1580, 279)",
+					"source_quality": {
+						"eigen_ratio": 0.177761242880834,
+						"maximum_eigenvalue": 0.00153779562440763,
+						"minimum_eigenvalue": 0.00027336046149141
+					},
+					"status": "unique_correspondence",
+					"tracked_native_offset": "(1, -2)",
+					"unshifted_error": 0.00157825251832063,
+					"world_offset": "(0.833333, -1.666667)"
+				},
+				{
+					"best_remote_rival_error": 0.000814024864913781,
+					"best_to_rival_ratio": 0.00976738397116268,
+					"confident": true,
+					"rgb_patch_squared_error": 0.00000795089341768672,
+					"source_native_pixel": "(1594, 279)",
+					"source_quality": {
+						"eigen_ratio": 0.599127011414475,
+						"maximum_eigenvalue": 0.00035371673067049,
+						"minimum_eigenvalue": 0.000211921247733909
+					},
+					"status": "unique_correspondence",
+					"tracked_native_offset": "(1, -1)",
+					"unshifted_error": 0.000234969786445415,
+					"world_offset": "(0.833333, -0.833333)"
+				},
+				{
+					"best_remote_rival_error": 0.00119430764610229,
+					"best_to_rival_ratio": 0.0253153468815697,
+					"confident": true,
+					"rgb_patch_squared_error": 0.0000302343123443904,
+					"source_native_pixel": "(1608, 279)",
+					"source_quality": {
+						"eigen_ratio": 0.283238711867799,
+						"maximum_eigenvalue": 0.00106812999851385,
+						"minimum_eigenvalue": 0.000302535764886417
+					},
+					"status": "unique_correspondence",
+					"tracked_native_offset": "(1, 0)",
+					"unshifted_error": 0.0000710349414596578,
+					"world_offset": "(0.833333, 0.0)"
+				},
+				{
+					"best_remote_rival_error": 0.00112233127887052,
+					"best_to_rival_ratio": 0.0328113403149147,
+					"confident": true,
+					"rgb_patch_squared_error": 0.0000368251935370941,
+					"source_native_pixel": "(1510, 293)",
+					"source_quality": {
+						"eigen_ratio": 0.517979428320774,
+						"maximum_eigenvalue": 0.00155020316241531,
+						"minimum_eigenvalue": 0.00080297334784894
+					},
+					"status": "unique_correspondence",
+					"tracked_native_offset": "(-1, 0)",
+					"unshifted_error": 0.000388338301939536,
+					"world_offset": "(-0.833333, 0.0)"
+				},
+				{
+					"best_remote_rival_error": 0.00200665912959623,
+					"best_to_rival_ratio": 0.0601636975072262,
+					"confident": true,
+					"rgb_patch_squared_error": 0.000120728032873142,
+					"source_native_pixel": "(1524, 293)",
+					"source_quality": {
+						"eigen_ratio": 0.366383424508854,
+						"maximum_eigenvalue": 0.00233163104532534,
+						"minimum_eigenvalue": 0.000854270967077458
+					},
+					"status": "unique_correspondence",
+					"tracked_native_offset": "(-2, -1)",
+					"unshifted_error": 0.00289339290651913,
+					"world_offset": "(-1.666667, -0.833333)"
+				},
+				{
+					"source_native_pixel": "(1538, 293)",
+					"source_quality": {
+						"eigen_ratio": 0.04705235555355,
+						"maximum_eigenvalue": 0.00420178181808696,
+						"minimum_eigenvalue": 0.000197703732063069
+					},
+					"status": "unobservable_source_aperture",
+					"unshifted_error": 0.00757343423722702
+				},
+				{
+					"best_remote_rival_error": 0.00137916596695882,
+					"best_to_rival_ratio": 0.0920882955635287,
+					"confident": true,
+					"rgb_patch_squared_error": 0.000127005043196464,
+					"source_native_pixel": "(1552, 293)",
+					"source_quality": {
+						"eigen_ratio": 0.442898520075887,
+						"maximum_eigenvalue": 0.00215442454922011,
+						"minimum_eigenvalue": 0.000954191444464745
+					},
+					"status": "unique_correspondence",
+					"tracked_native_offset": "(-2, -3)",
+					"unshifted_error": 0.00371704224741729,
+					"world_offset": "(-1.666667, -2.5)"
+				},
+				{
+					"best_remote_rival_error": 0.00172701804571891,
+					"best_to_rival_ratio": 0.0227162576368644,
+					"confident": true,
+					"rgb_patch_squared_error": 0.0000392313868700648,
+					"source_native_pixel": "(1566, 293)",
+					"source_quality": {
+						"eigen_ratio": 0.526552146640739,
+						"maximum_eigenvalue": 0.000796679502343382,
+						"minimum_eigenvalue": 0.000419493302143584
+					},
+					"status": "unique_correspondence",
+					"tracked_native_offset": "(1, -3)",
+					"unshifted_error": 0.00110004804439469,
+					"world_offset": "(0.833333, -2.5)"
+				},
+				{
+					"best_remote_rival_error": 0.00111009097882942,
+					"best_to_rival_ratio": 0.00885873137814942,
+					"confident": true,
+					"rgb_patch_squared_error": 0.00000983399778675675,
+					"source_native_pixel": "(1580, 293)",
+					"source_quality": {
+						"eigen_ratio": 0.684821561362379,
+						"maximum_eigenvalue": 0.000380293589714609,
+						"minimum_eigenvalue": 0.000260433249884462
+					},
+					"status": "unique_correspondence",
+					"tracked_native_offset": "(2, -2)",
+					"unshifted_error": 0.000830973014922859,
+					"world_offset": "(1.666667, -1.666667)"
+				},
+				{
+					"best_remote_rival_error": 0.00219915421779107,
+					"best_to_rival_ratio": 0.00946672242452866,
+					"confident": true,
+					"rgb_patch_squared_error": 0.0000208187825485595,
+					"source_native_pixel": "(1594, 293)",
+					"source_quality": {
+						"eigen_ratio": 0.333042725859682,
+						"maximum_eigenvalue": 0.00172918620731446,
+						"minimum_eigenvalue": 0.000575892888002972
+					},
+					"status": "unique_correspondence",
+					"tracked_native_offset": "(2, -1)",
+					"unshifted_error": 0.00134976880684901,
+					"world_offset": "(1.666667, -0.833333)"
+				},
+				{
+					"best_remote_rival_error": 0.00420612715544792,
+					"best_to_rival_ratio": 0.0100236278428641,
+					"confident": true,
+					"rgb_patch_squared_error": 0.0000421606532659747,
+					"source_native_pixel": "(1608, 293)",
+					"source_quality": {
+						"eigen_ratio": 0.42436555924893,
+						"maximum_eigenvalue": 0.0021088067035529,
+						"minimum_eigenvalue": 0.000894904936101121
+					},
+					"status": "unique_correspondence",
+					"tracked_native_offset": "(1, 0)",
+					"unshifted_error": 0.000701038652857405,
+					"world_offset": "(0.833333, 0.0)"
+				},
+				{
+					"best_remote_rival_error": 0.00119964311298659,
+					"best_to_rival_ratio": 0.012644981250545,
+					"confident": true,
+					"rgb_patch_squared_error": 0.000015169464671061,
+					"source_native_pixel": "(1510, 307)",
+					"source_quality": {
+						"eigen_ratio": 0.0933418301056622,
+						"maximum_eigenvalue": 0.0018385975834291,
+						"minimum_eigenvalue": 0.00017161806326512
+					},
+					"status": "unique_correspondence",
+					"tracked_native_offset": "(-1, 0)",
+					"unshifted_error": 0.000144894541858065,
+					"world_offset": "(-0.833333, 0.0)"
+				},
+				{
+					"best_remote_rival_error": 0.0038370377418734,
+					"best_to_rival_ratio": 0.0277012845887588,
+					"confident": true,
+					"rgb_patch_squared_error": 0.000106290874465444,
+					"source_native_pixel": "(1524, 307)",
+					"source_quality": {
+						"eigen_ratio": 0.346107040107079,
+						"maximum_eigenvalue": 0.00226591297131365,
+						"minimum_eigenvalue": 0.000784248431641604
+					},
+					"status": "unique_correspondence",
+					"tracked_native_offset": "(-2, 0)",
+					"unshifted_error": 0.00221683462397551,
+					"world_offset": "(-1.666667, 0.0)"
+				},
+				{
+					"best_remote_rival_error": 0.00335171955538605,
+					"best_to_rival_ratio": 0.0245333652944757,
+					"confident": true,
+					"rgb_patch_squared_error": 0.0000822289602169235,
+					"source_native_pixel": "(1538, 307)",
+					"source_quality": {
+						"eigen_ratio": 0.218693481439783,
+						"maximum_eigenvalue": 0.00350917834367527,
+						"minimum_eigenvalue": 0.000767434428971435
+					},
+					"status": "unique_correspondence",
+					"tracked_native_offset": "(-3, -1)",
+					"unshifted_error": 0.00565308473101954,
+					"world_offset": "(-2.5, -0.833333)"
+				},
+				{
+					"best_remote_rival_error": 0.0026085202468776,
+					"best_to_rival_ratio": 0.0246250122246055,
+					"confident": true,
+					"rgb_patch_squared_error": 0.0000642348429674919,
+					"source_native_pixel": "(1552, 307)",
+					"source_quality": {
+						"eigen_ratio": 0.583712088170857,
+						"maximum_eigenvalue": 0.00153372035469,
+						"minimum_eigenvalue": 0.000895251110906246
+					},
+					"status": "unique_correspondence",
+					"tracked_native_offset": "(-2, -1)",
+					"unshifted_error": 0.00184293312426272,
+					"world_offset": "(-1.666667, -0.833333)"
+				},
+				{
+					"best_remote_rival_error": 0.00124400072002473,
+					"best_to_rival_ratio": 0.154738878143133,
+					"confident": true,
+					"rgb_patch_squared_error": 0.000192495275825877,
+					"source_native_pixel": "(1566, 307)",
+					"source_quality": {
+						"eigen_ratio": 0.449898724057887,
+						"maximum_eigenvalue": 0.00144056858181942,
+						"minimum_eigenvalue": 0.000648109966878436
+					},
+					"status": "unique_correspondence",
+					"tracked_native_offset": "(1, -1)",
+					"unshifted_error": 0.000598513855152311,
+					"world_offset": "(0.833333, -0.833333)"
+				},
+				{
+					"best_remote_rival_error": 0.00250181224009977,
+					"best_to_rival_ratio": 0.017646559204301,
+					"confident": true,
+					"rgb_patch_squared_error": 0.0000441483778129654,
+					"source_native_pixel": "(1580, 307)",
+					"source_quality": {
+						"eigen_ratio": 0.410421309552153,
+						"maximum_eigenvalue": 0.00169673739034186,
+						"minimum_eigenvalue": 0.000696377181710206
+					},
+					"status": "unique_correspondence",
+					"tracked_native_offset": "(3, 0)",
+					"unshifted_error": 0.00167314056220315,
+					"world_offset": "(2.5, 0.0)"
+				},
+				{
+					"best_remote_rival_error": 0.00116177183931251,
+					"best_to_rival_ratio": 0.0325979293674304,
+					"confident": true,
+					"rgb_patch_squared_error": 0.000037871356358979,
+					"source_native_pixel": "(1594, 307)",
+					"source_quality": {
+						"eigen_ratio": 0.109667028966895,
+						"maximum_eigenvalue": 0.00211870605547928,
+						"minimum_eigenvalue": 0.000232352198358582
+					},
+					"status": "unique_correspondence",
+					"tracked_native_offset": "(3, 0)",
+					"unshifted_error": 0.000960907175046411,
+					"world_offset": "(2.5, 0.0)"
+				},
+				{
+					"best_remote_rival_error": 0.00110423255575404,
+					"best_to_rival_ratio": 0.0405495030518018,
+					"confident": true,
+					"rgb_patch_squared_error": 0.0000447760813894473,
+					"source_native_pixel": "(1608, 307)",
+					"source_quality": {
+						"eigen_ratio": 0.100210081905614,
+						"maximum_eigenvalue": 0.00259861845239122,
+						"minimum_eigenvalue": 0.000260407767955563
+					},
+					"status": "unique_correspondence",
+					"tracked_native_offset": "(1, 0)",
+					"unshifted_error": 0.000438554510938598,
+					"world_offset": "(0.833333, 0.0)"
+				},
+				{
+					"best_remote_rival_error": 0.00214559043341447,
+					"best_to_rival_ratio": 0.00863035679840662,
+					"confident": true,
+					"rgb_patch_squared_error": 0.0000185172109836148,
+					"source_native_pixel": "(1510, 321)",
+					"source_quality": {
+						"eigen_ratio": 0.339325731021492,
+						"maximum_eigenvalue": 0.00138995876533163,
+						"minimum_eigenvalue": 0.000471648774135885
+					},
+					"status": "unique_correspondence",
+					"tracked_native_offset": "(-1, 0)",
+					"unshifted_error": 0.000408634051972545,
+					"world_offset": "(-0.833333, 0.0)"
+				},
+				{
+					"best_remote_rival_error": 0.00146024417677287,
+					"best_to_rival_ratio": 0.030735060841725,
+					"confident": true,
+					"rgb_patch_squared_error": 0.0000448806936168888,
+					"source_native_pixel": "(1524, 321)",
+					"source_quality": {
+						"eigen_ratio": 0.178221336758556,
+						"maximum_eigenvalue": 0.0012518386674631,
+						"minimum_eigenvalue": 0.000223104360721323
+					},
+					"status": "unique_correspondence",
+					"tracked_native_offset": "(-2, 1)",
+					"unshifted_error": 0.00275791369887539,
+					"world_offset": "(-1.666667, 0.833333)"
+				},
+				{
+					"best_remote_rival_error": 0.00124567489728641,
+					"best_to_rival_ratio": 0.112454864114275,
+					"confident": true,
+					"rgb_patch_squared_error": 0.000140082201304906,
+					"source_native_pixel": "(1538, 321)",
+					"source_quality": {
+						"eigen_ratio": 0.100126290734717,
+						"maximum_eigenvalue": 0.00381563431576039,
+						"minimum_eigenvalue": 0.000382045310837186
+					},
+					"status": "unique_correspondence",
+					"tracked_native_offset": "(-3, 0)",
+					"unshifted_error": 0.00816588108406659,
+					"world_offset": "(-2.5, 0.0)"
+				},
+				{
+					"best_remote_rival_error": 0.000515866415813804,
+					"best_to_rival_ratio": 0.112958831879943,
+					"confident": true,
+					"rgb_patch_squared_error": 0.0000582716677364203,
+					"source_native_pixel": "(1552, 321)",
+					"source_quality": {
+						"eigen_ratio": 0.378395009651951,
+						"maximum_eigenvalue": 0.000774611839273706,
+						"minimum_eigenvalue": 0.000293109254398489
+					},
+					"status": "unique_correspondence",
+					"tracked_native_offset": "(-1, 2)",
+					"unshifted_error": 0.000908389391302222,
+					"world_offset": "(-0.833333, 1.666667)"
+				},
+				{
+					"best_remote_rival_error": 0.00211577451989201,
+					"best_to_rival_ratio": 0.0496439992387717,
+					"confident": true,
+					"rgb_patch_squared_error": 0.000105035508654932,
+					"source_native_pixel": "(1566, 321)",
+					"source_quality": {
+						"eigen_ratio": 0.256125807542094,
+						"maximum_eigenvalue": 0.00198111133579632,
+						"minimum_eigenvalue": 0.00050741374071163
+					},
+					"status": "unique_correspondence",
+					"tracked_native_offset": "(2, 2)",
+					"unshifted_error": 0.000920211336249112,
+					"world_offset": "(1.666667, 1.666667)"
+				},
+				{
+					"best_remote_rival_error": 0.00339095122131748,
+					"best_to_rival_ratio": 0.0137599099273516,
+					"confident": true,
+					"rgb_patch_squared_error": 0.0000466591833733716,
+					"source_native_pixel": "(1580, 321)",
+					"source_quality": {
+						"eigen_ratio": 0.351661704401796,
+						"maximum_eigenvalue": 0.00161312684788901,
+						"minimum_eigenvalue": 0.000567274936744945
+					},
+					"status": "unique_correspondence",
+					"tracked_native_offset": "(3, 1)",
+					"unshifted_error": 0.00358731777526081,
+					"world_offset": "(2.5, 0.833333)"
+				},
+				{
+					"source_native_pixel": "(1594, 321)",
+					"source_quality": {
+						"eigen_ratio": 0.0514999689865536,
+						"maximum_eigenvalue": 0.00273429490254054,
+						"minimum_eigenvalue": 0.00014081610268093
+					},
+					"status": "unobservable_source_aperture",
+					"unshifted_error": 0.00254459972080069
+				},
+				{
+					"best_remote_rival_error": 0.00260109251874829,
+					"best_to_rival_ratio": 0.00538953473973666,
+					"confident": true,
+					"rgb_patch_squared_error": 0.000014018678491063,
+					"source_native_pixel": "(1608, 321)",
+					"source_quality": {
+						"eigen_ratio": 0.207287815138123,
+						"maximum_eigenvalue": 0.00204513459140954,
+						"minimum_eigenvalue": 0.00042393148111668
+					},
+					"status": "unique_correspondence",
+					"tracked_native_offset": "(1, 0)",
+					"unshifted_error": 0.00033184514065559,
+					"world_offset": "(0.833333, 0.0)"
+				},
+				{
+					"best_remote_rival_error": 0.00337724656236949,
+					"best_to_rival_ratio": 0.00446069002670112,
+					"confident": true,
+					"rgb_patch_squared_error": 0.0000150648500584722,
+					"source_native_pixel": "(1510, 335)",
+					"source_quality": {
+						"eigen_ratio": 0.485920045945866,
+						"maximum_eigenvalue": 0.00150502425758285,
+						"minimum_eigenvalue": 0.000731321456394302
+					},
+					"status": "unique_correspondence",
+					"tracked_native_offset": "(-1, 0)",
+					"unshifted_error": 0.000244071495459838,
+					"world_offset": "(-0.833333, 0.0)"
+				},
+				{
+					"best_remote_rival_error": 0.000605837283507557,
+					"best_to_rival_ratio": 0.107753371312292,
+					"confident": true,
+					"rgb_patch_squared_error": 0.0000652810097646201,
+					"source_native_pixel": "(1524, 335)",
+					"source_quality": {
+						"eigen_ratio": 0.169679936209972,
+						"maximum_eigenvalue": 0.000818315515538517,
+						"minimum_eigenvalue": 0.000138851724476206
+					},
+					"status": "unique_correspondence",
+					"tracked_native_offset": "(-2, 1)",
+					"unshifted_error": 0.000738700763295194,
+					"world_offset": "(-1.666667, 0.833333)"
+				},
+				{
+					"best_remote_rival_error": 0.00132779924527585,
+					"best_to_rival_ratio": 0.0972266138521088,
+					"confident": true,
+					"rgb_patch_squared_error": 0.000129097424493557,
+					"source_native_pixel": "(1538, 335)",
+					"source_quality": {
+						"eigen_ratio": 0.110690324892468,
+						"maximum_eigenvalue": 0.00279429358441365,
+						"minimum_eigenvalue": 0.000309301264703684
+					},
+					"status": "unique_correspondence",
+					"tracked_native_offset": "(-2, 2)",
+					"unshifted_error": 0.00363376753541763,
+					"world_offset": "(-1.666667, 1.666667)"
+				},
+				{
+					"best_remote_rival_error": 0.000628853034139182,
+					"best_to_rival_ratio": 0.0490766951357524,
+					"confident": true,
+					"rgb_patch_squared_error": 0.0000308620286416416,
+					"source_native_pixel": "(1552, 335)",
+					"source_quality": {
+						"eigen_ratio": 0.251345102656752,
+						"maximum_eigenvalue": 0.00108739077752451,
+						"minimum_eigenvalue": 0.000273310346604903
+					},
+					"status": "unique_correspondence",
+					"tracked_native_offset": "(-1, 3)",
+					"unshifted_error": 0.00334701179605354,
+					"world_offset": "(-0.833333, 2.5)"
+				},
+				{
+					"best_remote_rival_error": 0.00213994092075058,
+					"best_to_rival_ratio": 0.0230261584207668,
+					"confident": true,
+					"rgb_patch_squared_error": 0.0000492746186522845,
+					"source_native_pixel": "(1566, 335)",
+					"source_quality": {
+						"eigen_ratio": 0.225729710350476,
+						"maximum_eigenvalue": 0.00239607454755818,
+						"minimum_eigenvalue": 0.000540865213598456
+					},
+					"status": "unique_correspondence",
+					"tracked_native_offset": "(1, 3)",
+					"unshifted_error": 0.00746463331011042,
+					"world_offset": "(0.833333, 2.5)"
+				},
+				{
+					"best_remote_rival_error": 0.00245096726295665,
+					"best_to_rival_ratio": 0.0225371373856041,
+					"confident": true,
+					"rgb_patch_squared_error": 0.0000552377859328722,
+					"source_native_pixel": "(1580, 335)",
+					"source_quality": {
+						"eigen_ratio": 0.490555312963635,
+						"maximum_eigenvalue": 0.00123472272711716,
+						"minimum_eigenvalue": 0.00060569979382427
+					},
+					"status": "unique_correspondence",
+					"tracked_native_offset": "(2, 2)",
+					"unshifted_error": 0.00194409771018606,
+					"world_offset": "(1.666667, 1.666667)"
+				},
+				{
+					"best_remote_rival_error": 0.00293879652055001,
+					"best_to_rival_ratio": 0.033783063115788,
+					"confident": true,
+					"rgb_patch_squared_error": 0.0000992815483381993,
+					"source_native_pixel": "(1594, 335)",
+					"source_quality": {
+						"eigen_ratio": 0.254206884275762,
+						"maximum_eigenvalue": 0.00269169217855869,
+						"minimum_eigenvalue": 0.000684246682140842
+					},
+					"status": "unique_correspondence",
+					"tracked_native_offset": "(1, 1)",
+					"unshifted_error": 0.00193698409303024,
+					"world_offset": "(0.833333, 0.833333)"
+				},
+				{
+					"best_remote_rival_error": 0.00227207216026374,
+					"best_to_rival_ratio": 0.0151947721536959,
+					"confident": true,
+					"rgb_patch_squared_error": 0.0000345236187919631,
+					"source_native_pixel": "(1608, 335)",
+					"source_quality": {
+						"eigen_ratio": 0.251869338859848,
+						"maximum_eigenvalue": 0.0017390844280295,
+						"minimum_eigenvalue": 0.000438022045109247
+					},
+					"status": "unique_correspondence",
+					"tracked_native_offset": "(1, 0)",
+					"unshifted_error": 0.000304540126509008,
+					"world_offset": "(0.833333, 0.0)"
+				},
+				{
+					"best_remote_rival_error": 0.00231684855967185,
+					"best_to_rival_ratio": 0.01792648994552,
+					"confident": true,
+					"rgb_patch_squared_error": 0.00004153296241025,
+					"source_native_pixel": "(1510, 349)",
+					"source_quality": {
+						"eigen_ratio": 0.147465424245954,
+						"maximum_eigenvalue": 0.00358218102168266,
+						"minimum_eigenvalue": 0.00052824784408824
+					},
+					"status": "unique_correspondence",
+					"tracked_native_offset": "(0, 0)",
+					"unshifted_error": 0.00004153296241025,
+					"world_offset": "(0.0, 0.0)"
+				},
+				{
+					"best_remote_rival_error": 0.00295647717478911,
+					"best_to_rival_ratio": 0.0141896672089078,
+					"confident": true,
+					"rgb_patch_squared_error": 0.0000419514272209895,
+					"source_native_pixel": "(1524, 349)",
+					"source_quality": {
+						"eigen_ratio": 0.383841599576946,
+						"maximum_eigenvalue": 0.00136299308517651,
+						"minimum_eigenvalue": 0.000523173446026466
+					},
+					"status": "unique_correspondence",
+					"tracked_native_offset": "(-1, 1)",
+					"unshifted_error": 0.000304749387536085,
+					"world_offset": "(-0.833333, 0.833333)"
+				},
+				{
+					"best_remote_rival_error": 0.0029073075658876,
+					"best_to_rival_ratio": 0.0185318438148157,
+					"confident": true,
+					"rgb_patch_squared_error": 0.0000538777697326608,
+					"source_native_pixel": "(1538, 349)",
+					"source_quality": {
+						"eigen_ratio": 0.348899116659961,
+						"maximum_eigenvalue": 0.00120814932968001,
+						"minimum_eigenvalue": 0.000421522233918679
+					},
+					"status": "unique_correspondence",
+					"tracked_native_offset": "(-1, 2)",
+					"unshifted_error": 0.000813397403826588,
+					"world_offset": "(-0.833333, 1.666667)"
+				},
+				{
+					"best_remote_rival_error": 0.00152751284748072,
+					"best_to_rival_ratio": 0.0469830813941378,
+					"confident": true,
+					"rgb_patch_squared_error": 0.000071767260443778,
+					"source_native_pixel": "(1552, 349)",
+					"source_quality": {
+						"eigen_ratio": 0.208743737433244,
+						"maximum_eigenvalue": 0.00137413581805194,
+						"minimum_eigenvalue": 0.00028684224640105
+					},
+					"status": "unique_correspondence",
+					"tracked_native_offset": "(0, 2)",
+					"unshifted_error": 0.000799378581432043,
+					"world_offset": "(0.0, 1.666667)"
+				},
+				{
+					"best_remote_rival_error": 0.000986538521556318,
+					"best_to_rival_ratio": 0.0853658439779794,
+					"confident": true,
+					"rgb_patch_squared_error": 0.0000842166935094431,
+					"source_native_pixel": "(1566, 349)",
+					"source_quality": {
+						"eigen_ratio": 0.623301758328715,
+						"maximum_eigenvalue": 0.00100271563161943,
+						"minimum_eigenvalue": 0.000624994416292078
+					},
+					"status": "unique_correspondence",
+					"tracked_native_offset": "(0, 2)",
+					"unshifted_error": 0.0017883230339559,
+					"world_offset": "(0.0, 1.666667)"
+				},
+				{
+					"best_remote_rival_error": 0.00156800006446864,
+					"best_to_rival_ratio": 0.0149452878180109,
+					"confident": true,
+					"rgb_patch_squared_error": 0.0000234342122621434,
+					"source_native_pixel": "(1580, 349)",
+					"source_quality": {
+						"eigen_ratio": 0.182430590052632,
+						"maximum_eigenvalue": 0.0016509668916739,
+						"minimum_eigenvalue": 0.00030118686420543
+					},
+					"status": "unique_correspondence",
+					"tracked_native_offset": "(1, 2)",
+					"unshifted_error": 0.000939565487189767,
+					"world_offset": "(0.833333, 1.666667)"
+				},
+				{
+					"best_remote_rival_error": 0.00141693291541735,
+					"best_to_rival_ratio": 0.0460720573462505,
+					"confident": true,
+					"rgb_patch_squared_error": 0.000065281014534898,
+					"source_native_pixel": "(1594, 349)",
+					"source_quality": {
+						"eigen_ratio": 0.119188835860941,
+						"maximum_eigenvalue": 0.00182859610601293,
+						"minimum_eigenvalue": 0.000217948241135532
+					},
+					"status": "unique_correspondence",
+					"tracked_native_offset": "(1, 0)",
+					"unshifted_error": 0.000537836088693515,
+					"world_offset": "(0.833333, 0.0)"
+				},
+				{
+					"source_native_pixel": "(1608, 349)",
+					"source_quality": {
+						"eigen_ratio": 0.037303529563012,
+						"maximum_eigenvalue": 0.00291301363022867,
+						"minimum_eigenvalue": 0.000108665690072692
+					},
+					"status": "unobservable_source_aperture",
+					"unshifted_error": 0.0000268865731872693
+				}
+			],
+			"method": "49dense RGB samples per patch. Independent source2D structure tensor rejects straight-line aperture; full+-40nativepx search with six minima refined to1px. Uniqueness compares all rival basins more than3px apart and requires best/rival<0.75.3worldpx contract plus0.6worldpx two-dimensional nearest-pixel quantization. No height-gradient/shader mapping mirrored. Supplemental mathematical texture uses actual production material/actual GUI-driven field without replacing registered game art.",
+			"out_of_bound_matches": 0,
+			"phase": "production_shader_click_calibration",
+			"source_aperture_rejections": 3,
+			"status": "measured_unique_bounds"
+		},
+		{
+			"ambiguous_matches": 0,
+			"calibration_not_game_art": false,
+			"changed_contrast_patches": 9,
+			"confident_matches": 6,
+			"independent_source_patch_tracking": [
+				{
+					"best_remote_rival_error": 0.0000859951721352559,
+					"best_to_rival_ratio": 0.150851581508516,
+					"confident": true,
+					"rgb_patch_squared_error": 0.0000129725077187004,
+					"source_native_pixel": "(1462, 265)",
+					"source_quality": {
+						"eigen_ratio": 0.211529425172865,
+						"maximum_eigenvalue": 0.000264882250349335,
+						"minimum_eigenvalue": 0.0000560303901548896
+					},
+					"status": "unique_correspondence",
+					"tracked_native_offset": "(1, 0)",
+					"unshifted_error": 0.0000414283311016561,
+					"world_offset": "(0.833333, 0.0)"
+				},
+				{
+					"best_remote_rival_error": 0.0000296066103580017,
+					"best_to_rival_ratio": 0.19434628975265,
+					"confident": true,
+					"rgb_patch_squared_error": 0.00000575393487523002,
+					"source_native_pixel": "(1472, 265)",
+					"source_quality": {
+						"eigen_ratio": 0.0618666094338661,
+						"maximum_eigenvalue": 0.000200541101447038,
+						"minimum_eigenvalue": 0.0000124067979986612
+					},
+					"status": "unique_correspondence",
+					"tracked_native_offset": "(1, 0)",
+					"unshifted_error": 0.000061410177668364,
+					"world_offset": "(0.833333, 0.0)"
+				},
+				{
+					"best_remote_rival_error": 0.000167596430365791,
+					"best_to_rival_ratio": 0.184769038701623,
+					"confident": true,
+					"rgb_patch_squared_error": 0.0000309666313285106,
+					"source_native_pixel": "(1472, 275)",
+					"source_quality": {
+						"eigen_ratio": 0.111453919331255,
+						"maximum_eigenvalue": 0.000427733245039263,
+						"minimum_eigenvalue": 0.0000476725465879021
+					},
+					"status": "unique_correspondence",
+					"tracked_native_offset": "(1, 0)",
+					"unshifted_error": 0.0000644440706025762,
+					"world_offset": "(0.833333, 0.0)"
+				},
+				{
+					"source_native_pixel": "(1462, 295)",
+					"source_quality": {
+						"eigen_ratio": 0.0406637206876158,
+						"maximum_eigenvalue": 0.000364468288326168,
+						"minimum_eigenvalue": 0.0000148206366759887
+					},
+					"status": "unobservable_source_aperture",
+					"unshifted_error": 0.000198667678692033
+				},
+				{
+					"best_remote_rival_error": 0.000180568938084491,
+					"best_to_rival_ratio": 0.0608342989571263,
+					"confident": true,
+					"rgb_patch_squared_error": 0.0000109847847618028,
+					"source_native_pixel": "(1462, 305)",
+					"source_quality": {
+						"eigen_ratio": 0.655020976030289,
+						"maximum_eigenvalue": 0.000296637579467236,
+						"minimum_eigenvalue": 0.000194303836829892
+					},
+					"status": "unique_correspondence",
+					"tracked_native_offset": "(-2, 0)",
+					"unshifted_error": 0.000224717311127165,
+					"world_offset": "(-1.666667, 0.0)"
+				},
+				{
+					"best_remote_rival_error": 0.000138303671000983,
+					"best_to_rival_ratio": 0.0726172465960666,
+					"confident": true,
+					"rgb_patch_squared_error": 0.0000100432317822197,
+					"source_native_pixel": "(1472, 305)",
+					"source_quality": {
+						"eigen_ratio": 0.484486722571757,
+						"maximum_eigenvalue": 0.000303917034921635,
+						"minimum_eigenvalue": 0.000147243768182909
+					},
+					"status": "unique_correspondence",
+					"tracked_native_offset": "(-1, 0)",
+					"unshifted_error": 0.0000396498421402214,
+					"world_offset": "(-0.833333, 0.0)"
+				},
+				{
+					"best_remote_rival_error": 0.000103989295745066,
+					"best_to_rival_ratio": 0.0774647887323944,
+					"confident": true,
+					"rgb_patch_squared_error": 0.00000805550882532202,
+					"source_native_pixel": "(1492, 325)",
+					"source_quality": {
+						"eigen_ratio": 0.37525667855292,
+						"maximum_eigenvalue": 0.000379859984341573,
+						"minimum_eigenvalue": 0.000142544996039183
+					},
+					"status": "unique_correspondence",
+					"tracked_native_offset": "(1, 0)",
+					"unshifted_error": 0.0000493792229292467,
+					"world_offset": "(0.833333, 0.0)"
+				},
+				{
+					"source_native_pixel": "(1492, 335)",
+					"source_quality": {
+						"eigen_ratio": 0.0156596148831641,
+						"maximum_eigenvalue": 0.000665534565997998,
+						"minimum_eigenvalue": 0.0000104220149949624
+					},
+					"status": "unobservable_source_aperture",
+					"unshifted_error": 0.0000887152140762737
+				},
+				{
+					"source_native_pixel": "(1502, 335)",
+					"source_quality": {
+						"eigen_ratio": 0.0317525396256591,
+						"maximum_eigenvalue": 0.000438797139575346,
+						"minimum_eigenvalue": 0.000013932923561992
+					},
+					"status": "unobservable_source_aperture",
+					"unshifted_error": 0.0000338959072649914
+				}
+			],
+			"method": "49dense RGB samples per patch. Independent source2D structure tensor rejects straight-line aperture; full+-40nativepx search with six minima refined to1px. Uniqueness compares all rival basins more than3px apart and requires best/rival<0.75.3worldpx contract plus0.6worldpx two-dimensional nearest-pixel quantization. No height-gradient/shader mapping mirrored. Supplemental mathematical texture uses actual production material/actual GUI-driven field without replacing registered game art.",
+			"out_of_bound_matches": 0,
+			"phase": "actual_held_wake",
+			"source_aperture_rejections": 3,
+			"status": "measured_unique_bounds"
+		},
+		{
+			"ambiguous_matches": 0,
+			"calibration_not_game_art": true,
+			"changed_contrast_patches": 39,
+			"confident_matches": 39,
+			"independent_source_patch_tracking": [
+				{
+					"best_remote_rival_error": 0.0026411608535259,
+					"best_to_rival_ratio": 0.0481660503799521,
+					"confident": true,
+					"rgb_patch_squared_error": 0.000127214286732486,
+					"source_native_pixel": "(1462, 265)",
+					"source_quality": {
+						"eigen_ratio": 0.341307582221318,
+						"maximum_eigenvalue": 0.00213427098038607,
+						"minimum_eigenvalue": 0.000728442868120693
+					},
+					"status": "unique_correspondence",
+					"tracked_native_offset": "(0, 0)",
+					"unshifted_error": 0.000127214286732486,
+					"world_offset": "(0.0, 0.0)"
+				},
+				{
+					"best_remote_rival_error": 0.000885269201763417,
+					"best_to_rival_ratio": 0.0596785517322262,
+					"confident": true,
+					"rgb_patch_squared_error": 0.0000528315838543847,
+					"source_native_pixel": "(1476, 265)",
+					"source_quality": {
+						"eigen_ratio": 0.302650300196394,
+						"maximum_eigenvalue": 0.00075158958514199,
+						"minimum_eigenvalue": 0.000227468813567706
+					},
+					"status": "unique_correspondence",
+					"tracked_native_offset": "(1, 0)",
+					"unshifted_error": 0.000123448084354742,
+					"world_offset": "(0.833333, 0.0)"
+				},
+				{
+					"best_remote_rival_error": 0.00155931692998136,
+					"best_to_rival_ratio": 0.0210667503419345,
+					"confident": true,
+					"rgb_patch_squared_error": 0.0000328497404678691,
+					"source_native_pixel": "(1490, 265)",
+					"source_quality": {
+						"eigen_ratio": 0.284687966813324,
+						"maximum_eigenvalue": 0.00256889031670382,
+						"minimum_eigenvalue": 0.000731332161228848
+					},
+					"status": "unique_correspondence",
+					"tracked_native_offset": "(0, 0)",
+					"unshifted_error": 0.0000328497404678691,
+					"world_offset": "(0.0, 0.0)"
+				},
+				{
+					"best_remote_rival_error": 0.00105171470522592,
+					"best_to_rival_ratio": 0.0504327159418426,
+					"confident": true,
+					"rgb_patch_squared_error": 0.0000530408289805177,
+					"source_native_pixel": "(1560, 265)",
+					"source_quality": {
+						"eigen_ratio": 0.406123251172186,
+						"maximum_eigenvalue": 0.00122477113585245,
+						"minimum_eigenvalue": 0.000497408035634249
+					},
+					"status": "unique_correspondence",
+					"tracked_native_offset": "(0, 0)",
+					"unshifted_error": 0.0000530408289805177,
+					"world_offset": "(0.0, 0.0)"
+				},
+				{
+					"best_remote_rival_error": 0.00245002659088891,
+					"best_to_rival_ratio": 0.0339467830497361,
+					"confident": true,
+					"rgb_patch_squared_error": 0.0000831705211469904,
+					"source_native_pixel": "(1462, 279)",
+					"source_quality": {
+						"eigen_ratio": 0.746672484745611,
+						"maximum_eigenvalue": 0.00154484302379085,
+						"minimum_eigenvalue": 0.00115349177911584
+					},
+					"status": "unique_correspondence",
+					"tracked_native_offset": "(0, 0)",
+					"unshifted_error": 0.0000831705211469904,
+					"world_offset": "(0.0, 0.0)"
+				},
+				{
+					"best_remote_rival_error": 0.00188017678658581,
+					"best_to_rival_ratio": 0.0175272662075225,
+					"confident": true,
+					"rgb_patch_squared_error": 0.0000329543590556937,
+					"source_native_pixel": "(1476, 279)",
+					"source_quality": {
+						"eigen_ratio": 0.27295308395647,
+						"maximum_eigenvalue": 0.0015155645938042,
+						"minimum_eigenvalue": 0.00041367802981409
+					},
+					"status": "unique_correspondence",
+					"tracked_native_offset": "(1, 0)",
+					"unshifted_error": 0.0000606778714050131,
+					"world_offset": "(0.833333, 0.0)"
+				},
+				{
+					"best_remote_rival_error": 0.00212048296216973,
+					"best_to_rival_ratio": 0.0143075570393537,
+					"confident": true,
+					"rgb_patch_squared_error": 0.0000303389309322211,
+					"source_native_pixel": "(1532, 279)",
+					"source_quality": {
+						"eigen_ratio": 0.351189736079789,
+						"maximum_eigenvalue": 0.00128821146849214,
+						"minimum_eigenvalue": 0.00045240664563471
+					},
+					"status": "unique_correspondence",
+					"tracked_native_offset": "(0, 0)",
+					"unshifted_error": 0.0000303389309322211,
+					"world_offset": "(0.0, 0.0)"
+				},
+				{
+					"best_remote_rival_error": 0.000715475658616078,
+					"best_to_rival_ratio": 0.0431349605805942,
+					"confident": true,
+					"rgb_patch_squared_error": 0.0000308620143307792,
+					"source_native_pixel": "(1546, 279)",
+					"source_quality": {
+						"eigen_ratio": 0.299837600711624,
+						"maximum_eigenvalue": 0.000621381878614315,
+						"minimum_eigenvalue": 0.000186313651609398
+					},
+					"status": "unique_correspondence",
+					"tracked_native_offset": "(0, 0)",
+					"unshifted_error": 0.0000308620143307792,
+					"world_offset": "(0.0, 0.0)"
+				},
+				{
+					"best_remote_rival_error": 0.0012008986203155,
+					"best_to_rival_ratio": 0.0699538558122956,
+					"confident": true,
+					"rgb_patch_squared_error": 0.000084007488930735,
+					"source_native_pixel": "(1560, 279)",
+					"source_quality": {
+						"eigen_ratio": 0.125577368749294,
+						"maximum_eigenvalue": 0.00164833674696636,
+						"minimum_eigenvalue": 0.000206993791496806
+					},
+					"status": "unique_correspondence",
+					"tracked_native_offset": "(0, -2)",
+					"unshifted_error": 0.000534697531058762,
+					"world_offset": "(0.0, -1.666667)"
+				},
+				{
+					"best_remote_rival_error": 0.0036113792514386,
+					"best_to_rival_ratio": 0.0157300112155032,
+					"confident": true,
+					"rgb_patch_squared_error": 0.0000568070361285646,
+					"source_native_pixel": "(1462, 293)",
+					"source_quality": {
+						"eigen_ratio": 0.498939811223385,
+						"maximum_eigenvalue": 0.00164024644321524,
+						"minimum_eigenvalue": 0.00081838425073764
+					},
+					"status": "unique_correspondence",
+					"tracked_native_offset": "(-1, 1)",
+					"unshifted_error": 0.000556981042210919,
+					"world_offset": "(-0.833333, 0.833333)"
+				},
+				{
+					"best_remote_rival_error": 0.00180317907695899,
+					"best_to_rival_ratio": 0.0337085160118367,
+					"confident": true,
+					"rgb_patch_squared_error": 0.0000607824907878812,
+					"source_native_pixel": "(1504, 293)",
+					"source_quality": {
+						"eigen_ratio": 0.54530773244654,
+						"maximum_eigenvalue": 0.00118848691619126,
+						"minimum_eigenvalue": 0.000648091105310639
+					},
+					"status": "unique_correspondence",
+					"tracked_native_offset": "(0, 0)",
+					"unshifted_error": 0.0000607824907878812,
+					"world_offset": "(0.0, 0.0)"
+				},
+				{
+					"best_remote_rival_error": 0.00209997744068967,
+					"best_to_rival_ratio": 0.137697417304163,
+					"confident": true,
+					"rgb_patch_squared_error": 0.000289161469979975,
+					"source_native_pixel": "(1532, 293)",
+					"source_quality": {
+						"eigen_ratio": 0.226963237384321,
+						"maximum_eigenvalue": 0.00360990709044507,
+						"minimum_eigenvalue": 0.000819316199904026
+					},
+					"status": "unique_correspondence",
+					"tracked_native_offset": "(-1, 0)",
+					"unshifted_error": 0.000502998624473707,
+					"world_offset": "(-0.833333, 0.0)"
+				},
+				{
+					"best_remote_rival_error": 0.000938414577777516,
+					"best_to_rival_ratio": 0.136008938529752,
+					"confident": true,
+					"rgb_patch_squared_error": 0.000127632770624366,
+					"source_native_pixel": "(1546, 293)",
+					"source_quality": {
+						"eigen_ratio": 0.0807518377676444,
+						"maximum_eigenvalue": 0.00307164049831306,
+						"minimum_eigenvalue": 0.000248040615200303
+					},
+					"status": "unique_correspondence",
+					"tracked_native_offset": "(-1, 0)",
+					"unshifted_error": 0.00184764122069516,
+					"world_offset": "(-0.833333, 0.0)"
+				},
+				{
+					"best_remote_rival_error": 0.00173967675014727,
+					"best_to_rival_ratio": 0.0432377155090301,
+					"confident": true,
+					"rgb_patch_squared_error": 0.0000752196484005416,
+					"source_native_pixel": "(1560, 293)",
+					"source_quality": {
+						"eigen_ratio": 0.298945063803478,
+						"maximum_eigenvalue": 0.00163582778881529,
+						"minimum_eigenvalue": 0.00048902264269889
+					},
+					"status": "unique_correspondence",
+					"tracked_native_offset": "(-1, -2)",
+					"unshifted_error": 0.00138847723434782,
+					"world_offset": "(-0.833333, -1.666667)"
+				},
+				{
+					"best_remote_rival_error": 0.00303744991213506,
+					"best_to_rival_ratio": 0.0145002442376258,
+					"confident": true,
+					"rgb_patch_squared_error": 0.0000440437655855134,
+					"source_native_pixel": "(1462, 307)",
+					"source_quality": {
+						"eigen_ratio": 0.570408551775439,
+						"maximum_eigenvalue": 0.00153032519506523,
+						"minimum_eigenvalue": 0.000872910578262625
+					},
+					"status": "unique_correspondence",
+					"tracked_native_offset": "(-2, 0)",
+					"unshifted_error": 0.00147520441221877,
+					"world_offset": "(-1.666667, 0.0)"
+				},
+				{
+					"best_remote_rival_error": 0.00231297804559425,
+					"best_to_rival_ratio": 0.0587543388978379,
+					"confident": true,
+					"rgb_patch_squared_error": 0.000135897495954103,
+					"source_native_pixel": "(1476, 307)",
+					"source_quality": {
+						"eigen_ratio": 0.3197277945726,
+						"maximum_eigenvalue": 0.00267006773011803,
+						"minimum_eigenvalue": 0.000853694866710107
+					},
+					"status": "unique_correspondence",
+					"tracked_native_offset": "(0, 0)",
+					"unshifted_error": 0.000135897495954103,
+					"world_offset": "(0.0, 0.0)"
+				},
+				{
+					"best_remote_rival_error": 0.00625515516259618,
+					"best_to_rival_ratio": 0.0240337169922247,
+					"confident": true,
+					"rgb_patch_squared_error": 0.00015033462892029,
+					"source_native_pixel": "(1490, 307)",
+					"source_quality": {
+						"eigen_ratio": 0.68395019261324,
+						"maximum_eigenvalue": 0.00253348092521018,
+						"minimum_eigenvalue": 0.00173277476677947
+					},
+					"status": "unique_correspondence",
+					"tracked_native_offset": "(0, 0)",
+					"unshifted_error": 0.00015033462892029,
+					"world_offset": "(0.0, 0.0)"
+				},
+				{
+					"best_remote_rival_error": 0.00466487235181042,
+					"best_to_rival_ratio": 0.0230320719729122,
+					"confident": true,
+					"rgb_patch_squared_error": 0.000107441675751346,
+					"source_native_pixel": "(1504, 307)",
+					"source_quality": {
+						"eigen_ratio": 0.892439539678562,
+						"maximum_eigenvalue": 0.002107678669539,
+						"minimum_eigenvalue": 0.00188097578163371
+					},
+					"status": "unique_correspondence",
+					"tracked_native_offset": "(0, 0)",
+					"unshifted_error": 0.000107441675751346,
+					"world_offset": "(0.0, 0.0)"
+				},
+				{
+					"best_remote_rival_error": 0.0015133894955436,
+					"best_to_rival_ratio": 0.0339416572055618,
+					"confident": true,
+					"rgb_patch_squared_error": 0.000051366947476239,
+					"source_native_pixel": "(1518, 307)",
+					"source_quality": {
+						"eigen_ratio": 0.444650486470685,
+						"maximum_eigenvalue": 0.00154389049209422,
+						"minimum_eigenvalue": 0.00068649165836716
+					},
+					"status": "unique_correspondence",
+					"tracked_native_offset": "(0, 0)",
+					"unshifted_error": 0.000051366947476239,
+					"world_offset": "(0.0, 0.0)"
+				},
+				{
+					"best_remote_rival_error": 0.00647014353816045,
+					"best_to_rival_ratio": 0.0161853658350956,
+					"confident": true,
+					"rgb_patch_squared_error": 0.000104721640170707,
+					"source_native_pixel": "(1532, 307)",
+					"source_quality": {
+						"eigen_ratio": 0.805006099084321,
+						"maximum_eigenvalue": 0.00286012089438266,
+						"minimum_eigenvalue": 0.00230241476409655
+					},
+					"status": "unique_correspondence",
+					"tracked_native_offset": "(-1, 0)",
+					"unshifted_error": 0.00152468849861022,
+					"world_offset": "(-0.833333, 0.0)"
+				},
+				{
+					"best_remote_rival_error": 0.00421878546791816,
+					"best_to_rival_ratio": 0.030650202730293,
+					"confident": true,
+					"rgb_patch_squared_error": 0.000129306629867306,
+					"source_native_pixel": "(1546, 307)",
+					"source_quality": {
+						"eigen_ratio": 0.247414462487092,
+						"maximum_eigenvalue": 0.00286567546954811,
+						"minimum_eigenvalue": 0.00070900955596069
+					},
+					"status": "unique_correspondence",
+					"tracked_native_offset": "(-2, -1)",
+					"unshifted_error": 0.00492547380278438,
+					"world_offset": "(-1.666667, -0.833333)"
+				},
+				{
+					"best_remote_rival_error": 0.00230617756865986,
+					"best_to_rival_ratio": 0.0326165880079863,
+					"confident": true,
+					"rgb_patch_squared_error": 0.0000752196436302381,
+					"source_native_pixel": "(1560, 307)",
+					"source_quality": {
+						"eigen_ratio": 0.258734996301312,
+						"maximum_eigenvalue": 0.00159383389385813,
+						"minimum_eigenvalue": 0.00041238060663229
+					},
+					"status": "unique_correspondence",
+					"tracked_native_offset": "(-3, -1)",
+					"unshifted_error": 0.00204955200644067,
+					"world_offset": "(-2.5, -0.833333)"
+				},
+				{
+					"best_remote_rival_error": 0.00574577521053406,
+					"best_to_rival_ratio": 0.0195732175759767,
+					"confident": true,
+					"rgb_patch_squared_error": 0.000112463308338437,
+					"source_native_pixel": "(1462, 321)",
+					"source_quality": {
+						"eigen_ratio": 0.357421664038285,
+						"maximum_eigenvalue": 0.00322782348983578,
+						"minimum_eigenvalue": 0.00115369404295897
+					},
+					"status": "unique_correspondence",
+					"tracked_native_offset": "(-2, -1)",
+					"unshifted_error": 0.00270016503980317,
+					"world_offset": "(-1.666667, -0.833333)"
+				},
+				{
+					"best_remote_rival_error": 0.00262285337503204,
+					"best_to_rival_ratio": 0.0428782271413628,
+					"confident": true,
+					"rgb_patch_squared_error": 0.000112463302773114,
+					"source_native_pixel": "(1476, 321)",
+					"source_quality": {
+						"eigen_ratio": 0.241929637120115,
+						"maximum_eigenvalue": 0.00270958254487345,
+						"minimum_eigenvalue": 0.000655528321828232
+					},
+					"status": "unique_correspondence",
+					"tracked_native_offset": "(0, 0)",
+					"unshifted_error": 0.000112463302773114,
+					"world_offset": "(0.0, 0.0)"
+				},
+				{
+					"best_remote_rival_error": 0.000590353756360848,
+					"best_to_rival_ratio": 0.0217969191649351,
+					"confident": true,
+					"rgb_patch_squared_error": 0.0000128678931061132,
+					"source_native_pixel": "(1490, 321)",
+					"source_quality": {
+						"eigen_ratio": 0.0848394139424668,
+						"maximum_eigenvalue": 0.00109907509273496,
+						"minimum_eigenvalue": 0.000093244886746396
+					},
+					"status": "unique_correspondence",
+					"tracked_native_offset": "(1, 0)",
+					"unshifted_error": 0.0000914352576073862,
+					"world_offset": "(0.833333, 0.0)"
+				},
+				{
+					"best_remote_rival_error": 0.00227688452228317,
+					"best_to_rival_ratio": 0.0193898178808792,
+					"confident": true,
+					"rgb_patch_squared_error": 0.0000441483762228632,
+					"source_native_pixel": "(1532, 321)",
+					"source_quality": {
+						"eigen_ratio": 0.176708784940875,
+						"maximum_eigenvalue": 0.00311088144471294,
+						"minimum_eigenvalue": 0.000549720080190338
+					},
+					"status": "unique_correspondence",
+					"tracked_native_offset": "(-1, 0)",
+					"unshifted_error": 0.00110716201693642,
+					"world_offset": "(-0.833333, 0.0)"
+				},
+				{
+					"best_remote_rival_error": 0.00103874217047562,
+					"best_to_rival_ratio": 0.00976936247356229,
+					"confident": true,
+					"rgb_patch_squared_error": 0.0000101478487799511,
+					"source_native_pixel": "(1546, 321)",
+					"source_quality": {
+						"eigen_ratio": 0.0974228171800235,
+						"maximum_eigenvalue": 0.0011614018906405,
+						"minimum_eigenvalue": 0.000113147044064403
+					},
+					"status": "unique_correspondence",
+					"tracked_native_offset": "(-2, 0)",
+					"unshifted_error": 0.000423280372821466,
+					"world_offset": "(-1.666667, 0.0)"
+				},
+				{
+					"best_remote_rival_error": 0.000861939670102772,
+					"best_to_rival_ratio": 0.0114091504521232,
+					"confident": true,
+					"rgb_patch_squared_error": 0.00000983399937685593,
+					"source_native_pixel": "(1560, 321)",
+					"source_quality": {
+						"eigen_ratio": 0.0810227675352857,
+						"maximum_eigenvalue": 0.00170799900017317,
+						"minimum_eigenvalue": 0.000138386805941531
+					},
+					"status": "unique_correspondence",
+					"tracked_native_offset": "(-2, 1)",
+					"unshifted_error": 0.00289318378621536,
+					"world_offset": "(-1.666667, 0.833333)"
+				},
+				{
+					"best_remote_rival_error": 0.00207800779643171,
+					"best_to_rival_ratio": 0.024316566071748,
+					"confident": true,
+					"rgb_patch_squared_error": 0.0000505300138795391,
+					"source_native_pixel": "(1462, 335)",
+					"source_quality": {
+						"eigen_ratio": 0.669101849625686,
+						"maximum_eigenvalue": 0.000805921855406022,
+						"minimum_eigenvalue": 0.000539243804105934
+					},
+					"status": "unique_correspondence",
+					"tracked_native_offset": "(-1, -1)",
+					"unshifted_error": 0.000187682984565614,
+					"world_offset": "(-0.833333, -0.833333)"
+				},
+				{
+					"best_remote_rival_error": 0.00178863722363901,
+					"best_to_rival_ratio": 0.0140375552038075,
+					"confident": true,
+					"rgb_patch_squared_error": 0.0000251080937664176,
+					"source_native_pixel": "(1490, 335)",
+					"source_quality": {
+						"eigen_ratio": 0.246727332870997,
+						"maximum_eigenvalue": 0.00200158424741885,
+						"minimum_eigenvalue": 0.000493845542882256
+					},
+					"status": "unique_correspondence",
+					"tracked_native_offset": "(1, 0)",
+					"unshifted_error": 0.000156820895500394,
+					"world_offset": "(0.833333, 0.0)"
+				},
+				{
+					"best_remote_rival_error": 0.00376223711958655,
+					"best_to_rival_ratio": 0.0244424639006513,
+					"confident": true,
+					"rgb_patch_squared_error": 0.0000919583449811847,
+					"source_native_pixel": "(1504, 335)",
+					"source_quality": {
+						"eigen_ratio": 0.355619400264083,
+						"maximum_eigenvalue": 0.00348140229462478,
+						"minimum_eigenvalue": 0.00123805419609247
+					},
+					"status": "unique_correspondence",
+					"tracked_native_offset": "(0, 0)",
+					"unshifted_error": 0.0000919583449811847,
+					"world_offset": "(0.0, 0.0)"
+				},
+				{
+					"best_remote_rival_error": 0.00167544185947691,
+					"best_to_rival_ratio": 0.116078645131151,
+					"confident": true,
+					"rgb_patch_squared_error": 0.000194483021044097,
+					"source_native_pixel": "(1532, 335)",
+					"source_quality": {
+						"eigen_ratio": 0.156840633992779,
+						"maximum_eigenvalue": 0.00232361798892654,
+						"minimum_eigenvalue": 0.000364437718540263
+					},
+					"status": "unique_correspondence",
+					"tracked_native_offset": "(0, 0)",
+					"unshifted_error": 0.000194483021044097,
+					"world_offset": "(0.0, 0.0)"
+				},
+				{
+					"best_remote_rival_error": 0.00075449795141893,
+					"best_to_rival_ratio": 0.0551857978927642,
+					"confident": true,
+					"rgb_patch_squared_error": 0.0000416375714575097,
+					"source_native_pixel": "(1546, 335)",
+					"source_quality": {
+						"eigen_ratio": 0.316636309837109,
+						"maximum_eigenvalue": 0.00041024062828785,
+						"minimum_eigenvalue": 0.000129897078686322
+					},
+					"status": "unique_correspondence",
+					"tracked_native_offset": "(-1, 1)",
+					"unshifted_error": 0.000131817440993066,
+					"world_offset": "(-0.833333, 0.833333)"
+				},
+				{
+					"best_remote_rival_error": 0.0032998295523379,
+					"best_to_rival_ratio": 0.0301819786267369,
+					"confident": true,
+					"rgb_patch_squared_error": 0.0000995953850205373,
+					"source_native_pixel": "(1560, 335)",
+					"source_quality": {
+						"eigen_ratio": 0.57325943541101,
+						"maximum_eigenvalue": 0.0012854199644762,
+						"minimum_eigenvalue": 0.000736879123101665
+					},
+					"status": "unique_correspondence",
+					"tracked_native_offset": "(-1, 2)",
+					"unshifted_error": 0.00135981176036486,
+					"world_offset": "(-0.833333, 1.666667)"
+				},
+				{
+					"best_remote_rival_error": 0.00360468405616097,
+					"best_to_rival_ratio": 0.0414151340111718,
+					"confident": true,
+					"rgb_patch_squared_error": 0.000149288473253841,
+					"source_native_pixel": "(1462, 349)",
+					"source_quality": {
+						"eigen_ratio": 0.472705331855932,
+						"maximum_eigenvalue": 0.0025370441942081,
+						"minimum_eigenvalue": 0.00119927431775631
+					},
+					"status": "unique_correspondence",
+					"tracked_native_offset": "(1, 0)",
+					"unshifted_error": 0.000216348005371851,
+					"world_offset": "(0.833333, 0.0)"
+				},
+				{
+					"best_remote_rival_error": 0.00174658137977211,
+					"best_to_rival_ratio": 0.02336027945093,
+					"confident": true,
+					"rgb_patch_squared_error": 0.0000408006291152674,
+					"source_native_pixel": "(1476, 349)",
+					"source_quality": {
+						"eigen_ratio": 0.471131095496067,
+						"maximum_eigenvalue": 0.000937682555703598,
+						"minimum_eigenvalue": 0.000441771409696187
+					},
+					"status": "unique_correspondence",
+					"tracked_native_offset": "(1, 1)",
+					"unshifted_error": 0.000152113146503434,
+					"world_offset": "(0.833333, 0.833333)"
+				},
+				{
+					"best_remote_rival_error": 0.00218963405032628,
+					"best_to_rival_ratio": 0.0141423775008871,
+					"confident": true,
+					"rgb_patch_squared_error": 0.0000309666313285106,
+					"source_native_pixel": "(1504, 349)",
+					"source_quality": {
+						"eigen_ratio": 0.0816876258819529,
+						"maximum_eigenvalue": 0.00483954738939379,
+						"minimum_eigenvalue": 0.000395331136582782
+					},
+					"status": "unique_correspondence",
+					"tracked_native_offset": "(0, 0)",
+					"unshifted_error": 0.0000309666313285106,
+					"world_offset": "(0.0, 0.0)"
+				},
+				{
+					"best_remote_rival_error": 0.000802098793513063,
+					"best_to_rival_ratio": 0.038737446943194,
+					"confident": true,
+					"rgb_patch_squared_error": 0.0000310712594569122,
+					"source_native_pixel": "(1546, 349)",
+					"source_quality": {
+						"eigen_ratio": 0.0879550038626463,
+						"maximum_eigenvalue": 0.00155129016245265,
+						"minimum_eigenvalue": 0.000136443732230608
+					},
+					"status": "unique_correspondence",
+					"tracked_native_offset": "(0, 1)",
+					"unshifted_error": 0.0000454037817857429,
+					"world_offset": "(0.0, 0.833333)"
+				},
+				{
+					"best_remote_rival_error": 0.00252032819252436,
+					"best_to_rival_ratio": 0.0122452388473448,
+					"confident": true,
+					"rgb_patch_squared_error": 0.0000308620206911578,
+					"source_native_pixel": "(1560, 349)",
+					"source_quality": {
+						"eigen_ratio": 0.343186131683323,
+						"maximum_eigenvalue": 0.00180953382517644,
+						"minimum_eigenvalue": 0.00062100691361243
+					},
+					"status": "unique_correspondence",
+					"tracked_native_offset": "(0, 1)",
+					"unshifted_error": 0.000323475791967725,
+					"world_offset": "(0.0, 0.833333)"
+				}
+			],
+			"method": "49dense RGB samples per patch. Independent source2D structure tensor rejects straight-line aperture; full+-40nativepx search with six minima refined to1px. Uniqueness compares all rival basins more than3px apart and requires best/rival<0.75.3worldpx contract plus0.6worldpx two-dimensional nearest-pixel quantization. No height-gradient/shader mapping mirrored. Supplemental mathematical texture uses actual production material/actual GUI-driven field without replacing registered game art.",
+			"out_of_bound_matches": 0,
+			"phase": "production_shader_wake_calibration",
+			"source_aperture_rejections": 0,
+			"status": "measured_unique_bounds"
+		}
+	],
+	"original_media_sha256": {
+		"pattern": "e31efd76da89503bf1b09fbc9a7731a37aa2b00013d2e20c7131da5dfeaee7bc",
+		"water": "f7d6b6a8cb743a366823adaee164bab11bd1b396a120b81f013969b9a215af38"
+	},
+	"scope": "Production solver CPU replay at30/60/144events with three time/grid phases; independent weighted moments/correlation, native impulse-rate unit comparisons and actual root.push_input GPU click/held-wake. Actual registered-art visibility is mandatory; original-source tracking explicitly classifies aperture ambiguity as unobservable. Supplemental isolated production-shader/nonperiodic mathematical QA texture proves3worldpx bounds via dense independent RGB correspondence; it is never displayed in the game or registered as artwork. Temporary native freeze isolates water from moving companions. No OS input, measured displayFPS, listening, user aesthetic or whole-game acceptance claimed.",
+	"source_sha256": {
+		"coastal_physics.gd": "101ac59c597ba8c471b0e467d231a461b9e3cbe0d8c4c396e33e067f2414a3ff",
+		"settings_water.gdshader": "5111074bb65d9ebc8a1bccbd30f085ae223b1ac0d1e62bdc8af67e542e079849",
+		"water_field.gd": "adfd1880b66cf23d9d550844aa8d351349e6adaacd1ebb6e692cb90afee4bc55"
+	}
+}

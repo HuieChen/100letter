@@ -1,0 +1,63 @@
+Actual fresh batch: test_studio_*.py
+test_adapter_logic_change_invalidates_review_basis (test_studio_pipeline.ProductionPipelineTests.test_adapter_logic_change_invalidates_review_basis) ... ok
+test_changed_evidence_or_missing_observation_rejects (test_studio_pipeline.ProductionPipelineTests.test_changed_evidence_or_missing_observation_rejects) ... ok
+test_changed_source_or_design_makes_review_stale (test_studio_pipeline.ProductionPipelineTests.test_changed_source_or_design_makes_review_stale) ... ok
+test_checkout_line_endings_do_not_invalidate_review_basis (test_studio_pipeline.ProductionPipelineTests.test_checkout_line_endings_do_not_invalidate_review_basis) ... ok
+test_cyclic_dependencies_and_missing_inputs_are_rejected (test_studio_pipeline.ProductionPipelineTests.test_cyclic_dependencies_and_missing_inputs_are_rejected) ... ok
+test_dispatch_materializes_bounded_briefs_without_spawning (test_studio_pipeline.ProductionPipelineTests.test_dispatch_materializes_bounded_briefs_without_spawning) ... ok
+test_engine_migration_and_revision_drift_reject (test_studio_pipeline.ProductionPipelineTests.test_engine_migration_and_revision_drift_reject) ... ok
+test_failed_handoff_does_not_write_or_advance_story (test_studio_pipeline.ProductionPipelineTests.test_failed_handoff_does_not_write_or_advance_story) ... ok
+test_impact_routes_shared_changes_and_blocks_path_escape (test_studio_pipeline.ProductionPipelineTests.test_impact_routes_shared_changes_and_blocks_path_escape) ... ok
+test_missing_review_or_native_evidence_cannot_finish (test_studio_pipeline.ProductionPipelineTests.test_missing_review_or_native_evidence_cannot_finish) ... ok
+test_ready_has_one_active_story_and_does_not_claim_completion (test_studio_pipeline.ProductionPipelineTests.test_ready_has_one_active_story_and_does_not_claim_completion) ... ok
+test_rework_not_assessed_duplicate_and_unassigned_reviews_reject (test_studio_pipeline.ProductionPipelineTests.test_rework_not_assessed_duplicate_and_unassigned_reviews_reject) ... ok
+test_unchecked_acceptance_cannot_be_hidden_behind_pass_verdict (test_studio_pipeline.ProductionPipelineTests.test_unchecked_acceptance_cannot_be_hidden_behind_pass_verdict) ... ok
+test_unknown_role_missing_criteria_and_self_review_are_rejected (test_studio_pipeline.ProductionPipelineTests.test_unknown_role_missing_criteria_and_self_review_are_rejected) ... ok
+test_valid_fixture_handoff_records_receipt_and_rejects_stale_dependency (test_studio_pipeline.ProductionPipelineTests.test_valid_fixture_handoff_records_receipt_and_rejects_stale_dependency) ... ok
+test_changed_or_missing_artifacts_are_rejected (test_studio_workflow.StudioGateTests.test_changed_or_missing_artifacts_are_rejected) ... ok
+test_complete_metadata_satisfies_gate_without_claiming_player_acceptance (test_studio_workflow.StudioGateTests.test_complete_metadata_satisfies_gate_without_claiming_player_acceptance) ... ok
+test_empty_or_failed_engine_check_is_rejected (test_studio_workflow.StudioGateTests.test_empty_or_failed_engine_check_is_rejected) ... ok
+test_headless_review_and_unresolved_blocker_are_rejected (test_studio_workflow.StudioGateTests.test_headless_review_and_unresolved_blocker_are_rejected) ... ok
+test_passing_engine_without_native_review_is_rejected (test_studio_workflow.StudioGateTests.test_passing_engine_without_native_review_is_rejected) ... ok
+test_path_escape_and_absolute_evidence_are_rejected (test_studio_workflow.StudioGateTests.test_path_escape_and_absolute_evidence_are_rejected) ... ok
+test_source_change_during_capture_is_rejected (test_studio_workflow.StudioGateTests.test_source_change_during_capture_is_rejected) ... ok
+test_source_changed_after_capture_invalidates_evidence (test_studio_workflow.StudioGateTests.test_source_changed_after_capture_invalidates_evidence) ... ok
+test_source_crlf_checkout_is_equivalent_but_artifact_bytes_are_strict (test_studio_workflow.StudioGateTests.test_source_crlf_checkout_is_equivalent_but_artifact_bytes_are_strict) ... ok
+test_truncated_png_and_changed_upstream_are_rejected (test_studio_workflow.StudioGateTests.test_truncated_png_and_changed_upstream_are_rejected) ... ok
+test_unknown_or_failed_native_check_is_rejected (test_studio_workflow.StudioGateTests.test_unknown_or_failed_native_check_is_rejected) ... ok
+test_wrong_screenshot_size_is_rejected (test_studio_workflow.StudioGateTests.test_wrong_screenshot_size_is_rejected) ... ok
+test_wrong_suite_and_wrong_chain_are_rejected (test_studio_workflow.StudioGateTests.test_wrong_suite_and_wrong_chain_are_rejected) ... ok
+
+----------------------------------------------------------------------
+Ran 28 tests in 6.035s
+
+OK
+Actual fresh batch: test_pastel_assets.py
+test_dynamic_export_contains_only_active_reviewed_images (test_pastel_assets.PastelAssets.test_dynamic_export_contains_only_active_reviewed_images) ... ok
+test_every_active_role_is_reviewed_new_bitmap_and_decodes (test_pastel_assets.PastelAssets.test_every_active_role_is_reviewed_new_bitmap_and_decodes) ... ok
+test_six_original_walking_frames_share_feet_scale_and_source (test_pastel_assets.PastelAssets.test_six_original_walking_frames_share_feet_scale_and_source) ... ok
+
+----------------------------------------------------------------------
+Ran 3 tests in 1.563s
+
+OK
+Actual fresh batch: test_video_courier.py
+test_complete_cycle_without_duplicate_or_recording_frames (test_video_courier.VideoCourier.test_complete_cycle_without_duplicate_or_recording_frames) ... ok
+test_idle_is_the_same_original_pose_with_common_anchor (test_video_courier.VideoCourier.test_idle_is_the_same_original_pose_with_common_anchor) ... ok
+test_provenance_is_honest_and_original_video_not_published (test_video_courier.VideoCourier.test_provenance_is_honest_and_original_video_not_published) ... ok
+
+----------------------------------------------------------------------
+Ran 3 tests in 0.046s
+
+OK
+Actual fresh batch: test_settings_media.py
+test_adopted_wave_source_is_pinned_and_licensed (test_settings_media.SettingsMedia.test_adopted_wave_source_is_pinned_and_licensed) ... ok
+test_fonts_have_pinned_bytes_and_original_ofl_notices (test_settings_media.SettingsMedia.test_fonts_have_pinned_bytes_and_original_ofl_notices) ... ok
+test_soundtrack_has_original_source_fingerprint_and_license (test_settings_media.SettingsMedia.test_soundtrack_has_original_source_fingerprint_and_license) ... ok
+test_water_and_stationery_have_distinct_alpha_and_hashes (test_settings_media.SettingsMedia.test_water_and_stationery_have_distinct_alpha_and_hashes) ... ok
+test_water_samples_are_real_short_decodable_recordings (test_settings_media.SettingsMedia.test_water_samples_are_real_short_decodable_recordings) ... ok
+
+----------------------------------------------------------------------
+Ran 5 tests in 0.086s
+
+OK

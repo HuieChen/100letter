@@ -1,0 +1,17 @@
+{
+  "file": "C:\\Users\\22416\\Documents\\Codex\\2026-10-01\\github\\work\\100letter-studio-publish\\test-results\\coastal-film-r4\\settings-r4.mp4",
+  "method": "Actual MovieWriter rendering/mixer with annotated automated InputEvents; not native mouse footage or human listening",
+  "native_dimensions": [
+    1920,
+    1080
+  ],
+  "frames": 530,
+  "fps": 24,
+  "seconds": 22.083333333333332,
+  "crf": 15,
+  "bytes": 4454196,
+  "nonzero_mix": true,
+  "decoded_mix_peak": 0.3058329224586487,
+  "decoded_mix_rms": 0.01608065329492092,
+  "checked_press_observations": 6
+}

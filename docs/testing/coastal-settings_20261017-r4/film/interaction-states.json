@@ -1,0 +1,107 @@
+{
+	"failures": [],
+	"observations": [
+		{
+			"frame": 365,
+			"lemon": 1,
+			"press": {
+				"arm": "(0.0, 0.0)",
+				"depth": 4.19948145818419,
+				"edge_ratio": 0.0,
+				"held_seconds": 0.783333333333334,
+				"point": "(1440.781, 693.0555)",
+				"press_count": 1,
+				"pressed": true,
+				"release_count": 0,
+				"scale_factor": 0.974803111250895,
+				"target": 4.2,
+				"velocity": 0.0129250157982476
+			}
+		},
+		{
+			"frame": 400,
+			"lemon": 1,
+			"press": {
+				"arm": "(0.0, 0.0)",
+				"depth": 0.0,
+				"edge_ratio": 0.0,
+				"held_seconds": 1.2,
+				"point": "(1440.779, 691.5981)",
+				"press_count": 1,
+				"pressed": false,
+				"release_count": 1,
+				"scale_factor": 1.0,
+				"target": 0.0,
+				"velocity": 0.0
+			}
+		},
+		{
+			"frame": 430,
+			"lemon": 1,
+			"press": {
+				"arm": "(71.98971, 1.217262)",
+				"depth": 5.21383455325481,
+				"edge_ratio": 0.782608695652174,
+				"held_seconds": 0.666666666666667,
+				"point": "(1512.761, 693.0919)",
+				"press_count": 2,
+				"pressed": true,
+				"release_count": 1,
+				"scale_factor": 0.968716992680471,
+				"target": 5.21739130434783,
+				"velocity": 0.0253543383343774
+			}
+		},
+		{
+			"frame": 470,
+			"lemon": 1,
+			"press": {
+				"arm": "(71.98971, 1.217262)",
+				"depth": 0.0,
+				"edge_ratio": 0.782608695652174,
+				"held_seconds": 1.0,
+				"point": "(1512.344, 690.5493)",
+				"press_count": 2,
+				"pressed": false,
+				"release_count": 2,
+				"scale_factor": 1.0,
+				"target": 0.0,
+				"velocity": 0.0
+			}
+		},
+		{
+			"frame": 489,
+			"lemon": 0,
+			"press": {
+				"arm": "(80.08045, 64.90085)",
+				"depth": 4.29652458124685,
+				"edge_ratio": 0.636281708140432,
+				"held_seconds": 0.45,
+				"point": "(219.7074, 127.1027)",
+				"press_count": 1,
+				"pressed": true,
+				"release_count": 0,
+				"scale_factor": 0.974220852512519,
+				"target": 4.27309128749518,
+				"velocity": -0.5273622635187
+			}
+		},
+		{
+			"frame": 504,
+			"lemon": 0,
+			"press": {
+				"arm": "(80.08045, 64.90085)",
+				"depth": -0.0586975047229109,
+				"edge_ratio": 0.636281708140432,
+				"held_seconds": 0.666666666666667,
+				"point": "(219.7103, 126.6609)",
+				"press_count": 1,
+				"pressed": false,
+				"release_count": 1,
+				"scale_factor": 1.0,
+				"target": 0.0,
+				"velocity": 0.746475705806494
+			}
+		}
+	]
+}

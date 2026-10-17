@@ -36,5 +36,7 @@ docs/testing/courier-video_20261016/** -text -eol -whitespace
 docs/testing/notebook-dialogue_20261016/** -text -eol -whitespace
 docs/testing/coastal-settings_20261016/** -text -eol -whitespace
 docs/testing/coastal-settings_20261017-r3/** -text -eol -whitespace
+docs/testing/coastal-settings_20261017-r4/** -text -eol -whitespace
+docs/testing/coastal-settings_20261017-r5/** -text -eol -whitespace
 third_party/webgl-water/** -text -eol -whitespace
 assets/fonts/*-OFL.txt -text -eol -whitespace

@@ -16,8 +16,11 @@ func _initialize() -> void:
 
 
 func _run() -> void:
+	var original_unfocusable:bool=root.unfocusable
+	root.unfocusable=false
 	walker = Walker.new()
 	root.add_child(walker)
+	_check(walker._window_focused==root.has_focus(), "initial keyboard focus comes from the actual Window")
 	_check(walker._poses.size()==7 and walker._walk_keys.size()==6 and not walker._poses.values().has(null), "all six original video walk poses and matching idle are warm before first step")
 	_check(walker._walk_keys==["CHAR_courier_walk_0","CHAR_courier_walk_1","CHAR_courier_walk_2","CHAR_courier_walk_3","CHAR_courier_walk_4","CHAR_courier_walk_5"], "complete authored cycle is ordered without obsolete generated frames")
 	var idle_geometry:Dictionary=walker._frame_geometry["CHAR_courier"]
@@ -68,7 +71,10 @@ func _run() -> void:
 	_finish_walk()
 	_check(not "screen_closed" in callbacks, "closing the screen from arrived cancels the former action safely")
 	walker.arrived.disconnect(cancel_on_arrival)
+	walker._notification(Control.NOTIFICATION_WM_WINDOW_FOCUS_IN)
 	walker.walk_to(Vector2(800,300),func():callbacks.append("unfocused_stale"))
+	walker._process(0.1)
+	_check(walker.walking and walker.velocity.length()>0.0, "focusable pointer approach starts before focus loss")
 	walker._notification(Control.NOTIFICATION_WM_WINDOW_FOCUS_OUT)
 	var focus_foot:Vector2=walker.foot
 	walker._process(1.0)
@@ -87,6 +93,7 @@ func _run() -> void:
 	_check(reference.get_data() == original_pixels and walker._texture == texture, "whole texture source pixels remain unchanged after walking")
 	_check(not FileAccess.get_file_as_string("res://scripts/rebuild/final_walker.gd").contains("courier_actor"), "final movement class does not import the retired artwork renderer")
 	print("FINAL WALKER SMOKE: %d checks, %d failures" % [checks, failures.size()])
+	root.unfocusable=original_unfocusable
 	walker.queue_free()
 	await process_frame
 	quit(0 if failures.is_empty() else 1)

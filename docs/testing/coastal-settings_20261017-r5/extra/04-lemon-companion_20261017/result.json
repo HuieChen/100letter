@@ -1,0 +1,2099 @@
+{
+	"capture_frames": [
+		{
+			"before_force_draw": {
+				"material_poses": [
+					"(145.0, 65.0, 0.0, 1.0)",
+					"(1406.0, 685.0, 0.0, 1.0)"
+				],
+				"native_bodies": [
+					{
+						"position": "(145.0, 65.0)",
+						"press_depth": 0.0,
+						"rotation": 0.0
+					},
+					{
+						"position": "(1406.0, 685.0)",
+						"press_depth": 0.0,
+						"rotation": 0.0
+					}
+				],
+				"physics_frame_index": 27,
+				"process_frame_index": 16,
+				"sprites": [
+					{
+						"center": "(145.0, 65.0)",
+						"rotation": 0.0,
+						"scale": 1.00000001766064
+					},
+					{
+						"center": "(1406.0, 685.0)",
+						"rotation": 0.0,
+						"scale": 0.999999972789184
+					}
+				]
+			},
+			"viewport": "IndependentPage2Reference"
+		},
+		{
+			"before_force_draw": {
+				"material_poses": [
+					"(145.0, 65.0, 0.0, 1.0)",
+					"(1406.0, 685.0, 0.0, 1.0)"
+				],
+				"native_bodies": [
+					{
+						"position": "(145.0, 65.0)",
+						"press_depth": 0.0,
+						"rotation": 0.0
+					},
+					{
+						"position": "(1406.0, 685.0)",
+						"press_depth": 0.0,
+						"rotation": 0.0
+					}
+				],
+				"physics_frame_index": 27,
+				"process_frame_index": 16,
+				"sprites": [
+					{
+						"center": "(145.0, 65.0)",
+						"rotation": 0.0,
+						"scale": 1.00000001766064
+					},
+					{
+						"center": "(1406.0, 685.0)",
+						"rotation": 0.0,
+						"scale": 0.999999972789184
+					}
+				]
+			},
+			"viewport": "LiveProductionCompanionPlate"
+		},
+		{
+			"before_force_draw": {
+				"material_poses": [
+					"(145.0, 65.0, 0.0, 1.0)",
+					"(1406.0, 685.0, 0.0, 1.0)"
+				],
+				"native_bodies": [
+					{
+						"position": "(145.0, 65.0)",
+						"press_depth": 0.0,
+						"rotation": 0.0
+					},
+					{
+						"position": "(1406.0, 685.0)",
+						"press_depth": 0.0,
+						"rotation": 0.0
+					}
+				],
+				"physics_frame_index": 31,
+				"process_frame_index": 17,
+				"sprites": [
+					{
+						"center": "(145.0, 65.0)",
+						"rotation": 0.0,
+						"scale": 1.00000001766064
+					},
+					{
+						"center": "(1406.0, 685.0)",
+						"rotation": 0.0,
+						"scale": 0.999999972789184
+					}
+				]
+			},
+			"viewport": "root"
+		},
+		{
+			"before_force_draw": {
+				"material_poses": [
+					"(145.0, 65.0, 0.0, 1.0)",
+					"(1406.0, 685.0, 0.0, 1.0)"
+				],
+				"native_bodies": [
+					{
+						"position": "(145.0, 65.0)",
+						"press_depth": 0.0,
+						"rotation": 0.0
+					},
+					{
+						"position": "(1406.0, 685.0)",
+						"press_depth": 0.0,
+						"rotation": 0.0
+					}
+				],
+				"physics_frame_index": 31,
+				"process_frame_index": 17,
+				"sprites": [
+					{
+						"center": "(145.0, 65.0)",
+						"rotation": 0.0,
+						"scale": 1.00000001766064
+					},
+					{
+						"center": "(1406.0, 685.0)",
+						"rotation": 0.0,
+						"scale": 0.999999972789184
+					}
+				]
+			},
+			"viewport": "@SubViewport@18"
+		},
+		{
+			"before_force_draw": {
+				"material_poses": [
+					"(145.0, 65.0, 0.0, 1.0)",
+					"(1486.0, 685.0, 0.0, 1.0)"
+				],
+				"native_bodies": [
+					{
+						"position": "(145.0, 65.0)",
+						"press_depth": 0.0,
+						"rotation": 0.0
+					},
+					{
+						"position": "(1486.0, 685.0)",
+						"press_depth": 0.0,
+						"rotation": 0.0
+					}
+				],
+				"physics_frame_index": 45,
+				"process_frame_index": 28,
+				"sprites": [
+					{
+						"center": "(145.0, 65.0)",
+						"rotation": 0.0,
+						"scale": 1.00000001766064
+					},
+					{
+						"center": "(1486.0, 685.0)",
+						"rotation": 0.0,
+						"scale": 0.999999972789184
+					}
+				]
+			},
+			"viewport": "LiveProductionCompanionPlate"
+		},
+		{
+			"before_force_draw": {
+				"material_poses": [
+					"(145.0, 65.0, 0.0, 1.0)",
+					"(1486.0, 685.0, 0.0, 1.0)"
+				],
+				"native_bodies": [
+					{
+						"position": "(145.0, 65.0)",
+						"press_depth": 0.0,
+						"rotation": 0.0
+					},
+					{
+						"position": "(1486.0, 685.0)",
+						"press_depth": 0.0,
+						"rotation": 0.0
+					}
+				],
+				"physics_frame_index": 46,
+				"process_frame_index": 29,
+				"sprites": [
+					{
+						"center": "(145.0, 65.0)",
+						"rotation": 0.0,
+						"scale": 1.00000001766064
+					},
+					{
+						"center": "(1486.0, 685.0)",
+						"rotation": 0.0,
+						"scale": 0.999999972789184
+					}
+				]
+			},
+			"viewport": "root"
+		},
+		{
+			"before_force_draw": {
+				"material_poses": [
+					"(145.0, 65.0, 0.0, 1.0)",
+					"(1486.0, 685.0, 0.0, 1.0)"
+				],
+				"native_bodies": [
+					{
+						"position": "(145.0, 65.0)",
+						"press_depth": 0.0,
+						"rotation": 0.0
+					},
+					{
+						"position": "(1486.0, 685.0)",
+						"press_depth": 0.0,
+						"rotation": 0.0
+					}
+				],
+				"physics_frame_index": 46,
+				"process_frame_index": 29,
+				"sprites": [
+					{
+						"center": "(145.0, 65.0)",
+						"rotation": 0.0,
+						"scale": 1.00000001766064
+					},
+					{
+						"center": "(1486.0, 685.0)",
+						"rotation": 0.0,
+						"scale": 0.999999972789184
+					}
+				]
+			},
+			"viewport": "@SubViewport@18"
+		},
+		{
+			"before_force_draw": {
+				"material_poses": [
+					"(145.0, 145.0, 0.0, 1.0)",
+					"(1486.0, 685.0, 0.0, 1.0)"
+				],
+				"native_bodies": [
+					{
+						"position": "(145.0, 145.0)",
+						"press_depth": 0.0,
+						"rotation": 0.0
+					},
+					{
+						"position": "(1486.0, 685.0)",
+						"press_depth": 0.0,
+						"rotation": 0.0
+					}
+				],
+				"physics_frame_index": 58,
+				"process_frame_index": 32,
+				"sprites": [
+					{
+						"center": "(145.0, 145.0)",
+						"rotation": 0.0,
+						"scale": 1.00000001766064
+					},
+					{
+						"center": "(1486.0, 685.0)",
+						"rotation": 0.0,
+						"scale": 0.999999972789184
+					}
+				]
+			},
+			"viewport": "LiveProductionCompanionPlate"
+		},
+		{
+			"before_force_draw": {
+				"material_poses": [
+					"(145.0, 145.0, 0.0, 1.0)",
+					"(1486.0, 685.0, 0.0, 1.0)"
+				],
+				"native_bodies": [
+					{
+						"position": "(145.0, 145.0)",
+						"press_depth": 0.0,
+						"rotation": 0.0
+					},
+					{
+						"position": "(1486.0, 685.0)",
+						"press_depth": 0.0,
+						"rotation": 0.0
+					}
+				],
+				"physics_frame_index": 58,
+				"process_frame_index": 33,
+				"sprites": [
+					{
+						"center": "(145.0, 145.0)",
+						"rotation": 0.0,
+						"scale": 1.00000001766064
+					},
+					{
+						"center": "(1486.0, 685.0)",
+						"rotation": 0.0,
+						"scale": 0.999999972789184
+					}
+				]
+			},
+			"viewport": "root"
+		},
+		{
+			"before_force_draw": {
+				"material_poses": [
+					"(145.0, 145.0, 0.0, 1.0)",
+					"(1486.0, 685.0, 0.16, 1.0)"
+				],
+				"native_bodies": [
+					{
+						"position": "(145.0, 145.0)",
+						"press_depth": 0.0,
+						"rotation": 0.0
+					},
+					{
+						"position": "(1486.0, 685.0)",
+						"press_depth": 0.0,
+						"rotation": 0.159999996423721
+					}
+				],
+				"physics_frame_index": 69,
+				"process_frame_index": 36,
+				"sprites": [
+					{
+						"center": "(145.0, 145.0)",
+						"rotation": 0.0,
+						"scale": 1.00000001766064
+					},
+					{
+						"center": "(1486.0, 685.0)",
+						"rotation": 0.160000011324883,
+						"scale": 0.999999972789184
+					}
+				]
+			},
+			"viewport": "LiveProductionCompanionPlate"
+		},
+		{
+			"before_force_draw": {
+				"material_poses": [
+					"(145.0, 65.0, 0.0, 1.0)",
+					"(1406.0, 685.0, 0.0, 1.0)"
+				],
+				"native_bodies": [
+					{
+						"position": "(145.0, 65.0)",
+						"press_depth": 0.0,
+						"rotation": 0.0
+					},
+					{
+						"position": "(1406.0, 685.0)",
+						"press_depth": 0.0,
+						"rotation": 0.0
+					}
+				],
+				"physics_frame_index": 81,
+				"process_frame_index": 56,
+				"sprites": [
+					{
+						"center": "(145.0, 65.0)",
+						"rotation": 0.0,
+						"scale": 1.00000001766064
+					},
+					{
+						"center": "(1406.0, 685.0)",
+						"rotation": 0.0,
+						"scale": 0.999999972789184
+					}
+				]
+			},
+			"viewport": "root"
+		},
+		{
+			"before_force_draw": {
+				"material_poses": [
+					"(145.0, 65.0, 0.0, 1.0)",
+					"(1406.0, 689.5897, -0.000179, 0.974099)"
+				],
+				"native_bodies": [
+					{
+						"position": "(145.0, 65.0)",
+						"press_depth": 0.0,
+						"rotation": 0.0
+					},
+					{
+						"position": "(1406.0, 685.2728)",
+						"press_depth": 4.31688153688156,
+						"rotation": -0.0001792117691366
+					}
+				],
+				"physics_frame_index": 104,
+				"process_frame_index": 87,
+				"sprites": [
+					{
+						"center": "(145.0, 65.0)",
+						"rotation": 0.0,
+						"scale": 1.00000001766064
+					},
+					{
+						"center": "(1406.0, 689.5897)",
+						"rotation": -0.0001792117691366,
+						"scale": 0.974098690178083
+					}
+				]
+			},
+			"viewport": "LiveProductionCompanionPlate2"
+		},
+		{
+			"before_force_draw": {
+				"material_poses": [
+					"(145.0, 65.0, 0.0, 1.0)",
+					"(1406.0, 689.5897, -0.000179, 0.974099)"
+				],
+				"native_bodies": [
+					{
+						"position": "(145.0, 65.0)",
+						"press_depth": 0.0,
+						"rotation": 0.0
+					},
+					{
+						"position": "(1406.0, 685.2728)",
+						"press_depth": 4.31688153688156,
+						"rotation": -0.0001792117691366
+					}
+				],
+				"physics_frame_index": 104,
+				"process_frame_index": 88,
+				"sprites": [
+					{
+						"center": "(145.0, 65.0)",
+						"rotation": 0.0,
+						"scale": 1.00000001766064
+					},
+					{
+						"center": "(1406.0, 689.5897)",
+						"rotation": -0.0001792117691366,
+						"scale": 0.974098690178083
+					}
+				]
+			},
+			"viewport": "root"
+		},
+		{
+			"before_force_draw": {
+				"material_poses": [
+					"(145.0, 65.0, 0.0, 1.0)",
+					"(1405.999, 684.7349, 0.000218, 0.999737)"
+				],
+				"native_bodies": [
+					{
+						"position": "(145.0, 65.0)",
+						"press_depth": 0.0,
+						"rotation": 0.0
+					},
+					{
+						"position": "(1405.999, 684.691)",
+						"press_depth": 0.0438631835102963,
+						"rotation": 0.000218193628825247
+					}
+				],
+				"physics_frame_index": 118,
+				"process_frame_index": 98,
+				"sprites": [
+					{
+						"center": "(145.0, 65.0)",
+						"rotation": 0.0,
+						"scale": 1.00000001766064
+					},
+					{
+						"center": "(1405.999, 684.7349)",
+						"rotation": 0.000218193628825247,
+						"scale": 0.999736785888672
+					}
+				]
+			},
+			"viewport": "root"
+		},
+		{
+			"before_force_draw": {
+				"material_poses": [
+					"(145.0, 65.0, 0.0, 1.0)",
+					"(1405.999, 685.8704, 0.000397, 0.990333)"
+				],
+				"native_bodies": [
+					{
+						"position": "(145.0, 65.0)",
+						"press_depth": 0.0,
+						"rotation": 0.0
+					},
+					{
+						"position": "(1405.999, 684.2593)",
+						"press_depth": 1.61108850355571,
+						"rotation": 0.000397368188714609
+					}
+				],
+				"physics_frame_index": 222,
+				"process_frame_index": 342,
+				"sprites": [
+					{
+						"center": "(145.0, 65.0)",
+						"rotation": 0.0,
+						"scale": 1.00000001766064
+					},
+					{
+						"center": "(1405.999, 685.8704)",
+						"rotation": 0.000397368217818439,
+						"scale": 0.990333466426186
+					}
+				]
+			},
+			"viewport": "LiveProductionCompanionPlate"
+		},
+		{
+			"before_force_draw": {
+				"material_poses": [
+					"(145.0, 65.0, 0.0, 1.0)",
+					"(1403.399, 684.9966, 0.001146, 1.0)"
+				],
+				"native_bodies": [
+					{
+						"position": "(145.0, 65.0)",
+						"press_depth": 0.0,
+						"rotation": 0.0
+					},
+					{
+						"position": "(1403.399, 684.9966)",
+						"press_depth": 0.0,
+						"rotation": 0.00114588707219809
+					}
+				],
+				"physics_frame_index": 258,
+				"process_frame_index": 433,
+				"sprites": [
+					{
+						"center": "(145.0, 65.0)",
+						"rotation": 0.0,
+						"scale": 1.00000001766064
+					},
+					{
+						"center": "(1403.399, 684.9966)",
+						"rotation": 0.00114588707219809,
+						"scale": 0.999999972789184
+					}
+				]
+			},
+			"viewport": "LiveProductionCompanionPlate2"
+		},
+		{
+			"before_force_draw": {
+				"material_poses": [
+					"(145.0, 65.0, 0.0, 1.0)",
+					"(1403.399, 684.9966, 0.001146, 1.0)"
+				],
+				"native_bodies": [
+					{
+						"position": "(145.0, 65.0)",
+						"press_depth": 0.0,
+						"rotation": 0.0
+					},
+					{
+						"position": "(1403.399, 684.9966)",
+						"press_depth": 0.0,
+						"rotation": 0.00114588707219809
+					}
+				],
+				"physics_frame_index": 258,
+				"process_frame_index": 434,
+				"sprites": [
+					{
+						"center": "(145.0, 65.0)",
+						"rotation": 0.0,
+						"scale": 1.00000001766064
+					},
+					{
+						"center": "(1403.399, 684.9966)",
+						"rotation": 0.00114588707219809,
+						"scale": 0.999999972789184
+					}
+				]
+			},
+			"viewport": "root"
+		},
+		{
+			"before_force_draw": {
+				"material_poses": [
+					"(145.0, 65.0, 0.0, 1.0)",
+					"(1406.0, 685.0, 0.0, 1.0)"
+				],
+				"native_bodies": [
+					{
+						"position": "(145.0, 65.0)",
+						"press_depth": 0.0,
+						"rotation": 0.0
+					},
+					{
+						"position": "(1406.0, 685.0)",
+						"press_depth": 0.0,
+						"rotation": 0.0
+					}
+				],
+				"physics_frame_index": 276,
+				"process_frame_index": 450,
+				"sprites": [
+					{
+						"center": "(145.0, 65.0)",
+						"rotation": 0.0,
+						"scale": 1.00000001766064
+					},
+					{
+						"center": "(1406.0, 685.0)",
+						"rotation": 0.0,
+						"scale": 0.999999972789184
+					}
+				]
+			},
+			"viewport": "root"
+		},
+		{
+			"before_force_draw": {
+				"material_poses": [
+					"(145.0, 65.0, 0.0, 1.0)",
+					"(1406.0, 685.0, 0.0, 1.0)"
+				],
+				"native_bodies": [
+					{
+						"position": "(145.0, 65.0)",
+						"press_depth": 0.0,
+						"rotation": 0.0
+					},
+					{
+						"position": "(1406.0, 685.0)",
+						"press_depth": 0.0,
+						"rotation": 0.0
+					}
+				],
+				"physics_frame_index": 280,
+				"process_frame_index": 463,
+				"sprites": [
+					{
+						"center": "(145.0, 65.0)",
+						"rotation": 0.0,
+						"scale": 1.00000001766064
+					},
+					{
+						"center": "(1406.0, 685.0)",
+						"rotation": 0.0,
+						"scale": 0.999999972789184
+					}
+				]
+			},
+			"viewport": "root"
+		},
+		{
+			"before_force_draw": {
+				"material_poses": [
+					"(145.0, 65.0, 0.0, 1.0)",
+					"(1406.0, 685.0, 0.0, 1.0)"
+				],
+				"native_bodies": [
+					{
+						"position": "(145.0, 65.0)",
+						"press_depth": 0.0,
+						"rotation": 0.0
+					},
+					{
+						"position": "(1406.0, 685.0)",
+						"press_depth": 0.0,
+						"rotation": 0.0
+					}
+				],
+				"physics_frame_index": 298,
+				"process_frame_index": 478,
+				"sprites": [
+					{
+						"center": "(145.0, 65.0)",
+						"rotation": 0.0,
+						"scale": 1.00000001766064
+					},
+					{
+						"center": "(1406.0, 685.0)",
+						"rotation": 0.0,
+						"scale": 0.999999972789184
+					}
+				]
+			},
+			"viewport": "root"
+		},
+		{
+			"before_force_draw": {
+				"material_poses": [
+					"(145.0, 65.0, 0.0, 1.0)",
+					"(1406.0, 685.0, 0.0, 1.0)"
+				],
+				"native_bodies": [
+					{
+						"position": "(145.0, 65.0)",
+						"press_depth": 0.0,
+						"rotation": 0.0
+					},
+					{
+						"position": "(1406.0, 685.0)",
+						"press_depth": 0.0,
+						"rotation": 0.0
+					}
+				],
+				"physics_frame_index": 302,
+				"process_frame_index": 487,
+				"sprites": [
+					{
+						"center": "(145.0, 65.0)",
+						"rotation": 0.0,
+						"scale": 1.00000001766064
+					},
+					{
+						"center": "(1406.0, 685.0)",
+						"rotation": 0.0,
+						"scale": 0.999999972789184
+					}
+				]
+			},
+			"viewport": "root"
+		},
+		{
+			"before_force_draw": {
+				"material_poses": [
+					"(145.0, 65.0, 0.0, 1.0)",
+					"(1406.0, 685.0, 0.0, 1.0)"
+				],
+				"native_bodies": [
+					{
+						"position": "(145.0, 65.0)",
+						"press_depth": 0.0,
+						"rotation": 0.0
+					},
+					{
+						"position": "(1406.0, 685.0)",
+						"press_depth": 0.0,
+						"rotation": 0.0
+					}
+				],
+				"physics_frame_index": 320,
+				"process_frame_index": 502,
+				"sprites": [
+					{
+						"center": "(145.0, 65.0)",
+						"rotation": 0.0,
+						"scale": 1.00000001766064
+					},
+					{
+						"center": "(1406.0, 685.0)",
+						"rotation": 0.0,
+						"scale": 0.999999972789184
+					}
+				]
+			},
+			"viewport": "root"
+		},
+		{
+			"before_force_draw": {
+				"material_poses": [
+					"(145.0, 65.0, 0.0, 1.0)",
+					"(1406.0, 685.0, 0.0, 1.0)"
+				],
+				"native_bodies": [
+					{
+						"position": "(145.0, 65.0)",
+						"press_depth": 0.0,
+						"rotation": 0.0
+					},
+					{
+						"position": "(1406.0, 685.0)",
+						"press_depth": 0.0,
+						"rotation": 0.0
+					}
+				],
+				"physics_frame_index": 330,
+				"process_frame_index": 532,
+				"sprites": [
+					{
+						"center": "(145.0, 65.0)",
+						"rotation": 0.0,
+						"scale": 1.00000001766064
+					},
+					{
+						"center": "(1406.0, 685.0)",
+						"rotation": 0.0,
+						"scale": 0.999999972789184
+					}
+				]
+			},
+			"viewport": "root"
+		}
+	],
+	"checks": 190,
+	"failures": [],
+	"images": [
+		"res://test-results/lemon-companion_20261017/baseline_1920.png",
+		"res://test-results/lemon-companion_20261017/diagnostic_small_plus80px_1920.png",
+		"res://test-results/lemon-companion_20261017/diagnostic_both_plus80px_1920.png",
+		"res://test-results/lemon-companion_20261017/normal_before_press_1920.png",
+		"res://test-results/lemon-companion_20261017/normal_pressed_1920.png",
+		"res://test-results/lemon-companion_20261017/normal_release_1920.png",
+		"res://test-results/lemon-companion_20261017/normal_water_push_1920.png",
+		"res://test-results/lemon-companion_20261017/click_pulse_1920.png",
+		"res://test-results/lemon-companion_20261017/fast_directional_skim_1920.png",
+		"res://test-results/lemon-companion_20261017/held_directional_wake_1920.png"
+	],
+	"measurements": [
+		{
+			"phase": "home_source_identity",
+			"pixels": {
+				"changed": 0,
+				"max_channel": 0.0,
+				"mean_channel": 0.0,
+				"samples": 129600
+			},
+			"runtime": {
+				"material": {
+					"canvas_updates": 1,
+					"homes": [
+						"(145.0, 65.0)",
+						"(1406.0, 685.0)"
+					],
+					"opacity": 0.52,
+					"poses": [
+						"(145.0, 65.0, 0.0, 1.0)",
+						"(1406.0, 685.0, 0.0, 1.0)"
+					],
+					"radii": [
+						"(230.0, 340.0)",
+						"(190.0, 260.0)"
+					],
+					"shader": "res://scripts/ui/lemon_companion_water.gdshader",
+					"source": "settings_water_pattern PDF page2 unchanged pixels"
+				},
+				"measured_sprite_poses": [
+					{
+						"center": "(145.0, 65.0)",
+						"rotation": 0.0,
+						"scale": 1.00000001766064
+					},
+					{
+						"center": "(1406.0, 685.0)",
+						"rotation": 0.0,
+						"scale": 0.999999972789184
+					}
+				],
+				"physical": {
+					"active_presses": 0,
+					"bodies": [
+						{
+							"mass": 3.29999995231628,
+							"position": "(145.0, 65.0)",
+							"press": {
+								"arm": "(0.0, 0.0)",
+								"depth": 0.0,
+								"edge_ratio": 0.0,
+								"held_seconds": 0.0,
+								"point": "(145.0, 65.0)",
+								"press_count": 0,
+								"pressed": false,
+								"release_count": 0,
+								"scale_factor": 1.0,
+								"target": 0.0,
+								"velocity": 0.0
+							},
+							"radius": 162.0,
+							"rotation": 0.0,
+							"spin": 0.0,
+							"velocity": "(0.0, 0.0)"
+						},
+						{
+							"mass": 1.25,
+							"position": "(1406.0, 685.0)",
+							"press": {
+								"arm": "(0.0, 0.0)",
+								"depth": 0.0,
+								"edge_ratio": 0.0,
+								"held_seconds": 0.0,
+								"point": "(1406.0, 685.0)",
+								"press_count": 0,
+								"pressed": false,
+								"release_count": 0,
+								"scale_factor": 1.0,
+								"target": 0.0,
+								"velocity": 0.0
+							},
+							"radius": 92.0,
+							"rotation": 0.0,
+							"spin": 0.0,
+							"velocity": "(0.0, 0.0)"
+						}
+					],
+					"contacts": 0,
+					"engine": "GodotPhysics2D",
+					"time": 0.233333333333333,
+					"wave_state": [],
+					"waves": 0
+				}
+			}
+		},
+		{
+			"occlusion_method": "Actual transparent FloatingLemons production viewport alpha, not native circle radius.",
+			"phase": "home",
+			"real_root_water_samples": [
+				{
+					"channel_error": 0.0,
+					"covered": false,
+					"rendered_fruit_alpha": 0.0,
+					"source_native_pixel": "(122, 303)"
+				},
+				{
+					"covered": true,
+					"rendered_fruit_alpha": 0.980392158031464,
+					"source_native_pixel": "(1575, 817)"
+				},
+				{
+					"channel_error": 0.0,
+					"covered": false,
+					"rendered_fruit_alpha": 0.0,
+					"source_native_pixel": "(1680, 1024)"
+				},
+				{
+					"channel_error": 0.0,
+					"covered": false,
+					"rendered_fruit_alpha": 0.0,
+					"source_native_pixel": "(1840, 845)"
+				}
+			]
+		},
+		{
+			"method": "Sampled after RenderingServer.frame_post_draw; no manual production pose refresh.",
+			"phase": "diagnostic_small_shift",
+			"pose_before_force_draw": {
+				"material_poses": [
+					"(145.0, 65.0, 0.0, 1.0)",
+					"(1486.0, 685.0, 0.0, 1.0)"
+				],
+				"native_bodies": [
+					{
+						"position": "(145.0, 65.0)",
+						"press_depth": 0.0,
+						"rotation": 0.0
+					},
+					{
+						"position": "(1486.0, 685.0)",
+						"press_depth": 0.0,
+						"rotation": 0.0
+					}
+				],
+				"physics_frame_index": 46,
+				"process_frame_index": 29,
+				"sprites": [
+					{
+						"center": "(145.0, 65.0)",
+						"rotation": 0.0,
+						"scale": 1.00000001766064
+					},
+					{
+						"center": "(1486.0, 685.0)",
+						"rotation": 0.0,
+						"scale": 0.999999972789184
+					}
+				]
+			},
+			"pose_errors": [
+				{
+					"body": 0,
+					"center_error_world_px": 0.0,
+					"rotation_error_rad": 0.0,
+					"scale_error": 0.0000000176606356205866
+				},
+				{
+					"body": 1,
+					"center_error_world_px": 0.0,
+					"rotation_error_rad": 0.0,
+					"scale_error": 0.0000000272108160448425
+				}
+			]
+		},
+		{
+			"forward_sprite_pose": {
+				"center": "(1486.0, 685.0)",
+				"rotation": 0.0,
+				"scale": 0.999999972789184
+			},
+			"ink": 572,
+			"max_channel_error": 0.0,
+			"mean_channel_error": 0.0,
+			"original_native_rect": "[P: (1700, 875), S: (95, 80)]",
+			"phase": "diagnostic_small_shift",
+			"samples": 832,
+			"source_patch": "small_filled_shadow_boundary",
+			"white": 260
+		},
+		{
+			"forward_sprite_pose": {
+				"center": "(1486.0, 685.0)",
+				"rotation": 0.0,
+				"scale": 0.999999972789184
+			},
+			"ink": 19,
+			"max_channel_error": 0.0,
+			"mean_channel_error": 0.0,
+			"original_native_rect": "[P: (1544, 792), S: (60, 77)]",
+			"phase": "diagnostic_small_shift",
+			"samples": 472,
+			"source_patch": "small_authored_left_arc",
+			"white": 453
+		},
+		{
+			"forward_sprite_pose": {
+				"center": "(1486.0, 685.0)",
+				"rotation": 0.0,
+				"scale": 0.999999972789184
+			},
+			"ink": 86,
+			"max_channel_error": 0.0,
+			"mean_channel_error": 0.0,
+			"original_native_rect": "[P: (1580, 963), S: (190, 85)]",
+			"phase": "diagnostic_small_shift",
+			"samples": 1474,
+			"source_patch": "small_authored_lower_arc",
+			"white": 1388
+		},
+		{
+			"after": {
+				"center": "(1836.652, 904.0776)",
+				"weight": 518.83134162426
+			},
+			"before": {
+				"center": "(1740.651, 904.0776)",
+				"weight": 518.83134162426
+			},
+			"centroid_error_px": 0.0009765625,
+			"centroid_patch": "small_filled_shadow_boundary",
+			"expected_native_delta": "(96.0, 0.0)",
+			"phase": "diagnostic_small_shift"
+		},
+		{
+			"after": {
+				"center": "(1678.165, 822.6243)",
+				"weight": 41.4313700795174
+			},
+			"before": {
+				"center": "(1582.166, 822.6243)",
+				"weight": 41.4313700795174
+			},
+			"centroid_error_px": 0.0009765625,
+			"centroid_patch": "small_authored_left_arc",
+			"expected_native_delta": "(96.0, 0.0)",
+			"phase": "diagnostic_small_shift"
+		},
+		{
+			"after": {
+				"center": "(1800.275, 999.1192)",
+				"weight": 120.305875182152
+			},
+			"before": {
+				"center": "(1704.275, 999.1192)",
+				"weight": 120.305875182152
+			},
+			"centroid_error_px": 0.0001220703125,
+			"centroid_patch": "small_authored_lower_arc",
+			"expected_native_delta": "(96.0, 0.0)",
+			"phase": "diagnostic_small_shift"
+		},
+		{
+			"actually_cleared": 4027,
+			"ghost_region": "[P: (1540, 760), S: (350, 290)]",
+			"max_error": 0.0,
+			"method": "Independent unchanged-source translated background (white outside immutable canvas), sampled at old authored-mark positions inside rigid neighborhood.",
+			"original_ink_expected_to_clear": 4027,
+			"phase": "diagnostic_small_shift"
+		},
+		{
+			"far_rect": "[P: (660, 100), S: (400, 90)]",
+			"phase": "diagnostic_small_shift",
+			"pixels": {
+				"changed": 0,
+				"max_channel": 0.0,
+				"mean_channel": 0.0,
+				"samples": 4020
+			}
+		},
+		{
+			"far_rect": "[P: (20, 690), S: (250, 250)]",
+			"phase": "diagnostic_small_shift",
+			"pixels": {
+				"changed": 0,
+				"max_channel": 0.0,
+				"mean_channel": 0.0,
+				"samples": 7056
+			}
+		},
+		{
+			"occlusion_method": "Actual transparent FloatingLemons production viewport alpha, not native circle radius.",
+			"phase": "diagnostic_small_shift",
+			"real_root_water_samples": [
+				{
+					"channel_error": 0.0,
+					"covered": false,
+					"rendered_fruit_alpha": 0.0,
+					"source_native_pixel": "(122, 303)"
+				},
+				{
+					"channel_error": 0.0,
+					"covered": false,
+					"rendered_fruit_alpha": 0.0,
+					"source_native_pixel": "(1575, 817)"
+				},
+				{
+					"channel_error": 0.0,
+					"covered": false,
+					"rendered_fruit_alpha": 0.0,
+					"source_native_pixel": "(1680, 1024)"
+				},
+				{
+					"covered": true,
+					"rendered_fruit_alpha": 1.0,
+					"source_native_pixel": "(1840, 845)"
+				}
+			]
+		},
+		{
+			"method": "Sampled after RenderingServer.frame_post_draw; no manual production pose refresh.",
+			"phase": "diagnostic_large_shift",
+			"pose_before_force_draw": {
+				"material_poses": [
+					"(145.0, 145.0, 0.0, 1.0)",
+					"(1486.0, 685.0, 0.0, 1.0)"
+				],
+				"native_bodies": [
+					{
+						"position": "(145.0, 145.0)",
+						"press_depth": 0.0,
+						"rotation": 0.0
+					},
+					{
+						"position": "(1486.0, 685.0)",
+						"press_depth": 0.0,
+						"rotation": 0.0
+					}
+				],
+				"physics_frame_index": 58,
+				"process_frame_index": 33,
+				"sprites": [
+					{
+						"center": "(145.0, 145.0)",
+						"rotation": 0.0,
+						"scale": 1.00000001766064
+					},
+					{
+						"center": "(1486.0, 685.0)",
+						"rotation": 0.0,
+						"scale": 0.999999972789184
+					}
+				]
+			},
+			"pose_errors": [
+				{
+					"body": 0,
+					"center_error_world_px": 0.0,
+					"rotation_error_rad": 0.0,
+					"scale_error": 0.0000000176606356205866
+				},
+				{
+					"body": 1,
+					"center_error_world_px": 0.0,
+					"rotation_error_rad": 0.0,
+					"scale_error": 0.0000000272108160448425
+				}
+			]
+		},
+		{
+			"forward_sprite_pose": {
+				"center": "(145.0, 145.0)",
+				"rotation": 0.0,
+				"scale": 1.00000001766064
+			},
+			"ink": 598,
+			"max_channel_error": 0.0,
+			"mean_channel_error": 0.0,
+			"original_native_rect": "[P: (300, 175), S: (110, 120)]",
+			"phase": "diagnostic_large_shift",
+			"samples": 1035,
+			"source_patch": "large_filled_shadow_boundary",
+			"white": 437
+		},
+		{
+			"forward_sprite_pose": {
+				"center": "(145.0, 145.0)",
+				"rotation": 0.0,
+				"scale": 1.00000001766064
+			},
+			"ink": 313,
+			"max_channel_error": 0.0,
+			"mean_channel_error": 0.0,
+			"original_native_rect": "[P: (64, 272), S: (235, 64)]",
+			"phase": "diagnostic_large_shift",
+			"samples": 1441,
+			"source_patch": "large_authored_lower_arc",
+			"white": 1128
+		},
+		{
+			"after": {
+				"center": "(333.3031, 317.9323)",
+				"weight": 598.81172901392
+			},
+			"before": {
+				"center": "(333.3031, 221.9322)",
+				"weight": 598.81172901392
+			},
+			"centroid_error_px": 0.000030517578125,
+			"centroid_patch": "large_filled_shadow_boundary",
+			"expected_native_delta": "(0.0, 96.0)",
+			"phase": "diagnostic_large_shift"
+		},
+		{
+			"after": {
+				"center": "(205.4679, 395.8176)",
+				"weight": 369.956840693951
+			},
+			"before": {
+				"center": "(205.4679, 299.818)",
+				"weight": 369.956840693951
+			},
+			"centroid_error_px": 0.000335693359375,
+			"centroid_patch": "large_authored_lower_arc",
+			"expected_native_delta": "(0.0, 96.0)",
+			"phase": "diagnostic_large_shift"
+		},
+		{
+			"actually_cleared": 3200,
+			"ghost_region": "[P: (100, 8), S: (160, 80)]",
+			"max_error": 0.0,
+			"method": "Independent unchanged-source translated background (white outside immutable canvas), sampled at old authored-mark positions inside rigid neighborhood.",
+			"original_ink_expected_to_clear": 3200,
+			"phase": "diagnostic_large_shift"
+		},
+		{
+			"far_rect": "[P: (660, 100), S: (400, 90)]",
+			"phase": "diagnostic_large_shift",
+			"pixels": {
+				"changed": 0,
+				"max_channel": 0.0,
+				"mean_channel": 0.0,
+				"samples": 4020
+			}
+		},
+		{
+			"far_rect": "[P: (20, 690), S: (250, 250)]",
+			"phase": "diagnostic_large_shift",
+			"pixels": {
+				"changed": 0,
+				"max_channel": 0.0,
+				"mean_channel": 0.0,
+				"samples": 7056
+			}
+		},
+		{
+			"method": "Sampled after RenderingServer.frame_post_draw; no manual production pose refresh.",
+			"phase": "diagnostic_native_rotation",
+			"pose_before_force_draw": {
+				"material_poses": [
+					"(145.0, 145.0, 0.0, 1.0)",
+					"(1486.0, 685.0, 0.16, 1.0)"
+				],
+				"native_bodies": [
+					{
+						"position": "(145.0, 145.0)",
+						"press_depth": 0.0,
+						"rotation": 0.0
+					},
+					{
+						"position": "(1486.0, 685.0)",
+						"press_depth": 0.0,
+						"rotation": 0.159999996423721
+					}
+				],
+				"physics_frame_index": 69,
+				"process_frame_index": 36,
+				"sprites": [
+					{
+						"center": "(145.0, 145.0)",
+						"rotation": 0.0,
+						"scale": 1.00000001766064
+					},
+					{
+						"center": "(1486.0, 685.0)",
+						"rotation": 0.160000011324883,
+						"scale": 0.999999972789184
+					}
+				]
+			},
+			"pose_errors": [
+				{
+					"body": 0,
+					"center_error_world_px": 0.0,
+					"rotation_error_rad": 0.0,
+					"scale_error": 0.0000000176606356205866
+				},
+				{
+					"body": 1,
+					"center_error_world_px": 0.0,
+					"rotation_error_rad": 0.0000000149011611938477,
+					"scale_error": 0.0000000272108160448425
+				}
+			]
+		},
+		{
+			"forward_sprite_pose": {
+				"center": "(1486.0, 685.0)",
+				"rotation": 0.160000011324883,
+				"scale": 0.999999972789184
+			},
+			"ink": 572,
+			"max_channel_error": 0.00392156839370728,
+			"mean_channel_error": 0.000127262435853481,
+			"original_native_rect": "[P: (1700, 875), S: (95, 80)]",
+			"phase": "diagnostic_native_rotation",
+			"samples": 832,
+			"source_patch": "small_filled_shadow_boundary",
+			"white": 260
+		},
+		{
+			"forward_sprite_pose": {
+				"center": "(1486.0, 685.0)",
+				"rotation": 0.160000011324883,
+				"scale": 0.999999972789184
+			},
+			"ink": 19,
+			"max_channel_error": 0.00392156839370728,
+			"mean_channel_error": 0.0000747756685240794,
+			"original_native_rect": "[P: (1544, 792), S: (60, 77)]",
+			"phase": "diagnostic_native_rotation",
+			"samples": 472,
+			"source_patch": "small_authored_left_arc",
+			"white": 453
+		},
+		{
+			"forward_sprite_pose": {
+				"center": "(1486.0, 685.0)",
+				"rotation": 0.160000011324883,
+				"scale": 0.999999972789184
+			},
+			"ink": 86,
+			"max_channel_error": 0.0274509787559509,
+			"mean_channel_error": 0.000146327178869674,
+			"original_native_rect": "[P: (1580, 963), S: (190, 85)]",
+			"phase": "diagnostic_native_rotation",
+			"samples": 1474,
+			"source_patch": "small_authored_lower_arc",
+			"white": 1388
+		},
+		{
+			"method": "Actual frozen RigidBody2D.rotation=0.16; forward original-pixel correspondence against the live production GPU material.",
+			"phase": "diagnostic_native_rotation",
+			"runtime": {
+				"material": {
+					"canvas_updates": 4,
+					"homes": [
+						"(145.0, 65.0)",
+						"(1406.0, 685.0)"
+					],
+					"opacity": 0.52,
+					"poses": [
+						"(145.0, 145.0, 0.0, 1.0)",
+						"(1486.0, 685.0, 0.16, 1.0)"
+					],
+					"radii": [
+						"(230.0, 340.0)",
+						"(190.0, 260.0)"
+					],
+					"shader": "res://scripts/ui/lemon_companion_water.gdshader",
+					"source": "settings_water_pattern PDF page2 unchanged pixels"
+				},
+				"measured_sprite_poses": [
+					{
+						"center": "(145.0, 145.0)",
+						"rotation": 0.0,
+						"scale": 1.00000001766064
+					},
+					{
+						"center": "(1486.0, 685.0)",
+						"rotation": 0.160000011324883,
+						"scale": 0.999999972789184
+					}
+				],
+				"physical": {
+					"active_presses": 0,
+					"bodies": [
+						{
+							"mass": 3.29999995231628,
+							"position": "(145.0, 145.0)",
+							"press": {
+								"arm": "(0.0, 0.0)",
+								"depth": 0.0,
+								"edge_ratio": 0.0,
+								"held_seconds": 0.0,
+								"point": "(145.0, 145.0)",
+								"press_count": 0,
+								"pressed": false,
+								"release_count": 0,
+								"scale_factor": 1.0,
+								"target": 0.0,
+								"velocity": 0.0
+							},
+							"radius": 162.0,
+							"rotation": 0.0,
+							"spin": 0.0,
+							"velocity": "(0.0, 0.0)"
+						},
+						{
+							"mass": 1.25,
+							"position": "(1486.0, 685.0)",
+							"press": {
+								"arm": "(0.0, 0.0)",
+								"depth": 0.0,
+								"edge_ratio": 0.0,
+								"held_seconds": 0.0,
+								"point": "(1486.0, 685.0)",
+								"press_count": 0,
+								"pressed": false,
+								"release_count": 0,
+								"scale_factor": 1.0,
+								"target": 0.0,
+								"velocity": 0.0
+							},
+							"radius": 92.0,
+							"rotation": 0.159999996423721,
+							"spin": 0.0,
+							"velocity": "(0.0, 0.0)"
+						}
+					],
+					"contacts": 0,
+					"engine": "GodotPhysics2D",
+					"time": 0.933333333333335,
+					"wave_state": [],
+					"waves": 0
+				}
+			}
+		},
+		{
+			"method": "Sampled after RenderingServer.frame_post_draw; no manual production pose refresh.",
+			"phase": "normal_held_press",
+			"pose_before_force_draw": {
+				"material_poses": [
+					"(145.0, 65.0, 0.0, 1.0)",
+					"(1406.0, 689.5897, -0.000179, 0.974099)"
+				],
+				"native_bodies": [
+					{
+						"position": "(145.0, 65.0)",
+						"press_depth": 0.0,
+						"rotation": 0.0
+					},
+					{
+						"position": "(1406.0, 685.2728)",
+						"press_depth": 4.31688153688156,
+						"rotation": -0.0001792117691366
+					}
+				],
+				"physics_frame_index": 104,
+				"process_frame_index": 87,
+				"sprites": [
+					{
+						"center": "(145.0, 65.0)",
+						"rotation": 0.0,
+						"scale": 1.00000001766064
+					},
+					{
+						"center": "(1406.0, 689.5897)",
+						"rotation": -0.0001792117691366,
+						"scale": 0.974098690178083
+					}
+				]
+			},
+			"pose_errors": [
+				{
+					"body": 0,
+					"center_error_world_px": 0.0,
+					"rotation_error_rad": 0.0,
+					"scale_error": 0.0000000176606356205866
+				},
+				{
+					"body": 1,
+					"center_error_world_px": 0.0,
+					"rotation_error_rad": 0.0,
+					"scale_error": 0.000000007774518917536
+				}
+			]
+		},
+		{
+			"forward_sprite_pose": {
+				"center": "(1406.0, 689.5897)",
+				"rotation": -0.0001792117691366,
+				"scale": 0.974098690178083
+			},
+			"ink": 572,
+			"max_channel_error": 0.070588231086731,
+			"mean_channel_error": 0.000301659107208252,
+			"original_native_rect": "[P: (1700, 875), S: (95, 80)]",
+			"phase": "normal_held_press",
+			"samples": 832,
+			"source_patch": "small_filled_shadow_boundary",
+			"white": 260
+		},
+		{
+			"forward_sprite_pose": {
+				"center": "(1406.0, 689.5897)",
+				"rotation": -0.0001792117691366,
+				"scale": 0.974098690178083
+			},
+			"ink": 19,
+			"max_channel_error": 0.00392156839370728,
+			"mean_channel_error": 0.0000581588532965062,
+			"original_native_rect": "[P: (1544, 792), S: (60, 77)]",
+			"phase": "normal_held_press",
+			"samples": 472,
+			"source_patch": "small_authored_left_arc",
+			"white": 453
+		},
+		{
+			"forward_sprite_pose": {
+				"center": "(1406.0, 689.5897)",
+				"rotation": -0.0001792117691366,
+				"scale": 0.974098690178083
+			},
+			"ink": 86,
+			"max_channel_error": 0.00784313678741455,
+			"mean_channel_error": 0.000106419766450672,
+			"original_native_rect": "[P: (1580, 963), S: (190, 85)]",
+			"phase": "normal_held_press",
+			"samples": 1474,
+			"source_patch": "small_authored_lower_arc",
+			"white": 1388
+		},
+		{
+			"input": "Actual root.push_input mouse down and12physics frames; no press/state helper called.",
+			"phase": "normal_held_press",
+			"runtime": {
+				"material": {
+					"canvas_updates": 14,
+					"homes": [
+						"(145.0, 65.0)",
+						"(1406.0, 685.0)"
+					],
+					"opacity": 0.52,
+					"poses": [
+						"(145.0, 65.0, 0.0, 1.0)",
+						"(1406.0, 689.5897, -0.000179, 0.974099)"
+					],
+					"radii": [
+						"(230.0, 340.0)",
+						"(190.0, 260.0)"
+					],
+					"shader": "res://scripts/ui/lemon_companion_water.gdshader",
+					"source": "settings_water_pattern PDF page2 unchanged pixels"
+				},
+				"measured_sprite_poses": [
+					{
+						"center": "(145.0, 65.0)",
+						"rotation": 0.0,
+						"scale": 1.00000001766064
+					},
+					{
+						"center": "(1406.0, 689.5897)",
+						"rotation": -0.0001792117691366,
+						"scale": 0.974098690178083
+					}
+				],
+				"physical": {
+					"active_presses": 1,
+					"bodies": [
+						{
+							"mass": 3.29999995231628,
+							"position": "(145.0, 65.0)",
+							"press": {
+								"arm": "(0.0, 0.0)",
+								"depth": 0.0,
+								"edge_ratio": 0.0,
+								"held_seconds": 0.0,
+								"point": "(145.0, 65.0)",
+								"press_count": 0,
+								"pressed": false,
+								"release_count": 0,
+								"scale_factor": 1.0,
+								"target": 0.0,
+								"velocity": 0.0
+							},
+							"radius": 162.0,
+							"rotation": 0.0,
+							"spin": 0.0,
+							"velocity": "(0.0, 0.0)"
+						},
+						{
+							"mass": 1.25,
+							"position": "(1406.0, 685.2728)",
+							"press": {
+								"arm": "(0.0, 0.0)",
+								"depth": 4.31688153688156,
+								"edge_ratio": 0.0,
+								"held_seconds": 0.25,
+								"point": "(1406.0, 685.2728)",
+								"press_count": 1,
+								"pressed": true,
+								"release_count": 0,
+								"scale_factor": 0.974098710778711,
+								"target": 4.2,
+								"velocity": 1.80400239481069
+							},
+							"radius": 92.0,
+							"rotation": -0.0001792117691366,
+							"spin": -0.000524955685250461,
+							"velocity": "(0.0, 0.860536)"
+						}
+					],
+					"contacts": 0,
+					"engine": "GodotPhysics2D",
+					"time": 0.55,
+					"wave_state": [],
+					"waves": 0
+				}
+			}
+		},
+		{
+			"method": "Sampled after RenderingServer.frame_post_draw; no manual production pose refresh.",
+			"phase": "language_rebuild",
+			"pose_before_force_draw": {
+				"material_poses": [
+					"(145.0, 65.0, 0.0, 1.0)",
+					"(1405.999, 685.8704, 0.000397, 0.990333)"
+				],
+				"native_bodies": [
+					{
+						"position": "(145.0, 65.0)",
+						"press_depth": 0.0,
+						"rotation": 0.0
+					},
+					{
+						"position": "(1405.999, 684.2593)",
+						"press_depth": 1.61108850355571,
+						"rotation": 0.000397368188714609
+					}
+				],
+				"physics_frame_index": 222,
+				"process_frame_index": 342,
+				"sprites": [
+					{
+						"center": "(145.0, 65.0)",
+						"rotation": 0.0,
+						"scale": 1.00000001766064
+					},
+					{
+						"center": "(1405.999, 685.8704)",
+						"rotation": 0.000397368217818439,
+						"scale": 0.990333466426186
+					}
+				]
+			},
+			"pose_errors": [
+				{
+					"body": 0,
+					"center_error_world_px": 0.0,
+					"rotation_error_rad": 0.0,
+					"scale_error": 0.0000000176606356205866
+				},
+				{
+					"body": 1,
+					"center_error_world_px": 0.0,
+					"rotation_error_rad": 0.0000000000291038304567337,
+					"scale_error": 0.0000000310980754480994
+				}
+			]
+		},
+		{
+			"forward_sprite_pose": {
+				"center": "(1405.999, 685.8704)",
+				"rotation": 0.000397368217818439,
+				"scale": 0.990333466426186
+			},
+			"ink": 572,
+			"max_channel_error": 0.0117647051811218,
+			"mean_channel_error": 0.000141402706503868,
+			"original_native_rect": "[P: (1700, 875), S: (95, 80)]",
+			"phase": "language_rebuild",
+			"samples": 832,
+			"source_patch": "small_filled_shadow_boundary",
+			"white": 260
+		},
+		{
+			"forward_sprite_pose": {
+				"center": "(1405.999, 685.8704)",
+				"rotation": 0.000397368217818439,
+				"scale": 0.990333466426186
+			},
+			"ink": 19,
+			"max_channel_error": 0.00392156839370728,
+			"mean_channel_error": 0.0000581588532965062,
+			"original_native_rect": "[P: (1544, 792), S: (60, 77)]",
+			"phase": "language_rebuild",
+			"samples": 472,
+			"source_patch": "small_authored_left_arc",
+			"white": 453
+		},
+		{
+			"forward_sprite_pose": {
+				"center": "(1405.999, 685.8704)",
+				"rotation": 0.000397368217818439,
+				"scale": 0.990333466426186
+			},
+			"ink": 86,
+			"max_channel_error": 0.0156862735748291,
+			"mean_channel_error": 0.000156969155514742,
+			"original_native_rect": "[P: (1580, 963), S: (190, 85)]",
+			"phase": "language_rebuild",
+			"samples": 1474,
+			"source_patch": "small_authored_lower_arc",
+			"white": 1388
+		},
+		{
+			"input": "Actual Tab/Enter language row while left mouse held; late release follows.",
+			"phase": "language_rebuild",
+			"runtime": {
+				"material": {
+					"canvas_updates": 85,
+					"homes": [
+						"(145.0, 65.0)",
+						"(1406.0, 685.0)"
+					],
+					"opacity": 0.52,
+					"poses": [
+						"(145.0, 65.0, 0.0, 1.0)",
+						"(1405.999, 685.8704, 0.000397, 0.990333)"
+					],
+					"radii": [
+						"(230.0, 340.0)",
+						"(190.0, 260.0)"
+					],
+					"shader": "res://scripts/ui/lemon_companion_water.gdshader",
+					"source": "settings_water_pattern PDF page2 unchanged pixels"
+				},
+				"measured_sprite_poses": [
+					{
+						"center": "(145.0, 65.0)",
+						"rotation": 0.0,
+						"scale": 1.00000001766064
+					},
+					{
+						"center": "(1405.999, 685.8704)",
+						"rotation": 0.000397368217818439,
+						"scale": 0.990333466426186
+					}
+				],
+				"physical": {
+					"active_presses": 0,
+					"bodies": [
+						{
+							"mass": 3.29999995231628,
+							"position": "(145.0, 65.0)",
+							"press": {
+								"arm": "(0.0, 0.0)",
+								"depth": 0.0,
+								"edge_ratio": 0.0,
+								"held_seconds": 0.0,
+								"point": "(145.0, 65.0)",
+								"press_count": 0,
+								"pressed": false,
+								"release_count": 0,
+								"scale_factor": 1.0,
+								"target": 0.0,
+								"velocity": 0.0
+							},
+							"radius": 162.0,
+							"rotation": 0.0,
+							"spin": 0.0,
+							"velocity": "(0.0, 0.0)"
+						},
+						{
+							"mass": 1.25,
+							"position": "(1405.999, 684.2593)",
+							"press": {
+								"arm": "(0.0, 0.0)",
+								"depth": 1.61108850355571,
+								"edge_ratio": 0.0,
+								"held_seconds": 0.216666666666667,
+								"point": "(1405.999, 684.2593)",
+								"press_count": 2,
+								"pressed": false,
+								"release_count": 2,
+								"scale_factor": 0.990333468978666,
+								"target": 0.0,
+								"velocity": -24.2095400902171
+							},
+							"radius": 92.0,
+							"rotation": 0.000397368188714609,
+							"spin": -0.000417115690652281,
+							"velocity": "(0.0, 0.699164)"
+						}
+					],
+					"contacts": 0,
+					"engine": "GodotPhysics2D",
+					"time": 2.51666666666666,
+					"wave_state": [],
+					"waves": 0
+				}
+			}
+		},
+		{
+			"method": "Sampled after RenderingServer.frame_post_draw; no manual production pose refresh.",
+			"phase": "normal_water_push",
+			"pose_before_force_draw": {
+				"material_poses": [
+					"(145.0, 65.0, 0.0, 1.0)",
+					"(1403.399, 684.9966, 0.001146, 1.0)"
+				],
+				"native_bodies": [
+					{
+						"position": "(145.0, 65.0)",
+						"press_depth": 0.0,
+						"rotation": 0.0
+					},
+					{
+						"position": "(1403.399, 684.9966)",
+						"press_depth": 0.0,
+						"rotation": 0.00114588707219809
+					}
+				],
+				"physics_frame_index": 258,
+				"process_frame_index": 433,
+				"sprites": [
+					{
+						"center": "(145.0, 65.0)",
+						"rotation": 0.0,
+						"scale": 1.00000001766064
+					},
+					{
+						"center": "(1403.399, 684.9966)",
+						"rotation": 0.00114588707219809,
+						"scale": 0.999999972789184
+					}
+				]
+			},
+			"pose_errors": [
+				{
+					"body": 0,
+					"center_error_world_px": 0.0,
+					"rotation_error_rad": 0.0,
+					"scale_error": 0.0000000176606356205866
+				},
+				{
+					"body": 1,
+					"center_error_world_px": 0.0,
+					"rotation_error_rad": 0.0,
+					"scale_error": 0.0000000272108160448425
+				}
+			]
+		},
+		{
+			"forward_sprite_pose": {
+				"center": "(1403.399, 684.9966)",
+				"rotation": 0.00114588707219809,
+				"scale": 0.999999972789184
+			},
+			"ink": 572,
+			"max_channel_error": 0.00392156839370728,
+			"mean_channel_error": 0.0000801282003521919,
+			"original_native_rect": "[P: (1700, 875), S: (95, 80)]",
+			"phase": "normal_water_push",
+			"samples": 832,
+			"source_patch": "small_filled_shadow_boundary",
+			"white": 260
+		},
+		{
+			"forward_sprite_pose": {
+				"center": "(1403.399, 684.9966)",
+				"rotation": 0.00114588707219809,
+				"scale": 0.999999972789184
+			},
+			"ink": 19,
+			"max_channel_error": 0.00392156839370728,
+			"mean_channel_error": 0.0000332336304551464,
+			"original_native_rect": "[P: (1544, 792), S: (60, 77)]",
+			"phase": "normal_water_push",
+			"samples": 472,
+			"source_patch": "small_authored_left_arc",
+			"white": 453
+		},
+		{
+			"forward_sprite_pose": {
+				"center": "(1403.399, 684.9966)",
+				"rotation": 0.00114588707219809,
+				"scale": 0.999999972789184
+			},
+			"ink": 86,
+			"max_channel_error": 0.00392156839370728,
+			"mean_channel_error": 0.000103759272289406,
+			"original_native_rect": "[P: (1580, 963), S: (190, 85)]",
+			"phase": "normal_water_push",
+			"samples": 1474,
+			"source_patch": "small_authored_lower_arc",
+			"white": 1388
+		},
+		{
+			"input": "Actual exposed-water mouse click35worldpx beyond the fruit rim;26physics steps.",
+			"phase": "normal_water_push",
+			"runtime": {
+				"material": {
+					"canvas_updates": 14,
+					"homes": [
+						"(145.0, 65.0)",
+						"(1406.0, 685.0)"
+					],
+					"opacity": 0.52,
+					"poses": [
+						"(145.0, 65.0, 0.0, 1.0)",
+						"(1403.399, 684.9966, 0.001146, 1.0)"
+					],
+					"radii": [
+						"(230.0, 340.0)",
+						"(190.0, 260.0)"
+					],
+					"shader": "res://scripts/ui/lemon_companion_water.gdshader",
+					"source": "settings_water_pattern PDF page2 unchanged pixels"
+				},
+				"measured_sprite_poses": [
+					{
+						"center": "(145.0, 65.0)",
+						"rotation": 0.0,
+						"scale": 1.00000001766064
+					},
+					{
+						"center": "(1403.399, 684.9966)",
+						"rotation": 0.00114588707219809,
+						"scale": 0.999999972789184
+					}
+				],
+				"physical": {
+					"active_presses": 0,
+					"bodies": [
+						{
+							"mass": 3.29999995231628,
+							"position": "(145.0, 65.0)",
+							"press": {
+								"arm": "(0.0, 0.0)",
+								"depth": 0.0,
+								"edge_ratio": 0.0,
+								"held_seconds": 0.0,
+								"point": "(145.0, 65.0)",
+								"press_count": 0,
+								"pressed": false,
+								"release_count": 0,
+								"scale_factor": 1.0,
+								"target": 0.0,
+								"velocity": 0.0
+							},
+							"radius": 162.0,
+							"rotation": 0.0,
+							"spin": 0.0,
+							"velocity": "(0.0, 0.0)"
+						},
+						{
+							"mass": 1.25,
+							"position": "(1403.399, 684.9966)",
+							"press": {
+								"arm": "(0.0, 0.0)",
+								"depth": 0.0,
+								"edge_ratio": 0.0,
+								"held_seconds": 0.0,
+								"point": "(1403.399, 684.9966)",
+								"press_count": 0,
+								"pressed": false,
+								"release_count": 0,
+								"scale_factor": 1.0,
+								"target": 0.0,
+								"velocity": 0.0
+							},
+							"radius": 92.0,
+							"rotation": 0.00114588707219809,
+							"spin": 0.00372767890803516,
+							"velocity": "(-9.070107, 0.0)"
+						}
+					],
+					"contacts": 0,
+					"engine": "GodotPhysics2D",
+					"time": 0.55,
+					"wave_state": [
+						{
+							"age": 0.433333333333333,
+							"hits": 2,
+							"point": "(1533.0, 685.0)",
+							"strength": 1.0
+						}
+					],
+					"waves": 1
+				}
+			}
+		},
+		{
+			"field": {
+				"cells": 5184,
+				"energy": 1.24718935296406,
+				"last_tap": {
+					"amplitude": 0.777867726929935,
+					"angle": 5.00396323,
+					"radius": 2.48532062270297,
+					"stretch": "(1.040244, 0.968379)"
+				},
+				"peak": 0.503499805927277,
+				"steps": 11,
+				"strokes": 0,
+				"taps": 1
+			},
+			"input_finish": "(1300.0, 260.0)",
+			"input_start": "(1180.0, 260.0)",
+			"phase": "click_pulse",
+			"shape": {
+				"absolute_height_weight": 4.52845050472269,
+				"centroid_grid": "(70.80621, 15.60544)",
+				"negative_height": 0.0,
+				"positive_height": 4.52845050472269,
+				"variance_x": 1.1992746591568,
+				"variance_y": 1.289097905159
+			},
+			"supplied_motion_velocity": "(0.0, 0.0)"
+		},
+		{
+			"field": {
+				"cells": 5184,
+				"energy": 1.02886407697109,
+				"last_tap": {},
+				"peak": 0.480479657649994,
+				"steps": 11,
+				"strokes": 1,
+				"taps": 0
+			},
+			"input_finish": "(1300.0, 260.0)",
+			"input_start": "(1180.0, 260.0)",
+			"phase": "fast_directional_skim",
+			"shape": {
+				"absolute_height_weight": 4.64993205191195,
+				"centroid_grid": "(75.08549, 15.60221)",
+				"negative_height": 1.74462810497931,
+				"positive_height": 2.90530394693265,
+				"variance_x": 12.1663455963135,
+				"variance_y": 0.666410744190216
+			},
+			"supplied_motion_velocity": "(1200.0, 0.0)"
+		},
+		{
+			"field": {
+				"cells": 5184,
+				"energy": 1.76535188010676,
+				"last_tap": {
+					"amplitude": 0.777867726929935,
+					"angle": 5.00396323,
+					"radius": 2.48532062270297,
+					"stretch": "(1.040244, 0.968379)"
+				},
+				"peak": 0.534202992916107,
+				"steps": 17,
+				"strokes": 1,
+				"taps": 1
+			},
+			"input_finish": "(1300.0, 260.0)",
+			"input_start": "(1180.0, 260.0)",
+			"phase": "held_directional_wake",
+			"shape": {
+				"absolute_height_weight": 7.91570743008722,
+				"centroid_grid": "(73.15025, 15.63224)",
+				"negative_height": 1.92490454673073,
+				"positive_height": 5.99080288335649,
+				"variance_x": 14.6225328445435,
+				"variance_y": 2.16500616073608
+			},
+			"supplied_motion_velocity": "(1200.0, 0.0)"
+		}
+	],
+	"original_pdf_sha256": "ff54771c8c7d98ee2d9cfeeac496eb203a324ebc96a3b9a5dcba9853f19c191f",
+	"registered_page2_sha256": "e31efd76da89503bf1b09fbc9a7731a37aa2b00013d2e20c7131da5dfeaee7bc",
+	"scope": "Automated Host/root.push_input and production GPU framebuffers at1920x1080. Separate explicitly labeled frozen80px/rotation pose diagnostics. Original source plate vs independent original matte reference; ordinary forward Sprite transforms, local source patches/centroids, ghost clearing, actual hold/release/rebuild and pointer water field. No native OS input, listening, FPS claim or final aesthetic acceptance.",
+	"source_proof": "test-results/lemon-companion-source_20261017/source-proof.json"
+}

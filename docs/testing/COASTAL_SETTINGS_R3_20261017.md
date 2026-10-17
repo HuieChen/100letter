@@ -85,9 +85,10 @@ close/reload29; workflow28, bitmap3, courier-video3, licensed media5. Exact
 source run check-20261017-012230 and window-close-20261017-012922 retained.
 Actual PCK406 checks /zero failures, official Windows EXE GPU boot120 frames.
 PCK SHA256 8e5ed175012ab670ecd9d96edd949fa9e832718999fe40a0c00b49440077a229.
-Content-inspector exit still reports18 ObjectDB /4 resources in use; actual release
-boot stderr is empty. Inspector cleanup root cause remains unassigned; this is
-not silently marked fixed or attributed to the release process.
+Correction verified from retained raw logs on2026-10-17: content-inspector stderr
+is empty; forced official-release boot reports18 ObjectDB /4 audio resources at
+shutdown. The earlier attribution was reversed. R3 cleanup remained unresolved; this is
+not silently marked fixed or described as a clean release shutdown.
 
 Current R3 OS input separately confirms title→Settings, near-lemon water click,
 later physical displacement, held water drag with stationery stable, Master drag,

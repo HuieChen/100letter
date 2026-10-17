@@ -1,0 +1,10 @@
+{
+  "scope": "Actual pre-refinement60fps MovieWriter with same gesture times; not native input or real-timeFPS",
+  "sources": {
+    "scripts/ui/settings_water.gdshader": "d916d3fd11fdeb860f0b08650b69d62fc3aa1d8b35a89075cd2fb3aba569d088",
+    "scripts/ui/water_field.gd": "a099fcdf17c42e60637ae47b1ded11c863754d242c0d7e82a44d73d2ff7eb90f",
+    "scripts/ui/coastal_physics.gd": "dc96e6e7885378783f52c0dafa09b3a3e5d060435d69bc8152d9fee10ff34fac",
+    "scripts/ui/coastal_settings.gd": "7087cbe0084c12b3edb9ead1e2d75e209a367ef5aec5f0127c843c483deec138",
+    "tests/settings_ripple_film.gd": "f05c55b5e54dba46cfd90dd387bd8d398f513b1b4b3f0d0a7d6e3a43aa11c0b3"
+  }
+}

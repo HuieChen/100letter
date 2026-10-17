@@ -11,6 +11,10 @@ param(
 )
 $ErrorActionPreference = 'Stop'
 $taskRepo = Split-Path -Parent $PSScriptRoot
+$taskOverride = Join-Path $taskRepo 'override.cfg'
+if (Test-Path -LiteralPath $taskOverride) {
+    throw 'Build requires absent override.cfg; QA/MovieWriter settings must not be merged into the player package.'
+}
 $taskGodot = (Resolve-Path -LiteralPath $GodotPath).Path
 $taskTemplate = (Resolve-Path -LiteralPath $TemplatePath).Path
 if (-not $TemplateManifestPath) { $TemplateManifestPath = Join-Path $taskRepo 'work/official_godot_4_7_2/source.json' }
@@ -25,7 +29,7 @@ $taskReleaseRecord = @($taskTemplateRecord.members | Where-Object member -EQ 'te
 if ($taskReleaseRecord.Count -ne 1 -or (Get-FileHash -LiteralPath $taskTemplate -Algorithm SHA256).Hash.ToLowerInvariant() -ne $taskReleaseRecord[0].sha256) {
     throw 'Windows release template bytes do not match the extracted, verified official archive.'
 }
-if (-not $OutputDirectory) { $OutputDirectory = Join-Path (Split-Path -Parent $taskRepo) '100letter-Windows-Faefever-20261002' }
+if (-not $OutputDirectory) { $OutputDirectory = Join-Path (Split-Path -Parent $taskRepo) 'DearSomewhere-Windows' }
 $taskDestination = [IO.Path]::GetFullPath($OutputDirectory)
 $taskProject = Get-Content -LiteralPath (Join-Path $taskRepo 'project.godot') -Raw
 if ($taskProject -notmatch 'run/main_scene="res://scenes/final_slice.tscn"') {
@@ -41,6 +45,9 @@ if (-not $SkipChecks) {
     & (Join-Path $PSScriptRoot 'check.ps1') -GodotPath $taskGodot -PythonPath $PythonPath -GpuChecks:$GpuChecks -ArchiveChecks:$ArchiveChecks -ArchiveRoot $ArchiveRoot
 } else {
     Write-Warning 'Automated checks explicitly skipped. This build is not a new validation result.'
+}
+if (Test-Path -LiteralPath $taskOverride) {
+    throw 'An override.cfg remains after checks; refusing to export QA/MovieWriter settings into the player package.'
 }
 $taskAuditDirectory = Join-Path $taskRepo ('test-results/package-' + (Get-Date -Format 'yyyyMMdd-HHmmss'))
 New-Item -ItemType Directory -Force -Path $taskDestination,$taskAuditDirectory | Out-Null
@@ -103,9 +110,9 @@ try {
         required=$taskRequired; excluded_matches=$taskForbidden
         files=$taskEntries; scope='ZIP inventory with the same preset; not a native executable playtest.'
     } | ConvertTo-Json -Depth 6 | Set-Content -LiteralPath (Join-Path $taskAuditDirectory 'export-audit.json') -Encoding utf8
-    Invoke-BuildGodot 'export-pck' @('--export-pack','Windows Desktop',(Join-Path $taskDestination '100letter.pck'))
+    Invoke-BuildGodot 'export-pck' @('--export-pack','Windows Desktop',(Join-Path $taskDestination 'DearSomewhere.pck'))
     # The caller supplies the matching release template; no automatic download.
-    Copy-Item -LiteralPath $taskTemplate -Destination (Join-Path $taskDestination '100letter.exe')
+    Copy-Item -LiteralPath $taskTemplate -Destination (Join-Path $taskDestination 'DearSomewhere.exe')
     Copy-Item -LiteralPath $TemplateManifestPath -Destination (Join-Path $taskDestination 'GODOT_TEMPLATE_SOURCE.json')
     $taskLicenses = Join-Path $taskDestination 'Licenses'
     New-Item -ItemType Directory -Force -Path $taskLicenses | Out-Null
@@ -122,8 +129,8 @@ try {
         Copy-Item -LiteralPath (Join-Path $taskRepo $taskRecord) -Destination $taskLicenses
     }
     $taskPlayerReadme = @(
-        '一百信 · Solmere Post',
-        '双击 100letter.exe。新班次从邮局柜台、主管的短交代和实体邮件箱开始。',
+        'Dear Somewhere',
+        '双击 DearSomewhere.exe。新班次从邮局柜台、主管的短交代和实体邮件箱开始。',
         'WASD / 方向键 / 点地面行走；B 信袋，J 档案，M 地图；Esc 暂停，F11 全屏。',
         '松锁扣、点开或掀起箱盖、点击或拖出信件。点击信封右边缘翻面，也支持右键；拉开桌沿抽屉取工具。',
         '交付与记录分开：每封信处理后回柜台填写处置单，复核并亲手拖章。',
@@ -132,7 +139,7 @@ try {
         '本地构建不等于参考验收、真人试玩或商业发行审核已经完成。'
     )
     $taskPlayerReadme | Set-Content -LiteralPath (Join-Path $taskDestination '开始游玩.txt') -Encoding utf8
-    Get-FileHash -Algorithm SHA256 -LiteralPath (Join-Path $taskDestination '100letter.exe'),(Join-Path $taskDestination '100letter.pck') | Format-Table
+    Get-FileHash -Algorithm SHA256 -LiteralPath (Join-Path $taskDestination 'DearSomewhere.exe'),(Join-Path $taskDestination 'DearSomewhere.pck') | Format-Table
     Write-Host "Selected-resource inventory: $taskAuditDirectory/export-audit.json"
     Write-Host 'Local build created. Native playtest, reference review and GitHub publication remain separate steps.'
 } finally {

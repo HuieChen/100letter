@@ -20,7 +20,11 @@ func _run()->void:
 		_check(game.modal.get_node("CloseSettings").text=="←","clear return arrow replaces the temporary generic cross")
 		_check(game.modal.get_node("SettingsHeading").get_theme_font("font").get_font_name().contains("Noto"),"Chinese headline uses its own measured typeface and centered layout")
 		_check(float(game.modal._font.variation_opentype.get(0x77676874,0))==600,"Chinese body uses the active 600 weight axis")
-		_check(game.modal.get_node("SettingLabel_text_speed").get_rect().end.x+12<=game.modal.controls.text_speed.position.x,"Chinese speed caption has a real safe gap before its selector")
+		var speed_label:Label=game.modal.get_node("SettingLabel_text_speed")
+		var speed_glyph_width:=speed_label.get_theme_font("font").get_string_size(speed_label.text,HORIZONTAL_ALIGNMENT_LEFT,-1,speed_label.get_theme_font_size("font_size")).x
+		var speed_glyph_end:=speed_label.position.x+(speed_label.size.x+speed_glyph_width)*0.5
+		_check(speed_glyph_end+12<=game.modal.controls.text_speed.position.x,"Chinese centered speed glyphs have a real safe gap before their selector")
+		await _round_menu("zh_"+str(dims.x))
 		await _shot("zh_"+str(dims.x))
 		if dims.x==1280:
 			for child in game.modal.get_children():
@@ -65,6 +69,7 @@ func _run()->void:
 		await _option("language",1)
 		_check(game.preferences.values.language=="en","actual popup chooses English UI")
 		await process_frame;await _shot("en_"+str(dims.x))
+		await _round_menu("en_"+str(dims.x))
 		for key:String in game.modal.controls:
 			var label:Label=game.modal.find_child("SettingLabel_"+key,true,false)
 			_check(label.size.y<=48,"label remains single line "+key)
@@ -123,6 +128,18 @@ func _option(key:String,index:int)->void:
 	await _click_named("Setting_"+key)
 	_check(game.modal.find_child("SettingsDropdown",true,false)!=null,"actual dropdown opens "+key)
 	await _click_named("Option_"+key+"_"+str(index));await process_frame;await process_frame
+func _round_menu(label:String)->void:
+	await _click_named("Setting_language")
+	var box:Panel=game.modal.find_child("SettingsOptionsPanel",true,false)
+	var panel_style:StyleBox=box.get_theme_stylebox("panel")
+	_check(panel_style is StyleBoxFlat and panel_style.corner_radius_top_left>=8 and panel_style.corner_radius_bottom_right>=8,"dropdown exterior has rounded corners")
+	for row:Control in box.get_children():
+		for state:String in ["normal","hover","pressed","focus"]:
+			var style:StyleBox=row.get_theme_stylebox(state)
+			_check(style is StyleBoxFlat and style.corner_radius_top_left>=8 and style.corner_radius_bottom_right>=8,"option "+state+" has a rounded silhouette")
+	await _shot("menu_"+label)
+	await _key(root,KEY_ESCAPE)
+	_check(is_instance_valid(game.modal) and game.modal.find_child("SettingsDropdown",true,false)==null,"Esc closes rounded selector while keeping Settings open")
 func _key(window:Window,code:Key)->void:
 	for down:bool in [true,false]:
 		var e:=InputEventKey.new();e.keycode=code;e.physical_keycode=code;e.pressed=down;root.push_input(e,true);await process_frame

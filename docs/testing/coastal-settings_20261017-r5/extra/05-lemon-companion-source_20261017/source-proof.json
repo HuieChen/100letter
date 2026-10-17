@@ -1,0 +1,562 @@
+{
+  "method": "Read-only PDF embedded-byte fingerprints and original pixels; no new art, mask or runtime/GPU edit",
+  "source_sha256": "ff54771c8c7d98ee2d9cfeeac496eb203a324ebc96a3b9a5dcba9853f19c191f",
+  "pages": 39,
+  "ocgs": {},
+  "layers": [
+    {
+      "page": 1,
+      "sha256": "0faf702f1e00836bed612b80dbf495355e37ee83fc5e02f3bd4e789c284362a6",
+      "size": [
+        1920,
+        1080
+      ],
+      "smask_xref": 0,
+      "nonwhite_total": 2073600,
+      "big_region_nonwhite": 196100,
+      "small_region_nonwhite": 180400
+    },
+    {
+      "page": 2,
+      "sha256": "e31efd76da89503bf1b09fbc9a7731a37aa2b00013d2e20c7131da5dfeaee7bc",
+      "size": [
+        1920,
+        1080
+      ],
+      "smask_xref": 0,
+      "nonwhite_total": 631580,
+      "big_region_nonwhite": 111391,
+      "small_region_nonwhite": 43730
+    },
+    {
+      "page": 3,
+      "sha256": "1d1e0e7e4f19be9c65529e984bc69f1e8371e6b4832e3624b51b32374d9a552c",
+      "size": [
+        1920,
+        1080
+      ],
+      "smask_xref": 0,
+      "nonwhite_total": 0,
+      "big_region_nonwhite": 0,
+      "small_region_nonwhite": 0
+    },
+    {
+      "page": 4,
+      "sha256": "f7d6b6a8cb743a366823adaee164bab11bd1b396a120b81f013969b9a215af38",
+      "size": [
+        1920,
+        1080
+      ],
+      "smask_xref": 0,
+      "nonwhite_total": 2070177,
+      "big_region_nonwhite": 195159,
+      "small_region_nonwhite": 180304
+    },
+    {
+      "page": 5,
+      "sha256": "2a8cdfd55f8774ffbdd3e65fcf617eb254d92242217e3af2420855c6a1f8c877",
+      "size": [
+        1920,
+        1080
+      ],
+      "smask_xref": 0,
+      "nonwhite_total": 85006,
+      "big_region_nonwhite": 85006,
+      "small_region_nonwhite": 0
+    },
+    {
+      "page": 6,
+      "sha256": "e7b9e12232ccb4150ec8c701bc7c245c1093fba2e2419d03e253e29f9a2784eb",
+      "size": [
+        1920,
+        1080
+      ],
+      "smask_xref": 0,
+      "nonwhite_total": 66489,
+      "big_region_nonwhite": 66489,
+      "small_region_nonwhite": 0
+    },
+    {
+      "page": 7,
+      "sha256": "e22593317370004ce8da34f7507e5aa3ae345fe65e7765c83431c7c06a6f76bb",
+      "size": [
+        1920,
+        1080
+      ],
+      "smask_xref": 0,
+      "nonwhite_total": 43909,
+      "big_region_nonwhite": 43909,
+      "small_region_nonwhite": 0
+    },
+    {
+      "page": 8,
+      "sha256": "63ef10b1cc75e16a162b1f895923ba3612f74443bbdae4321682422ad0ab0acf",
+      "size": [
+        1920,
+        1080
+      ],
+      "smask_xref": 0,
+      "nonwhite_total": 38341,
+      "big_region_nonwhite": 0,
+      "small_region_nonwhite": 38341
+    },
+    {
+      "page": 9,
+      "sha256": "337ba6ef927b536fd3126917dd91a3d71091cdc4546bf6116af80751266418f5",
+      "size": [
+        1920,
+        1080
+      ],
+      "smask_xref": 0,
+      "nonwhite_total": 28300,
+      "big_region_nonwhite": 0,
+      "small_region_nonwhite": 28300
+    },
+    {
+      "page": 10,
+      "sha256": "ddba03b5e14996841414bbd2881f3f455c44f318ca3be27a0344ea5037c9767f",
+      "size": [
+        1920,
+        1080
+      ],
+      "smask_xref": 0,
+      "nonwhite_total": 18336,
+      "big_region_nonwhite": 0,
+      "small_region_nonwhite": 18336
+    },
+    {
+      "page": 11,
+      "sha256": "568ca9f166532a44bec6aa39ef43d0aede4d282bed313697276c785d901da2a4",
+      "size": [
+        1920,
+        1080
+      ],
+      "smask_xref": 0,
+      "nonwhite_total": 586667,
+      "big_region_nonwhite": 0,
+      "small_region_nonwhite": 0
+    },
+    {
+      "page": 12,
+      "sha256": "3e723b54f49c556f7dcc136ff35211c5e8a1d0d0f835aa060a62e8819e7d2641",
+      "size": [
+        1920,
+        1080
+      ],
+      "smask_xref": 0,
+      "nonwhite_total": 781,
+      "big_region_nonwhite": 0,
+      "small_region_nonwhite": 0
+    },
+    {
+      "page": 13,
+      "sha256": "1f515f5803485abebcadfe1c35d490fc33dffd56ada6ea64912808335f32911f",
+      "size": [
+        1920,
+        1080
+      ],
+      "smask_xref": 0,
+      "nonwhite_total": 607850,
+      "big_region_nonwhite": 0,
+      "small_region_nonwhite": 0
+    },
+    {
+      "page": 14,
+      "sha256": "9fccd70a702fb1c4f0e433fd56e1b96c086fe4a5537b67b4585cab87f7314e3d",
+      "size": [
+        1920,
+        1080
+      ],
+      "smask_xref": 0,
+      "nonwhite_total": 551325,
+      "big_region_nonwhite": 0,
+      "small_region_nonwhite": 0
+    },
+    {
+      "page": 15,
+      "sha256": "463615ec490140b0c770be6f5faecd93d4e1f4fe84f7d349373cacf7a6ddced9",
+      "size": [
+        1920,
+        1080
+      ],
+      "smask_xref": 0,
+      "nonwhite_total": 4314,
+      "big_region_nonwhite": 0,
+      "small_region_nonwhite": 0
+    },
+    {
+      "page": 16,
+      "sha256": "0e77cdbd77934adb8d4fd390ef40591ae2bc4bde3cfdcec612e3aa7ecb176da2",
+      "size": [
+        1920,
+        1080
+      ],
+      "smask_xref": 0,
+      "nonwhite_total": 0,
+      "big_region_nonwhite": 0,
+      "small_region_nonwhite": 0
+    },
+    {
+      "page": 17,
+      "sha256": "0e77cdbd77934adb8d4fd390ef40591ae2bc4bde3cfdcec612e3aa7ecb176da2",
+      "size": [
+        1920,
+        1080
+      ],
+      "smask_xref": 0,
+      "nonwhite_total": 0,
+      "big_region_nonwhite": 0,
+      "small_region_nonwhite": 0
+    },
+    {
+      "page": 18,
+      "sha256": "88a7aa5467a8cc3365c3d5ef5ffbd928478f23eeec87dcc24eeeed421420c7b6",
+      "size": [
+        1920,
+        1080
+      ],
+      "smask_xref": 0,
+      "nonwhite_total": 2722,
+      "big_region_nonwhite": 0,
+      "small_region_nonwhite": 0
+    },
+    {
+      "page": 19,
+      "sha256": "0e77cdbd77934adb8d4fd390ef40591ae2bc4bde3cfdcec612e3aa7ecb176da2",
+      "size": [
+        1920,
+        1080
+      ],
+      "smask_xref": 0,
+      "nonwhite_total": 0,
+      "big_region_nonwhite": 0,
+      "small_region_nonwhite": 0
+    },
+    {
+      "page": 20,
+      "sha256": "059e8c2477b58f563fc9df43a24c0c1124c212b1c960cfb813a76a9a30d26748",
+      "size": [
+        1920,
+        1080
+      ],
+      "smask_xref": 0,
+      "nonwhite_total": 2723,
+      "big_region_nonwhite": 0,
+      "small_region_nonwhite": 0
+    },
+    {
+      "page": 21,
+      "sha256": "0e77cdbd77934adb8d4fd390ef40591ae2bc4bde3cfdcec612e3aa7ecb176da2",
+      "size": [
+        1920,
+        1080
+      ],
+      "smask_xref": 0,
+      "nonwhite_total": 0,
+      "big_region_nonwhite": 0,
+      "small_region_nonwhite": 0
+    },
+    {
+      "page": 22,
+      "sha256": "04157c55e908d8f08677c6e643dbeb0bc97a1e9beca1eec031bc0b779c546377",
+      "size": [
+        1920,
+        1080
+      ],
+      "smask_xref": 0,
+      "nonwhite_total": 2722,
+      "big_region_nonwhite": 0,
+      "small_region_nonwhite": 0
+    },
+    {
+      "page": 23,
+      "sha256": "0e77cdbd77934adb8d4fd390ef40591ae2bc4bde3cfdcec612e3aa7ecb176da2",
+      "size": [
+        1920,
+        1080
+      ],
+      "smask_xref": 0,
+      "nonwhite_total": 0,
+      "big_region_nonwhite": 0,
+      "small_region_nonwhite": 0
+    },
+    {
+      "page": 24,
+      "sha256": "0e77cdbd77934adb8d4fd390ef40591ae2bc4bde3cfdcec612e3aa7ecb176da2",
+      "size": [
+        1920,
+        1080
+      ],
+      "smask_xref": 0,
+      "nonwhite_total": 0,
+      "big_region_nonwhite": 0,
+      "small_region_nonwhite": 0
+    },
+    {
+      "page": 25,
+      "sha256": "0e77cdbd77934adb8d4fd390ef40591ae2bc4bde3cfdcec612e3aa7ecb176da2",
+      "size": [
+        1920,
+        1080
+      ],
+      "smask_xref": 0,
+      "nonwhite_total": 0,
+      "big_region_nonwhite": 0,
+      "small_region_nonwhite": 0
+    },
+    {
+      "page": 26,
+      "sha256": "0e77cdbd77934adb8d4fd390ef40591ae2bc4bde3cfdcec612e3aa7ecb176da2",
+      "size": [
+        1920,
+        1080
+      ],
+      "smask_xref": 0,
+      "nonwhite_total": 0,
+      "big_region_nonwhite": 0,
+      "small_region_nonwhite": 0
+    },
+    {
+      "page": 27,
+      "sha256": "4360745af4b502cba4e9543c047c5902f30a070ff0d09e132d7dcc05a3a448ea",
+      "size": [
+        1920,
+        1080
+      ],
+      "smask_xref": 0,
+      "nonwhite_total": 864,
+      "big_region_nonwhite": 0,
+      "small_region_nonwhite": 0
+    },
+    {
+      "page": 28,
+      "sha256": "0e77cdbd77934adb8d4fd390ef40591ae2bc4bde3cfdcec612e3aa7ecb176da2",
+      "size": [
+        1920,
+        1080
+      ],
+      "smask_xref": 0,
+      "nonwhite_total": 0,
+      "big_region_nonwhite": 0,
+      "small_region_nonwhite": 0
+    },
+    {
+      "page": 29,
+      "sha256": "7f6f262a3af246c80cc187e98798c3be55a651b30f6a6a23093cddb0c4fcf610",
+      "size": [
+        1920,
+        1080
+      ],
+      "smask_xref": 0,
+      "nonwhite_total": 19606,
+      "big_region_nonwhite": 0,
+      "small_region_nonwhite": 0
+    },
+    {
+      "page": 30,
+      "sha256": "1730ad9e0083873df6d0e07cf2654baf1cdaf71cb74004e07c9226d7b8d68df7",
+      "size": [
+        1920,
+        1080
+      ],
+      "smask_xref": 0,
+      "nonwhite_total": 9801,
+      "big_region_nonwhite": 0,
+      "small_region_nonwhite": 0
+    },
+    {
+      "page": 31,
+      "sha256": "513215f81360e1429e7efdfa90e9dd1ee9c44639c542db8ea8b413e6c74fd061",
+      "size": [
+        1920,
+        1080
+      ],
+      "smask_xref": 0,
+      "nonwhite_total": 9798,
+      "big_region_nonwhite": 0,
+      "small_region_nonwhite": 0
+    },
+    {
+      "page": 32,
+      "sha256": "09a140f2e6e7961b8330b87942e321526376066347220d9f9cc48a5bed1a200a",
+      "size": [
+        1920,
+        1080
+      ],
+      "smask_xref": 0,
+      "nonwhite_total": 740,
+      "big_region_nonwhite": 0,
+      "small_region_nonwhite": 0
+    },
+    {
+      "page": 33,
+      "sha256": "fabc4fb8d96a97591a5a5638a86f95ad4a5975f2b48bdf6294ba58549f50d04c",
+      "size": [
+        1920,
+        1080
+      ],
+      "smask_xref": 0,
+      "nonwhite_total": 909,
+      "big_region_nonwhite": 0,
+      "small_region_nonwhite": 0
+    },
+    {
+      "page": 34,
+      "sha256": "5428677b42772eaa5603a0e082dfdd78412172eb08140ae36bf4676b71931f78",
+      "size": [
+        1920,
+        1080
+      ],
+      "smask_xref": 0,
+      "nonwhite_total": 564,
+      "big_region_nonwhite": 0,
+      "small_region_nonwhite": 0
+    },
+    {
+      "page": 35,
+      "sha256": "68f0756252f95c8db31cdd5ba4187b7e30e2223e53c2ed8c7c0062fc65f0cc99",
+      "size": [
+        1920,
+        1080
+      ],
+      "smask_xref": 0,
+      "nonwhite_total": 1224,
+      "big_region_nonwhite": 0,
+      "small_region_nonwhite": 0
+    },
+    {
+      "page": 36,
+      "sha256": "0e77cdbd77934adb8d4fd390ef40591ae2bc4bde3cfdcec612e3aa7ecb176da2",
+      "size": [
+        1920,
+        1080
+      ],
+      "smask_xref": 0,
+      "nonwhite_total": 0,
+      "big_region_nonwhite": 0,
+      "small_region_nonwhite": 0
+    },
+    {
+      "page": 37,
+      "sha256": "bb2516c2c5f78e8a0517f934110f5b5cd91c7b97beef811b98f314ffa5a508fc",
+      "size": [
+        1920,
+        1080
+      ],
+      "smask_xref": 0,
+      "nonwhite_total": 17369,
+      "big_region_nonwhite": 0,
+      "small_region_nonwhite": 0
+    },
+    {
+      "page": 38,
+      "sha256": "15bc1b26bb2cffc4c6f3d5ed01f33bbc99f1e71bc7ca63637756cb55e4435d01",
+      "size": [
+        1920,
+        1080
+      ],
+      "smask_xref": 0,
+      "nonwhite_total": 70706,
+      "big_region_nonwhite": 1357,
+      "small_region_nonwhite": 0
+    },
+    {
+      "page": 39,
+      "sha256": "49e547542710119e3b2785e422830b3831f304533ee9c77f82c0f2e3a8df1711",
+      "size": [
+        1920,
+        1080
+      ],
+      "smask_xref": 0,
+      "nonwhite_total": 19001,
+      "big_region_nonwhite": 0,
+      "small_region_nonwhite": 0
+    }
+  ],
+  "pattern_samples": {
+    "big_filled_shadow": {
+      "pixel": [
+        190,
+        140
+      ],
+      "rgb": [
+        59,
+        92,
+        127
+      ]
+    },
+    "big_arc_below": {
+      "pixel": [
+        122,
+        303
+      ],
+      "rgb": [
+        59,
+        92,
+        127
+      ]
+    },
+    "small_filled_shadow": {
+      "pixel": [
+        1710,
+        884
+      ],
+      "rgb": [
+        59,
+        92,
+        127
+      ]
+    },
+    "small_arc_left": {
+      "pixel": [
+        1575,
+        817
+      ],
+      "rgb": [
+        58,
+        91,
+        124
+      ]
+    },
+    "small_arc_below": {
+      "pixel": [
+        1680,
+        1024
+      ],
+      "rgb": [
+        59,
+        92,
+        127
+      ]
+    },
+    "main_water_pattern": {
+      "pixel": [
+        1000,
+        300
+      ],
+      "rgb": [
+        59,
+        92,
+        127
+      ]
+    }
+  },
+  "runtime_causes": [
+    "coastal_settings water_canvas UPDATE_ONCE composites original page2 static",
+    "floating_lemon moves only rind/flesh/segments Sprite2Ds",
+    "height-field refraction distorts global texture, but does not attach authored page2 companions to body pose"
+  ],
+  "connected_source_ink": {
+    "method": "Exact original-pixel 4-connected scanline flood fill from main-water seed [1000,300]",
+    "main_component_pixels": 618306,
+    "filled_segments": 5544,
+    "connected_to_main": {
+      "big_filled_shadow": true,
+      "big_arc_below": false,
+      "small_filled_shadow": true,
+      "small_arc_left": false,
+      "small_arc_below": false,
+      "main_water_pattern": true
+    }
+  }
+}

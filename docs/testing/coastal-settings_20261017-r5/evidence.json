@@ -1,0 +1,1438 @@
+{
+  "game_name": "Dear Somewhere",
+  "package_runtime_files": [
+    "DearSomewhere.exe",
+    "DearSomewhere.pck"
+  ],
+  "scope": "Focused R5 Dear Somewhere name/plain title and matching runtime filenames; bilingual settings layout/rounded menus/opaque draggable knobs; real preference-save failure exits and retained dirty values; guarded save plus audio shutdown; original PDF lemon shadow/arc binding to physical motion/press and source-edge/seam correction; motion calibration with aspect-correct world-pixel refraction capped at3px, half-texel contact-center correction, event-rate-independent traveled-distance pressure/native swipe and near-wave impulse24. Same scheduled gestures are recorded before/after by60fps MovieWriter; this is not real-time displayFPS or human animation acceptance. Automated engine-generated close notification plus fresh-process reload is supplemental and is not native OS title-bar input. R4 remains historical; this is development review, not full-game, novice, listening or final aesthetic acceptance. Future walking work is separate and is not claimed implemented by R5.",
+  "historical_r4": {
+    "path": "docs/testing/coastal-settings_20261017-r4/evidence.json",
+    "sha256": "48dd3675d00cfbb163e4c16a7145069d96bf82ad6acbf5c322cd2a9559936df5",
+    "status": "historical unpublished candidate; not current-source QA"
+  },
+  "engine_run": "check-20261017-180716",
+  "engine_checks": 11375,
+  "engine_suites": 36,
+  "suites": [
+    {
+      "suite": "amended_handoff",
+      "checks": 214,
+      "failures": 0
+    },
+    {
+      "suite": "audio_shutdown_input",
+      "checks": 37,
+      "failures": 0
+    },
+    {
+      "suite": "coastal_layout_input",
+      "checks": 1975,
+      "failures": 0
+    },
+    {
+      "suite": "coastal_physics_input",
+      "checks": 21,
+      "failures": 0
+    },
+    {
+      "suite": "coastal_settings_input",
+      "checks": 339,
+      "failures": 0
+    },
+    {
+      "suite": "core_review_input",
+      "checks": 223,
+      "failures": 0
+    },
+    {
+      "suite": "counter_onboarding_input",
+      "checks": 54,
+      "failures": 0
+    },
+    {
+      "suite": "display_preferences_input",
+      "checks": 547,
+      "failures": 0
+    },
+    {
+      "suite": "envelope_text_bounds_smoke",
+      "checks": 21,
+      "failures": 0
+    },
+    {
+      "suite": "field_book_smoke",
+      "checks": 1626,
+      "failures": 0
+    },
+    {
+      "suite": "field_observation_smoke",
+      "checks": 218,
+      "failures": 0
+    },
+    {
+      "suite": "final_case_state_smoke",
+      "checks": 3356,
+      "failures": 0
+    },
+    {
+      "suite": "final_host_boundary_smoke",
+      "checks": 32,
+      "failures": 0
+    },
+    {
+      "suite": "final_resolution_draft_smoke",
+      "checks": 42,
+      "failures": 0
+    },
+    {
+      "suite": "final_walker_smoke",
+      "checks": 42,
+      "failures": 0
+    },
+    {
+      "suite": "five_case_delegate",
+      "checks": 346,
+      "failures": 0
+    },
+    {
+      "suite": "five_case_sealed",
+      "checks": 344,
+      "failures": 0
+    },
+    {
+      "suite": "game_identity_input",
+      "checks": 12,
+      "failures": 0
+    },
+    {
+      "suite": "lemon_companion_input",
+      "checks": 190,
+      "failures": 0
+    },
+    {
+      "suite": "lemon_matte_render",
+      "checks": 25,
+      "failures": 0
+    },
+    {
+      "suite": "lemon_press_gui_input",
+      "checks": 55,
+      "failures": 0
+    },
+    {
+      "suite": "lemon_press_input",
+      "checks": 33,
+      "failures": 0
+    },
+    {
+      "suite": "mail_physics_state_smoke",
+      "checks": 728,
+      "failures": 0
+    },
+    {
+      "suite": "mail_workbench_input_smoke",
+      "checks": 170,
+      "failures": 0
+    },
+    {
+      "suite": "notebook_dialogue_input",
+      "checks": 54,
+      "failures": 0
+    },
+    {
+      "suite": "pointer_window_focus_input",
+      "checks": 15,
+      "failures": 0
+    },
+    {
+      "suite": "postal_desk_live_queue",
+      "checks": 28,
+      "failures": 0
+    },
+    {
+      "suite": "preferences_smoke",
+      "checks": 22,
+      "failures": 0
+    },
+    {
+      "suite": "resolution_slip_smoke",
+      "checks": 75,
+      "failures": 0
+    },
+    {
+      "suite": "scene_dialogue_input_smoke",
+      "checks": 19,
+      "failures": 0
+    },
+    {
+      "suite": "settings_art_edges_input",
+      "checks": 146,
+      "failures": 0
+    },
+    {
+      "suite": "settings_manipulation_input",
+      "checks": 6,
+      "failures": 0
+    },
+    {
+      "suite": "settings_save_failure_input",
+      "checks": 82,
+      "failures": 0
+    },
+    {
+      "suite": "tactile_mail_input",
+      "checks": 86,
+      "failures": 0
+    },
+    {
+      "suite": "water_feedback_input",
+      "checks": 168,
+      "failures": 0
+    },
+    {
+      "suite": "water_field_input",
+      "checks": 24,
+      "failures": 0
+    }
+  ],
+  "window_run": "window-close-20261017-181510",
+  "window_close_reload_checks": 29,
+  "window_close_method": "engine-generated close notification (supplemental; no OS/native input)",
+  "window_close_scope": "Supplemental routed input in an isolated GPU child, then deferred engine-generated close notification through the actual host save/audio-drain path, then fresh-process reload; no OS title-bar/native input or shell UI actuation.",
+  "window_close_evidence": {
+    "method": "engine-generated close notification (supplemental; no OS/native input)",
+    "scope": "Supplemental routed input in an isolated GPU child, then deferred engine-generated close notification through the actual host save/audio-drain path, then fresh-process reload; no OS title-bar/native input or shell UI actuation.",
+    "checks": 29,
+    "input_checks": 14,
+    "reload_checks": 15,
+    "native_os_title_bar_close_pending": true,
+    "human_usability_listening_acceptance": false
+  },
+  "native_os_title_bar_close_pending": true,
+  "python_batches": [
+    {
+      "checks": 28,
+      "failures": 0
+    },
+    {
+      "checks": 3,
+      "failures": 0
+    },
+    {
+      "checks": 3,
+      "failures": 0
+    },
+    {
+      "checks": 5,
+      "failures": 0
+    }
+  ],
+  "package_run": "verify-package-20261017-182018",
+  "package": {
+    "scope": "Actual PCK decoding using the matching editor inspector, then the official release executable GPU boot. Isolated saves; no source game fallback.",
+    "packaged_content_failures": [],
+    "packaged_content_checks": 427,
+    "expected_shader_sha256": {
+      "settings_water": "7f8c1bafab9e1fb3628770ce05090a3788d15c3485278578edb87898c10e0e04",
+      "lemon_companion_water": "4bb28c60f562c08bf0922b06285742e3839dfb7cd663b557f67c9614140ebc5d",
+      "pdf_tape_matte": "ccbbeb568dbcc050efbd9e4a087b1edd92ed11a2b2bdb38c86aae3df40f1f5be",
+      "pdf_color_matte": "5934a0ca842731c794edb536051bc6acf228311d77c1a54cdcd3048b9b83b412"
+    },
+    "pck_sha256": "e1944f1d6f6fb17e02929ba9f51360aac0766ed70dcae7ae009916e38d579c6f",
+    "release_frames_requested": 120,
+    "release_gpu_boot_exit": 0,
+    "packaged_no_focus": false,
+    "observed_shader_sha256": {
+      "lemon_companion_water": "4bb28c60f562c08bf0922b06285742e3839dfb7cd663b557f67c9614140ebc5d",
+      "pdf_color_matte": "5934a0ca842731c794edb536051bc6acf228311d77c1a54cdcd3048b9b83b412",
+      "pdf_tape_matte": "ccbbeb568dbcc050efbd9e4a087b1edd92ed11a2b2bdb38c86aae3df40f1f5be",
+      "settings_water": "7f8c1bafab9e1fb3628770ce05090a3788d15c3485278578edb87898c10e0e04"
+    },
+    "executable_sha256": "d34d36f3be1a6c49c56525ae86469b92e4f417ddf0b43cf00dd80c385c4b0562",
+    "limits": [
+      "No full native input playthrough, visual reference acceptance or audio listening is implied.",
+      "Review stderr logs separately; Windows root certificate store warnings may occur."
+    ]
+  },
+  "movie": {
+    "method": "Actual native 1920x1080 Godot MovieWriter rendering and mixer; annotated automated input, not native mouse footage or human listening",
+    "media": {
+      "file": "C:\\Users\\22416\\Documents\\Codex\\2026-10-01\\github\\work\\100letter-studio-publish\\test-results\\coastal-film-r5\\settings-r5.mp4",
+      "method": "Actual1920x1080 Godot MovieWriter rendering/mixer; same scheduled gesture times. Automated annotated input, not native mouse footage or real-timeFPS or human listening.",
+      "native_dimensions": [
+        1920,
+        1080
+      ],
+      "frames": 1322,
+      "fps": 60,
+      "seconds": 22.033333333333335,
+      "crf": 15,
+      "bytes": 4054531,
+      "nonzero_mix": true,
+      "decoded_mix_peak": 0.27614715695381165,
+      "decoded_mix_rms": 0.013848784379661083,
+      "checked_press_observations": 6,
+      "raw_avi_sha256": "05758986f5f70803c04003609c4069af2422b37cd8c624a5af4de71c61a2f281",
+      "mp4_sha256": "f8f2c2e245e9f190f0ee55105962310cced6a6590635e8512ac19406034bd1ac",
+      "owned_raw_avi_removed_after_validation": true
+    }
+  },
+  "motion_comparison": {
+    "method": "Actual native1920x1080 MovieWriter before/after using the same gesture script and scheduled times; fixed60fps capture, not native mouse footage, measured real-time displayFPS, human listening or user animation acceptance.",
+    "movie_writer_target_fps": 60,
+    "decoded_frames_each": 1322,
+    "gesture_script_sha256_normalized": "f05c55b5e54dba46cfd90dd387bd8d398f513b1b4b3f0d0a7d6e3a43aa11c0b3",
+    "press_observations_each": 6,
+    "actual_checkpoint_proof": {
+      "actual_observations_each": 6,
+      "observation_failures_each": 0,
+      "event_schedule_fps": 24,
+      "rendered_interaction_frames_each": 1320,
+      "ordered_press_release_checkpoints_match": true,
+      "all_input_event_count_recorded": false
+    },
+    "before": {
+      "retained_path": "docs/testing/coastal-settings_20261017-r5/motion-before/before60.mp4",
+      "sha256": "7da29dbad6e113ab6d3b998e7f1eab763190d3309823cf032b41bdb103425100",
+      "media": {
+        "file": "C:\\Users\\22416\\Documents\\Codex\\2026-10-01\\github\\work\\100letter-studio-publish\\test-results\\coastal-motion-before60_20261017\\before60.mp4",
+        "method": "Actual1920x1080 Godot MovieWriter rendering/mixer; same scheduled gesture times. Automated annotated input, not native mouse footage or real-timeFPS or human listening.",
+        "native_dimensions": [
+          1920,
+          1080
+        ],
+        "frames": 1322,
+        "fps": 60,
+        "seconds": 22.033333333333335,
+        "crf": 15,
+        "bytes": 5381101,
+        "nonzero_mix": true,
+        "decoded_mix_peak": 0.32407477498054504,
+        "decoded_mix_rms": 0.016113145276904106,
+        "checked_press_observations": 6,
+        "raw_avi_sha256": "045473cdf7d60cd340c8682e7d92517e7384f2c3d0fa3a38b419f4da957fd89a",
+        "mp4_sha256": "7da29dbad6e113ab6d3b998e7f1eab763190d3309823cf032b41bdb103425100",
+        "owned_raw_avi_removed_after_validation": true
+      },
+      "captured_sources": {
+        "scope": "Actual pre-refinement60fps MovieWriter with same gesture times; not native input or real-timeFPS",
+        "sources": {
+          "scripts/ui/settings_water.gdshader": "d916d3fd11fdeb860f0b08650b69d62fc3aa1d8b35a89075cd2fb3aba569d088",
+          "scripts/ui/water_field.gd": "a099fcdf17c42e60637ae47b1ded11c863754d242c0d7e82a44d73d2ff7eb90f",
+          "scripts/ui/coastal_physics.gd": "dc96e6e7885378783f52c0dafa09b3a3e5d060435d69bc8152d9fee10ff34fac",
+          "scripts/ui/coastal_settings.gd": "7087cbe0084c12b3edb9ead1e2d75e209a367ef5aec5f0127c843c483deec138",
+          "tests/settings_ripple_film.gd": "f05c55b5e54dba46cfd90dd387bd8d398f513b1b4b3f0d0a7d6e3a43aa11c0b3"
+        }
+      }
+    },
+    "after": {
+      "retained_path": "docs/testing/coastal-settings_20261017-r5/settings-demo-1920.mp4",
+      "sha256": "f8f2c2e245e9f190f0ee55105962310cced6a6590635e8512ac19406034bd1ac",
+      "media": {
+        "file": "C:\\Users\\22416\\Documents\\Codex\\2026-10-01\\github\\work\\100letter-studio-publish\\test-results\\coastal-film-r5\\settings-r5.mp4",
+        "method": "Actual1920x1080 Godot MovieWriter rendering/mixer; same scheduled gesture times. Automated annotated input, not native mouse footage or real-timeFPS or human listening.",
+        "native_dimensions": [
+          1920,
+          1080
+        ],
+        "frames": 1322,
+        "fps": 60,
+        "seconds": 22.033333333333335,
+        "crf": 15,
+        "bytes": 4054531,
+        "nonzero_mix": true,
+        "decoded_mix_peak": 0.27614715695381165,
+        "decoded_mix_rms": 0.013848784379661083,
+        "checked_press_observations": 6,
+        "raw_avi_sha256": "05758986f5f70803c04003609c4069af2422b37cd8c624a5af4de71c61a2f281",
+        "mp4_sha256": "f8f2c2e245e9f190f0ee55105962310cced6a6590635e8512ac19406034bd1ac",
+        "owned_raw_avi_removed_after_validation": true
+      }
+    },
+    "real_time_display_fps_verified": false,
+    "human_animation_acceptance": false
+  },
+  "source_sha256_normalized_text": {
+    "assets/audio/settings-music-provenance.json": "5222eec5416944e0ac1479562bc5ddf48ee67a97980e60b06d69b9b1fc98fa83",
+    "assets/faefever_v2/manifest.json": "fbcd26471a4b5beda28b1ecaed070fed97641a0bfd879641748eef2acfb1bc96",
+    "assets/fonts/settings-font-provenance.json": "f4fc97e741cbdaa23d1eb5fbb7db3f8a14e5f0724850ef139e9ab2e36ff48575",
+    "export_presets.cfg": "715f9275d30d4c5eb61823dd69ea7024fe098c2f67a3b4fbf528a61b6a9d2e5d",
+    "project.godot": "b72617cb29cab6d5a50bd1ad052ac5822eade3c9ea1bb2220565f1ef6ea6736d",
+    "scripts/rebuild/field_book.gd": "eef45659799173cf4f42bb7aeffbe5a45ba355a93141e69e04ab720a2d847793",
+    "scripts/rebuild/field_observation.gd": "9c03fa15e1d6ea5fc9f7553a671204e19ac732352548dc2459bea8359adff21b",
+    "scripts/rebuild/final_case_state.gd": "640207716867fe6dda2a0a5eabe7515517788ddbfa4b06cbf31bea1cb6324e72",
+    "scripts/rebuild/final_paper_map.gd": "d4206706d68246071dcedb7345c8831c54b58023721b51fd4713a6a46d165e47",
+    "scripts/rebuild/final_playable.gd": "276f54c9c4df46d1dc8e93ec153c9b4be331073c0acae90f5d2268e287bc2cbc",
+    "scripts/rebuild/final_walker.gd": "0b6093422e52f9a71cbf58e685be932d6c2e3b112499654ba6fd4c538648f16d",
+    "scripts/rebuild/mail_imprint.gd": "cd98861f9cf68f9f3989a07479915ac9343da2219af834dc0ff42fee2ccb7f10",
+    "scripts/rebuild/mail_physics_state.gd": "811cffd97d0fc3206d9729d8f1b77fa399085293a2eca08bfd6604a3473e7cd5",
+    "scripts/rebuild/mail_workbench.gd": "b07b850eb4ea80749e2ea562fd6dd273668706f4b0441473e46e4aa6968a5f7e",
+    "scripts/rebuild/physical_art.gd": "2dd4281d0f514bf2ab8e4a2416920a139e1dec3edda6d09f6fcc1d47350d0f39",
+    "scripts/rebuild/physical_envelope.gd": "1e0ad27a535edef1f06c2d51fc098f1627507350113f91bcf93552c99bb89de9",
+    "scripts/rebuild/postal_desk.gd": "68f2540c80f188a8e365bfb86ee37a757c0f3d4a2bc706e54fb423a5683f9bf9",
+    "scripts/rebuild/resolution_draft_store.gd": "f9a45b82a82e9f703939251057ca6d667602c37560f58b401eb0512f1fa32551",
+    "scripts/rebuild/resolution_slip.gd": "a07f9bd4c6da23b295e8291651ad1e45f38ad852b4faffb189cca4e36144a51f",
+    "scripts/rebuild/scene_dialogue.gd": "072f36959ae78a4fd988b196a6966c247dfd7a891972b2c75d5fb046e8e2a747",
+    "scripts/rebuild/tool_drawer.gd": "c0083b7dd71dea9bca27af63280f8fc8ba46c5d5c3e102d4e17641a028676876",
+    "scripts/ui/attachment_board.gd": "21abfac6994c2cc514660b57f861b04dbf45382130b79f9cd9b1250a31d6a2af",
+    "scripts/ui/audio_feedback.gd": "814d74c02f78e56173720941f9606323b5816ccf6499733cc2b569b70b21cd56",
+    "scripts/ui/chapter_screen.gd": "bdcba4127c5bc2fe9d47c920d66ef286e98eac614e9b5b7dd4aa63b0d2939a6a",
+    "scripts/ui/coastal_physics.gd": "b6aa2cf8474a6d411815ad484e95213ccbd66387fd97b177a171f52b5277af15",
+    "scripts/ui/coastal_settings.gd": "a30bc9ee4442b3c95adbba032c9d4d375848d7fca7cdba74d265b5fabc5b67a0",
+    "scripts/ui/conversation_ribbon.gd": "20b1154f1720a473f8630d3fb3204f7561c048320817f21b9b5cb8f0faf69b87",
+    "scripts/ui/courier_actor.gd": "f202480e65f99b101930c388022d2e482d58b9c10f3d6ebfe11f260c8b39821e",
+    "scripts/ui/daylight.gd": "6c97922e3ed0708ab394f92eac1109126c413e35b5adf1451b19b83b215db40d",
+    "scripts/ui/deduction_board.gd": "35ff965e1546e29760e9dd9a3868d13bb6950c3bb02ab2edfe1875b9999c6bb2",
+    "scripts/ui/field_guidance.gd": "6977329988e048140a3425dcdd91b3d3b5e592fab05dde2e355d086bb1c39923",
+    "scripts/ui/floating_lemon.gd": "c1f3d63a99c19b8a9f6c700bf9b95ffa33f59953b215f4e8b6525f738100e9a6",
+    "scripts/ui/folio_surface.gd": "1b8e8ed13eb71a50480e5e6b396f8d78edae9c1331cc7991d7b9f6b89f974255",
+    "scripts/ui/game_preferences.gd": "1e7990c38940cd6b954e256f01a88ff418848fb2184e2fb2402b46904a12efb4",
+    "scripts/ui/lemon_companion_water.gdshader": "4bb28c60f562c08bf0922b06285742e3839dfb7cd663b557f67c9614140ebc5d",
+    "scripts/ui/lemon_white_matte.gdshader": "b22e28fb1cfbe88d5aff0db0c05d7925f3103f20c2f5f915869aac4dedc5810e",
+    "scripts/ui/letter_insert.gd": "e894fe93d4f89db0cff2d4edc6e1d0e38bfadc60404d21be33f10f063c60d994",
+    "scripts/ui/mail_card.gd": "7478ae2c35c6b03cf9bd6bc6fe9b2bd575002770177cb4141fcf84c09b715fe6",
+    "scripts/ui/map_controller.gd": "1c1a40da588eac759f15428e81fcad39a65c2f6afee9e6826a8a6541d65fb5b8",
+    "scripts/ui/object_button.gd": "28d879803be423f383ac0678e1cc0cd0938da78a2c021251329060cec18184ec",
+    "scripts/ui/paper_ui.gd": "8ed9fcd9d4379c2d1ae3b0038104371f84591d8d7087d6841c309d2f27880dfd",
+    "scripts/ui/pdf_color_matte.gdshader": "5934a0ca842731c794edb536051bc6acf228311d77c1a54cdcd3048b9b83b412",
+    "scripts/ui/pdf_tape_matte.gdshader": "ccbbeb568dbcc050efbd9e4a087b1edd92ed11a2b2bdb38c86aae3df40f1f5be",
+    "scripts/ui/pdf_white_matte.gdshader": "ef40e1ccf9b8f5777e2adde2b735c8160dd5c36f72576c5373bc68fef94e56ae",
+    "scripts/ui/physical_board.gd": "64171bb5017ecf74c1b2f0a24eadea4a3ac35f1ecab13105249d0af2da98283f",
+    "scripts/ui/resident_portrait.gd": "d37300bb7eaa8d697c97630d023f44aafa1ed5a308f9c3822e942a1178ea60c0",
+    "scripts/ui/scene_exit.gd": "91d8ac97e2dafbf516289d16730394c257f55a69c082680f63903779eeb5d7fc",
+    "scripts/ui/scene_props.gd": "4d16a0c8974d4bf636e6ac1aa603e87e445ebc7461bca01b76ab5b5b3b31267d",
+    "scripts/ui/settings_water.gdshader": "7f8c1bafab9e1fb3628770ce05090a3788d15c3485278578edb87898c10e0e04",
+    "scripts/ui/stage_depth.gd": "4000a1da202245c974187e9ac0441144c7f1b8bab8d739577a2369fb55563831",
+    "scripts/ui/stage_layout.gd": "e00754d9c5a464ba7b483415f0b7a601293b68080dba91b67905b42fc9f872aa",
+    "scripts/ui/stage_walker.gd": "8b08d8a202100a586f3299b2343bff6a5568c0cbcb0be95dfdd93dbb702b5488",
+    "scripts/ui/visual_evidence.gd": "b494a3f1161fef80c285d60413942bf20e83cb6ca18aae4d62bbf2a7b5a032f7",
+    "scripts/ui/water_field.gd": "674bcb22341ef21eb6225d87f980a37058fe77e301abbe607e8da27537e9affb",
+    "scripts/ui/workbench_surface.gd": "2e9a32055edc457bcb09f3b913fcbd3f1826708be86f901257be936c14a95246",
+    "tests/actor_depth_smoke.gd": "a4c487c3bd58e26a13f07a243424d310b011f675757b6d5ed3a47d37769f8105",
+    "tests/attachment_smoke.gd": "0033dad1d6f01711f62cfac74d5f088d74035caac1452cc5d179c93fb204a638",
+    "tests/audio_settings_smoke.gd": "5c4c6781609ddbf5c01c27b7fa36bb2823601db6907a926373e0e05d3ea93f08",
+    "tests/audio_shutdown_input.gd": "8c3b851987ed9a078806909f1e7437d7695f8546726784f9bd261d2a252de26f",
+    "tests/audio_smoke.gd": "3bd45ebe2b2d775b946d766e0cc96db3d4767074d1d5ffb7be9420b0346a6210",
+    "tests/coastal_layout_input.gd": "681aaa5344a7f533a6540367121ba512d4f43a88bff3e41eb3ea8eca1c1bad86",
+    "tests/coastal_physics_input.gd": "e8f675a462450ec4e4f2efd1b5203b481614eb4d75ad337ebb69682b8988eb88",
+    "tests/coastal_settings_input.gd": "14f2bf1f2bca24a469f5163647df34dc19b05cf06de76e22a9d684369ce7ee3d",
+    "tests/cohort_smoke.gd": "d4455e76014287624e52777d3cabbf0a5a55e477c5fe179e8203eb7a0af5e3b0",
+    "tests/core_review_input.gd": "2ad2728bb815f74668e288b590dbd559e8e7af0e2b1436365c387ce1beb5d77c",
+    "tests/core_smoke.gd": "fb96e5bf064b7d06ead7e1be6b1503235eb5fbec45735ae2ed719729d427e219",
+    "tests/counter_caption_smoke.gd": "feb47440679ed0e05e30556f3ca525ff09095c58fceda92f5b9a716be72e1e02",
+    "tests/counter_onboarding_input.gd": "28c6672b9eb05686c36ac3e0c363abb0336a67f1b05cb6d03fcc56fbdba748de",
+    "tests/courier_visual_probe.gd": "97dd71271a8a355cebeba2d29dabbca3e78776a491b1315685597aaf8bf44668",
+    "tests/daylight_smoke.gd": "99dd3506146050c362068d9426e3d2b0abb76bda2ba4e387e57838edf0773c2d",
+    "tests/deduction_smoke.gd": "e2d3027a482ab96312f26e8f78747e4aaee8ddf15358738ac2851f5272ed2e2e",
+    "tests/display_preferences_input.gd": "826030e8c763d9b81e83960e5fa21655df355425bf9060c63833fee9df68a01a",
+    "tests/envelope_text_bounds_smoke.gd": "f6e612cc9ff035a77c89ccc88b2ee451ecd40ecfc7794d2d0fe3208aa99dc361",
+    "tests/field_book_smoke.gd": "ea70d198fdd89504635b4fbe10ad1f3799c1b03a9b6de7250353863d489fdaa0",
+    "tests/field_guidance_smoke.gd": "81961c76f6bce48928b8e5aa672b8def75c30897218c0f4a88ae41debe1db604",
+    "tests/field_observation_smoke.gd": "9c96255214d6195a6f4a2f92773541f344d144bca360e36b30deaa39710b3399",
+    "tests/final_amended_handoff_input.gd": "1eedae50bbd58c8ee84ce1fc4428684996f5eac15ee0d9f91ffdcdaa5c505898",
+    "tests/final_case_state_smoke.gd": "76b7651d0108b3b69b2b6b5c210aeff0a81a4747973f26bb8c5af6cb1dcf66b9",
+    "tests/final_five_case_input.gd": "46dcce60c9d11bc33ee33ae8d8980da86970818c3668f756ddb27e3c20ad21bc",
+    "tests/final_host_boundary_smoke.gd": "8fd27a8c2be583a9a1302ca95865f4253ca49294d08e3c136a119a5c227e2c2e",
+    "tests/final_playable_input_smoke.gd": "0358942d277f31d2bae60afcb7a53b9256c5426985fa88897be0d96b01b322ed",
+    "tests/final_resolution_draft_smoke.gd": "1aff4633936365b1d0e01b3d2f1eb43ee29f3f86ea93560d2925701c34e60e92",
+    "tests/final_walker_smoke.gd": "a541ebd2a3e8f6676eddf69adf70efcd49500f1a7e55aef55db1ffad852a4101",
+    "tests/final_window_close_input.gd": "9b6bc8e3c0b8f5b97220b69b1032a43c9b0e25e2e49e986826f0fd484f5da814",
+    "tests/game_identity_input.gd": "a751af510655c4936960c9d2e13a75ba2248878ac8a97661cdafd94c01bab72e",
+    "tests/lemon_companion_input.gd": "5587805baf4eb6737a39316166516f97d742407d3b3c60c7499ffd17caef4832",
+    "tests/lemon_matte_render.gd": "7c7bdeac9b8ba3e9c3bbad11cc25500537ba5450a30041a8c9b657d60bccb8b4",
+    "tests/lemon_press_gui_input.gd": "e34479c0de7dbf1644cd8a1c2596fd585f0230a555f5abdd84c43756f233798e",
+    "tests/lemon_press_input.gd": "347e9c198d2012ee9052a8aeb779f0a0c54b9e2473129683ef0a4d72583f681f",
+    "tests/letter_ui_smoke.gd": "8a1d41296a3d6aa29a4cd33fca0ea7af769104c33a829dfb4f333fe69516efd3",
+    "tests/mail_physics_state_smoke.gd": "01aebd103138573ec6e694a95dc00f17d6e51a004acf6e689375ea46ac213640",
+    "tests/mail_workbench_input_smoke.gd": "de29b66b2aeca76689d44ffccff81012e131b8793cd048227c2d035a184d7bc3",
+    "tests/notebook_dialogue_input.gd": "e2cfdc37c7ba91b8fdf9e663c5c1cb8b405cf941805e00be0d4398720222f26b",
+    "tests/packaged_content_smoke.gd": "4873fe5726ad25fb17fa53da686c54263f591d63d825e49aec9029ec6488fcdf",
+    "tests/physical_smoke.gd": "96aba1bcb8f59763a077a0e36e5030013e182972f4d8ed6dca1b388d36126f71",
+    "tests/pointer_window_focus_input.gd": "382e71818255caba1995cfe982e6fdae475d32901451bff0aac26cefb23f9b46",
+    "tests/postal_desk_live_queue.gd": "f1abed733b62b9b0dfc139c9f3e5cb0bb86a3050a06eec08bd22e7f69b779660",
+    "tests/preferences_smoke.gd": "369e0e7df116ff0c09d446f7356137c6f3f78c6c794c4f5a7e27a795d9b80d49",
+    "tests/resolution_slip_smoke.gd": "9acfc81197b7bbcdf381ccea3225f952b66b165ad8bd3f921acd117c96256ca9",
+    "tests/scene_dialogue_input_smoke.gd": "d13c868d6b37d190be88b8f8f49126bfbccd4a30eb88ebf1ad12fd01272459ca",
+    "tests/scene_exit_smoke.gd": "044dd134f518a6060b7df72cf3aeafeebb48beeccfe7fb76c2355b868edb1bc7",
+    "tests/settings_art_edges_input.gd": "ebd5e3f60fc2e979f6316a2bdea0e847b1d01e6b14d31c2f4fd6e0c0639861e1",
+    "tests/settings_manipulation_input.gd": "577a8d11420ad5b7c71e117133a86a49ac150eb9dca69c76b2fd6b1f06903fe5",
+    "tests/settings_ripple_film.gd": "f05c55b5e54dba46cfd90dd387bd8d398f513b1b4b3f0d0a7d6e3a43aa11c0b3",
+    "tests/settings_save_failure_input.gd": "5725fbf6b714e823f2182a337ff8b96a8d16eb8c2ba5df190e5e5815a7079ae5",
+    "tests/tactile_mail_input.gd": "ab92d73ac8ba616ed8bb0e75d2f6722d1afee22f61c49330d65ae9afb07fc063",
+    "tests/transport_smoke.gd": "d87beedc6d272f7a947af35668c9d85fe055427aadd9e2a2003cfb00445a33ed",
+    "tests/ui_flow_smoke.gd": "a025eb5e369b2c2e6584e753c5e552268b35c1e02a9392d2f79f7e772e2ca86f",
+    "tests/visual_evidence_smoke.gd": "0fa2cfe6304f850b707482cd08a62e8c37025e4dac4230b8a3455bfd0b622b60",
+    "tests/walker_smoke.gd": "4efdb1e16c5e3f27e79d1b11cf0e0eec7fdb4ae79cc8c103e34986c42ce43270",
+    "tests/water_feedback_input.gd": "a886e617d9e4f45f75bdf716299149537701d9d6813cc6543873eefc7db98293",
+    "tests/water_field_input.gd": "35d2278993f5b5c75ec0bf78441e2d8b48d9a5189752d590e8db6711b8e7cdab",
+    "tools/build.ps1": "2842cd4f3aaf7e450ac8c65019eb625208ef20ad13d09c53a44cd43654476dc3",
+    "tools/check.ps1": "e07af9b28111a723c9ae8b200fe3a7df8a20ba8046733b5f6a7d795cada91a62",
+    "tools/test_window_close.ps1": "63539cbb0784a26bff9d4bf61d0c09ad28d8e142c3daa0cd1397148488f1dc3f",
+    "tools/verify_package.ps1": "88f5403cea4a6294941709213af828bfb04569fe40b5b2130d2e8a8afb4ca98a"
+  },
+  "artifacts": [
+    {
+      "path": "docs/testing/coastal-settings_20261017-r5/build/export-audit.json",
+      "sha256": "66875ec0e716630ea0a54b1fba1946e623ed72bf41af625cf107034eac1be0a8"
+    },
+    {
+      "path": "docs/testing/coastal-settings_20261017-r5/build/export-audit.log",
+      "sha256": "249c71df4fff2df36893351da611d3efb0ef005518708d9cc262a2970de2a870"
+    },
+    {
+      "path": "docs/testing/coastal-settings_20261017-r5/build/export-pck.log",
+      "sha256": "d2ce54f094a739291e7163dffe2862df2e8aad9c9b699aa99498bece985dda7f"
+    },
+    {
+      "path": "docs/testing/coastal-settings_20261017-r5/build/import.log",
+      "sha256": "703526679d4f04b24747f5ec7b1754ee6e6fe3d5bc329d764a2e6194ca90d0d1"
+    },
+    {
+      "path": "docs/testing/coastal-settings_20261017-r5/earlier-rounds/check-20261017-170719/display_preferences_input.log",
+      "sha256": "39d795cbdbc9bddeb39c416442cf423d98114ed804462eb415a3554a904a8c1d"
+    },
+    {
+      "path": "docs/testing/coastal-settings_20261017-r5/earlier-rounds/check-20261017-170719/envelope_text_bounds_smoke.log",
+      "sha256": "4a14c39efe0c00c09ebaa7a798eea9497cb857ae14aae26ad87e17c98f8822d5"
+    },
+    {
+      "path": "docs/testing/coastal-settings_20261017-r5/earlier-rounds/check-20261017-170719/final_case_state_smoke.log",
+      "sha256": "1d415096141938b58a453044776fbde6d3ba77897bca6fdd0f13bc52745f3c2a"
+    },
+    {
+      "path": "docs/testing/coastal-settings_20261017-r5/earlier-rounds/check-20261017-170719/final_walker_smoke.log",
+      "sha256": "9cb9a3ad498610b51487c90bacde5da7414a9a6d7f27f2c9939b613e493ba998"
+    },
+    {
+      "path": "docs/testing/coastal-settings_20261017-r5/earlier-rounds/check-20261017-170719/import.log",
+      "sha256": "7b1de145c2a3aa3efdb5b8edb7cd9f2db8254ca15c2a2f051087ed0511418c0a"
+    },
+    {
+      "path": "docs/testing/coastal-settings_20261017-r5/earlier-rounds/check-20261017-170719/mail_physics_state_smoke.log",
+      "sha256": "75cee30ca671f8085b6b733c543df8999bf335b19e050f73c834d057c478245b"
+    },
+    {
+      "path": "docs/testing/coastal-settings_20261017-r5/earlier-rounds/check-20261017-170719/postal_desk_live_queue.log",
+      "sha256": "2d890813e2b3c8cd4b33b94d08d286609657c80ef6ba809a3ebaa74d00b21ee8"
+    },
+    {
+      "path": "docs/testing/coastal-settings_20261017-r5/earlier-rounds/check-20261017-170719/preferences_smoke.log",
+      "sha256": "c9c24fd4f06a6ebc8bffa55f43826577d0b48b0e0c441479dbdd79a5b0e531fe"
+    },
+    {
+      "path": "docs/testing/coastal-settings_20261017-r5/earlier-rounds/check-20261017-170719/scene_dialogue_input_smoke.log",
+      "sha256": "8484f90784adce7ab17276b09ac8819a764e50e2bbf925c70563102258fcfdb7"
+    },
+    {
+      "path": "docs/testing/coastal-settings_20261017-r5/earlier-rounds/coastal-focus-20261017-171727/display_preferences_input.log",
+      "sha256": "dd0b8c323eac16fd7aa2d88ea78d962104f1786fa67afc9e67928416b2504601"
+    },
+    {
+      "path": "docs/testing/coastal-settings_20261017-r5/earlier-rounds/coastal-focus-20261017-171727/import.log",
+      "sha256": "96ce36feb6f99165ebd3ab8da7c17a103e0af01aa9745e588f4149130c46e093"
+    },
+    {
+      "path": "docs/testing/coastal-settings_20261017-r5/earlier-rounds/lemon-companion_failed-165249_20261017/baseline_1920.png",
+      "sha256": "06d5d61b0987ccda1c2dd8fb74b07f9d4272baa828fb99f671bfb6dc234b14e6"
+    },
+    {
+      "path": "docs/testing/coastal-settings_20261017-r5/earlier-rounds/lemon-companion_failed-165249_20261017/click_pulse_1920.png",
+      "sha256": "4db4eb4dca23e763f3c181961030f5c1af5b2b10a32567c094c9b897941a09d3"
+    },
+    {
+      "path": "docs/testing/coastal-settings_20261017-r5/earlier-rounds/lemon-companion_failed-165249_20261017/diagnostic_both_plus80px_1920.png",
+      "sha256": "ab94864c620091bac3473a5d3543acb23aa114a142dd11f4a4b139831cc11695"
+    },
+    {
+      "path": "docs/testing/coastal-settings_20261017-r5/earlier-rounds/lemon-companion_failed-165249_20261017/diagnostic_small_plus80px_1920.png",
+      "sha256": "3c51b6b85763981aa635552f49d830864a19654bd790e09641f883b7855edd3d"
+    },
+    {
+      "path": "docs/testing/coastal-settings_20261017-r5/earlier-rounds/lemon-companion_failed-165249_20261017/fast_directional_skim_1920.png",
+      "sha256": "4eb1699ff993d87b3fe88dd6cf7e6418760864f1e4206bc047c3bc384e559904"
+    },
+    {
+      "path": "docs/testing/coastal-settings_20261017-r5/earlier-rounds/lemon-companion_failed-165249_20261017/held_directional_wake_1920.png",
+      "sha256": "6610045d73ddca54c5e87f475479c6600ac00e8818a1c9e65ea9a8e1631a2c2c"
+    },
+    {
+      "path": "docs/testing/coastal-settings_20261017-r5/earlier-rounds/lemon-companion_failed-165249_20261017/normal_before_press_1920.png",
+      "sha256": "06d5d61b0987ccda1c2dd8fb74b07f9d4272baa828fb99f671bfb6dc234b14e6"
+    },
+    {
+      "path": "docs/testing/coastal-settings_20261017-r5/earlier-rounds/lemon-companion_failed-165249_20261017/normal_pressed_1920.png",
+      "sha256": "513a1f98791c2cbb251e7c0cb157616ec5c15f640efbc55f204847d07f56611a"
+    },
+    {
+      "path": "docs/testing/coastal-settings_20261017-r5/earlier-rounds/lemon-companion_failed-165249_20261017/normal_release_1920.png",
+      "sha256": "8252a9b6eab0be98de4fbcb6a4ea53ef680ae9205af5981e0d4867472b5d201a"
+    },
+    {
+      "path": "docs/testing/coastal-settings_20261017-r5/earlier-rounds/lemon-companion_failed-165249_20261017/normal_water_push_1920.png",
+      "sha256": "47eb1c73f7dae2a01a012ba85932839f0d2ccb77c2d00f0d02d919e934259e88"
+    },
+    {
+      "path": "docs/testing/coastal-settings_20261017-r5/earlier-rounds/lemon-companion_failed-165249_20261017/result.json",
+      "sha256": "e5746ae6b1cddfe43030507057a110c8a595d264aa510c92e0132f828ddfe657"
+    },
+    {
+      "path": "docs/testing/coastal-settings_20261017-r5/earlier-rounds/lemon-companion_failed-170023_20261017/baseline_1920.png",
+      "sha256": "63632f383901cdffdd52644b8d3aa0dbc48d18a30d7385fbe52cb18807d2ec61"
+    },
+    {
+      "path": "docs/testing/coastal-settings_20261017-r5/earlier-rounds/lemon-companion_failed-170023_20261017/click_pulse_1920.png",
+      "sha256": "3448ebc9a67b13016260e4d3b1b9df19a2c663831cd5c3fd29562e435c3bc8a4"
+    },
+    {
+      "path": "docs/testing/coastal-settings_20261017-r5/earlier-rounds/lemon-companion_failed-170023_20261017/diagnostic_both_plus80px_1920.png",
+      "sha256": "b23267ebb7ed9755c9d8c94aa0475bc7015a92b607a9017b1c3c5ad94772b535"
+    },
+    {
+      "path": "docs/testing/coastal-settings_20261017-r5/earlier-rounds/lemon-companion_failed-170023_20261017/diagnostic_small_plus80px_1920.png",
+      "sha256": "63632f383901cdffdd52644b8d3aa0dbc48d18a30d7385fbe52cb18807d2ec61"
+    },
+    {
+      "path": "docs/testing/coastal-settings_20261017-r5/earlier-rounds/lemon-companion_failed-170023_20261017/fast_directional_skim_1920.png",
+      "sha256": "79c9f8b088ac7a5e286a7170877882d93a7673f7b00051b70df7d5e190e78adb"
+    },
+    {
+      "path": "docs/testing/coastal-settings_20261017-r5/earlier-rounds/lemon-companion_failed-170023_20261017/held_directional_wake_1920.png",
+      "sha256": "62178c6c012c6f042926e6191682b627436d203ab32cbb3f02eb85bf1104e2e7"
+    },
+    {
+      "path": "docs/testing/coastal-settings_20261017-r5/earlier-rounds/lemon-companion_failed-170023_20261017/normal_before_press_1920.png",
+      "sha256": "63632f383901cdffdd52644b8d3aa0dbc48d18a30d7385fbe52cb18807d2ec61"
+    },
+    {
+      "path": "docs/testing/coastal-settings_20261017-r5/earlier-rounds/lemon-companion_failed-170023_20261017/normal_pressed_1920.png",
+      "sha256": "734abe050a4da4f80940cfaf085bf731694e8e10d10251ac128d1a23b8c6e79c"
+    },
+    {
+      "path": "docs/testing/coastal-settings_20261017-r5/earlier-rounds/lemon-companion_failed-170023_20261017/normal_release_1920.png",
+      "sha256": "9ca36d300e0e55922082926ff815157786c800eb935a9efaef93746aef643ae3"
+    },
+    {
+      "path": "docs/testing/coastal-settings_20261017-r5/earlier-rounds/lemon-companion_failed-170023_20261017/normal_water_push_1920.png",
+      "sha256": "3eeba9c5fcb49f76bb3956257f3af096ae41ffb053362abb4f1b633d699a26e5"
+    },
+    {
+      "path": "docs/testing/coastal-settings_20261017-r5/earlier-rounds/lemon-companion_failed-170023_20261017/result.json",
+      "sha256": "461920a510946f2e7c4f25a75b5f47cb1106d0023b9080dc2e905cc74074d169"
+    },
+    {
+      "path": "docs/testing/coastal-settings_20261017-r5/earlier-rounds/water-feedback_failed-174033_20261017/click_1920.png",
+      "sha256": "e772f5857a4ee00d0299859869f652678adcfc611c52bd3f82a86551bcd51e86"
+    },
+    {
+      "path": "docs/testing/coastal-settings_20261017-r5/earlier-rounds/water-feedback_failed-174033_20261017/held_fast_wake_1920.png",
+      "sha256": "46034334ed93985bb66984a96fa6f32a0fb58653862699a24321af0d160e5527"
+    },
+    {
+      "path": "docs/testing/coastal-settings_20261017-r5/earlier-rounds/water-feedback_failed-174033_20261017/home_1920.png",
+      "sha256": "20447146f1ce8a169c0f212b5db2044ebc84def35abb6514dfdbc95eb9703437"
+    },
+    {
+      "path": "docs/testing/coastal-settings_20261017-r5/earlier-rounds/water-feedback_failed-174033_20261017/result.json",
+      "sha256": "046c176708fa476d8ec392eb569a10cd8453579c80a3c66cf458a5fb722b586f"
+    },
+    {
+      "path": "docs/testing/coastal-settings_20261017-r5/earlier-rounds/water-feedback_failed-174033_20261017/wake_home_1920.png",
+      "sha256": "20447146f1ce8a169c0f212b5db2044ebc84def35abb6514dfdbc95eb9703437"
+    },
+    {
+      "path": "docs/testing/coastal-settings_20261017-r5/engine/amended_handoff.log",
+      "sha256": "8b057c783f1e783818684cfb4201846ee873930e71468661e14e3330907784e9"
+    },
+    {
+      "path": "docs/testing/coastal-settings_20261017-r5/engine/audio_shutdown_input.log",
+      "sha256": "8aefe77e8fd656b207d5d97122007085d056cbcce4bd19d7da2b9d298e0ff021"
+    },
+    {
+      "path": "docs/testing/coastal-settings_20261017-r5/engine/coastal_layout_input.log",
+      "sha256": "1d58b27e994cb7aaefb0b74116b20eb3743f6ca97f6ab247a65b0bc3def006fc"
+    },
+    {
+      "path": "docs/testing/coastal-settings_20261017-r5/engine/coastal_physics_input.log",
+      "sha256": "9173ee7fa26210de884b260121d7154110922fad12e5f66ea136b0eeffc2926b"
+    },
+    {
+      "path": "docs/testing/coastal-settings_20261017-r5/engine/coastal_settings_input.log",
+      "sha256": "b8bc633a01a72048be14c238befc361d657eeb3895d0c48b25ef9f3961033675"
+    },
+    {
+      "path": "docs/testing/coastal-settings_20261017-r5/engine/core_review_input.log",
+      "sha256": "8e084ee95d4c4cef5ad2e32250cdd9a72b2e3af4336adffa4bc98e0cf7ec419d"
+    },
+    {
+      "path": "docs/testing/coastal-settings_20261017-r5/engine/counter_onboarding_input.log",
+      "sha256": "19dcf34e06416eb12d4c916229938b4a4781d6700f120011df4c463e2e4cd56d"
+    },
+    {
+      "path": "docs/testing/coastal-settings_20261017-r5/engine/display_preferences_input.log",
+      "sha256": "e13865aea3bab818bce131c977d29f284e488778483ddea9eeec77bf739766f5"
+    },
+    {
+      "path": "docs/testing/coastal-settings_20261017-r5/engine/envelope_text_bounds_smoke.log",
+      "sha256": "4a14c39efe0c00c09ebaa7a798eea9497cb857ae14aae26ad87e17c98f8822d5"
+    },
+    {
+      "path": "docs/testing/coastal-settings_20261017-r5/engine/field_book_smoke.log",
+      "sha256": "e40ff99b59ac88fe5a91aa89734494b5c6b8ffa6aab6d8b58f739db2af056c67"
+    },
+    {
+      "path": "docs/testing/coastal-settings_20261017-r5/engine/field_observation_smoke.log",
+      "sha256": "811933eb6ac0f2e96079a59a49cc257e920c2ec745e35f6de67621c899a22d82"
+    },
+    {
+      "path": "docs/testing/coastal-settings_20261017-r5/engine/final_case_state_smoke.log",
+      "sha256": "1d415096141938b58a453044776fbde6d3ba77897bca6fdd0f13bc52745f3c2a"
+    },
+    {
+      "path": "docs/testing/coastal-settings_20261017-r5/engine/final_host_boundary_smoke.log",
+      "sha256": "7522268ae5c9f28b9f9dabb46a3425de68aecd05e69d4e6e24cfc9d53c72198c"
+    },
+    {
+      "path": "docs/testing/coastal-settings_20261017-r5/engine/final_resolution_draft_smoke.log",
+      "sha256": "b59576f9818c04f4d3b41442b33339c38e06d2e43874c41bf27b5f92f0ad6d50"
+    },
+    {
+      "path": "docs/testing/coastal-settings_20261017-r5/engine/final_walker_smoke.log",
+      "sha256": "9cb9a3ad498610b51487c90bacde5da7414a9a6d7f27f2c9939b613e493ba998"
+    },
+    {
+      "path": "docs/testing/coastal-settings_20261017-r5/engine/five_case_delegate.log",
+      "sha256": "b8da284233d4db2345a6cf45cbf7d62639006b18f8daba3c2883bc81286174ae"
+    },
+    {
+      "path": "docs/testing/coastal-settings_20261017-r5/engine/five_case_sealed.log",
+      "sha256": "967e7da847ad5e49df2dffb6f6a1567b3edd9bc9c21f8622bb06417d854aebc0"
+    },
+    {
+      "path": "docs/testing/coastal-settings_20261017-r5/engine/game_identity_input.log",
+      "sha256": "2d58334e94f7d283f5301519ae49a8693a8e242f6306a18a49f3214f46a17959"
+    },
+    {
+      "path": "docs/testing/coastal-settings_20261017-r5/engine/import.log",
+      "sha256": "96ce36feb6f99165ebd3ab8da7c17a103e0af01aa9745e588f4149130c46e093"
+    },
+    {
+      "path": "docs/testing/coastal-settings_20261017-r5/engine/lemon_companion_input.log",
+      "sha256": "a1c1ddf7ab44b28753956c4459d3b83a38ce6809320a1454dcc0f0bf1aab6c5d"
+    },
+    {
+      "path": "docs/testing/coastal-settings_20261017-r5/engine/lemon_matte_render.log",
+      "sha256": "4565938770699ba375f1be6f2c5a2860d493b7608b0c32fb51e7177ad3bbcb9d"
+    },
+    {
+      "path": "docs/testing/coastal-settings_20261017-r5/engine/lemon_press_gui_input.log",
+      "sha256": "730ce85fcef97e1a9f910998de45ee8fc5b7f9cc6b5f4308722eb8578fc345db"
+    },
+    {
+      "path": "docs/testing/coastal-settings_20261017-r5/engine/lemon_press_input.log",
+      "sha256": "4bdaf2b964cc0cc4707dfefaaec6b7f04115d9e4143174e0a80a307553bcd79e"
+    },
+    {
+      "path": "docs/testing/coastal-settings_20261017-r5/engine/mail_physics_state_smoke.log",
+      "sha256": "75cee30ca671f8085b6b733c543df8999bf335b19e050f73c834d057c478245b"
+    },
+    {
+      "path": "docs/testing/coastal-settings_20261017-r5/engine/mail_workbench_input_smoke.log",
+      "sha256": "44cd4cf8c44d5616b195df2faa926f3620c3ee16d3d7c30e0fcb5b661134e855"
+    },
+    {
+      "path": "docs/testing/coastal-settings_20261017-r5/engine/notebook_dialogue_input.log",
+      "sha256": "4348511a1424ee508f4d67bee85e35bafb29c9df228d65fd762896e79cd798c3"
+    },
+    {
+      "path": "docs/testing/coastal-settings_20261017-r5/engine/pointer_window_focus_input.log",
+      "sha256": "cb836195c2206d1ebfde8bb3706cbe106cf6da01830071122fc054e134b9230e"
+    },
+    {
+      "path": "docs/testing/coastal-settings_20261017-r5/engine/postal_desk_live_queue.log",
+      "sha256": "2d890813e2b3c8cd4b33b94d08d286609657c80ef6ba809a3ebaa74d00b21ee8"
+    },
+    {
+      "path": "docs/testing/coastal-settings_20261017-r5/engine/preferences_smoke.log",
+      "sha256": "c9c24fd4f06a6ebc8bffa55f43826577d0b48b0e0c441479dbdd79a5b0e531fe"
+    },
+    {
+      "path": "docs/testing/coastal-settings_20261017-r5/engine/resolution_slip_smoke.log",
+      "sha256": "f76170808408518a2a72ef54209151855b29b923bb50c79e34f5c85a6f5ff33a"
+    },
+    {
+      "path": "docs/testing/coastal-settings_20261017-r5/engine/scene_dialogue_input_smoke.log",
+      "sha256": "8484f90784adce7ab17276b09ac8819a764e50e2bbf925c70563102258fcfdb7"
+    },
+    {
+      "path": "docs/testing/coastal-settings_20261017-r5/engine/settings_art_edges_input.log",
+      "sha256": "c38cc6a067cc2241e94e450411ec59c115225b453c4e534137ec978ad04ab27c"
+    },
+    {
+      "path": "docs/testing/coastal-settings_20261017-r5/engine/settings_manipulation_input.log",
+      "sha256": "5680f49ed1cb6bdcc98c6cac2edd1089b24b498d41d6f68ee15f41ecc24a619a"
+    },
+    {
+      "path": "docs/testing/coastal-settings_20261017-r5/engine/settings_save_failure_input.log",
+      "sha256": "ce06af2e754c4b4ca5d2de7532a21a7bb8e4583a8c96a46df483c200916977cc"
+    },
+    {
+      "path": "docs/testing/coastal-settings_20261017-r5/engine/tactile_mail_input.log",
+      "sha256": "5f165212d859ce1ac63cf144d70e5152234a0f37e5a963ffce824b1eed54f067"
+    },
+    {
+      "path": "docs/testing/coastal-settings_20261017-r5/engine/water_feedback_input.log",
+      "sha256": "321b0e941b1da48e78ce3634ff81112ddf56b8d557163364d64d863d967c6137"
+    },
+    {
+      "path": "docs/testing/coastal-settings_20261017-r5/engine/water_field_input.log",
+      "sha256": "a4b44f704514c77d961a5e310fa927c44a89d0cbcaa8f155d396bcd8a61a12d6"
+    },
+    {
+      "path": "docs/testing/coastal-settings_20261017-r5/extra/01-coastal-layout_20261017/en_1280.png",
+      "sha256": "efdf300fca81630a9a32b42a0a213d19c2a7e555496250bfc0f7857e521855d6"
+    },
+    {
+      "path": "docs/testing/coastal-settings_20261017-r5/extra/01-coastal-layout_20261017/en_1920.png",
+      "sha256": "d5bbb2ebed99566cda6e9f358be22e39f3b9473476b61a128e7096447e266199"
+    },
+    {
+      "path": "docs/testing/coastal-settings_20261017-r5/extra/01-coastal-layout_20261017/en_2560.png",
+      "sha256": "ec8a6e0543f28dd670e609edf5dc5bc99a5a6b59c7c036749f694de857312d8d"
+    },
+    {
+      "path": "docs/testing/coastal-settings_20261017-r5/extra/01-coastal-layout_20261017/en_dropdown_display_mode_1920.png",
+      "sha256": "bfe39a34d1556f7375d82d853552966b5b40f1b04df52b769c60456b71cef274"
+    },
+    {
+      "path": "docs/testing/coastal-settings_20261017-r5/extra/01-coastal-layout_20261017/en_dropdown_language_1920.png",
+      "sha256": "2443f59002e64c6c92bc3de1cbde7fbdcaf1cef25a13c0ec45eaa4ebb45daf77"
+    },
+    {
+      "path": "docs/testing/coastal-settings_20261017-r5/extra/01-coastal-layout_20261017/en_dropdown_resolution_1920.png",
+      "sha256": "5d970caa012787059ae1264ecbd5ee51067ba400a1ab585b9dc2364b1679e761"
+    },
+    {
+      "path": "docs/testing/coastal-settings_20261017-r5/extra/01-coastal-layout_20261017/en_dropdown_text_speed_1920.png",
+      "sha256": "0eae550c69581943e07e2ddaedf3284065724896134d2ef02b67a9d0b0bdb188"
+    },
+    {
+      "path": "docs/testing/coastal-settings_20261017-r5/extra/01-coastal-layout_20261017/result.json",
+      "sha256": "ccd7c67d7d8576c631229a4b550474a6910dbca73f6da0a65c2e599760b8c40e"
+    },
+    {
+      "path": "docs/testing/coastal-settings_20261017-r5/extra/01-coastal-layout_20261017/zh_1280.png",
+      "sha256": "965710510640e572201ce2c041c02c8000d3b1558e6ff2dd2bbc3ec7184294f4"
+    },
+    {
+      "path": "docs/testing/coastal-settings_20261017-r5/extra/01-coastal-layout_20261017/zh_1920.png",
+      "sha256": "20447146f1ce8a169c0f212b5db2044ebc84def35abb6514dfdbc95eb9703437"
+    },
+    {
+      "path": "docs/testing/coastal-settings_20261017-r5/extra/01-coastal-layout_20261017/zh_2560.png",
+      "sha256": "67b3e538d0326952498c513440885e2dbd02b0589329c8f8367765b88bd4b8e9"
+    },
+    {
+      "path": "docs/testing/coastal-settings_20261017-r5/extra/01-coastal-layout_20261017/zh_dropdown_display_mode_1920.png",
+      "sha256": "554432f8d7532fdd9ace268da8692fb82686ac3bf2247ab0fcf61de096883578"
+    },
+    {
+      "path": "docs/testing/coastal-settings_20261017-r5/extra/01-coastal-layout_20261017/zh_dropdown_language_1920.png",
+      "sha256": "02ca8d51b27fe9800709bb80047c1602a0bf71546fa06b4040b1a142b2dc7d58"
+    },
+    {
+      "path": "docs/testing/coastal-settings_20261017-r5/extra/01-coastal-layout_20261017/zh_dropdown_resolution_1920.png",
+      "sha256": "e45fba3e0c8b925d5cb28e29deb058407a233c289efe474ebc8e0fa20067d08e"
+    },
+    {
+      "path": "docs/testing/coastal-settings_20261017-r5/extra/01-coastal-layout_20261017/zh_dropdown_text_speed_1920.png",
+      "sha256": "1c77bcb6a63f0c68355c9a766a03b369b41396af2aa300cfd091ea890e9e4fcc"
+    },
+    {
+      "path": "docs/testing/coastal-settings_20261017-r5/extra/02-game-identity_20261017/cover_1920.png",
+      "sha256": "be2cf54ab222b021dd43d742393385fdd2338354b44c0ec4e76269edc52537a7"
+    },
+    {
+      "path": "docs/testing/coastal-settings_20261017-r5/extra/02-game-identity_20261017/result.json",
+      "sha256": "f531fa2c403b9f8004670ca5f051a304da708018e60b4c0d5df41bea4b5d256e"
+    },
+    {
+      "path": "docs/testing/coastal-settings_20261017-r5/extra/03-settings-save-failure_20261017/en_error_after_rebuild_1920.png",
+      "sha256": "f62f237dec90ae0e97d0da3af8f71ef4091ee2cd5f2b505b9ce01b522fe5dc6f"
+    },
+    {
+      "path": "docs/testing/coastal-settings_20261017-r5/extra/03-settings-save-failure_20261017/result.json",
+      "sha256": "a2b6210281619723ab90e0397f0cd5759f39242081158d028a40a12e69fa74d3"
+    },
+    {
+      "path": "docs/testing/coastal-settings_20261017-r5/extra/03-settings-save-failure_20261017/zh_error_1920.png",
+      "sha256": "802a4c5734ee34309da1b73c7427aa5c51047909014a7c3edfbe64c6b8f42a5a"
+    },
+    {
+      "path": "docs/testing/coastal-settings_20261017-r5/extra/04-lemon-companion_20261017/baseline_1920.png",
+      "sha256": "20447146f1ce8a169c0f212b5db2044ebc84def35abb6514dfdbc95eb9703437"
+    },
+    {
+      "path": "docs/testing/coastal-settings_20261017-r5/extra/04-lemon-companion_20261017/click_pulse_1920.png",
+      "sha256": "f8f906ead40021a6a4c462a8bea887a168857ca5494ff13156a78487eed2ac4f"
+    },
+    {
+      "path": "docs/testing/coastal-settings_20261017-r5/extra/04-lemon-companion_20261017/diagnostic_both_plus80px_1920.png",
+      "sha256": "dc0e8c18a0d9b5925efb50683a5efa8b92e1150d631cc5b6132b0ae480eeed82"
+    },
+    {
+      "path": "docs/testing/coastal-settings_20261017-r5/extra/04-lemon-companion_20261017/diagnostic_small_plus80px_1920.png",
+      "sha256": "0971943a7425bb50c6118108f19e3e6a02f41957b112a061cec0463f5b177070"
+    },
+    {
+      "path": "docs/testing/coastal-settings_20261017-r5/extra/04-lemon-companion_20261017/fast_directional_skim_1920.png",
+      "sha256": "6cb3492f5efd5b881b6c92a1bc12fd38935bf491170fdafe21ffad4c854f52fa"
+    },
+    {
+      "path": "docs/testing/coastal-settings_20261017-r5/extra/04-lemon-companion_20261017/held_directional_wake_1920.png",
+      "sha256": "26b91f536e1148000001d404f6d538709d0d7a22f928bd5ba62de2fdd4fc5dba"
+    },
+    {
+      "path": "docs/testing/coastal-settings_20261017-r5/extra/04-lemon-companion_20261017/normal_before_press_1920.png",
+      "sha256": "20447146f1ce8a169c0f212b5db2044ebc84def35abb6514dfdbc95eb9703437"
+    },
+    {
+      "path": "docs/testing/coastal-settings_20261017-r5/extra/04-lemon-companion_20261017/normal_pressed_1920.png",
+      "sha256": "50acd727f30f164aab4ce35cf4a4ef67c55c4dfff37b184325e0d77f8079fb8b"
+    },
+    {
+      "path": "docs/testing/coastal-settings_20261017-r5/extra/04-lemon-companion_20261017/normal_release_1920.png",
+      "sha256": "50b063281476fd1b57e9f821bacda55ff8ba4fe75ed237349adcc47d83d52b3b"
+    },
+    {
+      "path": "docs/testing/coastal-settings_20261017-r5/extra/04-lemon-companion_20261017/normal_water_push_1920.png",
+      "sha256": "03c5a1bfa57b8396104c172a3d392914d0c53a4db465afd39d1e49b4b75365e4"
+    },
+    {
+      "path": "docs/testing/coastal-settings_20261017-r5/extra/04-lemon-companion_20261017/result.json",
+      "sha256": "8892da912f00dcdcad2dd7f40be33db05bd64b3db3098479284424cb997e0872"
+    },
+    {
+      "path": "docs/testing/coastal-settings_20261017-r5/extra/05-lemon-companion-source_20261017/source-proof.json",
+      "sha256": "b2620e80afb9acec668258c667d22c4f03522fe4558e952ed4a0bc0f35c2f39d"
+    },
+    {
+      "path": "docs/testing/coastal-settings_20261017-r5/extra/06-settings-art-edges_20261017/latest-blue-edge_1920.png",
+      "sha256": "2c5384bad9e8c2f1e4a41298d72dd325ec8855a685c45e181cbf729103894676"
+    },
+    {
+      "path": "docs/testing/coastal-settings_20261017-r5/extra/06-settings-art-edges_20261017/legacy_blue_plate_1920.png",
+      "sha256": "bdc4e332aa3008bb7d46f7e6fa6e608b3f911591f23524f2713df8d7a5a1855b"
+    },
+    {
+      "path": "docs/testing/coastal-settings_20261017-r5/extra/06-settings-art-edges_20261017/legacy_tape_plate_1920.png",
+      "sha256": "d85cb54f44900e2880f19db368840625ca733e596a0508858b3bfd2e4a4a944a"
+    },
+    {
+      "path": "docs/testing/coastal-settings_20261017-r5/extra/06-settings-art-edges_20261017/maximum_1280.png",
+      "sha256": "9baf179d08c331af151078329442803f393f88fe986161f16abd05b6df549736"
+    },
+    {
+      "path": "docs/testing/coastal-settings_20261017-r5/extra/06-settings-art-edges_20261017/maximum_1920.png",
+      "sha256": "2c5384bad9e8c2f1e4a41298d72dd325ec8855a685c45e181cbf729103894676"
+    },
+    {
+      "path": "docs/testing/coastal-settings_20261017-r5/extra/06-settings-art-edges_20261017/maximum_2560.png",
+      "sha256": "e8493551b21d7e4e34e1efc81e474cd3a205723f88f91bb4a2d7e59fbfde7840"
+    },
+    {
+      "path": "docs/testing/coastal-settings_20261017-r5/extra/06-settings-art-edges_20261017/minimum_1280.png",
+      "sha256": "c11b49b31898d47b5af1d172a60c3fe9107f69dfc8f22f259b60a8e2b59e1e64"
+    },
+    {
+      "path": "docs/testing/coastal-settings_20261017-r5/extra/06-settings-art-edges_20261017/minimum_1920.png",
+      "sha256": "9f10180c13fa1c3b05e55693fb1ddfebe7d259a8c816a9d5619ab9cc8ea7dd6f"
+    },
+    {
+      "path": "docs/testing/coastal-settings_20261017-r5/extra/06-settings-art-edges_20261017/minimum_2560.png",
+      "sha256": "0e4c38e70f1a8bb0f9970397f1c9081477d4bbcd8548eadb7a5ece58ffd12065"
+    },
+    {
+      "path": "docs/testing/coastal-settings_20261017-r5/extra/06-settings-art-edges_20261017/production_blue_plate_1920.png",
+      "sha256": "1f3065abca27b47a06d7845a0d46d99bbd8446455d080ded42c1abf603fc3d9a"
+    },
+    {
+      "path": "docs/testing/coastal-settings_20261017-r5/extra/06-settings-art-edges_20261017/production_tape_plate_1920.png",
+      "sha256": "038d0a5a097c8dbd1f028534e9c35b6fd9e0a9c8a8f939ca49fd3343b908833b"
+    },
+    {
+      "path": "docs/testing/coastal-settings_20261017-r5/extra/06-settings-art-edges_20261017/result.json",
+      "sha256": "9a29f12d42b8bc485cd90d20d770643b147051f382fad0c511de58e87fac1736"
+    },
+    {
+      "path": "docs/testing/coastal-settings_20261017-r5/extra/07-water-feedback_20261017/click_1920.png",
+      "sha256": "d80d090e46737b54855cf0697f1234ba9955d795da35df1af822437330500c2b"
+    },
+    {
+      "path": "docs/testing/coastal-settings_20261017-r5/extra/07-water-feedback_20261017/held_fast_wake_1920.png",
+      "sha256": "fb5fc2273779ba14154ec061a9821cc35cad6517541cc50ec5869b28478128ae"
+    },
+    {
+      "path": "docs/testing/coastal-settings_20261017-r5/extra/07-water-feedback_20261017/home_1920.png",
+      "sha256": "20447146f1ce8a169c0f212b5db2044ebc84def35abb6514dfdbc95eb9703437"
+    },
+    {
+      "path": "docs/testing/coastal-settings_20261017-r5/extra/07-water-feedback_20261017/QA_nonperiodic_reference_not-game-art_1920.png",
+      "sha256": "d027fd502280a7cc8ea5976475c4c35ffc6f8317352976ba697682bdf6dbc27a"
+    },
+    {
+      "path": "docs/testing/coastal-settings_20261017-r5/extra/07-water-feedback_20261017/QA_production_shader_click_not-game-art_1920.png",
+      "sha256": "44f4eafa2ad83810be4cba36cff3e3416cca3238e90002ed2e1fe85a1671edd5"
+    },
+    {
+      "path": "docs/testing/coastal-settings_20261017-r5/extra/07-water-feedback_20261017/QA_production_shader_wake_not-game-art_1920.png",
+      "sha256": "20cef7c3a3a19c19bf6ca0c32497056ba4f28037ca2b246b2b451b6b9d549f1c"
+    },
+    {
+      "path": "docs/testing/coastal-settings_20261017-r5/extra/07-water-feedback_20261017/result.json",
+      "sha256": "494b3995269ee0dd7ae705bd1feeef809cc81af6c5215483a63df741e78ec007"
+    },
+    {
+      "path": "docs/testing/coastal-settings_20261017-r5/extra/07-water-feedback_20261017/wake_home_1920.png",
+      "sha256": "20447146f1ce8a169c0f212b5db2044ebc84def35abb6514dfdbc95eb9703437"
+    },
+    {
+      "path": "docs/testing/coastal-settings_20261017-r5/extra/08-display-diagnostics_20261017/run-12574669.json",
+      "sha256": "0cc2f57606a58f09617336aa86164cd83ee367f509ec319dd6be02e345ea57ca"
+    },
+    {
+      "path": "docs/testing/coastal-settings_20261017-r5/extra/08-display-diagnostics_20261017/run-4538633.json",
+      "sha256": "8c7ba37487d785168c2d08082d1ff5ce4c73f01630263f3fa18d6195e09d689e"
+    },
+    {
+      "path": "docs/testing/coastal-settings_20261017-r5/extra/08-display-diagnostics_20261017/run-4623112.json",
+      "sha256": "b4e18e386bc05575be3086849e3991a1a0762f757edcf75e12b191caedd5bd73"
+    },
+    {
+      "path": "docs/testing/coastal-settings_20261017-r5/extra/08-display-diagnostics_20261017/run-4757098.json",
+      "sha256": "6a79311918ff9dc4e776023b31d14a86aab2dec9bd0431116e4db9ecf1767373"
+    },
+    {
+      "path": "docs/testing/coastal-settings_20261017-r5/extra/08-display-diagnostics_20261017/run-8957963.json",
+      "sha256": "6ceebc272cb34cfb4e34404e12907f70f66f563fbe76ecbc8da4b079f5c99be9"
+    },
+    {
+      "path": "docs/testing/coastal-settings_20261017-r5/extra/09-window-close-20261017-162744/input.stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "docs/testing/coastal-settings_20261017-r5/extra/09-window-close-20261017-162744/input.stdout.log",
+      "sha256": "acbbaebdead80eedd748275c31954eacf50d1d09b0830eff624cffb5505bc5dd"
+    },
+    {
+      "path": "docs/testing/coastal-settings_20261017-r5/extra/09-window-close-20261017-162744/isolated-state.json",
+      "sha256": "7d4fae56bb8c5d31cb35fe5c47d5bdb700fd54ce1827899b8b4144ce01d24e9b"
+    },
+    {
+      "path": "docs/testing/coastal-settings_20261017-r5/extra/09-window-close-20261017-162744/isolated-state.json.drafts-v1.json",
+      "sha256": "8ee3b3acaccd2e486ab93226111949149120b8cd3217ba25a92d58175d4db6aa"
+    },
+    {
+      "path": "docs/testing/coastal-settings_20261017-r5/extra/09-window-close-20261017-162744/ready.json",
+      "sha256": "b34206d300060fb6b75d8810950eda1e5da73f9bed1d3ba32e67d8183a9e1265"
+    },
+    {
+      "path": "docs/testing/coastal-settings_20261017-r5/extra/10-window-close-20261017-163226/input.stderr.log",
+      "sha256": "6b817f7639d25caafbdc5fed73f9debfa37725ca2749c89a2ffbed98b6191bc8"
+    },
+    {
+      "path": "docs/testing/coastal-settings_20261017-r5/extra/10-window-close-20261017-163226/input.stdout.log",
+      "sha256": "6949fa829d639383402556a4e81c4497ed0b29d669b24546402fbbcd6fab5a8d"
+    },
+    {
+      "path": "docs/testing/coastal-settings_20261017-r5/extra/10-window-close-20261017-163226/isolated-state.json",
+      "sha256": "7d4fae56bb8c5d31cb35fe5c47d5bdb700fd54ce1827899b8b4144ce01d24e9b"
+    },
+    {
+      "path": "docs/testing/coastal-settings_20261017-r5/extra/10-window-close-20261017-163226/isolated-state.json.drafts-v1.json",
+      "sha256": "8ee3b3acaccd2e486ab93226111949149120b8cd3217ba25a92d58175d4db6aa"
+    },
+    {
+      "path": "docs/testing/coastal-settings_20261017-r5/extra/10-window-close-20261017-163226/ready.json",
+      "sha256": "3c6f74b0fd0a4b1759be2d1b3ed2327f0ad017057216b1fad0783f397f2cd3f8"
+    },
+    {
+      "path": "docs/testing/coastal-settings_20261017-r5/film/centre-held.png",
+      "sha256": "a9f4ff329369310686eeecde8eade940794ae98e8d1dc3c81abcc435a156f8ac"
+    },
+    {
+      "path": "docs/testing/coastal-settings_20261017-r5/film/decode.log",
+      "sha256": "15c84f8cd3b9672410f9b19db3e4e05b200137e80a02c4455182693288e29ed7"
+    },
+    {
+      "path": "docs/testing/coastal-settings_20261017-r5/film/edge-held.png",
+      "sha256": "812ea7caac1ae38bcb992580a9416a4a672344de49af7ec66b8c78f97799c0ec"
+    },
+    {
+      "path": "docs/testing/coastal-settings_20261017-r5/film/encode.log",
+      "sha256": "e8458bb6b7d4f3e776240ce977ca63e1115f5d07231da69691cf5c76d97a2828"
+    },
+    {
+      "path": "docs/testing/coastal-settings_20261017-r5/film/film.log",
+      "sha256": "be69b498b2480d0fd71159292465ca03a66f64bf7476e8009fdefdcce9678fc4"
+    },
+    {
+      "path": "docs/testing/coastal-settings_20261017-r5/film/heavy-held.png",
+      "sha256": "570c9588d20fc206c0b0d46032cccb72bb3928864a60ed0d6ad8f027110f2155"
+    },
+    {
+      "path": "docs/testing/coastal-settings_20261017-r5/film/interaction-states.json",
+      "sha256": "f66528919d082badd03618ae938663bdfaad7d29c5c285a7c2e4b24bacd4247e"
+    },
+    {
+      "path": "docs/testing/coastal-settings_20261017-r5/film/media.json",
+      "sha256": "9965cfe231da48635a802240e40dc46c8d7eefa9ec776659646abb689c6bc903"
+    },
+    {
+      "path": "docs/testing/coastal-settings_20261017-r5/film/rounded-menu.png",
+      "sha256": "7eddb343a6e6b6b53574916c441edc8f7b6bce731e0e4f52914d0740c2b74ed9"
+    },
+    {
+      "path": "docs/testing/coastal-settings_20261017-r5/film/same-water-contact.png",
+      "sha256": "02e31dc41648af6db59fe8564a7a0d6e2f7759ffb782b550f839ce5aae6e2196"
+    },
+    {
+      "path": "docs/testing/coastal-settings_20261017-r5/film/settings-r5.mp4",
+      "sha256": "f8f2c2e245e9f190f0ee55105962310cced6a6590635e8512ac19406034bd1ac"
+    },
+    {
+      "path": "docs/testing/coastal-settings_20261017-r5/film.log",
+      "sha256": "be69b498b2480d0fd71159292465ca03a66f64bf7476e8009fdefdcce9678fc4"
+    },
+    {
+      "path": "docs/testing/coastal-settings_20261017-r5/lemon-matte/clean_1-8_0-0.png",
+      "sha256": "caccd1bbb1a36cd527ae3c38a66da67046ab376ba181bb450c62b5e4e15a795d"
+    },
+    {
+      "path": "docs/testing/coastal-settings_20261017-r5/lemon-matte/clean_1-8_0-18.png",
+      "sha256": "719e60956e68c3b51b5b1d0561233048c9f5f378677689446a01b874b97748eb"
+    },
+    {
+      "path": "docs/testing/coastal-settings_20261017-r5/lemon-matte/previous_1-8_0-0.png",
+      "sha256": "8e75b76c6de91bf381e19d12f2d41aa3473ae6653a5874686dc46f6ffc9affdb"
+    },
+    {
+      "path": "docs/testing/coastal-settings_20261017-r5/lemon-matte/previous_1-8_0-18.png",
+      "sha256": "1a2079d3e724d4e88437bc748f199dec562a4f4d5d27e28005634ecaafd38ac3"
+    },
+    {
+      "path": "docs/testing/coastal-settings_20261017-r5/lemon-matte/source-analysis.json",
+      "sha256": "8e70c1772a3c8e8620d41f121aff4ecfb7a71360dcc90a4d1f5ff61b5e2dffd3"
+    },
+    {
+      "path": "docs/testing/coastal-settings_20261017-r5/lemon-press/before_1920.png",
+      "sha256": "20447146f1ce8a169c0f212b5db2044ebc84def35abb6514dfdbc95eb9703437"
+    },
+    {
+      "path": "docs/testing/coastal-settings_20261017-r5/lemon-press/held_1920.png",
+      "sha256": "50acd727f30f164aab4ce35cf4a4ef67c55c4dfff37b184325e0d77f8079fb8b"
+    },
+    {
+      "path": "docs/testing/coastal-settings_20261017-r5/lemon-press/released_1920.png",
+      "sha256": "9e8a1c9ece529b882bbe141c108df6842564da3003bb9f70bf12275c5edd416b"
+    },
+    {
+      "path": "docs/testing/coastal-settings_20261017-r5/lemon-press/result.json",
+      "sha256": "da334aed17df3f8e9f09266a07d87ee0a48987030d47f6eb87ef8df649191f44"
+    },
+    {
+      "path": "docs/testing/coastal-settings_20261017-r5/motion-before/before60.mp4",
+      "sha256": "7da29dbad6e113ab6d3b998e7f1eab763190d3309823cf032b41bdb103425100"
+    },
+    {
+      "path": "docs/testing/coastal-settings_20261017-r5/motion-before/centre-held.png",
+      "sha256": "7a6d544c583b5f1ef38bafe194f00c704eb03c6985aa8acc5fc00e8f83d641c0"
+    },
+    {
+      "path": "docs/testing/coastal-settings_20261017-r5/motion-before/decode.log",
+      "sha256": "735743653fbd84b7a693ad1fe3634aa521bf2ddcc24b8b9048f918209a4c1e24"
+    },
+    {
+      "path": "docs/testing/coastal-settings_20261017-r5/motion-before/edge-held.png",
+      "sha256": "210e226f9434742b0b9b5a1ad5b8bbff32faa5a9ef3a6c6e8f6ca5b7e305f034"
+    },
+    {
+      "path": "docs/testing/coastal-settings_20261017-r5/motion-before/encode.log",
+      "sha256": "05dbc13e5eae1bc5f859b87bd4ef6d64f2e541635294b4bfc7d4922c4452cbcf"
+    },
+    {
+      "path": "docs/testing/coastal-settings_20261017-r5/motion-before/film.log",
+      "sha256": "baf95f84978c894206e4b92f0d29f54940bad12fbaf99c29cce97384d24ca6aa"
+    },
+    {
+      "path": "docs/testing/coastal-settings_20261017-r5/motion-before/heavy-held.png",
+      "sha256": "ba525e28031b5d5f065a9701cf8d9b7af7467a0f2ad96fc7b4f5c571ae5b24f9"
+    },
+    {
+      "path": "docs/testing/coastal-settings_20261017-r5/motion-before/interaction-states.json",
+      "sha256": "d951a0a57de2c6b9f1087aff46020049cb5d334ffb11ed5231519548f11ac53d"
+    },
+    {
+      "path": "docs/testing/coastal-settings_20261017-r5/motion-before/media.json",
+      "sha256": "b4fb97db5f682bd05a765bed0cf2c2304d5da212c2ff616586e8d98884e850ba"
+    },
+    {
+      "path": "docs/testing/coastal-settings_20261017-r5/motion-before/rounded-menu.png",
+      "sha256": "4e9b005cfab8a45264a46a61a9c494cf6a84b9b3c1a8c152dec6ab8148c3599b"
+    },
+    {
+      "path": "docs/testing/coastal-settings_20261017-r5/motion-before/same-water-contact.png",
+      "sha256": "b9651c4a71e1821ec76d7d1dedb23e1956f34c70c6923dafdaee92ca2661b64e"
+    },
+    {
+      "path": "docs/testing/coastal-settings_20261017-r5/motion-before/source.json",
+      "sha256": "809035d514bbcfcfc0c4907654cd83810b666e5a6f98ca1ff5101c491e7409a2"
+    },
+    {
+      "path": "docs/testing/coastal-settings_20261017-r5/native/01_title.jpg",
+      "sha256": "4f9a7a6c9085bd6e4966fbfc19f0bba7dea6c43785bd16290b2d729019824be7"
+    },
+    {
+      "path": "docs/testing/coastal-settings_20261017-r5/native/02_settings_zh.jpg",
+      "sha256": "78e7309d72e97697d1f2ec3cddfe2e1c51fb56d79c1dfc7769897f4b7f63da33"
+    },
+    {
+      "path": "docs/testing/coastal-settings_20261017-r5/native/03_master_min_external_overlay.jpg",
+      "sha256": "be088507e5313a3fca3143fa161f72f05df7d4319aacb9240b358a5ad26660cb"
+    },
+    {
+      "path": "docs/testing/coastal-settings_20261017-r5/native/04_menu_zh.jpg",
+      "sha256": "5d77fdd870beeab474a5955f0325609e8a39d9171b6963eb0714648118b5b2fa"
+    },
+    {
+      "path": "docs/testing/coastal-settings_20261017-r5/native/05_settings_en.jpg",
+      "sha256": "540b51d6fa7002a488e607fb9f16bc597d4dfb7fadd14f25c4b09e6dc3d65404"
+    },
+    {
+      "path": "docs/testing/coastal-settings_20261017-r5/native/06_fullscreen_en.jpg",
+      "sha256": "53ddecf8c348d8715ffdf63e41e6c1740dc0fe1d14f3142e676966523f7413d0"
+    },
+    {
+      "path": "docs/testing/coastal-settings_20261017-r5/native/07_fullscreen_first_click_menu.jpg",
+      "sha256": "64fe750151e711e05d7199a496541e38893ee9b5e79771e38181cea8dbb48703"
+    },
+    {
+      "path": "docs/testing/coastal-settings_20261017-r5/native/08_fullscreen_menu_esc.jpg",
+      "sha256": "575bf4be089da4d552512739515fc6e4fbc4d490e54713007b46a3fb821d275c"
+    },
+    {
+      "path": "docs/testing/coastal-settings_20261017-r5/native/09_water_click.jpg",
+      "sha256": "f010ef3419ebe68de5db04ca897039554f774cd1f73f398cc05e1ab6d4c5d49a"
+    },
+    {
+      "path": "docs/testing/coastal-settings_20261017-r5/native/10_water_drag.jpg",
+      "sha256": "e22ce5be3dd4b1250ce986f3524648c31ef447de8a53fb9a69fed9917afc68d0"
+    },
+    {
+      "path": "docs/testing/coastal-settings_20261017-r5/native/11_lemon_click.jpg",
+      "sha256": "03bc181596af317a574db7620c61e4b3959fd2b491f0a9250404a1e1d768dec5"
+    },
+    {
+      "path": "docs/testing/coastal-settings_20261017-r5/native/12_arrow_to_title.jpg",
+      "sha256": "8eecdb73a425e471894e1d2b7c25e8045967fa7d4deae0ccbc00ace064b9dab4"
+    },
+    {
+      "path": "docs/testing/coastal-settings_20261017-r5/package/content.json",
+      "sha256": "9d1326db9393c1a2606d2a0d2c6e87328dc48f74b22d9e0df618a244744da51f"
+    },
+    {
+      "path": "docs/testing/coastal-settings_20261017-r5/package/content.stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "docs/testing/coastal-settings_20261017-r5/package/content.stdout.log",
+      "sha256": "668d9b967fce929f2108399f590c34133538258d480fc99cefb8e421b4c8bd68"
+    },
+    {
+      "path": "docs/testing/coastal-settings_20261017-r5/package/release-gpu-boot.stderr.log",
+      "sha256": "a797ada4520776562c8d6fc8223aedd60055d2a661518390b867c5026191884a"
+    },
+    {
+      "path": "docs/testing/coastal-settings_20261017-r5/package/release-gpu-boot.stdout.log",
+      "sha256": "5fdebc47089d9a3ed2aaf0644bbe398ffcb056d4454dcf3d52e710226ecd6b18"
+    },
+    {
+      "path": "docs/testing/coastal-settings_20261017-r5/package/verification.json",
+      "sha256": "6cd832ee13389820861f9a5c874c61e005bf4688fb7fb19ff3a25ee68447a66c"
+    },
+    {
+      "path": "docs/testing/coastal-settings_20261017-r5/python-tests.log",
+      "sha256": "095cc8611e5b646c481b8193cc40ed6dd342cb98622dbb8c453d6eb813c4eea7"
+    },
+    {
+      "path": "docs/testing/coastal-settings_20261017-r5/settings/en_1280.png",
+      "sha256": "2c9630e4171a4e3b35bf5218b599c43826a457771f2d0a4b883c752efa4faf62"
+    },
+    {
+      "path": "docs/testing/coastal-settings_20261017-r5/settings/en_1920.png",
+      "sha256": "9e87b84907e632b5386c0677ab00a58cd9ad7922e9ad6b2906adde589a0ebf68"
+    },
+    {
+      "path": "docs/testing/coastal-settings_20261017-r5/settings/en_2560.png",
+      "sha256": "e60038096317c9471f9f82a341514095cf65454f5afc75e3447edb2146bbe284"
+    },
+    {
+      "path": "docs/testing/coastal-settings_20261017-r5/settings/menu_en_1280.png",
+      "sha256": "7acd83df9cf5885782b9ddfcba4c9d77990ec3b520fa0fe6f3f1bf1559e2ff4f"
+    },
+    {
+      "path": "docs/testing/coastal-settings_20261017-r5/settings/menu_en_1920.png",
+      "sha256": "721599ca0fa2030a773d355d2eba7fc0d21cbb66cdc222514d56c340f4e6ba3c"
+    },
+    {
+      "path": "docs/testing/coastal-settings_20261017-r5/settings/menu_en_2560.png",
+      "sha256": "a567a88196f62ebd9070c42dfffb01305dc24c78626455b42230e4aa6eb399b4"
+    },
+    {
+      "path": "docs/testing/coastal-settings_20261017-r5/settings/menu_zh_1280.png",
+      "sha256": "4d72c0cecc8ac43401bf71658738db54e29b845354774d98232768b11cf7cb06"
+    },
+    {
+      "path": "docs/testing/coastal-settings_20261017-r5/settings/menu_zh_1920.png",
+      "sha256": "02ca8d51b27fe9800709bb80047c1602a0bf71546fa06b4040b1a142b2dc7d58"
+    },
+    {
+      "path": "docs/testing/coastal-settings_20261017-r5/settings/menu_zh_2560.png",
+      "sha256": "5231dcd72e05daa0476fa83e4d35175c24fa8cddb89b12023a6be3f73a5bf84d"
+    },
+    {
+      "path": "docs/testing/coastal-settings_20261017-r5/settings/result.json",
+      "sha256": "59d3041a09d69d20a67964c916c0240804a0207d08c954ab91adc1529cea9d19"
+    },
+    {
+      "path": "docs/testing/coastal-settings_20261017-r5/settings/ripple_early_1280.png",
+      "sha256": "84617319ba1a39c6efdfa6dd0f8381a61fd83769b69a35f13f126529a3c45838"
+    },
+    {
+      "path": "docs/testing/coastal-settings_20261017-r5/settings/ripple_early_1920.png",
+      "sha256": "8f262e7766f5557edfdd7a0b2985b095e584daea62a963b2de0c3a42162f7926"
+    },
+    {
+      "path": "docs/testing/coastal-settings_20261017-r5/settings/ripple_early_2560.png",
+      "sha256": "e6a28af9f4123076433b6e0bec5c89fac63012371da147e3cc296cae52aeafcb"
+    },
+    {
+      "path": "docs/testing/coastal-settings_20261017-r5/settings/ripple_spread_1280.png",
+      "sha256": "ab42b66a0bf8699f36340208449fe331fb25112217e762bfca7e2c8f6503c4c4"
+    },
+    {
+      "path": "docs/testing/coastal-settings_20261017-r5/settings/ripple_spread_1920.png",
+      "sha256": "1d6783115b214b9e55c7d4a4423f33a85a0206aa8b94bbbd055e978afc92f865"
+    },
+    {
+      "path": "docs/testing/coastal-settings_20261017-r5/settings/ripple_spread_2560.png",
+      "sha256": "2483facced469c08ac8b0fd01df6a580524cae6b350d25478723dd912de330e0"
+    },
+    {
+      "path": "docs/testing/coastal-settings_20261017-r5/settings/zh_1280.png",
+      "sha256": "95fd09630945ed31658b6d3f97630bc0c7c816dbd0035aa6ddbed02173d5651c"
+    },
+    {
+      "path": "docs/testing/coastal-settings_20261017-r5/settings/zh_1920.png",
+      "sha256": "ecc457c58c3d3e9673a9fda7e65d4d585ed0aba14e95d177652ce5c7483db553"
+    },
+    {
+      "path": "docs/testing/coastal-settings_20261017-r5/settings/zh_2560.png",
+      "sha256": "be919d2f70a54d6cf7c2f7e923342da3834f154b4e1f73f504734f62669f8097"
+    },
+    {
+      "path": "docs/testing/coastal-settings_20261017-r5/settings-demo-1920.mp4",
+      "sha256": "f8f2c2e245e9f190f0ee55105962310cced6a6590635e8512ac19406034bd1ac"
+    },
+    {
+      "path": "docs/testing/coastal-settings_20261017-r5/window/input.stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "docs/testing/coastal-settings_20261017-r5/window/input.stdout.log",
+      "sha256": "27214aaf1c1fb4f8d7dcdf765d6099ce1c0ef47a2f3b9d14a5dd91b2d8d41a59"
+    },
+    {
+      "path": "docs/testing/coastal-settings_20261017-r5/window/isolated-state.json",
+      "sha256": "ef392a79f3db9137a440118a7f0b21eb9bf16b18be71002668468cb55e0615ec"
+    },
+    {
+      "path": "docs/testing/coastal-settings_20261017-r5/window/isolated-state.json.drafts-v1.json",
+      "sha256": "8ee3b3acaccd2e486ab93226111949149120b8cd3217ba25a92d58175d4db6aa"
+    },
+    {
+      "path": "docs/testing/coastal-settings_20261017-r5/window/ready.json",
+      "sha256": "c6e9cc5fce1ae5496f98ded49c08b17c10736ff8c9fe67a5b2bb9f26fba5a8c2"
+    },
+    {
+      "path": "docs/testing/coastal-settings_20261017-r5/window/reload.json",
+      "sha256": "9c88341247c182f54a2d7224790c5eea27804353ddb4566a7ea34957e6d80cef"
+    },
+    {
+      "path": "docs/testing/coastal-settings_20261017-r5/window/reload.stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "docs/testing/coastal-settings_20261017-r5/window/reload.stdout.log",
+      "sha256": "d6b7885e9625be587281016630d0b9d9a34e1e435223e11e6940eee6845340c3"
+    },
+    {
+      "path": "docs/testing/coastal-settings_20261017-r5/window/report.json",
+      "sha256": "e34687b2729fb96e5a5d095422c4c05046722b238a821a65cbc894af747dd202"
+    }
+  ],
+  "extra_sources": [
+    {
+      "source": "C:\\Users\\22416\\Documents\\Codex\\2026-10-01\\github\\work\\100letter-studio-publish\\test-results\\coastal-layout_20261017",
+      "retained_directory": "docs/testing/coastal-settings_20261017-r5/extra/01-coastal-layout_20261017"
+    },
+    {
+      "source": "C:\\Users\\22416\\Documents\\Codex\\2026-10-01\\github\\work\\100letter-studio-publish\\test-results\\game-identity_20261017",
+      "retained_directory": "docs/testing/coastal-settings_20261017-r5/extra/02-game-identity_20261017"
+    },
+    {
+      "source": "C:\\Users\\22416\\Documents\\Codex\\2026-10-01\\github\\work\\100letter-studio-publish\\test-results\\settings-save-failure_20261017",
+      "retained_directory": "docs/testing/coastal-settings_20261017-r5/extra/03-settings-save-failure_20261017"
+    },
+    {
+      "source": "C:\\Users\\22416\\Documents\\Codex\\2026-10-01\\github\\work\\100letter-studio-publish\\test-results\\lemon-companion_20261017",
+      "retained_directory": "docs/testing/coastal-settings_20261017-r5/extra/04-lemon-companion_20261017"
+    },
+    {
+      "source": "C:\\Users\\22416\\Documents\\Codex\\2026-10-01\\github\\work\\100letter-studio-publish\\test-results\\lemon-companion-source_20261017",
+      "retained_directory": "docs/testing/coastal-settings_20261017-r5/extra/05-lemon-companion-source_20261017"
+    },
+    {
+      "source": "C:\\Users\\22416\\Documents\\Codex\\2026-10-01\\github\\work\\100letter-studio-publish\\test-results\\settings-art-edges_20261017",
+      "retained_directory": "docs/testing/coastal-settings_20261017-r5/extra/06-settings-art-edges_20261017"
+    },
+    {
+      "source": "C:\\Users\\22416\\Documents\\Codex\\2026-10-01\\github\\work\\100letter-studio-publish\\test-results\\water-feedback_20261017",
+      "retained_directory": "docs/testing/coastal-settings_20261017-r5/extra/07-water-feedback_20261017"
+    },
+    {
+      "source": "C:\\Users\\22416\\Documents\\Codex\\2026-10-01\\github\\work\\100letter-studio-publish\\test-results\\display-diagnostics_20261017",
+      "retained_directory": "docs/testing/coastal-settings_20261017-r5/extra/08-display-diagnostics_20261017"
+    },
+    {
+      "source": "C:\\Users\\22416\\Documents\\Codex\\2026-10-01\\github\\work\\100letter-studio-publish\\test-results\\window-close-20261017-162744",
+      "retained_directory": "docs/testing/coastal-settings_20261017-r5/extra/09-window-close-20261017-162744",
+      "classification": "blocked external native title-bar close attempt; preparation only, not a successful close/reload",
+      "counted_as_pass": false
+    },
+    {
+      "source": "C:\\Users\\22416\\Documents\\Codex\\2026-10-01\\github\\work\\100letter-studio-publish\\test-results\\window-close-20261017-163226",
+      "retained_directory": "docs/testing/coastal-settings_20261017-r5/extra/10-window-close-20261017-163226",
+      "classification": "blocked external native title-bar close attempt; preparation only, not a successful close/reload",
+      "counted_as_pass": false
+    }
+  ],
+  "pending": [
+    "current native OS title-bar close/reload; engine-generated notification is supplemental",
+    "user animation acceptance after latest fake-motion feedback",
+    "human listening",
+    "first-time novice",
+    "complete native matrix",
+    "new long three-letter/wax story",
+    "ordered walking follow-up remains separate"
+  ]
+}

@@ -1,14 +1,16 @@
-# 一百信 · Solmere Post
+# Dear Somewhere
+
+游戏正式名称由用户于 2026-10-17 确认为 Dear Somewhere。封面采用纯底色与游戏名；Solmere 保留为故事中的小镇。最新 Windows 包的入口为 `DearSomewhere.exe`，旧版本包与原存档路径保留。五日、24 封信的新剧情工作稿已完整读取并记录于 [流程复核](docs/Dear_Somewhere_Flow_Source_Review_20261017.md)，尚未实现为完整可玩流程。
 
 海边小镇，异常邮件部的一天。核对旧地址、行程与档案；查清事实之后，由你决定怎样处理五封来信。
 
 当前包含五封案件、七处地点，以及从取信、调查、交接到回局盖单的完整班次流程。入口为 Godot 4.7.2 的 `scenes/final_slice.tscn`。
 
-2026-10-17 当前设置复核：直接拆分你提供的 PDF 原图层，原生1080画面；中文独立排版和字重，英文标题更换字体、滑块实色、返回箭头/Esc。水面原纹理由连续波场驱动，点击、慢划、快划及拖动各有不同反馈；附近柠檬受真实刚体质量/惯性/阻尼影响，配套水声和完整授权音乐。8项设置接入实际功能和持久化。语言为**界面**切换，故事与文书保留原文。[当前阶段报告及1080演示](docs/testing/COASTAL_SETTINGS_R3_20261017.md)。完整游戏、新手盲测及真人试听仍未宣称验收完成。
+2026-10-17 当前 R5 设置复核：保留 PDF 原图层，修复蓝卡/胶带白边、滑轨尾端、明信片遮挡、中英文排版与圆角菜单。滑块实色可拖动，返回箭头/Esc可用；原画柠檬阴影和短水弧随真实物理姿态一起移动。8项设置接入实际功能和持久化，写入失败不会困住玩家。语言为**界面**切换，故事与文书保留原文。[当前阶段报告](docs/testing/COASTAL_SETTINGS_R5_20261017.md)及[1920×1080操作演示](docs/testing/coastal-settings_20261017-r5/settings-demo-1920.mp4)。最新反馈要求点击波纹更清楚，仍在整改；完整游戏、新手盲测及真人试听未完成。
 
-[当前 Windows R3 试玩包](https://github.com/HuieChen/100letter/releases/tag/solmere-coastal-water-r3-2026-10-17) 对应源码 `987de19`，两项 CI 已通过，上传文件摘要与本地 ZIP 一致。试玩包内附源码与 QA 对应记录。
+R5 对应源码、实测包和227项文件证据正在发布到 main，上传结果另行记录。[此前 Windows R3 试玩包](https://github.com/HuieChen/100letter/releases/tag/solmere-coastal-water-r3-2026-10-17) 对应历史源码 `987de19`，保留为旧版本。
 
-![当前中文设置，1920×1080](docs/testing/coastal-settings_20261017-r3/settings/zh_1920.png)
+![当前中文设置，1920×1080](docs/testing/coastal-settings_20261017-r5/settings/zh_1920.png)
 
 2026-10-16 人物更新：直接从用户视频提取右侧彩色邮差，替换站立及行走；六个原姿势保持统一脚底定位与左右转向。其他人物、环境、剧情和存档保留。当前生成画面与此人物原稿混合使用，原稿未送入 AI 重画。[该阶段记录](docs/testing/COURIER_VIDEO_20261016.md)。后续对话/设置 UI 见上方当前阶段。
 
@@ -40,7 +42,7 @@
 
 ## 开始与操作
 
-用 Godot 4.7.2 导入 `project.godot` 后运行；已有 Windows 构建包则双击 `100letter.exe`。源码、构建与 GitHub Release 的状态分别记录，不以截图代替发布验证。
+用 Godot 4.7.2 导入 `project.godot` 后运行；最新 Windows 构建包双击 `DearSomewhere.exe`（历史版本的入口仍为 `100letter.exe`）。源码、构建与 GitHub Release 的状态分别记录，不以截图代替发布验证。
 
 1. 听完主管的短交代，松开箱扣、向上掀盖，把第一封信拖到面前。
 2. 查看信封正反面，出门核对门牌、公告与知情人的说法。用 WASD、方向键或点击地面行走，点击物件会先走近再调查。
@@ -101,7 +103,7 @@
 ./tools/check.ps1 -GodotPath "C:/Tools/Godot.exe" -PythonPath "python" -ArchiveChecks -ArchiveRoot "C:/LocalArchives/Solmere"
 
 # 构建后检查真实 PCK 内容，并让正式 release 可执行文件启动
-./tools/verify_package.ps1 -GodotPath "C:/Tools/Godot.exe" -PackageDirectory "../100letter-Windows-Faefever-20261002"
+./tools/verify_package.ps1 -GodotPath "C:/Tools/Godot.exe" -PackageDirectory "../DearSomewhere-Windows"
 ~~~
 
 GPU 检查覆盖物证、档案、工作台、处置单及宿主流程。它们是程序驱动的真实引擎输入，不是 100 名真人试玩，也不证明参考手感、音效听感或满意度。历史模拟画像、旧版 100 路线与当前验证应按各报告的源码和时间分别阅读，不能累计成新版“全部通过”。

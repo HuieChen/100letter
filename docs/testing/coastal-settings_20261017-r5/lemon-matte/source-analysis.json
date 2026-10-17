@@ -1,0 +1,56 @@
+{
+  "method": "Read-only numerical analysis of original PDF JPEG plate pixels; not GPU or visual acceptance",
+  "layers": [
+    {
+      "role": "rind",
+      "sha256": "63ef10b1cc75e16a162b1f895923ba3612f74443bbdae4321682422ad0ab0acf",
+      "opaque_pigment_pixel": [
+        1686,
+        822
+      ],
+      "pigment_rgb8": [
+        215,
+        185,
+        75
+      ],
+      "previous_near_white_edge_pixels": 367,
+      "new_near_white_edge_pixels": 0,
+      "recovered_coverage_pixels": 38341,
+      "original_coverage_pixels": 38644
+    },
+    {
+      "role": "flesh",
+      "sha256": "337ba6ef927b536fd3126917dd91a3d71091cdc4546bf6116af80751266418f5",
+      "opaque_pigment_pixel": [
+        1686,
+        822
+      ],
+      "pigment_rgb8": [
+        233,
+        225,
+        189
+      ],
+      "previous_near_white_edge_pixels": 469,
+      "new_near_white_edge_pixels": 0,
+      "recovered_coverage_pixels": 28407,
+      "original_coverage_pixels": 28644
+    },
+    {
+      "role": "segments",
+      "sha256": "ddba03b5e14996841414bbd2881f3f455c44f318ca3be27a0344ea5037c9767f",
+      "opaque_pigment_pixel": [
+        1710,
+        784
+      ],
+      "pigment_rgb8": [
+        227,
+        205,
+        119
+      ],
+      "previous_near_white_edge_pixels": 918,
+      "new_near_white_edge_pixels": 0,
+      "recovered_coverage_pixels": 18440,
+      "original_coverage_pixels": 19121
+    }
+  ]
+}

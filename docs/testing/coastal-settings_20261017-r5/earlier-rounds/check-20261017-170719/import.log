@@ -1,0 +1,144 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+[   0% ] first_scan_filesystem | Started 项目初始化 (5 steps)
+[   0% ] first_scan_filesystem | 正在扫描文件结构……
+[  16% ] first_scan_filesystem | 正在加载全局类名……
+[  33% ] first_scan_filesystem | 正在校验 GDExtension……
+[  50% ] first_scan_filesystem | 正在创建自动加载脚本……
+[  66% ] first_scan_filesystem | 正在初始化插件……
+[  83% ] first_scan_filesystem | 正在启动文件扫描……
+[ DONE ] first_scan_filesystem
+
+WARNING: UID duplicate detected between res://test-results/lemon-companion_failed-170023_20261017/baseline_1920.png and res://test-results/lemon-companion_20261017/baseline_1920.png.
+   at: _process_file_system (editor/file_system/editor_file_system.cpp:1405)
+WARNING: UID duplicate detected between res://test-results/lemon-companion_failed-170023_20261017/click_pulse_1920.png and res://test-results/lemon-companion_20261017/click_pulse_1920.png.
+   at: _process_file_system (editor/file_system/editor_file_system.cpp:1405)
+WARNING: UID duplicate detected between res://test-results/lemon-companion_failed-170023_20261017/diagnostic_both_plus80px_1920.png and res://test-results/lemon-companion_20261017/diagnostic_both_plus80px_1920.png.
+   at: _process_file_system (editor/file_system/editor_file_system.cpp:1405)
+WARNING: UID duplicate detected between res://test-results/lemon-companion_failed-170023_20261017/diagnostic_small_plus80px_1920.png and res://test-results/lemon-companion_20261017/diagnostic_small_plus80px_1920.png.
+   at: _process_file_system (editor/file_system/editor_file_system.cpp:1405)
+WARNING: UID duplicate detected between res://test-results/lemon-companion_failed-170023_20261017/fast_directional_skim_1920.png and res://test-results/lemon-companion_20261017/fast_directional_skim_1920.png.
+   at: _process_file_system (editor/file_system/editor_file_system.cpp:1405)
+WARNING: UID duplicate detected between res://test-results/lemon-companion_failed-170023_20261017/held_directional_wake_1920.png and res://test-results/lemon-companion_20261017/held_directional_wake_1920.png.
+   at: _process_file_system (editor/file_system/editor_file_system.cpp:1405)
+WARNING: UID duplicate detected between res://test-results/lemon-companion_failed-170023_20261017/normal_before_press_1920.png and res://test-results/lemon-companion_20261017/normal_before_press_1920.png.
+   at: _process_file_system (editor/file_system/editor_file_system.cpp:1405)
+WARNING: UID duplicate detected between res://test-results/lemon-companion_failed-170023_20261017/normal_pressed_1920.png and res://test-results/lemon-companion_20261017/normal_pressed_1920.png.
+   at: _process_file_system (editor/file_system/editor_file_system.cpp:1405)
+WARNING: UID duplicate detected between res://test-results/lemon-companion_failed-170023_20261017/normal_release_1920.png and res://test-results/lemon-companion_20261017/normal_release_1920.png.
+   at: _process_file_system (editor/file_system/editor_file_system.cpp:1405)
+WARNING: UID duplicate detected between res://test-results/lemon-companion_failed-170023_20261017/normal_water_push_1920.png and res://test-results/lemon-companion_20261017/normal_water_push_1920.png.
+   at: _process_file_system (editor/file_system/editor_file_system.cpp:1405)
+[   0% ] _update_scan_actions | Started 正在扫描动作…… (32 steps)
+[   0% ] _update_scan_actions | en_1280.png
+[   3% ] _update_scan_actions | en_1920.png
+[   6% ] _update_scan_actions | en_2560.png
+[   9% ] _update_scan_actions | en_dropdown_display_mode_1920.png
+[  12% ] _update_scan_actions | en_dropdown_language_1920.png
+[  15% ] _update_scan_actions | en_dropdown_resolution_1920.png
+[  18% ] _update_scan_actions | en_dropdown_text_speed_1920.png
+[  21% ] _update_scan_actions | zh_1280.png
+[  24% ] _update_scan_actions | zh_1920.png
+[  27% ] _update_scan_actions | zh_2560.png
+[  30% ] _update_scan_actions | zh_dropdown_display_mode_1920.png
+[  33% ] _update_scan_actions | zh_dropdown_language_1920.png
+[  36% ] _update_scan_actions | zh_dropdown_resolution_1920.png
+[  39% ] _update_scan_actions | zh_dropdown_text_speed_1920.png
+[  42% ] _update_scan_actions | baseline_1920.png
+[  45% ] _update_scan_actions | click_pulse_1920.png
+[  48% ] _update_scan_actions | diagnostic_both_plus80px_1920.png
+[  51% ] _update_scan_actions | diagnostic_small_plus80px_1920.png
+[  54% ] _update_scan_actions | fast_directional_skim_1920.png
+[  57% ] _update_scan_actions | held_directional_wake_1920.png
+[  60% ] _update_scan_actions | normal_before_press_1920.png
+[  63% ] _update_scan_actions | normal_pressed_1920.png
+[  66% ] _update_scan_actions | normal_release_1920.png
+[  69% ] _update_scan_actions | normal_water_push_1920.png
+[  72% ] _update_scan_actions | legacy_tape_plate_1920.png
+[  75% ] _update_scan_actions | maximum_1280.png
+[  78% ] _update_scan_actions | maximum_1920.png
+[  81% ] _update_scan_actions | maximum_2560.png
+[  84% ] _update_scan_actions | minimum_1280.png
+[  87% ] _update_scan_actions | minimum_1920.png
+[  90% ] _update_scan_actions | minimum_2560.png
+[  93% ] _update_scan_actions | production_tape_plate_1920.png
+[ DONE ] _update_scan_actions
+
+[   0% ] reimport | Started 正在导入或重新导入资产 (32 steps)
+[   0% ] reimport | 正在准备重新导入文件……
+[   3% ] reimport | 正在准备重新导入文件……
+[   6% ] reimport | 正在准备重新导入文件……
+[   9% ] reimport | 正在准备重新导入文件……
+[  12% ] reimport | 正在准备重新导入文件……
+[  15% ] reimport | 正在准备重新导入文件……
+[  18% ] reimport | 正在准备重新导入文件……
+[  21% ] reimport | 正在准备重新导入文件……
+[  24% ] reimport | 正在准备重新导入文件……
+[  27% ] reimport | 正在准备重新导入文件……
+[  30% ] reimport | 正在准备重新导入文件……
+[  33% ] reimport | 正在准备重新导入文件……
+[  36% ] reimport | 正在准备重新导入文件……
+[  39% ] reimport | 正在准备重新导入文件……
+[  42% ] reimport | 正在准备重新导入文件……
+[  45% ] reimport | 正在准备重新导入文件……
+[  48% ] reimport | 正在准备重新导入文件……
+[  51% ] reimport | 正在准备重新导入文件……
+[  54% ] reimport | 正在准备重新导入文件……
+[  57% ] reimport | 正在准备重新导入文件……
+[  60% ] reimport | 正在准备重新导入文件……
+[  63% ] reimport | 正在准备重新导入文件……
+[  66% ] reimport | 正在准备重新导入文件……
+[  69% ] reimport | 正在准备重新导入文件……
+[  72% ] reimport | 正在准备重新导入文件……
+[  75% ] reimport | 正在准备重新导入文件……
+[  78% ] reimport | 正在准备重新导入文件……
+[  81% ] reimport | 正在准备重新导入文件……
+[  84% ] reimport | 正在准备重新导入文件……
+[  87% ] reimport | 正在准备重新导入文件……
+[  90% ] reimport | 正在准备重新导入文件……
+[  93% ] reimport | 正在准备重新导入文件……
+[   0% ] reimport | 正在执行重新导入的前置操作……
+[   0% ] reimport | production_tape_plate_1920.png
+[   3% ] reimport | minimum_2560.png
+[   6% ] reimport | minimum_1920.png
+[   9% ] reimport | minimum_1280.png
+[  12% ] reimport | maximum_2560.png
+[  15% ] reimport | maximum_1920.png
+[  18% ] reimport | maximum_1280.png
+[  21% ] reimport | legacy_tape_plate_1920.png
+[  24% ] reimport | normal_water_push_1920.png
+[  27% ] reimport | normal_release_1920.png
+[  30% ] reimport | normal_pressed_1920.png
+[  33% ] reimport | normal_before_press_1920.png
+[  36% ] reimport | held_directional_wake_1920.png
+[  39% ] reimport | fast_directional_skim_1920.png
+[  42% ] reimport | diagnostic_small_plus80px_1920.png
+[  45% ] reimport | diagnostic_both_plus80px_1920.png
+[  48% ] reimport | click_pulse_1920.png
+[  51% ] reimport | baseline_1920.png
+[  54% ] reimport | zh_dropdown_text_speed_1920.png
+[  57% ] reimport | zh_dropdown_resolution_1920.png
+[  60% ] reimport | zh_dropdown_language_1920.png
+[  63% ] reimport | zh_dropdown_display_mode_1920.png
+[  66% ] reimport | zh_2560.png
+[  69% ] reimport | zh_1920.png
+[  72% ] reimport | zh_1280.png
+[  75% ] reimport | en_dropdown_text_speed_1920.png
+[  78% ] reimport | en_dropdown_resolution_1920.png
+[  81% ] reimport | en_dropdown_language_1920.png
+[  84% ] reimport | en_dropdown_display_mode_1920.png
+[  87% ] reimport | en_2560.png
+[  90% ] reimport | en_1920.png
+[  93% ] reimport | en_1280.png
+[  96% ] reimport | 正在结束资产导入……
+[ DONE ] reimport
+
+[   0% ] reimport | Started 正在导入或重新导入资产 (32 steps)
+[   0% ] reimport | 正在执行重新导入的后置操作……
+[ DONE ] reimport
+
+[   0% ] loading_editor_layout | Started 正在加载编辑器 (5 steps)
+[   0% ] loading_editor_layout | 正在加载编辑器布局……
+[  16% ] loading_editor_layout | 正在加载停靠面板……
+[ DONE ] loading_editor_layout
+

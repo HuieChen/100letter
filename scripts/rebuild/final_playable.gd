@@ -44,7 +44,9 @@ var _desk_surface: Control
 var _conversation_person := ""
 var preferences:Node
 var preferences_path := "user://final_v2/preferences_v1.json"
+var _window_close_pending := false
 var allow_display_changes := true
+var _display_apply_queued:=false
 
 func _ready() -> void:
 	get_tree().auto_accept_quit=false
@@ -83,41 +85,72 @@ func _apply_audio_preferences() -> void:
 	sound.set_volumes(preferences.values.music,preferences.values.sfx,preferences.values.sfx)
 func _apply_preference(key:String,_value:Variant) -> void:
 	if key in ["master","music","sfx"]:_apply_audio_preferences()
-	elif key in ["display_mode","resolution"]:_apply_display_preferences()
+	elif key in ["display_mode","resolution"]:
+		# Native decoration/viewport changes must happen after the current GUI release
+		# and dropdown teardown, rather than invalidating that input traversal midway.
+		if not _display_apply_queued:
+			_display_apply_queued=true;_flush_display_preferences.call_deferred()
 	elif key=="language" and view=="title":
 		var start:=stage.find_child("NewShift",true,false);var resume:=stage.find_child("ContinueShift",true,false);var options:=stage.find_child("OpenSettings",true,false)
 		if start!=null:start.text=_tr("开始","New shift")
 		if resume!=null:resume.text=_tr("继续","Continue")
 		if options!=null:options.text=_tr("设置","Settings")
+func _flush_display_preferences()->void:
+	_display_apply_queued=false
+	if is_inside_tree():_apply_display_preferences()
 func _apply_display_preferences() -> void:
 	if not allow_display_changes or DisplayServer.get_name()=="headless":return
 	var window:=get_window();var mode:String=preferences.values.display_mode
-	window.mode=Window.MODE_FULLSCREEN if mode=="fullscreen" else Window.MODE_WINDOWED
-	window.borderless=mode=="borderless"
+	var native_mode:=Window.MODE_FULLSCREEN if mode=="fullscreen" else Window.MODE_WINDOWED
+	if window.mode!=native_mode:window.mode=native_mode
+	if window.borderless!=(mode=="borderless"):window.borderless=mode=="borderless"
 	var resolution:String=preferences.values.resolution
 	if resolution=="auto":
-		window.content_scale_mode=Window.CONTENT_SCALE_MODE_CANVAS_ITEMS;window.content_scale_size=Vector2i(1600,900);scale=Vector2.ONE
+		if window.content_scale_mode!=Window.CONTENT_SCALE_MODE_CANVAS_ITEMS:window.content_scale_mode=Window.CONTENT_SCALE_MODE_CANVAS_ITEMS
+		if window.content_scale_size!=Vector2i(1600,900):window.content_scale_size=Vector2i(1600,900)
+		scale=Vector2.ONE
 		if mode!="fullscreen":
 			var area:=DisplayServer.screen_get_usable_rect(window.current_screen).size
-			var width:=mini(1280,maxi(960,area.x-40));window.size=Vector2i(width,int(width*9.0/16.0))
+			var width:=mini(1280,maxi(960,area.x-40));var client:=Vector2i(width,int(width*9.0/16.0))
+			if window.size!=client:window.size=client
 	else:
 		var parts:=resolution.split("x");var pixels:=Vector2i(int(parts[0]),int(parts[1]))
 		# Fixed authored canvas into a real 2D render viewport, including fullscreen.
-		window.content_scale_mode=Window.CONTENT_SCALE_MODE_VIEWPORT;window.content_scale_size=pixels;scale=Vector2(pixels)/Vector2(1600,900)
+		if window.content_scale_mode!=Window.CONTENT_SCALE_MODE_VIEWPORT:window.content_scale_mode=Window.CONTENT_SCALE_MODE_VIEWPORT
+		if window.content_scale_size!=pixels:window.content_scale_size=pixels
+		scale=Vector2(pixels)/Vector2(1600,900)
 		if mode!="fullscreen":
 			var area:=DisplayServer.screen_get_usable_rect(window.current_screen).size
 			var factor:=minf(1.0,minf(float(area.x-40)/pixels.x,float(area.y-60)/pixels.y))
-			window.size=Vector2i(Vector2(pixels)*factor)
+			var client:=Vector2i(Vector2(pixels)*factor)
+			if window.size!=client:window.size=client
 
 
 func _notification(what:int) -> void:
 	if what==NOTIFICATION_WM_CLOSE_REQUEST:
-		if _prepare_quit():get_tree().quit()
+		_close_window_after_save()
+
+func _close_window_after_save()->void:
+	if _window_close_pending or not _prepare_quit():return
+	_window_close_pending=true
+	# Drain only this host's audio while the mixer is still alive. A last-second
+	# click cannot mutate the already checkpointed paper/progress during exit.
+	process_mode=Node.PROCESS_MODE_DISABLED
+	if is_instance_valid(sound):
+		sound.shutdown()
+		var deadline:=Time.get_ticks_msec()+1000
+		while sound.has_pending_playbacks() and Time.get_ticks_msec()<deadline:
+			await get_tree().process_frame
+		if sound.has_pending_playbacks():push_warning("Owned audio playback retirement reached the bounded quit deadline.")
+	get_tree().quit()
 
 func _prepare_quit() -> bool:
 	if is_instance_valid(preferences) and not preferences.save_settings():
-		_show_save_problem(_tr("设置没有保存成功：","Settings could not be saved: ")+preferences.last_error)
-		return false
+		# Display/audio preferences must not prevent an explicit quit. Their
+		# original file is preserved by the atomic writer; all campaign and
+		# physical-paper guards below still protect actual play progress.
+		push_warning(_tr("设置未保存","Settings not saved"))
+		_update_preference_save_notice()
 	if not is_instance_valid(core) or view=="title":return true
 	if busy:
 		_show_save_problem("正在完成这次移动或交接，请稍等一下再关闭。")
@@ -142,6 +175,17 @@ func _show_save_problem(message:String) -> void:
 	notice.name="SaveFailureNotice"
 	notice.add_theme_color_override("font_outline_color",Color("4a241b"))
 	notice.add_theme_constant_override("outline_size",5)
+	notice.mouse_filter=Control.MOUSE_FILTER_IGNORE
+
+func _update_preference_save_notice()->void:
+	var previous:=get_node_or_null("PreferencesSaveNotice")
+	if is_instance_valid(previous):remove_child(previous);previous.queue_free()
+	if not is_instance_valid(preferences) or not preferences.dirty or preferences.last_error.is_empty():return
+	# The settings paper owns its own localized status; show one short system
+	# notice after returning, without exposing a path or technical error code.
+	if is_instance_valid(modal) and modal.get_script()==SettingsPage:return
+	var notice:=UI.label(self,_tr("设置未保存","Settings not saved"),Rect2(575,811,450,36),18,Color("405c64"))
+	notice.name="PreferencesSaveNotice";notice.horizontal_alignment=HORIZONTAL_ALIGNMENT_CENTER
 	notice.mouse_filter=Control.MOUSE_FILTER_IGNORE
 
 func _unhandled_input(event:InputEvent) -> void:
@@ -224,11 +268,10 @@ func _title() -> void:
 	ground.mouse_filter=Control.MOUSE_FILTER_IGNORE
 	UI.place(ground,stage,Rect2(0,0,1600,900))
 	ground.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
-	var title:=UI.label(stage,"一百信",Rect2(400,275,800,150),100,Color("365955"))
+	var title:=UI.label(stage,"Dear Somewhere",Rect2(190,300,1220,150),82,Color("365955"))
 	title.name="GameTitle"
 	title.horizontal_alignment=HORIZONTAL_ALIGNMENT_CENTER
-	var subtitle:=UI.label(stage,"SOLMERE POST",Rect2(400,442,800,50),24,Color("697d77"))
-	subtitle.horizontal_alignment=HORIZONTAL_ALIGNMENT_CENTER
+	title.autowrap_mode=TextServer.AUTOWRAP_OFF
 	var start:=UI.button(stage,_tr("开始","New shift"),Rect2(575,580,450,57),_start)
 	start.name="NewShift"
 	var resume:=UI.button(stage,_tr("继续","Continue"),Rect2(575,652,450,57),_resume)
@@ -610,6 +653,7 @@ func _close() -> void:
 	if is_instance_valid(walker):
 		walker.manual_enabled=view=="world"
 		if view=="world":walker.show()
+	_update_preference_save_notice()
 
 func _overlay() -> Control:
 	_close()
@@ -1005,6 +1049,7 @@ func _settings_page() -> void:
 	settings.closed.connect(func():
 		_close()
 		if return_pause:_pause())
+	_update_preference_save_notice()
 
 func _save_to_title() -> void:
 	if not _save_resolution_drafts():return

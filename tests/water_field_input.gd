@@ -12,6 +12,23 @@ func _run()->void:
 	for i:int in 45:click.advance()
 	_check(absf(click.height[center.y*Field.W+center.x+5]-old_edge)>0.005,"pressure propagates away from the contact")
 	_check(click.snapshot().peak<peak,"damping reduces peak pressure")
+	var varied:=Field.new();varied.tap(Vector2(350,300));var first_shape:PackedFloat32Array=varied.height.duplicate();var first_profile:Dictionary=varied.snapshot().last_tap
+	varied.height.fill(0);varied.velocity.fill(0);varied.next_height.fill(0);varied.tap(Vector2(350,300))
+	_check(varied.snapshot().last_tap!=first_profile,"sequential taps vary their bounded contact profile")
+	_check(_shape_distance(first_shape,varied.height)>0.015,"tap variation changes the wave footprint, not only metadata or gain")
+	var quiet:=Field.new()
+	for i:int in 90:quiet.advance()
+	_check(quiet.snapshot().energy==0,"spatial propagation variation adds no automatic background wobble")
+	_check(Array(quiet.propagation).min()>=0.108*0.965 and Array(quiet.propagation).max()<=0.108*1.035,"local propagation speed remains within the conservative stable range")
+	_check(Array(quiet.propagation).max()-Array(quiet.propagation).min()>0.006,"expanding fronts encounter smooth nonuniform propagation")
+	var replay_a:=Field.new();var replay_b:=Field.new()
+	for i:int in 6:
+		var point:=Vector2(350+i*9,300-i*7);replay_a.tap(point);replay_b.tap(point)
+		for frame:int in 12:replay_a.advance();replay_b.advance()
+	_check(replay_a.height==replay_b.height and replay_a.velocity==replay_b.velocity,"same ordered interactions reproduce identical varied waves")
+	var initial_energy:float=replay_a.snapshot().energy
+	for i:int in 360:replay_a.advance()
+	_check(replay_a.snapshot().energy<initial_energy*0.15,"varied interacting waves decay after input stops")
 	var slow:=Field.new();slow.stroke(Vector2(350,300),Vector2(410,300),70)
 	var fast:=Field.new();fast.stroke(Vector2(350,300),Vector2(410,300),900)
 	_check(fast.snapshot().energy>slow.snapshot().energy*4,"same stroke responds differently to actual pointer speed")
@@ -56,3 +73,7 @@ func _move(point:Vector2,relative:Vector2,speed:float,held:bool)->void:
 func _check(ok:bool,message:String)->void:
 	checks+=1
 	if not ok:failures.append(message);push_error(message)
+func _shape_distance(a:PackedFloat32Array,b:PackedFloat32Array)->float:
+	var peak_a:float=Array(a).max();var peak_b:float=Array(b).max();var distance:=0.0
+	for i:int in a.size():distance+=absf(a[i]/peak_a-b[i]/peak_b)
+	return distance

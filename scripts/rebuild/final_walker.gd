@@ -47,6 +47,9 @@ var _gesture_duration: float = 1.0
 
 
 func _ready() -> void:
+	# A pointer-only Window may never acquire focus. Do not treat it as focused
+	# until its real Window says so, or poll another application's held keys.
+	_window_focused = get_window().has_focus()
 	if FileAccess.file_exists(WALK_GEOMETRY):
 		var data:Variant=JSON.parse_string(FileAccess.get_file_as_string(WALK_GEOMETRY))
 		if data is Dictionary:
@@ -123,9 +126,12 @@ func gesture(kind: String) -> void:
 func _notification(what: int) -> void:
 	if what == NOTIFICATION_WM_WINDOW_FOCUS_OUT:
 		_window_focused = false
-		if _manual_active or walking: cancel()
+		# Native FLAG_NO_FOCUS still permits pointer input. A late focus-out event
+		# must not discard an accepted mouse approach in a window which cannot own
+		# focus; ordinary playable windows retain their focus-loss cancellation.
+		if _manual_active or (walking and not get_window().unfocusable): cancel()
 	elif what == NOTIFICATION_WM_WINDOW_FOCUS_IN:
-		_window_focused = true
+		_window_focused = not get_window().unfocusable
 		set_process(true)
 
 

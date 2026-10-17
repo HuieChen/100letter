@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "name": "Solmere Post / 一百信",
+  "name": "Dear Somewhere",
   "upstream_revision": "b21fa0f7f289fc3e726cf36fb12b9bc1e7a51e4d",
   "engine": {
     "name": "Godot",

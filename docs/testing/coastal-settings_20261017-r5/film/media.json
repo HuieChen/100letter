@@ -1,0 +1,20 @@
+{
+  "file": "C:\\Users\\22416\\Documents\\Codex\\2026-10-01\\github\\work\\100letter-studio-publish\\test-results\\coastal-film-r5\\settings-r5.mp4",
+  "method": "Actual1920x1080 Godot MovieWriter rendering/mixer; same scheduled gesture times. Automated annotated input, not native mouse footage or real-timeFPS or human listening.",
+  "native_dimensions": [
+    1920,
+    1080
+  ],
+  "frames": 1322,
+  "fps": 60,
+  "seconds": 22.033333333333335,
+  "crf": 15,
+  "bytes": 4054531,
+  "nonzero_mix": true,
+  "decoded_mix_peak": 0.27614715695381165,
+  "decoded_mix_rms": 0.013848784379661083,
+  "checked_press_observations": 6,
+  "raw_avi_sha256": "05758986f5f70803c04003609c4069af2422b37cd8c624a5af4de71c61a2f281",
+  "mp4_sha256": "f8f2c2e245e9f190f0ee55105962310cced6a6590635e8512ac19406034bd1ac",
+  "owned_raw_avi_removed_after_validation": true
+}

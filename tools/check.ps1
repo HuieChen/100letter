@@ -2,6 +2,8 @@ param(
     [Parameter(Mandatory=$true)][string]$GodotPath,
     [string]$PythonPath = 'python',
     [switch]$GpuChecks,
+    [switch]$ExternalWindowClose,
+    [switch]$EngineWindowClose,
     [switch]$ArchiveChecks,
     [string]$ArchiveRoot
 )
@@ -13,6 +15,9 @@ $taskRun = Join-Path $taskRepo ('test-results/check-' + (Get-Date -Format 'yyyyM
 $taskOldAppData = $env:APPDATA
 $taskOldLocalAppData = $env:LOCALAPPDATA
 $taskOldArchiveRoot = $env:SOLMERE_ARCHIVE_ROOT
+$taskGpuOverride = Join-Path $taskRepo 'override.cfg'
+$taskGpuOverrideBytes = [Text.Encoding]::UTF8.GetBytes("[display]`nwindow/size/no_focus=true`n")
+$taskGpuOverrideOwned = $false
 New-Item -ItemType Directory -Force -Path $taskRun | Out-Null
 $env:APPDATA = Join-Path $taskRun 'AppData/Roaming'
 $env:LOCALAPPDATA = Join-Path $taskRun 'AppData/Local'
@@ -48,6 +53,9 @@ function Invoke-TaskGodot {
 
 Push-Location $taskRepo
 try {
+    if ($GpuChecks -and (Test-Path -LiteralPath $taskGpuOverride)) {
+        throw 'GPU QA requires an absent override.cfg; an existing MovieWriter/user override will not be overwritten.'
+    }
     & $taskPython tools/studio.py verify
     if ($LASTEXITCODE -ne 0) { throw 'Studio upstream/adapter integrity failed' }
     & $taskPython tools/studio.py status
@@ -81,22 +89,50 @@ try {
         Invoke-TaskGodot $taskSuite @('--script',"res://tests/$taskSuite.gd")
     }
     if ($GpuChecks) {
-        foreach ($taskSuite in @('display_preferences_input','notebook_dialogue_input','coastal_settings_input','coastal_physics_input','water_field_input','settings_manipulation_input','field_observation_smoke','field_book_smoke','mail_workbench_input_smoke','tactile_mail_input','resolution_slip_smoke','final_host_boundary_smoke','final_resolution_draft_smoke','counter_onboarding_input','core_review_input')) {
+        # Create the no-focus flag before any GPU root Window exists. Setting
+        # root.unfocusable after creation does not revoke its startup focus and
+        # a delayed native focus-out can cancel a synthetic down/up pair.
+        # CreateNew also rejects an override created by another owner meanwhile.
+        $taskOverrideStream = [IO.File]::Open($taskGpuOverride,[IO.FileMode]::CreateNew,[IO.FileAccess]::Write,[IO.FileShare]::None)
+        try {
+            $taskGpuOverrideOwned = $true
+            $taskOverrideStream.Write($taskGpuOverrideBytes,0,$taskGpuOverrideBytes.Length)
+        } finally {
+            $taskOverrideStream.Dispose()
+        }
+        if ([Convert]::ToBase64String([IO.File]::ReadAllBytes($taskGpuOverride)) -cne [Convert]::ToBase64String($taskGpuOverrideBytes)) {
+            throw 'Owned GPU QA override bytes do not match the exact startup flag.'
+        }
+        Write-Host 'GPU fixtures started native FLAG_NO_FOCUS; no OS UI injection. Temporary QA override only; production project.godot is unchanged.'
+        foreach ($taskSuite in @('display_preferences_input','pointer_window_focus_input','game_identity_input','coastal_layout_input','settings_art_edges_input','settings_save_failure_input','audio_shutdown_input','notebook_dialogue_input','lemon_matte_render','lemon_press_input','lemon_press_gui_input','lemon_companion_input','coastal_settings_input','coastal_physics_input','water_field_input','water_feedback_input','settings_manipulation_input','field_observation_smoke','field_book_smoke','mail_workbench_input_smoke','tactile_mail_input','resolution_slip_smoke','final_host_boundary_smoke','final_resolution_draft_smoke','counter_onboarding_input','core_review_input')) {
             Invoke-TaskGodot $taskSuite @('--script',"res://tests/$taskSuite.gd",'--resolution','1600x900','--audio-driver','Dummy') -Gpu
         }
         foreach ($taskRoute in @('sealed','delegate')) {
             Invoke-TaskGodot ("five_case_" + $taskRoute) @('--script','res://tests/final_five_case_input.gd','--resolution','1600x900','--audio-driver','Dummy','--',("--route=" + $taskRoute)) -Gpu
         }
         Invoke-TaskGodot 'amended_handoff' @('--script','res://tests/final_amended_handoff_input.gd','--resolution','1600x900','--audio-driver','Dummy') -Gpu
-        & (Join-Path $PSScriptRoot 'test_window_close.ps1') -GodotPath $taskGodot
+        & (Join-Path $PSScriptRoot 'test_window_close.ps1') -GodotPath $taskGodot -ExternalClose:$ExternalWindowClose -EngineClose:$EngineWindowClose
         Write-Host 'Automated GPU checks completed; not human usability, reference fidelity or listening approval.'
     } else {
         Write-Host 'Headless checks completed. GPU checks were NOT run; use -GpuChecks.'
     }
     Write-Host "Logs and isolated userdata: $taskRun"
 } finally {
-    $env:APPDATA = $taskOldAppData
-    $env:LOCALAPPDATA = $taskOldLocalAppData
-    $env:SOLMERE_ARCHIVE_ROOT = $taskOldArchiveRoot
-    Pop-Location
+    try {
+        if ($taskGpuOverrideOwned) {
+            if (-not (Test-Path -LiteralPath $taskGpuOverride -PathType Leaf)) {
+                throw 'Owned GPU QA override disappeared; its cleanup cannot be verified.'
+            }
+            if ([Convert]::ToBase64String([IO.File]::ReadAllBytes($taskGpuOverride)) -cne [Convert]::ToBase64String($taskGpuOverrideBytes)) {
+                throw 'GPU QA override was changed by another owner; refusing to remove unverified bytes.'
+            }
+            Remove-Item -LiteralPath $taskGpuOverride
+            Write-Host 'Exact owned GPU QA override removed before packaging.'
+        }
+    } finally {
+        $env:APPDATA = $taskOldAppData
+        $env:LOCALAPPDATA = $taskOldLocalAppData
+        $env:SOLMERE_ARCHIVE_ROOT = $taskOldArchiveRoot
+        Pop-Location
+    }
 }

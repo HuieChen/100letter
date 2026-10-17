@@ -1,0 +1,44 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+OpenGL API 3.3.0 NVIDIA 566.24 - Compatibility - Using Device: NVIDIA - NVIDIA GeForce RTX 4050 Laptop GPU
+
+ERROR: first pointer release dispatches Setting_display_mode
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] _check (res://tests/display_preferences_input.gd:139)
+       [1] _click (res://tests/display_preferences_input.gd:76)
+       [2] _click_point (res://tests/display_preferences_input.gd:80)
+DISPLAY_INPUT_MISS control=Setting_display_mode geometry={ "mode": 0, "borderless": false, "client": (1280, 720), "window": (1280, 720), "canvas_mode": 2, "canvas": (1280, 720), "render": (1280.0, 720.0), "reported_texture_size": (1280.0, 720.0), "scale": (0.8, 0.8), "button": [P: (691.2, 201.6), S: (127.2, 32.0)], "button_instance": 65062045279, "pending": false }
+ERROR: first click opens exactly one display_mode dropdown
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] _check (res://tests/display_preferences_input.gd:139)
+       [1] _check_dropdown (res://tests/display_preferences_input.gd:88)
+       [2] _run (res://tests/display_preferences_input.gd:43)
+       [3] _click (res://tests/display_preferences_input.gd:77)
+       [4] _click_point (res://tests/display_preferences_input.gd:80)
+DISPLAY_DROPDOWN_MISS key=display_mode geometry={ "mode": 0, "borderless": false, "client": (1280, 720), "window": (1280, 720), "canvas_mode": 2, "canvas": (1280, 720), "render": (1280.0, 720.0), "reported_texture_size": (1280.0, 720.0), "scale": (0.8, 0.8), "button": [P: (691.2, 201.6), S: (127.2, 32.0)], "button_instance": 65062045279, "pending": false }
+ERROR: first-click dropdown exposes usable display_mode option 0
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] _check (res://tests/display_preferences_input.gd:139)
+       [1] _check_dropdown (res://tests/display_preferences_input.gd:92)
+       [2] _run (res://tests/display_preferences_input.gd:43)
+       [3] _click (res://tests/display_preferences_input.gd:77)
+       [4] _click_point (res://tests/display_preferences_input.gd:80)
+ERROR: first-click dropdown exposes usable display_mode option 1
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] _check (res://tests/display_preferences_input.gd:139)
+       [1] _check_dropdown (res://tests/display_preferences_input.gd:92)
+       [2] _run (res://tests/display_preferences_input.gd:43)
+       [3] _click (res://tests/display_preferences_input.gd:77)
+       [4] _click_point (res://tests/display_preferences_input.gd:80)
+ERROR: first-click dropdown exposes usable display_mode option 2
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] _check (res://tests/display_preferences_input.gd:139)
+       [1] _check_dropdown (res://tests/display_preferences_input.gd:92)
+       [2] _run (res://tests/display_preferences_input.gd:43)
+       [3] _click (res://tests/display_preferences_input.gd:77)
+       [4] _click_point (res://tests/display_preferences_input.gd:80)
+DISPLAY PREFERENCES: 545 checks / 5 failures; fullscreen remains native-only

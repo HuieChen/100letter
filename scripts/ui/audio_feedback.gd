@@ -53,6 +53,8 @@ var _ambience_volume: float = 0.85
 var menu_music:AudioStreamPlayer
 var _settings_mode:=false
 var _menu_gain:=0.0
+var _shutdown_complete:=false
+var _retiring_playbacks:Array[WeakRef]=[]
 
 
 func _ready() -> void:
@@ -93,6 +95,7 @@ func _ready() -> void:
 	menu_track=menu_track.duplicate();menu_track.loop=true;menu_music.stream=menu_track;menu_music.volume_db=-80
 
 func settings_music(enabled:bool)->void:
+	if _shutdown_complete:return
 	_settings_mode=enabled
 	if enabled and is_instance_valid(menu_music) and not menu_music.playing:menu_music.play()
 
@@ -143,7 +146,7 @@ func set_volumes(music_level: float, effects_level: float, ambient_level: float 
 
 
 func play(kind: String = "paper") -> void:
-	if muted: return
+	if muted or _shutdown_complete: return
 	var cooldown: float = 0.16 if kind == "step" else 0.11
 	if kind in ["tool", "snap", "repair"]: cooldown = 0.22
 	if kind in ["bell", "tram"]: cooldown = 2.0
@@ -223,6 +226,7 @@ func _stream(file: String) -> AudioStream:
 
 
 func _spawn(kind: String, file: String, gain: float, bus: String, pitch: float = 1.0) -> void:
+	if _shutdown_complete:return
 	_clean_shots()
 	if _shots.size() >= 10: return
 	var resource: AudioStream = _stream(file)
@@ -239,7 +243,7 @@ func _spawn(kind: String, file: String, gain: float, bus: String, pitch: float =
 	cue_played.emit(kind, file)
 
 func play_water_touch(point:Vector2,strength:float=1.0,body_contact:bool=false)->void:
-	if muted or _sfx_volume<=0.0:return
+	if muted or _sfx_volume<=0.0 or _shutdown_complete:return
 	var value:=clampf(strength,0.1,1.0)
 	# Distinct close touch / lighter surface contact; original CC0 PCM remains unchanged.
 	var file:="water_touch_3.wav" if body_contact or value<0.45 else ("water_touch_2.wav" if int(point.x+point.y)%2==0 else "water_touch_1.wav")
@@ -261,6 +265,7 @@ func _clean_shots() -> void:
 
 
 func _process(delta: float) -> void:
+	if _shutdown_complete:return
 	_elapsed += delta
 	for file: String in _beds:
 		var current: float = float(_bed_gains[file])
@@ -289,11 +294,41 @@ func _process(delta: float) -> void:
 			_spawn("bird_ambient", "birds.wav", -25.0 if location_id == "lookout" else -21.0, AMBIENT_BUS, _rng.randf_range(0.94, 1.04))
 
 
-func _exit_tree() -> void:
+func shutdown() -> void:
+	# Call while the tree/audio mixer are alive, before the host's quit drain.
+	# stop() retires native playback on a subsequent audio mix; _exit_tree alone
+	# can be too late during an immediate engine shutdown. Only our players are
+	# released here; shared buses, effects and volume/mute settings stay intact.
+	if _shutdown_complete:return
+	_shutdown_complete=true
+	set_process(false)
+	_settings_mode=false
 	for child: Node in get_children():
 		if child is AudioStreamPlayer:
+			# A weak fence observes only this player's native voice, not a shared
+			# imported AudioStream or another owner's use of the same bus.
+			if child.has_stream_playback():
+				_retiring_playbacks.append(weakref(child.get_stream_playback()))
 			child.stop()
 			child.stream = null
 	_shots.clear()
 	_beds.clear()
 	_streams.clear()
+	_bed_gains.clear()
+	_targets.clear()
+	music=null
+	menu_music=null
+	ambience=null
+
+func has_pending_playbacks() -> bool:
+	# AudioServer owns stop/fade retirement after the player relinquishes its
+	# voice. Poll between process frames; callers provide their own quit bound.
+	# The weak observations never keep a stream/playback alive themselves.
+	var pending:Array[WeakRef]=[]
+	for reference:WeakRef in _retiring_playbacks:
+		if reference.get_ref()!=null:pending.append(reference)
+	_retiring_playbacks=pending
+	return not _retiring_playbacks.is_empty()
+
+func _exit_tree() -> void:
+	shutdown()

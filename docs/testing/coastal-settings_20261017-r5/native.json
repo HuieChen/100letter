@@ -1,0 +1,124 @@
+{
+  "pck_sha256": "e1944f1d6f6fb17e02929ba9f51360aac0766ed70dcae7ae009916e38d579c6f",
+  "method": "Actual Windows mouse/key input with Computer Use @oai/sky in the matching official R5 release; original returned JPEG pixels retained without editing.",
+  "scope": "One isolated-preference R5 title/settings flow, real windowed and fullscreen UI input. Interrupted by external user input before F11 return/native title-bar close/restart. Not complete native matrix, measured FPS, listening or user animation acceptance.",
+  "observed": [
+    "Plain Dear Somewhere title and matching window identity",
+    "Real Master slider to minimum then restored to0.81",
+    "Chinese and English UI switching with rounded open menu",
+    "F11 enters true fullscreen and synchronizes Full Screen label",
+    "First language-button click after native decoration change opens menu without retry",
+    "Esc closes the open dropdown while retaining Settings",
+    "Actual exposed-water click and drag; lemon press/release and nearby painted water/shadow response",
+    "Visible return arrow returns to title"
+  ],
+  "limits": [
+    "F11 return to Windowed was blocked by user-input detection; no automatic retry. The following state did not show the game, so no further UI input or foreign screenshot retention occurred.",
+    "Twelve matching-game captures precede that interruption; no title-bar close/fresh restart or half-extracted-paper OS close is claimed.",
+    "A transient red toolbar and blue pointer halo are visible in some OS captures, including plain title; they are retained as observed overlays, not relabeled as authored water effects.",
+    "Settings dimensions in OS captures include DPI/letterboxing; separate original1920x1080 engine frames are retained.",
+    "Source/GPU checks and offline MovieWriter do not prove perceived click-wave readability. The latest human feedback explicitly asks for a visible expanding click ripple; this remains active follow-up, not accepted.",
+    "Original player progress and the older running R3 are untouched; preview preferences use isolated APPDATA."
+  ],
+  "artifacts": [
+    {
+      "path": "docs/testing/coastal-settings_20261017-r5/native/01_title.jpg",
+      "sha256": "4f9a7a6c9085bd6e4966fbfc19f0bba7dea6c43785bd16290b2d729019824be7",
+      "mime": "image/jpeg",
+      "width": 856,
+      "height": 511,
+      "observed_at": "2026-10-17T10:21:28.997Z"
+    },
+    {
+      "path": "docs/testing/coastal-settings_20261017-r5/native/02_settings_zh.jpg",
+      "sha256": "78e7309d72e97697d1f2ec3cddfe2e1c51fb56d79c1dfc7769897f4b7f63da33",
+      "mime": "image/jpeg",
+      "width": 856,
+      "height": 511,
+      "observed_at": "2026-10-17T10:21:46.074Z"
+    },
+    {
+      "path": "docs/testing/coastal-settings_20261017-r5/native/03_master_min_external_overlay.jpg",
+      "sha256": "be088507e5313a3fca3143fa161f72f05df7d4319aacb9240b358a5ad26660cb",
+      "mime": "image/jpeg",
+      "width": 856,
+      "height": 511,
+      "observed_at": "2026-10-17T10:22:42.835Z"
+    },
+    {
+      "path": "docs/testing/coastal-settings_20261017-r5/native/04_menu_zh.jpg",
+      "sha256": "5d77fdd870beeab474a5955f0325609e8a39d9171b6963eb0714648118b5b2fa",
+      "mime": "image/jpeg",
+      "width": 856,
+      "height": 511,
+      "observed_at": "2026-10-17T10:23:41.208Z"
+    },
+    {
+      "path": "docs/testing/coastal-settings_20261017-r5/native/05_settings_en.jpg",
+      "sha256": "540b51d6fa7002a488e607fb9f16bc597d4dfb7fadd14f25c4b09e6dc3d65404",
+      "mime": "image/jpeg",
+      "width": 856,
+      "height": 511,
+      "observed_at": "2026-10-17T10:24:00.218Z"
+    },
+    {
+      "path": "docs/testing/coastal-settings_20261017-r5/native/06_fullscreen_en.jpg",
+      "sha256": "53ddecf8c348d8715ffdf63e41e6c1740dc0fe1d14f3142e676966523f7413d0",
+      "mime": "image/jpeg",
+      "width": 1707,
+      "height": 1067,
+      "observed_at": "2026-10-17T10:24:14.798Z"
+    },
+    {
+      "path": "docs/testing/coastal-settings_20261017-r5/native/07_fullscreen_first_click_menu.jpg",
+      "sha256": "64fe750151e711e05d7199a496541e38893ee9b5e79771e38181cea8dbb48703",
+      "mime": "image/jpeg",
+      "width": 1707,
+      "height": 1067,
+      "observed_at": "2026-10-17T10:24:27.473Z"
+    },
+    {
+      "path": "docs/testing/coastal-settings_20261017-r5/native/08_fullscreen_menu_esc.jpg",
+      "sha256": "575bf4be089da4d552512739515fc6e4fbc4d490e54713007b46a3fb821d275c",
+      "mime": "image/jpeg",
+      "width": 1707,
+      "height": 1067,
+      "observed_at": "2026-10-17T10:25:24.051Z"
+    },
+    {
+      "path": "docs/testing/coastal-settings_20261017-r5/native/09_water_click.jpg",
+      "sha256": "f010ef3419ebe68de5db04ca897039554f774cd1f73f398cc05e1ab6d4c5d49a",
+      "mime": "image/jpeg",
+      "width": 1707,
+      "height": 1067,
+      "observed_at": "2026-10-17T10:26:14.987Z"
+    },
+    {
+      "path": "docs/testing/coastal-settings_20261017-r5/native/10_water_drag.jpg",
+      "sha256": "e22ce5be3dd4b1250ce986f3524648c31ef447de8a53fb9a69fed9917afc68d0",
+      "mime": "image/jpeg",
+      "width": 1707,
+      "height": 1067,
+      "observed_at": "2026-10-17T10:26:39.560Z"
+    },
+    {
+      "path": "docs/testing/coastal-settings_20261017-r5/native/11_lemon_click.jpg",
+      "sha256": "03bc181596af317a574db7620c61e4b3959fd2b491f0a9250404a1e1d768dec5",
+      "mime": "image/jpeg",
+      "width": 1707,
+      "height": 1067,
+      "observed_at": "2026-10-17T10:27:19.362Z"
+    },
+    {
+      "path": "docs/testing/coastal-settings_20261017-r5/native/12_arrow_to_title.jpg",
+      "sha256": "8eecdb73a425e471894e1d2b7c25e8045967fa7d4deae0ccbc00ace064b9dab4",
+      "mime": "image/jpeg",
+      "width": 1707,
+      "height": 1067,
+      "observed_at": "2026-10-17T10:27:32.706Z"
+    }
+  ],
+  "external_user_input_interrupted": true,
+  "native_os_title_bar_close_pending": true,
+  "user_animation_acceptance": false
+}

@@ -1,0 +1,249 @@
+{
+	"checks": 146,
+	"failures": [],
+	"images": [
+		"res://test-results/settings-art-edges_20261017/minimum_1280.png",
+		"res://test-results/settings-art-edges_20261017/maximum_1280.png",
+		"res://test-results/settings-art-edges_20261017/minimum_1920.png",
+		"res://test-results/settings-art-edges_20261017/maximum_1920.png",
+		"res://test-results/settings-art-edges_20261017/legacy_tape_plate_1920.png",
+		"res://test-results/settings-art-edges_20261017/production_tape_plate_1920.png",
+		"res://test-results/settings-art-edges_20261017/legacy_blue_plate_1920.png",
+		"res://test-results/settings-art-edges_20261017/production_blue_plate_1920.png",
+		"res://test-results/settings-art-edges_20261017/minimum_2560.png",
+		"res://test-results/settings-art-edges_20261017/maximum_2560.png"
+	],
+	"measurements": [
+		{
+			"actual_core": "(1.0, 1.0, 1.0, 1.0)",
+			"outside_rail_pixels": 0,
+			"phase": "minimum",
+			"slider": "master",
+			"value": 0.0,
+			"width": 1280
+		},
+		{
+			"actual_core": "(1.0, 1.0, 1.0, 1.0)",
+			"outside_rail_pixels": 0,
+			"phase": "minimum",
+			"slider": "music",
+			"value": 0.0,
+			"width": 1280
+		},
+		{
+			"actual_core": "(1.0, 1.0, 1.0, 1.0)",
+			"outside_rail_pixels": 0,
+			"phase": "minimum",
+			"slider": "sfx",
+			"value": 0.0,
+			"width": 1280
+		},
+		{
+			"actual_core": "(1.0, 1.0, 1.0, 1.0)",
+			"outside_rail_pixels": 0,
+			"phase": "minimum",
+			"slider": "sensitivity",
+			"value": 0.5,
+			"width": 1280
+		},
+		{
+			"actual_core": "(1.0, 1.0, 1.0, 1.0)",
+			"outside_rail_pixels": 0,
+			"phase": "maximum",
+			"slider": "master",
+			"value": 1.0,
+			"width": 1280
+		},
+		{
+			"actual_core": "(1.0, 1.0, 1.0, 1.0)",
+			"outside_rail_pixels": 0,
+			"phase": "maximum",
+			"slider": "music",
+			"value": 1.0,
+			"width": 1280
+		},
+		{
+			"actual_core": "(1.0, 1.0, 1.0, 1.0)",
+			"outside_rail_pixels": 0,
+			"phase": "maximum",
+			"slider": "sfx",
+			"value": 1.0,
+			"width": 1280
+		},
+		{
+			"actual_core": "(1.0, 1.0, 1.0, 1.0)",
+			"outside_rail_pixels": 0,
+			"phase": "maximum",
+			"slider": "sensitivity",
+			"value": 2.0,
+			"width": 1280
+		},
+		{
+			"changed_samples": 0,
+			"maximum_channel_error": 0.0,
+			"opaque_white_samples": 1423,
+			"phase": "blue_card_wrappers",
+			"width": 1280
+		},
+		{
+			"actual_core": "(1.0, 1.0, 1.0, 1.0)",
+			"outside_rail_pixels": 0,
+			"phase": "minimum",
+			"slider": "master",
+			"value": 0.0,
+			"width": 1920
+		},
+		{
+			"actual_core": "(1.0, 1.0, 1.0, 1.0)",
+			"outside_rail_pixels": 0,
+			"phase": "minimum",
+			"slider": "music",
+			"value": 0.0,
+			"width": 1920
+		},
+		{
+			"actual_core": "(1.0, 1.0, 1.0, 1.0)",
+			"outside_rail_pixels": 0,
+			"phase": "minimum",
+			"slider": "sfx",
+			"value": 0.0,
+			"width": 1920
+		},
+		{
+			"actual_core": "(1.0, 1.0, 1.0, 1.0)",
+			"outside_rail_pixels": 0,
+			"phase": "minimum",
+			"slider": "sensitivity",
+			"value": 0.5,
+			"width": 1920
+		},
+		{
+			"actual_core": "(1.0, 1.0, 1.0, 1.0)",
+			"outside_rail_pixels": 0,
+			"phase": "maximum",
+			"slider": "master",
+			"value": 1.0,
+			"width": 1920
+		},
+		{
+			"actual_core": "(1.0, 1.0, 1.0, 1.0)",
+			"outside_rail_pixels": 0,
+			"phase": "maximum",
+			"slider": "music",
+			"value": 1.0,
+			"width": 1920
+		},
+		{
+			"actual_core": "(1.0, 1.0, 1.0, 1.0)",
+			"outside_rail_pixels": 0,
+			"phase": "maximum",
+			"slider": "sfx",
+			"value": 1.0,
+			"width": 1920
+		},
+		{
+			"actual_core": "(1.0, 1.0, 1.0, 1.0)",
+			"outside_rail_pixels": 0,
+			"phase": "maximum",
+			"slider": "sensitivity",
+			"value": 2.0,
+			"width": 1920
+		},
+		{
+			"changed_samples": 0,
+			"maximum_channel_error": 0.0,
+			"opaque_white_samples": 4401,
+			"phase": "blue_card_wrappers",
+			"width": 1920
+		},
+		{
+			"mean_removed_brightness": 0.185288572883875,
+			"phase": "fold_matte",
+			"source_fringe_pixels": 59
+		},
+		{
+			"changed_samples": 0,
+			"max_channel_error": 0.0,
+			"phase": "paper_preservation"
+		},
+		{
+			"phase": "blue_card_export_edge",
+			"previous_mean_error": 0.435536545731805,
+			"production_max_error": 0.0196078419685364,
+			"production_mean_error": 0.00700653553009033,
+			"source_edge_samples": 825
+		},
+		{
+			"actual_core": "(1.0, 1.0, 1.0, 1.0)",
+			"outside_rail_pixels": 0,
+			"phase": "minimum",
+			"slider": "master",
+			"value": 0.0,
+			"width": 2560
+		},
+		{
+			"actual_core": "(1.0, 1.0, 1.0, 1.0)",
+			"outside_rail_pixels": 0,
+			"phase": "minimum",
+			"slider": "music",
+			"value": 0.0,
+			"width": 2560
+		},
+		{
+			"actual_core": "(1.0, 1.0, 1.0, 1.0)",
+			"outside_rail_pixels": 0,
+			"phase": "minimum",
+			"slider": "sfx",
+			"value": 0.0,
+			"width": 2560
+		},
+		{
+			"actual_core": "(1.0, 1.0, 1.0, 1.0)",
+			"outside_rail_pixels": 0,
+			"phase": "minimum",
+			"slider": "sensitivity",
+			"value": 0.5,
+			"width": 2560
+		},
+		{
+			"actual_core": "(1.0, 1.0, 1.0, 1.0)",
+			"outside_rail_pixels": 0,
+			"phase": "maximum",
+			"slider": "master",
+			"value": 1.0,
+			"width": 2560
+		},
+		{
+			"actual_core": "(1.0, 1.0, 1.0, 1.0)",
+			"outside_rail_pixels": 0,
+			"phase": "maximum",
+			"slider": "music",
+			"value": 1.0,
+			"width": 2560
+		},
+		{
+			"actual_core": "(1.0, 1.0, 1.0, 1.0)",
+			"outside_rail_pixels": 0,
+			"phase": "maximum",
+			"slider": "sfx",
+			"value": 1.0,
+			"width": 2560
+		},
+		{
+			"actual_core": "(1.0, 1.0, 1.0, 1.0)",
+			"outside_rail_pixels": 0,
+			"phase": "maximum",
+			"slider": "sensitivity",
+			"value": 2.0,
+			"width": 2560
+		},
+		{
+			"changed_samples": 0,
+			"maximum_channel_error": 0.0,
+			"opaque_white_samples": 8912,
+			"phase": "blue_card_wrappers",
+			"width": 2560
+		}
+	],
+	"scope": "Actual Host pointer min/max sliders at1280,1920 and2560; decoded native pixels; production PDF material reuse versus former generic matte; unchanged source hashes, printed paper, live menu/knob pixels and source-specific blue-card edge recovery. Automated GPU, not native desktop input or user acceptance."
+}

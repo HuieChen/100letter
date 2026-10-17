@@ -1,0 +1,20 @@
+{
+  "file": "C:\\Users\\22416\\Documents\\Codex\\2026-10-01\\github\\work\\100letter-studio-publish\\test-results\\coastal-motion-before60_20261017\\before60.mp4",
+  "method": "Actual1920x1080 Godot MovieWriter rendering/mixer; same scheduled gesture times. Automated annotated input, not native mouse footage or real-timeFPS or human listening.",
+  "native_dimensions": [
+    1920,
+    1080
+  ],
+  "frames": 1322,
+  "fps": 60,
+  "seconds": 22.033333333333335,
+  "crf": 15,
+  "bytes": 5381101,
+  "nonzero_mix": true,
+  "decoded_mix_peak": 0.32407477498054504,
+  "decoded_mix_rms": 0.016113145276904106,
+  "checked_press_observations": 6,
+  "raw_avi_sha256": "045473cdf7d60cd340c8682e7d92517e7384f2c3d0fa3a38b419f4da957fd89a",
+  "mp4_sha256": "7da29dbad6e113ab6d3b998e7f1eab763190d3309823cf032b41bdb103425100",
+  "owned_raw_avi_removed_after_validation": true
+}

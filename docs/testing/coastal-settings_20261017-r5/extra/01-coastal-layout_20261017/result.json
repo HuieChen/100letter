@@ -1,0 +1,2831 @@
+{
+	"checks": 1975,
+	"failures": [],
+	"images": [
+		"res://test-results/coastal-layout_20261017/zh_1280.png",
+		"res://test-results/coastal-layout_20261017/en_1280.png",
+		"res://test-results/coastal-layout_20261017/zh_1920.png",
+		"res://test-results/coastal-layout_20261017/zh_dropdown_language_1920.png",
+		"res://test-results/coastal-layout_20261017/zh_dropdown_display_mode_1920.png",
+		"res://test-results/coastal-layout_20261017/zh_dropdown_resolution_1920.png",
+		"res://test-results/coastal-layout_20261017/zh_dropdown_text_speed_1920.png",
+		"res://test-results/coastal-layout_20261017/en_1920.png",
+		"res://test-results/coastal-layout_20261017/en_dropdown_language_1920.png",
+		"res://test-results/coastal-layout_20261017/en_dropdown_display_mode_1920.png",
+		"res://test-results/coastal-layout_20261017/en_dropdown_resolution_1920.png",
+		"res://test-results/coastal-layout_20261017/en_dropdown_text_speed_1920.png",
+		"res://test-results/coastal-layout_20261017/zh_2560.png",
+		"res://test-results/coastal-layout_20261017/en_2560.png"
+	],
+	"measurements": [
+		{
+			"control": [
+				510.0,
+				18.0,
+				534.0,
+				109.0
+			],
+			"font_size": 72,
+			"glyph": [
+				705.0,
+				20.0,
+				144.0,
+				105.0
+			],
+			"item": "SettingsHeading",
+			"language": "zh",
+			"text": "设置",
+			"width": 1280
+		},
+		{
+			"control": [
+				580.0,
+				165.0,
+				221.0,
+				48.0
+			],
+			"font_size": 32,
+			"glyph": [
+				626.5,
+				165.0,
+				128.0,
+				48.0
+			],
+			"item": "SettingLabel_language",
+			"language": "zh",
+			"text": "界面语言",
+			"width": 1280
+		},
+		{
+			"control": [
+				998.0,
+				170.0,
+				22.0,
+				38.0
+			],
+			"font_size": 20,
+			"glyph": [
+				998.0,
+				170.0,
+				18.0,
+				30.0
+			],
+			"item": "@Label@50",
+			"language": "zh",
+			"text": "▾",
+			"width": 1280
+		},
+		{
+			"control": [
+				580.0,
+				252.0,
+				221.0,
+				48.0
+			],
+			"font_size": 32,
+			"glyph": [
+				626.5,
+				252.0,
+				128.0,
+				48.0
+			],
+			"item": "SettingLabel_display_mode",
+			"language": "zh",
+			"text": "显示模式",
+			"width": 1280
+		},
+		{
+			"control": [
+				998.0,
+				253.0,
+				22.0,
+				38.0
+			],
+			"font_size": 20,
+			"glyph": [
+				998.0,
+				253.0,
+				18.0,
+				30.0
+			],
+			"item": "@Label@52",
+			"language": "zh",
+			"text": "▾",
+			"width": 1280
+		},
+		{
+			"control": [
+				580.0,
+				310.0,
+				221.0,
+				48.0
+			],
+			"font_size": 32,
+			"glyph": [
+				610.5,
+				310.0,
+				160.0,
+				48.0
+			],
+			"item": "SettingLabel_resolution",
+			"language": "zh",
+			"text": "画面分辨率",
+			"width": 1280
+		},
+		{
+			"control": [
+				998.0,
+				311.0,
+				22.0,
+				38.0
+			],
+			"font_size": 20,
+			"glyph": [
+				998.0,
+				311.0,
+				18.0,
+				30.0
+			],
+			"item": "@Label@54",
+			"language": "zh",
+			"text": "▾",
+			"width": 1280
+		},
+		{
+			"control": [
+				580.0,
+				422.0,
+				221.0,
+				48.0
+			],
+			"font_size": 32,
+			"glyph": [
+				626.5,
+				422.0,
+				128.0,
+				48.0
+			],
+			"item": "SettingLabel_master",
+			"language": "zh",
+			"text": "整体音量",
+			"width": 1280
+		},
+		{
+			"control": [
+				580.0,
+				480.0,
+				221.0,
+				48.0
+			],
+			"font_size": 32,
+			"glyph": [
+				626.5,
+				480.0,
+				128.0,
+				48.0
+			],
+			"item": "SettingLabel_music",
+			"language": "zh",
+			"text": "音乐音量",
+			"width": 1280
+		},
+		{
+			"control": [
+				580.0,
+				538.0,
+				221.0,
+				48.0
+			],
+			"font_size": 32,
+			"glyph": [
+				626.5,
+				538.0,
+				128.0,
+				48.0
+			],
+			"item": "SettingLabel_sfx",
+			"language": "zh",
+			"text": "音效音量",
+			"width": 1280
+		},
+		{
+			"control": [
+				580.0,
+				652.0,
+				221.0,
+				48.0
+			],
+			"font_size": 32,
+			"glyph": [
+				610.5,
+				652.0,
+				160.0,
+				48.0
+			],
+			"item": "SettingLabel_sensitivity",
+			"language": "zh",
+			"text": "操作灵敏度",
+			"width": 1280
+		},
+		{
+			"control": [
+				580.0,
+				718.0,
+				221.0,
+				48.0
+			],
+			"font_size": 32,
+			"glyph": [
+				594.5,
+				718.0,
+				192.0,
+				48.0
+			],
+			"item": "SettingLabel_text_speed",
+			"language": "zh",
+			"text": "文字显示速度",
+			"width": 1280
+		},
+		{
+			"control": [
+				940.0,
+				716.0,
+				22.0,
+				40.0
+			],
+			"font_size": 20,
+			"glyph": [
+				940.0,
+				716.0,
+				18.0,
+				30.0
+			],
+			"item": "@Label@62",
+			"language": "zh",
+			"text": "▾",
+			"width": 1280
+		},
+		{
+			"control": [
+				870.0,
+				219.0,
+				184.0,
+				44.0
+			],
+			"item": "Option_language_0",
+			"language": "zh",
+			"return": [
+				998.0,
+				116.0,
+				52.0,
+				48.0
+			],
+			"width": 1280
+		},
+		{
+			"control": [
+				870.0,
+				265.0,
+				184.0,
+				44.0
+			],
+			"item": "Option_language_1",
+			"language": "zh",
+			"return": [
+				998.0,
+				116.0,
+				52.0,
+				48.0
+			],
+			"width": 1280
+		},
+		{
+			"control": [
+				870.0,
+				302.0,
+				184.0,
+				44.0
+			],
+			"item": "Option_display_mode_0",
+			"language": "zh",
+			"return": [
+				998.0,
+				116.0,
+				52.0,
+				48.0
+			],
+			"width": 1280
+		},
+		{
+			"control": [
+				870.0,
+				348.0,
+				184.0,
+				44.0
+			],
+			"item": "Option_display_mode_1",
+			"language": "zh",
+			"return": [
+				998.0,
+				116.0,
+				52.0,
+				48.0
+			],
+			"width": 1280
+		},
+		{
+			"control": [
+				870.0,
+				394.0,
+				184.0,
+				44.0
+			],
+			"item": "Option_display_mode_2",
+			"language": "zh",
+			"return": [
+				998.0,
+				116.0,
+				52.0,
+				48.0
+			],
+			"width": 1280
+		},
+		{
+			"control": [
+				870.0,
+				360.0,
+				184.0,
+				44.0
+			],
+			"item": "Option_resolution_0",
+			"language": "zh",
+			"return": [
+				998.0,
+				116.0,
+				52.0,
+				48.0
+			],
+			"width": 1280
+		},
+		{
+			"control": [
+				870.0,
+				406.0,
+				184.0,
+				44.0
+			],
+			"item": "Option_resolution_1",
+			"language": "zh",
+			"return": [
+				998.0,
+				116.0,
+				52.0,
+				48.0
+			],
+			"width": 1280
+		},
+		{
+			"control": [
+				870.0,
+				452.0,
+				184.0,
+				44.0
+			],
+			"item": "Option_resolution_2",
+			"language": "zh",
+			"return": [
+				998.0,
+				116.0,
+				52.0,
+				48.0
+			],
+			"width": 1280
+		},
+		{
+			"control": [
+				870.0,
+				498.0,
+				184.0,
+				44.0
+			],
+			"item": "Option_resolution_3",
+			"language": "zh",
+			"return": [
+				998.0,
+				116.0,
+				52.0,
+				48.0
+			],
+			"width": 1280
+		},
+		{
+			"control": [
+				810.0,
+				521.0,
+				184.0,
+				44.0
+			],
+			"item": "Option_text_speed_0",
+			"language": "zh",
+			"return": [
+				998.0,
+				116.0,
+				52.0,
+				48.0
+			],
+			"width": 1280
+		},
+		{
+			"control": [
+				810.0,
+				567.0,
+				184.0,
+				44.0
+			],
+			"item": "Option_text_speed_1",
+			"language": "zh",
+			"return": [
+				998.0,
+				116.0,
+				52.0,
+				48.0
+			],
+			"width": 1280
+		},
+		{
+			"control": [
+				810.0,
+				613.0,
+				184.0,
+				44.0
+			],
+			"item": "Option_text_speed_2",
+			"language": "zh",
+			"return": [
+				998.0,
+				116.0,
+				52.0,
+				48.0
+			],
+			"width": 1280
+		},
+		{
+			"control": [
+				810.0,
+				659.0,
+				184.0,
+				44.0
+			],
+			"item": "Option_text_speed_3",
+			"language": "zh",
+			"return": [
+				998.0,
+				116.0,
+				52.0,
+				48.0
+			],
+			"width": 1280
+		},
+		{
+			"control": [
+				510.0,
+				18.0,
+				534.0,
+				138.0
+			],
+			"font_size": 94,
+			"glyph": [
+				610.5,
+				33.0,
+				333.0,
+				108.0
+			],
+			"item": "SettingsHeading",
+			"language": "en",
+			"text": "Settings",
+			"width": 1280
+		},
+		{
+			"control": [
+				636.0,
+				165.0,
+				217.0,
+				43.0
+			],
+			"font_size": 29,
+			"glyph": [
+				636.0,
+				169.0,
+				146.0,
+				35.0
+			],
+			"item": "SettingLabel_language",
+			"language": "en",
+			"text": "Language",
+			"width": 1280
+		},
+		{
+			"control": [
+				998.0,
+				170.0,
+				22.0,
+				38.0
+			],
+			"font_size": 20,
+			"glyph": [
+				998.0,
+				170.0,
+				18.0,
+				30.0
+			],
+			"item": "@Label@355",
+			"language": "en",
+			"text": "▾",
+			"width": 1280
+		},
+		{
+			"control": [
+				526.0,
+				252.0,
+				297.0,
+				43.0
+			],
+			"font_size": 29,
+			"glyph": [
+				526.0,
+				256.0,
+				192.0,
+				35.0
+			],
+			"item": "SettingLabel_display_mode",
+			"language": "en",
+			"text": "Display Mode",
+			"width": 1280
+		},
+		{
+			"control": [
+				998.0,
+				253.0,
+				22.0,
+				38.0
+			],
+			"font_size": 20,
+			"glyph": [
+				998.0,
+				253.0,
+				18.0,
+				30.0
+			],
+			"item": "@Label@357",
+			"language": "en",
+			"text": "▾",
+			"width": 1280
+		},
+		{
+			"control": [
+				526.0,
+				310.0,
+				295.0,
+				43.0
+			],
+			"font_size": 29,
+			"glyph": [
+				526.0,
+				314.0,
+				163.0,
+				35.0
+			],
+			"item": "SettingLabel_resolution",
+			"language": "en",
+			"text": "Resolution",
+			"width": 1280
+		},
+		{
+			"control": [
+				998.0,
+				311.0,
+				22.0,
+				38.0
+			],
+			"font_size": 20,
+			"glyph": [
+				998.0,
+				311.0,
+				18.0,
+				30.0
+			],
+			"item": "@Label@359",
+			"language": "en",
+			"text": "▾",
+			"width": 1280
+		},
+		{
+			"control": [
+				526.0,
+				418.0,
+				271.0,
+				46.0
+			],
+			"font_size": 29,
+			"glyph": [
+				526.0,
+				423.5,
+				222.0,
+				35.0
+			],
+			"item": "SettingLabel_master",
+			"language": "en",
+			"text": "Master Volume",
+			"width": 1280
+		},
+		{
+			"control": [
+				526.0,
+				476.0,
+				271.0,
+				46.0
+			],
+			"font_size": 29,
+			"glyph": [
+				526.0,
+				481.5,
+				198.0,
+				35.0
+			],
+			"item": "SettingLabel_music",
+			"language": "en",
+			"text": "Music Volume",
+			"width": 1280
+		},
+		{
+			"control": [
+				526.0,
+				534.0,
+				271.0,
+				46.0
+			],
+			"font_size": 29,
+			"glyph": [
+				526.0,
+				539.5,
+				170.0,
+				35.0
+			],
+			"item": "SettingLabel_sfx",
+			"language": "en",
+			"text": "SFX Volume",
+			"width": 1280
+		},
+		{
+			"control": [
+				526.0,
+				648.0,
+				271.0,
+				46.0
+			],
+			"font_size": 29,
+			"glyph": [
+				526.0,
+				653.5,
+				262.0,
+				35.0
+			],
+			"item": "SettingLabel_sensitivity",
+			"language": "en",
+			"text": "Mouse Sensitivity",
+			"width": 1280
+		},
+		{
+			"control": [
+				526.0,
+				718.0,
+				274.0,
+				43.0
+			],
+			"font_size": 29,
+			"glyph": [
+				526.0,
+				722.0,
+				167.0,
+				35.0
+			],
+			"item": "SettingLabel_text_speed",
+			"language": "en",
+			"text": "Text Speed",
+			"width": 1280
+		},
+		{
+			"control": [
+				940.0,
+				716.0,
+				22.0,
+				40.0
+			],
+			"font_size": 20,
+			"glyph": [
+				940.0,
+				716.0,
+				18.0,
+				30.0
+			],
+			"item": "@Label@367",
+			"language": "en",
+			"text": "▾",
+			"width": 1280
+		},
+		{
+			"control": [
+				870.0,
+				219.0,
+				184.0,
+				44.0
+			],
+			"item": "Option_language_0",
+			"language": "en",
+			"return": [
+				998.0,
+				116.0,
+				52.0,
+				48.0
+			],
+			"width": 1280
+		},
+		{
+			"control": [
+				870.0,
+				265.0,
+				184.0,
+				44.0
+			],
+			"item": "Option_language_1",
+			"language": "en",
+			"return": [
+				998.0,
+				116.0,
+				52.0,
+				48.0
+			],
+			"width": 1280
+		},
+		{
+			"control": [
+				870.0,
+				302.0,
+				184.0,
+				44.0
+			],
+			"item": "Option_display_mode_0",
+			"language": "en",
+			"return": [
+				998.0,
+				116.0,
+				52.0,
+				48.0
+			],
+			"width": 1280
+		},
+		{
+			"control": [
+				870.0,
+				348.0,
+				184.0,
+				44.0
+			],
+			"item": "Option_display_mode_1",
+			"language": "en",
+			"return": [
+				998.0,
+				116.0,
+				52.0,
+				48.0
+			],
+			"width": 1280
+		},
+		{
+			"control": [
+				870.0,
+				394.0,
+				184.0,
+				44.0
+			],
+			"item": "Option_display_mode_2",
+			"language": "en",
+			"return": [
+				998.0,
+				116.0,
+				52.0,
+				48.0
+			],
+			"width": 1280
+		},
+		{
+			"control": [
+				870.0,
+				360.0,
+				184.0,
+				44.0
+			],
+			"item": "Option_resolution_0",
+			"language": "en",
+			"return": [
+				998.0,
+				116.0,
+				52.0,
+				48.0
+			],
+			"width": 1280
+		},
+		{
+			"control": [
+				870.0,
+				406.0,
+				184.0,
+				44.0
+			],
+			"item": "Option_resolution_1",
+			"language": "en",
+			"return": [
+				998.0,
+				116.0,
+				52.0,
+				48.0
+			],
+			"width": 1280
+		},
+		{
+			"control": [
+				870.0,
+				452.0,
+				184.0,
+				44.0
+			],
+			"item": "Option_resolution_2",
+			"language": "en",
+			"return": [
+				998.0,
+				116.0,
+				52.0,
+				48.0
+			],
+			"width": 1280
+		},
+		{
+			"control": [
+				870.0,
+				498.0,
+				184.0,
+				44.0
+			],
+			"item": "Option_resolution_3",
+			"language": "en",
+			"return": [
+				998.0,
+				116.0,
+				52.0,
+				48.0
+			],
+			"width": 1280
+		},
+		{
+			"control": [
+				810.0,
+				521.0,
+				184.0,
+				44.0
+			],
+			"item": "Option_text_speed_0",
+			"language": "en",
+			"return": [
+				998.0,
+				116.0,
+				52.0,
+				48.0
+			],
+			"width": 1280
+		},
+		{
+			"control": [
+				810.0,
+				567.0,
+				184.0,
+				44.0
+			],
+			"item": "Option_text_speed_1",
+			"language": "en",
+			"return": [
+				998.0,
+				116.0,
+				52.0,
+				48.0
+			],
+			"width": 1280
+		},
+		{
+			"control": [
+				810.0,
+				613.0,
+				184.0,
+				44.0
+			],
+			"item": "Option_text_speed_2",
+			"language": "en",
+			"return": [
+				998.0,
+				116.0,
+				52.0,
+				48.0
+			],
+			"width": 1280
+		},
+		{
+			"control": [
+				810.0,
+				659.0,
+				184.0,
+				44.0
+			],
+			"item": "Option_text_speed_3",
+			"language": "en",
+			"return": [
+				998.0,
+				116.0,
+				52.0,
+				48.0
+			],
+			"width": 1280
+		},
+		{
+			"control": [
+				510.0,
+				18.0,
+				534.0,
+				109.0
+			],
+			"font_size": 72,
+			"glyph": [
+				705.0,
+				20.0,
+				144.0,
+				105.0
+			],
+			"item": "SettingsHeading",
+			"language": "zh",
+			"text": "设置",
+			"width": 1920
+		},
+		{
+			"control": [
+				580.0,
+				165.0,
+				221.0,
+				48.0
+			],
+			"font_size": 32,
+			"glyph": [
+				626.5,
+				165.0,
+				128.0,
+				48.0
+			],
+			"item": "SettingLabel_language",
+			"language": "zh",
+			"text": "界面语言",
+			"width": 1920
+		},
+		{
+			"control": [
+				998.0,
+				170.0,
+				22.0,
+				38.0
+			],
+			"font_size": 20,
+			"glyph": [
+				998.0,
+				170.0,
+				18.0,
+				30.0
+			],
+			"item": "@Label@623",
+			"language": "zh",
+			"text": "▾",
+			"width": 1920
+		},
+		{
+			"control": [
+				580.0,
+				252.0,
+				221.0,
+				48.0
+			],
+			"font_size": 32,
+			"glyph": [
+				626.5,
+				252.0,
+				128.0,
+				48.0
+			],
+			"item": "SettingLabel_display_mode",
+			"language": "zh",
+			"text": "显示模式",
+			"width": 1920
+		},
+		{
+			"control": [
+				998.0,
+				253.0,
+				22.0,
+				38.0
+			],
+			"font_size": 20,
+			"glyph": [
+				998.0,
+				253.0,
+				18.0,
+				30.0
+			],
+			"item": "@Label@625",
+			"language": "zh",
+			"text": "▾",
+			"width": 1920
+		},
+		{
+			"control": [
+				580.0,
+				310.0,
+				221.0,
+				48.0
+			],
+			"font_size": 32,
+			"glyph": [
+				610.5,
+				310.0,
+				160.0,
+				48.0
+			],
+			"item": "SettingLabel_resolution",
+			"language": "zh",
+			"text": "画面分辨率",
+			"width": 1920
+		},
+		{
+			"control": [
+				998.0,
+				311.0,
+				22.0,
+				38.0
+			],
+			"font_size": 20,
+			"glyph": [
+				998.0,
+				311.0,
+				18.0,
+				30.0
+			],
+			"item": "@Label@627",
+			"language": "zh",
+			"text": "▾",
+			"width": 1920
+		},
+		{
+			"control": [
+				580.0,
+				422.0,
+				221.0,
+				48.0
+			],
+			"font_size": 32,
+			"glyph": [
+				626.5,
+				422.0,
+				128.0,
+				48.0
+			],
+			"item": "SettingLabel_master",
+			"language": "zh",
+			"text": "整体音量",
+			"width": 1920
+		},
+		{
+			"control": [
+				580.0,
+				480.0,
+				221.0,
+				48.0
+			],
+			"font_size": 32,
+			"glyph": [
+				626.5,
+				480.0,
+				128.0,
+				48.0
+			],
+			"item": "SettingLabel_music",
+			"language": "zh",
+			"text": "音乐音量",
+			"width": 1920
+		},
+		{
+			"control": [
+				580.0,
+				538.0,
+				221.0,
+				48.0
+			],
+			"font_size": 32,
+			"glyph": [
+				626.5,
+				538.0,
+				128.0,
+				48.0
+			],
+			"item": "SettingLabel_sfx",
+			"language": "zh",
+			"text": "音效音量",
+			"width": 1920
+		},
+		{
+			"control": [
+				580.0,
+				652.0,
+				221.0,
+				48.0
+			],
+			"font_size": 32,
+			"glyph": [
+				610.5,
+				652.0,
+				160.0,
+				48.0
+			],
+			"item": "SettingLabel_sensitivity",
+			"language": "zh",
+			"text": "操作灵敏度",
+			"width": 1920
+		},
+		{
+			"control": [
+				580.0,
+				718.0,
+				221.0,
+				48.0
+			],
+			"font_size": 32,
+			"glyph": [
+				594.5,
+				718.0,
+				192.0,
+				48.0
+			],
+			"item": "SettingLabel_text_speed",
+			"language": "zh",
+			"text": "文字显示速度",
+			"width": 1920
+		},
+		{
+			"control": [
+				940.0,
+				716.0,
+				22.0,
+				40.0
+			],
+			"font_size": 20,
+			"glyph": [
+				940.0,
+				716.0,
+				18.0,
+				30.0
+			],
+			"item": "@Label@635",
+			"language": "zh",
+			"text": "▾",
+			"width": 1920
+		},
+		{
+			"control": [
+				870.0,
+				219.0,
+				184.0,
+				44.0
+			],
+			"item": "Option_language_0",
+			"language": "zh",
+			"return": [
+				998.0,
+				116.0,
+				52.0,
+				48.0
+			],
+			"width": 1920
+		},
+		{
+			"control": [
+				870.0,
+				265.0,
+				184.0,
+				44.0
+			],
+			"item": "Option_language_1",
+			"language": "zh",
+			"return": [
+				998.0,
+				116.0,
+				52.0,
+				48.0
+			],
+			"width": 1920
+		},
+		{
+			"control": [
+				870.0,
+				302.0,
+				184.0,
+				44.0
+			],
+			"item": "Option_display_mode_0",
+			"language": "zh",
+			"return": [
+				998.0,
+				116.0,
+				52.0,
+				48.0
+			],
+			"width": 1920
+		},
+		{
+			"control": [
+				870.0,
+				348.0,
+				184.0,
+				44.0
+			],
+			"item": "Option_display_mode_1",
+			"language": "zh",
+			"return": [
+				998.0,
+				116.0,
+				52.0,
+				48.0
+			],
+			"width": 1920
+		},
+		{
+			"control": [
+				870.0,
+				394.0,
+				184.0,
+				44.0
+			],
+			"item": "Option_display_mode_2",
+			"language": "zh",
+			"return": [
+				998.0,
+				116.0,
+				52.0,
+				48.0
+			],
+			"width": 1920
+		},
+		{
+			"control": [
+				870.0,
+				360.0,
+				184.0,
+				44.0
+			],
+			"item": "Option_resolution_0",
+			"language": "zh",
+			"return": [
+				998.0,
+				116.0,
+				52.0,
+				48.0
+			],
+			"width": 1920
+		},
+		{
+			"control": [
+				870.0,
+				406.0,
+				184.0,
+				44.0
+			],
+			"item": "Option_resolution_1",
+			"language": "zh",
+			"return": [
+				998.0,
+				116.0,
+				52.0,
+				48.0
+			],
+			"width": 1920
+		},
+		{
+			"control": [
+				870.0,
+				452.0,
+				184.0,
+				44.0
+			],
+			"item": "Option_resolution_2",
+			"language": "zh",
+			"return": [
+				998.0,
+				116.0,
+				52.0,
+				48.0
+			],
+			"width": 1920
+		},
+		{
+			"control": [
+				870.0,
+				498.0,
+				184.0,
+				44.0
+			],
+			"item": "Option_resolution_3",
+			"language": "zh",
+			"return": [
+				998.0,
+				116.0,
+				52.0,
+				48.0
+			],
+			"width": 1920
+		},
+		{
+			"control": [
+				810.0,
+				521.0,
+				184.0,
+				44.0
+			],
+			"item": "Option_text_speed_0",
+			"language": "zh",
+			"return": [
+				998.0,
+				116.0,
+				52.0,
+				48.0
+			],
+			"width": 1920
+		},
+		{
+			"control": [
+				810.0,
+				567.0,
+				184.0,
+				44.0
+			],
+			"item": "Option_text_speed_1",
+			"language": "zh",
+			"return": [
+				998.0,
+				116.0,
+				52.0,
+				48.0
+			],
+			"width": 1920
+		},
+		{
+			"control": [
+				810.0,
+				613.0,
+				184.0,
+				44.0
+			],
+			"item": "Option_text_speed_2",
+			"language": "zh",
+			"return": [
+				998.0,
+				116.0,
+				52.0,
+				48.0
+			],
+			"width": 1920
+		},
+		{
+			"control": [
+				810.0,
+				659.0,
+				184.0,
+				44.0
+			],
+			"item": "Option_text_speed_3",
+			"language": "zh",
+			"return": [
+				998.0,
+				116.0,
+				52.0,
+				48.0
+			],
+			"width": 1920
+		},
+		{
+			"control": [
+				510.0,
+				18.0,
+				534.0,
+				138.0
+			],
+			"font_size": 94,
+			"glyph": [
+				610.5,
+				33.0,
+				333.0,
+				108.0
+			],
+			"item": "SettingsHeading",
+			"language": "en",
+			"text": "Settings",
+			"width": 1920
+		},
+		{
+			"control": [
+				636.0,
+				165.0,
+				217.0,
+				43.0
+			],
+			"font_size": 29,
+			"glyph": [
+				636.0,
+				169.0,
+				146.0,
+				35.0
+			],
+			"item": "SettingLabel_language",
+			"language": "en",
+			"text": "Language",
+			"width": 1920
+		},
+		{
+			"control": [
+				998.0,
+				170.0,
+				22.0,
+				38.0
+			],
+			"font_size": 20,
+			"glyph": [
+				998.0,
+				170.0,
+				18.0,
+				30.0
+			],
+			"item": "@Label@928",
+			"language": "en",
+			"text": "▾",
+			"width": 1920
+		},
+		{
+			"control": [
+				526.0,
+				252.0,
+				297.0,
+				43.0
+			],
+			"font_size": 29,
+			"glyph": [
+				526.0,
+				256.0,
+				192.0,
+				35.0
+			],
+			"item": "SettingLabel_display_mode",
+			"language": "en",
+			"text": "Display Mode",
+			"width": 1920
+		},
+		{
+			"control": [
+				998.0,
+				253.0,
+				22.0,
+				38.0
+			],
+			"font_size": 20,
+			"glyph": [
+				998.0,
+				253.0,
+				18.0,
+				30.0
+			],
+			"item": "@Label@930",
+			"language": "en",
+			"text": "▾",
+			"width": 1920
+		},
+		{
+			"control": [
+				526.0,
+				310.0,
+				295.0,
+				43.0
+			],
+			"font_size": 29,
+			"glyph": [
+				526.0,
+				314.0,
+				163.0,
+				35.0
+			],
+			"item": "SettingLabel_resolution",
+			"language": "en",
+			"text": "Resolution",
+			"width": 1920
+		},
+		{
+			"control": [
+				998.0,
+				311.0,
+				22.0,
+				38.0
+			],
+			"font_size": 20,
+			"glyph": [
+				998.0,
+				311.0,
+				18.0,
+				30.0
+			],
+			"item": "@Label@932",
+			"language": "en",
+			"text": "▾",
+			"width": 1920
+		},
+		{
+			"control": [
+				526.0,
+				418.0,
+				271.0,
+				46.0
+			],
+			"font_size": 29,
+			"glyph": [
+				526.0,
+				423.5,
+				222.0,
+				35.0
+			],
+			"item": "SettingLabel_master",
+			"language": "en",
+			"text": "Master Volume",
+			"width": 1920
+		},
+		{
+			"control": [
+				526.0,
+				476.0,
+				271.0,
+				46.0
+			],
+			"font_size": 29,
+			"glyph": [
+				526.0,
+				481.5,
+				198.0,
+				35.0
+			],
+			"item": "SettingLabel_music",
+			"language": "en",
+			"text": "Music Volume",
+			"width": 1920
+		},
+		{
+			"control": [
+				526.0,
+				534.0,
+				271.0,
+				46.0
+			],
+			"font_size": 29,
+			"glyph": [
+				526.0,
+				539.5,
+				170.0,
+				35.0
+			],
+			"item": "SettingLabel_sfx",
+			"language": "en",
+			"text": "SFX Volume",
+			"width": 1920
+		},
+		{
+			"control": [
+				526.0,
+				648.0,
+				271.0,
+				46.0
+			],
+			"font_size": 29,
+			"glyph": [
+				526.0,
+				653.5,
+				262.0,
+				35.0
+			],
+			"item": "SettingLabel_sensitivity",
+			"language": "en",
+			"text": "Mouse Sensitivity",
+			"width": 1920
+		},
+		{
+			"control": [
+				526.0,
+				718.0,
+				274.0,
+				43.0
+			],
+			"font_size": 29,
+			"glyph": [
+				526.0,
+				722.0,
+				167.0,
+				35.0
+			],
+			"item": "SettingLabel_text_speed",
+			"language": "en",
+			"text": "Text Speed",
+			"width": 1920
+		},
+		{
+			"control": [
+				940.0,
+				716.0,
+				22.0,
+				40.0
+			],
+			"font_size": 20,
+			"glyph": [
+				940.0,
+				716.0,
+				18.0,
+				30.0
+			],
+			"item": "@Label@940",
+			"language": "en",
+			"text": "▾",
+			"width": 1920
+		},
+		{
+			"control": [
+				870.0,
+				219.0,
+				184.0,
+				44.0
+			],
+			"item": "Option_language_0",
+			"language": "en",
+			"return": [
+				998.0,
+				116.0,
+				52.0,
+				48.0
+			],
+			"width": 1920
+		},
+		{
+			"control": [
+				870.0,
+				265.0,
+				184.0,
+				44.0
+			],
+			"item": "Option_language_1",
+			"language": "en",
+			"return": [
+				998.0,
+				116.0,
+				52.0,
+				48.0
+			],
+			"width": 1920
+		},
+		{
+			"control": [
+				870.0,
+				302.0,
+				184.0,
+				44.0
+			],
+			"item": "Option_display_mode_0",
+			"language": "en",
+			"return": [
+				998.0,
+				116.0,
+				52.0,
+				48.0
+			],
+			"width": 1920
+		},
+		{
+			"control": [
+				870.0,
+				348.0,
+				184.0,
+				44.0
+			],
+			"item": "Option_display_mode_1",
+			"language": "en",
+			"return": [
+				998.0,
+				116.0,
+				52.0,
+				48.0
+			],
+			"width": 1920
+		},
+		{
+			"control": [
+				870.0,
+				394.0,
+				184.0,
+				44.0
+			],
+			"item": "Option_display_mode_2",
+			"language": "en",
+			"return": [
+				998.0,
+				116.0,
+				52.0,
+				48.0
+			],
+			"width": 1920
+		},
+		{
+			"control": [
+				870.0,
+				360.0,
+				184.0,
+				44.0
+			],
+			"item": "Option_resolution_0",
+			"language": "en",
+			"return": [
+				998.0,
+				116.0,
+				52.0,
+				48.0
+			],
+			"width": 1920
+		},
+		{
+			"control": [
+				870.0,
+				406.0,
+				184.0,
+				44.0
+			],
+			"item": "Option_resolution_1",
+			"language": "en",
+			"return": [
+				998.0,
+				116.0,
+				52.0,
+				48.0
+			],
+			"width": 1920
+		},
+		{
+			"control": [
+				870.0,
+				452.0,
+				184.0,
+				44.0
+			],
+			"item": "Option_resolution_2",
+			"language": "en",
+			"return": [
+				998.0,
+				116.0,
+				52.0,
+				48.0
+			],
+			"width": 1920
+		},
+		{
+			"control": [
+				870.0,
+				498.0,
+				184.0,
+				44.0
+			],
+			"item": "Option_resolution_3",
+			"language": "en",
+			"return": [
+				998.0,
+				116.0,
+				52.0,
+				48.0
+			],
+			"width": 1920
+		},
+		{
+			"control": [
+				810.0,
+				521.0,
+				184.0,
+				44.0
+			],
+			"item": "Option_text_speed_0",
+			"language": "en",
+			"return": [
+				998.0,
+				116.0,
+				52.0,
+				48.0
+			],
+			"width": 1920
+		},
+		{
+			"control": [
+				810.0,
+				567.0,
+				184.0,
+				44.0
+			],
+			"item": "Option_text_speed_1",
+			"language": "en",
+			"return": [
+				998.0,
+				116.0,
+				52.0,
+				48.0
+			],
+			"width": 1920
+		},
+		{
+			"control": [
+				810.0,
+				613.0,
+				184.0,
+				44.0
+			],
+			"item": "Option_text_speed_2",
+			"language": "en",
+			"return": [
+				998.0,
+				116.0,
+				52.0,
+				48.0
+			],
+			"width": 1920
+		},
+		{
+			"control": [
+				810.0,
+				659.0,
+				184.0,
+				44.0
+			],
+			"item": "Option_text_speed_3",
+			"language": "en",
+			"return": [
+				998.0,
+				116.0,
+				52.0,
+				48.0
+			],
+			"width": 1920
+		},
+		{
+			"control": [
+				510.0,
+				18.0,
+				534.0,
+				109.0
+			],
+			"font_size": 72,
+			"glyph": [
+				705.0,
+				20.0,
+				144.0,
+				105.0
+			],
+			"item": "SettingsHeading",
+			"language": "zh",
+			"text": "设置",
+			"width": 2560
+		},
+		{
+			"control": [
+				580.0,
+				165.0,
+				221.0,
+				48.0
+			],
+			"font_size": 32,
+			"glyph": [
+				626.5,
+				165.0,
+				128.0,
+				48.0
+			],
+			"item": "SettingLabel_language",
+			"language": "zh",
+			"text": "界面语言",
+			"width": 2560
+		},
+		{
+			"control": [
+				998.0,
+				170.0,
+				22.0,
+				38.0
+			],
+			"font_size": 20,
+			"glyph": [
+				998.0,
+				170.0,
+				18.0,
+				30.0
+			],
+			"item": "@Label@1198",
+			"language": "zh",
+			"text": "▾",
+			"width": 2560
+		},
+		{
+			"control": [
+				580.0,
+				252.0,
+				221.0,
+				48.0
+			],
+			"font_size": 32,
+			"glyph": [
+				626.5,
+				252.0,
+				128.0,
+				48.0
+			],
+			"item": "SettingLabel_display_mode",
+			"language": "zh",
+			"text": "显示模式",
+			"width": 2560
+		},
+		{
+			"control": [
+				998.0,
+				253.0,
+				22.0,
+				38.0
+			],
+			"font_size": 20,
+			"glyph": [
+				998.0,
+				253.0,
+				18.0,
+				30.0
+			],
+			"item": "@Label@1200",
+			"language": "zh",
+			"text": "▾",
+			"width": 2560
+		},
+		{
+			"control": [
+				580.0,
+				310.0,
+				221.0,
+				48.0
+			],
+			"font_size": 32,
+			"glyph": [
+				610.5,
+				310.0,
+				160.0,
+				48.0
+			],
+			"item": "SettingLabel_resolution",
+			"language": "zh",
+			"text": "画面分辨率",
+			"width": 2560
+		},
+		{
+			"control": [
+				998.0,
+				311.0,
+				22.0,
+				38.0
+			],
+			"font_size": 20,
+			"glyph": [
+				998.0,
+				311.0,
+				18.0,
+				30.0
+			],
+			"item": "@Label@1202",
+			"language": "zh",
+			"text": "▾",
+			"width": 2560
+		},
+		{
+			"control": [
+				580.0,
+				422.0,
+				221.0,
+				48.0
+			],
+			"font_size": 32,
+			"glyph": [
+				626.5,
+				422.0,
+				128.0,
+				48.0
+			],
+			"item": "SettingLabel_master",
+			"language": "zh",
+			"text": "整体音量",
+			"width": 2560
+		},
+		{
+			"control": [
+				580.0,
+				480.0,
+				221.0,
+				48.0
+			],
+			"font_size": 32,
+			"glyph": [
+				626.5,
+				480.0,
+				128.0,
+				48.0
+			],
+			"item": "SettingLabel_music",
+			"language": "zh",
+			"text": "音乐音量",
+			"width": 2560
+		},
+		{
+			"control": [
+				580.0,
+				538.0,
+				221.0,
+				48.0
+			],
+			"font_size": 32,
+			"glyph": [
+				626.5,
+				538.0,
+				128.0,
+				48.0
+			],
+			"item": "SettingLabel_sfx",
+			"language": "zh",
+			"text": "音效音量",
+			"width": 2560
+		},
+		{
+			"control": [
+				580.0,
+				652.0,
+				221.0,
+				48.0
+			],
+			"font_size": 32,
+			"glyph": [
+				610.5,
+				652.0,
+				160.0,
+				48.0
+			],
+			"item": "SettingLabel_sensitivity",
+			"language": "zh",
+			"text": "操作灵敏度",
+			"width": 2560
+		},
+		{
+			"control": [
+				580.0,
+				718.0,
+				221.0,
+				48.0
+			],
+			"font_size": 32,
+			"glyph": [
+				594.5,
+				718.0,
+				192.0,
+				48.0
+			],
+			"item": "SettingLabel_text_speed",
+			"language": "zh",
+			"text": "文字显示速度",
+			"width": 2560
+		},
+		{
+			"control": [
+				940.0,
+				716.0,
+				22.0,
+				40.0
+			],
+			"font_size": 20,
+			"glyph": [
+				940.0,
+				716.0,
+				18.0,
+				30.0
+			],
+			"item": "@Label@1210",
+			"language": "zh",
+			"text": "▾",
+			"width": 2560
+		},
+		{
+			"control": [
+				870.0,
+				219.0,
+				184.0,
+				44.0
+			],
+			"item": "Option_language_0",
+			"language": "zh",
+			"return": [
+				998.0,
+				116.0,
+				52.0,
+				48.0
+			],
+			"width": 2560
+		},
+		{
+			"control": [
+				870.0,
+				265.0,
+				184.0,
+				44.0
+			],
+			"item": "Option_language_1",
+			"language": "zh",
+			"return": [
+				998.0,
+				116.0,
+				52.0,
+				48.0
+			],
+			"width": 2560
+		},
+		{
+			"control": [
+				870.0,
+				302.0,
+				184.0,
+				44.0
+			],
+			"item": "Option_display_mode_0",
+			"language": "zh",
+			"return": [
+				998.0,
+				116.0,
+				52.0,
+				48.0
+			],
+			"width": 2560
+		},
+		{
+			"control": [
+				870.0,
+				348.0,
+				184.0,
+				44.0
+			],
+			"item": "Option_display_mode_1",
+			"language": "zh",
+			"return": [
+				998.0,
+				116.0,
+				52.0,
+				48.0
+			],
+			"width": 2560
+		},
+		{
+			"control": [
+				870.0,
+				394.0,
+				184.0,
+				44.0
+			],
+			"item": "Option_display_mode_2",
+			"language": "zh",
+			"return": [
+				998.0,
+				116.0,
+				52.0,
+				48.0
+			],
+			"width": 2560
+		},
+		{
+			"control": [
+				870.0,
+				360.0,
+				184.0,
+				44.0
+			],
+			"item": "Option_resolution_0",
+			"language": "zh",
+			"return": [
+				998.0,
+				116.0,
+				52.0,
+				48.0
+			],
+			"width": 2560
+		},
+		{
+			"control": [
+				870.0,
+				406.0,
+				184.0,
+				44.0
+			],
+			"item": "Option_resolution_1",
+			"language": "zh",
+			"return": [
+				998.0,
+				116.0,
+				52.0,
+				48.0
+			],
+			"width": 2560
+		},
+		{
+			"control": [
+				870.0,
+				452.0,
+				184.0,
+				44.0
+			],
+			"item": "Option_resolution_2",
+			"language": "zh",
+			"return": [
+				998.0,
+				116.0,
+				52.0,
+				48.0
+			],
+			"width": 2560
+		},
+		{
+			"control": [
+				870.0,
+				498.0,
+				184.0,
+				44.0
+			],
+			"item": "Option_resolution_3",
+			"language": "zh",
+			"return": [
+				998.0,
+				116.0,
+				52.0,
+				48.0
+			],
+			"width": 2560
+		},
+		{
+			"control": [
+				810.0,
+				521.0,
+				184.0,
+				44.0
+			],
+			"item": "Option_text_speed_0",
+			"language": "zh",
+			"return": [
+				998.0,
+				116.0,
+				52.0,
+				48.0
+			],
+			"width": 2560
+		},
+		{
+			"control": [
+				810.0,
+				567.0,
+				184.0,
+				44.0
+			],
+			"item": "Option_text_speed_1",
+			"language": "zh",
+			"return": [
+				998.0,
+				116.0,
+				52.0,
+				48.0
+			],
+			"width": 2560
+		},
+		{
+			"control": [
+				810.0,
+				613.0,
+				184.0,
+				44.0
+			],
+			"item": "Option_text_speed_2",
+			"language": "zh",
+			"return": [
+				998.0,
+				116.0,
+				52.0,
+				48.0
+			],
+			"width": 2560
+		},
+		{
+			"control": [
+				810.0,
+				659.0,
+				184.0,
+				44.0
+			],
+			"item": "Option_text_speed_3",
+			"language": "zh",
+			"return": [
+				998.0,
+				116.0,
+				52.0,
+				48.0
+			],
+			"width": 2560
+		},
+		{
+			"control": [
+				510.0,
+				18.0,
+				534.0,
+				138.0
+			],
+			"font_size": 94,
+			"glyph": [
+				610.5,
+				33.0,
+				333.0,
+				108.0
+			],
+			"item": "SettingsHeading",
+			"language": "en",
+			"text": "Settings",
+			"width": 2560
+		},
+		{
+			"control": [
+				636.0,
+				165.0,
+				217.0,
+				43.0
+			],
+			"font_size": 29,
+			"glyph": [
+				636.0,
+				169.0,
+				146.0,
+				35.0
+			],
+			"item": "SettingLabel_language",
+			"language": "en",
+			"text": "Language",
+			"width": 2560
+		},
+		{
+			"control": [
+				998.0,
+				170.0,
+				22.0,
+				38.0
+			],
+			"font_size": 20,
+			"glyph": [
+				998.0,
+				170.0,
+				18.0,
+				30.0
+			],
+			"item": "@Label@1503",
+			"language": "en",
+			"text": "▾",
+			"width": 2560
+		},
+		{
+			"control": [
+				526.0,
+				252.0,
+				297.0,
+				43.0
+			],
+			"font_size": 29,
+			"glyph": [
+				526.0,
+				256.0,
+				192.0,
+				35.0
+			],
+			"item": "SettingLabel_display_mode",
+			"language": "en",
+			"text": "Display Mode",
+			"width": 2560
+		},
+		{
+			"control": [
+				998.0,
+				253.0,
+				22.0,
+				38.0
+			],
+			"font_size": 20,
+			"glyph": [
+				998.0,
+				253.0,
+				18.0,
+				30.0
+			],
+			"item": "@Label@1505",
+			"language": "en",
+			"text": "▾",
+			"width": 2560
+		},
+		{
+			"control": [
+				526.0,
+				310.0,
+				295.0,
+				43.0
+			],
+			"font_size": 29,
+			"glyph": [
+				526.0,
+				314.0,
+				163.0,
+				35.0
+			],
+			"item": "SettingLabel_resolution",
+			"language": "en",
+			"text": "Resolution",
+			"width": 2560
+		},
+		{
+			"control": [
+				998.0,
+				311.0,
+				22.0,
+				38.0
+			],
+			"font_size": 20,
+			"glyph": [
+				998.0,
+				311.0,
+				18.0,
+				30.0
+			],
+			"item": "@Label@1507",
+			"language": "en",
+			"text": "▾",
+			"width": 2560
+		},
+		{
+			"control": [
+				526.0,
+				418.0,
+				271.0,
+				46.0
+			],
+			"font_size": 29,
+			"glyph": [
+				526.0,
+				423.5,
+				222.0,
+				35.0
+			],
+			"item": "SettingLabel_master",
+			"language": "en",
+			"text": "Master Volume",
+			"width": 2560
+		},
+		{
+			"control": [
+				526.0,
+				476.0,
+				271.0,
+				46.0
+			],
+			"font_size": 29,
+			"glyph": [
+				526.0,
+				481.5,
+				198.0,
+				35.0
+			],
+			"item": "SettingLabel_music",
+			"language": "en",
+			"text": "Music Volume",
+			"width": 2560
+		},
+		{
+			"control": [
+				526.0,
+				534.0,
+				271.0,
+				46.0
+			],
+			"font_size": 29,
+			"glyph": [
+				526.0,
+				539.5,
+				170.0,
+				35.0
+			],
+			"item": "SettingLabel_sfx",
+			"language": "en",
+			"text": "SFX Volume",
+			"width": 2560
+		},
+		{
+			"control": [
+				526.0,
+				648.0,
+				271.0,
+				46.0
+			],
+			"font_size": 29,
+			"glyph": [
+				526.0,
+				653.5,
+				262.0,
+				35.0
+			],
+			"item": "SettingLabel_sensitivity",
+			"language": "en",
+			"text": "Mouse Sensitivity",
+			"width": 2560
+		},
+		{
+			"control": [
+				526.0,
+				718.0,
+				274.0,
+				43.0
+			],
+			"font_size": 29,
+			"glyph": [
+				526.0,
+				722.0,
+				167.0,
+				35.0
+			],
+			"item": "SettingLabel_text_speed",
+			"language": "en",
+			"text": "Text Speed",
+			"width": 2560
+		},
+		{
+			"control": [
+				940.0,
+				716.0,
+				22.0,
+				40.0
+			],
+			"font_size": 20,
+			"glyph": [
+				940.0,
+				716.0,
+				18.0,
+				30.0
+			],
+			"item": "@Label@1515",
+			"language": "en",
+			"text": "▾",
+			"width": 2560
+		},
+		{
+			"control": [
+				870.0,
+				219.0,
+				184.0,
+				44.0
+			],
+			"item": "Option_language_0",
+			"language": "en",
+			"return": [
+				998.0,
+				116.0,
+				52.0,
+				48.0
+			],
+			"width": 2560
+		},
+		{
+			"control": [
+				870.0,
+				265.0,
+				184.0,
+				44.0
+			],
+			"item": "Option_language_1",
+			"language": "en",
+			"return": [
+				998.0,
+				116.0,
+				52.0,
+				48.0
+			],
+			"width": 2560
+		},
+		{
+			"control": [
+				870.0,
+				302.0,
+				184.0,
+				44.0
+			],
+			"item": "Option_display_mode_0",
+			"language": "en",
+			"return": [
+				998.0,
+				116.0,
+				52.0,
+				48.0
+			],
+			"width": 2560
+		},
+		{
+			"control": [
+				870.0,
+				348.0,
+				184.0,
+				44.0
+			],
+			"item": "Option_display_mode_1",
+			"language": "en",
+			"return": [
+				998.0,
+				116.0,
+				52.0,
+				48.0
+			],
+			"width": 2560
+		},
+		{
+			"control": [
+				870.0,
+				394.0,
+				184.0,
+				44.0
+			],
+			"item": "Option_display_mode_2",
+			"language": "en",
+			"return": [
+				998.0,
+				116.0,
+				52.0,
+				48.0
+			],
+			"width": 2560
+		},
+		{
+			"control": [
+				870.0,
+				360.0,
+				184.0,
+				44.0
+			],
+			"item": "Option_resolution_0",
+			"language": "en",
+			"return": [
+				998.0,
+				116.0,
+				52.0,
+				48.0
+			],
+			"width": 2560
+		},
+		{
+			"control": [
+				870.0,
+				406.0,
+				184.0,
+				44.0
+			],
+			"item": "Option_resolution_1",
+			"language": "en",
+			"return": [
+				998.0,
+				116.0,
+				52.0,
+				48.0
+			],
+			"width": 2560
+		},
+		{
+			"control": [
+				870.0,
+				452.0,
+				184.0,
+				44.0
+			],
+			"item": "Option_resolution_2",
+			"language": "en",
+			"return": [
+				998.0,
+				116.0,
+				52.0,
+				48.0
+			],
+			"width": 2560
+		},
+		{
+			"control": [
+				870.0,
+				498.0,
+				184.0,
+				44.0
+			],
+			"item": "Option_resolution_3",
+			"language": "en",
+			"return": [
+				998.0,
+				116.0,
+				52.0,
+				48.0
+			],
+			"width": 2560
+		},
+		{
+			"control": [
+				810.0,
+				521.0,
+				184.0,
+				44.0
+			],
+			"item": "Option_text_speed_0",
+			"language": "en",
+			"return": [
+				998.0,
+				116.0,
+				52.0,
+				48.0
+			],
+			"width": 2560
+		},
+		{
+			"control": [
+				810.0,
+				567.0,
+				184.0,
+				44.0
+			],
+			"item": "Option_text_speed_1",
+			"language": "en",
+			"return": [
+				998.0,
+				116.0,
+				52.0,
+				48.0
+			],
+			"width": 2560
+		},
+		{
+			"control": [
+				810.0,
+				613.0,
+				184.0,
+				44.0
+			],
+			"item": "Option_text_speed_2",
+			"language": "en",
+			"return": [
+				998.0,
+				116.0,
+				52.0,
+				48.0
+			],
+			"width": 2560
+		},
+		{
+			"control": [
+				810.0,
+				659.0,
+				184.0,
+				44.0
+			],
+			"item": "Option_text_speed_3",
+			"language": "en",
+			"return": [
+				998.0,
+				116.0,
+				52.0,
+				48.0
+			],
+			"width": 2560
+		}
+	],
+	"scope": "Actual Host/root.push_input zh/en at 1280x720, 1920x1080 and 2560x1440. Active glyph metrics, original paper sampling, physical return/selector/row rectangles, all four dropdowns, one-click return and nested Esc. Automated GPU; not native OS input or user acceptance."
+}

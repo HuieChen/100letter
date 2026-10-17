@@ -1,0 +1,953 @@
+{
+	"checks": 159,
+	"failures": [
+		"calibration preserves native mass contrast",
+		"actual_click real1920source-patch displacement stays within3worldpx plus sampling tolerance",
+		"actual_click calibrated ripple remains visibly responsive",
+		"actual_held_wake ripple changes readable original-source pixels with measurable correspondence",
+		"actual_held_wake real1920source-patch displacement stays within3worldpx plus sampling tolerance"
+	],
+	"images": [
+		"res://test-results/water-feedback_20261017/home_1920.png",
+		"res://test-results/water-feedback_20261017/click_1920.png",
+		"res://test-results/water-feedback_20261017/wake_home_1920.png",
+		"res://test-results/water-feedback_20261017/held_fast_wake_1920.png"
+	],
+	"measurements": [
+		{
+			"field": {
+				"cells": 5184,
+				"energy": 2.05573760144261,
+				"last_tap": {
+					"amplitude": 0.779328400692062,
+					"angle": 5.03796323,
+					"radius": 2.4914631245267,
+					"stretch": "(1.044779, 0.964816)"
+				},
+				"peak": 0.698911190032959,
+				"steps": 0,
+				"strokes": 0,
+				"taps": 1
+			},
+			"moments": {
+				"center": "(1199.992, 260.0347)",
+				"signed_mass": 4.57396828021001,
+				"weight": 4.57396828021001
+			},
+			"phase": "cpu_contact_center",
+			"point": "(1200.0, 260.0)",
+			"tolerance_reason": "16.67worldpx cell spacing and compact sampled ellipse allow2.5px subcell quadrature error; an8.33px half-cell origin shift is rejected."
+		},
+		{
+			"field": {
+				"cells": 5184,
+				"energy": 1.90619412592349,
+				"last_tap": {
+					"amplitude": 0.767464337546163,
+					"angle": 4.73838323732422,
+					"radius": 2.44382268694874,
+					"stretch": "(1.003639, 0.997141)"
+				},
+				"peak": 0.724578142166138,
+				"steps": 0,
+				"strokes": 0,
+				"taps": 1
+			},
+			"moments": {
+				"center": "(802.1893, 423.669)",
+				"signed_mass": 4.2883435068652,
+				"weight": 4.2883435068652
+			},
+			"phase": "cpu_contact_center",
+			"point": "(802.3, 423.7)",
+			"tolerance_reason": "16.67worldpx cell spacing and compact sampled ellipse allow2.5px subcell quadrature error; an8.33px half-cell origin shift is rejected."
+		},
+		{
+			"field": {
+				"cells": 5184,
+				"energy": 1.73796659739486,
+				"last_tap": {
+					"amplitude": 0.752985298230597,
+					"angle": 4.11535528322266,
+					"radius": 2.40537512330414,
+					"stretch": "(0.921293, 1.061841)"
+				},
+				"peak": 0.705038130283356,
+				"steps": 0,
+				"strokes": 0,
+				"taps": 1
+			},
+			"moments": {
+				"center": "(302.9859, 521.7676)",
+				"signed_mass": 3.97754489257932,
+				"weight": 3.97754489257932
+			},
+			"phase": "cpu_contact_center",
+			"point": "(303.13, 521.77)",
+			"tolerance_reason": "16.67worldpx cell spacing and compact sampled ellipse allow2.5px subcell quadrature error; an8.33px half-cell origin shift is rejected."
+		},
+		{
+			"field": {
+				"cells": 5184,
+				"energy": 2.15528133973818,
+				"last_tap": {
+					"amplitude": 0.786665237686747,
+					"angle": 5.20167424379394,
+					"radius": 2.52311375833475,
+					"stretch": "(1.065799, 0.948301)"
+				},
+				"peak": 0.719138979911804,
+				"steps": 0,
+				"strokes": 0,
+				"taps": 1
+			},
+			"moments": {
+				"center": "(1313.607, 247.3637)",
+				"signed_mass": 4.73642871336779,
+				"weight": 4.73642871336779
+			},
+			"phase": "cpu_contact_center",
+			"point": "(1313.51, 247.28)",
+			"tolerance_reason": "16.67worldpx cell spacing and compact sampled ellipse allow2.5px subcell quadrature error; an8.33px half-cell origin shift is rejected."
+		},
+		{
+			"clock_grid_phase": 0.0,
+			"duration_seconds": 1.0,
+			"end": "(960.3, 380.7)",
+			"event_count": 30,
+			"field": {
+				"cells": 5184,
+				"energy": 0.0605604263985951,
+				"last_tap": {},
+				"peak": 0.0585296675562859,
+				"steps": 90,
+				"strokes": 30,
+				"taps": 0
+			},
+			"fixed_steps": 90,
+			"held": false,
+			"moments": {
+				"center": "(976.0974, 382.787)",
+				"signed_mass": 0.316354172090695,
+				"weight": 3.21645445638868
+			},
+			"phase": "cpu_equivalent_path",
+			"start": "(840.3, 350.7)"
+		},
+		{
+			"clock_grid_phase": 0.0,
+			"duration_seconds": 1.0,
+			"end": "(960.3, 380.7)",
+			"event_count": 60,
+			"field": {
+				"cells": 5184,
+				"energy": 0.061154796109241,
+				"last_tap": {},
+				"peak": 0.0589350797235966,
+				"steps": 90,
+				"strokes": 60,
+				"taps": 0
+			},
+			"fixed_steps": 90,
+			"held": false,
+			"moments": {
+				"center": "(974.3254, 382.3491)",
+				"signed_mass": 0.316846861141905,
+				"weight": 3.2110367938101
+			},
+			"phase": "cpu_equivalent_path",
+			"start": "(840.3, 350.7)"
+		},
+		{
+			"clock_grid_phase": 0.0,
+			"duration_seconds": 1.0,
+			"end": "(960.3, 380.7)",
+			"event_count": 144,
+			"field": {
+				"cells": 5184,
+				"energy": 0.0607140078034212,
+				"last_tap": {},
+				"peak": 0.0590160898864269,
+				"steps": 90,
+				"strokes": 144,
+				"taps": 0
+			},
+			"fixed_steps": 90,
+			"held": false,
+			"moments": {
+				"center": "(973.8408, 382.1659)",
+				"signed_mass": 0.317098417372559,
+				"weight": 3.20855160634704
+			},
+			"phase": "cpu_equivalent_path",
+			"start": "(840.3, 350.7)"
+		},
+		{
+			"absolute_mass_ratio": 1.00168720040487,
+			"centroid_error_px": 1.82533013820648,
+			"clock_grid_phase": 0.0,
+			"energy_ratio": 0.990280897845131,
+			"events": 30,
+			"field_cosine_similarity": 0.973727734505319,
+			"held": false,
+			"phase": "cpu_rate_comparison",
+			"reference_events": 60,
+			"tolerance_reason": "Same continuous123.7px/1s path; fixed60Hz deposition quantization and16.67px spatial cells justify20percent energy,15percent absolute-height weight,5px centroid and0.93cosine tolerance. It rejects event-count energy scaling without demanding bit equality of different quadratures."
+		},
+		{
+			"absolute_mass_ratio": 1.0,
+			"centroid_error_px": 0.0,
+			"clock_grid_phase": 0.0,
+			"energy_ratio": 1.0,
+			"events": 60,
+			"field_cosine_similarity": 1.0,
+			"held": false,
+			"phase": "cpu_rate_comparison",
+			"reference_events": 60,
+			"tolerance_reason": "Same continuous123.7px/1s path; fixed60Hz deposition quantization and16.67px spatial cells justify20percent energy,15percent absolute-height weight,5px centroid and0.93cosine tolerance. It rejects event-count energy scaling without demanding bit equality of different quadratures."
+		},
+		{
+			"absolute_mass_ratio": 0.999226048275793,
+			"centroid_error_px": 0.518089592456818,
+			"clock_grid_phase": 0.0,
+			"energy_ratio": 0.99279225287527,
+			"events": 144,
+			"field_cosine_similarity": 0.999715957799025,
+			"held": false,
+			"phase": "cpu_rate_comparison",
+			"reference_events": 60,
+			"tolerance_reason": "Same continuous123.7px/1s path; fixed60Hz deposition quantization and16.67px spatial cells justify20percent energy,15percent absolute-height weight,5px centroid and0.93cosine tolerance. It rejects event-count energy scaling without demanding bit equality of different quadratures."
+		},
+		{
+			"clock_grid_phase": 0.37,
+			"duration_seconds": 1.0,
+			"end": "(962.89, 378.85)",
+			"event_count": 30,
+			"field": {
+				"cells": 5184,
+				"energy": 0.0606806134771892,
+				"last_tap": {},
+				"peak": 0.0599436983466148,
+				"steps": 90,
+				"strokes": 30,
+				"taps": 0
+			},
+			"fixed_steps": 90,
+			"held": false,
+			"moments": {
+				"center": "(978.3568, 380.4958)",
+				"signed_mass": 0.320744137421921,
+				"weight": 3.21911642515705
+			},
+			"phase": "cpu_equivalent_path",
+			"start": "(842.89, 348.85)"
+		},
+		{
+			"clock_grid_phase": 0.37,
+			"duration_seconds": 1.0,
+			"end": "(962.89, 378.85)",
+			"event_count": 60,
+			"field": {
+				"cells": 5184,
+				"energy": 0.0612616838343452,
+				"last_tap": {},
+				"peak": 0.0581242814660072,
+				"steps": 90,
+				"strokes": 60,
+				"taps": 0
+			},
+			"fixed_steps": 90,
+			"held": false,
+			"moments": {
+				"center": "(977.0377, 380.1941)",
+				"signed_mass": 0.321109139144433,
+				"weight": 3.22208392278024
+			},
+			"phase": "cpu_equivalent_path",
+			"start": "(842.89, 348.85)"
+		},
+		{
+			"clock_grid_phase": 0.37,
+			"duration_seconds": 1.0,
+			"end": "(962.89, 378.85)",
+			"event_count": 144,
+			"field": {
+				"cells": 5184,
+				"energy": 0.0608622107621187,
+				"last_tap": {},
+				"peak": 0.0572723895311356,
+				"steps": 90,
+				"strokes": 144,
+				"taps": 0
+			},
+			"fixed_steps": 90,
+			"held": false,
+			"moments": {
+				"center": "(976.6249, 380.0287)",
+				"signed_mass": 0.321163890031354,
+				"weight": 3.21215730238827
+			},
+			"phase": "cpu_equivalent_path",
+			"start": "(842.89, 348.85)"
+		},
+		{
+			"absolute_mass_ratio": 0.999079012932528,
+			"centroid_error_px": 1.35321962833405,
+			"clock_grid_phase": 0.37,
+			"energy_ratio": 0.990514946361461,
+			"events": 30,
+			"field_cosine_similarity": 0.973943727839604,
+			"held": false,
+			"phase": "cpu_rate_comparison",
+			"reference_events": 60,
+			"tolerance_reason": "Same continuous123.7px/1s path; fixed60Hz deposition quantization and16.67px spatial cells justify20percent energy,15percent absolute-height weight,5px centroid and0.93cosine tolerance. It rejects event-count energy scaling without demanding bit equality of different quadratures."
+		},
+		{
+			"absolute_mass_ratio": 1.0,
+			"centroid_error_px": 0.0,
+			"clock_grid_phase": 0.37,
+			"energy_ratio": 1.0,
+			"events": 60,
+			"field_cosine_similarity": 1.0,
+			"held": false,
+			"phase": "cpu_rate_comparison",
+			"reference_events": 60,
+			"tolerance_reason": "Same continuous123.7px/1s path; fixed60Hz deposition quantization and16.67px spatial cells justify20percent energy,15percent absolute-height weight,5px centroid and0.93cosine tolerance. It rejects event-count energy scaling without demanding bit equality of different quadratures."
+		},
+		{
+			"absolute_mass_ratio": 0.99691919247609,
+			"centroid_error_px": 0.444687366485596,
+			"clock_grid_phase": 0.37,
+			"energy_ratio": 0.993479234535787,
+			"events": 144,
+			"field_cosine_similarity": 0.999102109484152,
+			"held": false,
+			"phase": "cpu_rate_comparison",
+			"reference_events": 60,
+			"tolerance_reason": "Same continuous123.7px/1s path; fixed60Hz deposition quantization and16.67px spatial cells justify20percent energy,15percent absolute-height weight,5px centroid and0.93cosine tolerance. It rejects event-count energy scaling without demanding bit equality of different quadratures."
+		},
+		{
+			"clock_grid_phase": 0.83,
+			"duration_seconds": 1.0,
+			"end": "(966.11, 376.55)",
+			"event_count": 30,
+			"field": {
+				"cells": 5184,
+				"energy": 0.06200005964498,
+				"last_tap": {},
+				"peak": 0.060500118881464,
+				"steps": 90,
+				"strokes": 30,
+				"taps": 0
+			},
+			"fixed_steps": 90,
+			"held": false,
+			"moments": {
+				"center": "(979.309, 377.3106)",
+				"signed_mass": 0.31981620856999,
+				"weight": 3.24044038991983
+			},
+			"phase": "cpu_equivalent_path",
+			"start": "(846.11, 346.55)"
+		},
+		{
+			"clock_grid_phase": 0.83,
+			"duration_seconds": 1.0,
+			"end": "(966.11, 376.55)",
+			"event_count": 60,
+			"field": {
+				"cells": 5184,
+				"energy": 0.0612639251506802,
+				"last_tap": {},
+				"peak": 0.0599494203925133,
+				"steps": 90,
+				"strokes": 60,
+				"taps": 0
+			},
+			"fixed_steps": 90,
+			"held": false,
+			"moments": {
+				"center": "(979.3853, 377.1639)",
+				"signed_mass": 0.320303396747479,
+				"weight": 3.23311386976232
+			},
+			"phase": "cpu_equivalent_path",
+			"start": "(846.11, 346.55)"
+		},
+		{
+			"clock_grid_phase": 0.83,
+			"duration_seconds": 1.0,
+			"end": "(966.11, 376.55)",
+			"event_count": 144,
+			"field": {
+				"cells": 5184,
+				"energy": 0.0612780858726188,
+				"last_tap": {},
+				"peak": 0.0590097308158875,
+				"steps": 90,
+				"strokes": 144,
+				"taps": 0
+			},
+			"fixed_steps": 90,
+			"held": false,
+			"moments": {
+				"center": "(978.6469, 376.989)",
+				"signed_mass": 0.320666784126413,
+				"weight": 3.23597441955069
+			},
+			"phase": "cpu_equivalent_path",
+			"start": "(846.11, 346.55)"
+		},
+		{
+			"absolute_mass_ratio": 1.0022660878808,
+			"centroid_error_px": 0.165269032120705,
+			"clock_grid_phase": 0.83,
+			"energy_ratio": 1.01201579057315,
+			"events": 30,
+			"field_cosine_similarity": 0.999559156533319,
+			"held": false,
+			"phase": "cpu_rate_comparison",
+			"reference_events": 60,
+			"tolerance_reason": "Same continuous123.7px/1s path; fixed60Hz deposition quantization and16.67px spatial cells justify20percent energy,15percent absolute-height weight,5px centroid and0.93cosine tolerance. It rejects event-count energy scaling without demanding bit equality of different quadratures."
+		},
+		{
+			"absolute_mass_ratio": 1.0,
+			"centroid_error_px": 0.0,
+			"clock_grid_phase": 0.83,
+			"energy_ratio": 1.0,
+			"events": 60,
+			"field_cosine_similarity": 1.0,
+			"held": false,
+			"phase": "cpu_rate_comparison",
+			"reference_events": 60,
+			"tolerance_reason": "Same continuous123.7px/1s path; fixed60Hz deposition quantization and16.67px spatial cells justify20percent energy,15percent absolute-height weight,5px centroid and0.93cosine tolerance. It rejects event-count energy scaling without demanding bit equality of different quadratures."
+		},
+		{
+			"absolute_mass_ratio": 1.00088476617391,
+			"centroid_error_px": 0.758833408355713,
+			"clock_grid_phase": 0.83,
+			"energy_ratio": 1.00023114291002,
+			"events": 144,
+			"field_cosine_similarity": 0.994745591353307,
+			"held": false,
+			"phase": "cpu_rate_comparison",
+			"reference_events": 60,
+			"tolerance_reason": "Same continuous123.7px/1s path; fixed60Hz deposition quantization and16.67px spatial cells justify20percent energy,15percent absolute-height weight,5px centroid and0.93cosine tolerance. It rejects event-count energy scaling without demanding bit equality of different quadratures."
+		},
+		{
+			"clock_grid_phase": 0.0,
+			"duration_seconds": 1.0,
+			"end": "(960.3, 380.7)",
+			"event_count": 30,
+			"field": {
+				"cells": 5184,
+				"energy": 0.102347114334812,
+				"last_tap": {},
+				"peak": 0.076088547706604,
+				"steps": 90,
+				"strokes": 30,
+				"taps": 0
+			},
+			"fixed_steps": 90,
+			"held": true,
+			"moments": {
+				"center": "(976.0975, 382.7872)",
+				"signed_mass": 0.411261039791421,
+				"weight": 4.18139075417524
+			},
+			"phase": "cpu_equivalent_path",
+			"start": "(840.3, 350.7)"
+		},
+		{
+			"clock_grid_phase": 0.0,
+			"duration_seconds": 1.0,
+			"end": "(960.3, 380.7)",
+			"event_count": 60,
+			"field": {
+				"cells": 5184,
+				"energy": 0.10335162858925,
+				"last_tap": {},
+				"peak": 0.0766156315803528,
+				"steps": 90,
+				"strokes": 60,
+				"taps": 0
+			},
+			"fixed_steps": 90,
+			"held": true,
+			"moments": {
+				"center": "(974.3253, 382.3492)",
+				"signed_mass": 0.411900860499392,
+				"weight": 4.1743483446977
+			},
+			"phase": "cpu_equivalent_path",
+			"start": "(840.3, 350.7)"
+		},
+		{
+			"clock_grid_phase": 0.0,
+			"duration_seconds": 1.0,
+			"end": "(960.3, 380.7)",
+			"event_count": 144,
+			"field": {
+				"cells": 5184,
+				"energy": 0.102606662440766,
+				"last_tap": {},
+				"peak": 0.0767209380865097,
+				"steps": 90,
+				"strokes": 144,
+				"taps": 0
+			},
+			"fixed_steps": 90,
+			"held": true,
+			"moments": {
+				"center": "(973.8415, 382.1658)",
+				"signed_mass": 0.412228834240611,
+				"weight": 4.17111701152372
+			},
+			"phase": "cpu_equivalent_path",
+			"start": "(840.3, 350.7)"
+		},
+		{
+			"absolute_mass_ratio": 1.00168706799146,
+			"centroid_error_px": 1.82547795772552,
+			"clock_grid_phase": 0.0,
+			"energy_ratio": 0.990280615137371,
+			"events": 30,
+			"field_cosine_similarity": 0.973727734599731,
+			"held": true,
+			"phase": "cpu_rate_comparison",
+			"reference_events": 60,
+			"tolerance_reason": "Same continuous123.7px/1s path; fixed60Hz deposition quantization and16.67px spatial cells justify20percent energy,15percent absolute-height weight,5px centroid and0.93cosine tolerance. It rejects event-count energy scaling without demanding bit equality of different quadratures."
+		},
+		{
+			"absolute_mass_ratio": 1.0,
+			"centroid_error_px": 0.0,
+			"clock_grid_phase": 0.0,
+			"energy_ratio": 1.0,
+			"events": 60,
+			"field_cosine_similarity": 1.0,
+			"held": true,
+			"phase": "cpu_rate_comparison",
+			"reference_events": 60,
+			"tolerance_reason": "Same continuous123.7px/1s path; fixed60Hz deposition quantization and16.67px spatial cells justify20percent energy,15percent absolute-height weight,5px centroid and0.93cosine tolerance. It rejects event-count energy scaling without demanding bit equality of different quadratures."
+		},
+		{
+			"absolute_mass_ratio": 0.999225907157919,
+			"centroid_error_px": 0.517423152923584,
+			"clock_grid_phase": 0.0,
+			"energy_ratio": 0.992791926371617,
+			"events": 144,
+			"field_cosine_similarity": 0.999715955119132,
+			"held": true,
+			"phase": "cpu_rate_comparison",
+			"reference_events": 60,
+			"tolerance_reason": "Same continuous123.7px/1s path; fixed60Hz deposition quantization and16.67px spatial cells justify20percent energy,15percent absolute-height weight,5px centroid and0.93cosine tolerance. It rejects event-count energy scaling without demanding bit equality of different quadratures."
+		},
+		{
+			"clock_grid_phase": 0.37,
+			"duration_seconds": 1.0,
+			"end": "(962.89, 378.85)",
+			"event_count": 30,
+			"field": {
+				"cells": 5184,
+				"energy": 0.102550232917036,
+				"last_tap": {},
+				"peak": 0.0779267996549606,
+				"steps": 90,
+				"strokes": 30,
+				"taps": 0
+			},
+			"fixed_steps": 90,
+			"held": true,
+			"moments": {
+				"center": "(978.3574, 380.4957)",
+				"signed_mass": 0.416967787753265,
+				"weight": 4.18485138229275
+			},
+			"phase": "cpu_equivalent_path",
+			"start": "(842.89, 348.85)"
+		},
+		{
+			"clock_grid_phase": 0.37,
+			"duration_seconds": 1.0,
+			"end": "(962.89, 378.85)",
+			"event_count": 60,
+			"field": {
+				"cells": 5184,
+				"energy": 0.103532271526282,
+				"last_tap": {},
+				"peak": 0.0755615755915642,
+				"steps": 90,
+				"strokes": 60,
+				"taps": 0
+			},
+			"fixed_steps": 90,
+			"held": true,
+			"moments": {
+				"center": "(977.0382, 380.1939)",
+				"signed_mass": 0.417441751095213,
+				"weight": 4.18870947768469
+			},
+			"phase": "cpu_equivalent_path",
+			"start": "(842.89, 348.85)"
+		},
+		{
+			"clock_grid_phase": 0.37,
+			"duration_seconds": 1.0,
+			"end": "(962.89, 378.85)",
+			"event_count": 144,
+			"field": {
+				"cells": 5184,
+				"energy": 0.102857144290753,
+				"last_tap": {},
+				"peak": 0.074454128742218,
+				"steps": 90,
+				"strokes": 144,
+				"taps": 0
+			},
+			"fixed_steps": 90,
+			"held": true,
+			"moments": {
+				"center": "(976.6251, 380.0291)",
+				"signed_mass": 0.417513628125759,
+				"weight": 4.17580458626521
+			},
+			"phase": "cpu_equivalent_path",
+			"start": "(842.89, 348.85)"
+		},
+		{
+			"absolute_mass_ratio": 0.999078929820151,
+			"centroid_error_px": 1.35328602790833,
+			"clock_grid_phase": 0.37,
+			"energy_ratio": 0.990514661807678,
+			"events": 30,
+			"field_cosine_similarity": 0.973943721300451,
+			"held": true,
+			"phase": "cpu_rate_comparison",
+			"reference_events": 60,
+			"tolerance_reason": "Same continuous123.7px/1s path; fixed60Hz deposition quantization and16.67px spatial cells justify20percent energy,15percent absolute-height weight,5px centroid and0.93cosine tolerance. It rejects event-count energy scaling without demanding bit equality of different quadratures."
+		},
+		{
+			"absolute_mass_ratio": 1.0,
+			"centroid_error_px": 0.0,
+			"clock_grid_phase": 0.37,
+			"energy_ratio": 1.0,
+			"events": 60,
+			"field_cosine_similarity": 1.0,
+			"held": true,
+			"phase": "cpu_rate_comparison",
+			"reference_events": 60,
+			"tolerance_reason": "Same continuous123.7px/1s path; fixed60Hz deposition quantization and16.67px spatial cells justify20percent energy,15percent absolute-height weight,5px centroid and0.93cosine tolerance. It rejects event-count energy scaling without demanding bit equality of different quadratures."
+		},
+		{
+			"absolute_mass_ratio": 0.996919124735619,
+			"centroid_error_px": 0.444800823926926,
+			"clock_grid_phase": 0.37,
+			"energy_ratio": 0.993479064782638,
+			"events": 144,
+			"field_cosine_similarity": 0.99910210590268,
+			"held": true,
+			"phase": "cpu_rate_comparison",
+			"reference_events": 60,
+			"tolerance_reason": "Same continuous123.7px/1s path; fixed60Hz deposition quantization and16.67px spatial cells justify20percent energy,15percent absolute-height weight,5px centroid and0.93cosine tolerance. It rejects event-count energy scaling without demanding bit equality of different quadratures."
+		},
+		{
+			"clock_grid_phase": 0.83,
+			"duration_seconds": 1.0,
+			"end": "(966.11, 376.55)",
+			"event_count": 30,
+			"field": {
+				"cells": 5184,
+				"energy": 0.10478010373901,
+				"last_tap": {},
+				"peak": 0.0786501690745354,
+				"steps": 90,
+				"strokes": 30,
+				"taps": 0
+			},
+			"fixed_steps": 90,
+			"held": true,
+			"moments": {
+				"center": "(979.3082, 377.3108)",
+				"signed_mass": 0.415758883744217,
+				"weight": 4.2125722860676
+			},
+			"phase": "cpu_equivalent_path",
+			"start": "(846.11, 346.55)"
+		},
+		{
+			"clock_grid_phase": 0.83,
+			"duration_seconds": 1.0,
+			"end": "(966.11, 376.55)",
+			"event_count": 60,
+			"field": {
+				"cells": 5184,
+				"energy": 0.103536036081675,
+				"last_tap": {},
+				"peak": 0.0779342576861382,
+				"steps": 90,
+				"strokes": 60,
+				"taps": 0
+			},
+			"fixed_steps": 90,
+			"held": true,
+			"moments": {
+				"center": "(979.3854, 377.1642)",
+				"signed_mass": 0.416393578993093,
+				"weight": 4.20304777728594
+			},
+			"phase": "cpu_equivalent_path",
+			"start": "(846.11, 346.55)"
+		},
+		{
+			"clock_grid_phase": 0.83,
+			"duration_seconds": 1.0,
+			"end": "(966.11, 376.55)",
+			"event_count": 144,
+			"field": {
+				"cells": 5184,
+				"energy": 0.103559978518865,
+				"last_tap": {},
+				"peak": 0.0767126455903053,
+				"steps": 90,
+				"strokes": 144,
+				"taps": 0
+			},
+			"fixed_steps": 90,
+			"held": true,
+			"moments": {
+				"center": "(978.6471, 376.9892)",
+				"signed_mass": 0.416867479599597,
+				"weight": 4.20676703516558
+			},
+			"phase": "cpu_equivalent_path",
+			"start": "(846.11, 346.55)"
+		},
+		{
+			"absolute_mass_ratio": 1.0022660957682,
+			"centroid_error_px": 0.165723204612732,
+			"clock_grid_phase": 0.83,
+			"energy_ratio": 1.01201579377015,
+			"events": 30,
+			"field_cosine_similarity": 0.999559156788297,
+			"held": true,
+			"phase": "cpu_rate_comparison",
+			"reference_events": 60,
+			"tolerance_reason": "Same continuous123.7px/1s path; fixed60Hz deposition quantization and16.67px spatial cells justify20percent energy,15percent absolute-height weight,5px centroid and0.93cosine tolerance. It rejects event-count energy scaling without demanding bit equality of different quadratures."
+		},
+		{
+			"absolute_mass_ratio": 1.0,
+			"centroid_error_px": 0.0,
+			"clock_grid_phase": 0.83,
+			"energy_ratio": 1.0,
+			"events": 60,
+			"field_cosine_similarity": 1.0,
+			"held": true,
+			"phase": "cpu_rate_comparison",
+			"reference_events": 60,
+			"tolerance_reason": "Same continuous123.7px/1s path; fixed60Hz deposition quantization and16.67px spatial cells justify20percent energy,15percent absolute-height weight,5px centroid and0.93cosine tolerance. It rejects event-count energy scaling without demanding bit equality of different quadratures."
+		},
+		{
+			"absolute_mass_ratio": 1.00088489545604,
+			"centroid_error_px": 0.758795142173767,
+			"clock_grid_phase": 0.83,
+			"energy_ratio": 1.00023124738107,
+			"events": 144,
+			"field_cosine_similarity": 0.994745591451932,
+			"held": true,
+			"phase": "cpu_rate_comparison",
+			"reference_events": 60,
+			"tolerance_reason": "Same continuous123.7px/1s path; fixed60Hz deposition quantization and16.67px spatial cells justify20percent energy,15percent absolute-height weight,5px centroid and0.93cosine tolerance. It rejects event-count energy scaling without demanding bit equality of different quadratures."
+		},
+		{
+			"method": "Actual Godot native impulse API units before one shared fixed physics tick, not a claimed real-time player gesture.12percent tolerance covers endpoint quadrature/native tick scheduling.",
+			"phase": "native_rate_unit",
+			"results": [
+				{
+					"events": 30,
+					"mass": 1.25,
+					"rotation": 0.0,
+					"speed": 0.711708426475525,
+					"velocity": "(0.660805, -0.264322)"
+				},
+				{
+					"events": 60,
+					"mass": 1.25,
+					"rotation": 0.0,
+					"speed": 0.707429707050323,
+					"velocity": "(0.656832, -0.262733)"
+				},
+				{
+					"events": 144,
+					"mass": 1.25,
+					"rotation": 0.0,
+					"speed": 0.70493096113205,
+					"velocity": "(0.654512, -0.261805)"
+				}
+			]
+		},
+		{
+			"field": {
+				"cells": 5184,
+				"energy": 0.757485002154918,
+				"last_tap": {
+					"amplitude": 0.786955488179279,
+					"angle": 5.20796323,
+					"radius": 2.52438920082367,
+					"stretch": "(1.066575, 0.947691)"
+				},
+				"peak": 0.196399971842766,
+				"steps": 23,
+				"strokes": 0,
+				"taps": 1
+			},
+			"method": "Actual root.push_input; independent absolute-height centroid at rendered texel centers, no drop helper called.",
+			"moments": {
+				"center": "(1300.082, 260.5007)",
+				"signed_mass": 4.76768012764693,
+				"weight": 5.84379253956319
+			},
+			"phase": "actual_click_center",
+			"point": "(1300.0, 260.0)"
+		},
+		{
+			"changed_contrast_patches": 9,
+			"confident_matches": 7,
+			"independent_source_patch_tracking": [
+				{
+					"confident": true,
+					"rgb_patch_squared_error": 0.0000620843760981889,
+					"source_native_pixel": "(1559, 274)",
+					"tracked_native_offset": "(0, 0)",
+					"unshifted_error": 0.0000620843760981889,
+					"world_offset": "(0.0, 0.0)"
+				},
+				{
+					"confident": true,
+					"rgb_patch_squared_error": 0.0000176570243948978,
+					"source_native_pixel": "(1569, 274)",
+					"tracked_native_offset": "(0, 1)",
+					"unshifted_error": 0.0000461360959995716,
+					"world_offset": "(0.0, 0.833333)"
+				},
+				{
+					"confident": false,
+					"rgb_patch_squared_error": 0.0000580973060735346,
+					"source_native_pixel": "(1559, 284)",
+					"tracked_native_offset": "(2, -13)",
+					"unshifted_error": 0.0000672106089870302,
+					"world_offset": "(1.666667, -10.83333)"
+				},
+				{
+					"confident": true,
+					"rgb_patch_squared_error": 0.000312700206219318,
+					"source_native_pixel": "(1569, 284)",
+					"tracked_native_offset": "(3, 8)",
+					"unshifted_error": 0.000505218730266913,
+					"world_offset": "(2.5, 6.666667)"
+				},
+				{
+					"confident": false,
+					"rgb_patch_squared_error": 0.0000364532116539825,
+					"source_native_pixel": "(1559, 294)",
+					"tracked_native_offset": "(2, -28)",
+					"unshifted_error": 0.0000951200991596105,
+					"world_offset": "(1.666667, -23.33333)"
+				},
+				{
+					"confident": true,
+					"rgb_patch_squared_error": 0.0000364532116539825,
+					"source_native_pixel": "(1559, 304)",
+					"tracked_native_offset": "(2, -38)",
+					"unshifted_error": 0.0000455665145674781,
+					"world_offset": "(1.666667, -31.66667)"
+				},
+				{
+					"confident": true,
+					"rgb_patch_squared_error": 0.0000176570243948978,
+					"source_native_pixel": "(1579, 304)",
+					"tracked_native_offset": "(3, 5)",
+					"unshifted_error": 0.00116593319149535,
+					"world_offset": "(2.5, 4.166667)"
+				},
+				{
+					"confident": true,
+					"rgb_patch_squared_error": 0.000047844840295852,
+					"source_native_pixel": "(1589, 314)",
+					"tracked_native_offset": "(3, 3)",
+					"unshifted_error": 0.000422059841181266,
+					"world_offset": "(2.5, 2.5)"
+				},
+				{
+					"confident": true,
+					"rgb_patch_squared_error": 0.0000318965601972347,
+					"source_native_pixel": "(1559, 344)",
+					"tracked_native_offset": "(0, -1)",
+					"unshifted_error": 0.000048984003160039,
+					"world_offset": "(0.0, -0.833333)"
+				}
+			],
+			"method": "Nine RGB samples per original source patch; independent+-40nativepx nearest search plus1px refinement.3worldpx contract plus0.6worldpx two-dimensional nearest-pixel quantization (sqrt(0.5^2+0.5^2)/1.2=0.589). No height-gradient/shader mapping is mirrored.",
+			"out_of_bound_matches": 3,
+			"phase": "actual_click"
+		},
+		{
+			"changed_contrast_patches": 5,
+			"confident_matches": 5,
+			"independent_source_patch_tracking": [
+				{
+					"confident": true,
+					"rgb_patch_squared_error": 0.0000541102360488802,
+					"source_native_pixel": "(1561, 274)",
+					"tracked_native_offset": "(0, -1)",
+					"unshifted_error": 0.000276816575997429,
+					"world_offset": "(0.0, -0.833333)"
+				},
+				{
+					"confident": true,
+					"rgb_patch_squared_error": 0.0000113916286418695,
+					"source_native_pixel": "(1461, 294)",
+					"tracked_native_offset": "(-1, 0)",
+					"unshifted_error": 0.0000991071691842649,
+					"world_offset": "(-0.833333, 0.0)"
+				},
+				{
+					"confident": true,
+					"rgb_patch_squared_error": 0.00000569581432093476,
+					"source_native_pixel": "(1461, 304)",
+					"tracked_native_offset": "(-1, 0)",
+					"unshifted_error": 0.000135560380838247,
+					"world_offset": "(-0.833333, 0.0)"
+				},
+				{
+					"confident": true,
+					"rgb_patch_squared_error": 0.0000125307915060565,
+					"source_native_pixel": "(1471, 304)",
+					"tracked_native_offset": "(-1, 0)",
+					"unshifted_error": 0.0000290486530367673,
+					"world_offset": "(-0.833333, 0.0)"
+				},
+				{
+					"confident": true,
+					"rgb_patch_squared_error": 0.000025061583012113,
+					"source_native_pixel": "(1491, 334)",
+					"tracked_native_offset": "(5, 8)",
+					"unshifted_error": 0.0000364532116539825,
+					"world_offset": "(4.166667, 6.666667)"
+				}
+			],
+			"method": "Nine RGB samples per original source patch; independent+-40nativepx nearest search plus1px refinement.3worldpx contract plus0.6worldpx two-dimensional nearest-pixel quantization (sqrt(0.5^2+0.5^2)/1.2=0.589). No height-gradient/shader mapping is mirrored.",
+			"out_of_bound_matches": 1,
+			"phase": "actual_held_wake"
+		}
+	],
+	"original_media_sha256": {
+		"pattern": "e31efd76da89503bf1b09fbc9a7731a37aa2b00013d2e20c7131da5dfeaee7bc",
+		"water": "f7d6b6a8cb743a366823adaee164bab11bd1b396a120b81f013969b9a215af38"
+	},
+	"scope": "Production solver CPU replay at30/60/144events with three time/grid phases; independent weighted moments/correlation, native impulse-rate unit comparisons and actual root.push_input GPU click/held-wake. Original source RGB patch tracking bounds at1920x1080; temporary native freeze isolates water from moving companions. No OS input, measured displayFPS, listening, user aesthetic or whole-game acceptance claimed.",
+	"source_sha256": {
+		"coastal_physics.gd": "101ac59c597ba8c471b0e467d231a461b9e3cbe0d8c4c396e33e067f2414a3ff",
+		"settings_water.gdshader": "cf54274d31e1e808cdd7c58f04c5a643da2e1b86b40bce9f1234d283f46ec9a7",
+		"water_field.gd": "adfd1880b66cf23d9d550844aa8d351349e6adaacd1ebb6e692cb90afee4bc55"
+	}
+}

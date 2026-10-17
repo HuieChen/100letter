@@ -1,0 +1,9 @@
+{
+	"checks": 82,
+	"failures": [],
+	"images": [
+		"res://test-results/settings-save-failure_20261017/zh_error_1920.png",
+		"res://test-results/settings-save-failure_20261017/en_error_after_rebuild_1920.png"
+	],
+	"scope": "Actual Host/root.push_input sliders, language selectors, return, Esc, nested dropdown and reentry. Genuine isolated parent-sentinel filesystem failure. Direct host quit-readiness and real Core negative campaign/paper guards; no actual OS close or user-data permissions changed."
+}
