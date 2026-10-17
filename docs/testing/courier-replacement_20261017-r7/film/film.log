@@ -1,0 +1,7 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+OpenGL API 3.3.0 NVIDIA 566.24 - Compatibility - Using Device: NVIDIA - NVIDIA GeForce RTX 4050 Laptop GPU
+
+Movie Maker mode enabled, recording movie in 1920×1080 @ 60 FPS...
+WARNING: Current available space on disk is low (2.28 GiB). MovieWriter will fail during movie recording if the disk runs out of available space.
+   at: begin (servers/movie_writer/movie_writer.cpp:117)
+COURIER WALK FILM: 995 checks / 0 failures; 578 pumped render frames; schedule 60fps; QA annotations, not measured displayFPS.

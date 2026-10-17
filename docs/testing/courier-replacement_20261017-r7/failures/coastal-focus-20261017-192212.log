@@ -1,0 +1,98 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+OpenGL API 3.3.0 NVIDIA 566.24 - Compatibility - Using Device: NVIDIA - NVIDIA GeForce RTX 4050 Laptop GPU
+
+ERROR: default-lit zero field preserves original exposed-water pixels shallow 1280
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] _check (res://tests/visible_ripple_input.gd:331)
+       [1] _single_click (res://tests/visible_ripple_input.gd:72)
+       [2] _capture (res://tests/visible_ripple_input.gd:195)
+ERROR: default-lit zero field preserves original exposed-water pixels ink_rich 1280
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] _check (res://tests/visible_ripple_input.gd:331)
+       [1] _single_click (res://tests/visible_ripple_input.gd:72)
+       [2] _capture (res://tests/visible_ripple_input.gd:195)
+ERROR: default-lit zero field preserves original exposed-water pixels near_lemon 1280
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] _check (res://tests/visible_ripple_input.gd:331)
+       [1] _single_click (res://tests/visible_ripple_input.gd:72)
+       [2] _capture (res://tests/visible_ripple_input.gd:195)
+ERROR: visible band grows outward at least24worldpx near_lemon 1280
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] _check (res://tests/visible_ripple_input.gd:331)
+       [1] _single_click (res://tests/visible_ripple_input.gd:93)
+       [2] _capture (res://tests/visible_ripple_input.gd:195)
+ERROR: visible arrow closes single-click case 1280
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] _check (res://tests/visible_ripple_input.gd:331)
+       [1] _close (res://tests/visible_ripple_input.gd:308)
+       [2] _step (res://tests/visible_ripple_input.gd:324)
+ERROR: bounded painted feedback has no lighting flash rapid_click 1280
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] _check (res://tests/visible_ripple_input.gd:331)
+       [1] _stress (res://tests/visible_ripple_input.gd:137)
+       [2] _capture (res://tests/visible_ripple_input.gd:195)
+ERROR: bounded painted feedback has no lighting flash rapid_click 1280
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] _check (res://tests/visible_ripple_input.gd:331)
+       [1] _stress (res://tests/visible_ripple_input.gd:137)
+       [2] _capture (res://tests/visible_ripple_input.gd:195)
+ERROR: bounded painted feedback has no lighting flash rapid_click 1280
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] _check (res://tests/visible_ripple_input.gd:331)
+       [1] _stress (res://tests/visible_ripple_input.gd:137)
+       [2] _capture (res://tests/visible_ripple_input.gd:195)
+ERROR: bounded painted feedback has no lighting flash rapid_click 1280
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] _check (res://tests/visible_ripple_input.gd:331)
+       [1] _stress (res://tests/visible_ripple_input.gd:137)
+       [2] _capture (res://tests/visible_ripple_input.gd:195)
+ERROR: bounded painted feedback has no lighting flash rapid_click 1280
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] _check (res://tests/visible_ripple_input.gd:331)
+       [1] _stress (res://tests/visible_ripple_input.gd:137)
+       [2] _capture (res://tests/visible_ripple_input.gd:195)
+ERROR: bounded painted feedback has no lighting flash rapid_click 1280
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] _check (res://tests/visible_ripple_input.gd:331)
+       [1] _stress (res://tests/visible_ripple_input.gd:137)
+       [2] _capture (res://tests/visible_ripple_input.gd:195)
+ERROR: bounded painted feedback has no lighting flash sustained_down 1280
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] _check (res://tests/visible_ripple_input.gd:331)
+       [1] _stress (res://tests/visible_ripple_input.gd:137)
+       [2] _capture (res://tests/visible_ripple_input.gd:195)
+ERROR: bounded painted feedback has no lighting flash crossing_drag 1280
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] _check (res://tests/visible_ripple_input.gd:331)
+       [1] _stress (res://tests/visible_ripple_input.gd:137)
+       [2] _capture (res://tests/visible_ripple_input.gd:195)
+SCRIPT ERROR: Invalid access to property or key 'field' on a base object of type 'previously freed'.
+   at: _stress (res://tests/visible_ripple_input.gd:149)
+   GDScript backtrace (most recent call first):
+       [0] _stress (res://tests/visible_ripple_input.gd:149)
+       [1] _key (res://tests/visible_ripple_input.gd:322)
+ERROR: real title opens Settings 1920
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] _check (res://tests/visible_ripple_input.gd:331)
+       [1] _open (res://tests/visible_ripple_input.gd:305)
+       [2] _step (res://tests/visible_ripple_input.gd:324)
+ERROR: default-lit zero field preserves original exposed-water pixels ink_rich 1920
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] _check (res://tests/visible_ripple_input.gd:331)
+       [1] _single_click (res://tests/visible_ripple_input.gd:72)
+       [2] _capture (res://tests/visible_ripple_input.gd:195)

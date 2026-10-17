@@ -1,26 +1,27 @@
 {
   "schema": 2,
   "source_kind": "user_video_extraction",
-  "source_video_sha256": "0e55d83872399329ddf8aa075eb35df2231d133f5ba195783de244cdd733622c",
-  "source_sha256": "e0f998cc9f34b53fd646f4601013452f15b405a684a5068b4f9c46839d29cd7f",
-  "source_fps": 30,
-  "authored_fps": 5,
-  "cycle_seconds": 1.2,
-  "cycle_distance_px": 142.0,
+  "source_video_sha256": "f8af71a6daa7a620aa07887528da4e7151e8f55320c525c7bf7d9122f1b3f4a5",
+  "source_sha256": "1e21e4a48fba1ae3941134da42c38ce652c164a7b795c6ac517da5a745906b9c",
+  "source_fps": 8,
+  "authored_fps": 8,
+  "cycle_seconds": 0.625,
+  "source_cycle_seconds": 0.625,
   "crop_source_px": [
-    420,
-    180,
-    635,
-    495
+    170,
+    135,
+    490,
+    635
   ],
-  "frame_count": 6,
+  "frame_count": 5,
   "idle": {
     "key": "CHAR_courier",
+    "source_frame": 2,
     "foot_anchor_px": [
-      128.0,
-      298.0
+      180.0,
+      482.0
     ],
-    "reference_height_px": 286.0
+    "reference_height_px": 463.0
   },
   "frames": [
     {
@@ -28,96 +29,85 @@
       "region": [
         0,
         0,
-        215,
-        315
+        320,
+        500
       ],
       "foot_anchor_px": [
-        128.0,
-        298.0
+        180.0,
+        482.0
       ],
-      "reference_height_px": 286.0,
-      "source_frame": 3,
-      "duration_seconds": 0.2
+      "reference_height_px": 463.0,
+      "source_frame": 0,
+      "timestamp_seconds": 0.0,
+      "duration_seconds": 0.125
     },
     {
       "key": "CHAR_courier_walk_1",
       "region": [
-        215,
+        320,
         0,
-        215,
-        315
+        320,
+        500
       ],
       "foot_anchor_px": [
-        128.0,
-        298.0
+        180.0,
+        482.0
       ],
-      "reference_height_px": 286.0,
-      "source_frame": 9,
-      "duration_seconds": 0.2
+      "reference_height_px": 463.0,
+      "source_frame": 1,
+      "timestamp_seconds": 0.125,
+      "duration_seconds": 0.125
     },
     {
       "key": "CHAR_courier_walk_2",
       "region": [
-        430,
+        640,
         0,
-        215,
-        315
+        320,
+        500
       ],
       "foot_anchor_px": [
-        128.0,
-        298.0
+        180.0,
+        482.0
       ],
-      "reference_height_px": 286.0,
-      "source_frame": 15,
-      "duration_seconds": 0.2
+      "reference_height_px": 463.0,
+      "source_frame": 2,
+      "timestamp_seconds": 0.25,
+      "duration_seconds": 0.125
     },
     {
       "key": "CHAR_courier_walk_3",
       "region": [
-        645,
+        960,
         0,
-        215,
-        315
+        320,
+        500
       ],
       "foot_anchor_px": [
-        128.0,
-        298.0
+        180.0,
+        482.0
       ],
-      "reference_height_px": 286.0,
-      "source_frame": 21,
-      "duration_seconds": 0.2
+      "reference_height_px": 463.0,
+      "source_frame": 3,
+      "timestamp_seconds": 0.375,
+      "duration_seconds": 0.125
     },
     {
       "key": "CHAR_courier_walk_4",
       "region": [
-        860,
+        1280,
         0,
-        215,
-        315
+        320,
+        500
       ],
       "foot_anchor_px": [
-        128.0,
-        298.0
+        180.0,
+        482.0
       ],
-      "reference_height_px": 286.0,
-      "source_frame": 27,
-      "duration_seconds": 0.2
-    },
-    {
-      "key": "CHAR_courier_walk_5",
-      "region": [
-        1075,
-        0,
-        215,
-        315
-      ],
-      "foot_anchor_px": [
-        128.0,
-        298.0
-      ],
-      "reference_height_px": 286.0,
-      "source_frame": 33,
-      "duration_seconds": 0.2
+      "reference_height_px": 463.0,
+      "source_frame": 4,
+      "timestamp_seconds": 0.5,
+      "duration_seconds": 0.125
     }
   ]
 }

@@ -1,0 +1,9 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+OpenGL API 3.3.0 NVIDIA 566.24 - Compatibility - Using Device: NVIDIA - NVIDIA GeForce RTX 4050 Laptop GPU
+
+SCRIPT ERROR: Invalid type in function '_button_state' in base 'SceneTree (visible_ripple_input.gd)'. The Object-derived class of argument 1 (previously freed) is not a subclass of the expected argument class.
+   at: _named (res://tests/visible_ripple_input.gd:459)
+   GDScript backtrace (most recent call first):
+       [0] _named (res://tests/visible_ripple_input.gd:459)
+       [1] _click_point (res://tests/visible_ripple_input.gd:469)
+VISIBLE RIPPLE INPUT: 70 checks / 0 failures

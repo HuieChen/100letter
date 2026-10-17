@@ -1,0 +1,22 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+OpenGL API 3.3.0 NVIDIA 566.24 - Compatibility - Using Device: NVIDIA - NVIDIA GeForce RTX 4050 Laptop GPU
+
+ERROR: visible band grows outward at least24worldpx shallow 2560
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] _check (res://tests/visible_ripple_input.gd:410)
+       [1] _single_click (res://tests/visible_ripple_input.gd:103)
+       [2] _capture (res://tests/visible_ripple_input.gd:232)
+ERROR: actual capture timing has no hidden long pause near_lemon 0.1 2560
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] _check (res://tests/visible_ripple_input.gd:410)
+       [1] _single_click (res://tests/visible_ripple_input.gd:94)
+       [2] _capture (res://tests/visible_ripple_input.gd:232)
+ERROR: actual capture timing has no hidden long pause near_lemon 0.25 2560
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] _check (res://tests/visible_ripple_input.gd:410)
+       [1] _single_click (res://tests/visible_ripple_input.gd:94)
+       [2] _capture (res://tests/visible_ripple_input.gd:232)
+VISIBLE RIPPLE INPUT: 796 checks / 3 failures

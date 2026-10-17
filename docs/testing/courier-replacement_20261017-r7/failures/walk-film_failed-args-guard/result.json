@@ -1,0 +1,21 @@
+{
+	"arrivals": {},
+	"audio_drain_frames": 0,
+	"audio_shutdown_retired": false,
+	"checks": 4,
+	"engine_process_frames_at_finish": 0,
+	"events": [],
+	"failures": [
+		"actual MovieWriter and explicit fixed clock required"
+	],
+	"isolated_save_path": "",
+	"max_observed_frame_translation": 0.0,
+	"movie_schedule_fps": 60,
+	"pumped_render_frames": 0,
+	"route_seconds": 0.0,
+	"scope": "Actual production Host and original five registered poses. Real routed ground/map/book input; fixed MovieWriter rendering/mixer. Caption/pointer are explicit QA annotations; selected key observes actual draw rule rather than pixel OCR. No source redraw/interpolation, hidden narrative state injection, direct walk_to or manual actor stepping. Encoded fps is not native real-time display fps, human smoothness, novice usability, audio listening or final acceptance.",
+	"screenshots": [],
+	"source_sha256": {},
+	"trace": [],
+	"visible_source_keys": []
+}

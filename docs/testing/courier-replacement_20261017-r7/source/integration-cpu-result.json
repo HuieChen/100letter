@@ -1,0 +1,16 @@
+{
+  "cpu_tests": 9,
+  "failures": [],
+  "complete_original_reproduction_bytes_match": true,
+  "non_courier_asset_entries_equal_prior_main": true,
+  "registered_frame_count": 5,
+  "source_fps": 8,
+  "cycle_seconds": 0.625,
+  "anchor": [
+    180,
+    482
+  ],
+  "reference_height": 463,
+  "gpu_runs": 0,
+  "runtime_walker_edited_by_this_task": false
+}

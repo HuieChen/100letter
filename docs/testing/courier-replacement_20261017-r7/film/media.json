@@ -1,0 +1,21 @@
+{
+  "frames": 580,
+  "fps": 60,
+  "seconds": 9.666666666666666,
+  "native_dimensions": [
+    1920,
+    1080
+  ],
+  "source_pose_count": 5,
+  "source_authored_fps": 8,
+  "raw_sha256": "57e098b6f0d31345170cb763b25c3bfe96f0f94077b6295db665ab7d17d429ab",
+  "raw_bytes": 644048390,
+  "mp4_sha256": "42ffee3e5b6d02f4b1526d91a28876cf1c475cd89543b214ef08907039e06a1a",
+  "bytes": 6031555,
+  "checks": 995,
+  "foreign_presses": 0,
+  "peak": 0.1543596088886261,
+  "rms": 0.016562270000576973,
+  "nonzero_mix": true,
+  "scope": "Actual production Host MovieWriter rendering/mixer and routed gameplay. Fixed encoded60fps is not native display FPS, native mouse input, human smoothness or audio listening. Five source poses only, no interpolation."
+}

@@ -1,13 +1,15 @@
 extends SceneTree
 ## Actual production Field/native bodies plus Host/root.push_input GPU pixels.
 ## CPU path replay compares independent moments/correlation, not a copied solver.
-## Source patch tracking uses dense RGB and source2D separability, not shader
-## formula sampling. Unobservable art is explicit; an isolated mathematical
-## nonperiodic texture supplements production-shader bounds, never game art.
+## Default-lit GUI captures/input keep production feedback_gain=1. Independent
+## source/nonperiodic offscreen diagnostics duplicate its material with gain=0
+## solely to measure geometry; they are not the game's rendered lighting.
+## Dense RGB source2D tracking never measures default-lit displacement. Source
+## ambiguity is retained; pixel response alone is not perceptual acceptance.
 ## Native-rate unit inputs are deliberately delivered before a shared physics
 ## tick; real GUI click/swipe, paper controls and exits are separate checks.
-## Frozen bodies in the GPU warp phase only isolate source refraction from
-## companion motion. No artwork, shader parameter, field state or story is faked.
+## Frozen bodies in the geometry phase isolate refraction from companion motion.
+## Actual GUI input/field and the default-lit material are never substituted.
 const Host=preload("res://scripts/rebuild/final_playable.gd")
 const Field=preload("res://scripts/ui/water_field.gd")
 const OUT="res://test-results/water-feedback_20261017/"
@@ -22,6 +24,7 @@ var pending_shots:Array[Dictionary]=[]
 var calibration_texture:ImageTexture
 var calibration_reference:SubViewport
 var calibration_warp:SubViewport
+var geometry_source_warp:SubViewport
 func _initialize()->void:_run.call_deferred()
 func _run()->void:
 	root.unfocusable=true;root.gui_embed_subwindows=true
@@ -41,27 +44,34 @@ func _run()->void:
 	for body:RigidBody2D in game.modal.surface.bodies:positions.append(body.position);body.freeze=true
 	await _attach_calibration()
 	await _step(2)
-	var before:=await _shot("home_1920")
+	var before:=await _shot("default_lit_home_1920")
+	var geometry_before:Image=geometry_source_warp.get_texture().get_image()
+	pending_shots.append({"image":geometry_before,"path":OUT+"QA_geometry_only_original_water_home_1920.png","label":"QA geometry-only original-water home; feedback_gain=0, not default game lighting"})
 	var click_point:=Vector2(1300,260)
 	_check(not game.modal._on_paper(click_point) and game.modal.surface.hit_lemon(click_point)<0,"real click-centre fixture hits exposed original water")
 	await _button(click_point,true);await _button(click_point,false);await _step(1)
 	var contact:=_field_moments(game.modal.field)
 	_check(float(contact.weight)>0.1 and contact.center.distance_to(click_point)<3.0,"real GUI click's integrated pressure centroid starts at the actual pointer within coarse-grid3px")
 	measurements.append({"phase":"actual_click_center","point":click_point,"moments":contact,"field":game.modal.field.snapshot(),"method":"Actual root.push_input; independent absolute-height centroid at rendered texel centers, no drop helper called."})
-	var click_frame:=await _shot("click_1920")
-	_track_real_source(before,click_frame,"actual_click",click_point)
+	var click_frame:=await _shot("default_lit_click_1920")
+	_default_lit_source_response(before,click_frame,"default_lit_actual_click",click_point)
+	var geometry_click:Image=geometry_source_warp.get_texture().get_image()
+	pending_shots.append({"image":geometry_click,"path":OUT+"QA_geometry_only_original_water_click_1920.png","label":"QA geometry-only original-water click; feedback_gain=0, not default game lighting"})
+	_track_real_source(geometry_before,geometry_click,"QA_geometry_only_original_water_click",click_point)
 	var calibration_home:Image=calibration_reference.get_texture().get_image()
 	var calibration_click:Image=calibration_warp.get_texture().get_image()
-	pending_shots.append({"image":calibration_home,"path":OUT+"QA_nonperiodic_reference_not-game-art_1920.png","label":"QA reference; not game art"})
-	pending_shots.append({"image":calibration_click,"path":OUT+"QA_production_shader_click_not-game-art_1920.png","label":"QA actual shader click; not game art"})
-	_track_real_source(calibration_home,calibration_click,"production_shader_click_calibration",click_point,true)
-	_check_paper_stable(before,click_frame,"actual_click")
+	pending_shots.append({"image":calibration_home,"path":OUT+"QA_geometry_only_nonperiodic_reference_not-game-art_1920.png","label":"QA nonperiodic reference; not game art"})
+	pending_shots.append({"image":calibration_click,"path":OUT+"QA_geometry_only_nonperiodic_click_not-game-art_1920.png","label":"QA geometry-only nonperiodic click; feedback_gain=0, not game art/lighting"})
+	_track_real_source(calibration_home,calibration_click,"QA_geometry_only_nonperiodic_click_calibration",click_point,true)
+	_check_paper_stable(before,click_frame,"default_lit_actual_click")
 	for index:int in 2:_check(game.modal.surface.bodies[index].position.distance_to(positions[index])<0.01,"diagnostic freeze isolates water pixels "+str(index))
 	await _close();await _open()
 	for body:RigidBody2D in game.modal.surface.bodies:body.freeze=true
 	await _attach_calibration()
 	await _step(2)
-	var wake_before:=await _shot("wake_home_1920")
+	var wake_before:=await _shot("default_lit_wake_home_1920")
+	var geometry_wake_before:Image=geometry_source_warp.get_texture().get_image()
+	pending_shots.append({"image":geometry_wake_before,"path":OUT+"QA_geometry_only_original_water_wake_home_1920.png","label":"QA geometry-only original-water wake home; feedback_gain=0, not default game lighting"})
 	var start:=Vector2(1190,260);var finish:=Vector2(1310,260)
 	await _motion(start,Vector2.ZERO,Vector2.ZERO,false)
 	await _button(start,true);await _step(6)
@@ -69,12 +79,18 @@ func _run()->void:
 	await _step(1)
 	_check(game.modal.field.snapshot().strokes>0,"actual held fast gesture still drives a directional wake")
 	_check(Array(game.modal.field.height).min()<0 and Array(game.modal.field.height).max()>0,"actual held wake retains crest and trough")
-	var wake_frame:=await _shot("held_fast_wake_1920")
-	_track_real_source(wake_before,wake_frame,"actual_held_wake",Vector2(1260,260))
+	var wake_frame:=await _shot("default_lit_held_fast_wake_1920")
+	_default_lit_source_response(wake_before,wake_frame,"default_lit_actual_held_wake",Vector2(1260,260))
+	var geometry_wake:Image=geometry_source_warp.get_texture().get_image()
+	pending_shots.append({"image":geometry_wake,"path":OUT+"QA_geometry_only_original_water_held_wake_1920.png","label":"QA geometry-only original-water held wake; feedback_gain=0, not default game lighting"})
+	_track_real_source(geometry_wake_before,geometry_wake,"QA_geometry_only_original_water_held_wake",Vector2(1260,260))
 	var calibration_wake:Image=calibration_warp.get_texture().get_image()
-	pending_shots.append({"image":calibration_wake,"path":OUT+"QA_production_shader_wake_not-game-art_1920.png","label":"QA actual shader wake; not game art"})
-	_track_real_source(calibration_reference.get_texture().get_image(),calibration_wake,"production_shader_wake_calibration",Vector2(1260,260),true)
-	_check_paper_stable(wake_before,wake_frame,"actual_held_wake")
+	pending_shots.append({"image":calibration_wake,"path":OUT+"QA_geometry_only_nonperiodic_wake_not-game-art_1920.png","label":"QA geometry-only nonperiodic wake; feedback_gain=0, not game art/lighting"})
+	_track_real_source(calibration_reference.get_texture().get_image(),calibration_wake,"QA_geometry_only_nonperiodic_wake_calibration",Vector2(1260,260),true)
+	_check_paper_stable(wake_before,wake_frame,"default_lit_actual_held_wake")
+	# Release source-viewport references before real language/display rebuilding
+	# can free their authored water canvas. Captured Images remain independent.
+	_release_diagnostics()
 	# Real selectors, rail and return remain usable after the changed water pass.
 	var taps_before:int=game.modal.field.taps;var strokes_before:int=game.modal.field.strokes
 	var slider:Slider=game.modal.controls.master
@@ -87,6 +103,7 @@ func _run()->void:
 	_check(game.modal.field.taps==taps_before and game.modal.field.strokes==strokes_before,"rail input does not add hidden water pressure")
 	await _click_named("Setting_language");await _click_named("Option_language_1");await _step(2)
 	_check(game.preferences.values.language=="en","real English selector still rebuilds the retained settings layout")
+	_record_default_lit_binding("actual_language_rebuild")
 	await _click_named("Setting_display_mode")
 	_check(game.modal.find_child("SettingsDropdown",true,false)!=null,"display selector still opens the real rounded menu")
 	await _key(KEY_ESCAPE)
@@ -102,9 +119,9 @@ func _run()->void:
 		_check(shot.image.save_png(shot.path)==OK,"save actual capture "+str(shot.label));images.append(shot.path)
 	var report:=FileAccess.open(OUT+"result.json",FileAccess.WRITE)
 	report.store_string(JSON.stringify({"checks":checks,"failures":failures,"images":images,"measurements":measurements,
-		"source_sha256":{"settings_water.gdshader":FileAccess.get_sha256("res://scripts/ui/settings_water.gdshader"),"water_field.gd":FileAccess.get_sha256("res://scripts/ui/water_field.gd"),"coastal_physics.gd":FileAccess.get_sha256("res://scripts/ui/coastal_physics.gd")},
-		"original_media_sha256":{"pattern":FileAccess.get_sha256("res://assets/faefever_v2/ui/settings_pdf_20261017/settings_water_pattern.jpeg"),"water":FileAccess.get_sha256("res://assets/faefever_v2/ui/settings_pdf_20261017/settings_water.jpeg")},
-		"scope":"Production solver CPU replay at30/60/144events with three time/grid phases; independent weighted moments/correlation, native impulse-rate unit comparisons and actual root.push_input GPU click/held-wake. Actual registered-art visibility is mandatory; original-source tracking explicitly classifies aperture ambiguity as unobservable. Supplemental isolated production-shader/nonperiodic mathematical QA texture proves3worldpx bounds via dense independent RGB correspondence; it is never displayed in the game or registered as artwork. Temporary native freeze isolates water from moving companions. No OS input, measured displayFPS, listening, user aesthetic or whole-game acceptance claimed."},"\t"));report.close()
+		"source_sha256":_source_hashes(),
+		"original_media_sha256":{"base":FileAccess.get_sha256("res://assets/faefever_v2/ui/settings_pdf_20261017/settings_water_base.jpeg"),"pattern":FileAccess.get_sha256("res://assets/faefever_v2/ui/settings_pdf_20261017/settings_water_pattern.jpeg"),"water":FileAccess.get_sha256("res://assets/faefever_v2/ui/settings_pdf_20261017/settings_water.jpeg")},
+		"scope":"Production solver CPU replay at30/60/144events with three time/grid phases; independent weighted moments/correlation and native impulse-rate unit comparisons. Actual root.push_input GUI click/held-wake, paper/control/exit captures retain production feedback_gain=1 and mandatory original-art pixel-response counts. These counts do not prove novice-perceived visibility; independent visible_ripple_input covers default-lit propagation. ALL FOUR dense RGB displacement tracks are separately labeled offscreen QA geometry-only diagnostics: a duplicated production shader/material with feedback_gain=0, the same actual GUI-driven height texture, and either unchanged authored water or an unregistered nonperiodic mathematical texture. They do not measure default-lit displacement or represent game lighting. Aperture ambiguity stays unobservable, never called a pass. Temporary native freeze isolates water from moving companions. No original art or real/default shader binding is replaced. No OS input, measured displayFPS, listening, user aesthetic or whole-game acceptance claimed."},"\t"));report.close()
 	game.queue_free();await process_frame;await process_frame
 	print("WATER FEEDBACK INPUT: ",checks," checks / ",failures.size()," failures")
 	quit(0 if failures.is_empty() else 1)
@@ -189,19 +206,82 @@ func _build_calibration_texture()->void:
 	image.resize(1920,1080,Image.INTERPOLATE_BILINEAR)
 	calibration_texture=ImageTexture.create_from_image(image)
 func _attach_calibration()->void:
-	if is_instance_valid(calibration_reference):calibration_reference.queue_free()
-	if is_instance_valid(calibration_warp):calibration_warp.queue_free()
+	_release_diagnostics()
 	calibration_reference=_calibration_view(false)
 	calibration_warp=_calibration_view(true)
+	geometry_source_warp=_geometry_source_view()
 	await process_frame;await RenderingServer.frame_post_draw
 func _calibration_view(warped:bool)->SubViewport:
 	var viewport:=SubViewport.new();viewport.size=Vector2i(1920,1080);viewport.transparent_bg=false
-	viewport.name="QAOnlyProductionShaderWarp" if warped else "QAOnlyNonperiodicReference"
+	viewport.name="QAOnlyGeometryNonperiodicWarp" if warped else "QAOnlyNonperiodicReference"
 	viewport.render_target_update_mode=SubViewport.UPDATE_ALWAYS;root.add_child(viewport)
 	var image:=TextureRect.new();image.texture=calibration_texture;image.size=Vector2(1920,1080)
 	image.texture_filter=CanvasItem.TEXTURE_FILTER_LINEAR;image.expand_mode=TextureRect.EXPAND_IGNORE_SIZE;image.mouse_filter=Control.MOUSE_FILTER_IGNORE
-	if warped:image.material=game.modal._material
+	if warped:image.material=_geometry_material("QA_geometry_only_nonperiodic_binding")
 	viewport.add_child(image);return viewport
+func _geometry_source_view()->SubViewport:
+	# Offscreen only: the actual composed source water, without replacing either
+	# original layers or the real/default-lit SettingsWater material.
+	var viewport:=SubViewport.new();viewport.size=Vector2i(1920,1080);viewport.transparent_bg=false
+	viewport.name="QAOnlyGeometryAuthoredWater";viewport.render_target_update_mode=SubViewport.UPDATE_ALWAYS;root.add_child(viewport)
+	var image:=TextureRect.new();image.texture=game.modal._water.texture;image.size=Vector2(1920,1080)
+	image.texture_filter=CanvasItem.TEXTURE_FILTER_LINEAR;image.expand_mode=TextureRect.EXPAND_IGNORE_SIZE;image.mouse_filter=Control.MOUSE_FILTER_IGNORE
+	image.material=_geometry_material("QA_geometry_only_authored_water_binding")
+	viewport.add_child(image);return viewport
+func _geometry_material(phase:String)->ShaderMaterial:
+	var production:ShaderMaterial=game.modal._material
+	var diagnostic:ShaderMaterial=production.duplicate()
+	diagnostic.set_shader_parameter("feedback_gain",0.0)
+	var diagnostic_binding:=_feedback_binding(diagnostic)
+	var production_binding:=_feedback_binding(production)
+	_check(diagnostic!=production and diagnostic.shader==production.shader and diagnostic.get_shader_parameter("height_field")==game.modal.field.texture,phase+" independent material keeps actual production shader/GUI-driven field")
+	_check(_feedback_matches(diagnostic_binding,0.0) and _feedback_matches(production_binding,1.0),phase+" geometry-only override never disables the default-lit GUI; bindings="+JSON.stringify({"diagnostic":diagnostic_binding,"production":production_binding}))
+	measurements.append({"phase":phase,"diagnostic_feedback_gain":diagnostic_binding.effective_value,"default_GUI_feedback_gain":production_binding.effective_value,"diagnostic_feedback_binding":diagnostic_binding,"default_GUI_feedback_binding":production_binding,"height_texture_is_actual_GUI_field":diagnostic.get_shader_parameter("height_field")==game.modal.field.texture,"source_shader":diagnostic_binding.source_shader,"method":"Offscreen duplicated ShaderMaterial only. One explicit feedback_gain=0 override; shared actual production shader and GUI-driven field. Default game material is unchanged. Effective gain reads the instance override first, otherwise the real RenderingServer shader default; no hardcoded default fallback."})
+	return diagnostic
+func _feedback_binding(material:ShaderMaterial)->Dictionary:
+	# ShaderMaterial.get_shader_parameter reads the instance parameter cache;
+	# nil does not mean zero and does not reveal a source-declared default.
+	# https://docs.godotengine.org/en/stable/classes/class_renderingserver.html#class-renderingserver-method-shader-get-parameter-default
+	var override_value:Variant=null;var shader_default:Variant=null;var source_shader:=""
+	if material!=null:
+		override_value=material.get_shader_parameter("feedback_gain")
+		if material.shader!=null:
+			source_shader=material.shader.resource_path
+			var shader_rid:RID=material.shader.get_rid()
+			if shader_rid.is_valid():shader_default=RenderingServer.shader_get_parameter_default(shader_rid,"feedback_gain")
+	# Non-numeric explicit overrides must fail, not hide behind a valid default.
+	var effective_value:Variant=shader_default if override_value==null else override_value
+	var numeric:bool=typeof(effective_value)==TYPE_FLOAT or typeof(effective_value)==TYPE_INT
+	var finite:=false
+	if numeric:finite=is_finite(float(effective_value))
+	return {"instance_override":override_value,"instance_override_type":typeof(override_value),"actual_shader_default":shader_default,"actual_shader_default_type":typeof(shader_default),"effective_value":effective_value,"effective_source":"RenderingServer_shader_default" if override_value==null else "instance_override","numeric_and_finite":numeric and finite,"source_shader":source_shader}
+func _feedback_matches(binding:Dictionary,expected:float)->bool:
+	if not bool(binding.numeric_and_finite):return false
+	return float(binding.effective_value)==expected
+func _record_default_lit_binding(phase:String)->Dictionary:
+	var material:ShaderMaterial=game.modal._material
+	var binding:=_feedback_binding(material)
+	_check(_feedback_matches(binding,1.0),phase+" actual GUI uses finite numeric default-lit feedback_gain=1; binding="+JSON.stringify(binding))
+	measurements.append({"phase":"default_lit_binding","context":phase,"actual_GUI_feedback_gain":binding.effective_value,"feedback_binding":binding,"source_shader":binding.source_shader,"geometry_diagnostic":false,"method":"Observed actual SettingsWater instance override, otherwise actual RenderingServer shader default. Missing/non-numeric/non-finite values fail; never set its feedback_gain or use a hardcoded default fallback."})
+	return binding
+func _default_lit_source_response(before:Image,after:Image,phase:String,center:Vector2)->void:
+	var region:=Rect2i(Vector2i((center-Vector2(45,42))*SCALE),Vector2i(90*SCALE,84*SCALE))
+	var contrast_patches:=0
+	for y:int in range(region.position.y+4,region.end.y-4,10):
+		for x:int in range(region.position.x+4,region.end.x-4,10):
+			var point:=Vector2i(x,y)
+			if _patch_variance(before,point)<0.00012:continue
+			if _patch_error(before,after,point,point)>=0.000025:contrast_patches+=1
+	var pixel_changes:=_pixel_changes(before,after,region)
+	var binding:=_record_default_lit_binding(phase)
+	measurements.append({"phase":phase,"actual_GUI_feedback_gain":binding.effective_value,"feedback_binding":binding,"changed_contrast_source_patches":contrast_patches,"changed_original_art_pixels":pixel_changes,"geometry_measurement":false,"field":game.modal.field.snapshot(),"method":"Actual default-lit full GUI captures from root.push_input. Retained >=6contrast patches and >20sampled original-art changes are mandatory response guards, not source displacement measurements or novice-perceived visibility acceptance; visible_ripple_input is the separate propagation fixture."})
+	_check(contrast_patches>=6,phase+" actual default-lit ripple changes at least six source-contrast patches")
+	_check(pixel_changes>20,phase+" actual default-lit original-art ripple remains pixel responsive")
+func _source_hashes()->Dictionary:
+	var hashes:Dictionary={}
+	for path:String in ["res://scripts/ui/settings_water.gdshader","res://scripts/ui/water_field.gd","res://scripts/ui/coastal_physics.gd","res://scripts/ui/coastal_settings.gd","res://scripts/ui/floating_lemon.gd","res://scripts/ui/lemon_companion_water.gdshader","res://scripts/ui/lemon_white_matte.gdshader","res://scripts/ui/pdf_white_matte.gdshader","res://scripts/ui/pdf_tape_matte.gdshader","res://scripts/ui/pdf_color_matte.gdshader","res://scripts/rebuild/final_playable.gd","res://tests/water_feedback_input.gd"]:
+		hashes[path.get_file()]=FileAccess.get_sha256(path)
+	return hashes
 func _track_real_source(before:Image,after:Image,phase:String,center:Vector2,calibration:bool=false)->void:
 	var region:=Rect2i(Vector2i((center-Vector2(45,42))*SCALE),Vector2i(90*SCALE,84*SCALE))
 	var matches:Array=[];var bound_failures:=0;var confident:=0;var visible:=0;var aperture:=0;var ambiguous:=0
@@ -251,8 +331,8 @@ func _track_real_source(before:Image,after:Image,phase:String,center:Vector2,cal
 			else:ambiguous+=1
 			matches.append({"source_native_pixel":point,"tracked_native_offset":best_offset,"world_offset":Vector2(best_offset)/SCALE,"rgb_patch_squared_error":best,"best_remote_rival_error":second,"best_to_rival_ratio":ratio,"unshifted_error":unshifted,"source_quality":quality,"confident":accepted,"status":"unique_correspondence" if accepted else "unobservable_ambiguous_correspondence"})
 	var status:="measured_unique_bounds" if confident>=6 else "unobservable_unique_source_correspondence"
-	measurements.append({"phase":phase,"independent_source_patch_tracking":matches,"changed_contrast_patches":visible,"confident_matches":confident,"source_aperture_rejections":aperture,"ambiguous_matches":ambiguous,"out_of_bound_matches":bound_failures,"status":status,"calibration_not_game_art":calibration,"method":"49dense RGB samples per patch. Independent source2D structure tensor rejects straight-line aperture; full+-40nativepx search with six minima refined to1px. Uniqueness compares all rival basins more than3px apart and requires best/rival<0.75.3worldpx contract plus0.6worldpx two-dimensional nearest-pixel quantization. No height-gradient/shader mapping mirrored. Supplemental mathematical texture uses actual production material/actual GUI-driven field without replacing registered game art."})
-	_check(visible>=6,phase+" ripple changes at least six readable source patches")
+	measurements.append({"phase":phase,"diagnostic_feedback_gain":0.0,"default_lit_displacement_measurement":false,"independent_source_patch_tracking":matches,"changed_contrast_patches":visible,"confident_matches":confident,"source_aperture_rejections":aperture,"ambiguous_matches":ambiguous,"out_of_bound_matches":bound_failures,"status":status,"calibration_not_game_art":calibration,"method":"QA geometry-only offscreen duplicated production material with feedback_gain=0 and the actual GUI-driven field; not default-lit game pixels.49dense RGB samples per patch. Independent source2D structure tensor rejects straight-line aperture; full+-40nativepx search with six minima refined to1px. Uniqueness compares all rival basins more than3px apart and requires best/rival<0.75.3worldpx contract plus0.6worldpx two-dimensional nearest-pixel quantization. No height-gradient/shader mapping mirrored. Source water and unregistered mathematical texture never replace registered/default-lit game art."})
+	_check(visible>=6,phase+" geometry-only ripple changes at least six source-contrast patches")
 	if calibration:
 		_check(confident>=6,phase+" production-shader calibration has at least six uniquely observable2Dfeatures")
 		_check(bound_failures==0,phase+" actual production-shader displacement stays within3worldpx plus sampling tolerance")
@@ -260,10 +340,10 @@ func _track_real_source(before:Image,after:Image,phase:String,center:Vector2,cal
 		# Even one genuinely separable/unique outlier must fail. A small number
 		# only limits coverage; it never hides a measured out-of-bounds result.
 		_check(bound_failures==0,phase+" uniquely observed original-source displacements stay within3worldpx plus sampling tolerance")
-	# Original-art visibility remains strict even when the artistic feature shape
-	# cannot uniquely reveal a2D displacement. The independent calibration proves
-	# production bounds; the original ambiguity is retained, never called a pass.
-	if not calibration:_check(_pixel_changes(before,after,region)>20,phase+" calibrated original-art ripple remains visibly responsive")
+	# Original-art pixel response remains strict even when its artistic feature
+	# cannot reveal a unique2D geometry displacement. This offscreen diagnostic
+	# does not claim novice-perceived/default-lit visibility; ambiguity remains.
+	if not calibration:_check(_pixel_changes(before,after,region)>20,phase+" geometry-only original-art ripple remains pixel responsive")
 func _patch_variance(image:Image,point:Vector2i)->float:
 	var mean:=Vector3.ZERO;var values:Array[Vector3]=[]
 	for dy:int in range(-3,4):
@@ -305,11 +385,15 @@ func _pixel_changes(before:Image,after:Image,region:Rect2i)->int:
 func _open()->void:
 	await _click_named("OpenSettings");await _step(3)
 	_check(is_instance_valid(game.modal) and game.modal.has_node("SettingsWater"),"actual title opens retained Settings")
+	if is_instance_valid(game.modal):_record_default_lit_binding("actual_open")
 func _close()->void:
+	_release_diagnostics()
 	await _click_named("CloseSettings");await process_frame
 	_check(not is_instance_valid(game.modal),"actual arrow closes the current mode")
-	if is_instance_valid(calibration_reference):calibration_reference.queue_free()
-	if is_instance_valid(calibration_warp):calibration_warp.queue_free()
+func _release_diagnostics()->void:
+	for viewport:SubViewport in [calibration_reference,calibration_warp,geometry_source_warp]:
+		if is_instance_valid(viewport):viewport.queue_free()
+	calibration_reference=null;calibration_warp=null;geometry_source_warp=null
 func _shot(label:String)->Image:
 	await process_frame;await RenderingServer.frame_post_draw
 	var image:Image=root.get_texture().get_image()

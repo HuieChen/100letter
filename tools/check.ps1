@@ -40,14 +40,14 @@ function Invoke-TaskGodot {
     $taskProcess = Start-Process -FilePath $taskGodot -ArgumentList $taskQuoted -WindowStyle Hidden -PassThru
     $taskTimer=[Diagnostics.Stopwatch]::StartNew()
     while (-not $taskProcess.WaitForExit(1000)) {
-        $taskScriptError=(Test-Path -LiteralPath $taskLog) -and ((Get-Content -LiteralPath $taskLog -Raw) -match 'SCRIPT ERROR:')
+        $taskScriptError=(Test-Path -LiteralPath $taskLog) -and ((Get-Content -LiteralPath $taskLog -Raw) -match 'SCRIPT ERROR:|SHADER ERROR:|Shader compilation failed')
         if ($taskScriptError -or $taskTimer.Elapsed.TotalSeconds -gt 600) {
             # Stop only this harness's launcher and engine carrying its exact log.
             Get-CimInstance Win32_Process -Filter "Name LIKE 'Godot%'" | Where-Object { $_.CommandLine.Contains($taskLog) } | ForEach-Object { Stop-Process -Id $_.ProcessId -ErrorAction SilentlyContinue }
             throw "$Name stopped after script error or 600-second bound; see $taskLog"
         }
     }
-    if ((Get-Content -LiteralPath $taskLog -Raw) -match 'SCRIPT ERROR:') { throw "$Name script error; see $taskLog" }
+    if ((Get-Content -LiteralPath $taskLog -Raw) -match 'SCRIPT ERROR:|SHADER ERROR:|Shader compilation failed') { throw "$Name script/shader error; see $taskLog" }
     if ($taskProcess.ExitCode -ne 0) { throw "$Name failed; see $taskLog" }
 }
 
@@ -104,7 +104,7 @@ try {
             throw 'Owned GPU QA override bytes do not match the exact startup flag.'
         }
         Write-Host 'GPU fixtures started native FLAG_NO_FOCUS; no OS UI injection. Temporary QA override only; production project.godot is unchanged.'
-        foreach ($taskSuite in @('display_preferences_input','pointer_window_focus_input','game_identity_input','coastal_layout_input','settings_art_edges_input','settings_save_failure_input','audio_shutdown_input','notebook_dialogue_input','lemon_matte_render','lemon_press_input','lemon_press_gui_input','lemon_companion_input','coastal_settings_input','coastal_physics_input','water_field_input','water_feedback_input','settings_manipulation_input','field_observation_smoke','field_book_smoke','mail_workbench_input_smoke','tactile_mail_input','resolution_slip_smoke','final_host_boundary_smoke','final_resolution_draft_smoke','counter_onboarding_input','core_review_input')) {
+        foreach ($taskSuite in @('display_preferences_input','pointer_window_focus_input','game_identity_input','coastal_layout_input','settings_art_edges_input','settings_save_failure_input','audio_shutdown_input','notebook_dialogue_input','lemon_matte_render','lemon_press_input','lemon_press_gui_input','lemon_companion_input','coastal_settings_input','coastal_physics_input','water_field_input','water_feedback_input','visible_ripple_input','courier_visual_probe','settings_manipulation_input','field_observation_smoke','field_book_smoke','mail_workbench_input_smoke','tactile_mail_input','resolution_slip_smoke','final_host_boundary_smoke','final_resolution_draft_smoke','counter_onboarding_input','core_review_input')) {
             Invoke-TaskGodot $taskSuite @('--script',"res://tests/$taskSuite.gd",'--resolution','1600x900','--audio-driver','Dummy') -Gpu
         }
         foreach ($taskRoute in @('sealed','delegate')) {

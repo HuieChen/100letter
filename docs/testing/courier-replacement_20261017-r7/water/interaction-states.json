@@ -1,0 +1,110 @@
+{
+	"event_schedule_fps": 24,
+	"failures": [],
+	"movie_fps": 60,
+	"observations": [
+		{
+			"frame": 365,
+			"lemon": 1,
+			"press": {
+				"arm": "(0.0, 0.0)",
+				"depth": 4.19965638198488,
+				"edge_ratio": 0.0,
+				"held_seconds": 0.800000000000001,
+				"point": "(1417.946, 688.1061)",
+				"press_count": 1,
+				"pressed": true,
+				"release_count": 0,
+				"scale_factor": 0.974802061708091,
+				"target": 4.2,
+				"velocity": 0.010495428041214
+			}
+		},
+		{
+			"frame": 400,
+			"lemon": 1,
+			"press": {
+				"arm": "(0.0, 0.0)",
+				"depth": 0.0,
+				"edge_ratio": 0.0,
+				"held_seconds": 1.21666666666667,
+				"point": "(1417.945, 686.6503)",
+				"press_count": 1,
+				"pressed": false,
+				"release_count": 1,
+				"scale_factor": 1.0,
+				"target": 0.0,
+				"velocity": 0.0
+			}
+		},
+		{
+			"frame": 430,
+			"lemon": 1,
+			"press": {
+				"arm": "(71.99895, 0.389137)",
+				"depth": 5.21383455325481,
+				"edge_ratio": 0.782608695652174,
+				"held_seconds": 0.666666666666667,
+				"point": "(1489.928, 688.139)",
+				"press_count": 2,
+				"pressed": true,
+				"release_count": 1,
+				"scale_factor": 0.968716992680471,
+				"target": 5.21739130434783,
+				"velocity": 0.0253543383343774
+			}
+		},
+		{
+			"frame": 470,
+			"lemon": 1,
+			"press": {
+				"arm": "(71.99895, 0.389137)",
+				"depth": 0.0,
+				"edge_ratio": 0.782608695652174,
+				"held_seconds": 1.0,
+				"point": "(1489.51, 685.5966)",
+				"press_count": 2,
+				"pressed": false,
+				"release_count": 2,
+				"scale_factor": 1.0,
+				"target": 0.0,
+				"velocity": 0.0
+			}
+		},
+		{
+			"frame": 489,
+			"lemon": 0,
+			"press": {
+				"arm": "(80.02684, 64.96695)",
+				"depth": 4.289273653956,
+				"edge_ratio": 0.63628175523546,
+				"held_seconds": 0.466666666666667,
+				"point": "(223.1964, 129.2831)",
+				"press_count": 1,
+				"pressed": true,
+				"release_count": 0,
+				"scale_factor": 0.974264358076264,
+				"target": 4.27309133953518,
+				"velocity": -0.435058786762941
+			}
+		},
+		{
+			"frame": 504,
+			"lemon": 0,
+			"press": {
+				"arm": "(80.02684, 64.96695)",
+				"depth": -0.0586975054376219,
+				"edge_ratio": 0.63628175523546,
+				"held_seconds": 0.666666666666667,
+				"point": "(223.2002, 128.8343)",
+				"press_count": 1,
+				"pressed": false,
+				"release_count": 1,
+				"scale_factor": 1.0,
+				"target": 0.0,
+				"velocity": 0.746475714896788
+			}
+		}
+	],
+	"rendered_interaction_frames": 1320
+}

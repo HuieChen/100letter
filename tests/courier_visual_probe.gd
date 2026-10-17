@@ -1,9 +1,9 @@
 extends SceneTree
-## Own-game GPU fixture: whole 1920x1080 scenes and all six cutout poses.
+## Own-game GPU fixture: whole 1920x1080 scenes and all five current cutout poses.
 ## Pose samples are controlled drawing states, not a native mouse playthrough.
 const Host=preload("res://scripts/rebuild/final_playable.gd")
 const Art=preload("res://scripts/rebuild/physical_art.gd")
-const OUT="res://test-results/video-character-20261016/visual/"
+const OUT="res://test-results/video-character-20261017/visual/"
 var game:Control
 var checks:=0
 var failures:Array[String]=[]
@@ -16,21 +16,21 @@ func _run()->void:
 	root.content_scale_mode=Window.CONTENT_SCALE_MODE_CANVAS_ITEMS
 	root.title="Courier cutout GPU review fixture"
 	game=Host.new();root.add_child(game);game.size=Vector2(1600,900)
-	game.core.save_path="user://qa/courier-visual-20261016/progress.json"
+	game.core.save_path="user://qa/courier-visual-20261017/progress.json"
 	game.core.new_game()
 	for location:String in ["post_office","community_center","bus_stop","lookout","residential","chess_stall","tarot_shop"]:
 		if game.core.state.location!=location:
 			_check(game.core.travel(location,game._walk_cost(str(game.core.state.location),location)).is_empty(),"valid existing route "+location)
 		game._world()
 		await process_frame;await process_frame
-		_check(game.walker._walk_keys.size()==6,"complete original animation in "+location)
-		_check(game.walker._frame_geometry["CHAR_courier"].foot_anchor_px==[128.0,298.0],"matching idle foot anchor in "+location)
+		_check(game.walker._walk_keys.size()==5,"complete latest original animation in "+location)
+		_check(game.walker._frame_geometry["CHAR_courier"].foot_anchor_px==[180.0,482.0],"matching latest idle foot anchor in "+location)
 		await _shot("world_"+location)
 		if location=="community_center":
 			game.walker.set_process(false)
 			game.walker._motion_blend=1.0
-			for i:int in range(6):
-				game.walker._walk_phase=(float(i)+0.001)/6.0*TAU
+			for i:int in range(5):
+				game.walker._walk_time=float(i)*0.125+0.00001
 				game.walker.queue_redraw()
 				await _shot("pose_"+str(i))
 			game.walker._facing=-1.0;game.walker.queue_redraw()

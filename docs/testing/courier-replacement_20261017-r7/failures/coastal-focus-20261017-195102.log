@@ -1,0 +1,256 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+OpenGL API 3.3.0 NVIDIA 566.24 - Compatibility - Using Device: NVIDIA - NVIDIA GeForce RTX 4050 Laptop GPU
+
+ERROR: Condition "!viewport->canvas_map.has(p_canvas)" is true.
+   at: viewport_set_canvas_transform (servers/rendering/renderer_viewport.cpp:1342)
+   GDScript backtrace (most recent call first):
+       [0] _foreground_reference (res://tests/visible_ripple_input.gd:201)
+       [1] _references (res://tests/visible_ripple_input.gd:184)
+       [2] _single_click (res://tests/visible_ripple_input.gd:66)
+       [3] _open (res://tests/visible_ripple_input.gd:358)
+       [4] _step (res://tests/visible_ripple_input.gd:392)
+ERROR: default-lit zero field preserves original exposed-water pixels shallow 1280
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] _check (res://tests/visible_ripple_input.gd:399)
+       [1] _single_click (res://tests/visible_ripple_input.gd:82)
+       [2] _capture (res://tests/visible_ripple_input.gd:227)
+ERROR: Condition "!viewport->canvas_map.has(p_canvas)" is true.
+   at: viewport_set_canvas_transform (servers/rendering/renderer_viewport.cpp:1342)
+   GDScript backtrace (most recent call first):
+       [0] _foreground_reference (res://tests/visible_ripple_input.gd:201)
+       [1] _references (res://tests/visible_ripple_input.gd:184)
+       [2] _single_click (res://tests/visible_ripple_input.gd:66)
+       [3] _open (res://tests/visible_ripple_input.gd:358)
+       [4] _step (res://tests/visible_ripple_input.gd:392)
+ERROR: default-lit zero field preserves original exposed-water pixels ink_rich 1280
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] _check (res://tests/visible_ripple_input.gd:399)
+       [1] _single_click (res://tests/visible_ripple_input.gd:82)
+       [2] _capture (res://tests/visible_ripple_input.gd:227)
+ERROR: Condition "!viewport->canvas_map.has(p_canvas)" is true.
+   at: viewport_set_canvas_transform (servers/rendering/renderer_viewport.cpp:1342)
+   GDScript backtrace (most recent call first):
+       [0] _foreground_reference (res://tests/visible_ripple_input.gd:201)
+       [1] _references (res://tests/visible_ripple_input.gd:184)
+       [2] _single_click (res://tests/visible_ripple_input.gd:66)
+       [3] _open (res://tests/visible_ripple_input.gd:358)
+       [4] _step (res://tests/visible_ripple_input.gd:392)
+ERROR: default-lit zero field preserves original exposed-water pixels near_lemon 1280
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] _check (res://tests/visible_ripple_input.gd:399)
+       [1] _single_click (res://tests/visible_ripple_input.gd:82)
+       [2] _capture (res://tests/visible_ripple_input.gd:227)
+ERROR: Condition "!viewport->canvas_map.has(p_canvas)" is true.
+   at: viewport_set_canvas_transform (servers/rendering/renderer_viewport.cpp:1342)
+   GDScript backtrace (most recent call first):
+       [0] _foreground_reference (res://tests/visible_ripple_input.gd:201)
+       [1] _references (res://tests/visible_ripple_input.gd:184)
+       [2] _stress (res://tests/visible_ripple_input.gd:116)
+       [3] _open (res://tests/visible_ripple_input.gd:358)
+       [4] _step (res://tests/visible_ripple_input.gd:392)
+ERROR: bounded painted feedback has no lighting flash rapid_click 1280
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] _check (res://tests/visible_ripple_input.gd:399)
+       [1] _stress (res://tests/visible_ripple_input.gd:146)
+       [2] _capture (res://tests/visible_ripple_input.gd:227)
+ERROR: bounded painted feedback has no lighting flash rapid_click 1280
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] _check (res://tests/visible_ripple_input.gd:399)
+       [1] _stress (res://tests/visible_ripple_input.gd:146)
+       [2] _capture (res://tests/visible_ripple_input.gd:227)
+ERROR: bounded painted feedback has no lighting flash rapid_click 1280
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] _check (res://tests/visible_ripple_input.gd:399)
+       [1] _stress (res://tests/visible_ripple_input.gd:146)
+       [2] _capture (res://tests/visible_ripple_input.gd:227)
+ERROR: bounded painted feedback has no lighting flash rapid_click 1280
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] _check (res://tests/visible_ripple_input.gd:399)
+       [1] _stress (res://tests/visible_ripple_input.gd:146)
+       [2] _capture (res://tests/visible_ripple_input.gd:227)
+ERROR: bounded painted feedback has no lighting flash rapid_click 1280
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] _check (res://tests/visible_ripple_input.gd:399)
+       [1] _stress (res://tests/visible_ripple_input.gd:146)
+       [2] _capture (res://tests/visible_ripple_input.gd:227)
+ERROR: bounded painted feedback has no lighting flash rapid_click 1280
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] _check (res://tests/visible_ripple_input.gd:399)
+       [1] _stress (res://tests/visible_ripple_input.gd:146)
+       [2] _capture (res://tests/visible_ripple_input.gd:227)
+ERROR: bounded painted feedback has no lighting flash sustained_down 1280
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] _check (res://tests/visible_ripple_input.gd:399)
+       [1] _stress (res://tests/visible_ripple_input.gd:146)
+       [2] _capture (res://tests/visible_ripple_input.gd:227)
+ERROR: bounded painted feedback has no lighting flash crossing_drag 1280
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] _check (res://tests/visible_ripple_input.gd:399)
+       [1] _stress (res://tests/visible_ripple_input.gd:146)
+       [2] _capture (res://tests/visible_ripple_input.gd:227)
+ERROR: Condition "!viewport->canvas_map.has(p_canvas)" is true.
+   at: viewport_set_canvas_transform (servers/rendering/renderer_viewport.cpp:1342)
+   GDScript backtrace (most recent call first):
+       [0] _foreground_reference (res://tests/visible_ripple_input.gd:201)
+       [1] _references (res://tests/visible_ripple_input.gd:184)
+       [2] _single_click (res://tests/visible_ripple_input.gd:66)
+       [3] _open (res://tests/visible_ripple_input.gd:358)
+       [4] _step (res://tests/visible_ripple_input.gd:392)
+ERROR: default-lit zero field preserves original exposed-water pixels shallow 1920
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] _check (res://tests/visible_ripple_input.gd:399)
+       [1] _single_click (res://tests/visible_ripple_input.gd:82)
+       [2] _capture (res://tests/visible_ripple_input.gd:227)
+ERROR: Condition "!viewport->canvas_map.has(p_canvas)" is true.
+   at: viewport_set_canvas_transform (servers/rendering/renderer_viewport.cpp:1342)
+   GDScript backtrace (most recent call first):
+       [0] _foreground_reference (res://tests/visible_ripple_input.gd:201)
+       [1] _references (res://tests/visible_ripple_input.gd:184)
+       [2] _single_click (res://tests/visible_ripple_input.gd:66)
+       [3] _open (res://tests/visible_ripple_input.gd:358)
+       [4] _step (res://tests/visible_ripple_input.gd:392)
+ERROR: default-lit zero field preserves original exposed-water pixels ink_rich 1920
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] _check (res://tests/visible_ripple_input.gd:399)
+       [1] _single_click (res://tests/visible_ripple_input.gd:82)
+       [2] _capture (res://tests/visible_ripple_input.gd:227)
+ERROR: Condition "!viewport->canvas_map.has(p_canvas)" is true.
+   at: viewport_set_canvas_transform (servers/rendering/renderer_viewport.cpp:1342)
+   GDScript backtrace (most recent call first):
+       [0] _foreground_reference (res://tests/visible_ripple_input.gd:201)
+       [1] _references (res://tests/visible_ripple_input.gd:184)
+       [2] _single_click (res://tests/visible_ripple_input.gd:66)
+       [3] _open (res://tests/visible_ripple_input.gd:358)
+       [4] _step (res://tests/visible_ripple_input.gd:392)
+ERROR: default-lit zero field preserves original exposed-water pixels near_lemon 1920
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] _check (res://tests/visible_ripple_input.gd:399)
+       [1] _single_click (res://tests/visible_ripple_input.gd:82)
+       [2] _capture (res://tests/visible_ripple_input.gd:227)
+ERROR: Condition "!viewport->canvas_map.has(p_canvas)" is true.
+   at: viewport_set_canvas_transform (servers/rendering/renderer_viewport.cpp:1342)
+   GDScript backtrace (most recent call first):
+       [0] _foreground_reference (res://tests/visible_ripple_input.gd:201)
+       [1] _references (res://tests/visible_ripple_input.gd:184)
+       [2] _stress (res://tests/visible_ripple_input.gd:116)
+       [3] _open (res://tests/visible_ripple_input.gd:358)
+       [4] _step (res://tests/visible_ripple_input.gd:392)
+ERROR: Condition "!viewport->canvas_map.has(p_canvas)" is true.
+   at: viewport_set_canvas_transform (servers/rendering/renderer_viewport.cpp:1342)
+   GDScript backtrace (most recent call first):
+       [0] _foreground_reference (res://tests/visible_ripple_input.gd:201)
+       [1] _references (res://tests/visible_ripple_input.gd:184)
+       [2] _single_click (res://tests/visible_ripple_input.gd:66)
+       [3] _open (res://tests/visible_ripple_input.gd:358)
+       [4] _step (res://tests/visible_ripple_input.gd:392)
+ERROR: default-lit zero field preserves original exposed-water pixels shallow 2560
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] _check (res://tests/visible_ripple_input.gd:399)
+       [1] _single_click (res://tests/visible_ripple_input.gd:82)
+       [2] _capture (res://tests/visible_ripple_input.gd:227)
+ERROR: visible band grows outward at least24worldpx shallow 2560
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] _check (res://tests/visible_ripple_input.gd:399)
+       [1] _single_click (res://tests/visible_ripple_input.gd:103)
+       [2] _capture (res://tests/visible_ripple_input.gd:227)
+ERROR: Condition "!viewport->canvas_map.has(p_canvas)" is true.
+   at: viewport_set_canvas_transform (servers/rendering/renderer_viewport.cpp:1342)
+   GDScript backtrace (most recent call first):
+       [0] _foreground_reference (res://tests/visible_ripple_input.gd:201)
+       [1] _references (res://tests/visible_ripple_input.gd:184)
+       [2] _single_click (res://tests/visible_ripple_input.gd:66)
+       [3] _open (res://tests/visible_ripple_input.gd:358)
+       [4] _step (res://tests/visible_ripple_input.gd:392)
+ERROR: default-lit zero field preserves original exposed-water pixels ink_rich 2560
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] _check (res://tests/visible_ripple_input.gd:399)
+       [1] _single_click (res://tests/visible_ripple_input.gd:82)
+       [2] _capture (res://tests/visible_ripple_input.gd:227)
+ERROR: Condition "!viewport->canvas_map.has(p_canvas)" is true.
+   at: viewport_set_canvas_transform (servers/rendering/renderer_viewport.cpp:1342)
+   GDScript backtrace (most recent call first):
+       [0] _foreground_reference (res://tests/visible_ripple_input.gd:201)
+       [1] _references (res://tests/visible_ripple_input.gd:184)
+       [2] _single_click (res://tests/visible_ripple_input.gd:66)
+       [3] _open (res://tests/visible_ripple_input.gd:358)
+       [4] _step (res://tests/visible_ripple_input.gd:392)
+ERROR: default-lit zero field preserves original exposed-water pixels near_lemon 2560
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] _check (res://tests/visible_ripple_input.gd:399)
+       [1] _single_click (res://tests/visible_ripple_input.gd:82)
+       [2] _capture (res://tests/visible_ripple_input.gd:227)
+ERROR: Condition "!viewport->canvas_map.has(p_canvas)" is true.
+   at: viewport_set_canvas_transform (servers/rendering/renderer_viewport.cpp:1342)
+   GDScript backtrace (most recent call first):
+       [0] _foreground_reference (res://tests/visible_ripple_input.gd:201)
+       [1] _references (res://tests/visible_ripple_input.gd:184)
+       [2] _stress (res://tests/visible_ripple_input.gd:116)
+       [3] _open (res://tests/visible_ripple_input.gd:358)
+       [4] _step (res://tests/visible_ripple_input.gd:392)
+ERROR: bounded painted feedback has no lighting flash rapid_click 2560
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] _check (res://tests/visible_ripple_input.gd:399)
+       [1] _stress (res://tests/visible_ripple_input.gd:146)
+       [2] _capture (res://tests/visible_ripple_input.gd:227)
+ERROR: bounded painted feedback has no lighting flash rapid_click 2560
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] _check (res://tests/visible_ripple_input.gd:399)
+       [1] _stress (res://tests/visible_ripple_input.gd:146)
+       [2] _capture (res://tests/visible_ripple_input.gd:227)
+ERROR: bounded painted feedback has no lighting flash rapid_click 2560
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] _check (res://tests/visible_ripple_input.gd:399)
+       [1] _stress (res://tests/visible_ripple_input.gd:146)
+       [2] _capture (res://tests/visible_ripple_input.gd:227)
+ERROR: bounded painted feedback has no lighting flash rapid_click 2560
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] _check (res://tests/visible_ripple_input.gd:399)
+       [1] _stress (res://tests/visible_ripple_input.gd:146)
+       [2] _capture (res://tests/visible_ripple_input.gd:227)
+ERROR: bounded painted feedback has no lighting flash rapid_click 2560
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] _check (res://tests/visible_ripple_input.gd:399)
+       [1] _stress (res://tests/visible_ripple_input.gd:146)
+       [2] _capture (res://tests/visible_ripple_input.gd:227)
+ERROR: bounded painted feedback has no lighting flash rapid_click 2560
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] _check (res://tests/visible_ripple_input.gd:399)
+       [1] _stress (res://tests/visible_ripple_input.gd:146)
+       [2] _capture (res://tests/visible_ripple_input.gd:227)
+ERROR: bounded painted feedback has no lighting flash sustained_down 2560
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] _check (res://tests/visible_ripple_input.gd:399)
+       [1] _stress (res://tests/visible_ripple_input.gd:146)
+       [2] _capture (res://tests/visible_ripple_input.gd:227)
+ERROR: bounded painted feedback has no lighting flash crossing_drag 2560
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] _check (res://tests/visible_ripple_input.gd:399)
+       [1] _stress (res://tests/visible_ripple_input.gd:146)
+       [2] _capture (res://tests/visible_ripple_input.gd:227)
+VISIBLE RIPPLE INPUT: 778 checks / 26 failures

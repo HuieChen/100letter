@@ -1,0 +1,26 @@
+{
+  "release_gpu_boot_exit": 0,
+  "expected_shader_sha256": {
+    "settings_water": "bd894b92f21f44606d10c1da1e6fc0ab9c1f5611e5c65168bb3f76a214398393",
+    "lemon_companion_water": "4bb28c60f562c08bf0922b06285742e3839dfb7cd663b557f67c9614140ebc5d",
+    "pdf_tape_matte": "ccbbeb568dbcc050efbd9e4a087b1edd92ed11a2b2bdb38c86aae3df40f1f5be",
+    "pdf_color_matte": "5934a0ca842731c794edb536051bc6acf228311d77c1a54cdcd3048b9b83b412"
+  },
+  "packaged_content_checks": 423,
+  "release_frames_requested": 120,
+  "packaged_content_failures": [],
+  "observed_shader_sha256": {
+    "lemon_companion_water": "4bb28c60f562c08bf0922b06285742e3839dfb7cd663b557f67c9614140ebc5d",
+    "pdf_color_matte": "5934a0ca842731c794edb536051bc6acf228311d77c1a54cdcd3048b9b83b412",
+    "pdf_tape_matte": "ccbbeb568dbcc050efbd9e4a087b1edd92ed11a2b2bdb38c86aae3df40f1f5be",
+    "settings_water": "bd894b92f21f44606d10c1da1e6fc0ab9c1f5611e5c65168bb3f76a214398393"
+  },
+  "packaged_no_focus": false,
+  "limits": [
+    "No full native input playthrough, visual reference acceptance or audio listening is implied.",
+    "Review stderr logs separately; Windows root certificate store warnings may occur."
+  ],
+  "scope": "Actual PCK decoding using the matching editor inspector, then the official release executable GPU boot. Isolated saves; no source game fallback.",
+  "executable_sha256": "d34d36f3be1a6c49c56525ae86469b92e4f417ddf0b43cf00dd80c385c4b0562",
+  "pck_sha256": "8e28d8806373577956bcfd260eb1cb1a7fab3477fcd73389098d9152dabef7da"
+}

@@ -35,11 +35,11 @@ def main() -> None:
         courier = ROOT / "docs/testing/courier-video_20261016" / name
         if courier.exists():
             items += json.loads(courier.read_text(encoding="utf-8"))["artifacts"]
-    for folder in ("notebook-dialogue_20261016", "coastal-settings_20261016", "coastal-settings_20261017-r3", "coastal-settings_20261017-r4", "coastal-settings_20261017-r5"):
+    for folder in ("notebook-dialogue_20261016", "coastal-settings_20261016", "coastal-settings_20261017-r3", "coastal-settings_20261017-r4", "coastal-settings_20261017-r5", "courier-replacement_20261017-r7"):
         evidence_path = ROOT / "docs/testing" / folder / "evidence.json"
         if evidence_path.exists():
             items += json.loads(evidence_path.read_text(encoding="utf-8"))["artifacts"]
-    for folder in ("coastal-settings_20261017-r4", "coastal-settings_20261017-r5"):
+    for folder in ("coastal-settings_20261017-r4", "coastal-settings_20261017-r5", "courier-replacement_20261017-r7"):
         current_native = ROOT / "docs/testing" / folder / "native.json"
         if current_native.exists():
             items += json.loads(current_native.read_text(encoding="utf-8"))["artifacts"]

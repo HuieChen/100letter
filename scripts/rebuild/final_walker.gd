@@ -12,6 +12,9 @@ const WALK_GEOMETRY := "res://assets/faefever_v2/characters/courier_walk_regions
 var _frame_geometry: Dictionary = {}
 var _poses: Dictionary = {}
 var _walk_keys: Array[String] = []
+var _frame_ends: Array[float] = []
+var _cycle_seconds: float = 0.0
+var _idle_time: float = 0.0
 
 var max_speed: float = 200.0
 var acceleration: float = 720.0
@@ -34,7 +37,7 @@ var manual_enabled: bool = false:
 var _texture: Texture2D
 var _pending_action: Callable = Callable()
 var _command: int = 0
-var _walk_phase: float = 0.0
+var _walk_time: float = 0.0
 var _step_distance: float = 0.0
 var _motion_blend: float = 0.0
 var _facing: float = 1.0
@@ -57,8 +60,14 @@ func _ready() -> void:
 				var key := str(frame.key)
 				_frame_geometry[key] = frame
 				_walk_keys.append(key)
+				_cycle_seconds += maxf(float(frame.get("duration_seconds",0.125)),0.001)
+				_frame_ends.append(_cycle_seconds)
 			if data.get("idle") is Dictionary:
 				_frame_geometry["CHAR_courier"] = data.idle
+				for frame:Dictionary in data.get("frames",[]):
+					if frame.get("source_frame")==data.idle.get("source_frame"):
+						_idle_time=float(frame.get("timestamp_seconds",0.0))
+	_walk_time=_idle_time
 	# Warm the source's complete ordered cycle before the first visible step.
 	# Drawing never decodes a new bitmap while the actor is already moving.
 	_poses["CHAR_courier"]=PhysicalArt.texture("CHAR_courier")
@@ -76,7 +85,7 @@ func configure(texture: Texture2D, bounds: Rect2, initial_foot: Vector2) -> void
 	walk_bounds = bounds.abs()
 	foot = _bounded(initial_foot)
 	target = foot
-	_walk_phase = 0.0
+	_walk_time = _idle_time
 	_motion_blend = 0.0
 	_facing = 1.0
 	set_process(true)
@@ -86,6 +95,9 @@ func configure(texture: Texture2D, bounds: Rect2, initial_foot: Vector2) -> void
 func walk_to(destination: Vector2, action: Callable = Callable()) -> void:
 	if is_queued_for_deletion():
 		return
+	if not walking and not _manual_active:
+		_walk_time=_idle_time
+		_step_distance=0.0
 	_command += 1
 	_manual_active = false
 	_gesture_name = ""
@@ -104,6 +116,7 @@ func cancel() -> void:
 	_motion_blend = 0.0
 	_manual_active = false
 	_step_distance = 0.0
+	_walk_time = _idle_time
 	target = foot
 	queue_redraw()
 
@@ -160,7 +173,7 @@ func _actor_rect() -> Rect2:
 func _draw() -> void:
 	var key:="CHAR_courier"
 	if _motion_blend>0.12 and not _walk_keys.is_empty():
-		var frame:int=int(floor(fposmod(_walk_phase,TAU)/TAU*_walk_keys.size()))%_walk_keys.size()
+		var frame:int=_frame_for_time(_walk_time)
 		var candidate:=_walk_keys[frame]
 		if _poses.get(candidate)!=null:key=candidate
 	var art:Texture2D=_poses.get(key)
@@ -185,6 +198,9 @@ func _process(delta: float) -> void:
 		if _gesture_time >= _gesture_duration: _gesture_name = ""
 	var manual: Vector2 = _manual_direction()
 	if manual.length_squared() > 0.0 and not _manual_active:
+		if not walking:
+			_walk_time=_idle_time
+			_step_distance=0.0
 		_command += 1
 		_pending_action = Callable()
 		walking = false
@@ -236,7 +252,9 @@ func _advance(delta: float) -> void:
 		_reach_target()
 		return
 	var direction: Vector2 = difference / distance
-	var desired_speed: float = minf(max_speed, sqrt(2.0 * deceleration * distance))
+	# Approach gently in the last few pixels; the previous square-root-only
+	# brake still travelled about66px/s before snapping to a stationary pose.
+	var desired_speed: float = minf(max_speed, minf(sqrt(2.0 * deceleration * distance), distance * 8.0))
 	var desired_velocity: Vector2 = direction * desired_speed
 	var rate: float = deceleration if desired_speed < velocity.length() else acceleration
 	velocity = velocity.move_toward(desired_velocity, rate * delta)
@@ -253,11 +271,26 @@ func _advance(delta: float) -> void:
 		_facing = signf(velocity.x)
 
 
+func _frame_for_time(seconds: float) -> int:
+	if _frame_ends.is_empty() or _cycle_seconds<=0.0:return 0
+	var at:float=fposmod(seconds,_cycle_seconds)
+	for index:int in range(_frame_ends.size()):
+		if at<_frame_ends[index]-0.0000001:return index
+	return 0
+
+
 func _advance_phase(travelled: float) -> void:
-	_walk_phase = fposmod(_walk_phase + travelled / 142.0 * TAU, TAU)
+	if travelled<=0.0 or _cycle_seconds<=0.0:return
+	# At the established game speed the clip runs in its exact source cadence.
+	# Acceleration/braking slow the cycle with actual foot travel, not frame rate.
+	# This world-distance calibration belongs to gameplay, not the source video.
+	_walk_time = fposmod(_walk_time + travelled / maxf(max_speed,1.0),_cycle_seconds)
 	_step_distance += travelled
-	while _step_distance >= 71.0:
-		_step_distance -= 71.0
+	# One conservative contact on the narrow, grounded source pose per cycle.
+	# The silent source does not substantiate a second synthesized footfall.
+	var contact_distance:float=maxf(max_speed,1.0)*_cycle_seconds
+	while _step_distance >= contact_distance:
+		_step_distance -= contact_distance
 		footstep.emit()
 
 
@@ -267,6 +300,7 @@ func _reach_target() -> void:
 	foot = target
 	velocity = Vector2.ZERO
 	walking = false
+	_walk_time = _idle_time
 	_pending_action = Callable()
 	arrived.emit()
 	# A signal listener may open another screen, cancel, or choose another target.

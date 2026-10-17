@@ -1,0 +1,11 @@
+{
+  "warning": "Automated input is not independent human usability, audio listening or art acceptance. See retained stderr logs.",
+  "failures": [],
+  "scope": "Supplemental routed input in an isolated GPU child, then deferred engine-generated close notification through the actual host save/audio-drain path, then fresh-process reload; no OS title-bar/native input or shell UI actuation.",
+  "input_events": 70,
+  "reload_checks": 15,
+  "reload_exit": 0,
+  "input_checks": 14,
+  "child_exit": 0,
+  "close_method": "engine-generated close notification (supplemental; no OS/native input)"
+}

@@ -1,6 +1,6 @@
 {
   "style_lock": "SOLMERE_SOFT_PASTEL_20261004",
-  "authority": "Latest direct user image and global-restyle instruction, 2026-10-04. Targeted 2026-10-16 exception: original user-video courier replaces generated courier only. Targeted 2026-10-16 exception: original user-video courier replaces generated courier only.",
+  "authority": "Latest direct user image and global-restyle instruction, 2026-10-04. Targeted 2026-10-16 exception: original user-video courier replaces generated courier only. Targeted 2026-10-16 exception: original user-video courier replaces generated courier only. Targeted 2026-10-17 courier exception: latest original five-frame user-video replaces only courier idle/walk; old source assets remain preserved.",
   "assets": {
     "BG_post_office": {
       "path": "res://assets/faefever_v2/backgrounds/BG_post_office.png",
@@ -846,30 +846,33 @@
       ]
     },
     "CHAR_courier": {
-      "path": "res://assets/faefever_v2/characters/courier_video_idle_20261016.png",
+      "path": "res://assets/faefever_v2/characters/courier_video_idle_20261017.png",
       "kind": "character",
       "ai_generated": false,
       "source_kind": "user_video_extraction",
-      "style_lock": "USER_VIDEO_COURIER_20261016",
-      "authority": "Direct user instruction: extract the right-hand colored animation and replace the courier, 2026-10-16.",
-      "source_video_sha256": "0e55d83872399329ddf8aa075eb35df2231d133f5ba195783de244cdd733622c",
-      "sha256": "4b82017b9cbebeb74249e3665e0c37fba4d82356e7ee88178d5efb0ec525ba38",
-      "source_sha256": "4b82017b9cbebeb74249e3665e0c37fba4d82356e7ee88178d5efb0ec525ba38",
+      "style_lock": "USER_VIDEO_COURIER_20261017",
+      "authority": "Direct user instruction: replace courier with supplied original walking animation, 2026-10-17.",
+      "source_video_sha256": "f8af71a6daa7a620aa07887528da4e7151e8f55320c525c7bf7d9122f1b3f4a5",
+      "sha256": "8593551bdb0f27282fb0093771f4f2f886c1a981492d44944f6ac33ecf50fcf4",
+      "source_sha256": "8593551bdb0f27282fb0093771f4f2f886c1a981492d44944f6ac33ecf50fcf4",
       "native_dimensions": [
-        215,
-        315
+        320,
+        500
       ],
       "mode": "RGBA",
       "source_frames": [
+        0,
+        1,
+        2,
         3,
-        9,
-        15,
-        21,
-        27,
-        33
+        4
       ],
-      "review_status": "source_frames_inspected_runtime_review_pending",
-      "role": "courier_idle"
+      "source_fps": 8,
+      "authored_fps": 8,
+      "review_status": "approved_candidate_source_frames_inspected_runtime_review_pending",
+      "role": "courier_idle",
+      "source_frame": 2,
+      "duration_seconds": 0.125
     },
     "CHAR_elsie": {
       "path": "res://assets/faefever_v2/characters/pastel_cast_20261004.png",
@@ -987,29 +990,30 @@
       ]
     },
     "CHAR_courier_walk": {
-      "path": "res://assets/faefever_v2/characters/courier_video_20261016.png",
+      "path": "res://assets/faefever_v2/characters/courier_video_20261017.png",
       "kind": "character",
       "ai_generated": false,
       "source_kind": "user_video_extraction",
-      "style_lock": "USER_VIDEO_COURIER_20261016",
-      "authority": "Direct user instruction: extract the right-hand colored animation and replace the courier, 2026-10-16.",
-      "source_video_sha256": "0e55d83872399329ddf8aa075eb35df2231d133f5ba195783de244cdd733622c",
-      "sha256": "e0f998cc9f34b53fd646f4601013452f15b405a684a5068b4f9c46839d29cd7f",
-      "source_sha256": "e0f998cc9f34b53fd646f4601013452f15b405a684a5068b4f9c46839d29cd7f",
+      "style_lock": "USER_VIDEO_COURIER_20261017",
+      "authority": "Direct user instruction: replace courier with supplied original walking animation, 2026-10-17.",
+      "source_video_sha256": "f8af71a6daa7a620aa07887528da4e7151e8f55320c525c7bf7d9122f1b3f4a5",
+      "sha256": "1e21e4a48fba1ae3941134da42c38ce652c164a7b795c6ac517da5a745906b9c",
+      "source_sha256": "1e21e4a48fba1ae3941134da42c38ce652c164a7b795c6ac517da5a745906b9c",
       "native_dimensions": [
-        1290,
-        315
+        1600,
+        500
       ],
       "mode": "RGBA",
       "source_frames": [
+        0,
+        1,
+        2,
         3,
-        9,
-        15,
-        21,
-        27,
-        33
+        4
       ],
-      "review_status": "source_frames_inspected_runtime_review_pending",
+      "source_fps": 8,
+      "authored_fps": 8,
+      "review_status": "approved_candidate_source_frames_inspected_runtime_review_pending",
       "role": "courier_walk_sheet"
     },
     "town_map": {
@@ -1213,198 +1217,6 @@
         37
       ]
     },
-    "CHAR_courier_walk_0": {
-      "path": "res://assets/faefever_v2/characters/courier_video_20261016.png",
-      "kind": "character",
-      "ai_generated": false,
-      "source_kind": "user_video_extraction",
-      "style_lock": "USER_VIDEO_COURIER_20261016",
-      "authority": "Direct user instruction: extract the right-hand colored animation and replace the courier, 2026-10-16.",
-      "source_video_sha256": "0e55d83872399329ddf8aa075eb35df2231d133f5ba195783de244cdd733622c",
-      "sha256": "e0f998cc9f34b53fd646f4601013452f15b405a684a5068b4f9c46839d29cd7f",
-      "source_sha256": "e0f998cc9f34b53fd646f4601013452f15b405a684a5068b4f9c46839d29cd7f",
-      "native_dimensions": [
-        1290,
-        315
-      ],
-      "mode": "RGBA",
-      "source_frames": [
-        3,
-        9,
-        15,
-        21,
-        27,
-        33
-      ],
-      "review_status": "source_frames_inspected_runtime_review_pending",
-      "role": "courier_walk_frame",
-      "region": [
-        0,
-        0,
-        215,
-        315
-      ]
-    },
-    "CHAR_courier_walk_1": {
-      "path": "res://assets/faefever_v2/characters/courier_video_20261016.png",
-      "kind": "character",
-      "ai_generated": false,
-      "source_kind": "user_video_extraction",
-      "style_lock": "USER_VIDEO_COURIER_20261016",
-      "authority": "Direct user instruction: extract the right-hand colored animation and replace the courier, 2026-10-16.",
-      "source_video_sha256": "0e55d83872399329ddf8aa075eb35df2231d133f5ba195783de244cdd733622c",
-      "sha256": "e0f998cc9f34b53fd646f4601013452f15b405a684a5068b4f9c46839d29cd7f",
-      "source_sha256": "e0f998cc9f34b53fd646f4601013452f15b405a684a5068b4f9c46839d29cd7f",
-      "native_dimensions": [
-        1290,
-        315
-      ],
-      "mode": "RGBA",
-      "source_frames": [
-        3,
-        9,
-        15,
-        21,
-        27,
-        33
-      ],
-      "review_status": "source_frames_inspected_runtime_review_pending",
-      "role": "courier_walk_frame",
-      "region": [
-        215,
-        0,
-        215,
-        315
-      ]
-    },
-    "CHAR_courier_walk_2": {
-      "path": "res://assets/faefever_v2/characters/courier_video_20261016.png",
-      "kind": "character",
-      "ai_generated": false,
-      "source_kind": "user_video_extraction",
-      "style_lock": "USER_VIDEO_COURIER_20261016",
-      "authority": "Direct user instruction: extract the right-hand colored animation and replace the courier, 2026-10-16.",
-      "source_video_sha256": "0e55d83872399329ddf8aa075eb35df2231d133f5ba195783de244cdd733622c",
-      "sha256": "e0f998cc9f34b53fd646f4601013452f15b405a684a5068b4f9c46839d29cd7f",
-      "source_sha256": "e0f998cc9f34b53fd646f4601013452f15b405a684a5068b4f9c46839d29cd7f",
-      "native_dimensions": [
-        1290,
-        315
-      ],
-      "mode": "RGBA",
-      "source_frames": [
-        3,
-        9,
-        15,
-        21,
-        27,
-        33
-      ],
-      "review_status": "source_frames_inspected_runtime_review_pending",
-      "role": "courier_walk_frame",
-      "region": [
-        430,
-        0,
-        215,
-        315
-      ]
-    },
-    "CHAR_courier_walk_3": {
-      "path": "res://assets/faefever_v2/characters/courier_video_20261016.png",
-      "kind": "character",
-      "ai_generated": false,
-      "source_kind": "user_video_extraction",
-      "style_lock": "USER_VIDEO_COURIER_20261016",
-      "authority": "Direct user instruction: extract the right-hand colored animation and replace the courier, 2026-10-16.",
-      "source_video_sha256": "0e55d83872399329ddf8aa075eb35df2231d133f5ba195783de244cdd733622c",
-      "sha256": "e0f998cc9f34b53fd646f4601013452f15b405a684a5068b4f9c46839d29cd7f",
-      "source_sha256": "e0f998cc9f34b53fd646f4601013452f15b405a684a5068b4f9c46839d29cd7f",
-      "native_dimensions": [
-        1290,
-        315
-      ],
-      "mode": "RGBA",
-      "source_frames": [
-        3,
-        9,
-        15,
-        21,
-        27,
-        33
-      ],
-      "review_status": "source_frames_inspected_runtime_review_pending",
-      "role": "courier_walk_frame",
-      "region": [
-        645,
-        0,
-        215,
-        315
-      ]
-    },
-    "CHAR_courier_walk_4": {
-      "path": "res://assets/faefever_v2/characters/courier_video_20261016.png",
-      "kind": "character",
-      "ai_generated": false,
-      "source_kind": "user_video_extraction",
-      "style_lock": "USER_VIDEO_COURIER_20261016",
-      "authority": "Direct user instruction: extract the right-hand colored animation and replace the courier, 2026-10-16.",
-      "source_video_sha256": "0e55d83872399329ddf8aa075eb35df2231d133f5ba195783de244cdd733622c",
-      "sha256": "e0f998cc9f34b53fd646f4601013452f15b405a684a5068b4f9c46839d29cd7f",
-      "source_sha256": "e0f998cc9f34b53fd646f4601013452f15b405a684a5068b4f9c46839d29cd7f",
-      "native_dimensions": [
-        1290,
-        315
-      ],
-      "mode": "RGBA",
-      "source_frames": [
-        3,
-        9,
-        15,
-        21,
-        27,
-        33
-      ],
-      "review_status": "source_frames_inspected_runtime_review_pending",
-      "role": "courier_walk_frame",
-      "region": [
-        860,
-        0,
-        215,
-        315
-      ]
-    },
-    "CHAR_courier_walk_5": {
-      "path": "res://assets/faefever_v2/characters/courier_video_20261016.png",
-      "kind": "character",
-      "ai_generated": false,
-      "source_kind": "user_video_extraction",
-      "style_lock": "USER_VIDEO_COURIER_20261016",
-      "authority": "Direct user instruction: extract the right-hand colored animation and replace the courier, 2026-10-16.",
-      "source_video_sha256": "0e55d83872399329ddf8aa075eb35df2231d133f5ba195783de244cdd733622c",
-      "sha256": "e0f998cc9f34b53fd646f4601013452f15b405a684a5068b4f9c46839d29cd7f",
-      "source_sha256": "e0f998cc9f34b53fd646f4601013452f15b405a684a5068b4f9c46839d29cd7f",
-      "native_dimensions": [
-        1290,
-        315
-      ],
-      "mode": "RGBA",
-      "source_frames": [
-        3,
-        9,
-        15,
-        21,
-        27,
-        33
-      ],
-      "review_status": "source_frames_inspected_runtime_review_pending",
-      "role": "courier_walk_frame",
-      "region": [
-        1075,
-        0,
-        215,
-        315
-      ]
-    },
     "dialogue_notebook": {
       "path": "res://assets/faefever_v2/ui/dialogue_notebook_20261016.png",
       "native_dimensions": [
@@ -1582,6 +1394,181 @@
       "source_pdf_sha256": "ff54771c8c7d98ee2d9cfeeac496eb203a324ebc96a3b9a5dcba9853f19c191f",
       "source_page": 10,
       "alpha_note": "Quartz PDF stores white-matted JPEGs; shader compositor keys white only at runtime. White-only pages have lost content and are not used."
+    },
+    "CHAR_courier_walk_0": {
+      "path": "res://assets/faefever_v2/characters/courier_video_20261017.png",
+      "kind": "character",
+      "ai_generated": false,
+      "source_kind": "user_video_extraction",
+      "style_lock": "USER_VIDEO_COURIER_20261017",
+      "authority": "Direct user instruction: replace courier with supplied original walking animation, 2026-10-17.",
+      "source_video_sha256": "f8af71a6daa7a620aa07887528da4e7151e8f55320c525c7bf7d9122f1b3f4a5",
+      "sha256": "1e21e4a48fba1ae3941134da42c38ce652c164a7b795c6ac517da5a745906b9c",
+      "source_sha256": "1e21e4a48fba1ae3941134da42c38ce652c164a7b795c6ac517da5a745906b9c",
+      "native_dimensions": [
+        1600,
+        500
+      ],
+      "mode": "RGBA",
+      "source_frames": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "source_fps": 8,
+      "authored_fps": 8,
+      "review_status": "approved_candidate_source_frames_inspected_runtime_review_pending",
+      "role": "courier_walk_frame",
+      "region": [
+        0,
+        0,
+        320,
+        500
+      ],
+      "source_frame": 0,
+      "duration_seconds": 0.125
+    },
+    "CHAR_courier_walk_1": {
+      "path": "res://assets/faefever_v2/characters/courier_video_20261017.png",
+      "kind": "character",
+      "ai_generated": false,
+      "source_kind": "user_video_extraction",
+      "style_lock": "USER_VIDEO_COURIER_20261017",
+      "authority": "Direct user instruction: replace courier with supplied original walking animation, 2026-10-17.",
+      "source_video_sha256": "f8af71a6daa7a620aa07887528da4e7151e8f55320c525c7bf7d9122f1b3f4a5",
+      "sha256": "1e21e4a48fba1ae3941134da42c38ce652c164a7b795c6ac517da5a745906b9c",
+      "source_sha256": "1e21e4a48fba1ae3941134da42c38ce652c164a7b795c6ac517da5a745906b9c",
+      "native_dimensions": [
+        1600,
+        500
+      ],
+      "mode": "RGBA",
+      "source_frames": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "source_fps": 8,
+      "authored_fps": 8,
+      "review_status": "approved_candidate_source_frames_inspected_runtime_review_pending",
+      "role": "courier_walk_frame",
+      "region": [
+        320,
+        0,
+        320,
+        500
+      ],
+      "source_frame": 1,
+      "duration_seconds": 0.125
+    },
+    "CHAR_courier_walk_2": {
+      "path": "res://assets/faefever_v2/characters/courier_video_20261017.png",
+      "kind": "character",
+      "ai_generated": false,
+      "source_kind": "user_video_extraction",
+      "style_lock": "USER_VIDEO_COURIER_20261017",
+      "authority": "Direct user instruction: replace courier with supplied original walking animation, 2026-10-17.",
+      "source_video_sha256": "f8af71a6daa7a620aa07887528da4e7151e8f55320c525c7bf7d9122f1b3f4a5",
+      "sha256": "1e21e4a48fba1ae3941134da42c38ce652c164a7b795c6ac517da5a745906b9c",
+      "source_sha256": "1e21e4a48fba1ae3941134da42c38ce652c164a7b795c6ac517da5a745906b9c",
+      "native_dimensions": [
+        1600,
+        500
+      ],
+      "mode": "RGBA",
+      "source_frames": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "source_fps": 8,
+      "authored_fps": 8,
+      "review_status": "approved_candidate_source_frames_inspected_runtime_review_pending",
+      "role": "courier_walk_frame",
+      "region": [
+        640,
+        0,
+        320,
+        500
+      ],
+      "source_frame": 2,
+      "duration_seconds": 0.125
+    },
+    "CHAR_courier_walk_3": {
+      "path": "res://assets/faefever_v2/characters/courier_video_20261017.png",
+      "kind": "character",
+      "ai_generated": false,
+      "source_kind": "user_video_extraction",
+      "style_lock": "USER_VIDEO_COURIER_20261017",
+      "authority": "Direct user instruction: replace courier with supplied original walking animation, 2026-10-17.",
+      "source_video_sha256": "f8af71a6daa7a620aa07887528da4e7151e8f55320c525c7bf7d9122f1b3f4a5",
+      "sha256": "1e21e4a48fba1ae3941134da42c38ce652c164a7b795c6ac517da5a745906b9c",
+      "source_sha256": "1e21e4a48fba1ae3941134da42c38ce652c164a7b795c6ac517da5a745906b9c",
+      "native_dimensions": [
+        1600,
+        500
+      ],
+      "mode": "RGBA",
+      "source_frames": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "source_fps": 8,
+      "authored_fps": 8,
+      "review_status": "approved_candidate_source_frames_inspected_runtime_review_pending",
+      "role": "courier_walk_frame",
+      "region": [
+        960,
+        0,
+        320,
+        500
+      ],
+      "source_frame": 3,
+      "duration_seconds": 0.125
+    },
+    "CHAR_courier_walk_4": {
+      "path": "res://assets/faefever_v2/characters/courier_video_20261017.png",
+      "kind": "character",
+      "ai_generated": false,
+      "source_kind": "user_video_extraction",
+      "style_lock": "USER_VIDEO_COURIER_20261017",
+      "authority": "Direct user instruction: replace courier with supplied original walking animation, 2026-10-17.",
+      "source_video_sha256": "f8af71a6daa7a620aa07887528da4e7151e8f55320c525c7bf7d9122f1b3f4a5",
+      "sha256": "1e21e4a48fba1ae3941134da42c38ce652c164a7b795c6ac517da5a745906b9c",
+      "source_sha256": "1e21e4a48fba1ae3941134da42c38ce652c164a7b795c6ac517da5a745906b9c",
+      "native_dimensions": [
+        1600,
+        500
+      ],
+      "mode": "RGBA",
+      "source_frames": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "source_fps": 8,
+      "authored_fps": 8,
+      "review_status": "approved_candidate_source_frames_inspected_runtime_review_pending",
+      "role": "courier_walk_frame",
+      "region": [
+        1280,
+        0,
+        320,
+        500
+      ],
+      "source_frame": 4,
+      "duration_seconds": 0.125
     }
   },
   "generation_receipts": {
@@ -1656,10 +1643,13 @@
   },
   "user_animation_override": {
     "source_kind": "user_video_extraction",
-    "style_lock": "USER_VIDEO_COURIER_20261016",
-    "source_video_sha256": "0e55d83872399329ddf8aa075eb35df2231d133f5ba195783de244cdd733622c",
-    "frame_count": 6,
-    "provenance": "res://assets/faefever_v2/characters/courier_video_provenance_20261016.json"
+    "style_lock": "USER_VIDEO_COURIER_20261017",
+    "source_video_sha256": "f8af71a6daa7a620aa07887528da4e7151e8f55320c525c7bf7d9122f1b3f4a5",
+    "frame_count": 5,
+    "source_fps": 8,
+    "authored_fps": 8,
+    "cycle_seconds": 0.625,
+    "provenance": "res://assets/faefever_v2/characters/courier_video_provenance_20261017.json"
   },
   "settings_ui_override": {
     "scope": [

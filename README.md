@@ -1,5 +1,8 @@
 # Dear Somewhere
 
+2026-10-17 R7_SCOPED_REVIEW: latest supplied five-pose courier selected unchanged, actual8fps/.625s with source-pose2 idle/shared anchor and distance-driven acceleration/retarget/braking. Current signed height-field water crest/trough feedback .24/.08 retains authored PDF and hard3px/.055caps. Complete same-production-source QA matrix38suites/12,321checks/0failures; engine close/reload29; Python28/3/9/5; actualPCK423/0 and official120GPUframes/exit0. Full-attempt fixture failures remain recorded, not relabeled. Current package actual mouse confirms New/supervisor cross/door/right-left movement/settling; later map input interrupted, no further OS input. Forced --quit-after retains18ObjectDB/4resources unresolved. Current courier/water operation clips fully decoded with nonzero mixers; not nativeFPS/listening approval. New transparent supplied suitcase original crop/holes retained AUTHORING ONLY; missing interior/lid/fastener rig is not faked with old art. Source/main/CI/upload pending actual receipt; broad game/art/audio/novice/story acceptance remains open and CORE-BOOK remains review. Details: docs/testing/COURIER_REPLACEMENT_R7_20261017.md.
+
+
 游戏正式名称由用户于 2026-10-17 确认为 Dear Somewhere。封面采用纯底色与游戏名；Solmere 保留为故事中的小镇。最新 Windows 包的入口为 `DearSomewhere.exe`，旧版本包与原存档路径保留。五日、24 封信的新剧情工作稿已完整读取并记录于 [流程复核](docs/Dear_Somewhere_Flow_Source_Review_20261017.md)，尚未实现为完整可玩流程。
 
 海边小镇，异常邮件部的一天。核对旧地址、行程与档案；查清事实之后，由你决定怎样处理五封来信。

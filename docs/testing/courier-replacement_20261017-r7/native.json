@@ -1,0 +1,68 @@
+{
+  "method": "Actual OS mouse input via Computer Use on exact current R7 package; independent isolated userdata",
+  "status": "partial native review; subsequent map click stopped on detected user input",
+  "package_sha256": "8e28d8806373577956bcfd260eb1cb1a7fab3477fcd73389098d9152dabef7da",
+  "executable_sha256": "d34d36f3be1a6c49c56525ae86469b92e4f417ddf0b43cf00dd80c385c4b0562",
+  "steps": [
+    {
+      "action": "Actual New mouse click",
+      "observed": "Supervisor on original counter, notebook dialogue and visible cross",
+      "window_id": 21835676
+    },
+    {
+      "action": "Dialogue cross mouse click",
+      "observed": "Dialogue closed, original counter restored"
+    },
+    {
+      "action": "Real door-outside mouse click",
+      "observed": "Office exterior with selected five-pose courier"
+    },
+    {
+      "action": "Ground mouse click right",
+      "observed": "Courier changes pose and position toward clicked ground"
+    },
+    {
+      "action": "Ground mouse click left",
+      "observed": "Courier faces left and moves toward second clicked ground; no black rectangular matte visible"
+    },
+    {
+      "action": "Re-observation after input interruption; no further input",
+      "observed": "Correct R7 exterior, courier settled at left target; map not open"
+    }
+  ],
+  "artifacts": [
+    {
+      "path": "docs/testing/courier-replacement_20261017-r7/native/01-supervisor.png",
+      "sha256": "60ebaaef84ebb1026bae8281a5f1e23839b62a58eea922ef34af25b61feb21d2"
+    },
+    {
+      "path": "docs/testing/courier-replacement_20261017-r7/native/02-walk-right.png",
+      "sha256": "af331a73049fe2ac51ed9c33f20390127b11615b02a83cb021ab55e32a44459f"
+    },
+    {
+      "path": "docs/testing/courier-replacement_20261017-r7/native/03-walk-left.png",
+      "sha256": "6b393e03374c10f7a945fdf0140f17070879a159b23678a2d504ee51b930e537"
+    },
+    {
+      "path": "docs/testing/courier-replacement_20261017-r7/native/04-settled.png",
+      "sha256": "3b8e901e5e3a6b69d15f2b55d19bcdefcfbeeb7bf910b211afd5a5989670ada1"
+    },
+    {
+      "path": "docs/testing/courier-replacement_20261017-r7/native/stdout.log",
+      "sha256": "5fdebc47089d9a3ed2aaf0644bbe398ffcb056d4454dcf3d52e710226ecd6b18"
+    },
+    {
+      "path": "docs/testing/courier-replacement_20261017-r7/native/stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "docs/testing/courier-replacement_20261017-r7/native/launch.json",
+      "sha256": "298c656b4507b232c457ca200685641ce094604ec71ca3a9b1a98ac4794c76a5"
+    }
+  ],
+  "pending": [
+    "Native map/book/Settings/OS close-restart not completed in R7 after interruption",
+    "Native real-time FPS, human listening and novice/art acceptance unmeasured"
+  ],
+  "capture_dimensions_note": "Actual window screenshots include title bar and reflect native logical window size; seven separate GPU scene PNGs are1920x1080. No native displayFPS measured."
+}

@@ -1,0 +1,41 @@
+{
+  "source_sha256": "a71124f3bbc69172cad71019e019cbc1e4e95501634b1a4ee7f9f7e9cad6c95a",
+  "source_bytes": 139231,
+  "source_format": "PNG",
+  "source_mode": "RGBA",
+  "source_dimensions": [
+    1200,
+    1800
+  ],
+  "source_metadata_keys": [
+    "srgb",
+    "exif",
+    "dpi"
+  ],
+  "derivative_metadata_copied": false,
+  "alpha_extrema": [
+    0,
+    255
+  ],
+  "whole_source_alpha_counts": {
+    "transparent": 2037423,
+    "opaque": 118751,
+    "partial": 3826
+  },
+  "fully_transparent_enclosed_hole_pixels_in_case_bbox": 2924,
+  "derivatives": {
+    "case_source_crop.png": "482e17655d0a424cf94f242a942abdbda6e153ac1326c26e72be5c80ceb7c6fd",
+    "case_source_crop_padded.png": "6c8e1f6ad0da50684a7ed827c9799a97e5b14aca94c23367358e65a4db0844c5"
+  },
+  "derivative_rgba_pixels_exact": true,
+  "method": "Crop unchanged source-authored alpha; no matte removal, smoothing, repaint, recolor, AI or component synthesis.",
+  "original_unmodified": true,
+  "prior_selected_bag_assets_sha256": {
+    "mail_box_base": "5a2c471e07ccd1ba193c0e4917957acacf0216f8ad094d069161161509882563",
+    "mail_box_lid": "daef7d150753849627f89eb4bd436138fcfabd89b8288b481d239af52a16b20e",
+    "mail_box_latch": "5a2c471e07ccd1ba193c0e4917957acacf0216f8ad094d069161161509882563"
+  },
+  "runtime_or_manifest_modified": false,
+  "gpu_runs": 0,
+  "status": "source_alpha_inspected_cropped_intake_only; complete physical opening needs authored missing surfaces"
+}

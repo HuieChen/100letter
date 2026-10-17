@@ -44,7 +44,7 @@ function Invoke-PackageProbe {
     $taskProcess.Refresh()
     if ($taskProcess.ExitCode -ne 0) { throw "$Name exited $($taskProcess.ExitCode); see $taskRun" }
     $taskErrorLog = Get-Content -LiteralPath (Join-Path $taskRun "$Name.stderr.log") -Raw
-    if ($taskErrorLog -match 'SCRIPT ERROR|Parse Error|Failed loading resource|Cannot open file|Failed to instantiate') {
+    if ($taskErrorLog -match 'SCRIPT ERROR|SHADER ERROR|Shader compilation failed|Parse Error|Failed loading resource|Cannot open file|Failed to instantiate') {
         throw "$Name reported a runtime/resource error; see $taskRun"
     }
 }

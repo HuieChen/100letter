@@ -1,0 +1,31 @@
+ffmpeg version 7.1-essentials_build-www.gyan.dev Copyright (c) 2000-2024 the FFmpeg developers
+  built with gcc 14.2.0 (Rev1, Built by MSYS2 project)
+  configuration: --enable-gpl --enable-version3 --enable-static --disable-w32threads --disable-autodetect --enable-fontconfig --enable-iconv --enable-gnutls --enable-libxml2 --enable-gmp --enable-bzlib --enable-lzma --enable-zlib --enable-libsrt --enable-libssh --enable-libzmq --enable-avisynth --enable-sdl2 --enable-libwebp --enable-libx264 --enable-libx265 --enable-libxvid --enable-libaom --enable-libopenjpeg --enable-libvpx --enable-mediafoundation --enable-libass --enable-libfreetype --enable-libfribidi --enable-libharfbuzz --enable-libvidstab --enable-libvmaf --enable-libzimg --enable-amf --enable-cuda-llvm --enable-cuvid --enable-dxva2 --enable-d3d11va --enable-d3d12va --enable-ffnvcodec --enable-libvpl --enable-nvdec --enable-nvenc --enable-vaapi --enable-libgme --enable-libopenmpt --enable-libopencore-amrwb --enable-libmp3lame --enable-libtheora --enable-libvo-amrwbenc --enable-libgsm --enable-libopencore-amrnb --enable-libopus --enable-libspeex --enable-libvorbis --enable-librubberband
+  libavutil      59. 39.100 / 59. 39.100
+  libavcodec     61. 19.100 / 61. 19.100
+  libavformat    61.  7.100 / 61.  7.100
+  libavdevice    61.  3.100 / 61.  3.100
+  libavfilter    10.  4.100 / 10.  4.100
+  libswscale      8.  3.100 /  8.  3.100
+  libswresample   5.  3.100 /  5.  3.100
+  libpostproc    58.  3.100 / 58.  3.100
+[aist#0:1/pcm_s16le @ 0000019c4f287640] Guessed Channel Layout: stereo
+Input #0, avi, from 'C:\Users\22416\Documents\Codex\2026-10-01\github\work\100letter-studio-publish\test-results\replacement-video_20261017\walk-film\courier-r7.avi':
+  Duration: 00:00:09.67, start: 0.000000, bitrate: 533005 kb/s
+  Stream #0:0: Video: mjpeg (Baseline) (MJPG / 0x47504A4D), yuvj420p(pc, bt470bg/unknown/unknown), 1920x1080 [SAR 1:1 DAR 16:9], 532364 kb/s, 60 fps, 60 tbr, 60 tbn
+  Stream #0:1: Audio: pcm_s16le ([1][0][0][0] / 0x0001), 48000 Hz, stereo, s16, 1536 kb/s
+Stream mapping:
+  Stream #0:0 -> #0:0 (mjpeg (native) -> wrapped_avframe (native))
+  Stream #0:1 -> #0:1 (pcm_s16le (native) -> pcm_s16le (native))
+Press [q] to stop, [?] for help
+Output #0, null, to 'pipe:':
+  Metadata:
+    encoder         : Lavf61.7.100
+  Stream #0:0: Video: wrapped_avframe, yuvj420p(pc, bt470bg/unknown/unknown, progressive), 1920x1080 [SAR 1:1 DAR 16:9], q=2-31, 200 kb/s, 60 fps, 60 tbn
+      Metadata:
+        encoder         : Lavc61.19.100 wrapped_avframe
+  Stream #0:1: Audio: pcm_s16le, 48000 Hz, stereo, s16, 1536 kb/s
+      Metadata:
+        encoder         : Lavc61.19.100 pcm_s16le
+frame=   44 fps=0.0 q=-0.0 size=N/A time=00:00:00.73 bitrate=N/A speed=1.45x    frame=   81 fps= 79 q=-0.0 size=N/A time=00:00:01.35 bitrate=N/A speed=1.31x    frame=  117 fps= 76 q=-0.0 size=N/A time=00:00:01.95 bitrate=N/A speed=1.26x    frame=  152 fps= 74 q=-0.0 size=N/A time=00:00:02.53 bitrate=N/A speed=1.23x    frame=  189 fps= 73 q=-0.0 size=N/A time=00:00:03.15 bitrate=N/A speed=1.22x    frame=  224 fps= 72 q=-0.0 size=N/A time=00:00:03.73 bitrate=N/A speed=1.21x    frame=  260 fps= 72 q=-0.0 size=N/A time=00:00:04.33 bitrate=N/A speed= 1.2x    frame=  296 fps= 72 q=-0.0 size=N/A time=00:00:04.93 bitrate=N/A speed= 1.2x    frame=  333 fps= 72 q=-0.0 size=N/A time=00:00:05.55 bitrate=N/A speed= 1.2x    frame=  373 fps= 72 q=-0.0 size=N/A time=00:00:06.21 bitrate=N/A speed=1.21x    frame=  414 fps= 73 q=-0.0 size=N/A time=00:00:06.90 bitrate=N/A speed=1.22x    frame=  455 fps= 73 q=-0.0 size=N/A time=00:00:07.58 bitrate=N/A speed=1.22x    frame=  493 fps= 74 q=-0.0 size=N/A time=00:00:08.21 bitrate=N/A speed=1.23x    frame=  531 fps= 74 q=-0.0 size=N/A time=00:00:08.85 bitrate=N/A speed=1.23x    frame=  568 fps= 74 q=-0.0 size=N/A time=00:00:09.46 bitrate=N/A speed=1.23x    [out#0/null @ 0000019c4f27d080] video:249KiB audio:1812KiB subtitle:0KiB other streams:0KiB global headers:0KiB muxing overhead: unknown
+frame=  580 fps= 74 q=-0.0 Lsize=N/A time=00:00:09.66 bitrate=N/A speed=1.23x    

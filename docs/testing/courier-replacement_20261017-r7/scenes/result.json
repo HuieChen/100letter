@@ -1,0 +1,21 @@
+{
+	"checks": 46,
+	"failures": [],
+	"scope": "Actual own-game GPU rendering at 1920x1080; explicit pose samples for boundary/scale review, not native input or player FPS proof.",
+	"screenshots": [
+		"res://test-results/video-character-20261017/visual/world_post_office.png",
+		"res://test-results/video-character-20261017/visual/world_community_center.png",
+		"res://test-results/video-character-20261017/visual/pose_0.png",
+		"res://test-results/video-character-20261017/visual/pose_1.png",
+		"res://test-results/video-character-20261017/visual/pose_2.png",
+		"res://test-results/video-character-20261017/visual/pose_3.png",
+		"res://test-results/video-character-20261017/visual/pose_4.png",
+		"res://test-results/video-character-20261017/visual/facing_left.png",
+		"res://test-results/video-character-20261017/visual/world_bus_stop.png",
+		"res://test-results/video-character-20261017/visual/world_lookout.png",
+		"res://test-results/video-character-20261017/visual/world_residential.png",
+		"res://test-results/video-character-20261017/visual/world_chess_stall.png",
+		"res://test-results/video-character-20261017/visual/world_tarot_shop.png"
+	],
+	"suite": "courier_visual"
+}

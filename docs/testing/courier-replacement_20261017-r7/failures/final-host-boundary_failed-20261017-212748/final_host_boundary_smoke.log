@@ -1,0 +1,16 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+OpenGL API 3.3.0 NVIDIA 566.24 - Compatibility - Using Device: NVIDIA - NVIDIA GeForce RTX 4050 Laptop GPU
+
+ERROR: blocked registration returns to actual physical box
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] _check (res://tests/final_host_boundary_smoke.gd:93)
+       [1] _run (res://tests/final_host_boundary_smoke.gd:25)
+       [2] _click (res://tests/final_host_boundary_smoke.gd:81)
+ERROR: direct workbench entry cannot substitute for real box pickup
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] _check (res://tests/final_host_boundary_smoke.gd:93)
+       [1] _run (res://tests/final_host_boundary_smoke.gd:27)
+       [2] _click (res://tests/final_host_boundary_smoke.gd:81)
+FINAL HOST BOUNDARY: 32 checks, 2 failures

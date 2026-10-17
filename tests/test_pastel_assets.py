@@ -7,20 +7,20 @@ import unittest
 from PIL import Image
 
 ROOT=Path(__file__).resolve().parents[1]
-VIDEO_ROLES={'CHAR_courier','CHAR_courier_walk', *('CHAR_courier_walk_'+str(i) for i in range(6))}
+VIDEO_ROLES={'CHAR_courier','CHAR_courier_walk', *('CHAR_courier_walk_'+str(i) for i in range(5))}
 
 class PastelAssets(unittest.TestCase):
     def test_every_active_role_is_reviewed_new_bitmap_and_decodes(self):
         m=json.loads((ROOT/'assets/faefever_v2/manifest.json').read_text(encoding='utf-8'))
         self.assertEqual(m['style_lock'],'SOLMERE_SOFT_PASTEL_20261004')
-        self.assertEqual(len(m['assets']),73)  # authored PDF layers are independently registered, courier poses remain unchanged
+        self.assertEqual(len(m['assets']),72)  # five latest authored poses; the obsolete sixth role is no longer selected
         for role,entry in m['assets'].items():
             with self.subTest(role=role):
                 p=ROOT/entry['path'].removeprefix('res://')
                 if role in VIDEO_ROLES:
                     self.assertFalse(entry['ai_generated'])
                     self.assertEqual(entry['source_kind'],'user_video_extraction')
-                    self.assertEqual(entry['style_lock'],'USER_VIDEO_COURIER_20261016')
+                    self.assertEqual(entry['style_lock'],'USER_VIDEO_COURIER_20261017')
                     self.assertEqual(entry['source_video_sha256'],m['user_animation_override']['source_video_sha256'])
                 elif role in m['settings_ui_override']['scope']:
                     self.assertFalse(entry['ai_generated'])
@@ -54,15 +54,15 @@ class PastelAssets(unittest.TestCase):
         self.assertNotIn('res://assets/faefever_v2/backgrounds/cover.png',selected)
         self.assertNotIn('res://assets/faefever_v2/characters/CHAR_courier_walk.png',selected)
 
-    def test_six_original_walking_frames_share_feet_scale_and_source(self):
+    def test_five_original_walking_frames_share_feet_scale_and_source(self):
         m=json.loads((ROOT/'assets/faefever_v2/manifest.json').read_text(encoding='utf-8'))
         g=json.loads((ROOT/'assets/faefever_v2/characters/courier_walk_regions.json').read_text(encoding='utf-8'))
-        self.assertEqual(len(g['frames']),6)
+        self.assertEqual(len(g['frames']),5)
         self.assertEqual(g['source_sha256'],m['assets']['CHAR_courier_walk']['sha256'])
         for f in g['frames']:
             with self.subTest(frame=f['key']):
                 self.assertEqual(f['region'],m['assets'][f['key']]['region'])
-                self.assertEqual(f['reference_height_px'],286)
+                self.assertEqual(f['reference_height_px'],463)
                 self.assertEqual(f['foot_anchor_px'],g['idle']['foot_anchor_px'])
                 self.assertGreater(f['foot_anchor_px'][0],0)
                 self.assertLess(f['foot_anchor_px'][0],f['region'][2])

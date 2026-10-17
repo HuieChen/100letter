@@ -1,0 +1,112 @@
+{
+  "status": "intake_only_unregistered",
+  "source_sha256": "a71124f3bbc69172cad71019e019cbc1e4e95501634b1a4ee7f9f7e9cad6c95a",
+  "source_dimensions": [
+    1200,
+    1800
+  ],
+  "usable_original_alpha": true,
+  "whole_closed_case_source_bbox": [
+    621,
+    1022,
+    1034,
+    1399
+  ],
+  "whole_closed_case_crop_size": [
+    413,
+    377
+  ],
+  "padded_source_crop": [
+    605,
+    1006,
+    1050,
+    1415
+  ],
+  "padded_crop_size": [
+    445,
+    409
+  ],
+  "alpha_bbox_in_padded_crop": [
+    16,
+    16,
+    429,
+    393
+  ],
+  "aspect_ratio": 1.0954907161803713,
+  "original_composite_has_separate_authored_layers": false,
+  "observed_hardware_candidates_source": {
+    "handle_bounds_approx": [
+      752,
+      1022,
+      889,
+      1110
+    ],
+    "front_left_strap_approx": [
+      675,
+      1085,
+      719,
+      1378
+    ],
+    "front_right_strap_approx": [
+      857,
+      1090,
+      900,
+      1393
+    ],
+    "right_side_upper_gold_attachment_approx": [
+      991,
+      1146,
+      1012,
+      1215
+    ],
+    "right_side_lower_gold_attachment_approx": [
+      990,
+      1276,
+      1008,
+      1364
+    ],
+    "front_right_seam_segment_approx": [
+      [
+        968,
+        1126
+      ],
+      [
+        966,
+        1396
+      ]
+    ]
+  },
+  "geometry_limits": [
+    "Hardware candidates are visual observations, not established latch/hinge identities.",
+    "One closed composite supplies no hidden interior, reverse lid, revealed strap backing or open pose.",
+    "No component sprites have been cut from painted front/side surfaces, and no obscured pixels synthesized."
+  ],
+  "existing_desk": {
+    "source": "scripts/rebuild/postal_desk.gd",
+    "base_world_rect": [
+      500,
+      490,
+      620,
+      250
+    ],
+    "letter_world_rect": [
+      617,
+      509,
+      390,
+      112
+    ],
+    "horizontal_lid_hinge_world_y": 505,
+    "latch_world_rect": [
+      777,
+      635,
+      71,
+      56
+    ],
+    "asset_roles": [
+      "mail_box_base",
+      "mail_box_lid",
+      "mail_box_latch"
+    ]
+  },
+  "fit_warning": "Source closed-case ratio413/377=1.095; existing620x250 base ratio2.48 would squash it. Use preserved-aspect placement and redesign physical hit/letter geometry, not an anisotropic slot substitution."
+}

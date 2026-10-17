@@ -122,7 +122,7 @@ try {
         'docs/AUDIO_PROVENANCE.md',
         'assets/faefever_v2/manifest.json',
         'assets/audio/foley/KENNEY_CC0.txt','assets/audio/foley/sample_manifest.json',
-        'assets/audio/foley/source_downloads.json','assets/audio/foley/WATER_CC0.txt','assets/audio/foley/water-provenance.json','assets/faefever_v2/characters/courier_video_provenance_20261016.json',
+        'assets/audio/foley/source_downloads.json','assets/audio/foley/WATER_CC0.txt','assets/audio/foley/water-provenance.json','assets/faefever_v2/characters/courier_video_provenance_20261017.json',
         'assets/audio/SETTINGS_MUSIC_CC0.txt','assets/audio/settings-music-provenance.json','third_party/webgl-water/LICENSE-MIT.txt','third_party/webgl-water/upstream.json','assets/faefever_v2/ui/settings_pdf_20261017/provenance.json'
     )
     foreach ($taskRecord in $taskLicenseSources) {

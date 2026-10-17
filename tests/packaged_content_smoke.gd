@@ -42,14 +42,14 @@ func _run() -> void:
 		for id: String in manifest.get("assets", {}):
 			var entry: Dictionary = manifest.assets[id]
 			var path: String = str(entry.get("path", ""))
-			var video_role:bool=id=="CHAR_courier" or id=="CHAR_courier_walk" or (id.begins_with("CHAR_courier_walk_") and int(id.trim_prefix("CHAR_courier_walk_")) in range(6))
+			var video_role:bool=id=="CHAR_courier" or id=="CHAR_courier_walk" or (id.begins_with("CHAR_courier_walk_") and int(id.trim_prefix("CHAR_courier_walk_")) in range(5))
 			var authorized_video:bool=video_role and entry.get("source_kind","")=="user_video_extraction" and entry.get("source_video_sha256","")==manifest.get("user_animation_override",{}).get("source_video_sha256","missing")
 			var authorized_pdf:bool=id in manifest.get("settings_ui_override",{}).get("scope",[]) and entry.get("source_kind","")=="user_pdf_embedded_image_exact_bytes" and entry.get("source_pdf_sha256","")=="ff54771c8c7d98ee2d9cfeeac496eb203a324ebc96a3b9a5dcba9853f19c191f"
 			_check(path.begins_with("res://assets/faefever_v2/") and (entry.get("ai_generated", false) or authorized_video or authorized_pdf), id + " has reviewed generated or explicitly supplied source provenance")
 			_check(ResourceLoader.exists(path) and load(path) is Texture2D, id + " actually decodes from packaged import resource")
 	var required_roles: Array[String] = ["BG_workroom", "workroom", "mail_box_base", "mail_box_lid", "mail_box_latch", "envelope_front", "envelope_back", "letter_paper", "handbook_closed", "handbook_open", "resolution_slip", "postal_seal", "drawer_open", "drawer_front", "magnifier", "opener", "restorer", "press", "eraser", "sealer", "repair_label", "protector", "envelope_flap", "attachment_photo", "old_music_photo", "replacement_strip", "service_paper", "paper_corner", "wall_closeup", "wall_plate_old", "wall_plate_new", "door_closeup", "door_plate", "pen", "seal_mark", "satchel", "cover", "town_map", "BG_post_office", "BG_community_center", "BG_bus_stop", "BG_lookout", "BG_residential", "BG_chess_stall", "BG_tarot_shop", "CHAR_courier", "CHAR_mira", "CHAR_june", "CHAR_chenyuan", "CHAR_elsie", "CHAR_clerk"]
 	var walk_geometry: Variant = JSON.parse_string(FileAccess.get_file_as_string("res://assets/faefever_v2/characters/courier_walk_regions.json"))
-	_check(walk_geometry is Dictionary and walk_geometry.get("frames",[]).size()==6 and walk_geometry.get("source_kind","")=="user_video_extraction","package preserves the six authored video walking frames and source provenance")
+	_check(walk_geometry is Dictionary and walk_geometry.get("frames",[]).size()==5 and is_equal_approx(float(walk_geometry.get("cycle_seconds",0.0)),0.625) and walk_geometry.get("source_kind","")=="user_video_extraction","package preserves the five latest authored video frames, exact source period and provenance")
 	if walk_geometry is Dictionary:
 		for frame: Dictionary in walk_geometry.get("frames",[]):
 			var key:=str(frame.get("key",""))
