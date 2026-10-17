@@ -1,0 +1,27 @@
+{
+  "source_runtime_commit": "bd04a2352531b9ff633824f62d3ebf281fd60780",
+  "failed_run_id": 39042221323,
+  "failed_run_url": "https://github.com/HuieChen/100letter/actions/runs/39042221323",
+  "cause": "Only old courier metadata raw CRLF/LF hash assertion failed on Linux. Both old PNG byte hashes remained identical. Existing JSON LF checkout rule was not accommodated by this one new source test.",
+  "correction": "Two bitmap hashes remain exact. Old metadata must match exact canonical LF SHA and raw bytes must be exactly one of the two known CRLF/LF fingerprints; no metadata/art/source file is rewritten.",
+  "old_metadata_windows_sha256": "66f749260070391ff77f7a744d9741ed4eee611f587cc2103051b21f7be19e4f",
+  "old_metadata_git_lf_sha256": "ed7b5cd8a1166922a662125f356449021eef2b720091f2622d2766cf22ff3e6c",
+  "local_source_tests": 9,
+  "fresh_lf_checkout_representation_tests": 9,
+  "runtime_changes": false,
+  "artifacts": [
+    {
+      "path": "docs/testing/courier-replacement_20261017-r7/ci/r7-canonical-metadata-tests.log",
+      "sha256": "1b30d2e3694a27e5aa257cb9ac05de0b1e0be0016da2c2c02e93041e25d7dd7a"
+    },
+    {
+      "path": "docs/testing/courier-replacement_20261017-r7/ci/r7-failed-ci-job.log",
+      "sha256": "895275ddbdac0765cf0fa91d941ad720eaf965384a98e7671421736f1bf9f787"
+    },
+    {
+      "path": "docs/testing/courier-replacement_20261017-r7/ci/r7-lf-checkout-tests.log",
+      "sha256": "84c1998e5736f61d0df32b95cc419f4f0a545057882a26e76720e8b98f6fe40a"
+    }
+  ],
+  "followup_ci": "pending exact new main commit verification"
+}

@@ -1,0 +1,553 @@
+﻿2026-10-17T14:47:14.0835556Z Current runner version: '2.337.0'
+2026-10-17T14:47:14.0859891Z ##[group]Runner Image Provisioner
+2026-10-17T14:47:14.0860909Z Hosted Compute Agent
+2026-10-17T14:47:14.0861506Z Version: 20261012.601
+2026-10-17T14:47:14.0862126Z Commit: f3dc54e1fb89da6852db922499a0233137369e1d
+2026-10-17T14:47:14.0862955Z Build Date: 2026-10-12T17:48:21Z
+2026-10-17T14:47:14.0863641Z Worker ID: {10d9cfac-621e-45dd-a545-a05d602ce172}
+2026-10-17T14:47:14.0864382Z Region: westcentralus
+2026-10-17T14:47:14.0865338Z Cloud: Azure
+2026-10-17T14:47:14.0865888Z ##[endgroup]
+2026-10-17T14:47:14.0867585Z ##[group]Operating System
+2026-10-17T14:47:14.0868234Z Ubuntu
+2026-10-17T14:47:14.0868849Z 24.04.5
+2026-10-17T14:47:14.0869379Z LTS
+2026-10-17T14:47:14.0869886Z ##[endgroup]
+2026-10-17T14:47:14.0870481Z ##[group]Runner Image
+2026-10-17T14:47:14.0871092Z Image: ubuntu-24.04
+2026-10-17T14:47:14.0871639Z Version: 20261012.334.1
+2026-10-17T14:47:14.0873023Z Included Software: https://github.com/actions/runner-images/blob/ubuntu24/20261012.334/images/ubuntu/Ubuntu2404-Readme.md
+2026-10-17T14:47:14.0874621Z Image Release: https://github.com/actions/runner-images/releases/tag/ubuntu24%2F20261012.334
+2026-10-17T14:47:14.0875937Z ##[endgroup]
+2026-10-17T14:47:14.0877144Z ##[group]GITHUB_TOKEN Permissions
+2026-10-17T14:47:14.0879308Z Contents: read
+2026-10-17T14:47:14.0880301Z Metadata: read
+2026-10-17T14:47:14.0880903Z ##[endgroup]
+2026-10-17T14:47:14.0883014Z Secret source: Actions
+2026-10-17T14:47:14.0884024Z Cache mode: write
+2026-10-17T14:47:14.0884921Z Prepare workflow directory
+2026-10-17T14:47:14.1226596Z Prepare all required actions
+2026-10-17T14:47:14.1274034Z Getting action download info
+2026-10-17T14:47:14.4256583Z Download action repository 'actions/checkout@v4' (SHA:11d5960a326750d5838078e36cf38b85af677262)
+2026-10-17T14:47:14.5261354Z Download action repository 'actions/setup-python@v5' (SHA:a26af69be951a213d495a4c3e4e4022e16d87065)
+2026-10-17T14:47:14.7096450Z Complete job name: adapter
+2026-10-17T14:47:14.7883009Z ##[group]Run actions/checkout@v4
+2026-10-17T14:47:14.7883904Z with:
+2026-10-17T14:47:14.7884351Z   repository: HuieChen/100letter
+2026-10-17T14:47:14.7888694Z   token: ***
+2026-10-17T14:47:14.7889142Z   ssh-strict: true
+2026-10-17T14:47:14.7889594Z   ssh-user: git
+2026-10-17T14:47:14.7890029Z   persist-credentials: true
+2026-10-17T14:47:14.7890513Z   clean: true
+2026-10-17T14:47:14.7890962Z   sparse-checkout-cone-mode: true
+2026-10-17T14:47:14.7891470Z   fetch-depth: 1
+2026-10-17T14:47:14.7891882Z   fetch-tags: false
+2026-10-17T14:47:14.7892315Z   show-progress: true
+2026-10-17T14:47:14.7892752Z   lfs: false
+2026-10-17T14:47:14.7893153Z   submodules: false
+2026-10-17T14:47:14.7893601Z   set-safe-directory: true
+2026-10-17T14:47:14.7894096Z   allow-unsafe-pr-checkout: false
+2026-10-17T14:47:14.7895222Z ##[endgroup]
+2026-10-17T14:47:14.8915647Z Syncing repository: HuieChen/100letter
+2026-10-17T14:47:14.8918168Z ##[group]Getting Git version info
+2026-10-17T14:47:14.8919396Z Working directory is '/home/runner/work/100letter/100letter'
+2026-10-17T14:47:14.8921087Z [command]/usr/bin/git version
+2026-10-17T14:47:14.8972985Z git version 2.55.0
+2026-10-17T14:47:14.8996162Z ##[endgroup]
+2026-10-17T14:47:14.9013480Z Temporarily overriding HOME='/home/runner/work/_temp/3e363fb2-5458-4dfa-8e5d-f9cfd3152146' before making global git config changes
+2026-10-17T14:47:14.9016158Z Adding repository directory to the temporary git global config as a safe directory
+2026-10-17T14:47:14.9020360Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/100letter/100letter
+2026-10-17T14:47:14.9080604Z Deleting the contents of '/home/runner/work/100letter/100letter'
+2026-10-17T14:47:14.9086664Z ##[group]Initializing the repository
+2026-10-17T14:47:14.9089676Z [command]/usr/bin/git init /home/runner/work/100letter/100letter
+2026-10-17T14:47:14.9200706Z hint: Using 'master' as the name for the initial branch. This default branch name
+2026-10-17T14:47:14.9202015Z hint: will change to "main" in Git 3.0. To configure the initial branch name
+2026-10-17T14:47:14.9203251Z hint: to use in all of your new repositories, which will suppress this warning,
+2026-10-17T14:47:14.9203982Z hint: call:
+2026-10-17T14:47:14.9204378Z hint:
+2026-10-17T14:47:14.9205173Z hint: 	git config --global init.defaultBranch <name>
+2026-10-17T14:47:14.9205815Z hint:
+2026-10-17T14:47:14.9206397Z hint: Names commonly chosen instead of 'master' are 'main', 'trunk' and
+2026-10-17T14:47:14.9207317Z hint: 'development'. The just-created branch can be renamed via this command:
+2026-10-17T14:47:14.9208043Z hint:
+2026-10-17T14:47:14.9208454Z hint: 	git branch -m <name>
+2026-10-17T14:47:14.9208923Z hint:
+2026-10-17T14:47:14.9209540Z hint: Disable this message with "git config set advice.defaultBranchName false"
+2026-10-17T14:47:14.9215823Z Initialized empty Git repository in /home/runner/work/100letter/100letter/.git/
+2026-10-17T14:47:14.9226217Z [command]/usr/bin/git remote add origin https://github.com/HuieChen/100letter
+2026-10-17T14:47:14.9275270Z ##[endgroup]
+2026-10-17T14:47:14.9276672Z ##[group]Disabling automatic garbage collection
+2026-10-17T14:47:14.9279965Z [command]/usr/bin/git config --local gc.auto 0
+2026-10-17T14:47:14.9312290Z ##[endgroup]
+2026-10-17T14:47:14.9313675Z ##[group]Setting up auth
+2026-10-17T14:47:14.9320346Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-10-17T14:47:14.9353331Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-10-17T14:47:14.9725695Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-10-17T14:47:14.9767117Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-10-17T14:47:14.9998077Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-10-17T14:47:15.0033218Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2026-10-17T14:47:15.0258321Z [command]/usr/bin/git config --local http.https://github.com/.extraheader AUTHORIZATION: basic ***
+2026-10-17T14:47:15.0298667Z ##[endgroup]
+2026-10-17T14:47:15.0299491Z ##[group]Fetching the repository
+2026-10-17T14:47:15.0308316Z [command]/usr/bin/git -c protocol.version=2 fetch --no-tags --prune --no-recurse-submodules --depth=1 origin +bd04a2352531b9ff633824f62d3ebf281fd60780:refs/remotes/origin/main
+2026-10-17T14:47:53.8852224Z From https://github.com/HuieChen/100letter
+2026-10-17T14:47:53.8853281Z  * [new ref]         bd04a2352531b9ff633824f62d3ebf281fd60780 -> origin/main
+2026-10-17T14:47:53.8858500Z ##[endgroup]
+2026-10-17T14:47:53.8859309Z ##[group]Determining the checkout info
+2026-10-17T14:47:53.8859947Z ##[endgroup]
+2026-10-17T14:47:53.8867069Z [command]/usr/bin/git sparse-checkout disable
+2026-10-17T14:47:53.8922276Z [command]/usr/bin/git config --local --unset-all extensions.worktreeConfig
+2026-10-17T14:47:53.8953859Z ##[group]Checking out the ref
+2026-10-17T14:47:53.8960242Z [command]/usr/bin/git checkout --progress --force -B main refs/remotes/origin/main
+2026-10-17T14:47:54.9269903Z Updating files:  44% (1109/2485)
+2026-10-17T14:47:54.9608723Z Updating files:  45% (1119/2485)
+2026-10-17T14:47:55.0342960Z Updating files:  46% (1144/2485)
+2026-10-17T14:47:55.0619154Z Updating files:  47% (1168/2485)
+2026-10-17T14:47:55.1255723Z Updating files:  48% (1193/2485)
+2026-10-17T14:47:55.1602045Z Updating files:  49% (1218/2485)
+2026-10-17T14:47:55.1828762Z Updating files:  50% (1243/2485)
+2026-10-17T14:47:55.1863527Z Updating files:  51% (1268/2485)
+2026-10-17T14:47:55.1873193Z Updating files:  52% (1293/2485)
+2026-10-17T14:47:55.1887851Z Updating files:  53% (1318/2485)
+2026-10-17T14:47:55.2248659Z Updating files:  54% (1342/2485)
+2026-10-17T14:47:55.2487034Z Updating files:  55% (1367/2485)
+2026-10-17T14:47:55.3164565Z Updating files:  56% (1392/2485)
+2026-10-17T14:47:55.3867810Z Updating files:  57% (1417/2485)
+2026-10-17T14:47:55.3888224Z Updating files:  58% (1442/2485)
+2026-10-17T14:47:55.4173552Z Updating files:  59% (1467/2485)
+2026-10-17T14:47:55.4301894Z Updating files:  60% (1491/2485)
+2026-10-17T14:47:55.4750828Z Updating files:  61% (1516/2485)
+2026-10-17T14:47:55.5238485Z Updating files:  62% (1541/2485)
+2026-10-17T14:47:55.5560856Z Updating files:  63% (1566/2485)
+2026-10-17T14:47:55.5807327Z Updating files:  64% (1591/2485)
+2026-10-17T14:47:55.5816106Z Updating files:  65% (1616/2485)
+2026-10-17T14:47:55.5904533Z Updating files:  66% (1641/2485)
+2026-10-17T14:47:55.6091401Z Updating files:  67% (1665/2485)
+2026-10-17T14:47:55.6187273Z Updating files:  68% (1690/2485)
+2026-10-17T14:47:55.6224139Z Updating files:  69% (1715/2485)
+2026-10-17T14:47:55.6636663Z Updating files:  70% (1740/2485)
+2026-10-17T14:47:55.6827735Z Updating files:  71% (1765/2485)
+2026-10-17T14:47:55.6901253Z Updating files:  72% (1790/2485)
+2026-10-17T14:47:55.6910584Z Updating files:  73% (1815/2485)
+2026-10-17T14:47:55.6945037Z Updating files:  74% (1839/2485)
+2026-10-17T14:47:55.6983157Z Updating files:  75% (1864/2485)
+2026-10-17T14:47:55.6997834Z Updating files:  76% (1889/2485)
+2026-10-17T14:47:55.7018115Z Updating files:  77% (1914/2485)
+2026-10-17T14:47:55.7033761Z Updating files:  78% (1939/2485)
+2026-10-17T14:47:55.7047679Z Updating files:  79% (1964/2485)
+2026-10-17T14:47:55.7060325Z Updating files:  80% (1988/2485)
+2026-10-17T14:47:55.7133580Z Updating files:  81% (2013/2485)
+2026-10-17T14:47:55.7176496Z Updating files:  82% (2038/2485)
+2026-10-17T14:47:55.7191351Z Updating files:  83% (2063/2485)
+2026-10-17T14:47:55.7211723Z Updating files:  84% (2088/2485)
+2026-10-17T14:47:55.7228390Z Updating files:  85% (2113/2485)
+2026-10-17T14:47:55.7248566Z Updating files:  86% (2138/2485)
+2026-10-17T14:47:55.7270178Z Updating files:  87% (2162/2485)
+2026-10-17T14:47:55.7291853Z Updating files:  88% (2187/2485)
+2026-10-17T14:47:55.7304333Z Updating files:  89% (2212/2485)
+2026-10-17T14:47:55.7325668Z Updating files:  90% (2237/2485)
+2026-10-17T14:47:55.7350168Z Updating files:  91% (2262/2485)
+2026-10-17T14:47:55.7369878Z Updating files:  92% (2287/2485)
+2026-10-17T14:47:55.7388266Z Updating files:  93% (2312/2485)
+2026-10-17T14:47:55.7418238Z Updating files:  94% (2336/2485)
+2026-10-17T14:47:55.7452127Z Updating files:  95% (2361/2485)
+2026-10-17T14:47:55.7491132Z Updating files:  96% (2386/2485)
+2026-10-17T14:47:55.7528301Z Updating files:  97% (2411/2485)
+2026-10-17T14:47:55.7546557Z Updating files:  98% (2436/2485)
+2026-10-17T14:47:55.7565982Z Updating files:  99% (2461/2485)
+2026-10-17T14:47:55.7566594Z Updating files: 100% (2485/2485)
+2026-10-17T14:47:55.7567098Z Updating files: 100% (2485/2485), done.
+2026-10-17T14:47:55.7617880Z Switched to a new branch 'main'
+2026-10-17T14:47:55.7624557Z branch 'main' set up to track 'origin/main'.
+2026-10-17T14:47:55.7754550Z ##[endgroup]
+2026-10-17T14:47:55.7816514Z [command]/usr/bin/git log -1 --format=%H
+2026-10-17T14:47:55.7847835Z bd04a2352531b9ff633824f62d3ebf281fd60780
+2026-10-17T14:47:55.8195929Z ##[group]Run actions/setup-python@v5
+2026-10-17T14:47:55.8196414Z with:
+2026-10-17T14:47:55.8196740Z   python-version: 3.12
+2026-10-17T14:47:55.8197146Z   check-latest: false
+2026-10-17T14:47:55.8201591Z   token: ***
+2026-10-17T14:47:55.8201835Z   update-environment: true
+2026-10-17T14:47:55.8202085Z   allow-prereleases: false
+2026-10-17T14:47:55.8202322Z   freethreaded: false
+2026-10-17T14:47:55.8202538Z ##[endgroup]
+2026-10-17T14:47:55.9516773Z ##[group]Installed versions
+2026-10-17T14:47:55.9607622Z (node:2314) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+2026-10-17T14:47:55.9608374Z (Use `node --trace-deprecation ...` to show where the warning was created)
+2026-10-17T14:47:55.9609477Z Successfully set up CPython (3.12.15)
+2026-10-17T14:47:55.9610382Z ##[endgroup]
+2026-10-17T14:47:55.9782135Z ##[group]Run python tools/studio.py verify
+2026-10-17T14:47:55.9782763Z [36;1mpython tools/studio.py verify[0m
+2026-10-17T14:47:56.0093999Z shell: /usr/bin/bash -e {0}
+2026-10-17T14:47:56.0094295Z env:
+2026-10-17T14:47:56.0094584Z   pythonLocation: /opt/hostedtoolcache/Python/3.12.15/x64
+2026-10-17T14:47:56.0095268Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.12.15/x64/lib/pkgconfig
+2026-10-17T14:47:56.0095709Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.15/x64
+2026-10-17T14:47:56.0096089Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.15/x64
+2026-10-17T14:47:56.0096464Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.15/x64
+2026-10-17T14:47:56.0096854Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.12.15/x64/lib
+2026-10-17T14:47:56.0097207Z ##[endgroup]
+2026-10-17T14:47:56.1857841Z {
+2026-10-17T14:47:56.1858247Z   "status": "ADAPTER_VERIFIED",
+2026-10-17T14:47:56.1858792Z   "revision": "b21fa0f7f289fc3e726cf36fb12b9bc1e7a51e4d",
+2026-10-17T14:47:56.1859440Z   "agents": 49,
+2026-10-17T14:47:56.1859766Z   "skills": 74,
+2026-10-17T14:47:56.1860117Z   "vendored_files": 289,
+2026-10-17T14:47:56.1860504Z   "game_acceptance": "NOT_ASSESSED"
+2026-10-17T14:47:56.1860902Z }
+2026-10-17T14:47:56.1960233Z ##[group]Run python tools/check_gut.py --verify-only
+2026-10-17T14:47:56.1960660Z [36;1mpython tools/check_gut.py --verify-only[0m
+2026-10-17T14:47:56.2025166Z shell: /usr/bin/bash -e {0}
+2026-10-17T14:47:56.2025417Z env:
+2026-10-17T14:47:56.2025684Z   pythonLocation: /opt/hostedtoolcache/Python/3.12.15/x64
+2026-10-17T14:47:56.2026133Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.12.15/x64/lib/pkgconfig
+2026-10-17T14:47:56.2026580Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.15/x64
+2026-10-17T14:47:56.2026984Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.15/x64
+2026-10-17T14:47:56.2027369Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.15/x64
+2026-10-17T14:47:56.2027753Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.12.15/x64/lib
+2026-10-17T14:47:56.2028072Z ##[endgroup]
+2026-10-17T14:47:56.2819393Z GUT 9.7.1: 259 upstream files and 4 font notices match pinned hashes
+2026-10-17T14:47:56.2914379Z ##[group]Run python tools/check_evidence_bytes.py
+2026-10-17T14:47:56.2915056Z [36;1mpython tools/check_evidence_bytes.py[0m
+2026-10-17T14:47:56.2979444Z shell: /usr/bin/bash -e {0}
+2026-10-17T14:47:56.2979689Z env:
+2026-10-17T14:47:56.2979954Z   pythonLocation: /opt/hostedtoolcache/Python/3.12.15/x64
+2026-10-17T14:47:56.2980391Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.12.15/x64/lib/pkgconfig
+2026-10-17T14:47:56.2980837Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.15/x64
+2026-10-17T14:47:56.2981233Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.15/x64
+2026-10-17T14:47:56.2981614Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.15/x64
+2026-10-17T14:47:56.2981999Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.12.15/x64/lib
+2026-10-17T14:47:56.2982320Z ##[endgroup]
+2026-10-17T14:47:57.1258362Z 1118 retained artifacts match exact hashes; gameplay acceptance remains separate
+2026-10-17T14:47:57.1345310Z ##[group]Run python tools/studio.py status
+2026-10-17T14:47:57.1345687Z [36;1mpython tools/studio.py status[0m
+2026-10-17T14:47:57.1409346Z shell: /usr/bin/bash -e {0}
+2026-10-17T14:47:57.1409595Z env:
+2026-10-17T14:47:57.1409862Z   pythonLocation: /opt/hostedtoolcache/Python/3.12.15/x64
+2026-10-17T14:47:57.1410306Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.12.15/x64/lib/pkgconfig
+2026-10-17T14:47:57.1410732Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.15/x64
+2026-10-17T14:47:57.1411129Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.15/x64
+2026-10-17T14:47:57.1411514Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.15/x64
+2026-10-17T14:47:57.1411910Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.12.15/x64/lib
+2026-10-17T14:47:57.1412236Z ##[endgroup]
+2026-10-17T14:47:57.2866720Z {
+2026-10-17T14:47:57.2867142Z   "phase": "production",
+2026-10-17T14:47:57.2867536Z   "active_story": "CORE-BOOK",
+2026-10-17T14:47:57.2868011Z   "execution": "sequential_role_passes",
+2026-10-17T14:47:57.2868779Z   "spawned_agents": 0,
+2026-10-17T14:47:57.2869125Z   "phases": [
+2026-10-17T14:47:57.2869423Z     "concept",
+2026-10-17T14:47:57.2869736Z     "systems-design",
+2026-10-17T14:47:57.2870074Z     "technical-setup",
+2026-10-17T14:47:57.2870422Z     "pre-production",
+2026-10-17T14:47:57.2870748Z     "production",
+2026-10-17T14:47:57.2871049Z     "polish",
+2026-10-17T14:47:57.2871330Z     "release"
+2026-10-17T14:47:57.2871607Z   ],
+2026-10-17T14:47:57.2871871Z   "stories": [
+2026-10-17T14:47:57.2872159Z     {
+2026-10-17T14:47:57.2872452Z       "id": "CORE-BOOK",
+2026-10-17T14:47:57.2872796Z       "chain": "book",
+2026-10-17T14:47:57.2873122Z       "state": "review",
+2026-10-17T14:47:57.2873474Z       "owner": "ui-programmer",
+2026-10-17T14:47:57.2873850Z       "depends_on": [],
+2026-10-17T14:47:57.2874169Z       "reviews": [
+2026-10-17T14:47:57.2874485Z         "ux-designer",
+2026-10-17T14:47:57.2875066Z         "art-director",
+2026-10-17T14:47:57.2875442Z         "godot-gdscript-specialist",
+2026-10-17T14:47:57.2875855Z         "qa-lead",
+2026-10-17T14:47:57.2876166Z         "sound-designer"
+2026-10-17T14:47:57.2876498Z       ]
+2026-10-17T14:47:57.2876783Z     },
+2026-10-17T14:47:57.2877065Z     {
+2026-10-17T14:47:57.2877358Z       "id": "CORE-BAG",
+2026-10-17T14:47:57.2877706Z       "chain": "bag",
+2026-10-17T14:47:57.2878046Z       "state": "queued",
+2026-10-17T14:47:57.2878426Z       "owner": "gameplay-programmer",
+2026-10-17T14:47:57.2878833Z       "depends_on": [
+2026-10-17T14:47:57.2879152Z         "CORE-BOOK"
+2026-10-17T14:47:57.2879457Z       ],
+2026-10-17T14:47:57.2879733Z       "reviews": [
+2026-10-17T14:47:57.2880048Z         "ux-designer",
+2026-10-17T14:47:57.2880381Z         "art-director",
+2026-10-17T14:47:57.2880741Z         "godot-gdscript-specialist",
+2026-10-17T14:47:57.2881140Z         "qa-lead",
+2026-10-17T14:47:57.2881455Z         "sound-designer"
+2026-10-17T14:47:57.2881781Z       ]
+2026-10-17T14:47:57.2882048Z     },
+2026-10-17T14:47:57.2882312Z     {
+2026-10-17T14:47:57.2882619Z       "id": "CORE-MAP",
+2026-10-17T14:47:57.2882963Z       "chain": "map",
+2026-10-17T14:47:57.2883309Z       "state": "queued",
+2026-10-17T14:47:57.2883691Z       "owner": "ui-programmer",
+2026-10-17T14:47:57.2884085Z       "depends_on": [
+2026-10-17T14:47:57.2884418Z         "CORE-BAG"
+2026-10-17T14:47:57.2884904Z       ],
+2026-10-17T14:47:57.2885210Z       "reviews": [
+2026-10-17T14:47:57.2885533Z         "ux-designer",
+2026-10-17T14:47:57.2885876Z         "art-director",
+2026-10-17T14:47:57.2886257Z         "godot-gdscript-specialist",
+2026-10-17T14:47:57.2886645Z         "qa-lead",
+2026-10-17T14:47:57.2886934Z         "sound-designer"
+2026-10-17T14:47:57.2887256Z       ]
+2026-10-17T14:47:57.2887551Z     },
+2026-10-17T14:47:57.2887835Z     {
+2026-10-17T14:47:57.2888154Z       "id": "CORE-NPC",
+2026-10-17T14:47:57.2888515Z       "chain": "npc",
+2026-10-17T14:47:57.2888872Z       "state": "queued",
+2026-10-17T14:47:57.2889284Z       "owner": "gameplay-programmer",
+2026-10-17T14:47:57.2890119Z       "depends_on": [
+2026-10-17T14:47:57.2890495Z         "CORE-MAP"
+2026-10-17T14:47:57.2890825Z       ],
+2026-10-17T14:47:57.2891112Z       "reviews": [
+2026-10-17T14:47:57.2891424Z         "writer",
+2026-10-17T14:47:57.2891766Z         "ux-designer",
+2026-10-17T14:47:57.2892125Z         "art-director",
+2026-10-17T14:47:57.2892525Z         "godot-gdscript-specialist",
+2026-10-17T14:47:57.2892937Z         "qa-lead",
+2026-10-17T14:47:57.2893264Z         "sound-designer"
+2026-10-17T14:47:57.2893608Z       ]
+2026-10-17T14:47:57.2893888Z     },
+2026-10-17T14:47:57.2894175Z     {
+2026-10-17T14:47:57.2894478Z       "id": "CORE-WALK",
+2026-10-17T14:47:57.2895139Z       "chain": "walk",
+2026-10-17T14:47:57.2895505Z       "state": "queued",
+2026-10-17T14:47:57.2895909Z       "owner": "gameplay-programmer",
+2026-10-17T14:47:57.2896340Z       "depends_on": [
+2026-10-17T14:47:57.2896686Z         "CORE-NPC"
+2026-10-17T14:47:57.2897012Z       ],
+2026-10-17T14:47:57.2897306Z       "reviews": [
+2026-10-17T14:47:57.2897866Z         "ux-designer",
+2026-10-17T14:47:57.2898214Z         "art-director",
+2026-10-17T14:47:57.2898593Z         "godot-gdscript-specialist",
+2026-10-17T14:47:57.2899086Z         "qa-lead",
+2026-10-17T14:47:57.2899419Z         "sound-designer",
+2026-10-17T14:47:57.2899767Z         "performance-analyst"
+2026-10-17T14:47:57.2900129Z       ]
+2026-10-17T14:47:57.2900421Z     },
+2026-10-17T14:47:57.2900715Z     {
+2026-10-17T14:47:57.2901046Z       "id": "STORY-LETTER01",
+2026-10-17T14:47:57.2901419Z       "chain": "letter01",
+2026-10-17T14:47:57.2901793Z       "state": "queued",
+2026-10-17T14:47:57.2902202Z       "owner": "gameplay-programmer",
+2026-10-17T14:47:57.2902646Z       "depends_on": [
+2026-10-17T14:47:57.2902998Z         "CORE-WALK"
+2026-10-17T14:47:57.2903330Z       ],
+2026-10-17T14:47:57.2903636Z       "reviews": [
+2026-10-17T14:47:57.2903984Z         "systems-designer",
+2026-10-17T14:47:57.2904335Z         "writer",
+2026-10-17T14:47:57.2904627Z         "ux-designer",
+2026-10-17T14:47:57.2905271Z         "godot-gdscript-specialist",
+2026-10-17T14:47:57.2905708Z         "qa-lead",
+2026-10-17T14:47:57.2906035Z         "sound-designer"
+2026-10-17T14:47:57.2906372Z       ]
+2026-10-17T14:47:57.2906654Z     },
+2026-10-17T14:47:57.2906939Z     {
+2026-10-17T14:47:57.2907248Z       "id": "STORY-LETTER02",
+2026-10-17T14:47:57.2907637Z       "chain": "letter02",
+2026-10-17T14:47:57.2908014Z       "state": "queued",
+2026-10-17T14:47:57.2908392Z       "owner": "gameplay-programmer",
+2026-10-17T14:47:57.2908817Z       "depends_on": [
+2026-10-17T14:47:57.2909157Z         "STORY-LETTER01"
+2026-10-17T14:47:57.2909491Z       ],
+2026-10-17T14:47:57.2909790Z       "reviews": [
+2026-10-17T14:47:57.2910127Z         "systems-designer",
+2026-10-17T14:47:57.2910493Z         "writer",
+2026-10-17T14:47:57.2910803Z         "ux-designer",
+2026-10-17T14:47:57.2911177Z         "godot-gdscript-specialist",
+2026-10-17T14:47:57.2911604Z         "qa-lead",
+2026-10-17T14:47:57.2911941Z         "sound-designer"
+2026-10-17T14:47:57.2912300Z       ]
+2026-10-17T14:47:57.2912581Z     },
+2026-10-17T14:47:57.2912860Z     {
+2026-10-17T14:47:57.2913157Z       "id": "STORY-LETTER03",
+2026-10-17T14:47:57.2913550Z       "chain": "letter03",
+2026-10-17T14:47:57.2913926Z       "state": "queued",
+2026-10-17T14:47:57.2914303Z       "owner": "gameplay-programmer",
+2026-10-17T14:47:57.2914932Z       "depends_on": [
+2026-10-17T14:47:57.2915304Z         "STORY-LETTER02"
+2026-10-17T14:47:57.2915653Z       ],
+2026-10-17T14:47:57.2915937Z       "reviews": [
+2026-10-17T14:47:57.2916269Z         "systems-designer",
+2026-10-17T14:47:57.2916625Z         "writer",
+2026-10-17T14:47:57.2916921Z         "ux-designer",
+2026-10-17T14:47:57.2917297Z         "godot-gdscript-specialist",
+2026-10-17T14:47:57.2917708Z         "qa-lead",
+2026-10-17T14:47:57.2918033Z         "sound-designer"
+2026-10-17T14:47:57.2918377Z       ]
+2026-10-17T14:47:57.2918658Z     }
+2026-10-17T14:47:57.2918933Z   ],
+2026-10-17T14:47:57.2919216Z   "open_bugs": [
+2026-10-17T14:47:57.2919797Z     {
+2026-10-17T14:47:57.2920159Z       "id": "CORE-SOURCE-OPEN",
+2026-10-17T14:47:57.2920586Z       "severity": "S2",
+2026-10-17T14:47:57.2920999Z       "owner": "gameplay-programmer",
+2026-10-17T14:47:57.2921498Z       "status": "UNRESOLVED_NOT_REPRODUCED",
+2026-10-17T14:47:57.2922419Z       "observed": "Earlier current-resident source failed to open once. Diagnostics added, root cause not proved.",
+2026-10-17T14:47:57.2923344Z       "evidence": "QA_REPORT.md"
+2026-10-17T14:47:57.2923755Z     },
+2026-10-17T14:47:57.2924023Z     {
+2026-10-17T14:47:57.2924334Z       "id": "NATIVE-REVIEW",
+2026-10-17T14:47:57.2924987Z       "severity": "acceptance_gap",
+2026-10-17T14:47:57.2925439Z       "owner": "qa-lead",
+2026-10-17T14:47:57.2925827Z       "status": "NOT_ASSESSED",
+2026-10-17T14:47:57.2927796Z       "observed": "Fresh isolated formal-package mouse input proves painted paper corners forward/back, visible cross/Esc, reentry and preserved letter observation after actual process restart. Full responsive/bilingual native, focus-loss, audio listening and novice acceptance remain unverified.",
+2026-10-17T14:47:57.2930199Z       "evidence": "docs/testing/CORNER_REVIEW_20261004.md"
+2026-10-17T14:47:57.2930707Z     },
+2026-10-17T14:47:57.2931000Z     {
+2026-10-17T14:47:57.2931330Z       "id": "NEW-THREE-LETTER",
+2026-10-17T14:47:57.2931743Z       "severity": "delivery_gap",
+2026-10-17T14:47:57.2932164Z       "owner": "writer",
+2026-10-17T14:47:57.2932561Z       "status": "NOT_IMPLEMENTED",
+2026-10-17T14:47:57.2933333Z       "observed": "New 30-minute / long letters / distributed edits / actual wax sequence remain pending.",
+2026-10-17T14:47:57.2934212Z       "evidence": "docs/REQUIREMENTS_REVIEW_20261003.md"
+2026-10-17T14:47:57.2934702Z     },
+2026-10-17T14:47:57.2935193Z     {
+2026-10-17T14:47:57.2935502Z       "id": "QA-RUN-INCOMPLETE",
+2026-10-17T14:47:57.2935893Z       "severity": "S2",
+2026-10-17T14:47:57.2936253Z       "owner": "tools-programmer",
+2026-10-17T14:47:57.2936687Z       "status": "OBSERVATION_NOT_REPRODUCED",
+2026-10-17T14:47:57.2937953Z       "observed": "One console-editor run exited 0 before writing its complete report. The adapter rejected it. A subsequent exact GUI-editor run passed; root cause remains unproved.",
+2026-10-17T14:47:57.2939327Z       "evidence": "docs/testing/STUDIO_PRODUCTION_20261003.md"
+2026-10-17T14:47:57.2939844Z     }
+2026-10-17T14:47:57.2940116Z   ],
+2026-10-17T14:47:57.2940420Z   "game_acceptance": "NOT_COMPLETE"
+2026-10-17T14:47:57.2940858Z }
+2026-10-17T14:47:57.2991994Z ##[group]Run python -m unittest discover -s tests -p 'test_studio_*.py' -v
+2026-10-17T14:47:57.2992547Z [36;1mpython -m unittest discover -s tests -p 'test_studio_*.py' -v[0m
+2026-10-17T14:47:57.3057182Z shell: /usr/bin/bash -e {0}
+2026-10-17T14:47:57.3057432Z env:
+2026-10-17T14:47:57.3057705Z   pythonLocation: /opt/hostedtoolcache/Python/3.12.15/x64
+2026-10-17T14:47:57.3058156Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.12.15/x64/lib/pkgconfig
+2026-10-17T14:47:57.3058607Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.15/x64
+2026-10-17T14:47:57.3059015Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.15/x64
+2026-10-17T14:47:57.3059408Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.15/x64
+2026-10-17T14:47:57.3059803Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.12.15/x64/lib
+2026-10-17T14:47:57.3080419Z ##[endgroup]
+2026-10-17T14:47:57.4617267Z test_adapter_logic_change_invalidates_review_basis (test_studio_pipeline.ProductionPipelineTests.test_adapter_logic_change_invalidates_review_basis) ... ok
+2026-10-17T14:47:57.4762562Z test_changed_evidence_or_missing_observation_rejects (test_studio_pipeline.ProductionPipelineTests.test_changed_evidence_or_missing_observation_rejects) ... ok
+2026-10-17T14:47:57.4906706Z test_changed_source_or_design_makes_review_stale (test_studio_pipeline.ProductionPipelineTests.test_changed_source_or_design_makes_review_stale) ... ok
+2026-10-17T14:47:57.4994690Z test_checkout_line_endings_do_not_invalidate_review_basis (test_studio_pipeline.ProductionPipelineTests.test_checkout_line_endings_do_not_invalidate_review_basis) ... ok
+2026-10-17T14:47:57.5047998Z test_cyclic_dependencies_and_missing_inputs_are_rejected (test_studio_pipeline.ProductionPipelineTests.test_cyclic_dependencies_and_missing_inputs_are_rejected) ... ok
+2026-10-17T14:47:57.5118169Z test_dispatch_materializes_bounded_briefs_without_spawning (test_studio_pipeline.ProductionPipelineTests.test_dispatch_materializes_bounded_briefs_without_spawning) ... ok
+2026-10-17T14:47:57.5152463Z test_engine_migration_and_revision_drift_reject (test_studio_pipeline.ProductionPipelineTests.test_engine_migration_and_revision_drift_reject) ... ok
+2026-10-17T14:47:57.5210584Z test_failed_handoff_does_not_write_or_advance_story (test_studio_pipeline.ProductionPipelineTests.test_failed_handoff_does_not_write_or_advance_story) ... ok
+2026-10-17T14:47:57.5259999Z test_impact_routes_shared_changes_and_blocks_path_escape (test_studio_pipeline.ProductionPipelineTests.test_impact_routes_shared_changes_and_blocks_path_escape) ... ok
+2026-10-17T14:47:57.5409178Z test_missing_review_or_native_evidence_cannot_finish (test_studio_pipeline.ProductionPipelineTests.test_missing_review_or_native_evidence_cannot_finish) ... ok
+2026-10-17T14:47:57.5456046Z test_ready_has_one_active_story_and_does_not_claim_completion (test_studio_pipeline.ProductionPipelineTests.test_ready_has_one_active_story_and_does_not_claim_completion) ... ok
+2026-10-17T14:47:57.5692731Z test_rework_not_assessed_duplicate_and_unassigned_reviews_reject (test_studio_pipeline.ProductionPipelineTests.test_rework_not_assessed_duplicate_and_unassigned_reviews_reject) ... ok
+2026-10-17T14:47:57.5819591Z test_unchecked_acceptance_cannot_be_hidden_behind_pass_verdict (test_studio_pipeline.ProductionPipelineTests.test_unchecked_acceptance_cannot_be_hidden_behind_pass_verdict) ... ok
+2026-10-17T14:47:57.5875445Z test_unknown_role_missing_criteria_and_self_review_are_rejected (test_studio_pipeline.ProductionPipelineTests.test_unknown_role_missing_criteria_and_self_review_are_rejected) ... ok
+2026-10-17T14:47:57.6031139Z test_valid_fixture_handoff_records_receipt_and_rejects_stale_dependency (test_studio_pipeline.ProductionPipelineTests.test_valid_fixture_handoff_records_receipt_and_rejects_stale_dependency) ... ok
+2026-10-17T14:47:57.6178410Z test_changed_or_missing_artifacts_are_rejected (test_studio_workflow.StudioGateTests.test_changed_or_missing_artifacts_are_rejected) ... ok
+2026-10-17T14:47:57.6312787Z test_complete_metadata_satisfies_gate_without_claiming_player_acceptance (test_studio_workflow.StudioGateTests.test_complete_metadata_satisfies_gate_without_claiming_player_acceptance) ... ok
+2026-10-17T14:47:57.6459288Z test_empty_or_failed_engine_check_is_rejected (test_studio_workflow.StudioGateTests.test_empty_or_failed_engine_check_is_rejected) ... ok
+2026-10-17T14:47:57.6596937Z test_headless_review_and_unresolved_blocker_are_rejected (test_studio_workflow.StudioGateTests.test_headless_review_and_unresolved_blocker_are_rejected) ... ok
+2026-10-17T14:47:57.6722379Z test_passing_engine_without_native_review_is_rejected (test_studio_workflow.StudioGateTests.test_passing_engine_without_native_review_is_rejected) ... ok
+2026-10-17T14:47:57.6839655Z test_path_escape_and_absolute_evidence_are_rejected (test_studio_workflow.StudioGateTests.test_path_escape_and_absolute_evidence_are_rejected) ... ok
+2026-10-17T14:47:57.6970303Z test_source_change_during_capture_is_rejected (test_studio_workflow.StudioGateTests.test_source_change_during_capture_is_rejected) ... ok
+2026-10-17T14:47:57.7099965Z test_source_changed_after_capture_invalidates_evidence (test_studio_workflow.StudioGateTests.test_source_changed_after_capture_invalidates_evidence) ... ok
+2026-10-17T14:47:57.7248927Z test_source_crlf_checkout_is_equivalent_but_artifact_bytes_are_strict (test_studio_workflow.StudioGateTests.test_source_crlf_checkout_is_equivalent_but_artifact_bytes_are_strict) ... ok
+2026-10-17T14:47:57.8591398Z test_truncated_png_and_changed_upstream_are_rejected (test_studio_workflow.StudioGateTests.test_truncated_png_and_changed_upstream_are_rejected) ... ok
+2026-10-17T14:47:57.8738905Z test_unknown_or_failed_native_check_is_rejected (test_studio_workflow.StudioGateTests.test_unknown_or_failed_native_check_is_rejected) ... ok
+2026-10-17T14:47:57.8913317Z test_wrong_screenshot_size_is_rejected (test_studio_workflow.StudioGateTests.test_wrong_screenshot_size_is_rejected) ... ok
+2026-10-17T14:47:57.9054516Z test_wrong_suite_and_wrong_chain_are_rejected (test_studio_workflow.StudioGateTests.test_wrong_suite_and_wrong_chain_are_rejected) ... ok
+2026-10-17T14:47:57.9055679Z 
+2026-10-17T14:47:57.9055940Z ----------------------------------------------------------------------
+2026-10-17T14:47:57.9056467Z Ran 28 tests in 0.453s
+2026-10-17T14:47:57.9056674Z 
+2026-10-17T14:47:57.9056787Z OK
+2026-10-17T14:47:57.9187371Z ##[group]Run python -m pip install Pillow numpy
+2026-10-17T14:47:57.9187769Z [36;1mpython -m pip install Pillow numpy[0m
+2026-10-17T14:47:57.9251879Z shell: /usr/bin/bash -e {0}
+2026-10-17T14:47:57.9252137Z env:
+2026-10-17T14:47:57.9252577Z   pythonLocation: /opt/hostedtoolcache/Python/3.12.15/x64
+2026-10-17T14:47:57.9253032Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.12.15/x64/lib/pkgconfig
+2026-10-17T14:47:57.9253469Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.15/x64
+2026-10-17T14:47:57.9253848Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.15/x64
+2026-10-17T14:47:57.9254223Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.15/x64
+2026-10-17T14:47:57.9254604Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.12.15/x64/lib
+2026-10-17T14:47:57.9255111Z ##[endgroup]
+2026-10-17T14:47:59.0086452Z Collecting Pillow
+2026-10-17T14:47:59.1032146Z   Downloading pillow-13.0.0-cp312-cp312-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl.metadata (9.1 kB)
+2026-10-17T14:47:59.3743561Z Collecting numpy
+2026-10-17T14:47:59.3937166Z   Downloading numpy-2.5.4-cp312-cp312-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl.metadata (6.6 kB)
+2026-10-17T14:47:59.4192280Z Downloading pillow-13.0.0-cp312-cp312-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl (7.1 MB)
+2026-10-17T14:47:59.6204909Z    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 7.1/7.1 MB 47.0 MB/s  0:00:00
+2026-10-17T14:47:59.6396535Z Downloading numpy-2.5.4-cp312-cp312-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl (16.7 MB)
+2026-10-17T14:47:59.7190912Z    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 16.7/16.7 MB 214.6 MB/s  0:00:00
+2026-10-17T14:47:59.7876995Z Installing collected packages: Pillow, numpy
+2026-10-17T14:48:02.1051689Z 
+2026-10-17T14:48:02.1062091Z Successfully installed Pillow-13.0.0 numpy-2.5.4
+2026-10-17T14:48:02.1581589Z ##[group]Run python -m unittest discover -s tests -p 'test_pastel_assets.py' -v
+2026-10-17T14:48:02.1582183Z [36;1mpython -m unittest discover -s tests -p 'test_pastel_assets.py' -v[0m
+2026-10-17T14:48:02.1647788Z shell: /usr/bin/bash -e {0}
+2026-10-17T14:48:02.1648035Z env:
+2026-10-17T14:48:02.1648301Z   pythonLocation: /opt/hostedtoolcache/Python/3.12.15/x64
+2026-10-17T14:48:02.1648748Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.12.15/x64/lib/pkgconfig
+2026-10-17T14:48:02.1649215Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.15/x64
+2026-10-17T14:48:02.1649615Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.15/x64
+2026-10-17T14:48:02.1649997Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.15/x64
+2026-10-17T14:48:02.1650388Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.12.15/x64/lib
+2026-10-17T14:48:02.1650714Z ##[endgroup]
+2026-10-17T14:48:02.2391107Z test_dynamic_export_contains_only_active_reviewed_images (test_pastel_assets.PastelAssets.test_dynamic_export_contains_only_active_reviewed_images) ... ok
+2026-10-17T14:48:04.6373103Z test_every_active_role_is_reviewed_new_bitmap_and_decodes (test_pastel_assets.PastelAssets.test_every_active_role_is_reviewed_new_bitmap_and_decodes) ... ok
+2026-10-17T14:48:04.6381295Z test_five_original_walking_frames_share_feet_scale_and_source (test_pastel_assets.PastelAssets.test_five_original_walking_frames_share_feet_scale_and_source) ... ok
+2026-10-17T14:48:04.6382437Z 
+2026-10-17T14:48:04.6382698Z ----------------------------------------------------------------------
+2026-10-17T14:48:04.6383227Z Ran 3 tests in 2.400s
+2026-10-17T14:48:04.6383425Z 
+2026-10-17T14:48:04.6383545Z OK
+2026-10-17T14:48:04.6559201Z ##[group]Run python -m unittest discover -s tests -p 'test_video_courier.py' -v
+2026-10-17T14:48:04.6560216Z [36;1mpython -m unittest discover -s tests -p 'test_video_courier.py' -v[0m
+2026-10-17T14:48:04.6644449Z shell: /usr/bin/bash -e {0}
+2026-10-17T14:48:04.6645005Z env:
+2026-10-17T14:48:04.6645298Z   pythonLocation: /opt/hostedtoolcache/Python/3.12.15/x64
+2026-10-17T14:48:04.6645771Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.12.15/x64/lib/pkgconfig
+2026-10-17T14:48:04.6646204Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.15/x64
+2026-10-17T14:48:04.6646600Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.15/x64
+2026-10-17T14:48:04.6646989Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.15/x64
+2026-10-17T14:48:04.6647404Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.12.15/x64/lib
+2026-10-17T14:48:04.6647930Z ##[endgroup]
+2026-10-17T14:48:04.8480061Z test_actual_curl_holes_are_clear_but_black_eyes_and_boots_survive (test_video_courier.VideoCourier.test_actual_curl_holes_are_clear_but_black_eyes_and_boots_survive) ... ok
+2026-10-17T14:48:04.8482033Z test_all_five_original_frames_keep_chronology_and_source_timing (test_video_courier.VideoCourier.test_all_five_original_frames_keep_chronology_and_source_timing) ... ok
+2026-10-17T14:48:04.8503770Z test_distinct_frame_pixels_match_recorded_extraction (test_video_courier.VideoCourier.test_distinct_frame_pixels_match_recorded_extraction) ... ok
+2026-10-17T14:48:04.8512849Z test_earlier_original_derivatives_are_preserved_byte_for_byte (test_video_courier.VideoCourier.test_earlier_original_derivatives_are_preserved_byte_for_byte) ... FAIL
+2026-10-17T14:48:04.8519582Z test_provenance_records_source_and_limits_without_private_paths (test_video_courier.VideoCourier.test_provenance_records_source_and_limits_without_private_paths) ... ok
+2026-10-17T14:48:04.8563507Z test_selected_manifest_is_exact_approved_version_and_has_no_sixth_pose (test_video_courier.VideoCourier.test_selected_manifest_is_exact_approved_version_and_has_no_sixth_pose) ... ok
+2026-10-17T14:48:04.8842476Z test_shared_anchor_preserves_original_pose_padding_and_idle_two (test_video_courier.VideoCourier.test_shared_anchor_preserves_original_pose_padding_and_idle_two) ... ok
+2026-10-17T14:48:05.3536637Z test_spatial_matte_does_not_globally_key_dark_ink_or_boots (test_video_courier.VideoCourier.test_spatial_matte_does_not_globally_key_dark_ink_or_boots) ... ok
+2026-10-17T14:48:05.3544987Z test_versioned_extractor_rejects_output_overwrite (test_video_courier.VideoCourier.test_versioned_extractor_rejects_output_overwrite) ... ok
+2026-10-17T14:48:05.3545627Z 
+2026-10-17T14:48:05.3545788Z ======================================================================
+2026-10-17T14:48:05.3546560Z FAIL: test_earlier_original_derivatives_are_preserved_byte_for_byte (test_video_courier.VideoCourier.test_earlier_original_derivatives_are_preserved_byte_for_byte)
+2026-10-17T14:48:05.3547365Z ----------------------------------------------------------------------
+2026-10-17T14:48:05.3547728Z Traceback (most recent call last):
+2026-10-17T14:48:05.3553576Z   File "/home/runner/work/100letter/100letter/tests/test_video_courier.py", line 170, in test_earlier_original_derivatives_are_preserved_byte_for_byte
+2026-10-17T14:48:05.3554378Z     self.assertEqual(digest(ASSETS / name), expected)
+2026-10-17T14:48:05.3555352Z AssertionError: 'ed7b5cd8a1166922a662125f356449021eef2b720091f2622d2766cf22ff3e6c' != '66f749260070391ff77f7a744d9741ed4eee611f587cc2103051b21f7be19e4f'
+2026-10-17T14:48:05.3556139Z - ed7b5cd8a1166922a662125f356449021eef2b720091f2622d2766cf22ff3e6c
+2026-10-17T14:48:05.3556588Z + 66f749260070391ff77f7a744d9741ed4eee611f587cc2103051b21f7be19e4f
+2026-10-17T14:48:05.3556861Z 
+2026-10-17T14:48:05.3556866Z 
+2026-10-17T14:48:05.3557023Z ----------------------------------------------------------------------
+2026-10-17T14:48:05.3557373Z Ran 9 tests in 0.543s
+2026-10-17T14:48:05.3557510Z 
+2026-10-17T14:48:05.3557600Z FAILED (failures=1)
+2026-10-17T14:48:05.3738507Z ##[error]Process completed with exit code 1.
+2026-10-17T14:48:05.3886355Z Post job cleanup.
+2026-10-17T14:48:05.4737543Z [command]/usr/bin/git version
+2026-10-17T14:48:05.4781212Z git version 2.55.0
+2026-10-17T14:48:05.4823701Z Temporarily overriding HOME='/home/runner/work/_temp/e8f41838-04cf-4869-a17d-dcc53f108d24' before making global git config changes
+2026-10-17T14:48:05.4825441Z Adding repository directory to the temporary git global config as a safe directory
+2026-10-17T14:48:05.4829893Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/100letter/100letter
+2026-10-17T14:48:05.4871108Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-10-17T14:48:05.4906548Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-10-17T14:48:05.5160648Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-10-17T14:48:05.5194015Z http.https://github.com/.extraheader
+2026-10-17T14:48:05.5214553Z [command]/usr/bin/git config --local --unset-all http.https://github.com/.extraheader
+2026-10-17T14:48:05.5253019Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-10-17T14:48:05.5542020Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-10-17T14:48:05.5582177Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2026-10-17T14:48:05.5972164Z Cleaning up orphan processes
+2026-10-17T14:48:05.6342614Z ##[warning]Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/checkout@v4, actions/setup-python@v5. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/

@@ -162,12 +162,21 @@ class VideoCourier(unittest.TestCase):
             self.assertNotIn(private, public)
         self.assertIn(PROVENANCE.name, (ROOT / "export_presets.cfg").read_text(encoding="utf-8"))
 
-    def test_earlier_original_derivatives_are_preserved_byte_for_byte(self):
+    def test_earlier_bitmaps_and_canonical_metadata_are_preserved(self):
         old = {"courier_video_20261016.png": "e0f998cc9f34b53fd646f4601013452f15b405a684a5068b4f9c46839d29cd7f",
-               "courier_video_idle_20261016.png": "4b82017b9cbebeb74249e3665e0c37fba4d82356e7ee88178d5efb0ec525ba38",
-               "courier_video_provenance_20261016.json": "66f749260070391ff77f7a744d9741ed4eee611f587cc2103051b21f7be19e4f"}
+               "courier_video_idle_20261016.png": "4b82017b9cbebeb74249e3665e0c37fba4d82356e7ee88178d5efb0ec525ba38"}
         for name, expected in old.items():
             self.assertEqual(digest(ASSETS / name), expected)
+        # Existing .gitattributes stores JSON as LF. The retained Windows
+        # authoring copy is CRLF; neither the original file nor its recorded
+        # raw hash is rewritten to make a Linux checkout pass.
+        raw = (ASSETS / "courier_video_provenance_20261016.json").read_bytes()
+        canonical_sha = "ed7b5cd8a1166922a662125f356449021eef2b720091f2622d2766cf22ff3e6c"
+        self.assertEqual(hashlib.sha256(raw.replace(b"\r\n", b"\n")).hexdigest(), canonical_sha)
+        self.assertIn(hashlib.sha256(raw).hexdigest(), {
+            canonical_sha,
+            "66f749260070391ff77f7a744d9741ed4eee611f587cc2103051b21f7be19e4f",
+        })
 
     def test_versioned_extractor_rejects_output_overwrite(self):
         with tempfile.TemporaryDirectory(prefix="courier-versioned-unit-") as temporary:
