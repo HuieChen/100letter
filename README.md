@@ -8,7 +8,7 @@
 
 2026-10-17 当前 R5 设置复核：保留 PDF 原图层，修复蓝卡/胶带白边、滑轨尾端、明信片遮挡、中英文排版与圆角菜单。滑块实色可拖动，返回箭头/Esc可用；原画柠檬阴影和短水弧随真实物理姿态一起移动。8项设置接入实际功能和持久化，写入失败不会困住玩家。语言为**界面**切换，故事与文书保留原文。[当前阶段报告](docs/testing/COASTAL_SETTINGS_R5_20261017.md)及[1920×1080操作演示](docs/testing/coastal-settings_20261017-r5/settings-demo-1920.mp4)。最新反馈要求点击波纹更清楚，仍在整改；完整游戏、新手盲测及真人试听未完成。
 
-R5 对应源码、实测包和227项文件证据正在发布到 main，上传结果另行记录。[此前 Windows R3 试玩包](https://github.com/HuieChen/100letter/releases/tag/solmere-coastal-water-r3-2026-10-17) 对应历史源码 `987de19`，保留为旧版本。
+R5 源码 `5d0367e` 已推到 main，两项对应 CI 已通过。[Windows R5 开发试玩包](https://github.com/HuieChen/100letter/releases/tag/dear-somewhere-settings-r5-2026-10-17) 已上传，文件大小与 SHA256 均与本地 ZIP 一致；对应源码、许可及 QA 记录附在包内。[发布核验](docs/testing/coastal-settings_20261017-r5/publication.json)。点击波纹可见性仍在下一轮整改。[此前 Windows R3 试玩包](https://github.com/HuieChen/100letter/releases/tag/solmere-coastal-water-r3-2026-10-17) 保留为旧版本。
 
 ![当前中文设置，1920×1080](docs/testing/coastal-settings_20261017-r5/settings/zh_1920.png)
 

@@ -1,0 +1,33 @@
+{
+  "source_commit": "5d0367e35c287700f2f79ebfe661f939a1d98d76",
+  "release_url": "https://github.com/HuieChen/100letter/releases/tag/dear-somewhere-settings-r5-2026-10-17",
+  "release_id": 415746579,
+  "prerelease": true,
+  "assets": [
+    {
+      "name": "DearSomewhere-Windows-Settings-20261017-R5.zip",
+      "url": "https://github.com/HuieChen/100letter/releases/download/dear-somewhere-settings-r5-2026-10-17/DearSomewhere-Windows-Settings-20261017-R5.zip",
+      "bytes": 93699086,
+      "sha256": "fd02994afa49e46dd508dcd9e0be935838b7a2917961b722221784d32055443a",
+      "github_digest": "sha256:fd02994afa49e46dd508dcd9e0be935838b7a2917961b722221784d32055443a"
+    }
+  ],
+  "workflow_runs": [
+    {
+      "id": 39025973570,
+      "name": "Studio adapter integrity",
+      "head_sha": "5d0367e35c287700f2f79ebfe661f939a1d98d76",
+      "url": "https://github.com/HuieChen/100letter/actions/runs/39025973570",
+      "status": "completed",
+      "conclusion": "success"
+    },
+    {
+      "id": 39025861140,
+      "name": "Studio adapter integrity",
+      "head_sha": "5d0367e35c287700f2f79ebfe661f939a1d98d76",
+      "url": "https://github.com/HuieChen/100letter/actions/runs/39025861140",
+      "status": "completed",
+      "conclusion": "success"
+    }
+  ]
+}

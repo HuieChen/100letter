@@ -81,7 +81,7 @@ External user input interrupted the attempted F11 return to Windowed. It was not
 | Water calibration and click-wave readability | Mechanical 168/0 completed; latest clear expanding click ripple and human motion review are active next-stage work |
 | Matching engine-close/reload | Completed: 29/0, empty input/reload stderr; supplemental engine notification only |
 | Native OS input | Partial matching-release input observed and 12 captures retained; F11 return, OS close/restart and complete matrix pending |
-| GitHub main checkpoint and CI | Awaiting main push, remote match and CI for this R5 checkpoint; publication is not yet reported complete |
+| GitHub main checkpoint and CI | Source `5d0367e35c287700f2f79ebfe661f939a1d98d76` matches remote main; matching R5 release uploaded and two exact-source CI runs completed successfully |
 
 Automated `root.push_input` runs exercise the actual game UI and state machine, but do not prove independent novice comprehension, human audio quality or final aesthetic approval. Earlier external-close attempts at 16:27:44 and 16:32:26 could not target a window under the app's hide/show guard; those blocked records remain retained and are not counted as passes. The later partial native review proves only its observed operations. Engine-generated close/reload does not replace the missing OS-close route, and historical R3/R4 media must not be presented as R5 proof. MovieWriter is not a performance benchmark. Raw failed logs remain evidence; a later pass does not erase them.
 
