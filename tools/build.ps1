@@ -117,7 +117,7 @@ try {
     $taskLicenses = Join-Path $taskDestination 'Licenses'
     New-Item -ItemType Directory -Force -Path $taskLicenses | Out-Null
     $taskLicenseSources = @(
-        'assets/fonts/OFL.txt','assets/fonts/Caveat-OFL.txt','assets/fonts/DynaPuff-OFL.txt','assets/fonts/LilitaOne-OFL.txt','assets/fonts/NotoSansSC-OFL.txt','assets/fonts/ZCOOLKuaiLe-OFL.txt','assets/fonts/settings-font-provenance.json',
+        'assets/fonts/OFL.txt','assets/fonts/Caveat-OFL.txt','assets/fonts/DynaPuff-OFL.txt','assets/fonts/LilitaOne-OFL.txt','assets/fonts/NotoSansSC-OFL.txt','assets/fonts/ChillRoundF-OFL.txt','assets/fonts/ZCOOLKuaiLe-OFL.txt','assets/fonts/settings-font-provenance.json',
         'docs/GODOT_LICENSE.txt','docs/GODOT_COPYRIGHT.txt','docs/THIRD_PARTY.md',
         'docs/AUDIO_PROVENANCE.md',
         'assets/faefever_v2/manifest.json',
