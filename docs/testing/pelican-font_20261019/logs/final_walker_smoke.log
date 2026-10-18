@@ -1,0 +1,64 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+PASS initial keyboard focus comes from the actual Window
+PASS all five latest video poses and matching idle are warm before first step
+PASS complete latest authored cycle is ordered without obsolete frames
+PASS original8fps period and idle2 timing loaded
+PASS original125ms frame duration 0
+PASS original125ms frame duration 1
+PASS original125ms frame duration 2
+PASS original125ms frame duration 3
+PASS original125ms frame duration 4
+PASS timestamp selection wraps through exact source duration
+PASS idle and walk share the actual source-stage anchor: CHAR_courier_walk_0
+PASS idle and walk share the actual source-stage anchor: CHAR_courier_walk_1
+PASS idle and walk share the actual source-stage anchor: CHAR_courier_walk_2
+PASS idle and walk share the actual source-stage anchor: CHAR_courier_walk_3
+PASS idle and walk share the actual source-stage anchor: CHAR_courier_walk_4
+PASS start pose matches static original idle without a first-frame jump
+PASS 25worldpx at200px/s advances exactly one original frame
+PASS hotspot action waits for approach rather than firing on click
+PASS actor accelerates into its walk
+PASS journey converges without overshoot or a stuck target
+PASS walking emits one conservative grounded contact per source cycle from actual travelled distance
+PASS arrival runs the pending action once
+PASS feet settle at target with no residual movement
+PASS standing still emits no phantom footsteps
+PASS extra frames cannot repeat a completed callback
+PASS retarget preserves actual momentum and animation timing before braking
+PASS journey converges without overshoot or a stuck target
+PASS a new destination invalidates the earlier hotspot callback
+PASS the courier faces its return journey
+PASS cancel stops feet and invalidates callbacks when a modal opens
+PASS journey converges without overshoot or a stuck target
+PASS click targets clamp to the walkable foot area
+PASS even a nearby hotspot callback waits for the processing boundary
+PASS a nearby hotspot remains usable without a fake journey
+PASS journey converges without overshoot or a stuck target
+PASS closing the screen from arrived cancels the former action safely
+PASS focusable pointer approach starts before focus loss
+PASS losing focus cancels click movement and stale action
+PASS manual input is disabled by default outside the scene
+PASS held D drives actual acceleration and interrupts click travel
+PASS key release brakes smoothly and never fires a stale hotspot
+PASS W moves through depth but clamps feet at the walk boundary
+PASS opening a modal disables keyboard movement even if a key remains held
+PASS losing window focus immediately stops manual movement
+PASS dialogue can face the nearby person without changing foot position
+PASS handoff lifecycle remains grounded (visual pose requires a manifest asset)
+PASS gesture returns to breathing idle without looping the handoff
+PASS real movement visits all latest source poses at30.0fps
+PASS arrival eases below20px/s before the final1px settle at30.0fps
+PASS arrival restores the exact original idle2 at30.0fps
+PASS real movement visits all latest source poses at60.0fps
+PASS arrival eases below20px/s before the final1px settle at60.0fps
+PASS arrival restores the exact original idle2 at60.0fps
+PASS real movement visits all latest source poses at144.0fps
+PASS arrival eases below20px/s before the final1px settle at144.0fps
+PASS arrival restores the exact original idle2 at144.0fps
+PASS 30/60/144fps movement agrees within1.5worldpx after one second
+PASS optional whole texture keeps its original aspect ratio
+PASS journey converges without overshoot or a stuck target
+PASS whole texture source pixels remain unchanged after walking
+PASS final movement class does not import the retired artwork renderer
+FINAL WALKER SMOKE: 61 checks, 0 failures

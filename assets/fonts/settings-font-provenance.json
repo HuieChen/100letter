@@ -22,5 +22,14 @@
     "sha256": "a3041811a78c361b1de50f953c805e0244951c21c5bd412f7232ef0d899af0da",
     "license": "SIL OFL 1.1",
     "upstream": "https://github.com/google/fonts/tree/a85815a42757630ce188fdad368c2dfc444d4773/ofl/notosanssc"
+  },
+  "ChillRoundF": {
+    "commit": "46dda1602729b58de96e3fdee9f918d7aaa64727",
+    "sha256": "ebeb471ae9778a26012a18136f8a9ae99450832cd8bb259265684720d60839f0",
+    "license": "SIL OFL 1.1",
+    "upstream": "https://github.com/Warren2060/ChillRound/tree/46dda1602729b58de96e3fdee9f918d7aaa64727",
+    "source_path": "ChillRound/ChillRoundF.ttf",
+    "unmodified": true,
+    "scope": "Chinese Settings headline, captions and selectors only; original font bytes and name retained"
   }
 }

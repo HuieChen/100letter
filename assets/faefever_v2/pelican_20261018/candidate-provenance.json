@@ -1,0 +1,196 @@
+{
+  "items": [
+    {
+      "id": "BG_post_office",
+      "prompt": "Create a new ORIGINAL Dear Somewhere game background. Image1 is the ONLY STYLE authority: Pelican Post official screenshot, specifically its inset actual gameplay art. IGNORE its marketing envelope/postcard border, black surround, text/UI and animal characters. Image2 is our AI-GENERATED OLD LAYOUT ONLY: preserve the position, boundaries and scale of every opening and surface exactly, but completely replace the chalk drawing medium. Match image1's chunky dark pixel outlines, cute rounded geometric shapes, crisp visibly pixel-stepped edges, flat cream/teal/plum/coral blocks, sparse two-tone shading, low visual noise. No grain, dry brush, cracks or dirty filter. Door stays centered x51% spanning x43%-59%, y27%-72%; notice stays x31%-41%,y39%-56%; postslotx63%-68%,y41%-56%; windowsx17%-27% andx76%-89%, y28%-54%; pavement begins y74%, continuous and unobstructed. Exact frontal wide 2D stage and fullframe16:9. Keep awning, door, windows and sign large/simple. All signs blank for runtime writing. Left sea glimpse remains. No characters or plants or new props, no fake interactive decoration, no vector gradients, 3D/isometric/realism. Use original architecture of image2, NOT Pelican Post's architecture. Pixel-art visual language and scale must match actual inset screenshot image1; broad clean shapes, mostly one flat color per plane. Blank tabletop not needed, exterior. Fullbleed scene no frame, no text/title/watermark.",
+      "path": "res://assets/faefever_v2/pelican_20261018/BG_post_office.png",
+      "sha256": "171b3751401c9a4c1efbd6205620780d51511bd13d19030e4561e9cd029e47fe",
+      "native_dimensions": [
+        1672,
+        941
+      ],
+      "mode": "RGB",
+      "status": "registered_image_inspected_runtime_QA_pending"
+    },
+    {
+      "id": "BG_community_center",
+      "prompt": "Create an original Dear Somewhere production background. Image1: STYLE REFERENCE ONLY, the inset actual game scene in official Pelican Post screenshot. Ignore ALL outer marketing border/envelopes/black surround, UI/text and its animal cast. Image2: existing AI-generated LAYOUT ONLY. Keep ALL object bounds, positions, silhouette scale and walking-ground geometry exactly. Replace the drawing medium completely: Pelican Post's chunky near-black/plum outlines, crisp small pixel stair-steps, simple cute cartoon shapes, broad flat muted color blocks and at most one shadow tone per plane, very low noise. Warm cream, dusty teal, muted plum, coral, pale lemon, blue sea; no chalk, paper grain, airbrush, realistic lighting, 3D, isometric, glossy/vector render. No characters, text, title or watermark. No added props/plants/doors/clutter. All notices blank. Original Solmere architecture, not copying Pelican Post buildings. Fullbleed horizontal16:9 2D theatrical stage. Exactly preserve image2: open dark doorway centeredx56%, bottom at71%height; blank rectangular noticeboard x26-47%,y24-50%; six mail cubbiesx68-84%,y35-50%; teal shutterwindowsleft13-23% andright87-98%. Oceanstripfarleft. Empty pavementbottom28%. Thick simple readable outlines, few broad wall blocks.",
+      "path": "res://assets/faefever_v2/pelican_20261018/BG_community_center.png",
+      "sha256": "499745ab5aeeb3703168663fbbf98f383ec11eee0c811870bda991ac45fa196e",
+      "native_dimensions": [
+        1672,
+        941
+      ],
+      "mode": "RGB",
+      "status": "registered_image_inspected_runtime_QA_pending"
+    },
+    {
+      "id": "BG_residential",
+      "prompt": "Create an original Dear Somewhere production background. Image1: STYLE REFERENCE ONLY, the inset actual game scene in official Pelican Post screenshot. Ignore ALL outer marketing border/envelopes/black surround, UI/text and its animal cast. Image2: existing AI-generated LAYOUT ONLY. Keep ALL object bounds, positions, silhouette scale and walking-ground geometry exactly. Replace the drawing medium completely: Pelican Post's chunky near-black/plum outlines, crisp small pixel stair-steps, simple cute cartoon shapes, broad flat muted color blocks and at most one shadow tone per plane, very low noise. Warm cream, dusty teal, muted plum, coral, pale lemon, blue sea; no chalk, paper grain, airbrush, realistic lighting, 3D, isometric, glossy/vector render. No characters, text, title or watermark. No added props/plants/doors/clutter. All notices blank. Original Solmere architecture, not copying Pelican Post buildings. Fullbleed horizontal16:9 2D theatrical stage. Exactly preserve image2: three closed tealdoors atx19-32%,45-57%,72-84%, bottoms72%height. Three coralupperwindows. Blankpaper hangingonleftdoor atx24%y39%; two smallblankcream houseplates atx60-65%y36-44%, wideblankbeigeplatex60-67%y46-50%;blanknotice x88-94%y34-51%. Doors andplates exactboundsmuststay. Empty pavementbelowy73%. Onlyleftedgeocean.",
+      "path": "res://assets/faefever_v2/pelican_20261018/BG_residential.png",
+      "sha256": "a18451432224451ca7215cf8a67472c49e759459cefe38d4394269d132c45ad6",
+      "native_dimensions": [
+        1672,
+        941
+      ],
+      "mode": "RGB",
+      "status": "registered_image_inspected_runtime_QA_pending"
+    },
+    {
+      "id": "BG_bus_stop",
+      "prompt": "Create an original Dear Somewhere production background. Image1: STYLE REFERENCE ONLY, the inset actual game scene in official Pelican Post screenshot. Ignore ALL outer marketing border/envelopes/black surround, UI/text and its animal cast. Image2: existing AI-generated LAYOUT ONLY. Keep ALL object bounds, positions, silhouette scale and walking-ground geometry exactly. Replace the drawing medium completely: Pelican Post's chunky near-black/plum outlines, crisp small pixel stair-steps, simple cute cartoon shapes, broad flat muted color blocks and at most one shadow tone per plane, very low noise. Warm cream, dusty teal, muted plum, coral, pale lemon, blue sea; no chalk, paper grain, airbrush, realistic lighting, 3D, isometric, glossy/vector render. No characters, text, title or watermark. No added props/plants/doors/clutter. All notices blank. Original Solmere architecture, not copying Pelican Post buildings. Fullbleed horizontal16:9 2D theatrical stage. Exactly preserve image2: small open-sided bus shelter fromx9-53%,redroofy20-31%, supporting posts down toy76%;tealbench x18-43%y55-73%;blanktimetable vertical x60-68%y30-51%,postdown toy75%;continuouslow creamseawall y60-74%,flat oceanhorizon45%;empty pavementbottom25%;few large cloudshapes. No new interactive objects.",
+      "path": "res://assets/faefever_v2/pelican_20261018/BG_bus_stop.png",
+      "sha256": "f809be281e0c98e9757f307e4ac96d4ef6ca57c9c343b63365c6840223d27fd1",
+      "native_dimensions": [
+        1672,
+        941
+      ],
+      "mode": "RGB",
+      "status": "registered_image_inspected_runtime_QA_pending"
+    },
+    {
+      "id": "BG_workroom",
+      "prompt": "Create an original Dear Somewhere production background. Image1: STYLE REFERENCE ONLY, the inset actual game scene in official Pelican Post screenshot. Ignore ALL outer marketing border/envelopes/black surround, UI/text and its animal cast. Image2: existing AI-generated LAYOUT ONLY. Keep ALL object bounds, positions, silhouette scale and walking-ground geometry exactly. Replace the drawing medium completely: Pelican Post's chunky near-black/plum outlines, crisp small pixel stair-steps, simple cute cartoon shapes, broad flat muted color blocks and at most one shadow tone per plane, very low noise. Warm cream, dusty teal, muted plum, coral, pale lemon, blue sea; no chalk, paper grain, airbrush, realistic lighting, 3D, isometric, glossy/vector render. No characters, text, title or watermark. No added props/plants/doors/clutter. All notices blank. Original Solmere architecture, not copying Pelican Post buildings. Fullbleed horizontal16:9 2D theatrical stage. Postal working room: EXACTLY image2 composition: small windowleft x13-28%y5-25%;central tealcloseddoorx39-58%y5-60%; archive shelfarrightx70-99%y0-60%; simple closedcupboardleftx0-28%y36-60%;broad bare countertopoccupying bottom40%,plain olivegreenmat fromx3-97%y63-86%. Table has NO props/envelopes/tools/books. All componentsactualgameinteract separately. Warm cream plasterwithonlyfewlarge flatplane divisions; no tinybrickpattern, clutter orgrain. Keepmatandtable roomy andblank.",
+      "path": "res://assets/faefever_v2/pelican_20261018/BG_workroom.png",
+      "sha256": "e2e8a42c5236187a797b53188029fe8a933fe86f880dbea4a701b327a20e7e35",
+      "native_dimensions": [
+        1672,
+        941
+      ],
+      "mode": "RGB",
+      "status": "registered_image_inspected_runtime_QA_pending"
+    },
+    {
+      "id": "BG_lookout",
+      "prompt": "Create an original Dear Somewhere production background. Image1: STYLE REFERENCE ONLY, the inset actual game scene in official Pelican Post screenshot. Ignore ALL outer marketing border/envelopes/black surround, UI/text and its animal cast. Image2: existing AI-generated LAYOUT ONLY. Keep ALL object bounds, positions, silhouette scale and walking-ground geometry exactly. Replace the drawing medium completely: Pelican Post's chunky near-black/plum outlines, crisp small pixel stair-steps, simple cute cartoon shapes, broad flat muted color blocks and at most one shadow tone per plane, very low noise. Warm cream, dusty teal, muted plum, coral, pale lemon, blue sea; no chalk, paper grain, airbrush, realistic lighting, 3D, isometric, glossy/vector render. No characters, text, title or watermark. No added props/plants/doors/clutter. All notices blank. Original Solmere architecture, not copying Pelican Post buildings. Fullbleed horizontal16:9 2D theatrical stage. Keepimage2exactgeometry. The farLEFTleaningobject is a CLOSED narrow teal instrument carrycase with smallhandle and tanstrap, NOT an openfoldingnoticeboard. Do NOT add windows, roofs or signs. Croppedflatcreambuildingonlyx0-3%. Lowwallfromx20-82%,y50-65%, gapx13-20%;smallplumrailrightatx85-100%y46-64%. Blueocean/skyandleftheadland, emptygroundbelowy66%. Nootherobjects. Preserve the existing AI-generated layout precisely; styling is sourced only from image1's inset gameplay. No directional light gradient, no vignette, no large shadow patches. Clean flat cartoon pixel planes.",
+      "path": "res://assets/faefever_v2/pelican_20261018/BG_lookout.png",
+      "sha256": "a5de20923c5db6e8b5ef969e0659186027a6705a684a0af0b6657760278587e7",
+      "native_dimensions": [
+        1672,
+        941
+      ],
+      "mode": "RGB",
+      "status": "registered_image_inspected_runtime_QA_pending"
+    },
+    {
+      "id": "BG_chess_stall",
+      "prompt": "Create an original Dear Somewhere production background. Image1: STYLE REFERENCE ONLY, the inset actual game scene in official Pelican Post screenshot. Ignore ALL outer marketing border/envelopes/black surround, UI/text and its animal cast. Image2: existing AI-generated LAYOUT ONLY. Keep ALL object bounds, positions, silhouette scale and walking-ground geometry exactly. Replace the drawing medium completely: Pelican Post's chunky near-black/plum outlines, crisp small pixel stair-steps, simple cute cartoon shapes, broad flat muted color blocks and at most one shadow tone per plane, very low noise. Warm cream, dusty teal, muted plum, coral, pale lemon, blue sea; no chalk, paper grain, airbrush, realistic lighting, 3D, isometric, glossy/vector render. No characters, text, title or watermark. No added props/plants/doors/clutter. All notices blank. Original Solmere architecture, not copying Pelican Post buildings. Fullbleed horizontal16:9 2D theatrical stage. There is EXACTLY ONE arched door at farLEFT partly hidden by trunk; do not invent an extra door. Keep tree trunkatx13% notcenterleftmoved. Keep rectanglechess tableboundsx36-65%,y53-83%,twoseparatestoolsx27-35% and65-74%,y63-81%, andblankpapernoticeatx68-76%y27-48%. Board is actuallargechessboardwithfewpieces visible. Existing canopyfullleftupper65%,noadditional architecture. Preserve emptybottomground and originalcompositionexactly. Preserve the existing AI-generated layout precisely; styling is sourced only from image1's inset gameplay. No directional light gradient, no vignette, no large shadow patches. Clean flat cartoon pixel planes.",
+      "path": "res://assets/faefever_v2/pelican_20261018/BG_chess_stall.png",
+      "sha256": "6239173e6d2b71919e0d9face98adb3a061f999ca02bf76549a3f66b7f79b854",
+      "native_dimensions": [
+        1672,
+        941
+      ],
+      "mode": "RGB",
+      "status": "registered_image_inspected_runtime_QA_pending"
+    },
+    {
+      "id": "BG_tarot_shop",
+      "prompt": "Create an original Dear Somewhere production background. Image1: STYLE REFERENCE ONLY, the inset actual game scene in official Pelican Post screenshot. Ignore ALL outer marketing border/envelopes/black surround, UI/text and its animal cast. Image2: existing AI-generated LAYOUT ONLY. Keep ALL object bounds, positions, silhouette scale and walking-ground geometry exactly. Replace the drawing medium completely: Pelican Post's chunky near-black/plum outlines, crisp small pixel stair-steps, simple cute cartoon shapes, broad flat muted color blocks and at most one shadow tone per plane, very low noise. Warm cream, dusty teal, muted plum, coral, pale lemon, blue sea; no chalk, paper grain, airbrush, realistic lighting, 3D, isometric, glossy/vector render. No characters, text, title or watermark. No added props/plants/doors/clutter. All notices blank. Original Solmere architecture, not copying Pelican Post buildings. Fullbleed horizontal16:9 2D theatrical stage. Preserve image2 exactlayout. OnlyONEtealdooratx39-51%y24-69%, withreal doorhandleonrightofdoor. Displaywindowx11-34%y26-57%;existinglargecoralcanopyx7-66%,y4-22%. Blankpaperwallnoticex56-66%y30-53%;seaglimpserightquarter. Do not enlargeawning downwardoverwindoworchangeitintoanothershop. Keepfarleftcroppedarchonlyasexisting, no extradoor. Noaddedclutter. Preserve the existing AI-generated layout precisely; styling is sourced only from image1's inset gameplay. No directional light gradient, no vignette, no large shadow patches. Clean flat cartoon pixel planes.",
+      "path": "res://assets/faefever_v2/pelican_20261018/BG_tarot_shop.png",
+      "sha256": "762854b4431373136d7c7736259ac1bf80a4afa2f90c9dee205bb242ac538439",
+      "native_dimensions": [
+        1672,
+        941
+      ],
+      "mode": "RGB",
+      "status": "registered_image_inspected_runtime_QA_pending"
+    },
+    {
+      "id": "cast",
+      "prompt": "New ORIGINAL game character sprite atlas, exactly SIX full-body HUMAN townspeople, 3 columns x2rows, every complete silhouette separated by very wide fully transparent gutters, no ground/shadows/labels/text. Image1 is STYLE ONLY: match actual inset gameplay in Pelican Post official screenshot; ignore marketing border/UI/envelopes and animal characters. Cute chunky pixel-cartoon characters, deliberately low detail, heads about40%bodyheight, clean plum/nearblack steppedpixel outlines, solid flats and ONE local shadow tone, tiny expressive eyes, readable silhouettes, modest thick white sticker-edge around each person like actualreference. No chalk, watercolor grain, glossy/3D/animephotoreal. Image2 is our OLD AI-GENERATED CAST design reference only: preserve each human's recognisable clothes/hair/age, not the pastel medium. Exact positions: topLeftyoungfemale courier blackbob creamblouse coralneckerchief tealtrousers plumshoulderbag; topMiddleelderlywoman greyhairbun roundglasses coralcardigan oliveskirt handsclasped; topRightolderman greycurlhair creamshirt tealvest beige trousers; bottomLeftadultwoman longdarkponytail tealapron coraltrousers handswaist; bottomMiddleyoungwoman brownbun coralshortcardigan lemonblouse tealskirt; bottomRightfemale postalclerk shortblackbob creamshirt tealvest slateculottes holdingthincreamfolder. Everyone facesfrontwithslightturnright, neutralfriendly, feetonsamebaselineineachrow. OriginalDearSomewherehuman cast, NOPelicanPostanimalcharacter/costumecopies. Complete feet, no croppedhands/hair, no extra props, no background. Keepopacitysolidinsides andpurealphaoutside. Crisp low-resolution cartoon visual language, no pixelsprinkletexture. Transparent output.",
+      "path": "res://assets/faefever_v2/pelican_20261018/cast.png",
+      "sha256": "207aa04098f45e3ee2eb0cb50319311f4c6b4fe5b177fcef6c16ed0bd6422b90",
+      "native_dimensions": [
+        1536,
+        1024
+      ],
+      "mode": "RGBA",
+      "status": "registered_image_inspected_runtime_QA_pending"
+    },
+    {
+      "id": "docs",
+      "prompt": "Production ORIGINAL Dear Somewhere transparent sprite atlas. Image1 is STYLE ONLY: actual inset gameplay artwork in official Pelican Post screenshot, not its marketingframe/UI/animalcast. Image2 is our AI-GENERATED OLD OBJECT/ATLAS LAYOUT reference only. Replace chalk medium with crisp chunky darkplum stepped-pixel outlines, flatcream/teal/coral/olive planes, verylimitedtwo-tone shade, lowdetail, slightlyroundedcartoon. No gradients,grain,painterlytexture,3D,isometric,gloss,photorealism. Preserve each object's FUNCTIONAL shape and broad complete silhouette. Every sprite sharply separated by large fully transparent gutters. Pure alpha exterior includingholes; NO gray/black/colored background, drop shadow, glow, whitehalo or decorativeframe. No labels, writing, text, symbols to decipher, watermarks. Large blank paper surfaces for real runtime writing. Keep original objects, not copying brandedgameassets. EXACTLY9 separatedobjects in3cols x3rows. Row1: openbaseONLY of smallgreenportablepostalcase withopaque darkpluminterior, wide2:1ratio, NOlid orcontents; separate flatgreenrectangularlidwithsmalltophandle NOT attachedtobase; one verticalbrasslatch. Row2: plaincream envelopefront landscape blankwithtinycoralpostagesquaretopright; sameenvelopebackwithclosedtriangularflapandsmallcoralwaxsealuppermiddle; its separatecream triangularflap ONLY. Row3: OPENgreenclothrecordbook,wide2:1silhouette,twoentirelyblankcream pagesandnarrowcentercrease,noattachedtabs; CLOSEDgreenrecordbookportraitwithsmallblankcreamcoverpatch; flatblankportraitresolutionpaper2:3. No crumpling, loosepaperbits or whitefringes. Keep whole objects insidecanvasandseparate.",
+      "path": "res://assets/faefever_v2/pelican_20261018/docs.png",
+      "sha256": "6e29e105c5513bb577cd1bc934bf041a18d1380f98c9c0a59dcaade4da10e0cf",
+      "native_dimensions": [
+        1536,
+        1024
+      ],
+      "mode": "RGBA",
+      "status": "registered_image_inspected_runtime_QA_pending"
+    },
+    {
+      "id": "tools",
+      "prompt": "Production ORIGINAL Dear Somewhere transparent sprite atlas. Image1 is STYLE ONLY: actual inset gameplay artwork in official Pelican Post screenshot, not its marketingframe/UI/animalcast. Image2 is our AI-GENERATED OLD OBJECT/ATLAS LAYOUT reference only. Replace chalk medium with crisp chunky darkplum stepped-pixel outlines, flatcream/teal/coral/olive planes, verylimitedtwo-tone shade, lowdetail, slightlyroundedcartoon. No gradients,grain,painterlytexture,3D,isometric,gloss,photorealism. Preserve each object's FUNCTIONAL shape and broad complete silhouette. Every sprite sharply separated by large fully transparent gutters. Pure alpha exterior includingholes; NO gray/black/colored background, drop shadow, glow, whitehalo or decorativeframe. No labels, writing, text, symbols to decipher, watermarks. Large blank paper surfaces for real runtime writing. Keep original objects, not copying brandedgameassets. EXACTLY12 sprites, equal4columns x3rows, regulargrid, nooverlap. Row1: magnifyingglasswithcleartransparentlens and simplebrassring/tealhandle; simpleivoryletteropenerwithplumhandle; woodenrubbingrollerwithtealhandle; smallcoralpressroller. Row2: tealfountainpenwithbrassnib; uprightplumwoodpostalstampwithbrassbase; simplecoralandcream eraser; amberinkbottlewithseparatebrushleaningagainstitasoneicon. Row3: blankcreamrepairlabelwide; translucent protectivepaper squarefoldedcorner; narrowblankreplacementpaperstrip; smallcoralwaxsealwith4pressedholes. All fullyreadable tinytool silhouettes, minimalflatlocalshade. Lenscenterfullytransparent, inkbottleopaque. No whitefuzzfringe.",
+      "path": "res://assets/faefever_v2/pelican_20261018/tools.png",
+      "sha256": "f35aa91fe0f26c5abf2771a0adc886d69ce450085e418557e9b0946937975558",
+      "native_dimensions": [
+        1448,
+        1086
+      ],
+      "mode": "RGBA",
+      "status": "registered_image_inspected_runtime_QA_pending"
+    },
+    {
+      "id": "misc",
+      "prompt": "Production ORIGINAL Dear Somewhere transparent sprite atlas. Image1 is STYLE ONLY: actual inset gameplay artwork in official Pelican Post screenshot, not its marketingframe/UI/animalcast. Image2 is our AI-GENERATED OLD OBJECT/ATLAS LAYOUT reference only. Replace chalk medium with crisp chunky darkplum stepped-pixel outlines, flatcream/teal/coral/olive planes, verylimitedtwo-tone shade, lowdetail, slightlyroundedcartoon. No gradients,grain,painterlytexture,3D,isometric,gloss,photorealism. Preserve each object's FUNCTIONAL shape and broad complete silhouette. Every sprite sharply separated by large fully transparent gutters. Pure alpha exterior includingholes; NO gray/black/colored background, drop shadow, glow, whitehalo or decorativeframe. No labels, writing, text, symbols to decipher, watermarks. Large blank paper surfaces for real runtime writing. Keep original objects, not copying brandedgameassets. EXACTLY9sprites,3columns x3rows. Row1: flatportraitblankcreamletterpaperwith2faintfoldcreasesandlargeemptywritingarea; openolivetealdrawerboxwithdarkplumemptycavity; separatenarrowolivetealdrawerfrontwithsmallbrassknob. Row2: openplumshouldermailsatchelwithtealstrap; ONEblankcreamindexslip uprightwiderthan tall, noangledtab; smallcream-framedphotoof2originalhumanfriends,oneblackbobtealapronandonebrownhairedcoralblouse, outsidecreamdoor. Row3: creamframedolderphotooftheSAME2womenunderatreeoneholdingguitar; blankcreamceramicdoorplatewith2plumscrews; matchingblankcoralplatewith2plumscrews. No text/numbers onplates. Photosmustlooklikeprintedpixelcartoonpictures, notphotographs. All exteriorspurealphaandno raggedpaperdebris.",
+      "path": "res://assets/faefever_v2/pelican_20261018/misc.png",
+      "sha256": "b25c2d0748efec0b463a5c2c4955fd950f6f12c8e35a887f71a3e09cbbf7dd5f",
+      "native_dimensions": [
+        1374,
+        1145
+      ],
+      "mode": "RGBA",
+      "status": "registered_image_inspected_runtime_QA_pending"
+    },
+    {
+      "id": "town_map",
+      "prompt": "ProductionoriginalDearSomewhereTOWNMAP, transparentoutsideonefoldedcreampaper. Image1STYLEONLYfromPelicanPostinsetgameplay,IGNOREmarketingborder/UI/characters;image2isexistingAI-generatedmapLAYOUTONLY. KeepALLSEVENlandmarks'positions/shapesandconnectingpathsEXACTLYimage2, butnewcrispchunkypixelcartoonoutlinesandlargecleanflats,notchalkorgrain. Upperleftchessundertree;uppermiddlecommunityhouse;upperrightlighthouseonheadland;middleleftpostoffice;centralbusshelter;lowercenterresidential2houses;lowerrightparcelshop. Narrowblue-green seastripfarright;blankcreamfoldedpaperbetweenlandmarksforruntimelabels;subtlefoldlines. Nolettering,writings,extraicons,characters,plantsorbuildings. OriginalmapnotactualPelicanmap,frontflatpaperviewnot3D/isometric,limitedtwotoneshadows,tealcoralplumcreamcolors. Matchsamefull16:9canvaslayout. Genuinepurealphaexterior, nohalos, shadowgloworbackground.",
+      "path": "res://assets/faefever_v2/pelican_20261018/town_map.png",
+      "sha256": "158876d1bd48dc4db7484912af448073d5418b7c292cc6a29b597e6e68dbf6cb",
+      "native_dimensions": [
+        1672,
+        941
+      ],
+      "mode": "RGBA",
+      "status": "registered_image_inspected_runtime_QA_pending"
+    },
+    {
+      "id": "wall_closeup",
+      "prompt": "OriginalDearSomewhereinteractivewallcloseup,16:9opaque. MatchONLYactualinsetPelicanPostgameplaystyle:image1styleonly,ignoremarketingframeandcast. A nearlyflat cleanwarmcreamplasterwallmadefrom3-4large simpleflatplanes withrestrained1tonepaintedshadow, NOgrains,cracks,distressing,brickclutter,grungeorlightinggradient. ONLY2smallplumscrewheadsatx37%and63%,y48% usedtoseatinteractivehouseplateoverlay. NO bakedplaques,letters,decorations. Pixel-steppedcontoursaroundtwoscrews, simpleflatbackgroundlargeplanes. No3D,isometric,photorealism,frame,people. Fullhorizontal16:9.",
+      "path": "res://assets/faefever_v2/pelican_20261018/wall_closeup.png",
+      "sha256": "e18497e38ed42dc74b0561f69018f9ce547137a54502376e2d6fe78d8816a2bf",
+      "native_dimensions": [
+        1672,
+        941
+      ],
+      "mode": "RGB",
+      "status": "registered_image_inspected_runtime_QA_pending"
+    },
+    {
+      "id": "case_lid",
+      "prompt": "ONE isolated production sprite forDearSomewhere: flatTEALpostalcaseLIDONLY, ONEwidehorizontalrectangularpanelaspect4:1, frontorthographic, continuousstraighthorizontaltopandbottomedges,slightlyroundedcorners;two tinybrasshingesflushattopedge. NO handle, latches,base,casebody,contents,extrahardware orshadowbelowpanel. This4:1plainpanelwillarticulateoveraseparatebase;bottomedgeMUSTbecontinuousfullwidthsolidteal,nodanglingtabs.Pixelcartoonstyleofimage1actualinsetPelicanPostgameplay:chunkydarkplumcleancontour,flatcolors,oneshadowtone,verylowdetail,nochalk/grain,3D,realism,glossorgradient. Ignoreofficialreferenceframe/UI/cast. Purealphaallaroundthissinglepanel,fullysolidinside,noglow/halos/text. Widecanvasmatchingpanelaspectwithmodesttransparentpadding.",
+      "path": "res://assets/faefever_v2/pelican_20261018/case_lid.png",
+      "sha256": "c0ac464b6ed8ab08fa5d6a23c677cfc6900d9339f732fd7aab857c077723875a",
+      "native_dimensions": [
+        2172,
+        724
+      ],
+      "mode": "RGBA",
+      "status": "registered_image_inspected_runtime_QA_pending"
+    },
+    {
+      "id": "dialogue_notebook",
+      "prompt": "ONE blankdialoguenotepaperSPRITEforDearSomewhere.Transparentbackground. Image1STYLEONLYactualinsetPelicanPostgameplay:crispdarkplumpixeloutlines,broadflatcreamplanes,restrainedtwotoneshade,nochalk/grain/gloss/3D. IGNOREreference1marketingpostcardframe/UI/animalcast. Image2isourAI-generatedOLDNOTEBOOKlayoutONLY: keep verywidehorizontalblankpaperbodyabout3:1ratio, sixsmallpunchedholesdownLEFTedge,tealbackingjustvisiblebehind,ONEsmallblankcreamnameslipontopLEFT,andonefoldedlowerRIGHTpagecorner.Preserveeverything'sboundsandclearcentralblanktextareafromimage2. Noletters,lines,text,cues,arrows,embellishments. Smallholesgenuinelytransparent;paperbodyopaque. NOglow,raggedwhitehaze,backgroundoraddedlabels. Minimal2Dpixelcartoonnotpaintedrealism.",
+      "path": "res://assets/faefever_v2/pelican_20261018/dialogue_notebook.png",
+      "sha256": "47967787c034ec3d0f8f3c7fa369e6cdfd12ad1e6aace5460772c4b7ae21c8f3",
+      "native_dimensions": [
+        2087,
+        753
+      ],
+      "mode": "RGBA",
+      "status": "registered_image_inspected_runtime_QA_pending"
+    }
+  ]
+}

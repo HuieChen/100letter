@@ -1,0 +1,654 @@
+{
+  "scope": "One complete current 40-suite source matrix after generated-art registration and final Chinese font weight; GPU InputEvent routes, not human/native acceptance. Actual current PCK inspector and official headless release boot; no release GPU/native window opened.",
+  "runtime_suites": [
+    {
+      "suite": "amended_handoff",
+      "checks": 215,
+      "failures": 0,
+      "raw_log": "docs/testing/pelican-font_20261019/logs/amended_handoff.log"
+    },
+    {
+      "suite": "audio_shutdown_input",
+      "checks": 37,
+      "failures": 0,
+      "raw_log": "docs/testing/pelican-font_20261019/logs/audio_shutdown_input.log"
+    },
+    {
+      "suite": "coastal_layout_input",
+      "checks": 1975,
+      "failures": 0,
+      "raw_log": "docs/testing/pelican-font_20261019/logs/coastal_layout_input.log"
+    },
+    {
+      "suite": "coastal_physics_input",
+      "checks": 21,
+      "failures": 0,
+      "raw_log": "docs/testing/pelican-font_20261019/logs/coastal_physics_input.log"
+    },
+    {
+      "suite": "coastal_settings_input",
+      "checks": 501,
+      "failures": 0,
+      "raw_log": "docs/testing/pelican-font_20261019/logs/coastal_settings_input.log"
+    },
+    {
+      "suite": "core_review_input",
+      "checks": 223,
+      "failures": 0,
+      "raw_log": "docs/testing/pelican-font_20261019/logs/core_review_input.log"
+    },
+    {
+      "suite": "counter_onboarding_input",
+      "checks": 54,
+      "failures": 0,
+      "raw_log": "docs/testing/pelican-font_20261019/logs/counter_onboarding_input.log"
+    },
+    {
+      "suite": "courier_visual_probe",
+      "checks": 46,
+      "failures": 0,
+      "raw_log": "docs/testing/pelican-font_20261019/logs/courier_visual_probe.log"
+    },
+    {
+      "suite": "display_preferences_input",
+      "checks": 547,
+      "failures": 0,
+      "raw_log": "docs/testing/pelican-font_20261019/logs/display_preferences_input.log"
+    },
+    {
+      "suite": "envelope_text_bounds_smoke",
+      "checks": 21,
+      "failures": 0,
+      "raw_log": "docs/testing/pelican-font_20261019/logs/envelope_text_bounds_smoke.log"
+    },
+    {
+      "suite": "field_book_smoke",
+      "checks": 1626,
+      "failures": 0,
+      "raw_log": "docs/testing/pelican-font_20261019/logs/field_book_smoke.log"
+    },
+    {
+      "suite": "field_observation_smoke",
+      "checks": 247,
+      "failures": 0,
+      "raw_log": "docs/testing/pelican-font_20261019/logs/field_observation_smoke.log"
+    },
+    {
+      "suite": "final_case_state_smoke",
+      "checks": 3356,
+      "failures": 0,
+      "raw_log": "docs/testing/pelican-font_20261019/logs/final_case_state_smoke.log"
+    },
+    {
+      "suite": "final_host_boundary_smoke",
+      "checks": 55,
+      "failures": 0,
+      "raw_log": "docs/testing/pelican-font_20261019/logs/final_host_boundary_smoke.log"
+    },
+    {
+      "suite": "final_resolution_draft_smoke",
+      "checks": 42,
+      "failures": 0,
+      "raw_log": "docs/testing/pelican-font_20261019/logs/final_resolution_draft_smoke.log"
+    },
+    {
+      "suite": "final_walker_smoke",
+      "checks": 61,
+      "failures": 0,
+      "raw_log": "docs/testing/pelican-font_20261019/logs/final_walker_smoke.log"
+    },
+    {
+      "suite": "five_case_delegate",
+      "checks": 347,
+      "failures": 0,
+      "raw_log": "docs/testing/pelican-font_20261019/logs/five_case_delegate.log"
+    },
+    {
+      "suite": "five_case_sealed",
+      "checks": 345,
+      "failures": 0,
+      "raw_log": "docs/testing/pelican-font_20261019/logs/five_case_sealed.log"
+    },
+    {
+      "suite": "game_identity_input",
+      "checks": 12,
+      "failures": 0,
+      "raw_log": "docs/testing/pelican-font_20261019/logs/game_identity_input.log"
+    },
+    {
+      "suite": "lemon_companion_input",
+      "checks": 190,
+      "failures": 0,
+      "raw_log": "docs/testing/pelican-font_20261019/logs/lemon_companion_input.log"
+    },
+    {
+      "suite": "lemon_matte_render",
+      "checks": 25,
+      "failures": 0,
+      "raw_log": "docs/testing/pelican-font_20261019/logs/lemon_matte_render.log"
+    },
+    {
+      "suite": "lemon_press_gui_input",
+      "checks": 55,
+      "failures": 0,
+      "raw_log": "docs/testing/pelican-font_20261019/logs/lemon_press_gui_input.log"
+    },
+    {
+      "suite": "lemon_press_input",
+      "checks": 33,
+      "failures": 0,
+      "raw_log": "docs/testing/pelican-font_20261019/logs/lemon_press_input.log"
+    },
+    {
+      "suite": "mail_physics_state_smoke",
+      "checks": 728,
+      "failures": 0,
+      "raw_log": "docs/testing/pelican-font_20261019/logs/mail_physics_state_smoke.log"
+    },
+    {
+      "suite": "mail_workbench_input_smoke",
+      "checks": 170,
+      "failures": 0,
+      "raw_log": "docs/testing/pelican-font_20261019/logs/mail_workbench_input_smoke.log"
+    },
+    {
+      "suite": "notebook_dialogue_input",
+      "checks": 54,
+      "failures": 0,
+      "raw_log": "docs/testing/pelican-font_20261019/logs/notebook_dialogue_input.log"
+    },
+    {
+      "suite": "pointer_window_focus_input",
+      "checks": 15,
+      "failures": 0,
+      "raw_log": "docs/testing/pelican-font_20261019/logs/pointer_window_focus_input.log"
+    },
+    {
+      "suite": "postal_desk_live_queue",
+      "checks": 28,
+      "failures": 0,
+      "raw_log": "docs/testing/pelican-font_20261019/logs/postal_desk_live_queue.log"
+    },
+    {
+      "suite": "posted_notice_input",
+      "checks": 1368,
+      "failures": 0,
+      "raw_log": "docs/testing/pelican-font_20261019/logs/posted_notice_input.log"
+    },
+    {
+      "suite": "preferences_smoke",
+      "checks": 22,
+      "failures": 0,
+      "raw_log": "docs/testing/pelican-font_20261019/logs/preferences_smoke.log"
+    },
+    {
+      "suite": "resolution_slip_smoke",
+      "checks": 75,
+      "failures": 0,
+      "raw_log": "docs/testing/pelican-font_20261019/logs/resolution_slip_smoke.log"
+    },
+    {
+      "suite": "scene_dialogue_input_smoke",
+      "checks": 19,
+      "failures": 0,
+      "raw_log": "docs/testing/pelican-font_20261019/logs/scene_dialogue_input_smoke.log"
+    },
+    {
+      "suite": "settings_art_edges_input",
+      "checks": 146,
+      "failures": 0,
+      "raw_log": "docs/testing/pelican-font_20261019/logs/settings_art_edges_input.log"
+    },
+    {
+      "suite": "settings_effects_input",
+      "checks": 51,
+      "failures": 0,
+      "raw_log": "docs/testing/pelican-font_20261019/logs/settings_effects_input.log"
+    },
+    {
+      "suite": "settings_manipulation_input",
+      "checks": 10,
+      "failures": 0,
+      "raw_log": "docs/testing/pelican-font_20261019/logs/settings_manipulation_input.log"
+    },
+    {
+      "suite": "settings_save_failure_input",
+      "checks": 82,
+      "failures": 0,
+      "raw_log": "docs/testing/pelican-font_20261019/logs/settings_save_failure_input.log"
+    },
+    {
+      "suite": "tactile_mail_input",
+      "checks": 86,
+      "failures": 0,
+      "raw_log": "docs/testing/pelican-font_20261019/logs/tactile_mail_input.log"
+    },
+    {
+      "suite": "visible_ripple_input",
+      "checks": 833,
+      "failures": 0,
+      "raw_log": "docs/testing/pelican-font_20261019/logs/visible_ripple_input.log"
+    },
+    {
+      "suite": "water_feedback_input",
+      "checks": 193,
+      "failures": 0,
+      "raw_log": "docs/testing/pelican-font_20261019/logs/water_feedback_input.log"
+    },
+    {
+      "suite": "water_field_input",
+      "checks": 24,
+      "failures": 0,
+      "raw_log": "docs/testing/pelican-font_20261019/logs/water_field_input.log"
+    }
+  ],
+  "runtime_checks": 13938,
+  "runtime_failures": 0,
+  "supplemental_engine_close_checks": 29,
+  "generated_roles_replaced": 54,
+  "unchanged_authored_roles": 18,
+  "source_sha256": {
+    "assets/faefever_v2/manifest.json": "b7ec1be6ba265950633cb092fa9080d0706d6e19d6c17f8e984212dee114bc70",
+    "assets/fonts/ChillRoundF.ttf": "ebeb471ae9778a26012a18136f8a9ae99450832cd8bb259265684720d60839f0",
+    "assets/fonts/ChillRoundF-OFL.txt": "d45891f8adfd21368c98e803603df1f575ff3fc4a6ec713ba7ccf0e3cba15b28",
+    "assets/fonts/settings-font-provenance.json": "5328d0ad69f7210e8cd1e1185215db66fcbd9735fe628bed271e1486def462f3",
+    "scripts/ui/coastal_settings.gd": "902e45c74ba0d4fbb8e99b47758fcb4bd886ff0463e66f7fc4dcba5247299042",
+    "tests/packaged_content_smoke.gd": "679d2d553ecdb4f7966cd25b413c5baabe9eb75a4f25eae003547240c3ed22cd",
+    "tests/coastal_settings_input.gd": "c00d204133cfafbf5388cc3c47df5bfd7a87b6696a079fc48ea6941b73140df8",
+    "export_presets.cfg": "0e8c82cbe3cb5ba4893209fc8b9a8a04d99dffdd469f4227a16ddddc2cdddfdc"
+  },
+  "limits": [
+    "Full native OS-input route not assessed under background-only instruction.",
+    "No human listening or novice usability approval.",
+    "Explicit authored courier and Settings artwork remain visual exceptions.",
+    "Long new three-letter/wax story is not implemented by the existing five cases.",
+    "Earlier periodic-water image-matching nondeterminism remains unresolved; this current suite passed unchanged."
+  ],
+  "artifacts": [
+    {
+      "path": "docs/testing/pelican-font_20261019/logs/amended_handoff.log",
+      "bytes": 11249,
+      "sha256": "37fa633db46678a6dc309e9b5541b29d9e7d7c2d37f72416baec2005646289e1"
+    },
+    {
+      "path": "docs/testing/pelican-font_20261019/logs/audio_shutdown_input.log",
+      "bytes": 1534,
+      "sha256": "ee3ca55361f0bf838aa0af15fbbfe68394ecea671d4ae9d93ea51afb686d5664"
+    },
+    {
+      "path": "docs/testing/pelican-font_20261019/logs/coastal_layout_input.log",
+      "bytes": 227,
+      "sha256": "1d58b27e994cb7aaefb0b74116b20eb3743f6ca97f6ab247a65b0bc3def006fc"
+    },
+    {
+      "path": "docs/testing/pelican-font_20261019/logs/coastal_physics_input.log",
+      "bytes": 220,
+      "sha256": "9173ee7fa26210de884b260121d7154110922fad12e5f66ea136b0eeffc2926b"
+    },
+    {
+      "path": "docs/testing/pelican-font_20261019/logs/coastal_settings_input.log",
+      "bytes": 1017,
+      "sha256": "8d39cbbb6570bdcd26dd20217ab68d2eb0bb3c6c3da44e54e1cbb0ebcd8a52da"
+    },
+    {
+      "path": "docs/testing/pelican-font_20261019/logs/core_review_input.log",
+      "bytes": 9615,
+      "sha256": "8e084ee95d4c4cef5ad2e32250cdd9a72b2e3af4336adffa4bc98e0cf7ec419d"
+    },
+    {
+      "path": "docs/testing/pelican-font_20261019/logs/counter_onboarding_input.log",
+      "bytes": 2839,
+      "sha256": "19dcf34e06416eb12d4c916229938b4a4781d6700f120011df4c463e2e4cd56d"
+    },
+    {
+      "path": "docs/testing/pelican-font_20261019/logs/courier_visual_probe.log",
+      "bytes": 219,
+      "sha256": "86cf9c283d56c09625af26484e3abedecfae4dd1e5a53cb98166d1852d169da6"
+    },
+    {
+      "path": "docs/testing/pelican-font_20261019/logs/display_preferences_input.log",
+      "bytes": 22717,
+      "sha256": "a1e0ff11f0949a385d9312dc99f6e4fa25fe5c2e5ce35db3815cc4a58f5813a0"
+    },
+    {
+      "path": "docs/testing/pelican-font_20261019/logs/envelope_text_bounds_smoke.log",
+      "bytes": 117,
+      "sha256": "4a14c39efe0c00c09ebaa7a798eea9497cb857ae14aae26ad87e17c98f8822d5"
+    },
+    {
+      "path": "docs/testing/pelican-font_20261019/logs/field_book_smoke.log",
+      "bytes": 9663,
+      "sha256": "e40ff99b59ac88fe5a91aa89734494b5c6b8ffa6aab6d8b58f739db2af056c67"
+    },
+    {
+      "path": "docs/testing/pelican-font_20261019/logs/field_observation_smoke.log",
+      "bytes": 222,
+      "sha256": "3c2690952dc00eccce556e511faeb8a85d86c3979cf10dd4d4e86af5b1f8b65c"
+    },
+    {
+      "path": "docs/testing/pelican-font_20261019/logs/final_case_state_smoke.log",
+      "bytes": 115,
+      "sha256": "1d415096141938b58a453044776fbde6d3ba77897bca6fdd0f13bc52745f3c2a"
+    },
+    {
+      "path": "docs/testing/pelican-font_20261019/logs/final_host_boundary_smoke.log",
+      "bytes": 223,
+      "sha256": "6a236d6c18a8a41db60ecb669324e1f259d828aafe2bccef92770c7a61db2880"
+    },
+    {
+      "path": "docs/testing/pelican-font_20261019/logs/final_resolution_draft_smoke.log",
+      "bytes": 245,
+      "sha256": "b59576f9818c04f4d3b41442b33339c38e06d2e43874c41bf27b5f92f0ad6d50"
+    },
+    {
+      "path": "docs/testing/pelican-font_20261019/logs/final_walker_smoke.log",
+      "bytes": 3869,
+      "sha256": "1c3f96ef2ac524d0789ced472c30832535d1917c130de65c77a2f6d57706c9c5"
+    },
+    {
+      "path": "docs/testing/pelican-font_20261019/logs/five_case_delegate.log",
+      "bytes": 17080,
+      "sha256": "985365e8c04f2dc175539b451c41acd3fdcfe22dd904f05c56ded6c9bf2397b1"
+    },
+    {
+      "path": "docs/testing/pelican-font_20261019/logs/five_case_sealed.log",
+      "bytes": 16995,
+      "sha256": "e6d18314c115699cae1e12ab3455e5bc2406e2bb61f40b2843b925f6180186ab"
+    },
+    {
+      "path": "docs/testing/pelican-font_20261019/logs/game_identity_input.log",
+      "bytes": 224,
+      "sha256": "2d58334e94f7d283f5301519ae49a8693a8e242f6306a18a49f3214f46a17959"
+    },
+    {
+      "path": "docs/testing/pelican-font_20261019/logs/lemon_companion_input.log",
+      "bytes": 227,
+      "sha256": "a1c1ddf7ab44b28753956c4459d3b83a38ce6809320a1454dcc0f0bf1aab6c5d"
+    },
+    {
+      "path": "docs/testing/pelican-font_20261019/logs/lemon_matte_render.log",
+      "bytes": 223,
+      "sha256": "4565938770699ba375f1be6f2c5a2860d493b7608b0c32fb51e7177ad3bbcb9d"
+    },
+    {
+      "path": "docs/testing/pelican-font_20261019/logs/lemon_press_gui_input.log",
+      "bytes": 226,
+      "sha256": "730ce85fcef97e1a9f910998de45ee8fc5b7f9cc6b5f4308722eb8578fc345db"
+    },
+    {
+      "path": "docs/testing/pelican-font_20261019/logs/lemon_press_input.log",
+      "bytes": 222,
+      "sha256": "4bdaf2b964cc0cc4707dfefaaec6b7f04115d9e4143174e0a80a307553bcd79e"
+    },
+    {
+      "path": "docs/testing/pelican-font_20261019/logs/mail_physics_state_smoke.log",
+      "bytes": 116,
+      "sha256": "75cee30ca671f8085b6b733c543df8999bf335b19e050f73c834d057c478245b"
+    },
+    {
+      "path": "docs/testing/pelican-font_20261019/logs/mail_workbench_input_smoke.log",
+      "bytes": 225,
+      "sha256": "44cd4cf8c44d5616b195df2faa926f3620c3ee16d3d7c30e0fcb5b661134e855"
+    },
+    {
+      "path": "docs/testing/pelican-font_20261019/logs/notebook_dialogue_input.log",
+      "bytes": 222,
+      "sha256": "4348511a1424ee508f4d67bee85e35bafb29c9df228d65fd762896e79cd798c3"
+    },
+    {
+      "path": "docs/testing/pelican-font_20261019/logs/pointer_window_focus_input.log",
+      "bytes": 1366,
+      "sha256": "cb836195c2206d1ebfde8bb3706cbe106cf6da01830071122fc054e134b9230e"
+    },
+    {
+      "path": "docs/testing/pelican-font_20261019/logs/postal_desk_live_queue.log",
+      "bytes": 119,
+      "sha256": "2d890813e2b3c8cd4b33b94d08d286609657c80ef6ba809a3ebaa74d00b21ee8"
+    },
+    {
+      "path": "docs/testing/pelican-font_20261019/logs/posted_notice_input.log",
+      "bytes": 219,
+      "sha256": "9f7b45677d318959c3c67adde227aea8c255d1af6bb76624c7932d3bff17f3f5"
+    },
+    {
+      "path": "docs/testing/pelican-font_20261019/logs/preferences_smoke.log",
+      "bytes": 109,
+      "sha256": "c9c24fd4f06a6ebc8bffa55f43826577d0b48b0e0c441479dbdd79a5b0e531fe"
+    },
+    {
+      "path": "docs/testing/pelican-font_20261019/logs/resolution_slip_smoke.log",
+      "bytes": 219,
+      "sha256": "f76170808408518a2a72ef54209151855b29b923bb50c79e34f5c85a6f5ff33a"
+    },
+    {
+      "path": "docs/testing/pelican-font_20261019/logs/scene_dialogue_input_smoke.log",
+      "bytes": 117,
+      "sha256": "8484f90784adce7ab17276b09ac8819a764e50e2bbf925c70563102258fcfdb7"
+    },
+    {
+      "path": "docs/testing/pelican-font_20261019/logs/settings_art_edges_input.log",
+      "bytes": 230,
+      "sha256": "c38cc6a067cc2241e94e450411ec59c115225b453c4e534137ec978ad04ab27c"
+    },
+    {
+      "path": "docs/testing/pelican-font_20261019/logs/settings_effects_input.log",
+      "bytes": 2430,
+      "sha256": "fbe3cf0bbcc15e856ff6f7b4aae7d2397ed0835a91734c7f33fc2fcc0ca7a05c"
+    },
+    {
+      "path": "docs/testing/pelican-font_20261019/logs/settings_manipulation_input.log",
+      "bytes": 787,
+      "sha256": "09e193c2b3e45b55a407623a2ece02df3381a18c727f9c2a9415f15f4ab239ad"
+    },
+    {
+      "path": "docs/testing/pelican-font_20261019/logs/settings_save_failure_input.log",
+      "bytes": 2965,
+      "sha256": "ce06af2e754c4b4ca5d2de7532a21a7bb8e4583a8c96a46df483c200916977cc"
+    },
+    {
+      "path": "docs/testing/pelican-font_20261019/logs/tactile_mail_input.log",
+      "bytes": 5571,
+      "sha256": "5f165212d859ce1ac63cf144d70e5152234a0f37e5a963ffce824b1eed54f067"
+    },
+    {
+      "path": "docs/testing/pelican-font_20261019/logs/visible_ripple_input.log",
+      "bytes": 226,
+      "sha256": "ab40afd9ee09b6c14d8991424389e4c9ae83b1eb77775b742acd95033eed9fb2"
+    },
+    {
+      "path": "docs/testing/pelican-font_20261019/logs/water_feedback_input.log",
+      "bytes": 226,
+      "sha256": "b1f4ca6b2cf785ad1f8738196c7d81e4afe882bb51f705f98b49691efe529c8d"
+    },
+    {
+      "path": "docs/testing/pelican-font_20261019/logs/water_field_input.log",
+      "bytes": 295,
+      "sha256": "86be8693f5df9348c84e7ea799aab899c7f65685c30ccb422159c937050ec2d5"
+    },
+    {
+      "path": "docs/testing/pelican-font_20261019/python/pelican-test_studio_all.py.log",
+      "bytes": 4638,
+      "sha256": "cb97d8b0a8417a8341d9a28967e63f63a086773b5de1448cba9c5c59750a9027"
+    },
+    {
+      "path": "docs/testing/pelican-font_20261019/python/pelican-test_pastel_assets.py.log",
+      "bytes": 583,
+      "sha256": "2f1585714fcae2f784887069bb2b995f2fde6ceb442dccbce490d5e82fc791a9"
+    },
+    {
+      "path": "docs/testing/pelican-font_20261019/python/pelican-test_video_courier.py.log",
+      "bytes": 1579,
+      "sha256": "461ccd50de53c96a1525fb53dc8c2ae36d27a9dc696c7bf16bd0bc710660c11a"
+    },
+    {
+      "path": "docs/testing/pelican-font_20261019/python/pelican-test_settings_media.py.log",
+      "bytes": 871,
+      "sha256": "db226dcfd950d250529e56e0ca75e667567f5c7e0277dc7c52d3139db405a6c4"
+    },
+    {
+      "path": "docs/testing/pelican-font_20261019/screenshots/settings/en_1920.png",
+      "bytes": 1767014,
+      "sha256": "d5bbb2ebed99566cda6e9f358be22e39f3b9473476b61a128e7096447e266199"
+    },
+    {
+      "path": "docs/testing/pelican-font_20261019/screenshots/settings/en_dropdown_display_mode_1920.png",
+      "bytes": 1781720,
+      "sha256": "bfe39a34d1556f7375d82d853552966b5b40f1b04df52b769c60456b71cef274"
+    },
+    {
+      "path": "docs/testing/pelican-font_20261019/screenshots/settings/en_dropdown_language_1920.png",
+      "bytes": 1771242,
+      "sha256": "aefcc8b7d7b46dae7d94a8608a726ad249a1d9b9149134eea03f2ae2901e2321"
+    },
+    {
+      "path": "docs/testing/pelican-font_20261019/screenshots/settings/en_dropdown_resolution_1920.png",
+      "bytes": 1786460,
+      "sha256": "5d970caa012787059ae1264ecbd5ee51067ba400a1ab585b9dc2364b1679e761"
+    },
+    {
+      "path": "docs/testing/pelican-font_20261019/screenshots/settings/en_dropdown_text_speed_1920.png",
+      "bytes": 1781711,
+      "sha256": "0eae550c69581943e07e2ddaedf3284065724896134d2ef02b67a9d0b0bdb188"
+    },
+    {
+      "path": "docs/testing/pelican-font_20261019/screenshots/settings/zh_1920.png",
+      "bytes": 1742527,
+      "sha256": "f8b3d30c38077912506950615fd98c0aeb024dcb1bc94dfbb4b5a2d3b05feffc"
+    },
+    {
+      "path": "docs/testing/pelican-font_20261019/screenshots/settings/zh_dropdown_display_mode_1920.png",
+      "bytes": 1749707,
+      "sha256": "bb1b63a411f0fbb7ea1c3f7880e290e2100ecdc79bb4ea196c31b53be08fcae5"
+    },
+    {
+      "path": "docs/testing/pelican-font_20261019/screenshots/settings/zh_dropdown_language_1920.png",
+      "bytes": 1749943,
+      "sha256": "02911a140643a4d10be1638fa2e41ae2cfcad9a65aa7a33bb1c221ea2486f8af"
+    },
+    {
+      "path": "docs/testing/pelican-font_20261019/screenshots/settings/zh_dropdown_resolution_1920.png",
+      "bytes": 1763200,
+      "sha256": "9e6ac31a90d7278a24ee7cc53f5ce152baafd0dcc0bbaef7caf1d71669d970ee"
+    },
+    {
+      "path": "docs/testing/pelican-font_20261019/screenshots/settings/zh_dropdown_text_speed_1920.png",
+      "bytes": 1750157,
+      "sha256": "7a4b36b464861a6ee274128cdb47ef2cfc5d1f32506f225d7ad03e5b1881b3d8"
+    },
+    {
+      "path": "docs/testing/pelican-font_20261019/screenshots/world/world_post_office.png",
+      "bytes": 1600504,
+      "sha256": "1d06b63ff63495bbb80cc629b0660364e58374c3387d6bf9583419ca5d5dca42"
+    },
+    {
+      "path": "docs/testing/pelican-font_20261019/screenshots/world/world_residential.png",
+      "bytes": 1516565,
+      "sha256": "ce735c1b74e43ec34ec3693fc2c61f37efad9445d1625899c455e1dfb88026d6"
+    },
+    {
+      "path": "docs/testing/pelican-font_20261019/screenshots/world/world_community_center.png",
+      "bytes": 1672958,
+      "sha256": "52471ec01e32b1e58a2107d1178bff40c9d3f7dc5e9d01d393ba961ce02e553b"
+    },
+    {
+      "path": "docs/testing/pelican-font_20261019/screenshots/world/world_tarot_shop.png",
+      "bytes": 1711486,
+      "sha256": "0aa26dd4503f4d1ccc1efa7bcff3883029160c8ec13e905b5a4306c381f93bff"
+    },
+    {
+      "path": "docs/testing/pelican-font_20261019/screenshots/route/02_counter_first_mail.png",
+      "bytes": 836523,
+      "sha256": "50e2dd35732ed8e2ea5b6c0baaa384e18595f5a76b557e8e1393292fa03500ab"
+    },
+    {
+      "path": "docs/testing/pelican-font_20261019/screenshots/route/03_notice_presented.png",
+      "bytes": 658893,
+      "sha256": "7f78a4a58b7e18d6fb0e284b9355f195122ab95234ba659e05b012716308649a"
+    },
+    {
+      "path": "docs/testing/pelican-font_20261019/screenshots/route/07_field_archive.png",
+      "bytes": 548686,
+      "sha256": "9b71d86b32cdc7be9904dbd33b3a52720ac4a2cd86846ae34b9cb56e8dac0ee5"
+    },
+    {
+      "path": "docs/testing/pelican-font_20261019/screenshots/route/complete_ending.png",
+      "bytes": 655092,
+      "sha256": "ef7576e3ce03022af0c12ffbbb152ae371123c075a9930e2603cce2fb5751f2a"
+    },
+    {
+      "path": "docs/testing/pelican-font_20261019/results/sealed.json",
+      "bytes": 261829,
+      "sha256": "c7074127dae1cfe05331f9437665711b7a84ab45616330ba72d6a02da0ae696c"
+    },
+    {
+      "path": "docs/testing/pelican-font_20261019/results/delegate.json",
+      "bytes": 267319,
+      "sha256": "c842d4e1845ba468d5546e15f187a39d6ad5e9ba5b86bace57b6a0fba28b758c"
+    },
+    {
+      "path": "docs/testing/pelican-font_20261019/results/settings.json",
+      "bytes": 767,
+      "sha256": "69a057200bfbc30b443f17954becbcbf8e9e199d388a26c6f4026ce6c20e34d7"
+    },
+    {
+      "path": "docs/testing/pelican-font_20261019/results/notices.json",
+      "bytes": 72797,
+      "sha256": "362ba184566413a3e8c92c6e7481612ce268cd612c72b129f29ab3466de3d94f"
+    },
+    {
+      "path": "docs/testing/pelican-font_20261019/results/engine-close.json",
+      "bytes": 601,
+      "sha256": "5d81d9fcd5ae357fce8ad8e911f928df725614e370a26de252c7a2f5092c51d3"
+    },
+    {
+      "path": "docs/testing/pelican-font_20261019/results/engine-reload.json",
+      "bytes": 8995,
+      "sha256": "704dc4c2fc9e53ac0c7334a0fa8f5dc7f80abb0bde302abc9acdb346695d16ae"
+    },
+    {
+      "path": "docs/testing/pelican-font_20261019/package/verification.json",
+      "bytes": 1630,
+      "sha256": "f7b108964174e11cf26703fe6cdf07c6b1b7cf72c9b2860ba425f26359d71d1b"
+    },
+    {
+      "path": "docs/testing/pelican-font_20261019/package/content.json",
+      "bytes": 1329,
+      "sha256": "cd88148da1bbe78585ac117c170573c16d402dad053f8e91aaf09243dd395014"
+    },
+    {
+      "path": "docs/testing/pelican-font_20261019/retained-failures/localized-font-name.log",
+      "bytes": 2343,
+      "sha256": "cab4cb01e310fc6d86343309e58589a22491d73532acd85d1daa3defa8fa967d"
+    },
+    {
+      "path": "docs/testing/pelican-font_20261019/retained-failures/old-package-style-assertion.json",
+      "bytes": 1401,
+      "sha256": "80acedbeecc6bbdf6149097094b4dd454fa498e8f44866207b86400b3323a0a0"
+    },
+    {
+      "path": "docs/testing/pelican-font_20261019/retained-failures/old-package-style-assertion.stderr.log",
+      "bytes": 67,
+      "sha256": "5e634ce0cfad2d0e428894b234821adb9a4b3a3678a016e27b85caf94b5137fe"
+    },
+    {
+      "path": "docs/testing/pelican-font_20261019/package/content.stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "docs/testing/pelican-font_20261019/package/content.stdout.log",
+      "bytes": 117,
+      "sha256": "79b94a8ba6f57585b2a6e72925c23775e6c211bd32c0767293c4f8539b79d957"
+    },
+    {
+      "path": "docs/testing/pelican-font_20261019/package/release-headless-boot.stderr.log",
+      "bytes": 250,
+      "sha256": "a797ada4520776562c8d6fc8223aedd60055d2a661518390b867c5026191884a"
+    },
+    {
+      "path": "docs/testing/pelican-font_20261019/package/release-headless-boot.stdout.log",
+      "bytes": 75,
+      "sha256": "83cf0b082206af2aa236c83064fbcfa76be1e00a4aa3558574b2f65965d9481c"
+    }
+  ]
+}

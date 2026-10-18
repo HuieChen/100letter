@@ -47,12 +47,14 @@ func configure(model:Node) -> void:
 	_build()
 func _configure_fonts()->void:
 	_font=FontVariation.new()
-	_font.base_font=load("res://assets/fonts/NotoSansSC.ttf") if preferences.values.language=="zh" else load("res://assets/fonts/DynaPuff.ttf")
+	_font.base_font=load("res://assets/fonts/ChillRoundF.ttf") if preferences.values.language=="zh" else load("res://assets/fonts/DynaPuff.ttf")
 	# FontVariation uses integer OpenType axis tags; string keys silently leave the font thin.
-	_font.variation_opentype={0x77676874:600.0} if preferences.values.language=="zh" else {0x77676874:700.0,0x77647468:100.0}
-	_font.fallbacks=[load("res://assets/fonts/ZCOOLKuaiLe.ttf"),load("res://assets/fonts/SolmereSans.ttf")]
+	_font.variation_opentype={} if preferences.values.language=="zh" else {0x77676874:700.0,0x77647468:100.0}
+	# Static OFL face; local raster weight leaves original font bytes/name intact.
+	_font.variation_embolden=0.6 if preferences.values.language=="zh" else 0.0
+	_font.fallbacks=[load("res://assets/fonts/NotoSansSC.ttf"),load("res://assets/fonts/SolmereSans.ttf")]
 	if preferences.values.language=="zh":
-		var title:=FontVariation.new();title.base_font=load("res://assets/fonts/NotoSansSC.ttf");title.variation_opentype={0x77676874:700.0};_headline=title
+		var title:=FontVariation.new();title.base_font=load("res://assets/fonts/ChillRoundF.ttf");title.variation_embolden=0.3;_headline=title
 	else:_headline=load("res://assets/fonts/LilitaOne.ttf").duplicate()
 	_headline.fallbacks=_font.fallbacks
 func _t(zh:String,en:String) -> String:return en if preferences.values.language=="en" else zh

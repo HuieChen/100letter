@@ -16,12 +16,12 @@ func _run() -> void:
 	_require_shader_hashes()
 	packaged_no_focus=bool(ProjectSettings.get_setting("display/window/size/no_focus",false))
 	_check(not packaged_no_focus,"actual player package does not contain the QA no-focus startup override")
-	for path:String in ["res://assets/fonts/DynaPuff-OFL.txt","res://assets/fonts/ZCOOLKuaiLe-OFL.txt","res://assets/fonts/LilitaOne-OFL.txt","res://assets/fonts/NotoSansSC-OFL.txt","res://assets/fonts/settings-font-provenance.json","res://assets/audio/foley/WATER_CC0.txt","res://assets/audio/foley/water-provenance.json","res://assets/audio/SETTINGS_MUSIC_CC0.txt","res://assets/audio/settings-music-provenance.json","res://third_party/webgl-water/LICENSE-MIT.txt"]:
+	for path:String in ["res://assets/fonts/DynaPuff-OFL.txt","res://assets/fonts/ZCOOLKuaiLe-OFL.txt","res://assets/fonts/LilitaOne-OFL.txt","res://assets/fonts/NotoSansSC-OFL.txt","res://assets/fonts/ChillRoundF-OFL.txt","res://assets/fonts/settings-font-provenance.json","res://assets/audio/foley/WATER_CC0.txt","res://assets/audio/foley/water-provenance.json","res://assets/audio/SETTINGS_MUSIC_CC0.txt","res://assets/audio/settings-music-provenance.json","res://third_party/webgl-water/LICENSE-MIT.txt"]:
 		_check(FileAccess.file_exists(path),"settings license/provenance exists in actual package "+path)
-	for name:String in ["DynaPuff","ZCOOLKuaiLe","LilitaOne"]:
+	for name:String in ["ChillRoundF","DynaPuff","LilitaOne"]:
 		var font:Font=load("res://assets/fonts/"+name+".ttf")
 		_check(font!=null,"actual settings font decodes "+name)
-		var chars:String="SettingsLanguageDisplayModeResolutionMasterVolumeMusicSFXMouseSensitivityTextSpeed" if name!="ZCOOLKuaiLe" else "设置语言显示模式分辨率总音乐效量鼠标灵敏度文字速度中文界面窗口全屏无边框慢快即时"
+		var chars:String="SettingsLanguageDisplayModeResolutionMasterVolumeMusicSFXMouseSensitivityTextSpeed" if name!="ChillRoundF" else "设置语言显示模式分辨率总音乐效量鼠标灵敏度文字速度中文界面窗口全屏无边框慢快即时"
 		for c:String in chars:_check(font.has_char(c.unicode_at(0)),"actual font glyph "+c)
 	_verify_packaged_shader("settings_water","water shader exists in actual package")
 	_check(load("res://scripts/ui/water_field.gd") is Script,"continuous surface-wave port exists in actual package")
@@ -68,7 +68,7 @@ func _run() -> void:
 	_check(load("res://scripts/rebuild/resolution_draft_store.gd") is Script,"unsealed draft persistence helper is packaged")
 	for helper:String in ["mail_imprint","physical_envelope"]:
 		_check(load("res://scripts/rebuild/"+helper+".gd") is Script,"physical envelope helper decodes from the actual package: "+helper)
-	_check(manifest.get("style_lock","")=="SOLMERE_SOFT_PASTEL_20261004","actual package selects the latest globally requested visual style")
+	_check(manifest.get("style_lock","")=="SOLMERE_PELICAN_PIXEL_20261018","actual package selects the latest globally requested visual style")
 	var main: Variant = load("res://scenes/final_slice.tscn")
 	_check(main is PackedScene, "release entry decodes as PackedScene")
 	if main is PackedScene:

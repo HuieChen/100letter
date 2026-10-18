@@ -40,5 +40,6 @@ docs/testing/coastal-settings_20261017-r4/** -text -eol -whitespace
 docs/testing/coastal-settings_20261017-r5/** -text -eol -whitespace
 docs/testing/courier-replacement_20261017-r7/** -text -eol -whitespace
 docs/testing/core-loop_20261018/** -text -eol -whitespace
+docs/testing/pelican-font_20261019/** -text -eol -whitespace
 third_party/webgl-water/** -text -eol -whitespace
 assets/fonts/*-OFL.txt -text -eol -whitespace

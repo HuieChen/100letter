@@ -1,5 +1,7 @@
 # Dear Somewhere — Pelican Post visual direction
 
+2026-10-19 registration checkpoint:54 generated roles now select16 inspected original outputs.18 authored Settings/courier roles remain unchanged. Actual current source GPU routes/layout and packaged-content checks completed; native/novice/listening and fully uniform global visual acceptance remain pending. See docs/testing/PELICAN_FONT_20261019.md. The candidate-only status described below is the intake history, not the current runtime selection.
+
 Authority: direct user instruction, 2026-10-18, “画风和pelican post的一样”. This supersedes the earlier Girl & Duck chalk/pastel direction for generated replacement art. It does not certify that the selected runtime has already migrated.
 
 ## Actual reference reviewed

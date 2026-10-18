@@ -1,0 +1,14 @@
+test_actual_curl_holes_are_clear_but_black_eyes_and_boots_survive (test_video_courier.VideoCourier.test_actual_curl_holes_are_clear_but_black_eyes_and_boots_survive) ... ok
+test_all_five_original_frames_keep_chronology_and_source_timing (test_video_courier.VideoCourier.test_all_five_original_frames_keep_chronology_and_source_timing) ... ok
+test_distinct_frame_pixels_match_recorded_extraction (test_video_courier.VideoCourier.test_distinct_frame_pixels_match_recorded_extraction) ... ok
+test_earlier_bitmaps_and_canonical_metadata_are_preserved (test_video_courier.VideoCourier.test_earlier_bitmaps_and_canonical_metadata_are_preserved) ... ok
+test_provenance_records_source_and_limits_without_private_paths (test_video_courier.VideoCourier.test_provenance_records_source_and_limits_without_private_paths) ... ok
+test_selected_manifest_is_exact_approved_version_and_has_no_sixth_pose (test_video_courier.VideoCourier.test_selected_manifest_is_exact_approved_version_and_has_no_sixth_pose) ... ok
+test_shared_anchor_preserves_original_pose_padding_and_idle_two (test_video_courier.VideoCourier.test_shared_anchor_preserves_original_pose_padding_and_idle_two) ... ok
+test_spatial_matte_does_not_globally_key_dark_ink_or_boots (test_video_courier.VideoCourier.test_spatial_matte_does_not_globally_key_dark_ink_or_boots) ... ok
+test_versioned_extractor_rejects_output_overwrite (test_video_courier.VideoCourier.test_versioned_extractor_rejects_output_overwrite) ... ok
+
+----------------------------------------------------------------------
+Ran 9 tests in 0.545s
+
+OK

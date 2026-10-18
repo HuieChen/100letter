@@ -1,0 +1,31 @@
+{
+	"checks": 424,
+	"engine": {
+		"build": "official",
+		"hash": "ed1daf0bf001b61586d9930840f2f1394092c079",
+		"hex": 263938,
+		"major": 4,
+		"minor": 7,
+		"patch": 2,
+		"status": "stable",
+		"string": "4.7.2-stable (official)",
+		"timestamp": 0
+	},
+	"expected_shader_sha256": {
+		"lemon_companion_water": "4bb28c60f562c08bf0922b06285742e3839dfb7cd663b557f67c9614140ebc5d",
+		"pdf_color_matte": "5934a0ca842731c794edb536051bc6acf228311d77c1a54cdcd3048b9b83b412",
+		"pdf_tape_matte": "ccbbeb568dbcc050efbd9e4a087b1edd92ed11a2b2bdb38c86aae3df40f1f5be",
+		"settings_water": "bd894b92f21f44606d10c1da1e6fc0ab9c1f5611e5c65168bb3f76a214398393"
+	},
+	"failures": [],
+	"main_pack": "",
+	"observed_shader_sha256": {
+		"lemon_companion_water": "4bb28c60f562c08bf0922b06285742e3839dfb7cd663b557f67c9614140ebc5d",
+		"pdf_color_matte": "5934a0ca842731c794edb536051bc6acf228311d77c1a54cdcd3048b9b83b412",
+		"pdf_tape_matte": "ccbbeb568dbcc050efbd9e4a087b1edd92ed11a2b2bdb38c86aae3df40f1f5be",
+		"settings_water": "bd894b92f21f44606d10c1da1e6fc0ab9c1f5611e5c65168bb3f76a214398393"
+	},
+	"packaged_no_focus": false,
+	"scope": "Actual PCK decoded by the matching Godot editor inspector and packaged entry initialized; separate release executable boot, complete native/human playthrough and listening are not implied.",
+	"suite": "packaged_content"
+}

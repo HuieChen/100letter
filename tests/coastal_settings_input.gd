@@ -18,8 +18,11 @@ func _run()->void:
 		await _click_named("OpenSettings")
 		_check(game.modal.get_script().resource_path.ends_with("coastal_settings.gd"),"title opens actual supplied-reference settings")
 		_check(game.modal.get_node("CloseSettings").text=="←","clear return arrow replaces the temporary generic cross")
-		_check(game.modal.get_node("SettingsHeading").get_theme_font("font").get_font_name().contains("Noto"),"Chinese headline uses its own measured typeface and centered layout")
-		_check(float(game.modal._font.variation_opentype.get(0x77676874,0))==600,"Chinese body uses the active 600 weight axis")
+		var chinese_headline:FontVariation=game.modal.get_node("SettingsHeading").get_theme_font("font")
+		_check(chinese_headline.base_font.resource_path.ends_with("ChillRoundF.ttf"),"Chinese headline loads the actual newly licensed rounded font in its measured layout")
+		_check(game.modal._font.base_font.resource_path.ends_with("ChillRoundF.ttf") and game.modal._font.variation_opentype.is_empty(),"Chinese controls use the actual static rounded font, not an unsupported weight axis")
+		for character:String in "设置语言简体中文显示模式全屏窗口无边框分辨率自动主音量音乐音效鼠标灵敏度文本速度快中慢立即界面文字返回未保存":
+			_check(game.modal._font.base_font.has_char(character.unicode_at(0)),"actual rounded font contains Chinese setting glyph "+character)
 		var speed_label:Label=game.modal.get_node("SettingLabel_text_speed")
 		var speed_glyph_width:=speed_label.get_theme_font("font").get_string_size(speed_label.text,HORIZONTAL_ALIGNMENT_LEFT,-1,speed_label.get_theme_font_size("font_size")).x
 		var speed_glyph_end:=speed_label.position.x+(speed_label.size.x+speed_glyph_width)*0.5

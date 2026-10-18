@@ -1,0 +1,26 @@
+{
+  "packaged_content_checks": 424,
+  "scope": "Actual PCK decoding using the matching editor inspector, then the official release executable HEADLESS boot; GPU/native package boot deferred under user background-only instruction. Isolated saves; no source game fallback.",
+  "release_headless_boot_exit": 0,
+  "observed_shader_sha256": {
+    "lemon_companion_water": "4bb28c60f562c08bf0922b06285742e3839dfb7cd663b557f67c9614140ebc5d",
+    "pdf_color_matte": "5934a0ca842731c794edb536051bc6acf228311d77c1a54cdcd3048b9b83b412",
+    "pdf_tape_matte": "ccbbeb568dbcc050efbd9e4a087b1edd92ed11a2b2bdb38c86aae3df40f1f5be",
+    "settings_water": "bd894b92f21f44606d10c1da1e6fc0ab9c1f5611e5c65168bb3f76a214398393"
+  },
+  "release_headless_frames_requested": 120,
+  "executable_sha256": "d34d36f3be1a6c49c56525ae86469b92e4f417ddf0b43cf00dd80c385c4b0562",
+  "expected_shader_sha256": {
+    "settings_water": "bd894b92f21f44606d10c1da1e6fc0ab9c1f5611e5c65168bb3f76a214398393",
+    "lemon_companion_water": "4bb28c60f562c08bf0922b06285742e3839dfb7cd663b557f67c9614140ebc5d",
+    "pdf_tape_matte": "ccbbeb568dbcc050efbd9e4a087b1edd92ed11a2b2bdb38c86aae3df40f1f5be",
+    "pdf_color_matte": "5934a0ca842731c794edb536051bc6acf228311d77c1a54cdcd3048b9b83b412"
+  },
+  "limits": [
+    "No full native input playthrough, visual reference acceptance or audio listening is implied.",
+    "Review stderr logs separately; Windows root certificate store warnings may occur."
+  ],
+  "packaged_content_failures": [],
+  "pck_sha256": "f127e2e0ba1b9298aa0c040051c2cedee0f9b55c266ed411ef7b05e480ab178d",
+  "packaged_no_focus": false
+}

@@ -1,0 +1,10 @@
+test_adopted_wave_source_is_pinned_and_licensed (test_settings_media.SettingsMedia.test_adopted_wave_source_is_pinned_and_licensed) ... ok
+test_fonts_have_pinned_bytes_and_original_ofl_notices (test_settings_media.SettingsMedia.test_fonts_have_pinned_bytes_and_original_ofl_notices) ... ok
+test_soundtrack_has_original_source_fingerprint_and_license (test_settings_media.SettingsMedia.test_soundtrack_has_original_source_fingerprint_and_license) ... ok
+test_water_and_stationery_have_distinct_alpha_and_hashes (test_settings_media.SettingsMedia.test_water_and_stationery_have_distinct_alpha_and_hashes) ... ok
+test_water_samples_are_real_short_decodable_recordings (test_settings_media.SettingsMedia.test_water_samples_are_real_short_decodable_recordings) ... ok
+
+----------------------------------------------------------------------
+Ran 5 tests in 0.110s
+
+OK
