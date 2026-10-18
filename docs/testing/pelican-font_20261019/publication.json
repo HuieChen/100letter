@@ -1,0 +1,42 @@
+{
+  "runtime_source_sha": "321c351815124980029f1552175212e37b84338c",
+  "remote_main_sha_observed": "321c351815124980029f1552175212e37b84338c",
+  "source_status": "PUBLISHED_TO_MAIN",
+  "release_url": "https://github.com/HuieChen/100letter/releases/tag/dear-somewhere-pelican-font-2026-10-19",
+  "release_source_tag_created": true,
+  "windows_asset_status": "NOT_UPLOADED_TRANSPORT_FAILURE",
+  "release_page_actual_observation": "Guest browser shows Assets 2: source ZIP and source TAR only; no Windows asset.",
+  "local_zip_path": "D:\\CodexBuilds\\DearSomewhere-Windows-Pelican-Font-20261019.zip",
+  "local_zip_bytes": 88043468,
+  "local_zip_sha256": "b1777b807f670c460352171c72bd7e2610cf1e07ddc5d56c2b75636607dbe7d4",
+  "zip_crc_and_pck_bytes_verified": true,
+  "pck_sha256": "f127e2e0ba1b9298aa0c040051c2cedee0f9b55c266ed411ef7b05e480ab178d",
+  "executable_sha256": "d34d36f3be1a6c49c56525ae86469b92e4f417ddf0b43cf00dd80c385c4b0562",
+  "ci_observed_in_fresh_browser": [
+    {
+      "source_sha": "321c351815124980029f1552175212e37b84338c",
+      "branch": "main",
+      "conclusion": "success",
+      "url": "https://github.com/HuieChen/100letter/actions/runs/39149304808"
+    },
+    {
+      "source_sha": "321c351815124980029f1552175212e37b84338c",
+      "branch": "dear-somewhere-pelican-font-2026-10-19",
+      "conclusion": "success",
+      "url": "https://github.com/HuieChen/100letter/actions/runs/39150528207"
+    },
+    {
+      "source_sha": "78ada94a98e7095c4aa0a3a7e37cf27984dfa871",
+      "branch": "main",
+      "conclusion": "success",
+      "url": "https://github.com/HuieChen/100letter/actions/runs/39148799224"
+    }
+  ],
+  "publication_limits": [
+    "Release create succeeded; binary-upload attempt timed out with zero bytes sent.",
+    "Subsequent API TLS connections reset across Windows curl, Node and bundled Git libcurl.",
+    "Browser guest session cannot edit/upload; no login dialog or native window was opened.",
+    "Only agent-owned zero-byte starter assets are eligible for retry cleanup; unrelated releases/assets remain untouched."
+  ],
+  "acceptance": "Scoped source/package review only; whole-game/native/novice/listening acceptance remains open."
+}
