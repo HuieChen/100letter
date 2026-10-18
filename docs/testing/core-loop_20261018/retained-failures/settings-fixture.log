@@ -1,0 +1,53 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+OpenGL API 3.3.0 NVIDIA 566.24 - Compatibility - Using Device: NVIDIA - NVIDIA GeForce RTX 4050 Laptop GPU
+
+PASS input target exists: OpenSettings
+PASS settings starts the actual music stream
+PASS actual drag reaches preference: master
+PASS actual slider moved: master
+PASS master zero really mutes Master
+PASS actual drag reaches preference: master
+PASS actual slider moved: master
+PASS raising master really unmutes output
+PASS master output gain matches drag
+PASS actual drag reaches preference: music
+PASS actual slider moved: music
+PASS music zero really mutes its mixer bus
+PASS muting music leaves effects available
+PASS actual drag reaches preference: music
+PASS actual slider moved: music
+PASS music drag changes actual mixer gain
+PASS menu and in-world music both use controlled bus
+PASS actual drag reaches preference: sfx
+PASS actual slider moved: sfx
+PASS SFX zero really mutes Foley
+PASS SFX zero also mutes environmental sound
+PASS muting SFX leaves music available
+PASS actual drag reaches preference: sfx
+PASS actual slider moved: sfx
+PASS SFX drag changes Foley and ambience gains
+PASS actual drag reaches preference: sensitivity
+PASS actual slider moved: sensitivity
+PASS input target exists: Setting_language
+PASS input target exists: Option_language_1
+PASS language changes actual title interface
+PASS input target exists: Setting_text_speed
+PASS input target exists: Option_text_speed_0
+PASS input target exists: CloseSettings
+PASS input target exists: NewShift
+PASS normal game creates supervisor dialogue
+PASS slow setting really reveals a partial line
+PASS input target exists: FinishBriefing
+PASS advance during typing reveals all text without skipping the dialogue
+PASS input target exists: FinishBriefing
+PASS input target exists: Setting_text_speed
+PASS input target exists: Option_text_speed_2
+PASS input target exists: CloseSettings
+PASS input target exists: NewShift
+FAIL new normal briefing after changed speed
+WAIT DIAGNOSTICS {"active_operation":{},"busy":false,"context":"","location":"post_office","minute":540,"modal":"","view":"title"}
+PASS actual GPU capture failed_new normal briefing after changed speed
+SCRIPT ERROR: Invalid access to property or key '_spoken' on a base object of type 'Control'.
+   at: _run (res://tests/settings_effects_input.gd:62)
+   GDScript backtrace (most recent call first):
+       [0] _run (res://tests/settings_effects_input.gd:62)

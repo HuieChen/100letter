@@ -14,6 +14,7 @@ func _run() -> void:
 	await _move(bench.to_canvas(bench.model.object_rect("envelope").get_center()))
 	await _button(MOUSE_BUTTON_WHEEL_UP,true);await _button(MOUSE_BUTTON_WHEEL_UP,false);await create_timer(0.18).timeout
 	_check(is_equal_approx(float(bench.model.export_state().zoom),1.1),"half sensitivity gives a real 0.1 zoom step")
+	await _check_pan(bench,10.0)
 	await _click(Vector2(1495,60));host.preferences.set_value("sensitivity",2.0);host._workbench("case01")
 	await create_timer(0.22).timeout;bench=host.modal
 	_check(bench.manipulation_sensitivity==2.0,"next inspection uses updated preference")
@@ -21,8 +22,20 @@ func _run() -> void:
 	await _move(bench.to_canvas(bench.model.object_rect("envelope").get_center()))
 	await _button(MOUSE_BUTTON_WHEEL_UP,true);await _button(MOUSE_BUTTON_WHEEL_UP,false);await create_timer(0.18).timeout
 	_check(is_equal_approx(float(bench.model.export_state().zoom),start+0.4),"double sensitivity gives a real 0.4 zoom step")
+	await _check_pan(bench,40.0)
 	await _click(Vector2(1495,60))
 	_check(not is_instance_valid(host.modal),"same visible cross returns after sensitivity change")
 	host.queue_free();await process_frame;await process_frame
 	print("SETTINGS MANIPULATION: ",checks," checks / ",failures.size()," failures")
 	quit(0 if failures.is_empty() else 1)
+
+func _check_pan(bench:Control,expected_x:float)->void:
+	var before:Array=bench.model.export_state().pan
+	var center:Vector2=bench.to_canvas(bench.model.object_rect("envelope").get_center())
+	await _move(center)
+	await _button(MOUSE_BUTTON_MIDDLE,true)
+	await _move(center+Vector2(20,0))
+	await _button(MOUSE_BUTTON_MIDDLE,false)
+	var after:Array=bench.model.export_state().pan
+	_check(is_equal_approx(float(after[0])-float(before[0]),expected_x),"same real middle-button drag changes paper pan by selected sensitivity")
+	_check(is_equal_approx(float(after[1]),float(before[1])),"horizontal paper drag does not invent vertical travel")

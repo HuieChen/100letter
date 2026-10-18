@@ -301,7 +301,7 @@ func _stage_plan(id:String) -> Dictionary:
 
 func _start() -> void:
 	if core.has_save():
-		_sheet("另开一个班次", "新班次会替换此版本的工作记录。",[["继续旧班次",_resume],["确认开始新班次",_fresh]])
+		_sheet(_tr("另开一个班次","Start a new shift"), _tr("新班次会替换此版本的工作记录。","A new shift will replace this version's current work record."),[[_tr("继续旧班次","Continue current shift"),_resume],[_tr("确认开始新班次","Start new shift"),_fresh]])
 	else: _fresh()
 
 func _fresh() -> void:
@@ -606,7 +606,7 @@ func _observe(id:String) -> void:
 	paper.set_anchors_preset(Control.PRESET_TOP_LEFT)
 	paper.position=Vector2.ZERO;paper.size=Vector2(1600,900)
 	_hide_courier_for_closeup()
-	var error:String=paper.configure(core,id)
+	var error:String=paper.configure(core,id,preferences.values.language)
 	if not error.is_empty(): _close();_say(error);return
 	paper.cue.connect(sound.play)
 	paper.closed.connect(func():_close();_save())
@@ -787,7 +787,7 @@ func _deliver_to(person:String) -> void:
 	sound.play("deliver")
 	var answer:="谢谢。信我收好了。"
 	if action=="delegate":answer="我收下了，会按约定时间带到观景台。到达后，回执才算交到 Mira 手里。"
-	elif id=="case01":answer="是 Ruth 的字。她连写我的名字，都像在提醒我别忘带钥匙。谢谢你。"
+	elif id=="case01":answer=_tr("是 Ruth 的字。她连写我的名字，都像在提醒我别忘带钥匙。谢谢你。回邮局时，替我在柜台的处理单上记一笔吧，免得这封信还挂在未投递的账上。", "That's Ruth's handwriting. Even my name sounds like she's reminding me to take my keys. Thank you. When you're back at the post office, put this down on the counter's resolution slip, will you? I'd hate it to stay on the undelivered list.")
 	elif id=="case02":answer="你找了我一圈吧。谢谢你当面交来。有的话，晚一点收到就会不一样。"
 	elif id=="case04":answer="六年前……先让我拿着吧。我想自己决定什么时候打开。"
 	_dialogue(person,answer)

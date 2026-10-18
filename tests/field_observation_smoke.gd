@@ -30,11 +30,23 @@ func _run() -> void:
 		var before: Dictionary = core.state.evidence.duplicate(true)
 		var minute: int = core.state.minute
 		_check(board.configure(core, id).is_empty(), id + " configures")
+		_check(core.state.evidence == before, id + " configure synchronously grants nothing")
+		if board._spec.kind == "notice":
+			# The clicked world notice is already unfolded: only a genuinely
+			# presented face commits its visible information, not a row checklist.
+			await process_frame
+			await process_frame
+			await process_frame
+			_check(core.has_evidence(id), id + " visible complete notice records its source")
+			_check(board.interaction_regions().size() == 1, id + " has no fake read-row or cover actions")
+			before = core.state.evidence.duplicate(true)
 		await process_frame
-		_check(core.state.evidence == before, id + " configure grants nothing")
+		_check(core.state.evidence == before, id + " unchanged view grants no extra evidence")
 		await _click(Vector2(190, 235))
 		_check(core.state.evidence == before, id + " irrelevant click grants nothing")
 		match str(board._spec.kind):
+			"notice":
+				_check(board._notice.get_child_count() == 5, id + " contains complete world document typography")
 			"plate":
 				await _capture("ceramic_before")
 				await _drag(Board.NEW_PLATE.get_center(), Vector2(160, 0))
@@ -52,10 +64,10 @@ func _run() -> void:
 				_check(board.get_observation_snapshot().photo_zoom>1.0 and core.state.evidence==before,"actual wheel magnifies photograph without granting its caption")
 				await _capture("music_photo_zoom")
 				await _photo_button(MOUSE_BUTTON_RIGHT)
-				_check(board.get_observation_snapshot().photo_back and core.state.evidence==before,"actual right click reveals back caption but does not auto-record it")
-				await _click_region("row_0")
-				_check(not core.has_evidence(id),"reading event caption alone does not register unseen participant names")
-				await _click_region("row_1")
+				await process_frame
+				await process_frame
+				_check(board.get_observation_snapshot().photo_back and core.has_evidence(id),"actual right click presents complete back caption and records only its visible source")
+				_check(board.interaction_regions().size()==2,"caption has no fake row-reading buttons")
 				await _key(KEY_F)
 				_check(not board.get_observation_snapshot().photo_back,"keyboard F returns from caption to image")
 				await _click_region("photo_flip")
@@ -134,8 +146,7 @@ func _boundaries() -> void:
 	core.state.minute = 905
 	_check(board.configure(core, "telescope_checkout").is_empty(), "15:05 checkout resolves current sheet")
 	_check(board.effective_clue_id == "telescope_returned", "post-return sheet uses returned evidence")
-	await _click_region("open")
-	for row: int in [0, 1, 2]: await _click_region("row_%d" % row)
+	for frame in 3: await process_frame
 	_check(core.has_evidence("telescope_returned") and not core.has_evidence("telescope_checkout"), "15:05 input records only actual returned record")
 	await _prepare("mira_absent")
 	board.configure(core, "mira_absent")
@@ -147,8 +158,9 @@ func _boundaries() -> void:
 	await _prepare("street_renaming")
 	board.configure(core, "street_renaming")
 	core.travel("bus_stop", 15)
-	await _click_region("open")
-	await _click_region("row_0")
+	await process_frame
+	await process_frame
+	await process_frame
 	_check(not core.has_evidence("street_renaming"), "stale open view cannot bypass location gate")
 	core.new_game()
 	for id: String in ["elsie_confirmation", "label_reconstructed", "case04_archive_mark", "not_a_clue", "ledger_hv_repeat", "helena_rota"]:
@@ -163,11 +175,10 @@ func _keyboard() -> void:
 	_check(core.has_evidence("ceramic_17"), "keyboard plate motion reveals and records original number")
 	await _prepare("moran_entry")
 	board.configure(core, "moran_entry")
-	await _key(KEY_TAB)
-	await _key(KEY_ENTER)
-	_check(board._page == 1 and not core.has_evidence("moran_entry"), "keyboard opens source without grant")
-	await _key(KEY_ENTER)
-	_check(core.has_evidence("moran_entry"), "keyboard reads source row")
+	await process_frame
+	await process_frame
+	await process_frame
+	_check(core.has_evidence("moran_entry"), "visible posted register needs no hidden keyboard reading action")
 	root.size = Vector2i(1280, 720)
 	root.content_scale_size = Vector2i(1280, 720)
 	await process_frame

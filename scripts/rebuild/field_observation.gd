@@ -1,5 +1,6 @@
 extends Control
-## Local source inspection. Configure never grants evidence; only input can do so.
+## Local source inspection. A posted notice is read when actually presented;
+## covered writing still requires revealing its physical face. Configure grants nothing.
 ## 1600 x 900 design canvas. No scenery, author-answer list, or timer costs.
 signal closed
 signal cue(name:String)
@@ -41,9 +42,20 @@ var _factor := 1.0
 var _origin := Vector2.ZERO
 var _font: Font
 var _knock_wait := 0.0
+var _locale := "zh"
+var _notice: VBoxContainer
+var _presentation := 0
+var _notice_queued := false
 
 
-func configure(core: Node, requested_clue: String) -> String:
+func configure(core: Node, requested_clue: String, locale: String = "zh") -> String:
+	_locale = locale
+	_presentation += 1
+	_notice_queued = false
+	if is_instance_valid(_notice):
+		_notice.hide()
+		_notice.queue_free()
+	_notice = null
 	_core = core
 	clue_id = requested_clue
 	effective_clue_id = requested_clue
@@ -66,6 +78,7 @@ func configure(core: Node, requested_clue: String) -> String:
 	if requested_clue == "telescope_checkout" and _minute() >= 905:
 		effective_clue_id = "telescope_returned"
 	_spec = _make_spec(effective_clue_id)
+	if is_node_ready(): _build_notice()
 	_recorded = bool(_core.call("has_evidence", effective_clue_id))
 	if _recorded: _status = "这处记录已经在册中，可以再看。"
 	queue_redraw()
@@ -80,6 +93,7 @@ func _ready() -> void:
 	_font = load("res://assets/fonts/SolmereSans.ttf") as Font
 	resized.connect(_layout)
 	_layout()
+	_build_notice()
 	grab_focus()
 	set_process(true)
 
@@ -88,6 +102,9 @@ func _layout() -> void:
 	_factor = minf(size.x / DESIGN.x, size.y / DESIGN.y)
 	if _factor <= 0: _factor = 1.0
 	_origin = (size - DESIGN * _factor) * 0.5
+	if is_instance_valid(_notice):
+		_notice.position = _origin + Vector2(390, 215) * _factor
+		_notice.scale = Vector2.ONE * _factor
 	queue_redraw()
 
 
@@ -120,8 +137,8 @@ func _make_spec(id: String) -> Dictionary:
 	match id:
 		"ceramic_17": return {"kind": "plate", "title": "墙上的两层门牌", "subtitle": "住宅入口"}
 		"mira_absent": return {"kind": "door", "title": "门边的名牌", "subtitle": "住宅入口"}
-		"street_renaming": return _paper("街名更动公告", "海堤重建后的地址登记", "原街名                         现街名", ["Old Quay Lane     →     Bay Steps"])
-		"moran_entry": return _paper("住户联系页", "Bay Steps · 入口公示", "住户                            通信地址", ["E. Moran                  9 Bay Steps"])
+		"street_renaming": return {"kind":"notice", "subtitle":"Solmere · 地址登记" if _locale != "en" else "Solmere · Address register", "title":"街名更动公告" if _locale != "en" else "Street renaming notice", "heading":"海堤重建后的地址登记" if _locale != "en" else "Address register following the seawall works", "columns":["原街名\nOld Quay Lane", "现街名\nBay Steps"] if _locale != "en" else ["Former street\nOld Quay Lane", "Current street\nBay Steps"], "body":"沿海堤一带原登记为 Old Quay Lane 的住址，现使用街名 Bay Steps。\n\n旧门牌与现行门牌并不一一对应。\n投递请以现行门牌及住户登记为准。", "body_en":"Addresses along the seawall formerly registered as Old Quay Lane now use the street name Bay Steps.\n\nOld and current house numbers do not correspond. For post and correspondence, use the current door plate and resident register.", "footer":"Solmere · 社区登记处" if _locale != "en" else "Solmere · Community register"}
+		"moran_entry": return {"kind":"notice", "subtitle":"Bay Steps · 入口公示" if _locale != "en" else "Bay Steps · Entrance register", "title":"住户通信登记" if _locale != "en" else "Resident correspondence register", "heading":"Bay Steps", "columns":["登记姓名\nE. Moran", "通信地址\n9 Bay Steps"] if _locale != "en" else ["Registered name\nE. Moran", "Postal address\n9 Bay Steps"], "body":"通信请写明收件人姓名及现行门牌。\n\n住户如需更正通信地址，请将更改交至社区登记处。", "body_en":"Please include the recipient's name and current house number on correspondence.\n\nResidents wishing to correct their postal address may leave an amendment at the community register.", "footer":"Bay Steps · 住户通信页" if _locale != "en" else "Bay Steps · Resident correspondence"}
 		"telescope_checkout", "telescope_returned":
 			var returned := id == "telescope_returned"
 			return _paper("设备借还单", "社区中心 · 折叠望远镜", "借用人 / 用途地点 / 归还登记", ["Mira Vale  ·  folding telescope", "活动地点：Lookout", "归还：15:05" if returned else "归还：________"], [0, 1, 2])
@@ -142,7 +159,59 @@ func _make_spec(id: String) -> Dictionary:
 
 
 func _paper(title: String, subtitle: String, heading: String, rows: Array, required: Array = [0]) -> Dictionary:
-	return {"kind": "paper", "title": title, "subtitle": subtitle, "heading": heading, "rows": rows, "required": required}
+	# A complete source stays one sheet. Reading already visible writing must
+	# not be a concealed sequence of row-button presses.
+	return {"kind":"notice", "title":title, "subtitle":subtitle, "heading":subtitle, "columns":[], "rows":rows, "required":required, "body":heading+"\n\n"+"\n\n".join(rows), "body_en":heading+"\n\n"+"\n\n".join(rows), "footer":"1"}
+
+
+func _build_notice() -> void:
+	if _spec.get("kind", "") != "notice" or is_instance_valid(_notice): return
+	_notice = VBoxContainer.new()
+	_notice.name = "PostedNotice"
+	_notice.size = Vector2(800, 455)
+	_notice.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	_notice.add_theme_constant_override("separation", 18)
+	add_child(_notice)
+	_notice_label(str(_spec.title), 32, INK, _notice)
+	_notice_label(str(_spec.heading), 21, SOFT, _notice)
+	var columns := HBoxContainer.new()
+	columns.add_theme_constant_override("separation", 40)
+	columns.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	_notice.add_child(columns)
+	for text: String in _spec.columns:
+		var label := _notice_label(text, 26, INK, columns)
+		label.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	_notice_label(str(_spec.body_en if _locale == "en" else _spec.body), 23, INK, _notice)
+	var footer := _notice_label(str(_spec.footer), 19, SOFT, _notice)
+	footer.size_flags_vertical = Control.SIZE_EXPAND_FILL
+	footer.vertical_alignment = VERTICAL_ALIGNMENT_BOTTOM
+	_layout()
+
+
+func _notice_label(value: String, font_size: int, color: Color, parent: Node) -> Label:
+	var label := Label.new()
+	label.text = value
+	label.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+	label.add_theme_font_override("font", _font)
+	label.add_theme_font_size_override("font_size", font_size)
+	label.add_theme_color_override("font_color", color)
+	label.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	parent.add_child(label)
+	return label
+
+
+func _record_presented_notice(generation: int) -> void:
+	# Deferred from an actual canvas draw, never configure or opening a hidden
+	# fixture. Recheck custody/location/end state at commit, including rapid close.
+	if generation != _presentation or _leaving: return
+	if not is_visible_in_tree():
+		_notice_queued = false
+		return
+	var kind: String = _spec.get("kind", "")
+	if kind == "notice" and not is_instance_valid(_notice): return
+	if kind == "photo" and _page != 1: return
+	if kind not in ["notice", "photo"]: return
+	_record()
 
 
 func interaction_regions() -> Array[Dictionary]:
@@ -154,8 +223,6 @@ func interaction_regions() -> Array[Dictionary]:
 		"photo":
 			regions.append({"id":"photo_flip","rect":Rect2(1028,663,163,55)})
 			if _page==0:regions.append({"id":"photo","rect":_photo_rect()})
-			else:
-				for index:int in range(_spec.rows.size()):regions.append({"id":"row_%d"%index,"rect":_photo_row_rect(index)})
 		"paper":
 			if _page == 0: regions.append({"id": "open", "rect": OPEN})
 			else:
@@ -240,6 +307,8 @@ func _activate(id: String) -> void:
 	if id == "close":
 		_leave()
 	elif id == "photo_flip":
+		_presentation += 1
+		_notice_queued = false
 		_page=1-_page;_photo_zoom=1.0;_focus_index=1;cue.emit("paper")
 		_status="照片背面的题注可以逐行核对。" if _page==1 else "滚轮拿近看；右键或 F 翻看照片背面。"
 	elif id=="photo":
@@ -306,6 +375,11 @@ func _draw() -> void:
 			"door": _draw_door()
 			"paper": _draw_paper()
 			"photo": _draw_photo()
+			"notice":
+				Art.paint(self, "service_paper", PAPER)
+				if not _notice_queued:
+					_notice_queued = true
+					_record_presented_notice.call_deferred(_presentation)
 	var regions := interaction_regions()
 	for index: int in range(regions.size()):
 		var rect: Rect2 = regions[index].rect
@@ -350,6 +424,9 @@ func _draw_photo() -> void:
 			var rect:=_photo_row_rect(index)
 			_text(str(_spec.rows[index]),rect.position+Vector2(8,51),28,INK,670)
 			if index in _read_rows:draw_line(rect.position+Vector2(8,71),rect.position+Vector2(620,71),Color("b4b9aa"),1)
+		if not _notice_queued:
+			_notice_queued = true
+			_record_presented_notice.call_deferred(_presentation)
 	_text("翻到正面 ↶" if _page==1 else "翻看背面 ↷",Vector2(1034,700),21,INK if _page==1 else Color("f7efdb"))
 func _draw_plate() -> void:
 	Art.paint(self,"wall_closeup",PAPER)

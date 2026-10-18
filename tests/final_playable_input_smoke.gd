@@ -82,10 +82,10 @@ func _run() -> void:
 	_check(not is_instance_valid(host.modal) and host.walker.walking,"clue first approaches before opening observation")
 	await _wait(func():return is_instance_valid(host.modal),"walk to community notice opens source observation")
 	_check(not host.walker.visible and not host.walker.manual_enabled and not host.actors.visible,"physical source closeup hides courier, resident feet, and world controls")
-	_check(not host.core.has_evidence("street_renaming"),"entering close observation does not auto-grant evidence")
-	await _shot("03_notice_closed")
+	_check(host.modal.has_method("interaction_regions") and host.modal.get("_spec").get("kind", "") == "notice","arrival presents the complete public notice rather than an artificial closed cover")
+	await _shot("03_notice_presented")
 	await _read_observation()
-	_check(host.core.has_evidence("street_renaming"),"actual cover and row clicks acquire the public notice")
+	_check(host.core.has_evidence("street_renaming"),"actual presented public notice records its source without hidden row-click requirements")
 	await _key(KEY_ESCAPE)
 	_check(host.walker.visible and host.actors.visible and host.walker.manual_enabled and not is_instance_valid(host.modal),"observation Escape returns visible actors and control to the world")
 	await _recover_pause()
@@ -136,6 +136,7 @@ func _run() -> void:
 	_check(not host.core.case_state("case02").available and not host.core.case_state("case03").available,"first actual delivery alone does not bypass the postal resolution slip")
 	_check("处理单" in host._objective() and not "两封新邮件" in host._objective(),"delivered but unrecorded first mail correctly directs player back to postal resolution")
 	_check(host.carried.is_empty(),"handoff clears logical carried item")
+	_check("处理单" in host.modal._line and host.modal._spoken.is_visible_in_tree(),"recipient's on-screen dialogue connects delivery to the counter paperwork")
 	await _named("AdvanceDialogue")
 	await _text("结束交谈")
 	_check(_node("CarriedLetter")==null,"handoff also clears visible carried letter HUD")
@@ -234,10 +235,14 @@ func _recover_pause() -> void:
 func _read_observation() -> void:
 	if not is_instance_valid(host.modal) or not host.modal.has_method("interaction_regions"):
 		_check(false,"observation has real hit regions");return
+	# Source observation follows its actual presented face, not hidden read-row
+	# buttons. Wait for that face's canvas draw/deferred state commit.
+	for frame in 3: await process_frame
 	var cover:=_region("open")
 	if cover.has_area(): await _click(cover.get_center())
 	var photo_flip:=_region("photo_flip")
 	if photo_flip.has_area(): await _click(photo_flip.get_center())
+	for frame in 3: await process_frame
 	var regions: Array=host.modal.interaction_regions()
 	for region: Dictionary in regions:
 		if str(region.id).begins_with("row_"): await _click((region.rect as Rect2).get_center())

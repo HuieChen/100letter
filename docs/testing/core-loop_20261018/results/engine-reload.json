@@ -1,0 +1,147 @@
+{
+	"checks": 15,
+	"close_method": "engine-generated close notification (supplemental; no OS/native input)",
+	"elapsed_ms": 512,
+	"failures": [],
+	"limits": [
+		"Automated input, not independent human usability.",
+		"No artwork acceptance or audio listening is implied."
+	],
+	"scope": "Fresh-process Core.load_game after an engine-generated close notification exercised the actual host save/audio-drain path; not OS caption/native input.",
+	"source_sha256": {
+		"assets/faefever_v2/backgrounds/BG_bus_stop.png": "41edfe69f53b911f9d47abbb86c9c911e693b112ad71a69182c720bf6686f4a9",
+		"assets/faefever_v2/backgrounds/BG_chess_stall.png": "f01ec796d536dc02561ce197a7b425e193d65c1511ff178d7fa826dfd2fb6536",
+		"assets/faefever_v2/backgrounds/BG_community_center.png": "c8e039837773e66d1fc7c1a889f18b9a852406c5458190a78540ceeba6392e24",
+		"assets/faefever_v2/backgrounds/BG_lookout.png": "362f838d16bb63e3b0390f7d07908701f5592ef5c18ecd9ae4a4649a54005372",
+		"assets/faefever_v2/backgrounds/BG_post_office.png": "f69e632b329e7bfced98fa6ec98dc510e698a481cdbebe37fe755f0fd8e2f176",
+		"assets/faefever_v2/backgrounds/BG_residential.png": "bc428d8fca388af02a4aab4e92e8f030faecc69f213bf51f41753a0fb4512c1e",
+		"assets/faefever_v2/backgrounds/BG_tarot_shop.png": "9e167e71475871d38d2d44ec7aa66162a4f8de5b9af79caafba7b666a1e7b011",
+		"assets/faefever_v2/backgrounds/BG_workroom.png": "6fd58e787d448502fe6637c547689353f1ae084876da412c11d8b500fac0bb3f",
+		"assets/faefever_v2/backgrounds/wall_closeup.png": "73f2948ff955c73c3041bb6b9492ce9e669a49a090173e30b5f0ad3eb6a86351",
+		"assets/faefever_v2/characters/courier_video_20261017.png": "1e21e4a48fba1ae3941134da42c38ce652c164a7b795c6ac517da5a745906b9c",
+		"assets/faefever_v2/characters/courier_video_idle_20261017.png": "8593551bdb0f27282fb0093771f4f2f886c1a981492d44944f6ac33ecf50fcf4",
+		"assets/faefever_v2/characters/courier_walk_regions.json": "7e81900525e83e30376cab607f8a010ccd0aa84ba2b60fefdec2b60d5ac03799",
+		"assets/faefever_v2/characters/pastel_cast_20261004.png": "0d3817e791122ed5c8049f533c3e80d5c1ce64b17e13ec97d7a979679a7750cb",
+		"assets/faefever_v2/manifest.json": "c458c4ef1cfca6d3d21a41ad0b6c365bf9e93005ce45f0e03430e9a27e113a9d",
+		"assets/faefever_v2/props/pastel_case_lid_20261004.png": "daef7d150753849627f89eb4bd436138fcfabd89b8288b481d239af52a16b20e",
+		"assets/faefever_v2/props/pastel_docs_20261004.png": "5a2c471e07ccd1ba193c0e4917957acacf0216f8ad094d069161161509882563",
+		"assets/faefever_v2/props/pastel_envelope_back_20261004.png": "e4ddc7af9312fa953d2c1f7d072ad5f6d413f0a8ee7e81df55f804b895bee1dd",
+		"assets/faefever_v2/props/pastel_misc_20261004.png": "ab56aca2232b2b4e35061bdfc96d09cb1242a009a58694016f212c2248ba60df",
+		"assets/faefever_v2/props/pastel_tools_20261004.png": "97c7900f34e7942bc3d581fed7cca74d43cae48a3c6e9ff5de971870d44e59a9",
+		"assets/faefever_v2/props/town_map.png": "0daecd1d64e282d0691826f9e5fb686a33934d3a2513d161da97c1a16e7e0c14",
+		"assets/faefever_v2/ui/dialogue_notebook_20261016.png": "63df5bd460d7edf93d50fc561fc816c11d7ef8a8479c89b86568d89353a3188b",
+		"assets/faefever_v2/ui/settings_pdf_20261017/settings_lemon_flesh.jpeg": "337ba6ef927b536fd3126917dd91a3d71091cdc4546bf6116af80751266418f5",
+		"assets/faefever_v2/ui/settings_pdf_20261017/settings_lemon_rind.jpeg": "63ef10b1cc75e16a162b1f895923ba3612f74443bbdae4321682422ad0ab0acf",
+		"assets/faefever_v2/ui/settings_pdf_20261017/settings_lemon_segments.jpeg": "ddba03b5e14996841414bbd2881f3f455c44f318ca3be27a0344ea5037c9767f",
+		"assets/faefever_v2/ui/settings_pdf_20261017/settings_paper_shadow.jpeg": "568ca9f166532a44bec6aa39ef43d0aede4d282bed313697276c785d901da2a4",
+		"assets/faefever_v2/ui/settings_pdf_20261017/settings_papers.jpeg": "1f515f5803485abebcadfe1c35d490fc33dffd56ada6ea64912808335f32911f",
+		"assets/faefever_v2/ui/settings_pdf_20261017/settings_postcards.jpeg": "15bc1b26bb2cffc4c6f3d5ed01f33bbc99f1e71bc7ca63637756cb55e4435d01",
+		"assets/faefever_v2/ui/settings_pdf_20261017/settings_stationery.jpeg": "9fccd70a702fb1c4f0e433fd56e1b96c086fe4a5537b67b4585cab87f7314e3d",
+		"assets/faefever_v2/ui/settings_pdf_20261017/settings_tape.jpeg": "3e723b54f49c556f7dcc136ff35211c5e8a1d0d0f835aa060a62e8819e7d2641",
+		"assets/faefever_v2/ui/settings_pdf_20261017/settings_water.jpeg": "f7d6b6a8cb743a366823adaee164bab11bd1b396a120b81f013969b9a215af38",
+		"assets/faefever_v2/ui/settings_pdf_20261017/settings_water_base.jpeg": "0faf702f1e00836bed612b80dbf495355e37ee83fc5e02f3bd4e789c284362a6",
+		"assets/faefever_v2/ui/settings_pdf_20261017/settings_water_pattern.jpeg": "e31efd76da89503bf1b09fbc9a7731a37aa2b00013d2e20c7131da5dfeaee7bc",
+		"data/rebuild/final_cases.json": "ea98a7158186b658575af93bf6eb31e29a374be6d9b6647e7d5c362dc6792744",
+		"data/rebuild/final_dialogues.json": "f2fa37f5f6b7d09a3729cbdc28a8050e64cbb33a6b76079f5619d374b54a53cd",
+		"data/rebuild/player_amendments.json": "da965670ec3be342e6559ec9d9e1208056f7b896ef90837a8b44cf00b46602a4",
+		"scripts/rebuild/field_book.gd": "eef45659799173cf4f42bb7aeffbe5a45ba355a93141e69e04ab720a2d847793",
+		"scripts/rebuild/field_observation.gd": "daeee4fdb57d60fea6db64bf5b67394c9b6e16efd7a73c823b66cc2a8f1e748a",
+		"scripts/rebuild/final_case_state.gd": "640207716867fe6dda2a0a5eabe7515517788ddbfa4b06cbf31bea1cb6324e72",
+		"scripts/rebuild/final_paper_map.gd": "d4206706d68246071dcedb7345c8831c54b58023721b51fd4713a6a46d165e47",
+		"scripts/rebuild/final_playable.gd": "df2828e8f0ca127d6b6cbb9ae3ba4c60016a61d096a5f24d3d7a4a8a75dda8b0",
+		"scripts/rebuild/final_walker.gd": "02ea52bd2d2ab864b724e511cc6d27c2c4bb7eaa4c22c4bce414161d6d3dcecb",
+		"scripts/rebuild/mail_imprint.gd": "cd98861f9cf68f9f3989a07479915ac9343da2219af834dc0ff42fee2ccb7f10",
+		"scripts/rebuild/mail_physics_state.gd": "811cffd97d0fc3206d9729d8f1b77fa399085293a2eca08bfd6604a3473e7cd5",
+		"scripts/rebuild/mail_workbench.gd": "9b0bfa66c07ebd83e0d0d681335668cd8753b90049fd2407f1fc40666643186b",
+		"scripts/rebuild/physical_art.gd": "2dd4281d0f514bf2ab8e4a2416920a139e1dec3edda6d09f6fcc1d47350d0f39",
+		"scripts/rebuild/physical_envelope.gd": "1e0ad27a535edef1f06c2d51fc098f1627507350113f91bcf93552c99bb89de9",
+		"scripts/rebuild/postal_desk.gd": "68f2540c80f188a8e365bfb86ee37a757c0f3d4a2bc706e54fb423a5683f9bf9",
+		"scripts/rebuild/resolution_draft_store.gd": "f9a45b82a82e9f703939251057ca6d667602c37560f58b401eb0512f1fa32551",
+		"scripts/rebuild/resolution_slip.gd": "a07f9bd4c6da23b295e8291651ad1e45f38ad852b4faffb189cca4e36144a51f",
+		"scripts/rebuild/scene_dialogue.gd": "4bc2b80d9b9248faff0ccc02cb388ca065d926349fb716a47e64d29d92959f47",
+		"scripts/rebuild/tool_drawer.gd": "c0083b7dd71dea9bca27af63280f8fc8ba46c5d5c3e102d4e17641a028676876",
+		"scripts/ui/audio_feedback.gd": "26243528a502ec894f82170575b4080db063723dfe2de77e62d81c82c5bef2f1",
+		"scripts/ui/paper_ui.gd": "8ed9fcd9d4379c2d1ae3b0038104371f84591d8d7087d6841c309d2f27880dfd",
+		"tests/final_five_case_input.gd": "bbdd3ded8ba2b7d6c9f225adb3dda13f9d4caf926915b38a759f5c66a00cb14a",
+		"tests/final_playable_input_smoke.gd": "c3ebce0f06785857c6857fb60cd38cafc0375ced686e42d3db723ecbacf48fb3",
+		"tests/final_window_close_input.gd": "9b6bc8e3c0b8f5b97220b69b1032a43c9b0e25e2e49e986826f0fd484f5da814"
+	},
+	"steps": [
+		{
+			"check": "input preparation completed without failures",
+			"elapsed_ms": 1,
+			"passed": true
+		},
+		{
+			"check": "fresh process loads the window-close checkpoint",
+			"elapsed_ms": 17,
+			"passed": true
+		},
+		{
+			"check": "Engine-generated close preserves material field: seam_count",
+			"elapsed_ms": 18,
+			"passed": true
+		},
+		{
+			"check": "Engine-generated close preserves material field: opened_count",
+			"elapsed_ms": 20,
+			"passed": true
+		},
+		{
+			"check": "Engine-generated close preserves material field: seal_condition",
+			"elapsed_ms": 21,
+			"passed": true
+		},
+		{
+			"check": "Engine-generated close preserves material field: tampering_started",
+			"elapsed_ms": 23,
+			"passed": true
+		},
+		{
+			"check": "Engine-generated close preserves material field: privacy_violation",
+			"elapsed_ms": 24,
+			"passed": true
+		},
+		{
+			"check": "Engine-generated close preserves material field: paper_location",
+			"elapsed_ms": 26,
+			"passed": true
+		},
+		{
+			"check": "Engine-generated close preserves material field: extraction_progress",
+			"elapsed_ms": 27,
+			"passed": true
+		},
+		{
+			"check": "Engine-generated close preserves material field: paper_position",
+			"elapsed_ms": 27,
+			"passed": true
+		},
+		{
+			"check": "Engine-generated close preserves material field: body_exposed",
+			"elapsed_ms": 28,
+			"passed": true
+		},
+		{
+			"check": "quit checkpoint clears input operation rather than serializing a live grab",
+			"elapsed_ms": 29,
+			"passed": true
+		},
+		{
+			"check": "Engine-generated close cannot refund an actual private opening",
+			"elapsed_ms": 29,
+			"passed": true
+		},
+		{
+			"check": "custody survives while folded body stays unread",
+			"elapsed_ms": 30,
+			"passed": true
+		},
+		{
+			"check": "runtime and test sources remain stable across generated close and reload",
+			"elapsed_ms": 511,
+			"passed": true
+		}
+	],
+	"suite": "final_window_close_verify"
+}

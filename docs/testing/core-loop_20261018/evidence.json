@@ -1,0 +1,626 @@
+{
+  "scope": "Aggregated current runtime QA in sequential batches, not one pristine uninterrupted matrix; 30 GPU components, 7 headless suites, 3 complete routed journeys. Synthetic GPU input, not OS or novice acceptance. Runtime source unchanged between final selected batches. Final typography adjustment removed an orphaned Chinese character; field observation, all posted notices, all three journeys and engine close/reload were rerun after that adjustment, rather than counting their older captures as current.",
+  "runtime_suites": [
+    {
+      "suite": "envelope_text_bounds_smoke",
+      "checks": 21,
+      "failures": 0,
+      "raw_log": "docs/testing/core-loop_20261018/logs/envelope_text_bounds_smoke.log"
+    },
+    {
+      "suite": "final_case_state_smoke",
+      "checks": 3356,
+      "failures": 0,
+      "raw_log": "docs/testing/core-loop_20261018/logs/final_case_state_smoke.log"
+    },
+    {
+      "suite": "final_walker_smoke",
+      "checks": 61,
+      "failures": 0,
+      "raw_log": "docs/testing/core-loop_20261018/logs/final_walker_smoke.log"
+    },
+    {
+      "suite": "mail_physics_state_smoke",
+      "checks": 728,
+      "failures": 0,
+      "raw_log": "docs/testing/core-loop_20261018/logs/mail_physics_state_smoke.log"
+    },
+    {
+      "suite": "postal_desk_live_queue",
+      "checks": 28,
+      "failures": 0,
+      "raw_log": "docs/testing/core-loop_20261018/logs/postal_desk_live_queue.log"
+    },
+    {
+      "suite": "preferences_smoke",
+      "checks": 22,
+      "failures": 0,
+      "raw_log": "docs/testing/core-loop_20261018/logs/preferences_smoke.log"
+    },
+    {
+      "suite": "scene_dialogue_input_smoke",
+      "checks": 19,
+      "failures": 0,
+      "raw_log": "docs/testing/core-loop_20261018/logs/scene_dialogue_input_smoke.log"
+    },
+    {
+      "suite": "audio_shutdown_input",
+      "checks": 37,
+      "failures": 0,
+      "raw_log": "docs/testing/core-loop_20261018/logs/audio_shutdown_input.log"
+    },
+    {
+      "suite": "coastal_layout_input",
+      "checks": 1975,
+      "failures": 0,
+      "raw_log": "docs/testing/core-loop_20261018/logs/coastal_layout_input.log"
+    },
+    {
+      "suite": "coastal_physics_input",
+      "checks": 21,
+      "failures": 0,
+      "raw_log": "docs/testing/core-loop_20261018/logs/coastal_physics_input.log"
+    },
+    {
+      "suite": "coastal_settings_input",
+      "checks": 339,
+      "failures": 0,
+      "raw_log": "docs/testing/core-loop_20261018/logs/coastal_settings_input.log"
+    },
+    {
+      "suite": "core_review_input",
+      "checks": 223,
+      "failures": 0,
+      "raw_log": "docs/testing/core-loop_20261018/logs/core_review_input.log"
+    },
+    {
+      "suite": "counter_onboarding_input",
+      "checks": 54,
+      "failures": 0,
+      "raw_log": "docs/testing/core-loop_20261018/logs/counter_onboarding_input.log"
+    },
+    {
+      "suite": "courier_visual_probe",
+      "checks": 46,
+      "failures": 0,
+      "raw_log": "docs/testing/core-loop_20261018/logs/courier_visual_probe.log"
+    },
+    {
+      "suite": "display_preferences_input",
+      "checks": 547,
+      "failures": 0,
+      "raw_log": "docs/testing/core-loop_20261018/logs/display_preferences_input.log"
+    },
+    {
+      "suite": "field_book_smoke",
+      "checks": 1626,
+      "failures": 0,
+      "raw_log": "docs/testing/core-loop_20261018/logs/field_book_smoke.log"
+    },
+    {
+      "suite": "field_observation_smoke",
+      "checks": 247,
+      "failures": 0,
+      "raw_log": "docs/testing/core-loop_20261018/logs/field_observation_smoke.log",
+      "source_batch": "check-20261018-191047"
+    },
+    {
+      "suite": "final_host_boundary_smoke",
+      "checks": 55,
+      "failures": 0,
+      "raw_log": "docs/testing/core-loop_20261018/logs/final_host_boundary_smoke.log"
+    },
+    {
+      "suite": "final_resolution_draft_smoke",
+      "checks": 42,
+      "failures": 0,
+      "raw_log": "docs/testing/core-loop_20261018/logs/final_resolution_draft_smoke.log"
+    },
+    {
+      "suite": "game_identity_input",
+      "checks": 12,
+      "failures": 0,
+      "raw_log": "docs/testing/core-loop_20261018/logs/game_identity_input.log"
+    },
+    {
+      "suite": "lemon_companion_input",
+      "checks": 190,
+      "failures": 0,
+      "raw_log": "docs/testing/core-loop_20261018/logs/lemon_companion_input.log"
+    },
+    {
+      "suite": "lemon_matte_render",
+      "checks": 25,
+      "failures": 0,
+      "raw_log": "docs/testing/core-loop_20261018/logs/lemon_matte_render.log"
+    },
+    {
+      "suite": "lemon_press_gui_input",
+      "checks": 55,
+      "failures": 0,
+      "raw_log": "docs/testing/core-loop_20261018/logs/lemon_press_gui_input.log"
+    },
+    {
+      "suite": "lemon_press_input",
+      "checks": 33,
+      "failures": 0,
+      "raw_log": "docs/testing/core-loop_20261018/logs/lemon_press_input.log"
+    },
+    {
+      "suite": "mail_workbench_input_smoke",
+      "checks": 170,
+      "failures": 0,
+      "raw_log": "docs/testing/core-loop_20261018/logs/mail_workbench_input_smoke.log"
+    },
+    {
+      "suite": "notebook_dialogue_input",
+      "checks": 54,
+      "failures": 0,
+      "raw_log": "docs/testing/core-loop_20261018/logs/notebook_dialogue_input.log"
+    },
+    {
+      "suite": "pointer_window_focus_input",
+      "checks": 15,
+      "failures": 0,
+      "raw_log": "docs/testing/core-loop_20261018/logs/pointer_window_focus_input.log"
+    },
+    {
+      "suite": "posted_notice_input",
+      "checks": 1368,
+      "failures": 0,
+      "raw_log": "docs/testing/core-loop_20261018/logs/posted_notice_input.log",
+      "source_batch": "check-20261018-191047"
+    },
+    {
+      "suite": "resolution_slip_smoke",
+      "checks": 75,
+      "failures": 0,
+      "raw_log": "docs/testing/core-loop_20261018/logs/resolution_slip_smoke.log"
+    },
+    {
+      "suite": "settings_art_edges_input",
+      "checks": 146,
+      "failures": 0,
+      "raw_log": "docs/testing/core-loop_20261018/logs/settings_art_edges_input.log"
+    },
+    {
+      "suite": "settings_effects_input",
+      "checks": 51,
+      "failures": 0,
+      "raw_log": "docs/testing/core-loop_20261018/logs/settings_effects_input.log"
+    },
+    {
+      "suite": "settings_manipulation_input",
+      "checks": 10,
+      "failures": 0,
+      "raw_log": "docs/testing/core-loop_20261018/logs/settings_manipulation_input.log"
+    },
+    {
+      "suite": "settings_save_failure_input",
+      "checks": 82,
+      "failures": 0,
+      "raw_log": "docs/testing/core-loop_20261018/logs/settings_save_failure_input.log"
+    },
+    {
+      "suite": "tactile_mail_input",
+      "checks": 86,
+      "failures": 0,
+      "raw_log": "docs/testing/core-loop_20261018/logs/tactile_mail_input.log"
+    },
+    {
+      "suite": "visible_ripple_input",
+      "checks": 833,
+      "failures": 0,
+      "raw_log": "docs/testing/core-loop_20261018/logs/visible_ripple_input.log"
+    },
+    {
+      "suite": "water_feedback_input",
+      "checks": 193,
+      "failures": 0,
+      "raw_log": "docs/testing/core-loop_20261018/logs/water_feedback_input.log"
+    },
+    {
+      "suite": "water_field_input",
+      "checks": 24,
+      "failures": 0,
+      "raw_log": "docs/testing/core-loop_20261018/logs/water_field_input.log"
+    },
+    {
+      "suite": "amended_handoff",
+      "checks": 215,
+      "failures": 0,
+      "raw_log": "docs/testing/core-loop_20261018/logs/amended_handoff.log",
+      "source_batch": "check-20261018-191047"
+    },
+    {
+      "suite": "five_case_delegate",
+      "checks": 347,
+      "failures": 0,
+      "raw_log": "docs/testing/core-loop_20261018/logs/five_case_delegate.log",
+      "source_batch": "check-20261018-191047"
+    },
+    {
+      "suite": "five_case_sealed",
+      "checks": 345,
+      "failures": 0,
+      "raw_log": "docs/testing/core-loop_20261018/logs/five_case_sealed.log",
+      "source_batch": "check-20261018-191047"
+    }
+  ],
+  "runtime_checks": 13776,
+  "runtime_failures": 0,
+  "supplemental_engine_close_checks": 29,
+  "python": [
+    {
+      "pattern": "test_studio_*.py",
+      "raw_log": "docs/testing/core-loop_20261018/python/test_studio_all.py.log"
+    },
+    {
+      "pattern": "test_pastel_assets.py",
+      "raw_log": "docs/testing/core-loop_20261018/python/test_pastel_assets.py.log"
+    },
+    {
+      "pattern": "test_video_courier.py",
+      "raw_log": "docs/testing/core-loop_20261018/python/test_video_courier.py.log"
+    },
+    {
+      "pattern": "test_settings_media.py",
+      "raw_log": "docs/testing/core-loop_20261018/python/test_settings_media.py.log"
+    }
+  ],
+  "source_sha256": {
+    "scripts/rebuild/field_observation.gd": "daeee4fdb57d60fea6db64bf5b67394c9b6e16efd7a73c823b66cc2a8f1e748a",
+    "scripts/rebuild/final_playable.gd": "df2828e8f0ca127d6b6cbb9ae3ba4c60016a61d096a5f24d3d7a4a8a75dda8b0",
+    "tests/posted_notice_input.gd": "ced7455542a4de14b9881892d5ae48a4814e57f678cf533a6cacf613e8c263bc",
+    "tests/settings_effects_input.gd": "8e8a3acd742e755e34e7c107c729e92d6b58c4834fe1643af9789dd1667ce03a",
+    "tests/final_playable_input_smoke.gd": "c3ebce0f06785857c6857fb60cd38cafc0375ced686e42d3db723ecbacf48fb3",
+    "tests/settings_manipulation_input.gd": "546a577730459b3ec00b9d28da0cf17af4df023e5a946fd61ba503020181605f",
+    "tests/display_preferences_input.gd": "1308d93bd9d54c0c45c2d57585a760219c0009713813461eb9ce0a4bc1e41185",
+    "assets/faefever_v2/manifest.json": "c458c4ef1cfca6d3d21a41ad0b6c365bf9e93005ce45f0e03430e9a27e113a9d"
+  },
+  "not_assessed": [
+    "complete native OS input route",
+    "new-user usability",
+    "human audio listening",
+    "Pelican Post demo full playthrough",
+    "global Pelican-style runtime migration",
+    "new long three-letter session"
+  ],
+  "artifacts": [
+    {
+      "path": "docs/testing/core-loop_20261018/logs/envelope_text_bounds_smoke.log",
+      "sha256": "4a14c39efe0c00c09ebaa7a798eea9497cb857ae14aae26ad87e17c98f8822d5",
+      "bytes": 117
+    },
+    {
+      "path": "docs/testing/core-loop_20261018/logs/final_case_state_smoke.log",
+      "sha256": "1d415096141938b58a453044776fbde6d3ba77897bca6fdd0f13bc52745f3c2a",
+      "bytes": 115
+    },
+    {
+      "path": "docs/testing/core-loop_20261018/logs/final_walker_smoke.log",
+      "sha256": "1c3f96ef2ac524d0789ced472c30832535d1917c130de65c77a2f6d57706c9c5",
+      "bytes": 3869
+    },
+    {
+      "path": "docs/testing/core-loop_20261018/logs/mail_physics_state_smoke.log",
+      "sha256": "75cee30ca671f8085b6b733c543df8999bf335b19e050f73c834d057c478245b",
+      "bytes": 116
+    },
+    {
+      "path": "docs/testing/core-loop_20261018/logs/postal_desk_live_queue.log",
+      "sha256": "2d890813e2b3c8cd4b33b94d08d286609657c80ef6ba809a3ebaa74d00b21ee8",
+      "bytes": 119
+    },
+    {
+      "path": "docs/testing/core-loop_20261018/logs/preferences_smoke.log",
+      "sha256": "c9c24fd4f06a6ebc8bffa55f43826577d0b48b0e0c441479dbdd79a5b0e531fe",
+      "bytes": 109
+    },
+    {
+      "path": "docs/testing/core-loop_20261018/logs/scene_dialogue_input_smoke.log",
+      "sha256": "8484f90784adce7ab17276b09ac8819a764e50e2bbf925c70563102258fcfdb7",
+      "bytes": 117
+    },
+    {
+      "path": "docs/testing/core-loop_20261018/logs/audio_shutdown_input.log",
+      "sha256": "6065936190e53a31c6f3bed05769c207c4501a109ed7eb33c8b29e97b9b9e7ef",
+      "bytes": 1535
+    },
+    {
+      "path": "docs/testing/core-loop_20261018/logs/coastal_layout_input.log",
+      "sha256": "1d58b27e994cb7aaefb0b74116b20eb3743f6ca97f6ab247a65b0bc3def006fc",
+      "bytes": 227
+    },
+    {
+      "path": "docs/testing/core-loop_20261018/logs/coastal_physics_input.log",
+      "sha256": "9173ee7fa26210de884b260121d7154110922fad12e5f66ea136b0eeffc2926b",
+      "bytes": 220
+    },
+    {
+      "path": "docs/testing/core-loop_20261018/logs/coastal_settings_input.log",
+      "sha256": "b8bc633a01a72048be14c238befc361d657eeb3895d0c48b25ef9f3961033675",
+      "bytes": 1017
+    },
+    {
+      "path": "docs/testing/core-loop_20261018/logs/core_review_input.log",
+      "sha256": "8e084ee95d4c4cef5ad2e32250cdd9a72b2e3af4336adffa4bc98e0cf7ec419d",
+      "bytes": 9615
+    },
+    {
+      "path": "docs/testing/core-loop_20261018/logs/counter_onboarding_input.log",
+      "sha256": "19dcf34e06416eb12d4c916229938b4a4781d6700f120011df4c463e2e4cd56d",
+      "bytes": 2839
+    },
+    {
+      "path": "docs/testing/core-loop_20261018/logs/courier_visual_probe.log",
+      "sha256": "86cf9c283d56c09625af26484e3abedecfae4dd1e5a53cb98166d1852d169da6",
+      "bytes": 219
+    },
+    {
+      "path": "docs/testing/core-loop_20261018/logs/display_preferences_input.log",
+      "sha256": "daf5dcf5dd19be9fea0a80963a914f2cc9831d5c0f59de122bc1b5c1c989720a",
+      "bytes": 22717
+    },
+    {
+      "path": "docs/testing/core-loop_20261018/logs/field_book_smoke.log",
+      "sha256": "e40ff99b59ac88fe5a91aa89734494b5c6b8ffa6aab6d8b58f739db2af056c67",
+      "bytes": 9663
+    },
+    {
+      "path": "docs/testing/core-loop_20261018/logs/field_observation_smoke.log",
+      "sha256": "3c2690952dc00eccce556e511faeb8a85d86c3979cf10dd4d4e86af5b1f8b65c",
+      "bytes": 222
+    },
+    {
+      "path": "docs/testing/core-loop_20261018/logs/final_host_boundary_smoke.log",
+      "sha256": "6a236d6c18a8a41db60ecb669324e1f259d828aafe2bccef92770c7a61db2880",
+      "bytes": 223
+    },
+    {
+      "path": "docs/testing/core-loop_20261018/logs/final_resolution_draft_smoke.log",
+      "sha256": "b59576f9818c04f4d3b41442b33339c38e06d2e43874c41bf27b5f92f0ad6d50",
+      "bytes": 245
+    },
+    {
+      "path": "docs/testing/core-loop_20261018/logs/game_identity_input.log",
+      "sha256": "2d58334e94f7d283f5301519ae49a8693a8e242f6306a18a49f3214f46a17959",
+      "bytes": 224
+    },
+    {
+      "path": "docs/testing/core-loop_20261018/logs/lemon_companion_input.log",
+      "sha256": "a1c1ddf7ab44b28753956c4459d3b83a38ce6809320a1454dcc0f0bf1aab6c5d",
+      "bytes": 227
+    },
+    {
+      "path": "docs/testing/core-loop_20261018/logs/lemon_matte_render.log",
+      "sha256": "4565938770699ba375f1be6f2c5a2860d493b7608b0c32fb51e7177ad3bbcb9d",
+      "bytes": 223
+    },
+    {
+      "path": "docs/testing/core-loop_20261018/logs/lemon_press_gui_input.log",
+      "sha256": "730ce85fcef97e1a9f910998de45ee8fc5b7f9cc6b5f4308722eb8578fc345db",
+      "bytes": 226
+    },
+    {
+      "path": "docs/testing/core-loop_20261018/logs/lemon_press_input.log",
+      "sha256": "4bdaf2b964cc0cc4707dfefaaec6b7f04115d9e4143174e0a80a307553bcd79e",
+      "bytes": 222
+    },
+    {
+      "path": "docs/testing/core-loop_20261018/logs/mail_workbench_input_smoke.log",
+      "sha256": "44cd4cf8c44d5616b195df2faa926f3620c3ee16d3d7c30e0fcb5b661134e855",
+      "bytes": 225
+    },
+    {
+      "path": "docs/testing/core-loop_20261018/logs/notebook_dialogue_input.log",
+      "sha256": "4348511a1424ee508f4d67bee85e35bafb29c9df228d65fd762896e79cd798c3",
+      "bytes": 222
+    },
+    {
+      "path": "docs/testing/core-loop_20261018/logs/pointer_window_focus_input.log",
+      "sha256": "cb836195c2206d1ebfde8bb3706cbe106cf6da01830071122fc054e134b9230e",
+      "bytes": 1366
+    },
+    {
+      "path": "docs/testing/core-loop_20261018/logs/posted_notice_input.log",
+      "sha256": "9f7b45677d318959c3c67adde227aea8c255d1af6bb76624c7932d3bff17f3f5",
+      "bytes": 219
+    },
+    {
+      "path": "docs/testing/core-loop_20261018/logs/resolution_slip_smoke.log",
+      "sha256": "f76170808408518a2a72ef54209151855b29b923bb50c79e34f5c85a6f5ff33a",
+      "bytes": 219
+    },
+    {
+      "path": "docs/testing/core-loop_20261018/logs/settings_art_edges_input.log",
+      "sha256": "c38cc6a067cc2241e94e450411ec59c115225b453c4e534137ec978ad04ab27c",
+      "bytes": 230
+    },
+    {
+      "path": "docs/testing/core-loop_20261018/logs/settings_effects_input.log",
+      "sha256": "fbe3cf0bbcc15e856ff6f7b4aae7d2397ed0835a91734c7f33fc2fcc0ca7a05c",
+      "bytes": 2430
+    },
+    {
+      "path": "docs/testing/core-loop_20261018/logs/settings_manipulation_input.log",
+      "sha256": "09e193c2b3e45b55a407623a2ece02df3381a18c727f9c2a9415f15f4ab239ad",
+      "bytes": 787
+    },
+    {
+      "path": "docs/testing/core-loop_20261018/logs/settings_save_failure_input.log",
+      "sha256": "ce06af2e754c4b4ca5d2de7532a21a7bb8e4583a8c96a46df483c200916977cc",
+      "bytes": 2965
+    },
+    {
+      "path": "docs/testing/core-loop_20261018/logs/tactile_mail_input.log",
+      "sha256": "5f165212d859ce1ac63cf144d70e5152234a0f37e5a963ffce824b1eed54f067",
+      "bytes": 5571
+    },
+    {
+      "path": "docs/testing/core-loop_20261018/logs/visible_ripple_input.log",
+      "sha256": "ab40afd9ee09b6c14d8991424389e4c9ae83b1eb77775b742acd95033eed9fb2",
+      "bytes": 226
+    },
+    {
+      "path": "docs/testing/core-loop_20261018/logs/water_feedback_input.log",
+      "sha256": "b1f4ca6b2cf785ad1f8738196c7d81e4afe882bb51f705f98b49691efe529c8d",
+      "bytes": 226
+    },
+    {
+      "path": "docs/testing/core-loop_20261018/logs/water_field_input.log",
+      "sha256": "c667a899f13df917540a455fe231a71aabafcd7afb6cf6713d53501655253932",
+      "bytes": 338
+    },
+    {
+      "path": "docs/testing/core-loop_20261018/logs/amended_handoff.log",
+      "sha256": "37fa633db46678a6dc309e9b5541b29d9e7d7c2d37f72416baec2005646289e1",
+      "bytes": 11249
+    },
+    {
+      "path": "docs/testing/core-loop_20261018/logs/five_case_delegate.log",
+      "sha256": "985365e8c04f2dc175539b451c41acd3fdcfe22dd904f05c56ded6c9bf2397b1",
+      "bytes": 17080
+    },
+    {
+      "path": "docs/testing/core-loop_20261018/logs/five_case_sealed.log",
+      "sha256": "e6d18314c115699cae1e12ab3455e5bc2406e2bb61f40b2843b925f6180186ab",
+      "bytes": 16995
+    },
+    {
+      "path": "docs/testing/core-loop_20261018/python/test_studio_all.py.log",
+      "sha256": "0bec3157f97157b531aaa7ef7e26b8eb805823d3f19b7fd46cc697c3ba5c2149",
+      "bytes": 4638
+    },
+    {
+      "path": "docs/testing/core-loop_20261018/python/test_pastel_assets.py.log",
+      "sha256": "231c75c9eba4a0604f8ada9806eb0df98bc8bb013351e1ad9cf50470dd641a94",
+      "bytes": 583
+    },
+    {
+      "path": "docs/testing/core-loop_20261018/python/test_video_courier.py.log",
+      "sha256": "9f7f53d0f78009a02ef7ec4c857851c375ebc73836da4fead7a0d547f30545b3",
+      "bytes": 1579
+    },
+    {
+      "path": "docs/testing/core-loop_20261018/python/test_settings_media.py.log",
+      "sha256": "8ec5bfa3251da8dd694234d8d741beaf8fdc5000b4ba441e3c600c848fd36db4",
+      "bytes": 871
+    },
+    {
+      "path": "docs/testing/core-loop_20261018/results/notices.json",
+      "sha256": "362ba184566413a3e8c92c6e7481612ce268cd612c72b129f29ab3466de3d94f",
+      "bytes": 72797
+    },
+    {
+      "path": "docs/testing/core-loop_20261018/results/settings.json",
+      "sha256": "69a057200bfbc30b443f17954becbcbf8e9e199d388a26c6f4026ce6c20e34d7",
+      "bytes": 767
+    },
+    {
+      "path": "docs/testing/core-loop_20261018/results/sealed.json",
+      "sha256": "fc4e58f025f7fa481c68e073b1699671e15b80ad398fa9bb0659a3db1ac3d148",
+      "bytes": 262071
+    },
+    {
+      "path": "docs/testing/core-loop_20261018/results/delegate.json",
+      "sha256": "34fd48644a84b5d2c9545f15ade1e276349fbca7a54c8db25e33ad70bb55f359",
+      "bytes": 267561
+    },
+    {
+      "path": "docs/testing/core-loop_20261018/results/engine-close.json",
+      "sha256": "6144f9d257b9a65ff1c59573206f1c00a815d28c7638158e317a0a70f7b7b340",
+      "bytes": 601
+    },
+    {
+      "path": "docs/testing/core-loop_20261018/results/engine-reload.json",
+      "sha256": "fc36b1e506fd060d0d3eb800826d917041f91acc9fa2e1f2db1e4d4f1daf9f46",
+      "bytes": 9096
+    },
+    {
+      "path": "docs/testing/core-loop_20261018/retained-failures/notices-fixture.json",
+      "sha256": "4d438b1afa4ac33afe90abd33d30f1a26c47ba7a78d097b2e1b9d67769ea8b24",
+      "bytes": 15980
+    },
+    {
+      "path": "docs/testing/core-loop_20261018/retained-failures/notices-fixture.log",
+      "sha256": "e6b4501d4000ad71f8d971f59ce2664733eab9575c8fa0144c82cc4157757ca2",
+      "bytes": 495
+    },
+    {
+      "path": "docs/testing/core-loop_20261018/retained-failures/display-fixture.log",
+      "sha256": "a17e41d48e45c908fe777030bdd84d3713c95398fe624e58277b232205664860",
+      "bytes": 400551
+    },
+    {
+      "path": "docs/testing/core-loop_20261018/retained-failures/settings-fixture.log",
+      "sha256": "fb2e64b2eacead481e00f7415e6a40f08368887cb1c3b90cf66a29b60bf4f209",
+      "bytes": 2474
+    },
+    {
+      "path": "docs/testing/core-loop_20261018/retained-failures/water-measurement.json",
+      "sha256": "aa24f13e7c4b40d69aef4fdd04f37ec48e2d99838abc23480e0c7357beaa1159",
+      "bytes": 110828
+    },
+    {
+      "path": "docs/testing/core-loop_20261018/retained-failures/water-measurement.log",
+      "sha256": "22e111c5cc549c4d890cb8df4289e705b84b436b8d72844f97abeca634bb6155",
+      "bytes": 717
+    },
+    {
+      "path": "docs/testing/core-loop_20261018/retained-failures/old-notice-assertion.log",
+      "sha256": "361224903287ca463c4b019bc7a2a1834eb5cc826f4ffa000140284fe489186a",
+      "bytes": 8545
+    },
+    {
+      "path": "docs/testing/core-loop_20261018/screenshots/street_renaming_zh_1920.png",
+      "sha256": "f8927931a26c9e2a6a4a39dbe5459cb81aac9224ed45aaedce50b8c4b201c34a",
+      "bytes": 691458
+    },
+    {
+      "path": "docs/testing/core-loop_20261018/screenshots/street_renaming_en_1920.png",
+      "sha256": "347a69a38b95b096b9d309d371776f2da459025ac7cdba1d14c8408caeb45181",
+      "bytes": 729223
+    },
+    {
+      "path": "docs/testing/core-loop_20261018/screenshots/moran_entry_zh_1920.png",
+      "sha256": "dfc82333cb1f42be5d241d9bf739c9a0599c943d2e45a52983e63abfc6be54ce",
+      "bytes": 670543
+    },
+    {
+      "path": "docs/testing/core-loop_20261018/screenshots/moran_entry_en_1920.png",
+      "sha256": "d0f4b45969e4e414749500fd39989ed14812260511bf2ad0609441ef7078d265",
+      "bytes": 713962
+    },
+    {
+      "path": "docs/testing/core-loop_20261018/screenshots/procedure_codes_zh_1920.png",
+      "sha256": "b11978107ed79834eb20e90fb322ec004790f5c540a2f3207acaa9f8641914c9",
+      "bytes": 640600
+    },
+    {
+      "path": "docs/testing/core-loop_20261018/screenshots/procedure_codes_en_1920.png",
+      "sha256": "b11978107ed79834eb20e90fb322ec004790f5c540a2f3207acaa9f8641914c9",
+      "bytes": 640600
+    },
+    {
+      "path": "docs/testing/core-loop_20261018/screenshots/settings_restored_en_1920.png",
+      "sha256": "bc9f3c04b16fcc552743c6217a1b146098fde47ad956b154032e8e6248528089",
+      "bytes": 1765734
+    },
+    {
+      "path": "docs/testing/core-loop_20261018/screenshots/06_delivered_world.png",
+      "sha256": "2cb8a59ba4b4ac3e9650e9f0c6d9ce93b6d7ed12afcd558df00cb4c545c83406",
+      "bytes": 1940241
+    },
+    {
+      "path": "docs/testing/core-loop_20261018/screenshots/06c_counter_after_first_resolution.png",
+      "sha256": "52ba8bfe3b4012ad8712d4c16eaf3c1547f3aa1a082dcadd1c1987711564be4d",
+      "bytes": 1705182
+    },
+    {
+      "path": "docs/testing/core-loop_20261018/screenshots/complete_ending.png",
+      "sha256": "0ca30211ff20072469ee22dc6a3a4ad56c44b1587737d01df3b85052e4cb73bf",
+      "bytes": 1409742
+    }
+  ]
+}

@@ -29,6 +29,7 @@ func _run()->void:
 	for event_name:String in ["focus_entered","focus_exited","mouse_entered","mouse_exited","size_changed"]:
 		if root.has_signal(event_name):root.connect(event_name,_record_window_event.bind(event_name))
 	game=DisplayProbe.new();game.preferences_path="user://qa/display/"+str(Time.get_ticks_usec())+".json";root.add_child(game);game.size=Vector2(1600,900)
+	root.position=Vector2i(-12000,-12000)
 	game._settings_page();await process_frame
 	game.preferences.changed.connect(_observe_display_request)
 	var startup_flag:bool=bool(ProjectSettings.get_setting("display/window/size/no_focus",false)) and DisplayServer.window_get_flag(DisplayServer.WINDOW_FLAG_NO_FOCUS,root.get_window_id()) and root.unfocusable

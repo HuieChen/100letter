@@ -1,0 +1,31 @@
+{
+	"checks": 51,
+	"failures": [],
+	"measured_dialogue": {
+		"fast": {
+			"rate": 80.0,
+			"total": 79,
+			"visible_characters": 17
+		},
+		"slow": {
+			"rate": 20.0,
+			"total": 79,
+			"visible_characters": 4
+		}
+	},
+	"saved_values": {
+		"display_mode": "windowed",
+		"language": "en",
+		"master": 0.71,
+		"music": 0.31,
+		"resolution": "auto",
+		"sensitivity": 2.0,
+		"sfx": 0.62,
+		"text_speed": "fast"
+	},
+	"scope": "Actual routed setting clicks/drags, AudioServer gains/mutes, timed real dialogue, fresh-host restoration. Complemented by real paper zoom/pan and native-window geometry suites. No listening or human acceptance claim.",
+	"screenshots": [
+		"res://test-results/fullflow-20261018/settings/restored_en_1920.png"
+	],
+	"suite": "settings_effects_input"
+}

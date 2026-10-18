@@ -1,0 +1,51 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+OpenGL API 3.3.0 NVIDIA 566.24 - Compatibility - Using Device: NVIDIA - NVIDIA GeForce RTX 4050 Laptop GPU
+
+WARNING: 设置未保存
+   at: push_warning (core/variant/variant_utility.cpp:1033)
+   GDScript backtrace (most recent call first):
+       [0] _prepare_quit (res://scripts/rebuild/final_playable.gd:152)
+       [1] _run (res://tests/settings_save_failure_input.gd:36)
+       [2] _drag_master (res://tests/settings_save_failure_input.gd:130)
+WARNING: Settings not saved
+   at: push_warning (core/variant/variant_utility.cpp:1033)
+   GDScript backtrace (most recent call first):
+       [0] _prepare_quit (res://scripts/rebuild/final_playable.gd:152)
+       [1] _run (res://tests/settings_save_failure_input.gd:60)
+       [2] _key (res://tests/settings_save_failure_input.gd:152)
+WARNING: Settings not saved
+   at: push_warning (core/variant/variant_utility.cpp:1033)
+   GDScript backtrace (most recent call first):
+       [0] _prepare_quit (res://scripts/rebuild/final_playable.gd:152)
+       [1] _run (res://tests/settings_save_failure_input.gd:67)
+       [2] _click_named (res://tests/settings_save_failure_input.gd:135)
+       [3] _button (res://tests/settings_save_failure_input.gd:149)
+WARNING: Settings not saved
+   at: push_warning (core/variant/variant_utility.cpp:1033)
+   GDScript backtrace (most recent call first):
+       [0] _prepare_quit (res://scripts/rebuild/final_playable.gd:152)
+       [1] _run (res://tests/settings_save_failure_input.gd:73)
+       [2] _click_text (res://tests/settings_save_failure_input.gd:140)
+       [3] _button (res://tests/settings_save_failure_input.gd:149)
+WARNING: Settings not saved
+   at: push_warning (core/variant/variant_utility.cpp:1033)
+   GDScript backtrace (most recent call first):
+       [0] _prepare_quit (res://scripts/rebuild/final_playable.gd:152)
+       [1] _run (res://tests/settings_save_failure_input.gd:77)
+       [2] _click_text (res://tests/settings_save_failure_input.gd:140)
+       [3] _button (res://tests/settings_save_failure_input.gd:149)
+WARNING: Settings not saved
+   at: push_warning (core/variant/variant_utility.cpp:1033)
+   GDScript backtrace (most recent call first):
+       [0] _prepare_quit (res://scripts/rebuild/final_playable.gd:152)
+       [1] _run (res://tests/settings_save_failure_input.gd:83)
+       [2] _click_text (res://tests/settings_save_failure_input.gd:140)
+       [3] _button (res://tests/settings_save_failure_input.gd:149)
+WARNING: Settings not saved
+   at: push_warning (core/variant/variant_utility.cpp:1033)
+   GDScript backtrace (most recent call first):
+       [0] _prepare_quit (res://scripts/rebuild/final_playable.gd:152)
+       [1] _run (res://tests/settings_save_failure_input.gd:86)
+       [2] _click_text (res://tests/settings_save_failure_input.gd:140)
+       [3] _button (res://tests/settings_save_failure_input.gd:149)
+SETTINGS SAVE FAILURE INPUT: 82 checks / 0 failures

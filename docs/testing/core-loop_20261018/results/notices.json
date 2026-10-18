@@ -1,0 +1,2554 @@
+{
+	"checks": 1368,
+	"failures": [],
+	"geometry": [
+		{
+			"id": "street_renaming",
+			"locale": "zh",
+			"rect": "[P: (390.0, 215.0), S: (800.0, 48.0)]",
+			"text": "街名更动公告",
+			"viewport": "(1280, 720)"
+		},
+		{
+			"id": "street_renaming",
+			"locale": "zh",
+			"rect": "[P: (390.0, 281.0), S: (800.0, 32.0)]",
+			"text": "海堤重建后的地址登记",
+			"viewport": "(1280, 720)"
+		},
+		{
+			"id": "street_renaming",
+			"locale": "zh",
+			"rect": "[P: (390.0, 331.0), S: (380.0, 81.0)]",
+			"text": "原街名\nOld Quay Lane",
+			"viewport": "(1280, 720)"
+		},
+		{
+			"id": "street_renaming",
+			"locale": "zh",
+			"rect": "[P: (810.0, 331.0), S: (380.0, 81.0)]",
+			"text": "现街名\nBay Steps",
+			"viewport": "(1280, 720)"
+		},
+		{
+			"id": "street_renaming",
+			"locale": "zh",
+			"rect": "[P: (390.0, 430.0), S: (800.0, 145.0)]",
+			"text": "沿海堤一带原登记为 Old Quay Lane 的住址，现使用街名 Bay Steps。\n\n旧门牌与现行门牌并不一一对应。\n投递请以现行门牌及住户登记为准。",
+			"viewport": "(1280, 720)"
+		},
+		{
+			"id": "street_renaming",
+			"locale": "zh",
+			"rect": "[P: (390.0, 593.0), S: (800.0, 77.0)]",
+			"text": "Solmere · 社区登记处",
+			"viewport": "(1280, 720)"
+		},
+		{
+			"id": "street_renaming",
+			"locale": "zh",
+			"rect": "[P: (390.0, 215.0), S: (800.0, 48.0)]",
+			"text": "街名更动公告",
+			"viewport": "(1920, 1080)"
+		},
+		{
+			"id": "street_renaming",
+			"locale": "zh",
+			"rect": "[P: (390.0, 281.0), S: (800.0, 32.0)]",
+			"text": "海堤重建后的地址登记",
+			"viewport": "(1920, 1080)"
+		},
+		{
+			"id": "street_renaming",
+			"locale": "zh",
+			"rect": "[P: (390.0, 331.0), S: (380.0, 81.0)]",
+			"text": "原街名\nOld Quay Lane",
+			"viewport": "(1920, 1080)"
+		},
+		{
+			"id": "street_renaming",
+			"locale": "zh",
+			"rect": "[P: (810.0, 331.0), S: (380.0, 81.0)]",
+			"text": "现街名\nBay Steps",
+			"viewport": "(1920, 1080)"
+		},
+		{
+			"id": "street_renaming",
+			"locale": "zh",
+			"rect": "[P: (390.0, 430.0), S: (800.0, 145.0)]",
+			"text": "沿海堤一带原登记为 Old Quay Lane 的住址，现使用街名 Bay Steps。\n\n旧门牌与现行门牌并不一一对应。\n投递请以现行门牌及住户登记为准。",
+			"viewport": "(1920, 1080)"
+		},
+		{
+			"id": "street_renaming",
+			"locale": "zh",
+			"rect": "[P: (390.0, 593.0), S: (800.0, 77.0)]",
+			"text": "Solmere · 社区登记处",
+			"viewport": "(1920, 1080)"
+		},
+		{
+			"id": "street_renaming",
+			"locale": "zh",
+			"rect": "[P: (390.0, 215.0), S: (800.0, 48.0)]",
+			"text": "街名更动公告",
+			"viewport": "(2560, 1440)"
+		},
+		{
+			"id": "street_renaming",
+			"locale": "zh",
+			"rect": "[P: (390.0, 281.0), S: (800.0, 32.0)]",
+			"text": "海堤重建后的地址登记",
+			"viewport": "(2560, 1440)"
+		},
+		{
+			"id": "street_renaming",
+			"locale": "zh",
+			"rect": "[P: (390.0, 331.0), S: (380.0, 81.0)]",
+			"text": "原街名\nOld Quay Lane",
+			"viewport": "(2560, 1440)"
+		},
+		{
+			"id": "street_renaming",
+			"locale": "zh",
+			"rect": "[P: (810.0, 331.0), S: (380.0, 81.0)]",
+			"text": "现街名\nBay Steps",
+			"viewport": "(2560, 1440)"
+		},
+		{
+			"id": "street_renaming",
+			"locale": "zh",
+			"rect": "[P: (390.0, 430.0), S: (800.0, 145.0)]",
+			"text": "沿海堤一带原登记为 Old Quay Lane 的住址，现使用街名 Bay Steps。\n\n旧门牌与现行门牌并不一一对应。\n投递请以现行门牌及住户登记为准。",
+			"viewport": "(2560, 1440)"
+		},
+		{
+			"id": "street_renaming",
+			"locale": "zh",
+			"rect": "[P: (390.0, 593.0), S: (800.0, 77.0)]",
+			"text": "Solmere · 社区登记处",
+			"viewport": "(2560, 1440)"
+		},
+		{
+			"id": "street_renaming",
+			"locale": "en",
+			"rect": "[P: (390.0, 215.0), S: (800.0, 48.0)]",
+			"text": "Street renaming notice",
+			"viewport": "(1280, 720)"
+		},
+		{
+			"id": "street_renaming",
+			"locale": "en",
+			"rect": "[P: (390.0, 281.0), S: (800.0, 32.0)]",
+			"text": "Address register following the seawall works",
+			"viewport": "(1280, 720)"
+		},
+		{
+			"id": "street_renaming",
+			"locale": "en",
+			"rect": "[P: (390.0, 331.0), S: (380.0, 81.0)]",
+			"text": "Former street\nOld Quay Lane",
+			"viewport": "(1280, 720)"
+		},
+		{
+			"id": "street_renaming",
+			"locale": "en",
+			"rect": "[P: (810.0, 331.0), S: (380.0, 81.0)]",
+			"text": "Current street\nBay Steps",
+			"viewport": "(1280, 720)"
+		},
+		{
+			"id": "street_renaming",
+			"locale": "en",
+			"rect": "[P: (390.0, 430.0), S: (800.0, 182.0)]",
+			"text": "Addresses along the seawall formerly registered as Old Quay Lane now use the street name Bay Steps.\n\nOld and current house numbers do not correspond. For post and correspondence, use the current door plate and resident register.",
+			"viewport": "(1280, 720)"
+		},
+		{
+			"id": "street_renaming",
+			"locale": "en",
+			"rect": "[P: (390.0, 630.0), S: (800.0, 40.0)]",
+			"text": "Solmere · Community register",
+			"viewport": "(1280, 720)"
+		},
+		{
+			"id": "street_renaming",
+			"locale": "en",
+			"rect": "[P: (390.0, 215.0), S: (800.0, 48.0)]",
+			"text": "Street renaming notice",
+			"viewport": "(1920, 1080)"
+		},
+		{
+			"id": "street_renaming",
+			"locale": "en",
+			"rect": "[P: (390.0, 281.0), S: (800.0, 32.0)]",
+			"text": "Address register following the seawall works",
+			"viewport": "(1920, 1080)"
+		},
+		{
+			"id": "street_renaming",
+			"locale": "en",
+			"rect": "[P: (390.0, 331.0), S: (380.0, 81.0)]",
+			"text": "Former street\nOld Quay Lane",
+			"viewport": "(1920, 1080)"
+		},
+		{
+			"id": "street_renaming",
+			"locale": "en",
+			"rect": "[P: (810.0, 331.0), S: (380.0, 81.0)]",
+			"text": "Current street\nBay Steps",
+			"viewport": "(1920, 1080)"
+		},
+		{
+			"id": "street_renaming",
+			"locale": "en",
+			"rect": "[P: (390.0, 430.0), S: (800.0, 182.0)]",
+			"text": "Addresses along the seawall formerly registered as Old Quay Lane now use the street name Bay Steps.\n\nOld and current house numbers do not correspond. For post and correspondence, use the current door plate and resident register.",
+			"viewport": "(1920, 1080)"
+		},
+		{
+			"id": "street_renaming",
+			"locale": "en",
+			"rect": "[P: (390.0, 630.0), S: (800.0, 40.0)]",
+			"text": "Solmere · Community register",
+			"viewport": "(1920, 1080)"
+		},
+		{
+			"id": "street_renaming",
+			"locale": "en",
+			"rect": "[P: (390.0, 215.0), S: (800.0, 48.0)]",
+			"text": "Street renaming notice",
+			"viewport": "(2560, 1440)"
+		},
+		{
+			"id": "street_renaming",
+			"locale": "en",
+			"rect": "[P: (390.0, 281.0), S: (800.0, 32.0)]",
+			"text": "Address register following the seawall works",
+			"viewport": "(2560, 1440)"
+		},
+		{
+			"id": "street_renaming",
+			"locale": "en",
+			"rect": "[P: (390.0, 331.0), S: (380.0, 81.0)]",
+			"text": "Former street\nOld Quay Lane",
+			"viewport": "(2560, 1440)"
+		},
+		{
+			"id": "street_renaming",
+			"locale": "en",
+			"rect": "[P: (810.0, 331.0), S: (380.0, 81.0)]",
+			"text": "Current street\nBay Steps",
+			"viewport": "(2560, 1440)"
+		},
+		{
+			"id": "street_renaming",
+			"locale": "en",
+			"rect": "[P: (390.0, 430.0), S: (800.0, 182.0)]",
+			"text": "Addresses along the seawall formerly registered as Old Quay Lane now use the street name Bay Steps.\n\nOld and current house numbers do not correspond. For post and correspondence, use the current door plate and resident register.",
+			"viewport": "(2560, 1440)"
+		},
+		{
+			"id": "street_renaming",
+			"locale": "en",
+			"rect": "[P: (390.0, 630.0), S: (800.0, 40.0)]",
+			"text": "Solmere · Community register",
+			"viewport": "(2560, 1440)"
+		},
+		{
+			"id": "moran_entry",
+			"locale": "zh",
+			"rect": "[P: (390.0, 215.0), S: (800.0, 48.0)]",
+			"text": "住户通信登记",
+			"viewport": "(1280, 720)"
+		},
+		{
+			"id": "moran_entry",
+			"locale": "zh",
+			"rect": "[P: (390.0, 281.0), S: (800.0, 32.0)]",
+			"text": "Bay Steps",
+			"viewport": "(1280, 720)"
+		},
+		{
+			"id": "moran_entry",
+			"locale": "zh",
+			"rect": "[P: (390.0, 331.0), S: (380.0, 81.0)]",
+			"text": "登记姓名\nE. Moran",
+			"viewport": "(1280, 720)"
+		},
+		{
+			"id": "moran_entry",
+			"locale": "zh",
+			"rect": "[P: (810.0, 331.0), S: (380.0, 81.0)]",
+			"text": "通信地址\n9 Bay Steps",
+			"viewport": "(1280, 720)"
+		},
+		{
+			"id": "moran_entry",
+			"locale": "zh",
+			"rect": "[P: (390.0, 430.0), S: (800.0, 108.0)]",
+			"text": "通信请写明收件人姓名及现行门牌。\n\n住户如需更正通信地址，请将更改交至社区登记处。",
+			"viewport": "(1280, 720)"
+		},
+		{
+			"id": "moran_entry",
+			"locale": "zh",
+			"rect": "[P: (390.0, 556.0), S: (800.0, 114.0)]",
+			"text": "Bay Steps · 住户通信页",
+			"viewport": "(1280, 720)"
+		},
+		{
+			"id": "moran_entry",
+			"locale": "zh",
+			"rect": "[P: (390.0, 215.0), S: (800.0, 48.0)]",
+			"text": "住户通信登记",
+			"viewport": "(1920, 1080)"
+		},
+		{
+			"id": "moran_entry",
+			"locale": "zh",
+			"rect": "[P: (390.0, 281.0), S: (800.0, 32.0)]",
+			"text": "Bay Steps",
+			"viewport": "(1920, 1080)"
+		},
+		{
+			"id": "moran_entry",
+			"locale": "zh",
+			"rect": "[P: (390.0, 331.0), S: (380.0, 81.0)]",
+			"text": "登记姓名\nE. Moran",
+			"viewport": "(1920, 1080)"
+		},
+		{
+			"id": "moran_entry",
+			"locale": "zh",
+			"rect": "[P: (810.0, 331.0), S: (380.0, 81.0)]",
+			"text": "通信地址\n9 Bay Steps",
+			"viewport": "(1920, 1080)"
+		},
+		{
+			"id": "moran_entry",
+			"locale": "zh",
+			"rect": "[P: (390.0, 430.0), S: (800.0, 108.0)]",
+			"text": "通信请写明收件人姓名及现行门牌。\n\n住户如需更正通信地址，请将更改交至社区登记处。",
+			"viewport": "(1920, 1080)"
+		},
+		{
+			"id": "moran_entry",
+			"locale": "zh",
+			"rect": "[P: (390.0, 556.0), S: (800.0, 114.0)]",
+			"text": "Bay Steps · 住户通信页",
+			"viewport": "(1920, 1080)"
+		},
+		{
+			"id": "moran_entry",
+			"locale": "zh",
+			"rect": "[P: (390.0, 215.0), S: (800.0, 48.0)]",
+			"text": "住户通信登记",
+			"viewport": "(2560, 1440)"
+		},
+		{
+			"id": "moran_entry",
+			"locale": "zh",
+			"rect": "[P: (390.0, 281.0), S: (800.0, 32.0)]",
+			"text": "Bay Steps",
+			"viewport": "(2560, 1440)"
+		},
+		{
+			"id": "moran_entry",
+			"locale": "zh",
+			"rect": "[P: (390.0, 331.0), S: (380.0, 81.0)]",
+			"text": "登记姓名\nE. Moran",
+			"viewport": "(2560, 1440)"
+		},
+		{
+			"id": "moran_entry",
+			"locale": "zh",
+			"rect": "[P: (810.0, 331.0), S: (380.0, 81.0)]",
+			"text": "通信地址\n9 Bay Steps",
+			"viewport": "(2560, 1440)"
+		},
+		{
+			"id": "moran_entry",
+			"locale": "zh",
+			"rect": "[P: (390.0, 430.0), S: (800.0, 108.0)]",
+			"text": "通信请写明收件人姓名及现行门牌。\n\n住户如需更正通信地址，请将更改交至社区登记处。",
+			"viewport": "(2560, 1440)"
+		},
+		{
+			"id": "moran_entry",
+			"locale": "zh",
+			"rect": "[P: (390.0, 556.0), S: (800.0, 114.0)]",
+			"text": "Bay Steps · 住户通信页",
+			"viewport": "(2560, 1440)"
+		},
+		{
+			"id": "moran_entry",
+			"locale": "en",
+			"rect": "[P: (390.0, 215.0), S: (800.0, 48.0)]",
+			"text": "Resident correspondence register",
+			"viewport": "(1280, 720)"
+		},
+		{
+			"id": "moran_entry",
+			"locale": "en",
+			"rect": "[P: (390.0, 281.0), S: (800.0, 32.0)]",
+			"text": "Bay Steps",
+			"viewport": "(1280, 720)"
+		},
+		{
+			"id": "moran_entry",
+			"locale": "en",
+			"rect": "[P: (390.0, 331.0), S: (380.0, 81.0)]",
+			"text": "Registered name\nE. Moran",
+			"viewport": "(1280, 720)"
+		},
+		{
+			"id": "moran_entry",
+			"locale": "en",
+			"rect": "[P: (810.0, 331.0), S: (380.0, 81.0)]",
+			"text": "Postal address\n9 Bay Steps",
+			"viewport": "(1280, 720)"
+		},
+		{
+			"id": "moran_entry",
+			"locale": "en",
+			"rect": "[P: (390.0, 430.0), S: (800.0, 182.0)]",
+			"text": "Please include the recipient's name and current house number on correspondence.\n\nResidents wishing to correct their postal address may leave an amendment at the community register.",
+			"viewport": "(1280, 720)"
+		},
+		{
+			"id": "moran_entry",
+			"locale": "en",
+			"rect": "[P: (390.0, 630.0), S: (800.0, 40.0)]",
+			"text": "Bay Steps · Resident correspondence",
+			"viewport": "(1280, 720)"
+		},
+		{
+			"id": "moran_entry",
+			"locale": "en",
+			"rect": "[P: (390.0, 215.0), S: (800.0, 48.0)]",
+			"text": "Resident correspondence register",
+			"viewport": "(1920, 1080)"
+		},
+		{
+			"id": "moran_entry",
+			"locale": "en",
+			"rect": "[P: (390.0, 281.0), S: (800.0, 32.0)]",
+			"text": "Bay Steps",
+			"viewport": "(1920, 1080)"
+		},
+		{
+			"id": "moran_entry",
+			"locale": "en",
+			"rect": "[P: (390.0, 331.0), S: (380.0, 81.0)]",
+			"text": "Registered name\nE. Moran",
+			"viewport": "(1920, 1080)"
+		},
+		{
+			"id": "moran_entry",
+			"locale": "en",
+			"rect": "[P: (810.0, 331.0), S: (380.0, 81.0)]",
+			"text": "Postal address\n9 Bay Steps",
+			"viewport": "(1920, 1080)"
+		},
+		{
+			"id": "moran_entry",
+			"locale": "en",
+			"rect": "[P: (390.0, 430.0), S: (800.0, 182.0)]",
+			"text": "Please include the recipient's name and current house number on correspondence.\n\nResidents wishing to correct their postal address may leave an amendment at the community register.",
+			"viewport": "(1920, 1080)"
+		},
+		{
+			"id": "moran_entry",
+			"locale": "en",
+			"rect": "[P: (390.0, 630.0), S: (800.0, 40.0)]",
+			"text": "Bay Steps · Resident correspondence",
+			"viewport": "(1920, 1080)"
+		},
+		{
+			"id": "moran_entry",
+			"locale": "en",
+			"rect": "[P: (390.0, 215.0), S: (800.0, 48.0)]",
+			"text": "Resident correspondence register",
+			"viewport": "(2560, 1440)"
+		},
+		{
+			"id": "moran_entry",
+			"locale": "en",
+			"rect": "[P: (390.0, 281.0), S: (800.0, 32.0)]",
+			"text": "Bay Steps",
+			"viewport": "(2560, 1440)"
+		},
+		{
+			"id": "moran_entry",
+			"locale": "en",
+			"rect": "[P: (390.0, 331.0), S: (380.0, 81.0)]",
+			"text": "Registered name\nE. Moran",
+			"viewport": "(2560, 1440)"
+		},
+		{
+			"id": "moran_entry",
+			"locale": "en",
+			"rect": "[P: (810.0, 331.0), S: (380.0, 81.0)]",
+			"text": "Postal address\n9 Bay Steps",
+			"viewport": "(2560, 1440)"
+		},
+		{
+			"id": "moran_entry",
+			"locale": "en",
+			"rect": "[P: (390.0, 430.0), S: (800.0, 182.0)]",
+			"text": "Please include the recipient's name and current house number on correspondence.\n\nResidents wishing to correct their postal address may leave an amendment at the community register.",
+			"viewport": "(2560, 1440)"
+		},
+		{
+			"id": "moran_entry",
+			"locale": "en",
+			"rect": "[P: (390.0, 630.0), S: (800.0, 40.0)]",
+			"text": "Bay Steps · Resident correspondence",
+			"viewport": "(2560, 1440)"
+		},
+		{
+			"id": "telescope_checkout",
+			"locale": "zh",
+			"rect": "[P: (390.0, 215.0), S: (800.0, 48.0)]",
+			"text": "设备借还单",
+			"viewport": "(1280, 720)"
+		},
+		{
+			"id": "telescope_checkout",
+			"locale": "zh",
+			"rect": "[P: (390.0, 281.0), S: (800.0, 32.0)]",
+			"text": "社区中心 · 折叠望远镜",
+			"viewport": "(1280, 720)"
+		},
+		{
+			"id": "telescope_checkout",
+			"locale": "zh",
+			"rect": "[P: (390.0, 349.0), S: (800.0, 256.0)]",
+			"text": "借用人 / 用途地点 / 归还登记\n\nMira Vale  ·  folding telescope\n\n活动地点：Lookout\n\n归还：________",
+			"viewport": "(1280, 720)"
+		},
+		{
+			"id": "telescope_checkout",
+			"locale": "zh",
+			"rect": "[P: (390.0, 623.0), S: (800.0, 47.0)]",
+			"text": "1",
+			"viewport": "(1280, 720)"
+		},
+		{
+			"id": "telescope_checkout",
+			"locale": "zh",
+			"rect": "[P: (390.0, 215.0), S: (800.0, 48.0)]",
+			"text": "设备借还单",
+			"viewport": "(1920, 1080)"
+		},
+		{
+			"id": "telescope_checkout",
+			"locale": "zh",
+			"rect": "[P: (390.0, 281.0), S: (800.0, 32.0)]",
+			"text": "社区中心 · 折叠望远镜",
+			"viewport": "(1920, 1080)"
+		},
+		{
+			"id": "telescope_checkout",
+			"locale": "zh",
+			"rect": "[P: (390.0, 349.0), S: (800.0, 256.0)]",
+			"text": "借用人 / 用途地点 / 归还登记\n\nMira Vale  ·  folding telescope\n\n活动地点：Lookout\n\n归还：________",
+			"viewport": "(1920, 1080)"
+		},
+		{
+			"id": "telescope_checkout",
+			"locale": "zh",
+			"rect": "[P: (390.0, 623.0), S: (800.0, 47.0)]",
+			"text": "1",
+			"viewport": "(1920, 1080)"
+		},
+		{
+			"id": "telescope_checkout",
+			"locale": "zh",
+			"rect": "[P: (390.0, 215.0), S: (800.0, 48.0)]",
+			"text": "设备借还单",
+			"viewport": "(2560, 1440)"
+		},
+		{
+			"id": "telescope_checkout",
+			"locale": "zh",
+			"rect": "[P: (390.0, 281.0), S: (800.0, 32.0)]",
+			"text": "社区中心 · 折叠望远镜",
+			"viewport": "(2560, 1440)"
+		},
+		{
+			"id": "telescope_checkout",
+			"locale": "zh",
+			"rect": "[P: (390.0, 349.0), S: (800.0, 256.0)]",
+			"text": "借用人 / 用途地点 / 归还登记\n\nMira Vale  ·  folding telescope\n\n活动地点：Lookout\n\n归还：________",
+			"viewport": "(2560, 1440)"
+		},
+		{
+			"id": "telescope_checkout",
+			"locale": "zh",
+			"rect": "[P: (390.0, 623.0), S: (800.0, 47.0)]",
+			"text": "1",
+			"viewport": "(2560, 1440)"
+		},
+		{
+			"id": "telescope_checkout",
+			"locale": "en",
+			"rect": "[P: (390.0, 215.0), S: (800.0, 48.0)]",
+			"text": "设备借还单",
+			"viewport": "(1280, 720)"
+		},
+		{
+			"id": "telescope_checkout",
+			"locale": "en",
+			"rect": "[P: (390.0, 281.0), S: (800.0, 32.0)]",
+			"text": "社区中心 · 折叠望远镜",
+			"viewport": "(1280, 720)"
+		},
+		{
+			"id": "telescope_checkout",
+			"locale": "en",
+			"rect": "[P: (390.0, 349.0), S: (800.0, 256.0)]",
+			"text": "借用人 / 用途地点 / 归还登记\n\nMira Vale  ·  folding telescope\n\n活动地点：Lookout\n\n归还：________",
+			"viewport": "(1280, 720)"
+		},
+		{
+			"id": "telescope_checkout",
+			"locale": "en",
+			"rect": "[P: (390.0, 623.0), S: (800.0, 47.0)]",
+			"text": "1",
+			"viewport": "(1280, 720)"
+		},
+		{
+			"id": "telescope_checkout",
+			"locale": "en",
+			"rect": "[P: (390.0, 215.0), S: (800.0, 48.0)]",
+			"text": "设备借还单",
+			"viewport": "(1920, 1080)"
+		},
+		{
+			"id": "telescope_checkout",
+			"locale": "en",
+			"rect": "[P: (390.0, 281.0), S: (800.0, 32.0)]",
+			"text": "社区中心 · 折叠望远镜",
+			"viewport": "(1920, 1080)"
+		},
+		{
+			"id": "telescope_checkout",
+			"locale": "en",
+			"rect": "[P: (390.0, 349.0), S: (800.0, 256.0)]",
+			"text": "借用人 / 用途地点 / 归还登记\n\nMira Vale  ·  folding telescope\n\n活动地点：Lookout\n\n归还：________",
+			"viewport": "(1920, 1080)"
+		},
+		{
+			"id": "telescope_checkout",
+			"locale": "en",
+			"rect": "[P: (390.0, 623.0), S: (800.0, 47.0)]",
+			"text": "1",
+			"viewport": "(1920, 1080)"
+		},
+		{
+			"id": "telescope_checkout",
+			"locale": "en",
+			"rect": "[P: (390.0, 215.0), S: (800.0, 48.0)]",
+			"text": "设备借还单",
+			"viewport": "(2560, 1440)"
+		},
+		{
+			"id": "telescope_checkout",
+			"locale": "en",
+			"rect": "[P: (390.0, 281.0), S: (800.0, 32.0)]",
+			"text": "社区中心 · 折叠望远镜",
+			"viewport": "(2560, 1440)"
+		},
+		{
+			"id": "telescope_checkout",
+			"locale": "en",
+			"rect": "[P: (390.0, 349.0), S: (800.0, 256.0)]",
+			"text": "借用人 / 用途地点 / 归还登记\n\nMira Vale  ·  folding telescope\n\n活动地点：Lookout\n\n归还：________",
+			"viewport": "(2560, 1440)"
+		},
+		{
+			"id": "telescope_checkout",
+			"locale": "en",
+			"rect": "[P: (390.0, 623.0), S: (800.0, 47.0)]",
+			"text": "1",
+			"viewport": "(2560, 1440)"
+		},
+		{
+			"id": "telescope_returned",
+			"locale": "zh",
+			"rect": "[P: (390.0, 215.0), S: (800.0, 48.0)]",
+			"text": "设备借还单",
+			"viewport": "(1280, 720)"
+		},
+		{
+			"id": "telescope_returned",
+			"locale": "zh",
+			"rect": "[P: (390.0, 281.0), S: (800.0, 32.0)]",
+			"text": "社区中心 · 折叠望远镜",
+			"viewport": "(1280, 720)"
+		},
+		{
+			"id": "telescope_returned",
+			"locale": "zh",
+			"rect": "[P: (390.0, 349.0), S: (800.0, 256.0)]",
+			"text": "借用人 / 用途地点 / 归还登记\n\nMira Vale  ·  folding telescope\n\n活动地点：Lookout\n\n归还：15:05",
+			"viewport": "(1280, 720)"
+		},
+		{
+			"id": "telescope_returned",
+			"locale": "zh",
+			"rect": "[P: (390.0, 623.0), S: (800.0, 47.0)]",
+			"text": "1",
+			"viewport": "(1280, 720)"
+		},
+		{
+			"id": "telescope_returned",
+			"locale": "zh",
+			"rect": "[P: (390.0, 215.0), S: (800.0, 48.0)]",
+			"text": "设备借还单",
+			"viewport": "(1920, 1080)"
+		},
+		{
+			"id": "telescope_returned",
+			"locale": "zh",
+			"rect": "[P: (390.0, 281.0), S: (800.0, 32.0)]",
+			"text": "社区中心 · 折叠望远镜",
+			"viewport": "(1920, 1080)"
+		},
+		{
+			"id": "telescope_returned",
+			"locale": "zh",
+			"rect": "[P: (390.0, 349.0), S: (800.0, 256.0)]",
+			"text": "借用人 / 用途地点 / 归还登记\n\nMira Vale  ·  folding telescope\n\n活动地点：Lookout\n\n归还：15:05",
+			"viewport": "(1920, 1080)"
+		},
+		{
+			"id": "telescope_returned",
+			"locale": "zh",
+			"rect": "[P: (390.0, 623.0), S: (800.0, 47.0)]",
+			"text": "1",
+			"viewport": "(1920, 1080)"
+		},
+		{
+			"id": "telescope_returned",
+			"locale": "zh",
+			"rect": "[P: (390.0, 215.0), S: (800.0, 48.0)]",
+			"text": "设备借还单",
+			"viewport": "(2560, 1440)"
+		},
+		{
+			"id": "telescope_returned",
+			"locale": "zh",
+			"rect": "[P: (390.0, 281.0), S: (800.0, 32.0)]",
+			"text": "社区中心 · 折叠望远镜",
+			"viewport": "(2560, 1440)"
+		},
+		{
+			"id": "telescope_returned",
+			"locale": "zh",
+			"rect": "[P: (390.0, 349.0), S: (800.0, 256.0)]",
+			"text": "借用人 / 用途地点 / 归还登记\n\nMira Vale  ·  folding telescope\n\n活动地点：Lookout\n\n归还：15:05",
+			"viewport": "(2560, 1440)"
+		},
+		{
+			"id": "telescope_returned",
+			"locale": "zh",
+			"rect": "[P: (390.0, 623.0), S: (800.0, 47.0)]",
+			"text": "1",
+			"viewport": "(2560, 1440)"
+		},
+		{
+			"id": "telescope_returned",
+			"locale": "en",
+			"rect": "[P: (390.0, 215.0), S: (800.0, 48.0)]",
+			"text": "设备借还单",
+			"viewport": "(1280, 720)"
+		},
+		{
+			"id": "telescope_returned",
+			"locale": "en",
+			"rect": "[P: (390.0, 281.0), S: (800.0, 32.0)]",
+			"text": "社区中心 · 折叠望远镜",
+			"viewport": "(1280, 720)"
+		},
+		{
+			"id": "telescope_returned",
+			"locale": "en",
+			"rect": "[P: (390.0, 349.0), S: (800.0, 256.0)]",
+			"text": "借用人 / 用途地点 / 归还登记\n\nMira Vale  ·  folding telescope\n\n活动地点：Lookout\n\n归还：15:05",
+			"viewport": "(1280, 720)"
+		},
+		{
+			"id": "telescope_returned",
+			"locale": "en",
+			"rect": "[P: (390.0, 623.0), S: (800.0, 47.0)]",
+			"text": "1",
+			"viewport": "(1280, 720)"
+		},
+		{
+			"id": "telescope_returned",
+			"locale": "en",
+			"rect": "[P: (390.0, 215.0), S: (800.0, 48.0)]",
+			"text": "设备借还单",
+			"viewport": "(1920, 1080)"
+		},
+		{
+			"id": "telescope_returned",
+			"locale": "en",
+			"rect": "[P: (390.0, 281.0), S: (800.0, 32.0)]",
+			"text": "社区中心 · 折叠望远镜",
+			"viewport": "(1920, 1080)"
+		},
+		{
+			"id": "telescope_returned",
+			"locale": "en",
+			"rect": "[P: (390.0, 349.0), S: (800.0, 256.0)]",
+			"text": "借用人 / 用途地点 / 归还登记\n\nMira Vale  ·  folding telescope\n\n活动地点：Lookout\n\n归还：15:05",
+			"viewport": "(1920, 1080)"
+		},
+		{
+			"id": "telescope_returned",
+			"locale": "en",
+			"rect": "[P: (390.0, 623.0), S: (800.0, 47.0)]",
+			"text": "1",
+			"viewport": "(1920, 1080)"
+		},
+		{
+			"id": "telescope_returned",
+			"locale": "en",
+			"rect": "[P: (390.0, 215.0), S: (800.0, 48.0)]",
+			"text": "设备借还单",
+			"viewport": "(2560, 1440)"
+		},
+		{
+			"id": "telescope_returned",
+			"locale": "en",
+			"rect": "[P: (390.0, 281.0), S: (800.0, 32.0)]",
+			"text": "社区中心 · 折叠望远镜",
+			"viewport": "(2560, 1440)"
+		},
+		{
+			"id": "telescope_returned",
+			"locale": "en",
+			"rect": "[P: (390.0, 349.0), S: (800.0, 256.0)]",
+			"text": "借用人 / 用途地点 / 归还登记\n\nMira Vale  ·  folding telescope\n\n活动地点：Lookout\n\n归还：15:05",
+			"viewport": "(2560, 1440)"
+		},
+		{
+			"id": "telescope_returned",
+			"locale": "en",
+			"rect": "[P: (390.0, 623.0), S: (800.0, 47.0)]",
+			"text": "1",
+			"viewport": "(2560, 1440)"
+		},
+		{
+			"id": "shuttle_timetable",
+			"locale": "zh",
+			"rect": "[P: (390.0, 215.0), S: (800.0, 48.0)]",
+			"text": "上山电车时刻表",
+			"viewport": "(1280, 720)"
+		},
+		{
+			"id": "shuttle_timetable",
+			"locale": "zh",
+			"rect": "[P: (390.0, 281.0), S: (800.0, 32.0)]",
+			"text": "本站 → 观景台  /  仅上行",
+			"viewport": "(1280, 720)"
+		},
+		{
+			"id": "shuttle_timetable",
+			"locale": "zh",
+			"rect": "[P: (390.0, 349.0), S: (800.0, 256.0)]",
+			"text": "每日发车时间\n\n09:00—17:00  每半小时一班\n\n整点、半点发车  ·  单程 15 分钟\n\n末班 17:00 发车 / 17:15 抵达",
+			"viewport": "(1280, 720)"
+		},
+		{
+			"id": "shuttle_timetable",
+			"locale": "zh",
+			"rect": "[P: (390.0, 623.0), S: (800.0, 47.0)]",
+			"text": "1",
+			"viewport": "(1280, 720)"
+		},
+		{
+			"id": "shuttle_timetable",
+			"locale": "zh",
+			"rect": "[P: (390.0, 215.0), S: (800.0, 48.0)]",
+			"text": "上山电车时刻表",
+			"viewport": "(1920, 1080)"
+		},
+		{
+			"id": "shuttle_timetable",
+			"locale": "zh",
+			"rect": "[P: (390.0, 281.0), S: (800.0, 32.0)]",
+			"text": "本站 → 观景台  /  仅上行",
+			"viewport": "(1920, 1080)"
+		},
+		{
+			"id": "shuttle_timetable",
+			"locale": "zh",
+			"rect": "[P: (390.0, 349.0), S: (800.0, 256.0)]",
+			"text": "每日发车时间\n\n09:00—17:00  每半小时一班\n\n整点、半点发车  ·  单程 15 分钟\n\n末班 17:00 发车 / 17:15 抵达",
+			"viewport": "(1920, 1080)"
+		},
+		{
+			"id": "shuttle_timetable",
+			"locale": "zh",
+			"rect": "[P: (390.0, 623.0), S: (800.0, 47.0)]",
+			"text": "1",
+			"viewport": "(1920, 1080)"
+		},
+		{
+			"id": "shuttle_timetable",
+			"locale": "zh",
+			"rect": "[P: (390.0, 215.0), S: (800.0, 48.0)]",
+			"text": "上山电车时刻表",
+			"viewport": "(2560, 1440)"
+		},
+		{
+			"id": "shuttle_timetable",
+			"locale": "zh",
+			"rect": "[P: (390.0, 281.0), S: (800.0, 32.0)]",
+			"text": "本站 → 观景台  /  仅上行",
+			"viewport": "(2560, 1440)"
+		},
+		{
+			"id": "shuttle_timetable",
+			"locale": "zh",
+			"rect": "[P: (390.0, 349.0), S: (800.0, 256.0)]",
+			"text": "每日发车时间\n\n09:00—17:00  每半小时一班\n\n整点、半点发车  ·  单程 15 分钟\n\n末班 17:00 发车 / 17:15 抵达",
+			"viewport": "(2560, 1440)"
+		},
+		{
+			"id": "shuttle_timetable",
+			"locale": "zh",
+			"rect": "[P: (390.0, 623.0), S: (800.0, 47.0)]",
+			"text": "1",
+			"viewport": "(2560, 1440)"
+		},
+		{
+			"id": "shuttle_timetable",
+			"locale": "en",
+			"rect": "[P: (390.0, 215.0), S: (800.0, 48.0)]",
+			"text": "上山电车时刻表",
+			"viewport": "(1280, 720)"
+		},
+		{
+			"id": "shuttle_timetable",
+			"locale": "en",
+			"rect": "[P: (390.0, 281.0), S: (800.0, 32.0)]",
+			"text": "本站 → 观景台  /  仅上行",
+			"viewport": "(1280, 720)"
+		},
+		{
+			"id": "shuttle_timetable",
+			"locale": "en",
+			"rect": "[P: (390.0, 349.0), S: (800.0, 256.0)]",
+			"text": "每日发车时间\n\n09:00—17:00  每半小时一班\n\n整点、半点发车  ·  单程 15 分钟\n\n末班 17:00 发车 / 17:15 抵达",
+			"viewport": "(1280, 720)"
+		},
+		{
+			"id": "shuttle_timetable",
+			"locale": "en",
+			"rect": "[P: (390.0, 623.0), S: (800.0, 47.0)]",
+			"text": "1",
+			"viewport": "(1280, 720)"
+		},
+		{
+			"id": "shuttle_timetable",
+			"locale": "en",
+			"rect": "[P: (390.0, 215.0), S: (800.0, 48.0)]",
+			"text": "上山电车时刻表",
+			"viewport": "(1920, 1080)"
+		},
+		{
+			"id": "shuttle_timetable",
+			"locale": "en",
+			"rect": "[P: (390.0, 281.0), S: (800.0, 32.0)]",
+			"text": "本站 → 观景台  /  仅上行",
+			"viewport": "(1920, 1080)"
+		},
+		{
+			"id": "shuttle_timetable",
+			"locale": "en",
+			"rect": "[P: (390.0, 349.0), S: (800.0, 256.0)]",
+			"text": "每日发车时间\n\n09:00—17:00  每半小时一班\n\n整点、半点发车  ·  单程 15 分钟\n\n末班 17:00 发车 / 17:15 抵达",
+			"viewport": "(1920, 1080)"
+		},
+		{
+			"id": "shuttle_timetable",
+			"locale": "en",
+			"rect": "[P: (390.0, 623.0), S: (800.0, 47.0)]",
+			"text": "1",
+			"viewport": "(1920, 1080)"
+		},
+		{
+			"id": "shuttle_timetable",
+			"locale": "en",
+			"rect": "[P: (390.0, 215.0), S: (800.0, 48.0)]",
+			"text": "上山电车时刻表",
+			"viewport": "(2560, 1440)"
+		},
+		{
+			"id": "shuttle_timetable",
+			"locale": "en",
+			"rect": "[P: (390.0, 281.0), S: (800.0, 32.0)]",
+			"text": "本站 → 观景台  /  仅上行",
+			"viewport": "(2560, 1440)"
+		},
+		{
+			"id": "shuttle_timetable",
+			"locale": "en",
+			"rect": "[P: (390.0, 349.0), S: (800.0, 256.0)]",
+			"text": "每日发车时间\n\n09:00—17:00  每半小时一班\n\n整点、半点发车  ·  单程 15 分钟\n\n末班 17:00 发车 / 17:15 抵达",
+			"viewport": "(2560, 1440)"
+		},
+		{
+			"id": "shuttle_timetable",
+			"locale": "en",
+			"rect": "[P: (390.0, 623.0), S: (800.0, 47.0)]",
+			"text": "1",
+			"viewport": "(2560, 1440)"
+		},
+		{
+			"id": "trusted_handoff_rule",
+			"locale": "zh",
+			"rect": "[P: (390.0, 215.0), S: (800.0, 48.0)]",
+			"text": "本地递送业务手册",
+			"viewport": "(1280, 720)"
+		},
+		{
+			"id": "trusted_handoff_rule",
+			"locale": "zh",
+			"rect": "[P: (390.0, 281.0), S: (800.0, 32.0)]",
+			"text": "受托转交条款",
+			"viewport": "(1280, 720)"
+		},
+		{
+			"id": "trusted_handoff_rule",
+			"locale": "zh",
+			"rect": "[P: (390.0, 349.0), S: (800.0, 256.0)]",
+			"text": "适用条件\n\n可交由可信的本地转交人携带。\n\n须确认对方路线适合此次递送。\n\n收件服务不得要求收件人本人签名。",
+			"viewport": "(1280, 720)"
+		},
+		{
+			"id": "trusted_handoff_rule",
+			"locale": "zh",
+			"rect": "[P: (390.0, 623.0), S: (800.0, 47.0)]",
+			"text": "1",
+			"viewport": "(1280, 720)"
+		},
+		{
+			"id": "trusted_handoff_rule",
+			"locale": "zh",
+			"rect": "[P: (390.0, 215.0), S: (800.0, 48.0)]",
+			"text": "本地递送业务手册",
+			"viewport": "(1920, 1080)"
+		},
+		{
+			"id": "trusted_handoff_rule",
+			"locale": "zh",
+			"rect": "[P: (390.0, 281.0), S: (800.0, 32.0)]",
+			"text": "受托转交条款",
+			"viewport": "(1920, 1080)"
+		},
+		{
+			"id": "trusted_handoff_rule",
+			"locale": "zh",
+			"rect": "[P: (390.0, 349.0), S: (800.0, 256.0)]",
+			"text": "适用条件\n\n可交由可信的本地转交人携带。\n\n须确认对方路线适合此次递送。\n\n收件服务不得要求收件人本人签名。",
+			"viewport": "(1920, 1080)"
+		},
+		{
+			"id": "trusted_handoff_rule",
+			"locale": "zh",
+			"rect": "[P: (390.0, 623.0), S: (800.0, 47.0)]",
+			"text": "1",
+			"viewport": "(1920, 1080)"
+		},
+		{
+			"id": "trusted_handoff_rule",
+			"locale": "zh",
+			"rect": "[P: (390.0, 215.0), S: (800.0, 48.0)]",
+			"text": "本地递送业务手册",
+			"viewport": "(2560, 1440)"
+		},
+		{
+			"id": "trusted_handoff_rule",
+			"locale": "zh",
+			"rect": "[P: (390.0, 281.0), S: (800.0, 32.0)]",
+			"text": "受托转交条款",
+			"viewport": "(2560, 1440)"
+		},
+		{
+			"id": "trusted_handoff_rule",
+			"locale": "zh",
+			"rect": "[P: (390.0, 349.0), S: (800.0, 256.0)]",
+			"text": "适用条件\n\n可交由可信的本地转交人携带。\n\n须确认对方路线适合此次递送。\n\n收件服务不得要求收件人本人签名。",
+			"viewport": "(2560, 1440)"
+		},
+		{
+			"id": "trusted_handoff_rule",
+			"locale": "zh",
+			"rect": "[P: (390.0, 623.0), S: (800.0, 47.0)]",
+			"text": "1",
+			"viewport": "(2560, 1440)"
+		},
+		{
+			"id": "trusted_handoff_rule",
+			"locale": "en",
+			"rect": "[P: (390.0, 215.0), S: (800.0, 48.0)]",
+			"text": "本地递送业务手册",
+			"viewport": "(1280, 720)"
+		},
+		{
+			"id": "trusted_handoff_rule",
+			"locale": "en",
+			"rect": "[P: (390.0, 281.0), S: (800.0, 32.0)]",
+			"text": "受托转交条款",
+			"viewport": "(1280, 720)"
+		},
+		{
+			"id": "trusted_handoff_rule",
+			"locale": "en",
+			"rect": "[P: (390.0, 349.0), S: (800.0, 256.0)]",
+			"text": "适用条件\n\n可交由可信的本地转交人携带。\n\n须确认对方路线适合此次递送。\n\n收件服务不得要求收件人本人签名。",
+			"viewport": "(1280, 720)"
+		},
+		{
+			"id": "trusted_handoff_rule",
+			"locale": "en",
+			"rect": "[P: (390.0, 623.0), S: (800.0, 47.0)]",
+			"text": "1",
+			"viewport": "(1280, 720)"
+		},
+		{
+			"id": "trusted_handoff_rule",
+			"locale": "en",
+			"rect": "[P: (390.0, 215.0), S: (800.0, 48.0)]",
+			"text": "本地递送业务手册",
+			"viewport": "(1920, 1080)"
+		},
+		{
+			"id": "trusted_handoff_rule",
+			"locale": "en",
+			"rect": "[P: (390.0, 281.0), S: (800.0, 32.0)]",
+			"text": "受托转交条款",
+			"viewport": "(1920, 1080)"
+		},
+		{
+			"id": "trusted_handoff_rule",
+			"locale": "en",
+			"rect": "[P: (390.0, 349.0), S: (800.0, 256.0)]",
+			"text": "适用条件\n\n可交由可信的本地转交人携带。\n\n须确认对方路线适合此次递送。\n\n收件服务不得要求收件人本人签名。",
+			"viewport": "(1920, 1080)"
+		},
+		{
+			"id": "trusted_handoff_rule",
+			"locale": "en",
+			"rect": "[P: (390.0, 623.0), S: (800.0, 47.0)]",
+			"text": "1",
+			"viewport": "(1920, 1080)"
+		},
+		{
+			"id": "trusted_handoff_rule",
+			"locale": "en",
+			"rect": "[P: (390.0, 215.0), S: (800.0, 48.0)]",
+			"text": "本地递送业务手册",
+			"viewport": "(2560, 1440)"
+		},
+		{
+			"id": "trusted_handoff_rule",
+			"locale": "en",
+			"rect": "[P: (390.0, 281.0), S: (800.0, 32.0)]",
+			"text": "受托转交条款",
+			"viewport": "(2560, 1440)"
+		},
+		{
+			"id": "trusted_handoff_rule",
+			"locale": "en",
+			"rect": "[P: (390.0, 349.0), S: (800.0, 256.0)]",
+			"text": "适用条件\n\n可交由可信的本地转交人携带。\n\n须确认对方路线适合此次递送。\n\n收件服务不得要求收件人本人签名。",
+			"viewport": "(2560, 1440)"
+		},
+		{
+			"id": "trusted_handoff_rule",
+			"locale": "en",
+			"rect": "[P: (390.0, 623.0), S: (800.0, 47.0)]",
+			"text": "1",
+			"viewport": "(2560, 1440)"
+		},
+		{
+			"id": "current_3c_resident",
+			"locale": "zh",
+			"rect": "[P: (390.0, 215.0), S: (800.0, 48.0)]",
+			"text": "现行住户页",
+			"viewport": "(1280, 720)"
+		},
+		{
+			"id": "current_3c_resident",
+			"locale": "zh",
+			"rect": "[P: (390.0, 281.0), S: (800.0, 32.0)]",
+			"text": "Rose Court",
+			"viewport": "(1280, 720)"
+		},
+		{
+			"id": "current_3c_resident",
+			"locale": "zh",
+			"rect": "[P: (390.0, 349.0), S: (800.0, 108.0)]",
+			"text": "房号                            当前登记\n\n3C                          新住户已登记",
+			"viewport": "(1280, 720)"
+		},
+		{
+			"id": "current_3c_resident",
+			"locale": "zh",
+			"rect": "[P: (390.0, 475.0), S: (800.0, 195.0)]",
+			"text": "1",
+			"viewport": "(1280, 720)"
+		},
+		{
+			"id": "current_3c_resident",
+			"locale": "zh",
+			"rect": "[P: (390.0, 215.0), S: (800.0, 48.0)]",
+			"text": "现行住户页",
+			"viewport": "(1920, 1080)"
+		},
+		{
+			"id": "current_3c_resident",
+			"locale": "zh",
+			"rect": "[P: (390.0, 281.0), S: (800.0, 32.0)]",
+			"text": "Rose Court",
+			"viewport": "(1920, 1080)"
+		},
+		{
+			"id": "current_3c_resident",
+			"locale": "zh",
+			"rect": "[P: (390.0, 349.0), S: (800.0, 108.0)]",
+			"text": "房号                            当前登记\n\n3C                          新住户已登记",
+			"viewport": "(1920, 1080)"
+		},
+		{
+			"id": "current_3c_resident",
+			"locale": "zh",
+			"rect": "[P: (390.0, 475.0), S: (800.0, 195.0)]",
+			"text": "1",
+			"viewport": "(1920, 1080)"
+		},
+		{
+			"id": "current_3c_resident",
+			"locale": "zh",
+			"rect": "[P: (390.0, 215.0), S: (800.0, 48.0)]",
+			"text": "现行住户页",
+			"viewport": "(2560, 1440)"
+		},
+		{
+			"id": "current_3c_resident",
+			"locale": "zh",
+			"rect": "[P: (390.0, 281.0), S: (800.0, 32.0)]",
+			"text": "Rose Court",
+			"viewport": "(2560, 1440)"
+		},
+		{
+			"id": "current_3c_resident",
+			"locale": "zh",
+			"rect": "[P: (390.0, 349.0), S: (800.0, 108.0)]",
+			"text": "房号                            当前登记\n\n3C                          新住户已登记",
+			"viewport": "(2560, 1440)"
+		},
+		{
+			"id": "current_3c_resident",
+			"locale": "zh",
+			"rect": "[P: (390.0, 475.0), S: (800.0, 195.0)]",
+			"text": "1",
+			"viewport": "(2560, 1440)"
+		},
+		{
+			"id": "current_3c_resident",
+			"locale": "en",
+			"rect": "[P: (390.0, 215.0), S: (800.0, 48.0)]",
+			"text": "现行住户页",
+			"viewport": "(1280, 720)"
+		},
+		{
+			"id": "current_3c_resident",
+			"locale": "en",
+			"rect": "[P: (390.0, 281.0), S: (800.0, 32.0)]",
+			"text": "Rose Court",
+			"viewport": "(1280, 720)"
+		},
+		{
+			"id": "current_3c_resident",
+			"locale": "en",
+			"rect": "[P: (390.0, 349.0), S: (800.0, 108.0)]",
+			"text": "房号                            当前登记\n\n3C                          新住户已登记",
+			"viewport": "(1280, 720)"
+		},
+		{
+			"id": "current_3c_resident",
+			"locale": "en",
+			"rect": "[P: (390.0, 475.0), S: (800.0, 195.0)]",
+			"text": "1",
+			"viewport": "(1280, 720)"
+		},
+		{
+			"id": "current_3c_resident",
+			"locale": "en",
+			"rect": "[P: (390.0, 215.0), S: (800.0, 48.0)]",
+			"text": "现行住户页",
+			"viewport": "(1920, 1080)"
+		},
+		{
+			"id": "current_3c_resident",
+			"locale": "en",
+			"rect": "[P: (390.0, 281.0), S: (800.0, 32.0)]",
+			"text": "Rose Court",
+			"viewport": "(1920, 1080)"
+		},
+		{
+			"id": "current_3c_resident",
+			"locale": "en",
+			"rect": "[P: (390.0, 349.0), S: (800.0, 108.0)]",
+			"text": "房号                            当前登记\n\n3C                          新住户已登记",
+			"viewport": "(1920, 1080)"
+		},
+		{
+			"id": "current_3c_resident",
+			"locale": "en",
+			"rect": "[P: (390.0, 475.0), S: (800.0, 195.0)]",
+			"text": "1",
+			"viewport": "(1920, 1080)"
+		},
+		{
+			"id": "current_3c_resident",
+			"locale": "en",
+			"rect": "[P: (390.0, 215.0), S: (800.0, 48.0)]",
+			"text": "现行住户页",
+			"viewport": "(2560, 1440)"
+		},
+		{
+			"id": "current_3c_resident",
+			"locale": "en",
+			"rect": "[P: (390.0, 281.0), S: (800.0, 32.0)]",
+			"text": "Rose Court",
+			"viewport": "(2560, 1440)"
+		},
+		{
+			"id": "current_3c_resident",
+			"locale": "en",
+			"rect": "[P: (390.0, 349.0), S: (800.0, 108.0)]",
+			"text": "房号                            当前登记\n\n3C                          新住户已登记",
+			"viewport": "(2560, 1440)"
+		},
+		{
+			"id": "current_3c_resident",
+			"locale": "en",
+			"rect": "[P: (390.0, 475.0), S: (800.0, 195.0)]",
+			"text": "1",
+			"viewport": "(2560, 1440)"
+		},
+		{
+			"id": "june_current_mailpoint",
+			"locale": "zh",
+			"rect": "[P: (390.0, 215.0), S: (800.0, 48.0)]",
+			"text": "志愿者通信登记",
+			"viewport": "(1280, 720)"
+		},
+		{
+			"id": "june_current_mailpoint",
+			"locale": "zh",
+			"rect": "[P: (390.0, 281.0), S: (800.0, 32.0)]",
+			"text": "社区中心 · 现行登记",
+			"viewport": "(1280, 720)"
+		},
+		{
+			"id": "june_current_mailpoint",
+			"locale": "zh",
+			"rect": "[P: (390.0, 349.0), S: (800.0, 182.0)]",
+			"text": "姓名 / 值勤 / 批准收信地点\n\nJune Arlen  ·  Observatory volunteer\n\n批准收信格：Community Center",
+			"viewport": "(1280, 720)"
+		},
+		{
+			"id": "june_current_mailpoint",
+			"locale": "zh",
+			"rect": "[P: (390.0, 549.0), S: (800.0, 121.0)]",
+			"text": "1",
+			"viewport": "(1280, 720)"
+		},
+		{
+			"id": "june_current_mailpoint",
+			"locale": "zh",
+			"rect": "[P: (390.0, 215.0), S: (800.0, 48.0)]",
+			"text": "志愿者通信登记",
+			"viewport": "(1920, 1080)"
+		},
+		{
+			"id": "june_current_mailpoint",
+			"locale": "zh",
+			"rect": "[P: (390.0, 281.0), S: (800.0, 32.0)]",
+			"text": "社区中心 · 现行登记",
+			"viewport": "(1920, 1080)"
+		},
+		{
+			"id": "june_current_mailpoint",
+			"locale": "zh",
+			"rect": "[P: (390.0, 349.0), S: (800.0, 182.0)]",
+			"text": "姓名 / 值勤 / 批准收信地点\n\nJune Arlen  ·  Observatory volunteer\n\n批准收信格：Community Center",
+			"viewport": "(1920, 1080)"
+		},
+		{
+			"id": "june_current_mailpoint",
+			"locale": "zh",
+			"rect": "[P: (390.0, 549.0), S: (800.0, 121.0)]",
+			"text": "1",
+			"viewport": "(1920, 1080)"
+		},
+		{
+			"id": "june_current_mailpoint",
+			"locale": "zh",
+			"rect": "[P: (390.0, 215.0), S: (800.0, 48.0)]",
+			"text": "志愿者通信登记",
+			"viewport": "(2560, 1440)"
+		},
+		{
+			"id": "june_current_mailpoint",
+			"locale": "zh",
+			"rect": "[P: (390.0, 281.0), S: (800.0, 32.0)]",
+			"text": "社区中心 · 现行登记",
+			"viewport": "(2560, 1440)"
+		},
+		{
+			"id": "june_current_mailpoint",
+			"locale": "zh",
+			"rect": "[P: (390.0, 349.0), S: (800.0, 182.0)]",
+			"text": "姓名 / 值勤 / 批准收信地点\n\nJune Arlen  ·  Observatory volunteer\n\n批准收信格：Community Center",
+			"viewport": "(2560, 1440)"
+		},
+		{
+			"id": "june_current_mailpoint",
+			"locale": "zh",
+			"rect": "[P: (390.0, 549.0), S: (800.0, 121.0)]",
+			"text": "1",
+			"viewport": "(2560, 1440)"
+		},
+		{
+			"id": "june_current_mailpoint",
+			"locale": "en",
+			"rect": "[P: (390.0, 215.0), S: (800.0, 48.0)]",
+			"text": "志愿者通信登记",
+			"viewport": "(1280, 720)"
+		},
+		{
+			"id": "june_current_mailpoint",
+			"locale": "en",
+			"rect": "[P: (390.0, 281.0), S: (800.0, 32.0)]",
+			"text": "社区中心 · 现行登记",
+			"viewport": "(1280, 720)"
+		},
+		{
+			"id": "june_current_mailpoint",
+			"locale": "en",
+			"rect": "[P: (390.0, 349.0), S: (800.0, 182.0)]",
+			"text": "姓名 / 值勤 / 批准收信地点\n\nJune Arlen  ·  Observatory volunteer\n\n批准收信格：Community Center",
+			"viewport": "(1280, 720)"
+		},
+		{
+			"id": "june_current_mailpoint",
+			"locale": "en",
+			"rect": "[P: (390.0, 549.0), S: (800.0, 121.0)]",
+			"text": "1",
+			"viewport": "(1280, 720)"
+		},
+		{
+			"id": "june_current_mailpoint",
+			"locale": "en",
+			"rect": "[P: (390.0, 215.0), S: (800.0, 48.0)]",
+			"text": "志愿者通信登记",
+			"viewport": "(1920, 1080)"
+		},
+		{
+			"id": "june_current_mailpoint",
+			"locale": "en",
+			"rect": "[P: (390.0, 281.0), S: (800.0, 32.0)]",
+			"text": "社区中心 · 现行登记",
+			"viewport": "(1920, 1080)"
+		},
+		{
+			"id": "june_current_mailpoint",
+			"locale": "en",
+			"rect": "[P: (390.0, 349.0), S: (800.0, 182.0)]",
+			"text": "姓名 / 值勤 / 批准收信地点\n\nJune Arlen  ·  Observatory volunteer\n\n批准收信格：Community Center",
+			"viewport": "(1920, 1080)"
+		},
+		{
+			"id": "june_current_mailpoint",
+			"locale": "en",
+			"rect": "[P: (390.0, 549.0), S: (800.0, 121.0)]",
+			"text": "1",
+			"viewport": "(1920, 1080)"
+		},
+		{
+			"id": "june_current_mailpoint",
+			"locale": "en",
+			"rect": "[P: (390.0, 215.0), S: (800.0, 48.0)]",
+			"text": "志愿者通信登记",
+			"viewport": "(2560, 1440)"
+		},
+		{
+			"id": "june_current_mailpoint",
+			"locale": "en",
+			"rect": "[P: (390.0, 281.0), S: (800.0, 32.0)]",
+			"text": "社区中心 · 现行登记",
+			"viewport": "(2560, 1440)"
+		},
+		{
+			"id": "june_current_mailpoint",
+			"locale": "en",
+			"rect": "[P: (390.0, 349.0), S: (800.0, 182.0)]",
+			"text": "姓名 / 值勤 / 批准收信地点\n\nJune Arlen  ·  Observatory volunteer\n\n批准收信格：Community Center",
+			"viewport": "(2560, 1440)"
+		},
+		{
+			"id": "june_current_mailpoint",
+			"locale": "en",
+			"rect": "[P: (390.0, 549.0), S: (800.0, 121.0)]",
+			"text": "1",
+			"viewport": "(2560, 1440)"
+		},
+		{
+			"id": "sea_watch_roster",
+			"locale": "zh",
+			"rect": "[P: (390.0, 215.0), S: (800.0, 48.0)]",
+			"text": "Sea Watch Weekend",
+			"viewport": "(1280, 720)"
+		},
+		{
+			"id": "sea_watch_roster",
+			"locale": "zh",
+			"rect": "[P: (390.0, 281.0), S: (800.0, 32.0)]",
+			"text": "本期志愿者名册",
+			"viewport": "(1280, 720)"
+		},
+		{
+			"id": "sea_watch_roster",
+			"locale": "zh",
+			"rect": "[P: (390.0, 349.0), S: (800.0, 182.0)]",
+			"text": "参与者\n\nMira Vale\n\nJune Arlen",
+			"viewport": "(1280, 720)"
+		},
+		{
+			"id": "sea_watch_roster",
+			"locale": "zh",
+			"rect": "[P: (390.0, 549.0), S: (800.0, 121.0)]",
+			"text": "1",
+			"viewport": "(1280, 720)"
+		},
+		{
+			"id": "sea_watch_roster",
+			"locale": "zh",
+			"rect": "[P: (390.0, 215.0), S: (800.0, 48.0)]",
+			"text": "Sea Watch Weekend",
+			"viewport": "(1920, 1080)"
+		},
+		{
+			"id": "sea_watch_roster",
+			"locale": "zh",
+			"rect": "[P: (390.0, 281.0), S: (800.0, 32.0)]",
+			"text": "本期志愿者名册",
+			"viewport": "(1920, 1080)"
+		},
+		{
+			"id": "sea_watch_roster",
+			"locale": "zh",
+			"rect": "[P: (390.0, 349.0), S: (800.0, 182.0)]",
+			"text": "参与者\n\nMira Vale\n\nJune Arlen",
+			"viewport": "(1920, 1080)"
+		},
+		{
+			"id": "sea_watch_roster",
+			"locale": "zh",
+			"rect": "[P: (390.0, 549.0), S: (800.0, 121.0)]",
+			"text": "1",
+			"viewport": "(1920, 1080)"
+		},
+		{
+			"id": "sea_watch_roster",
+			"locale": "zh",
+			"rect": "[P: (390.0, 215.0), S: (800.0, 48.0)]",
+			"text": "Sea Watch Weekend",
+			"viewport": "(2560, 1440)"
+		},
+		{
+			"id": "sea_watch_roster",
+			"locale": "zh",
+			"rect": "[P: (390.0, 281.0), S: (800.0, 32.0)]",
+			"text": "本期志愿者名册",
+			"viewport": "(2560, 1440)"
+		},
+		{
+			"id": "sea_watch_roster",
+			"locale": "zh",
+			"rect": "[P: (390.0, 349.0), S: (800.0, 182.0)]",
+			"text": "参与者\n\nMira Vale\n\nJune Arlen",
+			"viewport": "(2560, 1440)"
+		},
+		{
+			"id": "sea_watch_roster",
+			"locale": "zh",
+			"rect": "[P: (390.0, 549.0), S: (800.0, 121.0)]",
+			"text": "1",
+			"viewport": "(2560, 1440)"
+		},
+		{
+			"id": "sea_watch_roster",
+			"locale": "en",
+			"rect": "[P: (390.0, 215.0), S: (800.0, 48.0)]",
+			"text": "Sea Watch Weekend",
+			"viewport": "(1280, 720)"
+		},
+		{
+			"id": "sea_watch_roster",
+			"locale": "en",
+			"rect": "[P: (390.0, 281.0), S: (800.0, 32.0)]",
+			"text": "本期志愿者名册",
+			"viewport": "(1280, 720)"
+		},
+		{
+			"id": "sea_watch_roster",
+			"locale": "en",
+			"rect": "[P: (390.0, 349.0), S: (800.0, 182.0)]",
+			"text": "参与者\n\nMira Vale\n\nJune Arlen",
+			"viewport": "(1280, 720)"
+		},
+		{
+			"id": "sea_watch_roster",
+			"locale": "en",
+			"rect": "[P: (390.0, 549.0), S: (800.0, 121.0)]",
+			"text": "1",
+			"viewport": "(1280, 720)"
+		},
+		{
+			"id": "sea_watch_roster",
+			"locale": "en",
+			"rect": "[P: (390.0, 215.0), S: (800.0, 48.0)]",
+			"text": "Sea Watch Weekend",
+			"viewport": "(1920, 1080)"
+		},
+		{
+			"id": "sea_watch_roster",
+			"locale": "en",
+			"rect": "[P: (390.0, 281.0), S: (800.0, 32.0)]",
+			"text": "本期志愿者名册",
+			"viewport": "(1920, 1080)"
+		},
+		{
+			"id": "sea_watch_roster",
+			"locale": "en",
+			"rect": "[P: (390.0, 349.0), S: (800.0, 182.0)]",
+			"text": "参与者\n\nMira Vale\n\nJune Arlen",
+			"viewport": "(1920, 1080)"
+		},
+		{
+			"id": "sea_watch_roster",
+			"locale": "en",
+			"rect": "[P: (390.0, 549.0), S: (800.0, 121.0)]",
+			"text": "1",
+			"viewport": "(1920, 1080)"
+		},
+		{
+			"id": "sea_watch_roster",
+			"locale": "en",
+			"rect": "[P: (390.0, 215.0), S: (800.0, 48.0)]",
+			"text": "Sea Watch Weekend",
+			"viewport": "(2560, 1440)"
+		},
+		{
+			"id": "sea_watch_roster",
+			"locale": "en",
+			"rect": "[P: (390.0, 281.0), S: (800.0, 32.0)]",
+			"text": "本期志愿者名册",
+			"viewport": "(2560, 1440)"
+		},
+		{
+			"id": "sea_watch_roster",
+			"locale": "en",
+			"rect": "[P: (390.0, 349.0), S: (800.0, 182.0)]",
+			"text": "参与者\n\nMira Vale\n\nJune Arlen",
+			"viewport": "(2560, 1440)"
+		},
+		{
+			"id": "sea_watch_roster",
+			"locale": "en",
+			"rect": "[P: (390.0, 549.0), S: (800.0, 121.0)]",
+			"text": "1",
+			"viewport": "(2560, 1440)"
+		},
+		{
+			"id": "case04_manual_hold",
+			"locale": "zh",
+			"rect": "[P: (390.0, 215.0), S: (800.0, 48.0)]",
+			"text": "未结件旧账簿",
+			"viewport": "(1280, 720)"
+		},
+		{
+			"id": "case04_manual_hold",
+			"locale": "zh",
+			"rect": "[P: (390.0, 281.0), S: (800.0, 32.0)]",
+			"text": "Desk B · 原始栏位",
+			"viewport": "(1280, 720)"
+		},
+		{
+			"id": "case04_manual_hold",
+			"locale": "zh",
+			"rect": "[P: (390.0, 349.0), S: (800.0, 182.0)]",
+			"text": "收件人 / 原地址 / 处置记号\n\nJune Arlen  ·  Rose Court 3C\n\n20 JUL 2020                 HOLD — HV",
+			"viewport": "(1280, 720)"
+		},
+		{
+			"id": "case04_manual_hold",
+			"locale": "zh",
+			"rect": "[P: (390.0, 549.0), S: (800.0, 121.0)]",
+			"text": "1",
+			"viewport": "(1280, 720)"
+		},
+		{
+			"id": "case04_manual_hold",
+			"locale": "zh",
+			"rect": "[P: (390.0, 215.0), S: (800.0, 48.0)]",
+			"text": "未结件旧账簿",
+			"viewport": "(1920, 1080)"
+		},
+		{
+			"id": "case04_manual_hold",
+			"locale": "zh",
+			"rect": "[P: (390.0, 281.0), S: (800.0, 32.0)]",
+			"text": "Desk B · 原始栏位",
+			"viewport": "(1920, 1080)"
+		},
+		{
+			"id": "case04_manual_hold",
+			"locale": "zh",
+			"rect": "[P: (390.0, 349.0), S: (800.0, 182.0)]",
+			"text": "收件人 / 原地址 / 处置记号\n\nJune Arlen  ·  Rose Court 3C\n\n20 JUL 2020                 HOLD — HV",
+			"viewport": "(1920, 1080)"
+		},
+		{
+			"id": "case04_manual_hold",
+			"locale": "zh",
+			"rect": "[P: (390.0, 549.0), S: (800.0, 121.0)]",
+			"text": "1",
+			"viewport": "(1920, 1080)"
+		},
+		{
+			"id": "case04_manual_hold",
+			"locale": "zh",
+			"rect": "[P: (390.0, 215.0), S: (800.0, 48.0)]",
+			"text": "未结件旧账簿",
+			"viewport": "(2560, 1440)"
+		},
+		{
+			"id": "case04_manual_hold",
+			"locale": "zh",
+			"rect": "[P: (390.0, 281.0), S: (800.0, 32.0)]",
+			"text": "Desk B · 原始栏位",
+			"viewport": "(2560, 1440)"
+		},
+		{
+			"id": "case04_manual_hold",
+			"locale": "zh",
+			"rect": "[P: (390.0, 349.0), S: (800.0, 182.0)]",
+			"text": "收件人 / 原地址 / 处置记号\n\nJune Arlen  ·  Rose Court 3C\n\n20 JUL 2020                 HOLD — HV",
+			"viewport": "(2560, 1440)"
+		},
+		{
+			"id": "case04_manual_hold",
+			"locale": "zh",
+			"rect": "[P: (390.0, 549.0), S: (800.0, 121.0)]",
+			"text": "1",
+			"viewport": "(2560, 1440)"
+		},
+		{
+			"id": "case04_manual_hold",
+			"locale": "en",
+			"rect": "[P: (390.0, 215.0), S: (800.0, 48.0)]",
+			"text": "未结件旧账簿",
+			"viewport": "(1280, 720)"
+		},
+		{
+			"id": "case04_manual_hold",
+			"locale": "en",
+			"rect": "[P: (390.0, 281.0), S: (800.0, 32.0)]",
+			"text": "Desk B · 原始栏位",
+			"viewport": "(1280, 720)"
+		},
+		{
+			"id": "case04_manual_hold",
+			"locale": "en",
+			"rect": "[P: (390.0, 349.0), S: (800.0, 182.0)]",
+			"text": "收件人 / 原地址 / 处置记号\n\nJune Arlen  ·  Rose Court 3C\n\n20 JUL 2020                 HOLD — HV",
+			"viewport": "(1280, 720)"
+		},
+		{
+			"id": "case04_manual_hold",
+			"locale": "en",
+			"rect": "[P: (390.0, 549.0), S: (800.0, 121.0)]",
+			"text": "1",
+			"viewport": "(1280, 720)"
+		},
+		{
+			"id": "case04_manual_hold",
+			"locale": "en",
+			"rect": "[P: (390.0, 215.0), S: (800.0, 48.0)]",
+			"text": "未结件旧账簿",
+			"viewport": "(1920, 1080)"
+		},
+		{
+			"id": "case04_manual_hold",
+			"locale": "en",
+			"rect": "[P: (390.0, 281.0), S: (800.0, 32.0)]",
+			"text": "Desk B · 原始栏位",
+			"viewport": "(1920, 1080)"
+		},
+		{
+			"id": "case04_manual_hold",
+			"locale": "en",
+			"rect": "[P: (390.0, 349.0), S: (800.0, 182.0)]",
+			"text": "收件人 / 原地址 / 处置记号\n\nJune Arlen  ·  Rose Court 3C\n\n20 JUL 2020                 HOLD — HV",
+			"viewport": "(1920, 1080)"
+		},
+		{
+			"id": "case04_manual_hold",
+			"locale": "en",
+			"rect": "[P: (390.0, 549.0), S: (800.0, 121.0)]",
+			"text": "1",
+			"viewport": "(1920, 1080)"
+		},
+		{
+			"id": "case04_manual_hold",
+			"locale": "en",
+			"rect": "[P: (390.0, 215.0), S: (800.0, 48.0)]",
+			"text": "未结件旧账簿",
+			"viewport": "(2560, 1440)"
+		},
+		{
+			"id": "case04_manual_hold",
+			"locale": "en",
+			"rect": "[P: (390.0, 281.0), S: (800.0, 32.0)]",
+			"text": "Desk B · 原始栏位",
+			"viewport": "(2560, 1440)"
+		},
+		{
+			"id": "case04_manual_hold",
+			"locale": "en",
+			"rect": "[P: (390.0, 349.0), S: (800.0, 182.0)]",
+			"text": "收件人 / 原地址 / 处置记号\n\nJune Arlen  ·  Rose Court 3C\n\n20 JUL 2020                 HOLD — HV",
+			"viewport": "(2560, 1440)"
+		},
+		{
+			"id": "case04_manual_hold",
+			"locale": "en",
+			"rect": "[P: (390.0, 549.0), S: (800.0, 121.0)]",
+			"text": "1",
+			"viewport": "(2560, 1440)"
+		},
+		{
+			"id": "ledger_hv_repeat",
+			"locale": "zh",
+			"rect": "[P: (390.0, 215.0), S: (800.0, 48.0)]",
+			"text": "未结件旧账簿",
+			"viewport": "(1280, 720)"
+		},
+		{
+			"id": "ledger_hv_repeat",
+			"locale": "zh",
+			"rect": "[P: (390.0, 281.0), S: (800.0, 32.0)]",
+			"text": "Desk B · 相邻登记页",
+			"viewport": "(1280, 720)"
+		},
+		{
+			"id": "ledger_hv_repeat",
+			"locale": "zh",
+			"rect": "[P: (390.0, 349.0), S: (800.0, 256.0)]",
+			"text": "登记条目                         手写记号\n\nJune Arlen / Rose Court 3C     HV / HOLD\n\n另一未结条目                    HV / HOLD\n\n后续未结条目                    HV / HOLD",
+			"viewport": "(1280, 720)"
+		},
+		{
+			"id": "ledger_hv_repeat",
+			"locale": "zh",
+			"rect": "[P: (390.0, 623.0), S: (800.0, 47.0)]",
+			"text": "1",
+			"viewport": "(1280, 720)"
+		},
+		{
+			"id": "ledger_hv_repeat",
+			"locale": "zh",
+			"rect": "[P: (390.0, 215.0), S: (800.0, 48.0)]",
+			"text": "未结件旧账簿",
+			"viewport": "(1920, 1080)"
+		},
+		{
+			"id": "ledger_hv_repeat",
+			"locale": "zh",
+			"rect": "[P: (390.0, 281.0), S: (800.0, 32.0)]",
+			"text": "Desk B · 相邻登记页",
+			"viewport": "(1920, 1080)"
+		},
+		{
+			"id": "ledger_hv_repeat",
+			"locale": "zh",
+			"rect": "[P: (390.0, 349.0), S: (800.0, 256.0)]",
+			"text": "登记条目                         手写记号\n\nJune Arlen / Rose Court 3C     HV / HOLD\n\n另一未结条目                    HV / HOLD\n\n后续未结条目                    HV / HOLD",
+			"viewport": "(1920, 1080)"
+		},
+		{
+			"id": "ledger_hv_repeat",
+			"locale": "zh",
+			"rect": "[P: (390.0, 623.0), S: (800.0, 47.0)]",
+			"text": "1",
+			"viewport": "(1920, 1080)"
+		},
+		{
+			"id": "ledger_hv_repeat",
+			"locale": "zh",
+			"rect": "[P: (390.0, 215.0), S: (800.0, 48.0)]",
+			"text": "未结件旧账簿",
+			"viewport": "(2560, 1440)"
+		},
+		{
+			"id": "ledger_hv_repeat",
+			"locale": "zh",
+			"rect": "[P: (390.0, 281.0), S: (800.0, 32.0)]",
+			"text": "Desk B · 相邻登记页",
+			"viewport": "(2560, 1440)"
+		},
+		{
+			"id": "ledger_hv_repeat",
+			"locale": "zh",
+			"rect": "[P: (390.0, 349.0), S: (800.0, 256.0)]",
+			"text": "登记条目                         手写记号\n\nJune Arlen / Rose Court 3C     HV / HOLD\n\n另一未结条目                    HV / HOLD\n\n后续未结条目                    HV / HOLD",
+			"viewport": "(2560, 1440)"
+		},
+		{
+			"id": "ledger_hv_repeat",
+			"locale": "zh",
+			"rect": "[P: (390.0, 623.0), S: (800.0, 47.0)]",
+			"text": "1",
+			"viewport": "(2560, 1440)"
+		},
+		{
+			"id": "ledger_hv_repeat",
+			"locale": "en",
+			"rect": "[P: (390.0, 215.0), S: (800.0, 48.0)]",
+			"text": "未结件旧账簿",
+			"viewport": "(1280, 720)"
+		},
+		{
+			"id": "ledger_hv_repeat",
+			"locale": "en",
+			"rect": "[P: (390.0, 281.0), S: (800.0, 32.0)]",
+			"text": "Desk B · 相邻登记页",
+			"viewport": "(1280, 720)"
+		},
+		{
+			"id": "ledger_hv_repeat",
+			"locale": "en",
+			"rect": "[P: (390.0, 349.0), S: (800.0, 256.0)]",
+			"text": "登记条目                         手写记号\n\nJune Arlen / Rose Court 3C     HV / HOLD\n\n另一未结条目                    HV / HOLD\n\n后续未结条目                    HV / HOLD",
+			"viewport": "(1280, 720)"
+		},
+		{
+			"id": "ledger_hv_repeat",
+			"locale": "en",
+			"rect": "[P: (390.0, 623.0), S: (800.0, 47.0)]",
+			"text": "1",
+			"viewport": "(1280, 720)"
+		},
+		{
+			"id": "ledger_hv_repeat",
+			"locale": "en",
+			"rect": "[P: (390.0, 215.0), S: (800.0, 48.0)]",
+			"text": "未结件旧账簿",
+			"viewport": "(1920, 1080)"
+		},
+		{
+			"id": "ledger_hv_repeat",
+			"locale": "en",
+			"rect": "[P: (390.0, 281.0), S: (800.0, 32.0)]",
+			"text": "Desk B · 相邻登记页",
+			"viewport": "(1920, 1080)"
+		},
+		{
+			"id": "ledger_hv_repeat",
+			"locale": "en",
+			"rect": "[P: (390.0, 349.0), S: (800.0, 256.0)]",
+			"text": "登记条目                         手写记号\n\nJune Arlen / Rose Court 3C     HV / HOLD\n\n另一未结条目                    HV / HOLD\n\n后续未结条目                    HV / HOLD",
+			"viewport": "(1920, 1080)"
+		},
+		{
+			"id": "ledger_hv_repeat",
+			"locale": "en",
+			"rect": "[P: (390.0, 623.0), S: (800.0, 47.0)]",
+			"text": "1",
+			"viewport": "(1920, 1080)"
+		},
+		{
+			"id": "ledger_hv_repeat",
+			"locale": "en",
+			"rect": "[P: (390.0, 215.0), S: (800.0, 48.0)]",
+			"text": "未结件旧账簿",
+			"viewport": "(2560, 1440)"
+		},
+		{
+			"id": "ledger_hv_repeat",
+			"locale": "en",
+			"rect": "[P: (390.0, 281.0), S: (800.0, 32.0)]",
+			"text": "Desk B · 相邻登记页",
+			"viewport": "(2560, 1440)"
+		},
+		{
+			"id": "ledger_hv_repeat",
+			"locale": "en",
+			"rect": "[P: (390.0, 349.0), S: (800.0, 256.0)]",
+			"text": "登记条目                         手写记号\n\nJune Arlen / Rose Court 3C     HV / HOLD\n\n另一未结条目                    HV / HOLD\n\n后续未结条目                    HV / HOLD",
+			"viewport": "(2560, 1440)"
+		},
+		{
+			"id": "ledger_hv_repeat",
+			"locale": "en",
+			"rect": "[P: (390.0, 623.0), S: (800.0, 47.0)]",
+			"text": "1",
+			"viewport": "(2560, 1440)"
+		},
+		{
+			"id": "helena_rota",
+			"locale": "zh",
+			"rect": "[P: (390.0, 215.0), S: (800.0, 48.0)]",
+			"text": "旧值勤分配表",
+			"viewport": "(1280, 720)"
+		},
+		{
+			"id": "helena_rota",
+			"locale": "zh",
+			"rect": "[P: (390.0, 281.0), S: (800.0, 32.0)]",
+			"text": "职员登记",
+			"viewport": "(1280, 720)"
+		},
+		{
+			"id": "helena_rota",
+			"locale": "zh",
+			"rect": "[P: (390.0, 349.0), S: (800.0, 108.0)]",
+			"text": "姓名                            工位\n\nHelena Voss                   Desk B",
+			"viewport": "(1280, 720)"
+		},
+		{
+			"id": "helena_rota",
+			"locale": "zh",
+			"rect": "[P: (390.0, 475.0), S: (800.0, 195.0)]",
+			"text": "1",
+			"viewport": "(1280, 720)"
+		},
+		{
+			"id": "helena_rota",
+			"locale": "zh",
+			"rect": "[P: (390.0, 215.0), S: (800.0, 48.0)]",
+			"text": "旧值勤分配表",
+			"viewport": "(1920, 1080)"
+		},
+		{
+			"id": "helena_rota",
+			"locale": "zh",
+			"rect": "[P: (390.0, 281.0), S: (800.0, 32.0)]",
+			"text": "职员登记",
+			"viewport": "(1920, 1080)"
+		},
+		{
+			"id": "helena_rota",
+			"locale": "zh",
+			"rect": "[P: (390.0, 349.0), S: (800.0, 108.0)]",
+			"text": "姓名                            工位\n\nHelena Voss                   Desk B",
+			"viewport": "(1920, 1080)"
+		},
+		{
+			"id": "helena_rota",
+			"locale": "zh",
+			"rect": "[P: (390.0, 475.0), S: (800.0, 195.0)]",
+			"text": "1",
+			"viewport": "(1920, 1080)"
+		},
+		{
+			"id": "helena_rota",
+			"locale": "zh",
+			"rect": "[P: (390.0, 215.0), S: (800.0, 48.0)]",
+			"text": "旧值勤分配表",
+			"viewport": "(2560, 1440)"
+		},
+		{
+			"id": "helena_rota",
+			"locale": "zh",
+			"rect": "[P: (390.0, 281.0), S: (800.0, 32.0)]",
+			"text": "职员登记",
+			"viewport": "(2560, 1440)"
+		},
+		{
+			"id": "helena_rota",
+			"locale": "zh",
+			"rect": "[P: (390.0, 349.0), S: (800.0, 108.0)]",
+			"text": "姓名                            工位\n\nHelena Voss                   Desk B",
+			"viewport": "(2560, 1440)"
+		},
+		{
+			"id": "helena_rota",
+			"locale": "zh",
+			"rect": "[P: (390.0, 475.0), S: (800.0, 195.0)]",
+			"text": "1",
+			"viewport": "(2560, 1440)"
+		},
+		{
+			"id": "helena_rota",
+			"locale": "en",
+			"rect": "[P: (390.0, 215.0), S: (800.0, 48.0)]",
+			"text": "旧值勤分配表",
+			"viewport": "(1280, 720)"
+		},
+		{
+			"id": "helena_rota",
+			"locale": "en",
+			"rect": "[P: (390.0, 281.0), S: (800.0, 32.0)]",
+			"text": "职员登记",
+			"viewport": "(1280, 720)"
+		},
+		{
+			"id": "helena_rota",
+			"locale": "en",
+			"rect": "[P: (390.0, 349.0), S: (800.0, 108.0)]",
+			"text": "姓名                            工位\n\nHelena Voss                   Desk B",
+			"viewport": "(1280, 720)"
+		},
+		{
+			"id": "helena_rota",
+			"locale": "en",
+			"rect": "[P: (390.0, 475.0), S: (800.0, 195.0)]",
+			"text": "1",
+			"viewport": "(1280, 720)"
+		},
+		{
+			"id": "helena_rota",
+			"locale": "en",
+			"rect": "[P: (390.0, 215.0), S: (800.0, 48.0)]",
+			"text": "旧值勤分配表",
+			"viewport": "(1920, 1080)"
+		},
+		{
+			"id": "helena_rota",
+			"locale": "en",
+			"rect": "[P: (390.0, 281.0), S: (800.0, 32.0)]",
+			"text": "职员登记",
+			"viewport": "(1920, 1080)"
+		},
+		{
+			"id": "helena_rota",
+			"locale": "en",
+			"rect": "[P: (390.0, 349.0), S: (800.0, 108.0)]",
+			"text": "姓名                            工位\n\nHelena Voss                   Desk B",
+			"viewport": "(1920, 1080)"
+		},
+		{
+			"id": "helena_rota",
+			"locale": "en",
+			"rect": "[P: (390.0, 475.0), S: (800.0, 195.0)]",
+			"text": "1",
+			"viewport": "(1920, 1080)"
+		},
+		{
+			"id": "helena_rota",
+			"locale": "en",
+			"rect": "[P: (390.0, 215.0), S: (800.0, 48.0)]",
+			"text": "旧值勤分配表",
+			"viewport": "(2560, 1440)"
+		},
+		{
+			"id": "helena_rota",
+			"locale": "en",
+			"rect": "[P: (390.0, 281.0), S: (800.0, 32.0)]",
+			"text": "职员登记",
+			"viewport": "(2560, 1440)"
+		},
+		{
+			"id": "helena_rota",
+			"locale": "en",
+			"rect": "[P: (390.0, 349.0), S: (800.0, 108.0)]",
+			"text": "姓名                            工位\n\nHelena Voss                   Desk B",
+			"viewport": "(2560, 1440)"
+		},
+		{
+			"id": "helena_rota",
+			"locale": "en",
+			"rect": "[P: (390.0, 475.0), S: (800.0, 195.0)]",
+			"text": "1",
+			"viewport": "(2560, 1440)"
+		},
+		{
+			"id": "procedure_codes",
+			"locale": "zh",
+			"rect": "[P: (390.0, 215.0), S: (800.0, 48.0)]",
+			"text": "正式处置分类",
+			"viewport": "(1280, 720)"
+		},
+		{
+			"id": "procedure_codes",
+			"locale": "zh",
+			"rect": "[P: (390.0, 281.0), S: (800.0, 32.0)]",
+			"text": "邮务业务手册",
+			"viewport": "(1280, 720)"
+		},
+		{
+			"id": "procedure_codes",
+			"locale": "zh",
+			"rect": "[P: (390.0, 349.0), S: (800.0, 256.0)]",
+			"text": "记录类别\n\nRETURN  ·  退回\n\nUNKNOWN  ·  收件信息待核\n\nDAMAGED  ·  邮件受损",
+			"viewport": "(1280, 720)"
+		},
+		{
+			"id": "procedure_codes",
+			"locale": "zh",
+			"rect": "[P: (390.0, 623.0), S: (800.0, 47.0)]",
+			"text": "1",
+			"viewport": "(1280, 720)"
+		},
+		{
+			"id": "procedure_codes",
+			"locale": "zh",
+			"rect": "[P: (390.0, 215.0), S: (800.0, 48.0)]",
+			"text": "正式处置分类",
+			"viewport": "(1920, 1080)"
+		},
+		{
+			"id": "procedure_codes",
+			"locale": "zh",
+			"rect": "[P: (390.0, 281.0), S: (800.0, 32.0)]",
+			"text": "邮务业务手册",
+			"viewport": "(1920, 1080)"
+		},
+		{
+			"id": "procedure_codes",
+			"locale": "zh",
+			"rect": "[P: (390.0, 349.0), S: (800.0, 256.0)]",
+			"text": "记录类别\n\nRETURN  ·  退回\n\nUNKNOWN  ·  收件信息待核\n\nDAMAGED  ·  邮件受损",
+			"viewport": "(1920, 1080)"
+		},
+		{
+			"id": "procedure_codes",
+			"locale": "zh",
+			"rect": "[P: (390.0, 623.0), S: (800.0, 47.0)]",
+			"text": "1",
+			"viewport": "(1920, 1080)"
+		},
+		{
+			"id": "procedure_codes",
+			"locale": "zh",
+			"rect": "[P: (390.0, 215.0), S: (800.0, 48.0)]",
+			"text": "正式处置分类",
+			"viewport": "(2560, 1440)"
+		},
+		{
+			"id": "procedure_codes",
+			"locale": "zh",
+			"rect": "[P: (390.0, 281.0), S: (800.0, 32.0)]",
+			"text": "邮务业务手册",
+			"viewport": "(2560, 1440)"
+		},
+		{
+			"id": "procedure_codes",
+			"locale": "zh",
+			"rect": "[P: (390.0, 349.0), S: (800.0, 256.0)]",
+			"text": "记录类别\n\nRETURN  ·  退回\n\nUNKNOWN  ·  收件信息待核\n\nDAMAGED  ·  邮件受损",
+			"viewport": "(2560, 1440)"
+		},
+		{
+			"id": "procedure_codes",
+			"locale": "zh",
+			"rect": "[P: (390.0, 623.0), S: (800.0, 47.0)]",
+			"text": "1",
+			"viewport": "(2560, 1440)"
+		},
+		{
+			"id": "procedure_codes",
+			"locale": "en",
+			"rect": "[P: (390.0, 215.0), S: (800.0, 48.0)]",
+			"text": "正式处置分类",
+			"viewport": "(1280, 720)"
+		},
+		{
+			"id": "procedure_codes",
+			"locale": "en",
+			"rect": "[P: (390.0, 281.0), S: (800.0, 32.0)]",
+			"text": "邮务业务手册",
+			"viewport": "(1280, 720)"
+		},
+		{
+			"id": "procedure_codes",
+			"locale": "en",
+			"rect": "[P: (390.0, 349.0), S: (800.0, 256.0)]",
+			"text": "记录类别\n\nRETURN  ·  退回\n\nUNKNOWN  ·  收件信息待核\n\nDAMAGED  ·  邮件受损",
+			"viewport": "(1280, 720)"
+		},
+		{
+			"id": "procedure_codes",
+			"locale": "en",
+			"rect": "[P: (390.0, 623.0), S: (800.0, 47.0)]",
+			"text": "1",
+			"viewport": "(1280, 720)"
+		},
+		{
+			"id": "procedure_codes",
+			"locale": "en",
+			"rect": "[P: (390.0, 215.0), S: (800.0, 48.0)]",
+			"text": "正式处置分类",
+			"viewport": "(1920, 1080)"
+		},
+		{
+			"id": "procedure_codes",
+			"locale": "en",
+			"rect": "[P: (390.0, 281.0), S: (800.0, 32.0)]",
+			"text": "邮务业务手册",
+			"viewport": "(1920, 1080)"
+		},
+		{
+			"id": "procedure_codes",
+			"locale": "en",
+			"rect": "[P: (390.0, 349.0), S: (800.0, 256.0)]",
+			"text": "记录类别\n\nRETURN  ·  退回\n\nUNKNOWN  ·  收件信息待核\n\nDAMAGED  ·  邮件受损",
+			"viewport": "(1920, 1080)"
+		},
+		{
+			"id": "procedure_codes",
+			"locale": "en",
+			"rect": "[P: (390.0, 623.0), S: (800.0, 47.0)]",
+			"text": "1",
+			"viewport": "(1920, 1080)"
+		},
+		{
+			"id": "procedure_codes",
+			"locale": "en",
+			"rect": "[P: (390.0, 215.0), S: (800.0, 48.0)]",
+			"text": "正式处置分类",
+			"viewport": "(2560, 1440)"
+		},
+		{
+			"id": "procedure_codes",
+			"locale": "en",
+			"rect": "[P: (390.0, 281.0), S: (800.0, 32.0)]",
+			"text": "邮务业务手册",
+			"viewport": "(2560, 1440)"
+		},
+		{
+			"id": "procedure_codes",
+			"locale": "en",
+			"rect": "[P: (390.0, 349.0), S: (800.0, 256.0)]",
+			"text": "记录类别\n\nRETURN  ·  退回\n\nUNKNOWN  ·  收件信息待核\n\nDAMAGED  ·  邮件受损",
+			"viewport": "(2560, 1440)"
+		},
+		{
+			"id": "procedure_codes",
+			"locale": "en",
+			"rect": "[P: (390.0, 623.0), S: (800.0, 47.0)]",
+			"text": "1",
+			"viewport": "(2560, 1440)"
+		},
+		{
+			"id": "ledger_returns",
+			"locale": "zh",
+			"rect": "[P: (390.0, 215.0), S: (800.0, 48.0)]",
+			"text": "退回工位登记页",
+			"viewport": "(1280, 720)"
+		},
+		{
+			"id": "ledger_returns",
+			"locale": "zh",
+			"rect": "[P: (390.0, 281.0), S: (800.0, 32.0)]",
+			"text": "旧账簿 · 去向栏",
+			"viewport": "(1280, 720)"
+		},
+		{
+			"id": "ledger_returns",
+			"locale": "zh",
+			"rect": "[P: (390.0, 349.0), S: (800.0, 182.0)]",
+			"text": "旧件条目                         去向 / 原因\n\nJune Arlen / Rose Court 3C    Desk B / review\n\n另一未结条目                   Desk B / review",
+			"viewport": "(1280, 720)"
+		},
+		{
+			"id": "ledger_returns",
+			"locale": "zh",
+			"rect": "[P: (390.0, 549.0), S: (800.0, 121.0)]",
+			"text": "1",
+			"viewport": "(1280, 720)"
+		},
+		{
+			"id": "ledger_returns",
+			"locale": "zh",
+			"rect": "[P: (390.0, 215.0), S: (800.0, 48.0)]",
+			"text": "退回工位登记页",
+			"viewport": "(1920, 1080)"
+		},
+		{
+			"id": "ledger_returns",
+			"locale": "zh",
+			"rect": "[P: (390.0, 281.0), S: (800.0, 32.0)]",
+			"text": "旧账簿 · 去向栏",
+			"viewport": "(1920, 1080)"
+		},
+		{
+			"id": "ledger_returns",
+			"locale": "zh",
+			"rect": "[P: (390.0, 349.0), S: (800.0, 182.0)]",
+			"text": "旧件条目                         去向 / 原因\n\nJune Arlen / Rose Court 3C    Desk B / review\n\n另一未结条目                   Desk B / review",
+			"viewport": "(1920, 1080)"
+		},
+		{
+			"id": "ledger_returns",
+			"locale": "zh",
+			"rect": "[P: (390.0, 549.0), S: (800.0, 121.0)]",
+			"text": "1",
+			"viewport": "(1920, 1080)"
+		},
+		{
+			"id": "ledger_returns",
+			"locale": "zh",
+			"rect": "[P: (390.0, 215.0), S: (800.0, 48.0)]",
+			"text": "退回工位登记页",
+			"viewport": "(2560, 1440)"
+		},
+		{
+			"id": "ledger_returns",
+			"locale": "zh",
+			"rect": "[P: (390.0, 281.0), S: (800.0, 32.0)]",
+			"text": "旧账簿 · 去向栏",
+			"viewport": "(2560, 1440)"
+		},
+		{
+			"id": "ledger_returns",
+			"locale": "zh",
+			"rect": "[P: (390.0, 349.0), S: (800.0, 182.0)]",
+			"text": "旧件条目                         去向 / 原因\n\nJune Arlen / Rose Court 3C    Desk B / review\n\n另一未结条目                   Desk B / review",
+			"viewport": "(2560, 1440)"
+		},
+		{
+			"id": "ledger_returns",
+			"locale": "zh",
+			"rect": "[P: (390.0, 549.0), S: (800.0, 121.0)]",
+			"text": "1",
+			"viewport": "(2560, 1440)"
+		},
+		{
+			"id": "ledger_returns",
+			"locale": "en",
+			"rect": "[P: (390.0, 215.0), S: (800.0, 48.0)]",
+			"text": "退回工位登记页",
+			"viewport": "(1280, 720)"
+		},
+		{
+			"id": "ledger_returns",
+			"locale": "en",
+			"rect": "[P: (390.0, 281.0), S: (800.0, 32.0)]",
+			"text": "旧账簿 · 去向栏",
+			"viewport": "(1280, 720)"
+		},
+		{
+			"id": "ledger_returns",
+			"locale": "en",
+			"rect": "[P: (390.0, 349.0), S: (800.0, 182.0)]",
+			"text": "旧件条目                         去向 / 原因\n\nJune Arlen / Rose Court 3C    Desk B / review\n\n另一未结条目                   Desk B / review",
+			"viewport": "(1280, 720)"
+		},
+		{
+			"id": "ledger_returns",
+			"locale": "en",
+			"rect": "[P: (390.0, 549.0), S: (800.0, 121.0)]",
+			"text": "1",
+			"viewport": "(1280, 720)"
+		},
+		{
+			"id": "ledger_returns",
+			"locale": "en",
+			"rect": "[P: (390.0, 215.0), S: (800.0, 48.0)]",
+			"text": "退回工位登记页",
+			"viewport": "(1920, 1080)"
+		},
+		{
+			"id": "ledger_returns",
+			"locale": "en",
+			"rect": "[P: (390.0, 281.0), S: (800.0, 32.0)]",
+			"text": "旧账簿 · 去向栏",
+			"viewport": "(1920, 1080)"
+		},
+		{
+			"id": "ledger_returns",
+			"locale": "en",
+			"rect": "[P: (390.0, 349.0), S: (800.0, 182.0)]",
+			"text": "旧件条目                         去向 / 原因\n\nJune Arlen / Rose Court 3C    Desk B / review\n\n另一未结条目                   Desk B / review",
+			"viewport": "(1920, 1080)"
+		},
+		{
+			"id": "ledger_returns",
+			"locale": "en",
+			"rect": "[P: (390.0, 549.0), S: (800.0, 121.0)]",
+			"text": "1",
+			"viewport": "(1920, 1080)"
+		},
+		{
+			"id": "ledger_returns",
+			"locale": "en",
+			"rect": "[P: (390.0, 215.0), S: (800.0, 48.0)]",
+			"text": "退回工位登记页",
+			"viewport": "(2560, 1440)"
+		},
+		{
+			"id": "ledger_returns",
+			"locale": "en",
+			"rect": "[P: (390.0, 281.0), S: (800.0, 32.0)]",
+			"text": "旧账簿 · 去向栏",
+			"viewport": "(2560, 1440)"
+		},
+		{
+			"id": "ledger_returns",
+			"locale": "en",
+			"rect": "[P: (390.0, 349.0), S: (800.0, 182.0)]",
+			"text": "旧件条目                         去向 / 原因\n\nJune Arlen / Rose Court 3C    Desk B / review\n\n另一未结条目                   Desk B / review",
+			"viewport": "(2560, 1440)"
+		},
+		{
+			"id": "ledger_returns",
+			"locale": "en",
+			"rect": "[P: (390.0, 549.0), S: (800.0, 121.0)]",
+			"text": "1",
+			"viewport": "(2560, 1440)"
+		}
+	],
+	"scope": "GPU component presentation and routed input. No human/OS/novice acceptance.",
+	"screenshots": [
+		"res://test-results/fullflow-20261018/notices/street_renaming_zh_1280.png",
+		"res://test-results/fullflow-20261018/notices/street_renaming_zh_1920.png",
+		"res://test-results/fullflow-20261018/notices/street_renaming_zh_2560.png",
+		"res://test-results/fullflow-20261018/notices/street_renaming_en_1280.png",
+		"res://test-results/fullflow-20261018/notices/street_renaming_en_1920.png",
+		"res://test-results/fullflow-20261018/notices/street_renaming_en_2560.png",
+		"res://test-results/fullflow-20261018/notices/moran_entry_zh_1280.png",
+		"res://test-results/fullflow-20261018/notices/moran_entry_zh_1920.png",
+		"res://test-results/fullflow-20261018/notices/moran_entry_zh_2560.png",
+		"res://test-results/fullflow-20261018/notices/moran_entry_en_1280.png",
+		"res://test-results/fullflow-20261018/notices/moran_entry_en_1920.png",
+		"res://test-results/fullflow-20261018/notices/moran_entry_en_2560.png",
+		"res://test-results/fullflow-20261018/notices/telescope_checkout_zh_1280.png",
+		"res://test-results/fullflow-20261018/notices/telescope_checkout_zh_1920.png",
+		"res://test-results/fullflow-20261018/notices/telescope_checkout_zh_2560.png",
+		"res://test-results/fullflow-20261018/notices/telescope_checkout_en_1280.png",
+		"res://test-results/fullflow-20261018/notices/telescope_checkout_en_1920.png",
+		"res://test-results/fullflow-20261018/notices/telescope_checkout_en_2560.png",
+		"res://test-results/fullflow-20261018/notices/procedure_codes_zh_1280.png",
+		"res://test-results/fullflow-20261018/notices/procedure_codes_zh_1920.png",
+		"res://test-results/fullflow-20261018/notices/procedure_codes_zh_2560.png",
+		"res://test-results/fullflow-20261018/notices/procedure_codes_en_1280.png",
+		"res://test-results/fullflow-20261018/notices/procedure_codes_en_1920.png",
+		"res://test-results/fullflow-20261018/notices/procedure_codes_en_2560.png"
+	],
+	"suite": "posted_notice_input"
+}

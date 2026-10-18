@@ -1,0 +1,539 @@
+{
+	"checks": 204,
+	"failures": [
+		"rapid close emits once",
+		"rapid close emits once",
+		"rapid close emits once",
+		"rapid close emits once",
+		"rapid close emits once",
+		"rapid close emits once",
+		"rapid close emits once",
+		"rapid close emits once",
+		"rapid close emits once",
+		"rapid close emits once",
+		"rapid close emits once",
+		"rapid close emits once"
+	],
+	"geometry": [
+		{
+			"id": "street_renaming",
+			"locale": "zh",
+			"rect": "[P: (390.0, 215.0), S: (800.0, 48.0)]",
+			"text": "街名更动公告",
+			"viewport": "(1280, 720)"
+		},
+		{
+			"id": "street_renaming",
+			"locale": "zh",
+			"rect": "[P: (390.0, 281.0), S: (800.0, 32.0)]",
+			"text": "海堤重建后的地址登记",
+			"viewport": "(1280, 720)"
+		},
+		{
+			"id": "street_renaming",
+			"locale": "zh",
+			"rect": "[P: (390.0, 331.0), S: (380.0, 81.0)]",
+			"text": "原街名\nOld Quay Lane",
+			"viewport": "(1280, 720)"
+		},
+		{
+			"id": "street_renaming",
+			"locale": "zh",
+			"rect": "[P: (810.0, 331.0), S: (380.0, 81.0)]",
+			"text": "现街名\nBay Steps",
+			"viewport": "(1280, 720)"
+		},
+		{
+			"id": "street_renaming",
+			"locale": "zh",
+			"rect": "[P: (390.0, 430.0), S: (800.0, 145.0)]",
+			"text": "沿海堤一带原登记为 Old Quay Lane 的住址，现使用街名 Bay Steps。\n\n旧门牌与现行门牌并不一一对应。投递及通信请以各户现行门牌和住户登记为准。",
+			"viewport": "(1280, 720)"
+		},
+		{
+			"id": "street_renaming",
+			"locale": "zh",
+			"rect": "[P: (390.0, 593.0), S: (800.0, 77.0)]",
+			"text": "Solmere · 社区登记处",
+			"viewport": "(1280, 720)"
+		},
+		{
+			"id": "street_renaming",
+			"locale": "zh",
+			"rect": "[P: (390.0, 215.0), S: (800.0, 48.0)]",
+			"text": "街名更动公告",
+			"viewport": "(1920, 1080)"
+		},
+		{
+			"id": "street_renaming",
+			"locale": "zh",
+			"rect": "[P: (390.0, 281.0), S: (800.0, 32.0)]",
+			"text": "海堤重建后的地址登记",
+			"viewport": "(1920, 1080)"
+		},
+		{
+			"id": "street_renaming",
+			"locale": "zh",
+			"rect": "[P: (390.0, 331.0), S: (380.0, 81.0)]",
+			"text": "原街名\nOld Quay Lane",
+			"viewport": "(1920, 1080)"
+		},
+		{
+			"id": "street_renaming",
+			"locale": "zh",
+			"rect": "[P: (810.0, 331.0), S: (380.0, 81.0)]",
+			"text": "现街名\nBay Steps",
+			"viewport": "(1920, 1080)"
+		},
+		{
+			"id": "street_renaming",
+			"locale": "zh",
+			"rect": "[P: (390.0, 430.0), S: (800.0, 145.0)]",
+			"text": "沿海堤一带原登记为 Old Quay Lane 的住址，现使用街名 Bay Steps。\n\n旧门牌与现行门牌并不一一对应。投递及通信请以各户现行门牌和住户登记为准。",
+			"viewport": "(1920, 1080)"
+		},
+		{
+			"id": "street_renaming",
+			"locale": "zh",
+			"rect": "[P: (390.0, 593.0), S: (800.0, 77.0)]",
+			"text": "Solmere · 社区登记处",
+			"viewport": "(1920, 1080)"
+		},
+		{
+			"id": "street_renaming",
+			"locale": "zh",
+			"rect": "[P: (390.0, 215.0), S: (800.0, 48.0)]",
+			"text": "街名更动公告",
+			"viewport": "(2560, 1440)"
+		},
+		{
+			"id": "street_renaming",
+			"locale": "zh",
+			"rect": "[P: (390.0, 281.0), S: (800.0, 32.0)]",
+			"text": "海堤重建后的地址登记",
+			"viewport": "(2560, 1440)"
+		},
+		{
+			"id": "street_renaming",
+			"locale": "zh",
+			"rect": "[P: (390.0, 331.0), S: (380.0, 81.0)]",
+			"text": "原街名\nOld Quay Lane",
+			"viewport": "(2560, 1440)"
+		},
+		{
+			"id": "street_renaming",
+			"locale": "zh",
+			"rect": "[P: (810.0, 331.0), S: (380.0, 81.0)]",
+			"text": "现街名\nBay Steps",
+			"viewport": "(2560, 1440)"
+		},
+		{
+			"id": "street_renaming",
+			"locale": "zh",
+			"rect": "[P: (390.0, 430.0), S: (800.0, 145.0)]",
+			"text": "沿海堤一带原登记为 Old Quay Lane 的住址，现使用街名 Bay Steps。\n\n旧门牌与现行门牌并不一一对应。投递及通信请以各户现行门牌和住户登记为准。",
+			"viewport": "(2560, 1440)"
+		},
+		{
+			"id": "street_renaming",
+			"locale": "zh",
+			"rect": "[P: (390.0, 593.0), S: (800.0, 77.0)]",
+			"text": "Solmere · 社区登记处",
+			"viewport": "(2560, 1440)"
+		},
+		{
+			"id": "street_renaming",
+			"locale": "en",
+			"rect": "[P: (390.0, 215.0), S: (800.0, 48.0)]",
+			"text": "Street renaming notice",
+			"viewport": "(1280, 720)"
+		},
+		{
+			"id": "street_renaming",
+			"locale": "en",
+			"rect": "[P: (390.0, 281.0), S: (800.0, 32.0)]",
+			"text": "Address register following the seawall works",
+			"viewport": "(1280, 720)"
+		},
+		{
+			"id": "street_renaming",
+			"locale": "en",
+			"rect": "[P: (390.0, 331.0), S: (380.0, 81.0)]",
+			"text": "Former street\nOld Quay Lane",
+			"viewport": "(1280, 720)"
+		},
+		{
+			"id": "street_renaming",
+			"locale": "en",
+			"rect": "[P: (810.0, 331.0), S: (380.0, 81.0)]",
+			"text": "Current street\nBay Steps",
+			"viewport": "(1280, 720)"
+		},
+		{
+			"id": "street_renaming",
+			"locale": "en",
+			"rect": "[P: (390.0, 430.0), S: (800.0, 182.0)]",
+			"text": "Addresses along the seawall formerly registered as Old Quay Lane now use the street name Bay Steps.\n\nOld and current house numbers do not correspond. For post and correspondence, use the current door plate and resident register.",
+			"viewport": "(1280, 720)"
+		},
+		{
+			"id": "street_renaming",
+			"locale": "en",
+			"rect": "[P: (390.0, 630.0), S: (800.0, 40.0)]",
+			"text": "Solmere · Community register",
+			"viewport": "(1280, 720)"
+		},
+		{
+			"id": "street_renaming",
+			"locale": "en",
+			"rect": "[P: (390.0, 215.0), S: (800.0, 48.0)]",
+			"text": "Street renaming notice",
+			"viewport": "(1920, 1080)"
+		},
+		{
+			"id": "street_renaming",
+			"locale": "en",
+			"rect": "[P: (390.0, 281.0), S: (800.0, 32.0)]",
+			"text": "Address register following the seawall works",
+			"viewport": "(1920, 1080)"
+		},
+		{
+			"id": "street_renaming",
+			"locale": "en",
+			"rect": "[P: (390.0, 331.0), S: (380.0, 81.0)]",
+			"text": "Former street\nOld Quay Lane",
+			"viewport": "(1920, 1080)"
+		},
+		{
+			"id": "street_renaming",
+			"locale": "en",
+			"rect": "[P: (810.0, 331.0), S: (380.0, 81.0)]",
+			"text": "Current street\nBay Steps",
+			"viewport": "(1920, 1080)"
+		},
+		{
+			"id": "street_renaming",
+			"locale": "en",
+			"rect": "[P: (390.0, 430.0), S: (800.0, 182.0)]",
+			"text": "Addresses along the seawall formerly registered as Old Quay Lane now use the street name Bay Steps.\n\nOld and current house numbers do not correspond. For post and correspondence, use the current door plate and resident register.",
+			"viewport": "(1920, 1080)"
+		},
+		{
+			"id": "street_renaming",
+			"locale": "en",
+			"rect": "[P: (390.0, 630.0), S: (800.0, 40.0)]",
+			"text": "Solmere · Community register",
+			"viewport": "(1920, 1080)"
+		},
+		{
+			"id": "street_renaming",
+			"locale": "en",
+			"rect": "[P: (390.0, 215.0), S: (800.0, 48.0)]",
+			"text": "Street renaming notice",
+			"viewport": "(2560, 1440)"
+		},
+		{
+			"id": "street_renaming",
+			"locale": "en",
+			"rect": "[P: (390.0, 281.0), S: (800.0, 32.0)]",
+			"text": "Address register following the seawall works",
+			"viewport": "(2560, 1440)"
+		},
+		{
+			"id": "street_renaming",
+			"locale": "en",
+			"rect": "[P: (390.0, 331.0), S: (380.0, 81.0)]",
+			"text": "Former street\nOld Quay Lane",
+			"viewport": "(2560, 1440)"
+		},
+		{
+			"id": "street_renaming",
+			"locale": "en",
+			"rect": "[P: (810.0, 331.0), S: (380.0, 81.0)]",
+			"text": "Current street\nBay Steps",
+			"viewport": "(2560, 1440)"
+		},
+		{
+			"id": "street_renaming",
+			"locale": "en",
+			"rect": "[P: (390.0, 430.0), S: (800.0, 182.0)]",
+			"text": "Addresses along the seawall formerly registered as Old Quay Lane now use the street name Bay Steps.\n\nOld and current house numbers do not correspond. For post and correspondence, use the current door plate and resident register.",
+			"viewport": "(2560, 1440)"
+		},
+		{
+			"id": "street_renaming",
+			"locale": "en",
+			"rect": "[P: (390.0, 630.0), S: (800.0, 40.0)]",
+			"text": "Solmere · Community register",
+			"viewport": "(2560, 1440)"
+		},
+		{
+			"id": "moran_entry",
+			"locale": "zh",
+			"rect": "[P: (390.0, 215.0), S: (800.0, 48.0)]",
+			"text": "住户通信登记",
+			"viewport": "(1280, 720)"
+		},
+		{
+			"id": "moran_entry",
+			"locale": "zh",
+			"rect": "[P: (390.0, 281.0), S: (800.0, 32.0)]",
+			"text": "Bay Steps",
+			"viewport": "(1280, 720)"
+		},
+		{
+			"id": "moran_entry",
+			"locale": "zh",
+			"rect": "[P: (390.0, 331.0), S: (380.0, 81.0)]",
+			"text": "登记姓名\nE. Moran",
+			"viewport": "(1280, 720)"
+		},
+		{
+			"id": "moran_entry",
+			"locale": "zh",
+			"rect": "[P: (810.0, 331.0), S: (380.0, 81.0)]",
+			"text": "通信地址\n9 Bay Steps",
+			"viewport": "(1280, 720)"
+		},
+		{
+			"id": "moran_entry",
+			"locale": "zh",
+			"rect": "[P: (390.0, 430.0), S: (800.0, 108.0)]",
+			"text": "通信请写明收件人姓名及现行门牌。\n\n住户如需更正通信地址，请将更改交至社区登记处。",
+			"viewport": "(1280, 720)"
+		},
+		{
+			"id": "moran_entry",
+			"locale": "zh",
+			"rect": "[P: (390.0, 556.0), S: (800.0, 114.0)]",
+			"text": "Bay Steps · 住户通信页",
+			"viewport": "(1280, 720)"
+		},
+		{
+			"id": "moran_entry",
+			"locale": "zh",
+			"rect": "[P: (390.0, 215.0), S: (800.0, 48.0)]",
+			"text": "住户通信登记",
+			"viewport": "(1920, 1080)"
+		},
+		{
+			"id": "moran_entry",
+			"locale": "zh",
+			"rect": "[P: (390.0, 281.0), S: (800.0, 32.0)]",
+			"text": "Bay Steps",
+			"viewport": "(1920, 1080)"
+		},
+		{
+			"id": "moran_entry",
+			"locale": "zh",
+			"rect": "[P: (390.0, 331.0), S: (380.0, 81.0)]",
+			"text": "登记姓名\nE. Moran",
+			"viewport": "(1920, 1080)"
+		},
+		{
+			"id": "moran_entry",
+			"locale": "zh",
+			"rect": "[P: (810.0, 331.0), S: (380.0, 81.0)]",
+			"text": "通信地址\n9 Bay Steps",
+			"viewport": "(1920, 1080)"
+		},
+		{
+			"id": "moran_entry",
+			"locale": "zh",
+			"rect": "[P: (390.0, 430.0), S: (800.0, 108.0)]",
+			"text": "通信请写明收件人姓名及现行门牌。\n\n住户如需更正通信地址，请将更改交至社区登记处。",
+			"viewport": "(1920, 1080)"
+		},
+		{
+			"id": "moran_entry",
+			"locale": "zh",
+			"rect": "[P: (390.0, 556.0), S: (800.0, 114.0)]",
+			"text": "Bay Steps · 住户通信页",
+			"viewport": "(1920, 1080)"
+		},
+		{
+			"id": "moran_entry",
+			"locale": "zh",
+			"rect": "[P: (390.0, 215.0), S: (800.0, 48.0)]",
+			"text": "住户通信登记",
+			"viewport": "(2560, 1440)"
+		},
+		{
+			"id": "moran_entry",
+			"locale": "zh",
+			"rect": "[P: (390.0, 281.0), S: (800.0, 32.0)]",
+			"text": "Bay Steps",
+			"viewport": "(2560, 1440)"
+		},
+		{
+			"id": "moran_entry",
+			"locale": "zh",
+			"rect": "[P: (390.0, 331.0), S: (380.0, 81.0)]",
+			"text": "登记姓名\nE. Moran",
+			"viewport": "(2560, 1440)"
+		},
+		{
+			"id": "moran_entry",
+			"locale": "zh",
+			"rect": "[P: (810.0, 331.0), S: (380.0, 81.0)]",
+			"text": "通信地址\n9 Bay Steps",
+			"viewport": "(2560, 1440)"
+		},
+		{
+			"id": "moran_entry",
+			"locale": "zh",
+			"rect": "[P: (390.0, 430.0), S: (800.0, 108.0)]",
+			"text": "通信请写明收件人姓名及现行门牌。\n\n住户如需更正通信地址，请将更改交至社区登记处。",
+			"viewport": "(2560, 1440)"
+		},
+		{
+			"id": "moran_entry",
+			"locale": "zh",
+			"rect": "[P: (390.0, 556.0), S: (800.0, 114.0)]",
+			"text": "Bay Steps · 住户通信页",
+			"viewport": "(2560, 1440)"
+		},
+		{
+			"id": "moran_entry",
+			"locale": "en",
+			"rect": "[P: (390.0, 215.0), S: (800.0, 48.0)]",
+			"text": "Resident correspondence register",
+			"viewport": "(1280, 720)"
+		},
+		{
+			"id": "moran_entry",
+			"locale": "en",
+			"rect": "[P: (390.0, 281.0), S: (800.0, 32.0)]",
+			"text": "Bay Steps",
+			"viewport": "(1280, 720)"
+		},
+		{
+			"id": "moran_entry",
+			"locale": "en",
+			"rect": "[P: (390.0, 331.0), S: (380.0, 81.0)]",
+			"text": "Registered name\nE. Moran",
+			"viewport": "(1280, 720)"
+		},
+		{
+			"id": "moran_entry",
+			"locale": "en",
+			"rect": "[P: (810.0, 331.0), S: (380.0, 81.0)]",
+			"text": "Postal address\n9 Bay Steps",
+			"viewport": "(1280, 720)"
+		},
+		{
+			"id": "moran_entry",
+			"locale": "en",
+			"rect": "[P: (390.0, 430.0), S: (800.0, 182.0)]",
+			"text": "Please include the recipient's name and current house number on correspondence.\n\nResidents wishing to correct their postal address may leave an amendment at the community register.",
+			"viewport": "(1280, 720)"
+		},
+		{
+			"id": "moran_entry",
+			"locale": "en",
+			"rect": "[P: (390.0, 630.0), S: (800.0, 40.0)]",
+			"text": "Bay Steps · Resident correspondence",
+			"viewport": "(1280, 720)"
+		},
+		{
+			"id": "moran_entry",
+			"locale": "en",
+			"rect": "[P: (390.0, 215.0), S: (800.0, 48.0)]",
+			"text": "Resident correspondence register",
+			"viewport": "(1920, 1080)"
+		},
+		{
+			"id": "moran_entry",
+			"locale": "en",
+			"rect": "[P: (390.0, 281.0), S: (800.0, 32.0)]",
+			"text": "Bay Steps",
+			"viewport": "(1920, 1080)"
+		},
+		{
+			"id": "moran_entry",
+			"locale": "en",
+			"rect": "[P: (390.0, 331.0), S: (380.0, 81.0)]",
+			"text": "Registered name\nE. Moran",
+			"viewport": "(1920, 1080)"
+		},
+		{
+			"id": "moran_entry",
+			"locale": "en",
+			"rect": "[P: (810.0, 331.0), S: (380.0, 81.0)]",
+			"text": "Postal address\n9 Bay Steps",
+			"viewport": "(1920, 1080)"
+		},
+		{
+			"id": "moran_entry",
+			"locale": "en",
+			"rect": "[P: (390.0, 430.0), S: (800.0, 182.0)]",
+			"text": "Please include the recipient's name and current house number on correspondence.\n\nResidents wishing to correct their postal address may leave an amendment at the community register.",
+			"viewport": "(1920, 1080)"
+		},
+		{
+			"id": "moran_entry",
+			"locale": "en",
+			"rect": "[P: (390.0, 630.0), S: (800.0, 40.0)]",
+			"text": "Bay Steps · Resident correspondence",
+			"viewport": "(1920, 1080)"
+		},
+		{
+			"id": "moran_entry",
+			"locale": "en",
+			"rect": "[P: (390.0, 215.0), S: (800.0, 48.0)]",
+			"text": "Resident correspondence register",
+			"viewport": "(2560, 1440)"
+		},
+		{
+			"id": "moran_entry",
+			"locale": "en",
+			"rect": "[P: (390.0, 281.0), S: (800.0, 32.0)]",
+			"text": "Bay Steps",
+			"viewport": "(2560, 1440)"
+		},
+		{
+			"id": "moran_entry",
+			"locale": "en",
+			"rect": "[P: (390.0, 331.0), S: (380.0, 81.0)]",
+			"text": "Registered name\nE. Moran",
+			"viewport": "(2560, 1440)"
+		},
+		{
+			"id": "moran_entry",
+			"locale": "en",
+			"rect": "[P: (810.0, 331.0), S: (380.0, 81.0)]",
+			"text": "Postal address\n9 Bay Steps",
+			"viewport": "(2560, 1440)"
+		},
+		{
+			"id": "moran_entry",
+			"locale": "en",
+			"rect": "[P: (390.0, 430.0), S: (800.0, 182.0)]",
+			"text": "Please include the recipient's name and current house number on correspondence.\n\nResidents wishing to correct their postal address may leave an amendment at the community register.",
+			"viewport": "(2560, 1440)"
+		},
+		{
+			"id": "moran_entry",
+			"locale": "en",
+			"rect": "[P: (390.0, 630.0), S: (800.0, 40.0)]",
+			"text": "Bay Steps · Resident correspondence",
+			"viewport": "(2560, 1440)"
+		}
+	],
+	"scope": "GPU component presentation and routed input. No human/OS/novice acceptance.",
+	"screenshots": [
+		"res://test-results/fullflow-20261018/notices/street_renaming_zh_1280.png",
+		"res://test-results/fullflow-20261018/notices/street_renaming_zh_1920.png",
+		"res://test-results/fullflow-20261018/notices/street_renaming_zh_2560.png",
+		"res://test-results/fullflow-20261018/notices/street_renaming_en_1280.png",
+		"res://test-results/fullflow-20261018/notices/street_renaming_en_1920.png",
+		"res://test-results/fullflow-20261018/notices/street_renaming_en_2560.png",
+		"res://test-results/fullflow-20261018/notices/moran_entry_zh_1280.png",
+		"res://test-results/fullflow-20261018/notices/moran_entry_zh_1920.png",
+		"res://test-results/fullflow-20261018/notices/moran_entry_zh_2560.png",
+		"res://test-results/fullflow-20261018/notices/moran_entry_en_1280.png",
+		"res://test-results/fullflow-20261018/notices/moran_entry_en_1920.png",
+		"res://test-results/fullflow-20261018/notices/moran_entry_en_2560.png"
+	],
+	"suite": "posted_notice_input"
+}

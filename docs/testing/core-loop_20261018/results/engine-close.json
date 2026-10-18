@@ -1,0 +1,11 @@
+{
+  "failures": [],
+  "scope": "Supplemental routed input in an isolated GPU child, then deferred engine-generated close notification through the actual host save/audio-drain path, then fresh-process reload; no OS title-bar/native input or shell UI actuation.",
+  "reload_exit": 0,
+  "reload_checks": 15,
+  "warning": "Automated input is not independent human usability, audio listening or art acceptance. See retained stderr logs.",
+  "input_checks": 14,
+  "close_method": "engine-generated close notification (supplemental; no OS/native input)",
+  "child_exit": 0,
+  "input_events": 70
+}
