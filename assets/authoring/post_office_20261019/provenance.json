@@ -1,0 +1,17 @@
+{
+  "source_kind": "user_supplied_scene_exact_bytes",
+  "source_filename": "c8cb5d8a8047c3366877ae71466c8955.jpg",
+  "stored_file": "room_pair.jpg",
+  "sha256": "5bef8c44b16c09eb31d60395b6b4d56b11b574d9ba70acdd2ccb2f8de1e04e8b",
+  "dimensions": [3840, 1080],
+  "ai_generated": false,
+  "authorization": "User requests these two joined postal interiors be put into a clickable scene preview, with the center line treated as their separator.",
+  "non_destructive_regions": {
+    "counter_left": [0, 0, 1914, 1080],
+    "workroom_right": [1926, 0, 1914, 1080]
+  },
+  "divider": "Omit only six source columns on each side of x1920 in AtlasTexture sampling to exclude the purple guide and JPEG color fringe. Source bytes remain unchanged. No painting, generated fill or image re-encoding.",
+  "status": "selected_opening_interior",
+  "scene": "res://scenes/post_office_layout_review.tscn",
+  "scope": "Main New Shift opens left counter room; right arrow leads to workroom; real desk opens retained physical mail handling and returns to the workroom. Left painted book opens the archive; painted door returns outside. Original scene bytes, campaign, inventory and save formats remain unchanged. Other baked props have no fake hotspots. Standalone layout scene retains cross/Esc."
+}

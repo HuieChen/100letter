@@ -18,6 +18,7 @@ func _run() -> void:
 		if dimensions.x==1920:await _shot("onboarding_supervisor_1920")
 		await _named("CloseDialogue")
 		_check(not host.busy and not is_instance_valid(host.modal),"visible cross ends briefing without shortcuts")
+		await _enter_counter_from_room()
 		var lid_point:=_desk_point((_desk_snapshot().rects.lid as Rect2).get_center())
 		await _click(lid_point)
 		_check(float(_desk_snapshot().lid_open)==0.0,"locked lid cannot reveal contents")
@@ -44,6 +45,8 @@ func _run() -> void:
 		_check(disk.load_game() and disk.case_state("case01").physical.inspected_front,"close checkpoints observed face and custody")
 		disk.free()
 		await _click(_desk_point((_desk_snapshot().rects.depart as Rect2).get_center()))
+		_check(host.view=="post_office_room" and host.post_office_room_index==1,"physical desk return restores right workroom")
+		await _leave_post_office_rooms()
 		_check(host.view=="world","physical desk exit reaches explorable scene")
 		host.queue_free();await process_frame
 	var report:={"suite":"counter_onboarding_input","checks":checks,"failures":failures,"screenshots":screenshots,"scope":"Actual Godot viewport clicks at three sizes, not OS input or a first-time human playtest.","source_sha256":FileAccess.get_sha256("res://scripts/rebuild/postal_desk.gd"),"host_sha256":FileAccess.get_sha256("res://scripts/rebuild/final_playable.gd")}

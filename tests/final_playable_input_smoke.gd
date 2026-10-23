@@ -31,11 +31,12 @@ func _run() -> void:
 	_check(host.view=="title", "real playable title is mounted")
 	await _shot("01_title")
 	await _named("NewShift")
-	_check(host.view=="counter" and host.core.state.location=="post_office","new day starts directly at the working counter")
+	_check(host.view=="post_office_room" and host.post_office_room_index==0 and host.core.state.location=="post_office","new day starts in supplied left postal interior")
 	await _wait(func():return _node("FinishBriefing")!=null,"brief supervisor scene appears before work")
 	await _shot("01b_counter_supervisor")
 	await _named("FinishBriefing")
 	_check(not host.busy and not is_instance_valid(host.modal),"player finishes short briefing and receives control")
+	await _enter_counter_from_room()
 	_check(_desk_snapshot().get("waiting",[])==["case01"] and float(_desk_snapshot().get("lid_open",1))==0.0,"physical closed box contains only first teaching mail")
 	await _named("CounterRegister")
 	_check(not is_instance_valid(host.modal) and host.core.case_state("case01").owner=="desk_b","registry cannot bypass actually taking and inspecting the first envelope")
@@ -146,7 +147,8 @@ func _run() -> void:
 	var starting_foot: Vector2=host.walker.foot
 	await _named("PostDoor")
 	_check(host.view=="world" and host.walker.walking,"world door click starts walking without instant counter transition")
-	await _wait(func():return host.view=="counter","return physically to Desk B")
+	await _wait(func():return host.view=="post_office_room","return physically into postal interior")
+	await _enter_counter_from_room()
 	_check(starting_foot.distance_to(host.plan.entrance)>25,"world door approach starts sufficiently far away")
 	await _named("CounterRegister")
 	await _named("Resolution_case01")
@@ -208,7 +210,7 @@ func _run() -> void:
 	_check(not is_instance_valid(host.modal) and FileAccess.get_file_as_string(host.core.save_path)==saved_bytes,"dismissing new-game confirmation preserves saved bytes")
 	await _named("NewShift")
 	await _text("继续旧班次")
-	_check(host.view=="world" and host.core.state.minute==saved_minute,"actual Continue reloads route time and world location")
+	_check(host.view=="post_office_room" and host.core.state.minute==saved_minute,"actual Continue reloads postal interior and saved route time")
 	_check(host.core.case_state("case01").owner=="elsie_moran" and host.core.case_state("case04").available,"resume retains delivered custody and archive availability")
 	_check(host.core.resolution_view("case01").get("stamped",false),"resume preserves actual stamped resolution independently of custody")
 	_check(host.core.has_evidence("street_renaming") and host.core.has_evidence("elsie_confirmation"),"resume retains separately acquired public and dialogue sources")
@@ -283,7 +285,9 @@ func _buttons(node: Node) -> Array[Control]:
 
 func _text(fragment: String) -> void:
 	if fragment=="走回门外" and not _desk_snapshot().is_empty():
-		await _click(_desk_point((_desk_snapshot().rects.depart as Rect2).get_center()));return
+		await _click(_desk_point((_desk_snapshot().rects.depart as Rect2).get_center()))
+		await _leave_post_office_rooms()
+		return
 	for page in 5:
 		for button: Control in _buttons(host):
 			if button is Button and fragment in button.text:
@@ -292,6 +296,22 @@ func _text(fragment: String) -> void:
 		if next_page == null: break
 		await _click(next_page.get_global_rect().get_center())
 	_check(false,"text input target missing: "+fragment)
+
+func _enter_counter_from_room() -> void:
+	if host.view != "post_office_room": return
+	if host.post_office_room_index == 0:
+		await _named("ToWorkroom")
+		await _wait(func(): return not _node("PostOfficeInterior").transitioning, "right passage finishes")
+	await _named("OpenPostalDesk")
+	_check(host.view == "counter", "painted right desk reaches physical mail handling")
+
+func _leave_post_office_rooms() -> void:
+	if host.view != "post_office_room": return
+	if host.post_office_room_index == 1:
+		await _named("ToCounter")
+		await _wait(func(): return not _node("PostOfficeInterior").transitioning, "left return passage finishes")
+	await _named("PostOfficeExit")
+	_check(host.view == "world", "painted left door returns outside")
 
 func _caption(fragment: String) -> void:
 	for button: Control in _buttons(host):
@@ -382,6 +402,7 @@ func _source_hashes() -> Dictionary:
 	var hashes: Dictionary={}
 	var paths: Array[String] = ["scripts/rebuild/final_playable.gd","scripts/rebuild/postal_desk.gd","scripts/rebuild/physical_art.gd","scripts/rebuild/mail_workbench.gd","scripts/rebuild/mail_physics_state.gd","scripts/rebuild/field_observation.gd","scripts/rebuild/field_book.gd","scripts/rebuild/final_case_state.gd","scripts/rebuild/resolution_slip.gd","scripts/rebuild/resolution_draft_store.gd","scripts/rebuild/scene_dialogue.gd","scripts/rebuild/final_walker.gd","scripts/rebuild/final_paper_map.gd","scripts/rebuild/tool_drawer.gd","scripts/ui/audio_feedback.gd","scripts/ui/paper_ui.gd","data/rebuild/final_cases.json","data/rebuild/final_dialogues.json","data/rebuild/player_amendments.json","assets/faefever_v2/manifest.json","assets/faefever_v2/characters/courier_walk_regions.json","tests/final_playable_input_smoke.gd"]
 	paths.append_array(["scripts/rebuild/mail_imprint.gd","scripts/rebuild/physical_envelope.gd"])
+	paths.append_array(["scripts/rebuild/post_office_layout_review.gd","assets/authoring/post_office_20261019/room_pair.jpg","assets/authoring/post_office_20261019/provenance.json"])
 	var manifest: Variant = JSON.parse_string(FileAccess.get_file_as_string("res://assets/faefever_v2/manifest.json"))
 	if manifest is Dictionary:
 		for entry: Dictionary in manifest.get("assets", {}).values():

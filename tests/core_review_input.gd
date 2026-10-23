@@ -24,8 +24,10 @@ func _run() -> void:
 		await _named("NewShift")
 		await _wait(func():return _node("FinishBriefing")!=null,"supervisor starts after title")
 		await _named("FinishBriefing")
-		_check(host.view=="counter" and not host.busy,"visible dialogue advance starts playable counter")
-		if phase!="title":await _remaining_checks()
+		_check(host.view=="post_office_room" and not host.busy,"visible dialogue advance starts authored postal interior")
+		if phase!="title":
+			await _enter_counter_from_room()
+			await _remaining_checks()
 		host.queue_free();await process_frame;await process_frame
 	_check(initial_hashes==_source_hashes(),"source frozen during phase")
 	DirAccess.make_dir_recursive_absolute(REVIEW_OUT)

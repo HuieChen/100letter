@@ -125,8 +125,10 @@ func _leave_counter() -> void:
 func _return_counter() -> void:
 	if host.core.state.location != "post_office": await _travel("post_office")
 	if host.view != "counter":
-		await _named("PostDoor")
-		await _wait(func(): return host.view == "counter", "courier walks back to counter")
+		if host.view == "world":
+			await _named("PostDoor")
+			await _wait(func(): return host.view == "post_office_room", "courier walks into postal interior")
+		await _enter_counter_from_room()
 
 func _bag_ids() -> Array[String]:
 	var result: Array[String] = []

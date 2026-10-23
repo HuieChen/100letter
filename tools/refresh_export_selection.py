@@ -4,6 +4,7 @@ No download, model invocation, source art editing, or publication occurs here.
 from pathlib import Path
 import json
 import re
+import hashlib
 
 ROOT = Path(__file__).resolve().parents[1]
 MANIFEST = ROOT / 'assets/faefever_v2/manifest.json'
@@ -14,11 +15,22 @@ def selection():
     entries = catalog.get('assets', {})
     if not entries:
         raise ValueError('No adopted final artwork has been registered.')
+    # Explicit 2026-10-19 user override: the two-room postal interior is exact
+    # authored art, not an ImageGen role. Keep the exception pinned and narrow.
+    room_path = 'res://assets/authoring/post_office_20261019/room_pair.jpg'
+    room_provenance = ROOT / 'assets/authoring/post_office_20261019/provenance.json'
+    room_info = json.loads(room_provenance.read_text(encoding='utf-8'))
+    room_hash = hashlib.sha256((ROOT / room_path[6:]).read_bytes()).hexdigest()
+    if (room_info.get('source_kind') != 'user_supplied_scene_exact_bytes'
+            or room_info.get('ai_generated') is not False
+            or room_hash != room_info.get('sha256')
+            or room_hash != '5bef8c44b16c09eb31d60395b6b4d56b11b574d9ba70acdd2ccb2f8de1e04e8b'):
+        raise ValueError('Supplied postal interior differs from the authorized original.')
     paths = {'res://scenes/final_slice.tscn',
              'res://scripts/rebuild/field_book.gd',
              'res://scripts/rebuild/field_observation.gd',
              'res://assets/fonts/SolmereSans.ttf',
-             'res://assets/fonts/Caveat.ttf'}
+             'res://assets/fonts/Caveat.ttf', room_path}
     for key, entry in entries.items():
         authorized_video = (isinstance(entry, dict) and key in {'CHAR_courier','CHAR_courier_walk',
                             *('CHAR_courier_walk_'+str(i) for i in range(5))}

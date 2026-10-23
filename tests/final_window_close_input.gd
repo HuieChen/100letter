@@ -42,6 +42,7 @@ func _prepare_real_close() -> void:
 	await _named("NewShift")
 	await _wait(func():return _node("FinishBriefing")!=null,"short supervisor briefing appears")
 	await _named("FinishBriefing")
+	await _enter_counter_from_room()
 	await _named("Mail_case01")
 	if not is_instance_valid(host.modal):_check(false,"actual box take opens workbench");_write_ready({});quit(1);return
 	var bench: Control=host.modal

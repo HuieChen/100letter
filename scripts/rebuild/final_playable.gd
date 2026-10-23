@@ -10,6 +10,7 @@ const Walker = preload("res://scripts/rebuild/final_walker.gd")
 const Sound = preload("res://scripts/ui/audio_feedback.gd")
 const Workbench = preload("res://scripts/rebuild/mail_workbench.gd")
 const PostalDesk = preload("res://scripts/rebuild/postal_desk.gd")
+const PostOfficeInterior = preload("res://scripts/rebuild/post_office_layout_review.gd")
 const ResolutionSlip = preload("res://scripts/rebuild/resolution_slip.gd")
 const SceneDialogue = preload("res://scripts/rebuild/scene_dialogue.gd")
 const Preferences = preload("res://scripts/ui/game_preferences.gd")
@@ -41,6 +42,7 @@ var _footer_shade: ColorRect
 var _footer_timer: Timer
 var _resolution_drafts: Dictionary = {}
 var _desk_surface: Control
+var post_office_room_index := 0
 var _conversation_person := ""
 var preferences:Node
 var preferences_path := "user://final_v2/preferences_v1.json"
@@ -201,7 +203,7 @@ func _unhandled_input(event:InputEvent) -> void:
 				else: _close()
 			elif view!="title": _pause()
 			get_viewport().set_input_as_handled()
-		elif not is_instance_valid(modal) and view in ["world","counter"]:
+		elif not is_instance_valid(modal) and view in ["world","counter","post_office_room"]:
 			if event.keycode==KEY_M: _map()
 			elif event.keycode==KEY_J: _book()
 			elif event.keycode==KEY_B: _bag()
@@ -247,7 +249,7 @@ func _say(message:String) -> void:
 
 func _save() -> void:
 	core.save_game()
-	if is_instance_valid(clock): clock.text=core.time_text() if view in ["counter","ending","failure"] else "7 月 20 日 · "+core.time_text()
+	if is_instance_valid(clock): clock.text=core.time_text() if view in ["counter","post_office_room","ending","failure"] else "7 月 20 日 · "+core.time_text()
 
 func _sprite(parent:Node, key:String, rect:Rect2, preserve_aspect:bool=false) -> TextureRect:
 	var art:=TextureRect.new()
@@ -319,7 +321,7 @@ func _fresh() -> void:
 		_briefing_pending=false
 		_show_save_problem(draft_error)
 		return
-	_counter()
+	_post_office_room()
 	_begin_briefing()
 
 func _begin_briefing() -> void:
@@ -330,20 +332,20 @@ func _begin_briefing() -> void:
 	UI.place(modal,self,Rect2(0,0,1600,900))
 	modal.mouse_filter=Control.MOUSE_FILTER_STOP
 	await get_tree().create_timer(0.65).timeout
-	if not is_instance_valid(modal) or view!="counter":busy=false;return
+	if not is_instance_valid(modal) or view not in ["counter","post_office_room"]:busy=false;return
 	_close()
 	var briefing:=SceneDialogue.new()
 	briefing.advance_name="FinishBriefing"
 	modal=briefing
 	UI.place(briefing,self,Rect2(0,0,1600,900))
-	briefing.configure("主管 · 柜台另一端","早。手提箱里这封一直没送到，锁扣还扣着。你先把信拿出来看看。信上是旧街名——社区中心窗边留着改名公告，先从那儿查起。别急着交，地址对得上，也得问清是谁家的信。")
+	briefing.configure("主管 · 柜台另一端","早。右边工作桌上的手提箱里，有封一直没送到的信。先取出来看看。信上是旧街名——社区中心窗边有改名公告。地址对得上，也得问清是谁家的信。")
 	briefing.cue.connect(sound.play)
 	briefing.set_text_rate(preferences.text_rate())
 	briefing.advanced.connect(_finish_briefing)
 	briefing.closed.connect(_finish_briefing)
 
 func _finish_briefing() -> void:
-	_briefing_pending=false;busy=false;_close();_counter()
+	_briefing_pending=false;busy=false;_close();_post_office_room()
 
 func _resume() -> void:
 	if not core.load_game():
@@ -354,6 +356,7 @@ func _resume() -> void:
 	_load_resolution_drafts()
 	if not core.state.ending.is_empty(): _ending()
 	elif not core.state.failure.is_empty(): _failure()
+	elif str(core.state.location)=="post_office": _post_office_room()
 	else: _world()
 
 func _world() -> void:
@@ -385,7 +388,7 @@ func _world() -> void:
 	var entrance:Vector2=plan.entrance
 	if id=="post_office":
 		UI.label(layer,"索尔梅尔邮局",Rect2(650,42,380,88),34,Color("42392c")).mouse_filter=Control.MOUSE_FILTER_IGNORE
-		_hotspot("PostDoor","走进邮局",Rect2(718,266,205,391),entrance,_counter)
+		_hotspot("PostDoor","走进邮局",Rect2(718,266,205,391),entrance,_post_office_room)
 	elif id=="residential":
 		_prop("nameplate","两块门牌",Vector2(948,316),"ceramic_17",Vector2(62,84))
 		_prop("notice","住户姓名条",Vector2(949,405),"moran_entry",Vector2(107,42))
@@ -529,6 +532,42 @@ func _objective() -> String:
 		return "首封已有去向。Desk B 现在有两封新邮件，回柜台取出，再安排这趟邮路。"
 	return "读清信封，再到现场核对。地图可预览耗时；阅读与交谈不会推动时钟。"
 
+func _post_office_room(index:int=0) -> void:
+	_new_stage("post_office_room")
+	post_office_room_index=clampi(index,0,1)
+	sound.set_location("post_office",int(core.state.minute),true)
+	var room:=PostOfficeInterior.new()
+	room.navigation_allowed=func():return not busy and not is_instance_valid(modal)
+	room.name="PostOfficeInterior"
+	room.room_index=post_office_room_index
+	UI.place(room,stage,Rect2(0,0,1600,900))
+	# The production host owns Escape and pause; the standalone review close
+	# button has no campaign action and is not part of this room.
+	room.set_process_unhandled_key_input(false)
+	room.close_button.hide()
+	var source_scale:=Vector2(1600,900)/Vector2(1920,1080)
+	var exit:=_surface_hotspot(stage,"PostOfficeExit","",Rect2(Vector2(50,150)*source_scale,Vector2(400,500)*source_scale),func():
+		if busy or is_instance_valid(modal) or room.transitioning:return
+		sound.play("door")
+		_world())
+	var reference:=_surface_hotspot(stage,"CounterReferenceBook","",Rect2(Vector2(430,730)*source_scale,Vector2(420,240)*source_scale),func():
+		if busy or is_instance_valid(modal) or room.transitioning:return
+		_book())
+	var desk:=_surface_hotspot(stage,"OpenPostalDesk","",Rect2(Vector2(550,760)*source_scale,Vector2(1280,280)*source_scale),func():
+		if busy or is_instance_valid(modal) or room.transitioning:return
+		_counter())
+	exit.visible=post_office_room_index==0
+	reference.visible=post_office_room_index==0
+	desk.visible=post_office_room_index==1
+	room.room_changed.connect(func(next_index:int):
+		post_office_room_index=next_index
+		exit.visible=next_index==0
+		reference.visible=next_index==0
+		desk.visible=next_index==1)
+	_hud("post_office")
+	clock.text=core.time_text()
+	_footer()
+
 func _counter() -> void:
 	_new_stage("counter")
 	sound.play("door")
@@ -550,7 +589,7 @@ func _counter() -> void:
 	desk.handbook_requested.connect(_counter_reference_books)
 	desk.registry_requested.connect(_registry)
 	desk.archive_requested.connect(_archive_box)
-	desk.depart_requested.connect(_world)
+	desk.depart_requested.connect(func():_post_office_room(1))
 	desk.cue.connect(sound.play)
 	_hud("post_office",false)
 	if not carried.is_empty():_refresh_selected_letter()
