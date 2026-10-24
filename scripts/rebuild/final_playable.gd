@@ -94,7 +94,7 @@ func _apply_preference(key:String,_value:Variant) -> void:
 			_display_apply_queued=true;_flush_display_preferences.call_deferred()
 	elif key=="language" and view=="title":
 		var start:=stage.find_child("NewShift",true,false);var resume:=stage.find_child("ContinueShift",true,false);var options:=stage.find_child("OpenSettings",true,false)
-		if start!=null:start.text=_tr("开始","New shift")
+		if start!=null:start.text=_tr("开始新旅程","New journey")
 		if resume!=null:resume.text=_tr("继续","Continue")
 		if options!=null:options.text=_tr("设置","Settings")
 func _flush_display_preferences()->void:
@@ -264,31 +264,58 @@ func _sprite(parent:Node, key:String, rect:Rect2, preserve_aspect:bool=false) ->
 func _title() -> void:
 	_new_stage("title")
 	PhysicalArt.reload_manifest()
-	var ground:=ColorRect.new()
-	ground.name="TitleGround"
-	ground.color=Color("f3f0e6")
-	ground.mouse_filter=Control.MOUSE_FILTER_IGNORE
-	UI.place(ground,stage,Rect2(0,0,1600,900))
-	ground.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
-	var title:=UI.label(stage,"Dear Somewhere",Rect2(190,300,1220,150),82,Color("365955"))
-	title.name="GameTitle"
-	title.horizontal_alignment=HORIZONTAL_ALIGNMENT_CENTER
-	title.autowrap_mode=TextServer.AUTOWRAP_OFF
-	var start:=UI.button(stage,_tr("开始","New shift"),Rect2(575,580,450,57),_start)
+	var cover:=TextureRect.new()
+	cover.name="UserCoverArt"
+	var cover_image:=Image.new()
+	if cover_image.load("res://assets/display_user/dear_somewhere_cover_USER_20261024.png")==OK:
+		cover.texture=ImageTexture.create_from_image(cover_image)
+	else:
+		push_error("Could not read the supplied Dear Somewhere cover image.")
+	cover.expand_mode=TextureRect.EXPAND_IGNORE_SIZE
+	cover.stretch_mode=TextureRect.STRETCH_SCALE
+	cover.mouse_filter=Control.MOUSE_FILTER_IGNORE
+	UI.place(cover,stage,Rect2(0,0,1600,900))
+	# A compact vertical paper menu sits on the open sand, clear of the logo
+	# and the two riders. The supplied illustration remains the entire cover.
+	var menu:=Panel.new()
+	menu.name="CoverMenuPaper"
+	var menu_style:=StyleBoxFlat.new()
+	menu_style.bg_color=Color(0.97,0.94,0.86,0.94)
+	menu_style.border_color=Color("d6c29f")
+	menu_style.set_border_width_all(2)
+	menu_style.set_corner_radius_all(18)
+	menu_style.shadow_color=Color(0.12,0.22,0.32,0.22)
+	menu_style.shadow_size=10
+	menu_style.shadow_offset=Vector2(0,5)
+	menu.add_theme_stylebox_override("panel",menu_style)
+	menu.mouse_filter=Control.MOUSE_FILTER_IGNORE
+	UI.place(menu,stage,Rect2(64,596,374,270))
+	var start:=UI.button(stage,_tr("开始新旅程","New journey"),Rect2(84,612,334,64),_start,true)
 	start.name="NewShift"
-	var resume:=UI.button(stage,_tr("继续","Continue"),Rect2(575,652,450,57),_resume)
+	var resume:=UI.button(stage,_tr("继续","Continue"),Rect2(84,699,334,64),_resume)
 	resume.name="ContinueShift"
 	resume.disabled=not core.has_save()
-	var options:=UI.button(stage,_tr("设置","Settings"),Rect2(575,724,450,52),_settings_page)
+	var options:=UI.button(stage,_tr("设置","Settings"),Rect2(84,786,334,64),_settings_page)
 	options.name="OpenSettings"
 	for button in [start,resume,options]:
 		button.alignment=HORIZONTAL_ALIGNMENT_CENTER
-		for button_state:String in ["normal","hover","pressed","focus","disabled"]:button.add_theme_stylebox_override(button_state,StyleBoxEmpty.new())
-		button.add_theme_color_override("font_color",Color("3b3127"))
-		button.add_theme_color_override("font_hover_color",Color("986548"))
-		button.add_theme_color_override("font_disabled_color",Color("817b68"))
-		button.add_theme_color_override("font_outline_color",Color("302f28"))
-		button.add_theme_constant_override("outline_size",0)
+		button.add_theme_font_size_override("font_size",23)
+		button.add_theme_color_override("font_color",Color("fff8e8") if button==start else Color("243d50"))
+		button.add_theme_color_override("font_hover_color",Color("fff8e8"))
+		button.add_theme_color_override("font_pressed_color",Color("fff8e8"))
+		button.add_theme_color_override("font_disabled_color",Color("8c9898"))
+		for button_state:String in ["normal","hover","pressed","focus","disabled"]:
+			var state_style:=StyleBoxFlat.new()
+			state_style.bg_color=Color("d56b52") if button==start else Color("e8dfca")
+			if button_state=="hover":state_style.bg_color=Color("bd5845") if button==start else Color("d4e5df")
+			if button_state=="pressed":state_style.bg_color=Color("a9443d") if button==start else Color("c7dcd5")
+			if button_state=="disabled":state_style.bg_color=Color("e3dfd4")
+			state_style.border_color=Color("a64d43") if button==start else Color("8ca29e")
+			state_style.set_border_width_all(2)
+			state_style.set_corner_radius_all(13)
+			state_style.content_margin_left=12;state_style.content_margin_right=12
+			state_style.content_margin_top=8;state_style.content_margin_bottom=8
+			button.add_theme_stylebox_override(button_state,state_style)
 
 func _stage_plan(id:String) -> Dictionary:
 	# Image-relative placements are refined against each accepted full-scene asset.
