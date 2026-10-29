@@ -68,8 +68,8 @@ func _ready() -> void:
 	music = AudioStreamPlayer.new()
 	music.bus = MUSIC_BUS
 	add_child(music)
-	if ResourceLoader.exists("res://assets/audio/afternoon.wav"):
-		var motif: AudioStreamWAV = load("res://assets/audio/afternoon.wav").duplicate()
+	if FileAccess.file_exists("res://assets/audio/user_guitar_loop.wav"):
+		var motif: AudioStreamWAV = AudioStreamWAV.load_from_file("res://assets/audio/user_guitar_loop.wav")
 		motif.loop_mode = AudioStreamWAV.LOOP_FORWARD
 		motif.loop_end = int(motif.get_length() * motif.mix_rate)
 		music.stream = motif
@@ -96,8 +96,7 @@ func _ready() -> void:
 
 func settings_music(enabled:bool)->void:
 	if _shutdown_complete:return
-	_settings_mode=enabled
-	if enabled and is_instance_valid(menu_music) and not menu_music.playing:menu_music.play()
+	_settings_mode=false
 
 
 func set_location(id: String, at_minute: int = 540, inside: bool = false) -> void:
@@ -107,7 +106,9 @@ func set_location(id: String, at_minute: int = 540, inside: bool = false) -> voi
 	indoors = inside
 	_configured = true
 	var levels: Dictionary = {}
-	if inside:
+	if id == "title":
+		levels = {"sea_bed.ogg": -15.0}
+	elif inside:
 		levels = {"room_bed.ogg": -20.0, "sea_bed.ogg": -40.0}
 	else:
 		match id:
@@ -125,6 +126,7 @@ func set_location(id: String, at_minute: int = 540, inside: bool = false) -> voi
 		_targets[file] = gain
 	if changed:
 		_detail_after = _rng.randf_range(8.0, 17.0)
+		if id == "title": _detail_after = 1.5
 		# A location transition must not leave the previous tram/bird one-shot
 		# audible indoors or in an unrelated courtyard.
 		for shot: AudioStreamPlayer in _shots:
@@ -274,8 +276,8 @@ func _process(delta: float) -> void:
 		current = lerpf(current, destination, 1.0 - exp(-delta * 1.6))
 		_bed_gains[file] = current
 		(_beds[file] as AudioStreamPlayer).volume_db = linear_to_db(maxf(current, 0.0001))
-	var target_music: float = db_to_linear(-30.0 if _quiet else -25.0)
-	if _settings_mode:target_music=0.0
+	var target_music: float = db_to_linear(-18.0 if _quiet else -12.0)
+	if location_id == "title":target_music=0.0
 	_music_gain = lerpf(_music_gain, target_music, 1.0 - exp(-delta * 1.3))
 	if music: music.volume_db = linear_to_db(maxf(_music_gain, 0.0001))
 	_menu_gain=lerpf(_menu_gain,db_to_linear(-15.0) if _settings_mode else 0.0,1.0-exp(-delta*3.0))

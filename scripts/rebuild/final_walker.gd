@@ -17,8 +17,8 @@ var _cycle_seconds: float = 0.0
 var _idle_time: float = 0.0
 
 var max_speed: float = 200.0
-var acceleration: float = 720.0
-var deceleration: float = 930.0
+var acceleration: float = 1100.0
+var deceleration: float = 1400.0
 var actor_height: float = 156.0
 var foot := Vector2.ZERO:
 	set(value):
@@ -152,6 +152,7 @@ func _manual_direction() -> Vector2:
 	if not manual_enabled or not _window_focused: return Vector2.ZERO
 	var x: float = float(Input.is_physical_key_pressed(KEY_D) or Input.is_key_pressed(KEY_RIGHT)) - float(Input.is_physical_key_pressed(KEY_A) or Input.is_key_pressed(KEY_LEFT))
 	var y: float = float(Input.is_physical_key_pressed(KEY_S) or Input.is_key_pressed(KEY_DOWN)) - float(Input.is_physical_key_pressed(KEY_W) or Input.is_key_pressed(KEY_UP))
+	if walk_bounds.size.y <= 0.0: y = 0.0
 	return Vector2(x, y).normalized() * Vector2(1.0, 0.58)
 
 
@@ -208,7 +209,7 @@ func _process(delta: float) -> void:
 		_gesture_name = ""
 	var remaining: float = clampf(delta, 0.0, 0.25)
 	while remaining > 0.00001:
-		var step: float = minf(remaining, 1.0 / 60.0)
+		var step: float = minf(remaining, 1.0 / 120.0)
 		if _manual_active:
 			_advance_manual(manual,step)
 		elif walking:

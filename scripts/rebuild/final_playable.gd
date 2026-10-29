@@ -263,6 +263,7 @@ func _sprite(parent:Node, key:String, rect:Rect2, preserve_aspect:bool=false) ->
 
 func _title() -> void:
 	_new_stage("title")
+	sound.set_location("title",540,false)
 	PhysicalArt.reload_manifest()
 	var cover:=TextureRect.new()
 	cover.name="UserCoverArt"

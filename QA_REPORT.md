@@ -226,3 +226,9 @@ Source publication to HuieChen/100letter main is authorized. Exact remote commit
 - Generated manifest art is blocked; generic system sheets use a solid background, old save ending/failure cannot reopen old counter on resume.
 - Headless boot: no parse errors. Forced short shutdown still reports 18 leaked objects / 4 resources; not resolved in this asset replacement.
 - Native keyboard A/D and E manual regression remains pending; rendering is not input verification.
+
+## 2026-10-30 courier motion and soundtrack
+- Original courier texture/frame metadata unchanged; 120 Hz movement substeps, quicker acceleration/braking, horizontal bounds ignore vertical input.
+- Actor height 265; near-shop position is preview-only, map arrivals still start at the street left edge.
+- Supplied 22.588-second guitar WAV loops in game. Title/title settings: sea and intermittent birds; in-game settings retain guitar.
+- Audio routing assertions passed (title music attenuation, sea enabled, settings do not switch tracks, game gain and WAV looping). Headless scene boot passed parsing. Listening/native walking acceptance remains pending; forced short shutdown leak remains known.
