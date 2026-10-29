@@ -389,6 +389,13 @@ func _resume() -> void:
 func _world() -> void:
 	_new_stage("world")
 	var id:String=core.state.location
+	if id=="tarot_shop":
+		var road=load("res://scripts/rebuild/coastal_road.gd").new()
+		road.minute=int(core.state.minute)
+		UI.place(road,stage,Rect2(0,0,1600,900))
+		road.map_requested.connect(_map)
+		sound.set_location(id,int(core.state.minute),false)
+		return
 	plan=_stage_plan(id)
 	sound.set_location(id,int(core.state.minute),false)
 	layer=Control.new()
@@ -1138,6 +1145,7 @@ func _failure() -> void:
 	_counter()
 	view="failure"
 	_sheet("请先停下这班工作",str(core.state.failure.get("message","记录需要复核。")),[["从事件前的检查点继续",func():var error:String=core.resume_checkpoint();if error.is_empty():_world()],["回到封面",_title]])
+
 
 
 
