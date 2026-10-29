@@ -28,7 +28,7 @@ func _ready()->void:
  art.mouse_filter=Control.MOUSE_FILTER_IGNORE
  UI.place(art,world,Rect2(Vector2.ZERO,world.size))
  courier=Walker.new()
- courier.actor_height=210
+ courier.actor_height=245
  UI.place(courier,world,Rect2(Vector2.ZERO,world.size))
  courier.configure(null,Rect2(100,837,world.size.x-200,0),Vector2(100,837))
  courier.manual_enabled=true
