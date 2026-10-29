@@ -205,8 +205,8 @@ func _unhandled_input(event:InputEvent) -> void:
 			get_viewport().set_input_as_handled()
 		elif not is_instance_valid(modal) and view in ["world","counter","post_office_room"]:
 			if event.keycode==KEY_M: _map()
-			elif event.keycode==KEY_J: _book()
-			elif event.keycode==KEY_B: _bag()
+			elif event.keycode==KEY_J: pass
+			elif event.keycode==KEY_B: pass
 
 func _new_stage(next_view:String) -> void:
 	var notice:=get_node_or_null("SaveFailureNotice")
@@ -249,7 +249,7 @@ func _say(message:String) -> void:
 
 func _save() -> void:
 	core.save_game()
-	if is_instance_valid(clock): clock.text=core.time_text() if view in ["counter","post_office_room","ending","failure"] else "7 月 20 日 · "+core.time_text()
+	if is_instance_valid(clock): if is_instance_valid(clock):clock.text=core.time_text() if view in ["counter","post_office_room","ending","failure"] else "7 月 20 日 · "+core.time_text()
 
 func _sprite(parent:Node, key:String, rect:Rect2, preserve_aspect:bool=false) -> TextureRect:
 	var art:=TextureRect.new()
@@ -349,7 +349,7 @@ func _fresh() -> void:
 		_show_save_problem(draft_error)
 		return
 	_post_office_room()
-	_begin_briefing()
+	_briefing_pending=false
 
 func _begin_briefing() -> void:
 	# The supervisor speaks from the other side of the counter. No invented portrait.
@@ -388,78 +388,15 @@ func _resume() -> void:
 
 func _world() -> void:
 	_new_stage("world")
-	var id:String=core.state.location
-	if id=="tarot_shop":
-		var road=load("res://scripts/rebuild/coastal_road.gd").new()
-		road.minute=int(core.state.minute)
-		UI.place(road,stage,Rect2(0,0,1600,900))
-		road.map_requested.connect(_map)
-		sound.set_location(id,int(core.state.minute),false)
-		return
-	plan=_stage_plan(id)
-	sound.set_location(id,int(core.state.minute),false)
-	layer=Control.new()
-	layer.mouse_filter=Control.MOUSE_FILTER_IGNORE
-	UI.place(layer,stage,Rect2(0,0,1600,900))
-	_sprite(layer,"BG_"+id,Rect2(0,0,1600,900)).name="WorldArtwork"
-	var ground:=Control.new()
-	ground.name="WalkGround"
-	UI.place(ground,layer,plan.walk_bounds)
-	ground.gui_input.connect(func(e):
-		if e is InputEventMouseButton and e.pressed and e.button_index==MOUSE_BUTTON_LEFT:
-			_approach(e.position+ground.position,Callable()))
-	actors=Control.new()
-	actors.mouse_filter=Control.MOUSE_FILTER_IGNORE
-	UI.place(actors,layer,Rect2(0,0,1600,900))
-	walker=Walker.new()
-	walker.name="Courier"
-	walker.actor_height=345
-	UI.place(walker,actors,Rect2(0,0,1600,900))
-	walker.configure(null,plan.walk_bounds,plan.spawn)
-	walker.manual_enabled=true
-	walker.footstep.connect(func():sound.play("step"))
-	walker.foot_position_changed.connect(func(_at:Vector2):_sort_actors())
-	var entrance:Vector2=plan.entrance
-	if id=="post_office":
-		UI.label(layer,"索尔梅尔邮局",Rect2(650,42,380,88),34,Color("42392c")).mouse_filter=Control.MOUSE_FILTER_IGNORE
-		_hotspot("PostDoor","走进邮局",Rect2(718,266,205,391),entrance,_post_office_room)
-	elif id=="residential":
-		_prop("nameplate","两块门牌",Vector2(948,316),"ceramic_17",Vector2(62,84))
-		_prop("notice","住户姓名条",Vector2(949,405),"moran_entry",Vector2(107,42))
-		_prop("notice","现行住户名册",Vector2(1405,296),"current_3c_resident",Vector2(122,151))
-		_prop("letter","Mira 的门",Vector2(301,206),"mira_absent",Vector2(209,444))
-	elif id=="community_center":
-		_prop("notice","街道改名公告",Vector2(426,250),"street_renaming",Vector2(90,96))
-		_prop("notice","望远镜借用单",Vector2(532,250),"telescope_checkout",Vector2(90,96))
-		_prop("notice","志愿者与收信登记",Vector2(636,250),"june_current_mailpoint",Vector2(90,96))
-		_prop("photo","旧夏日音乐会记录",Vector2(472,350),"old_music_photo",Vector2(90,96))
-		_prop("notice","本周海岸值班表",Vector2(582,350),"sea_watch_roster",Vector2(90,96))
-		_hotspot("MailCubby","批准收信格",Rect2(1099,327,235,138),Vector2(1216,742),_mail_cubby)
-	elif id=="bus_stop":
-		_prop("timetable","上山电车时刻表",Vector2(948,271),"shuttle_timetable",Vector2(132,188))
-		UI.label(layer,"上山电车\n时刻表",Rect2(961,305,108,102),21,Color("403e32")).mouse_filter=Control.MOUSE_FILTER_IGNORE
-	elif id=="lookout":
-		_hotspot("LookTelescopeCase","墙边的望远镜箱",Rect2(38,392,119,230),Vector2(245,741),func():_look_at("一只望远镜长箱靠在墙边。要确认借用人和日期，还得和社区中心的借用记录对照。"))
-	elif id=="chess_stall":
-		_hotspot("LookChessboard","树下的棋盘",Rect2(648,447,268,88),Vector2(803,815),func():_look_at("棋子还留在格子里，桌边让出了两处位置。"+("尘缘就在旁边，可以先打个招呼。" if core.known_person_label("chenyuan")=="尘缘" and core.npc_present("chenyuan","chess_stall") else "海岸电车站就在回程的路上。")))
-	elif id=="tarot_shop":
-		_hotspot("LookStationery","窗里的信纸",Rect2(178,228,365,275),Vector2(405,744),func():_look_at("橱窗里摆着空信纸和封好的信封。一张小通知夹在玻璃后，门还关着。"))
-	# Optional locations are real places to pause or meet residents, not promised minigames.
-	var count:=0
-	for person:String in PEOPLE[id]:
-		if not core.npc_present(person,id):continue
-		var foot:=Vector2(1140-count*395,790)
-		if id=="bus_stop":foot=Vector2(710,775)
-		elif id=="lookout":foot=Vector2(1035,764)
-		elif id=="chess_stall":foot=Vector2(1340,818)
-		elif id=="residential":foot=Vector2(1098,786)
-		elif id=="community_center":foot=Vector2(1385,782) if person=="june_arlen" else Vector2(967,774)
-		_npc(person,foot)
-		count+=1
-	_sort_actors()
-	_hud(id)
-	_footer()
-
+	var road=load("res://scripts/rebuild/coastal_road.gd").new()
+	road.minute=int(core.state.minute)
+	road.postal=str(core.state.location) in ["post_office","chess_stall"]
+	road.can_walk=func():return not busy and not is_instance_valid(modal)
+	UI.place(road,stage,Rect2(0,0,1600,900))
+	walker=road.courier
+	road.map_requested.connect(_map)
+	road.post_office_requested.connect(func():core.state.location="post_office";_post_office_room())
+	sound.set_location(str(core.state.location),int(core.state.minute),false)
 func _look_at(text:String) -> void:
 	_close()
 	if is_instance_valid(walker):walker.cancel();walker.manual_enabled=false
@@ -591,15 +528,15 @@ func _post_office_room(index:int=0) -> void:
 		if busy or is_instance_valid(modal) or room.transitioning:return
 		_counter())
 	exit.visible=post_office_room_index==0
-	reference.visible=post_office_room_index==0
-	desk.visible=post_office_room_index==1
+	reference.visible=false
+	desk.visible=false
 	room.room_changed.connect(func(next_index:int):
 		post_office_room_index=next_index
 		exit.visible=next_index==0
-		reference.visible=next_index==0
-		desk.visible=next_index==1)
-	_hud("post_office")
-	clock.text=core.time_text()
+		reference.visible=false
+		desk.visible=false)
+	UI.button(stage,"↩",Rect2(30,28,72,64),_map)
+	if is_instance_valid(clock):clock.text=core.time_text()
 	_footer()
 
 func _counter() -> void:
@@ -627,7 +564,7 @@ func _counter() -> void:
 	desk.cue.connect(sound.play)
 	_hud("post_office",false)
 	if not carried.is_empty():_refresh_selected_letter()
-	clock.text=core.time_text()
+	if is_instance_valid(clock):clock.text=core.time_text()
 	_footer()
 
 func _surface_hotspot(parent:Node, node_name:String, tip:String, rect:Rect2, callback:Callable) -> Button:
@@ -1029,51 +966,22 @@ func _map() -> void:
 	var root:=_overlay()
 	root.name="MapInspection"
 	var map:=PaperMap.new()
-	map.name="PaperTownMap"
 	UI.place(map,root,Rect2(175,80,1250,740))
-	map.place_source_points([Vector2(640,950),Vector2(1100,450),Vector2(1960,950),Vector2(1320,1100),Vector2(1550,445),Vector2(390,1320),Vector2(350,490)])
-	map.current_index=LOCATIONS.find(str(core.state.location))
-	map.target_index=map.current_index
-	UI.button(root,"×",Rect2(1460,35,65,64),_close).name="CloseMap"
-	# Source-space painted landmarks, including their roofs, not just captions.
-	var landmark_bounds:Array[Rect2]=[
-		Rect2(510,660,260,300),Rect2(910,85,370,365),Rect2(1770,735,370,220),
-		Rect2(1020,830,550,270),Rect2(1370,205,300,240),Rect2(150,970,440,350),Rect2(170,235,370,255)]
-	var map_art:Texture2D=PaperMap.map_texture()
-	var map_source_origin:Vector2=map_art.region.position if map_art is AtlasTexture else Vector2.ZERO
-	var map_scale:float=minf(map.size.x/map_art.get_width(),map.size.y/map_art.get_height())
-	var map_origin:Vector2=(map.size-map_art.get_size()*map_scale)*0.5
-	for index:int in LOCATIONS.size():
-		var id:String=LOCATIONS[index]
-		var pt:Vector2=map.points[index]
-		var marker:=Button.new()
-		marker.text=""
-		marker.name="Map_"+id
-		marker.flat=true
-		marker.mouse_default_cursor_shape=Control.CURSOR_POINTING_HAND
-		marker.add_theme_font_size_override("font_size",22)
-		marker.add_theme_color_override("font_color",Color("34382e"))
-		for color_state:String in ["font_hover_color","font_focus_color","font_pressed_color"]:marker.add_theme_color_override(color_state,Color("944c39"))
-		marker.add_theme_color_override("font_outline_color",Color("faf0d8"))
-		marker.add_theme_constant_override("outline_size",3)
-		var caption_rect:=Rect2(pt-Vector2(93,34),Vector2(186,68))
-		var painted_rect:=Rect2(map_origin+(landmark_bounds[index].position-map_source_origin)*map_scale,landmark_bounds[index].size*map_scale)
-		var hit_rect:Rect2=painted_rect.merge(caption_rect)
-		for style:String in ["normal","hover","pressed","focus"]:
-			var empty:=StyleBoxEmpty.new()
-			empty.content_margin_left=caption_rect.position.x-hit_rect.position.x
-			empty.content_margin_top=caption_rect.position.y-hit_rect.position.y
-			empty.content_margin_right=hit_rect.end.x-caption_rect.end.x
-			empty.content_margin_bottom=hit_rect.end.y-caption_rect.end.y
-			marker.add_theme_stylebox_override(style,empty)
-		UI.place(marker,map,hit_rect)
-		marker.pressed.connect(func():
-			if busy:return
-			if id==core.state.location:_close();return
-			var minutes:=_walk_cost(str(core.state.location),id)
-			_depart(id,minutes,map))
+	UI.button(root,"×",Rect2(1460,35,65,64),_close)
+	var art:=PaperMap.map_texture()
+	var scale_factor:=minf(map.size.x/art.get_width(),map.size.y/art.get_height())
+	var origin:=(map.size-art.get_size()*scale_factor)*0.5
+	var entries=[ ["post_office",Rect2(510,660,260,300)], ["chess_stall",Rect2(150,970,440,350)], ["tarot_shop",Rect2(170,235,370,255)], ["record_store",Rect2(540,70,260,300)], ["statue",Rect2(680,360,480,330)] ]
+	for entry in entries:
+		var destination:String=entry[0]
+		var area:Rect2=entry[1]
+		var button:=UI.button(map,"",Rect2(origin+area.position*scale_factor,area.size*scale_factor),func():
+			_close()
+			core.state.location="post_office" if destination in ["post_office","chess_stall"] else "tarot_shop"
+			_world())
+		button.name="Map_"+destination
+		for state:String in ["normal","hover","pressed","focus"]:button.add_theme_stylebox_override(state,StyleBoxEmpty.new())
 	sound.play("map")
-
 func _walk_cost(origin:String,destination:String) -> int:
 	return 30 if "lookout" in [origin,destination] or (origin=="tarot_shop" and destination=="post_office") or (destination=="tarot_shop" and origin=="post_office") else 15
 
@@ -1145,6 +1053,8 @@ func _failure() -> void:
 	_counter()
 	view="failure"
 	_sheet("请先停下这班工作",str(core.state.failure.get("message","记录需要复核。")),[["从事件前的检查点继续",func():var error:String=core.resume_checkpoint();if error.is_empty():_world()],["回到封面",_title]])
+
+
 
 
 
