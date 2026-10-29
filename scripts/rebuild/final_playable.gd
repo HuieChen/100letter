@@ -1040,7 +1040,7 @@ func _map() -> void:
 		var id:String=LOCATIONS[index]
 		var pt:Vector2=map.points[index]
 		var marker:=Button.new()
-		marker.text=NAMES[id]
+		marker.text=""
 		marker.name="Map_"+id
 		marker.flat=true
 		marker.mouse_default_cursor_shape=Control.CURSOR_POINTING_HAND
@@ -1138,6 +1138,7 @@ func _failure() -> void:
 	_counter()
 	view="failure"
 	_sheet("请先停下这班工作",str(core.state.failure.get("message","记录需要复核。")),[["从事件前的检查点继续",func():var error:String=core.resume_checkpoint();if error.is_empty():_world()],["回到封面",_title]])
+
 
 
 
