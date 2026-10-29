@@ -17,8 +17,7 @@ func _ready()->void:
  if minute>=1140 or minute<360:period="night"
  elif minute>=1020:period="sunset"
  elif minute>=660:period="noon"
- var filename:=("post_" if postal else "road_")+period+".png"
- if not postal and period=="noon":filename="road_noon.jpg"
+ var filename:=("post_" if postal else "clean_road_")+period+".png"
  var pixels:=Image.new()
  if pixels.load("res://assets/authoring/town_20261029/"+filename)!=OK:return
  world=Control.new()

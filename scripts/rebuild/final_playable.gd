@@ -381,9 +381,7 @@ func _resume() -> void:
 	_tray_opened=bool(core.case_state("case01").physical.inspected_front)
 	_briefing_pending=false
 	_load_resolution_drafts()
-	if not core.state.ending.is_empty(): _ending()
-	elif not core.state.failure.is_empty(): _failure()
-	elif str(core.state.location)=="post_office": _post_office_room()
+	if str(core.state.location)=="post_office": _post_office_room()
 	else: _world()
 
 func _world() -> void:
@@ -679,7 +677,10 @@ func _sheet(title:String, copy:String, actions:Array) -> Control:
 	var root:=_overlay()
 	var paper:=Control.new()
 	UI.place(paper,root,Rect2(360,145,880,650))
-	_sprite(paper,"letter_paper",Rect2(-16,-20,912,690)).name="SheetArtwork"
+	var backing:=ColorRect.new()
+	backing.color=Color("f7efdc")
+	backing.mouse_filter=Control.MOUSE_FILTER_IGNORE
+	UI.place(backing,paper,Rect2(-16,-20,912,690))
 	UI.label(paper,title,Rect2(45,28,725,55),32)
 	UI.button(paper,"×",Rect2(797,20,58,54),_close)
 	UI.body(paper,copy,Rect2(45,103,781,246),23)

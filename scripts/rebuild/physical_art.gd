@@ -26,6 +26,7 @@ static func _entry(id: String) -> Dictionary:
 static func texture(id: String) -> Texture2D:
 	if _cache.has(id): return _cache[id]
 	var data := _entry(id)
+	if data.get("ai_generated", true) != false: return null
 	var path := str(data.get("path", ""))
 	if path.is_empty() or not ResourceLoader.exists(path): return null
 	var loaded := load(path) as Texture2D

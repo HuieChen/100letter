@@ -218,3 +218,11 @@ Built with the SHA-verified official Godot 4.7.2 Windows template after the chec
 Package exe SHA256: d34d36f3be1a6c49c56525ae86469b92e4f417ddf0b43cf00dd80c385c4b0562. PCK SHA256: f5ecb84dd9df895bb62316d6b2ef8ea3ed8a7b52b428be6a7b4cb83c3202b500. Sanitized checks/capture/package hashes: docs/testing/BOOK_QA_20261003.json.
 
 Source publication to HuieChen/100letter main is authorized. Exact remote commit and CI evidence are verified separately from local checks; screenshots alone never establish publication.
+
+## 2026-10-30 authored street replacement
+- Four clean street PNGs copied byte-for-byte; all four SHA-256 comparisons match supplied originals.
+- Production road selects clean_road morning/noon/sunset/night PNGs. Postal street unchanged.
+- GPU render inspected: painted-in duplicate actor removed, extracted courier remains at left.
+- Generated manifest art is blocked; generic system sheets use a solid background, old save ending/failure cannot reopen old counter on resume.
+- Headless boot: no parse errors. Forced short shutdown still reports 18 leaked objects / 4 resources; not resolved in this asset replacement.
+- Native keyboard A/D and E manual regression remains pending; rendering is not input verification.
