@@ -1024,15 +1024,15 @@ func _map() -> void:
 	var map:=PaperMap.new()
 	map.name="PaperTownMap"
 	UI.place(map,root,Rect2(175,80,1250,740))
-	map.place_source_points([Vector2(215,594),Vector2(667,360),Vector2(992,570),Vector2(1359,296),Vector2(690,834),Vector2(311,326),Vector2(1345,824)])
+	map.place_source_points([Vector2(640,950),Vector2(1100,450),Vector2(1960,950),Vector2(1320,1100),Vector2(1550,445),Vector2(390,1320),Vector2(350,490)])
 	map.current_index=LOCATIONS.find(str(core.state.location))
 	map.target_index=map.current_index
 	UI.button(root,"×",Rect2(1460,35,65,64),_close).name="CloseMap"
 	# Source-space painted landmarks, including their roofs, not just captions.
 	var landmark_bounds:Array[Rect2]=[
-		Rect2(75,395,340,225),Rect2(505,178,323,204),Rect2(870,400,286,212),
-		Rect2(1250,55,209,257),Rect2(488,600,403,250),Rect2(135,110,411,226),Rect2(1150,600,309,245)]
-	var map_art:Texture2D=PhysicalArt.texture("town_map")
+		Rect2(510,660,260,300),Rect2(910,85,370,365),Rect2(1770,735,370,220),
+		Rect2(1020,830,550,270),Rect2(1370,205,300,240),Rect2(150,970,440,350),Rect2(170,235,370,255)]
+	var map_art:Texture2D=PaperMap.map_texture()
 	var map_source_origin:Vector2=map_art.region.position if map_art is AtlasTexture else Vector2.ZERO
 	var map_scale:float=minf(map.size.x/map_art.get_width(),map.size.y/map_art.get_height())
 	var map_origin:Vector2=(map.size-map_art.get_size()*map_scale)*0.5
@@ -1138,6 +1138,7 @@ func _failure() -> void:
 	_counter()
 	view="failure"
 	_sheet("请先停下这班工作",str(core.state.failure.get("message","记录需要复核。")),[["从事件前的检查点继续",func():var error:String=core.resume_checkpoint();if error.is_empty():_world()],["回到封面",_title]])
+
 
 
 

@@ -1,0 +1,6 @@
+{
+  "route": "tarot_shop_to_statue",
+  "variants": {"morning":"road_morning.png", "noon":"road_noon.jpg", "sunset":"road_sunset.png", "night":"road_night.png"},
+  "status": "Source assets copied byte-for-byte. Panoramic route gameplay integration pending; do not stretch these into a single screen.",
+  "note": "The supplied panoramas include a painted character at the left edge. Preserve original source."
+}

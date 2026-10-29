@@ -8,14 +8,17 @@ var route_progress:=0.0:
 	set(value):route_progress=value;queue_redraw()
 func _ready()->void:mouse_filter=Control.MOUSE_FILTER_IGNORE
 func _draw()->void:
-	PhysicalArt.paint(self,"town_map",Rect2(Vector2.ZERO,size),Color.WHITE,true)
+	var art:=map_texture()
+	if art!=null:
+		var ratio:=minf(size.x/art.get_width(),size.y/art.get_height())
+		draw_texture_rect(art,Rect2((size-art.get_size()*ratio)*0.5,art.get_size()*ratio),false)
 	if current_index>=0 and current_index<points.size() and target_index>=0 and target_index<points.size() and current_index!=target_index:
 		var origin:Vector2=points[current_index]
 		var destination:Vector2=points[target_index]
 		draw_line(origin,origin.lerp(destination,clampf(route_progress,0.0,1.0)),Color("8b3e33"),3.0,true)
 
 func place_source_points(source_points:Array[Vector2]) -> void:
-	var art:Texture2D=PhysicalArt.texture("town_map")
+	var art:Texture2D=map_texture()
 	if art==null:return
 	var source_origin:Vector2=art.region.position if art is AtlasTexture else Vector2.ZERO
 	var ratio:float=minf(size.x/art.get_width(),size.y/art.get_height())
@@ -23,3 +26,11 @@ func place_source_points(source_points:Array[Vector2]) -> void:
 	points.clear()
 	for point:Vector2 in source_points:points.append(origin+(point-source_origin)*ratio)
 	queue_redraw()
+
+static var _town_texture:Texture2D
+static func map_texture()->Texture2D:
+	if _town_texture==null:
+		var pixels:=Image.new()
+		if pixels.load("res://assets/authoring/town_20261029/town_map.png")==OK:_town_texture=ImageTexture.create_from_image(pixels)
+	return _town_texture
+
