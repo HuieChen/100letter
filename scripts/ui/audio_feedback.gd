@@ -79,7 +79,7 @@ func _ready() -> void:
 		var bed := AudioStreamPlayer.new()
 		bed.bus = AMBIENT_BUS
 		add_child(bed)
-		var stream: AudioStreamOggVorbis = _stream(file).duplicate() as AudioStreamOggVorbis
+		var stream: AudioStream = _stream(file).duplicate()
 		if stream:
 			stream.loop = true
 			bed.stream = stream
@@ -112,13 +112,13 @@ func set_location(id: String, at_minute: int = 540, inside: bool = false) -> voi
 		levels = {"room_bed.ogg": -20.0, "sea_bed.ogg": -40.0}
 	else:
 		match id:
-			"post_office": levels = {"town_bed.ogg": -19.0, "wind_bed.ogg": -28.0, "sea_bed.ogg": -37.0}
+			"post_office": levels = {"town_bed.ogg": -32.0, "wind_bed.ogg": -35.0, "sea_bed.ogg": -20.0}
 			"community_center": levels = {"town_bed.ogg": -16.0, "wind_bed.ogg": -26.0}
 			"bus_stop": levels = {"town_bed.ogg": -20.0, "sea_bed.ogg": -22.0, "wind_bed.ogg": -24.0}
 			"lookout": levels = {"sea_bed.ogg": -12.0, "wind_bed.ogg": -20.0}
 			"residential": levels = {"town_bed.ogg": -25.0, "wind_bed.ogg": -18.0}
 			"chess_stall": levels = {"town_bed.ogg": -24.0, "wind_bed.ogg": -19.0}
-			"tarot_shop": levels = {"wind_bed.ogg": -25.0, "sea_bed.ogg": -29.0, "town_bed.ogg": -30.0}
+			"tarot_shop": levels = {"wind_bed.ogg": -35.0, "sea_bed.ogg": -20.0, "town_bed.ogg": -34.0}
 			_: levels = {"wind_bed.ogg": -29.0}
 	for file: String in BEDS:
 		var gain: float = db_to_linear(float(levels[file])) if levels.has(file) else 0.0
@@ -223,7 +223,10 @@ static func _safe_volume(value: Variant, fallback: float) -> float:
 
 func _stream(file: String) -> AudioStream:
 	if not _streams.has(file):
-		_streams[file] = load(ROOT + file) if ResourceLoader.exists(ROOT + file) else null
+		if file=="sea_bed.ogg" and FileAccess.file_exists(ROOT+"gentle_ocean_cc0.mp3"):
+			_streams[file]=AudioStreamMP3.load_from_file(ROOT+"gentle_ocean_cc0.mp3")
+		else:
+			_streams[file] = load(ROOT + file) if ResourceLoader.exists(ROOT + file) else null
 	return _streams[file] as AudioStream
 
 

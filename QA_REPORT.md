@@ -241,3 +241,9 @@ Source publication to HuieChen/100letter main is authorized. Exact remote commit
 - Original bounded wind/water UV shader references CC0 https://godotshaders.com/shader/2d-wind-sway/ . Per-street regions protect architecture; future artwork requires region calibration. Fixed initial doubled background sampling after GPU screenshot review.
 - Automated engine checks pass: six poses, fountain frames, Shift handler1.65x travel, braking, postal near/far gates. Initial synthetic polling assertion failed because parse_input_event does not simulate hardware polling; explicit input latch added and handler replay passed. Native full-session/listening and environment motion acceptance remain pending. Known forced-quit18objects/4resources persists.
 - GitHub collaborator invitation ningtzz203 sent, HTTP201, write permission, invitation340518404; recipient acceptance pending.
+
+## 2026-10-30 visible motion / licensed ocean follow-up
+- Added missing tarot-left foliage region and raised bounded plant/grass/sea/boat motion. Buildings remain outside selected regions. GPU360frame6second capture exported to local environment-motion.gif; frame differences nonzero. This is rendered evidence, not native user acceptance.
+- Gentle Ocean Waves Mix (2018), esh9419, Freesound417797, CC0 confirmed on author page. Public HQ MP3 downloaded (719.77s), source/license/hash recorded in gentle_ocean_license.json. No original-WAV claim.
+- Outdoor guitar -12dB and ocean -20dB player targets; quiet room retains reduced sea. Ocean on ambience bus, guitar on music bus, both controlled by existing settings. Engine assertions confirm decodedMP3 >700s, both playing, gains and shutdown. Perceptual listening remains unverified.
+- Failed optional soundfile measurement (module unavailable) did not modify audio; used engine decoding/routing assertions instead. Forced-movie teardown resource warning remains open.
