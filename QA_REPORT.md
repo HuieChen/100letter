@@ -253,3 +253,8 @@ Source publication to HuieChen/100letter main is authorized. Exact remote commit
 - Hold last visible pose after movement;140ms settle plus320ms smoothstep crossfade to supplied front idle. No AI interpolation. Arrival no longer resets frame during transition.
 - Six derivative alpha textures inset1source pixel and extend colors beneath transparency to remove matte fringes. Original PNGs/user sources unchanged.
 - Existing engine street QA passes; GPU idle still inspected and240frame walk-stop film rendered (test-results/settle-transition.gif). Native aesthetic acceptance pending. Forced capture shutdown warning persists.
+
+## 2026-10-30 idle handoff second correction
+- Previous opacity-only handoff remained abrupt. Now after braking the gait eases toward supplied planted pose over260ms, holds side posture until480ms, then smoothstep crossfades over420ms. Resume during transition retains gait phase instead of resetting it.
+- Existing street assertions pass;5second GPU film recorded and sampled1.4/1.8/2.2/2.6s inspected. No authored turning intermediate exists: this is a staged blend, not a newly drawn turn animation. Native user acceptance remains pending.
+- Prior aa313f2 push failed with connection reset; retry both commits together.

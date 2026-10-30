@@ -42,6 +42,8 @@ var _step_distance: float = 0.0
 var _motion_blend: float = 0.0
 var _pose_mix: float = 0.0
 var _settle_time: float = 1.0
+var _settle_phase: float = 0.0
+var _was_in_motion: bool = false
 var _facing: float = 1.0
 var _manual_active: bool = false
 var _fast_held: bool = false
@@ -208,17 +210,13 @@ func _draw_pose(key:String,opacity:float)->void:
 
 
 func _process(delta: float) -> void:
-	if _motion_blend>0.12: _settle_time=0.0
-	else: _settle_time+=delta
-	var moving_pose:=_motion_blend>0.12 or _settle_time<0.14
-	_pose_mix=move_toward(_pose_mix,1.0 if moving_pose else 0.0,delta/(0.18 if moving_pose else 0.32))
 	_breathing += delta
 	if not _gesture_name.is_empty():
 		_gesture_time += delta
 		if _gesture_time >= _gesture_duration: _gesture_name = ""
 	var manual: Vector2 = _manual_direction()
 	if manual.length_squared() > 0.0 and not _manual_active:
-		if not walking:
+		if not walking and _pose_mix<0.01:
 			_walk_time=_idle_time
 			_step_distance=0.0
 		_command += 1
@@ -238,9 +236,31 @@ func _process(delta: float) -> void:
 		if _motion_blend < 0.02 and not walking:
 			_motion_blend = 0.0
 		remaining -= step
+	_update_idle_transition(delta)
 	queue_redraw()
 	if not walking and _motion_blend == 0.0 and not manual_enabled and _texture != null and _gesture_name.is_empty():
 		set_process(false)
+
+func _update_idle_transition(delta:float)->void:
+	var moving:=velocity.length()>3.0 or walking or (_manual_active and not _manual_direction().is_zero_approx())
+	if moving:
+		_settle_time=0.0
+		_was_in_motion=true
+		_pose_mix=move_toward(_pose_mix,1.0,delta/0.22)
+		return
+	if _was_in_motion:
+		_settle_phase=_walk_time
+		_was_in_motion=false
+		_settle_time=0.0
+	_settle_time+=delta
+	# Finish the gait on the existing planted-foot source pose before turning.
+	# No invented artwork: only timing/order of the supplied poses changes.
+	if _pose_mix>0.01 and _settle_time<0.26 and _cycle_seconds>0.0:
+		var planted:=0.3125
+		var distance:=fposmod(planted-_settle_phase+_cycle_seconds*0.5,_cycle_seconds)-_cycle_seconds*0.5
+		_walk_time=fposmod(_settle_phase+distance*smoothstep(0.0,0.26,_settle_time),_cycle_seconds)
+	if _settle_time>0.48:
+		_pose_mix=move_toward(_pose_mix,0.0,delta/0.42)
 
 
 func _input(event:InputEvent)->void:
