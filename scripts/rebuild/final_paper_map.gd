@@ -1,5 +1,5 @@
 extends Control
-## Only route annotations are procedural; the town, paper and buildings are a generated texture.
+## Only route annotations are procedural; the town, paper and buildings use the supplied map.
 const PhysicalArt=preload("res://scripts/rebuild/physical_art.gd")
 var points:Array[Vector2]=[]
 var current_index:=0
@@ -31,6 +31,6 @@ static var _town_texture:Texture2D
 static func map_texture()->Texture2D:
 	if _town_texture==null:
 		var pixels:=Image.new()
-		if pixels.load("res://assets/authoring/town_20261029/town_map.png")==OK:_town_texture=ImageTexture.create_from_image(pixels)
+		if pixels.load("res://assets/authoring/town_20261029/town_map_v6.png")==OK:_town_texture=ImageTexture.create_from_image(pixels)
 	return _town_texture
 

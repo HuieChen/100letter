@@ -1,0 +1,14 @@
+{
+  "source": "未命名作品(3).procreate",
+  "groups_in_order": [
+    180,
+    172,
+    163,
+    138,
+    129
+  ],
+  "fps": 8,
+  "ai_generated": false,
+  "processing": "LZ4 layer decode, visible child composite, rotation, mirror to right-facing, remove isolated marks, alpha crop, proportional downscale",
+  "decoder_reference": "https://github.com/naanlizard/procreate2psd (MIT)"
+}

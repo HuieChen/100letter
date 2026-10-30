@@ -232,3 +232,12 @@ Source publication to HuieChen/100letter main is authorized. Exact remote commit
 - Actor height 265; near-shop position is preview-only, map arrivals still start at the street left edge.
 - Supplied 22.588-second guitar WAV loops in game. Title/title settings: sea and intermittent birds; in-game settings retain guitar.
 - Audio routing assertions passed (title music attenuation, sea enabled, settings do not switch tracks, game gain and WAV looping). Headless scene boot passed parsing. Listening/native walking acceptance remains pending; forced short shutdown leak remains known.
+
+## 2026-10-30 authored street pass
+- Map v6 and postal street v2 morning/noon/sunset/night selected. Postal door proximity updated to source x=.376; map bookshop enters postal street at left.
+- Bottom export strip clipped via 960px scene scale; no source repaint. Courier height295, actor-only time tint, Shift1.65x, 120ms idle/walk crossfade.
+- New idle photo extracted without AI. Five visible Procreate groups decoded using procreate2psd MIT chunk loader, composited and oriented; native8fps retained. Original source files untouched. New walk poses need user/native cadence acceptance.
+- Fountain supplied MP43frames/3fps alpha extraction, matched separately to both streets. GPU still reviewed; subtle matte outline remains a visual review point.
+- Original bounded wind/water UV shader references CC0 https://godotshaders.com/shader/2d-wind-sway/ . Per-street regions protect architecture; future artwork requires region calibration. Fixed initial doubled background sampling after GPU screenshot review.
+- Automated engine checks pass: six poses, fountain frames, Shift handler1.65x travel, braking, postal near/far gates. Initial synthetic polling assertion failed because parse_input_event does not simulate hardware polling; explicit input latch added and handler replay passed. Native full-session/listening and environment motion acceptance remain pending. Known forced-quit18objects/4resources persists.
+- GitHub collaborator invitation ningtzz203 sent, HTTP201, write permission, invitation340518404; recipient acceptance pending.

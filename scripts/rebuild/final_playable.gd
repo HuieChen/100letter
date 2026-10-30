@@ -973,13 +973,13 @@ func _map() -> void:
 	var art:=PaperMap.map_texture()
 	var scale_factor:=minf(map.size.x/art.get_width(),map.size.y/art.get_height())
 	var origin:=(map.size-art.get_size()*scale_factor)*0.5
-	var entries=[ ["post_office",Rect2(510,660,260,300)], ["chess_stall",Rect2(150,970,440,350)], ["tarot_shop",Rect2(170,235,370,255)], ["record_store",Rect2(540,70,260,300)], ["statue",Rect2(680,360,480,330)] ]
+	var entries=[ ["post_office",Rect2(510,660,260,300)], ["chess_stall",Rect2(150,970,440,350)], ["bookstore",Rect2(160,570,290,260)], ["tarot_shop",Rect2(170,235,370,255)], ["record_store",Rect2(540,70,260,300)], ["statue",Rect2(680,360,480,330)] ]
 	for entry in entries:
 		var destination:String=entry[0]
 		var area:Rect2=entry[1]
 		var button:=UI.button(map,"",Rect2(origin+area.position*scale_factor,area.size*scale_factor),func():
 			_close()
-			core.state.location="post_office" if destination in ["post_office","chess_stall"] else "tarot_shop"
+			core.state.location="post_office" if destination in ["post_office","chess_stall","bookstore"] else "tarot_shop"
 			_world())
 		button.name="Map_"+destination
 		for state:String in ["normal","hover","pressed","focus"]:button.add_theme_stylebox_override(state,StyleBoxEmpty.new())

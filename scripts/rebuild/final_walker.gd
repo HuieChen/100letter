@@ -40,8 +40,10 @@ var _command: int = 0
 var _walk_time: float = 0.0
 var _step_distance: float = 0.0
 var _motion_blend: float = 0.0
+var _pose_mix: float = 0.0
 var _facing: float = 1.0
 var _manual_active: bool = false
+var _fast_held: bool = false
 var _window_focused: bool = true
 var _breathing: float = 0.0
 var _gesture_name: String = ""
@@ -71,8 +73,18 @@ func _ready() -> void:
 	# Warm the source's complete ordered cycle before the first visible step.
 	# Drawing never decodes a new bitmap while the actor is already moving.
 	_poses["CHAR_courier"]=PhysicalArt.texture("CHAR_courier")
+	var idle_image:=Image.new()
+	if idle_image.load("res://assets/authoring/courier_20261030/idle.png")==OK:
+		_poses["CHAR_courier"]=ImageTexture.create_from_image(idle_image)
+		_frame_geometry["CHAR_courier"]={"reference_height_px":idle_image.get_height(),"foot_anchor_px":[idle_image.get_width()*0.52,idle_image.get_height()]}
 	for key:String in _walk_keys:
 		_poses[key]=PhysicalArt.texture(key)
+	for index in range(_walk_keys.size()):
+		var pixels:=Image.new()
+		if pixels.load("res://assets/authoring/courier_20261030/walk_%d.png"%index)==OK:
+			var key:String=_walk_keys[index]
+			_poses[key]=ImageTexture.create_from_image(pixels)
+			_frame_geometry[key]={"reference_height_px":pixels.get_height(),"foot_anchor_px":[pixels.get_width()*0.5,pixels.get_height()]}
 	texture_filter = CanvasItem.TEXTURE_FILTER_LINEAR_WITH_MIPMAPS
 	mouse_filter = Control.MOUSE_FILTER_IGNORE
 	set_process(true)
@@ -138,6 +150,7 @@ func gesture(kind: String) -> void:
 
 func _notification(what: int) -> void:
 	if what == NOTIFICATION_WM_WINDOW_FOCUS_OUT:
+		_fast_held=false
 		_window_focused = false
 		# Native FLAG_NO_FOCUS still permits pointer input. A late focus-out event
 		# must not discard an accepted mouse approach in a window which cannot own
@@ -172,11 +185,11 @@ func _actor_rect() -> Rect2:
 
 
 func _draw() -> void:
-	var key:="CHAR_courier"
-	if _motion_blend>0.12 and not _walk_keys.is_empty():
-		var frame:int=_frame_for_time(_walk_time)
-		var candidate:=_walk_keys[frame]
-		if _poses.get(candidate)!=null:key=candidate
+	if _pose_mix<1.0: _draw_pose("CHAR_courier",1.0-_pose_mix)
+	if _pose_mix>0.0 and not _walk_keys.is_empty():
+		_draw_pose(_walk_keys[_frame_for_time(_walk_time)],_pose_mix)
+
+func _draw_pose(key:String,opacity:float)->void:
 	var art:Texture2D=_poses.get(key)
 	if art==null:return
 	var ratio:float=actor_height/art.get_height()
@@ -188,11 +201,12 @@ func _draw() -> void:
 	var dimensions:=art.get_size()*ratio
 	var facing:float=-1.0 if _facing<0 else 1.0
 	draw_set_transform(foot,0.0,Vector2(facing,1.0))
-	draw_texture_rect(art,Rect2(-anchor*ratio,dimensions),false)
+	draw_texture_rect(art,Rect2(-anchor*ratio,dimensions),false,Color(1,1,1,opacity))
 	draw_set_transform(Vector2.ZERO)
 
 
 func _process(delta: float) -> void:
+	_pose_mix=move_toward(_pose_mix,1.0 if _motion_blend>0.12 else 0.0,delta/0.12)
 	_breathing += delta
 	if not _gesture_name.is_empty():
 		_gesture_time += delta
@@ -224,8 +238,13 @@ func _process(delta: float) -> void:
 		set_process(false)
 
 
+func _input(event:InputEvent)->void:
+	if event is InputEventKey and (event.keycode==KEY_SHIFT or event.physical_keycode==KEY_SHIFT):
+		_fast_held=event.pressed
+
 func _advance_manual(direction: Vector2, delta: float) -> void:
-	var desired: Vector2 = direction * max_speed
+	var fast := _fast_held or Input.is_physical_key_pressed(KEY_SHIFT) or Input.is_key_pressed(KEY_SHIFT)
+	var desired: Vector2 = direction * max_speed * (1.65 if fast else 1.0)
 	velocity = velocity.move_toward(desired, (acceleration if not direction.is_zero_approx() else deceleration) * delta)
 	var previous: Vector2 = foot
 	var proposed: Vector2 = foot + velocity * delta
