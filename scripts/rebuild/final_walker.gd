@@ -44,6 +44,8 @@ var _pose_mix: float = 0.0
 var _settle_time: float = 1.0
 var _settle_phase: float = 0.0
 var _was_in_motion: bool = false
+var _turn_keys: Array[String] = []
+var _turn_position: float = 1.0
 var _facing: float = 1.0
 var _manual_active: bool = false
 var _fast_held: bool = false
@@ -88,10 +90,42 @@ func _ready() -> void:
 			var key:String=_walk_keys[index]
 			_poses[key]=ImageTexture.create_from_image(pixels)
 			_frame_geometry[key]={"reference_height_px":pixels.get_height(),"foot_anchor_px":[pixels.get_width()*0.5,pixels.get_height()]}
+	# Register cutouts by the cap instead of their changing silhouette width.
+	# Original scale/pixels/pose order stay unchanged.
+	var registration_path := "res://assets/authoring/courier_20261030/walk-registration.json"
+	if FileAccess.file_exists(registration_path):
+		var registration: Dictionary = JSON.parse_string(FileAccess.get_file_as_string(registration_path))
+		for index in range(_walk_keys.size()):
+			if registration.has(str(index)): _frame_geometry[_walk_keys[index]] = registration[str(index)]
+	_load_turns()
 	texture_filter = CanvasItem.TEXTURE_FILTER_LINEAR_WITH_MIPMAPS
+	var edge_material := ShaderMaterial.new()
+	edge_material.shader = preload("res://scripts/rebuild/courier_alpha.gdshader")
+	material = edge_material
 	mouse_filter = Control.MOUSE_FILTER_IGNORE
 	set_process(true)
 	queue_redraw()
+
+
+func _load_turns() -> void:
+	var path := "res://assets/authoring/courier_turn_20261031/turns.json"
+	if not FileAccess.file_exists(path): return
+	var data: Variant = JSON.parse_string(FileAccess.get_file_as_string(path))
+	if not data is Dictionary or data.get("frames", []).size() != 5: return
+	var prepared: Array[Texture2D] = []
+	for frame: Dictionary in data.frames:
+		var pixels := Image.new()
+		if pixels.load(str(frame.path)) != OK: return
+		pixels.generate_mipmaps()
+		prepared.append(ImageTexture.create_from_image(pixels))
+	# These are supplementary turns only: the authored walk cycle is untouched.
+	_turn_keys.assign([_walk_keys[2]])
+	for i in range(prepared.size()):
+		var key := "courier_turn_%d" % i
+		_poses[key] = prepared[i]
+		_frame_geometry[key] = data.frames[i]
+		_turn_keys.append(key)
+	_turn_keys.append("CHAR_courier")
 
 
 func configure(texture: Texture2D, bounds: Rect2, initial_foot: Vector2) -> void:
@@ -103,6 +137,10 @@ func configure(texture: Texture2D, bounds: Rect2, initial_foot: Vector2) -> void
 	_walk_time = _idle_time
 	_motion_blend = 0.0
 	_facing = 1.0
+	_turn_position = 1.0
+	_pose_mix = 0.0
+	_was_in_motion = false
+	_settle_time = 1.0
 	set_process(true)
 	queue_redraw()
 
@@ -188,6 +226,13 @@ func _actor_rect() -> Rect2:
 
 
 func _draw() -> void:
+	if not _turn_keys.is_empty():
+		if _turn_position > 0.001:
+			var index := clampi(roundi(_turn_position * (_turn_keys.size()-1)), 0, _turn_keys.size()-1)
+			_draw_pose(_turn_keys[index], 1.0)
+		else:
+			_draw_pose(_walk_keys[_frame_for_time(_walk_time)], 1.0)
+		return
 	var blend:=smoothstep(0.0,1.0,_pose_mix)
 	if blend<1.0: _draw_pose("CHAR_courier",1.0-blend)
 	if blend>0.0 and not _walk_keys.is_empty():
@@ -238,7 +283,7 @@ func _process(delta: float) -> void:
 		remaining -= step
 	_update_idle_transition(delta)
 	queue_redraw()
-	if not walking and _motion_blend == 0.0 and not manual_enabled and _texture != null and _gesture_name.is_empty():
+	if not walking and _motion_blend == 0.0 and not manual_enabled and _texture != null and _gesture_name.is_empty() and _pose_mix <= 0.001:
 		set_process(false)
 
 func _update_idle_transition(delta:float)->void:
@@ -246,21 +291,33 @@ func _update_idle_transition(delta:float)->void:
 	if moving:
 		_settle_time=0.0
 		_was_in_motion=true
-		_pose_mix=move_toward(_pose_mix,1.0,delta/0.22)
+		if not _turn_keys.is_empty():
+			_turn_position = move_toward(_turn_position, 0.0, delta / 0.24)
+			_pose_mix = 1.0 - _turn_position
+		else:
+			_pose_mix=move_toward(_pose_mix,1.0,delta/0.22)
 		return
 	if _was_in_motion:
 		_settle_phase=_walk_time
 		_was_in_motion=false
 		_settle_time=0.0
 	_settle_time+=delta
+	if not _turn_keys.is_empty():
+		if _settle_time < 0.14:
+			var distance := fposmod(_idle_time-_settle_phase+_cycle_seconds*.5,_cycle_seconds)-_cycle_seconds*.5
+			_walk_time = fposmod(_settle_phase+distance*smoothstep(0.0,.14,_settle_time),_cycle_seconds)
+		else:
+			_turn_position = move_toward(_turn_position, 1.0, delta / 0.40)
+		_pose_mix = 1.0-_turn_position
+		return
 	# Finish the gait on the existing planted-foot source pose before turning.
 	# No invented artwork: only timing/order of the supplied poses changes.
 	if _pose_mix>0.01 and _settle_time<0.26 and _cycle_seconds>0.0:
 		var planted:=0.3125
 		var distance:=fposmod(planted-_settle_phase+_cycle_seconds*0.5,_cycle_seconds)-_cycle_seconds*0.5
 		_walk_time=fposmod(_settle_phase+distance*smoothstep(0.0,0.26,_settle_time),_cycle_seconds)
-	if _settle_time>0.48:
-		_pose_mix=move_toward(_pose_mix,0.0,delta/0.42)
+	if _settle_time>0.22:
+		_pose_mix=move_toward(_pose_mix,0.0,delta/0.10)
 
 
 func _input(event:InputEvent)->void:
@@ -329,11 +386,11 @@ func _advance_phase(travelled: float) -> void:
 	# At the established game speed the clip runs in its exact source cadence.
 	# Acceleration/braking slow the cycle with actual foot travel, not frame rate.
 	# This world-distance calibration belongs to gameplay, not the source video.
-	_walk_time = fposmod(_walk_time + 0.65 * travelled / maxf(max_speed,1.0),_cycle_seconds)
+	_walk_time = fposmod(_walk_time + 1.0 * travelled / maxf(max_speed,1.0),_cycle_seconds)
 	_step_distance += travelled
 	# One conservative contact on the narrow, grounded source pose per cycle.
 	# The silent source does not substantiate a second synthesized footfall.
-	var contact_distance:float=maxf(max_speed,1.0)*_cycle_seconds/0.65
+	var contact_distance:float=maxf(max_speed,1.0)*_cycle_seconds
 	while _step_distance >= contact_distance:
 		_step_distance -= contact_distance
 		footstep.emit()

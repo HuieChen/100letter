@@ -258,3 +258,7 @@ Source publication to HuieChen/100letter main is authorized. Exact remote commit
 - Previous opacity-only handoff remained abrupt. Now after braking the gait eases toward supplied planted pose over260ms, holds side posture until480ms, then smoothstep crossfades over420ms. Resume during transition retains gait phase instead of resetting it.
 - Existing street assertions pass;5second GPU film recorded and sampled1.4/1.8/2.2/2.6s inspected. No authored turning intermediate exists: this is a staged blend, not a newly drawn turn animation. Native user acceptance remains pending.
 - Prior aa313f2 push failed with connection reset; retry both commits together.
+
+## 2026-10-31 — authored gait restored, turn and cutout-edge revision
+The first generated gait/turn was rejected by the user and removed from runtime/export. The five original walk frames and original front idle remain selected, with position registration and source cadence restored. Five revised turn-only intermediates play sequentially without front/profile dissolve. Fountain now overlays bright moving water only, leaving the background statue unchanged; courier low-alpha fringe is trimmed in its render shader. See docs/testing/COURIER_TURN_EDGES_20261031.md.
+Current automated motion: 40 checks, 0 failures; authored-street test passes. GPU 8s turn replay and fountain image inspected. Native input remains unverified because UI runtimes failed initialization. Forced quit still reports 16 ObjectDB / 3 resources. This is a scoped correction, not final user acceptance or whole-game completion.

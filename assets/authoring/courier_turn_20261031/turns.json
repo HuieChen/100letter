@@ -1,0 +1,55 @@
+{
+  "authorization": "2026-10-31 user permits supplemental generated turn frames; original gait and front idle retained",
+  "sources": [
+    {
+      "file": "early_sheet.png",
+      "sha256": "11f09f4556f02b28f09f56b70b3d37f5349cc5f75841acb400f4f64dfc3fb4be"
+    },
+    {
+      "file": "late_sheet.png",
+      "sha256": "69094a936caf32c42a178e0c5df663987d0d1ee96a921cfd5fd5af6f35534f7a"
+    }
+  ],
+  "frames": [
+    {
+      "path": "res://assets/authoring/courier_turn_20261031/turn_0.png",
+      "reference_height_px": 995,
+      "foot_anchor_px": [
+        237.2002840909091,
+        993
+      ]
+    },
+    {
+      "path": "res://assets/authoring/courier_turn_20261031/turn_1.png",
+      "reference_height_px": 996,
+      "foot_anchor_px": [
+        215.2215909090909,
+        994
+      ]
+    },
+    {
+      "path": "res://assets/authoring/courier_turn_20261031/turn_2.png",
+      "reference_height_px": 851,
+      "foot_anchor_px": [
+        202.63210227272728,
+        849
+      ]
+    },
+    {
+      "path": "res://assets/authoring/courier_turn_20261031/turn_3.png",
+      "reference_height_px": 854,
+      "foot_anchor_px": [
+        208.69602272727272,
+        852
+      ]
+    },
+    {
+      "path": "res://assets/authoring/courier_turn_20261031/turn_4.png",
+      "reference_height_px": 854,
+      "foot_anchor_px": [
+        217.69602272727272,
+        852
+      ]
+    }
+  ]
+}

@@ -45,6 +45,9 @@ func _ready()->void:
   fountain.expand_mode=TextureRect.EXPAND_IGNORE_SIZE
   fountain.mouse_filter=Control.MOUSE_FILTER_IGNORE
   fountain.texture=fountain_frames[0]
+  var water_material:=ShaderMaterial.new()
+  water_material.shader=preload("res://scripts/rebuild/fountain_water_only.gdshader")
+  fountain.material=water_material
   UI.place(fountain,world,Rect2((5390.0 if postal else 4104.0)*1.5,(91.0 if postal else 93.0)*1.5,337*1.5,430*1.5))
   fountain.modulate={"morning":Color(0.97,0.97,1.0),"noon":Color.WHITE,"sunset":Color(1.0,0.87,0.72),"night":Color(0.45,0.47,0.72)}[period]
  courier=Walker.new()

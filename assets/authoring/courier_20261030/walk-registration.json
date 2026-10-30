@@ -1,0 +1,37 @@
+{
+  "0": {
+    "reference_height_px": 704.0,
+    "foot_anchor_px": [
+      168.0,
+      704
+    ]
+  },
+  "1": {
+    "reference_height_px": 704.0,
+    "foot_anchor_px": [
+      211.0,
+      704
+    ]
+  },
+  "2": {
+    "reference_height_px": 704.0,
+    "foot_anchor_px": [
+      167.0,
+      704
+    ]
+  },
+  "3": {
+    "reference_height_px": 704.0,
+    "foot_anchor_px": [
+      163.5,
+      704
+    ]
+  },
+  "4": {
+    "reference_height_px": 704.0,
+    "foot_anchor_px": [
+      158.5,
+      704
+    ]
+  }
+}
