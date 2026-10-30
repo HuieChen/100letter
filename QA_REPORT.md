@@ -247,3 +247,9 @@ Source publication to HuieChen/100letter main is authorized. Exact remote commit
 - Gentle Ocean Waves Mix (2018), esh9419, Freesound417797, CC0 confirmed on author page. Public HQ MP3 downloaded (719.77s), source/license/hash recorded in gentle_ocean_license.json. No original-WAV claim.
 - Outdoor guitar -12dB and ocean -20dB player targets; quiet room retains reduced sea. Ocean on ambience bus, guitar on music bus, both controlled by existing settings. Engine assertions confirm decodedMP3 >700s, both playing, gains and shutdown. Perceptual listening remains unverified.
 - Failed optional soundfile measurement (module unavailable) did not modify audio; used engine decoding/routing assertions instead. Forced-movie teardown resource warning remains open.
+
+## 2026-10-30 slower cadence and idle settling
+- Walk phase advances at65% prior speed; world movement and Shift multiplier unchanged. Footstep distance follows the longer cycle.
+- Hold last visible pose after movement;140ms settle plus320ms smoothstep crossfade to supplied front idle. No AI interpolation. Arrival no longer resets frame during transition.
+- Six derivative alpha textures inset1source pixel and extend colors beneath transparency to remove matte fringes. Original PNGs/user sources unchanged.
+- Existing engine street QA passes; GPU idle still inspected and240frame walk-stop film rendered (test-results/settle-transition.gif). Native aesthetic acceptance pending. Forced capture shutdown warning persists.

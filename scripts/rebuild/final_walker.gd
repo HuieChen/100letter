@@ -41,6 +41,7 @@ var _walk_time: float = 0.0
 var _step_distance: float = 0.0
 var _motion_blend: float = 0.0
 var _pose_mix: float = 0.0
+var _settle_time: float = 1.0
 var _facing: float = 1.0
 var _manual_active: bool = false
 var _fast_held: bool = false
@@ -74,14 +75,14 @@ func _ready() -> void:
 	# Drawing never decodes a new bitmap while the actor is already moving.
 	_poses["CHAR_courier"]=PhysicalArt.texture("CHAR_courier")
 	var idle_image:=Image.new()
-	if idle_image.load("res://assets/authoring/courier_20261030/idle.png")==OK:
+	if idle_image.load("res://assets/authoring/courier_20261030/clean_edges/idle.png")==OK:
 		_poses["CHAR_courier"]=ImageTexture.create_from_image(idle_image)
 		_frame_geometry["CHAR_courier"]={"reference_height_px":idle_image.get_height(),"foot_anchor_px":[idle_image.get_width()*0.52,idle_image.get_height()]}
 	for key:String in _walk_keys:
 		_poses[key]=PhysicalArt.texture(key)
 	for index in range(_walk_keys.size()):
 		var pixels:=Image.new()
-		if pixels.load("res://assets/authoring/courier_20261030/walk_%d.png"%index)==OK:
+		if pixels.load("res://assets/authoring/courier_20261030/clean_edges/walk_%d.png"%index)==OK:
 			var key:String=_walk_keys[index]
 			_poses[key]=ImageTexture.create_from_image(pixels)
 			_frame_geometry[key]={"reference_height_px":pixels.get_height(),"foot_anchor_px":[pixels.get_width()*0.5,pixels.get_height()]}
@@ -185,9 +186,10 @@ func _actor_rect() -> Rect2:
 
 
 func _draw() -> void:
-	if _pose_mix<1.0: _draw_pose("CHAR_courier",1.0-_pose_mix)
-	if _pose_mix>0.0 and not _walk_keys.is_empty():
-		_draw_pose(_walk_keys[_frame_for_time(_walk_time)],_pose_mix)
+	var blend:=smoothstep(0.0,1.0,_pose_mix)
+	if blend<1.0: _draw_pose("CHAR_courier",1.0-blend)
+	if blend>0.0 and not _walk_keys.is_empty():
+		_draw_pose(_walk_keys[_frame_for_time(_walk_time)],blend)
 
 func _draw_pose(key:String,opacity:float)->void:
 	var art:Texture2D=_poses.get(key)
@@ -206,7 +208,10 @@ func _draw_pose(key:String,opacity:float)->void:
 
 
 func _process(delta: float) -> void:
-	_pose_mix=move_toward(_pose_mix,1.0 if _motion_blend>0.12 else 0.0,delta/0.12)
+	if _motion_blend>0.12: _settle_time=0.0
+	else: _settle_time+=delta
+	var moving_pose:=_motion_blend>0.12 or _settle_time<0.14
+	_pose_mix=move_toward(_pose_mix,1.0 if moving_pose else 0.0,delta/(0.18 if moving_pose else 0.32))
 	_breathing += delta
 	if not _gesture_name.is_empty():
 		_gesture_time += delta
@@ -304,11 +309,11 @@ func _advance_phase(travelled: float) -> void:
 	# At the established game speed the clip runs in its exact source cadence.
 	# Acceleration/braking slow the cycle with actual foot travel, not frame rate.
 	# This world-distance calibration belongs to gameplay, not the source video.
-	_walk_time = fposmod(_walk_time + travelled / maxf(max_speed,1.0),_cycle_seconds)
+	_walk_time = fposmod(_walk_time + 0.65 * travelled / maxf(max_speed,1.0),_cycle_seconds)
 	_step_distance += travelled
 	# One conservative contact on the narrow, grounded source pose per cycle.
 	# The silent source does not substantiate a second synthesized footfall.
-	var contact_distance:float=maxf(max_speed,1.0)*_cycle_seconds
+	var contact_distance:float=maxf(max_speed,1.0)*_cycle_seconds/0.65
 	while _step_distance >= contact_distance:
 		_step_distance -= contact_distance
 		footstep.emit()
@@ -320,7 +325,8 @@ func _reach_target() -> void:
 	foot = target
 	velocity = Vector2.ZERO
 	walking = false
-	_walk_time = _idle_time
+	# Keep the last visible foot pose through the settle/fade, rather than
+	# switching animation frames at the same instant movement stops.
 	_pending_action = Callable()
 	arrived.emit()
 	# A signal listener may open another screen, cancel, or choose another target.
