@@ -1,13 +1,13 @@
 {
   "0": {
-    "reference_height_px": 704.0,
+    "reference_height_px": 693.884149,
     "foot_anchor_px": [
       168.0,
       704
     ]
   },
   "1": {
-    "reference_height_px": 704.0,
+    "reference_height_px": 706.898445,
     "foot_anchor_px": [
       211.0,
       704
@@ -28,7 +28,7 @@
     ]
   },
   "4": {
-    "reference_height_px": 704.0,
+    "reference_height_px": 693.261552,
     "foot_anchor_px": [
       158.5,
       704

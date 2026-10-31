@@ -46,6 +46,7 @@ var _settle_phase: float = 0.0
 var _was_in_motion: bool = false
 var _turn_keys: Array[String] = []
 var _turn_position: float = 1.0
+var _shift_blend: float = 0.0
 var _facing: float = 1.0
 var _manual_active: bool = false
 var _fast_held: bool = false
@@ -91,7 +92,8 @@ func _ready() -> void:
 			_poses[key]=ImageTexture.create_from_image(pixels)
 			_frame_geometry[key]={"reference_height_px":pixels.get_height(),"foot_anchor_px":[pixels.get_width()*0.5,pixels.get_height()]}
 	# Register cutouts by the cap instead of their changing silhouette width.
-	# Original scale/pixels/pose order stay unchanged.
+	# Undo independent crop-height normalization; preserve authored relative
+	# proportions and pose order without repainting the source pixels.
 	var registration_path := "res://assets/authoring/courier_20261030/walk-registration.json"
 	if FileAccess.file_exists(registration_path):
 		var registration: Dictionary = JSON.parse_string(FileAccess.get_file_as_string(registration_path))
@@ -169,6 +171,7 @@ func cancel() -> void:
 	_motion_blend = 0.0
 	_manual_active = false
 	_step_distance = 0.0
+	_shift_blend = 0.0
 	_walk_time = _idle_time
 	target = foot
 	queue_redraw()
@@ -192,6 +195,7 @@ func gesture(kind: String) -> void:
 func _notification(what: int) -> void:
 	if what == NOTIFICATION_WM_WINDOW_FOCUS_OUT:
 		_fast_held=false
+		_shift_blend=0.0
 		_window_focused = false
 		# Native FLAG_NO_FOCUS still permits pointer input. A late focus-out event
 		# must not discard an accepted mouse approach in a window which cannot own
@@ -303,11 +307,11 @@ func _update_idle_transition(delta:float)->void:
 		_settle_time=0.0
 	_settle_time+=delta
 	if not _turn_keys.is_empty():
-		if _settle_time < 0.14:
+		if _settle_time < 0.07:
 			var distance := fposmod(_idle_time-_settle_phase+_cycle_seconds*.5,_cycle_seconds)-_cycle_seconds*.5
-			_walk_time = fposmod(_settle_phase+distance*smoothstep(0.0,.14,_settle_time),_cycle_seconds)
+			_walk_time = fposmod(_settle_phase+distance*smoothstep(0.0,.07,_settle_time),_cycle_seconds)
 		else:
-			_turn_position = move_toward(_turn_position, 1.0, delta / 0.40)
+			_turn_position = move_toward(_turn_position, 1.0, delta / 0.24)
 		_pose_mix = 1.0-_turn_position
 		return
 	# Finish the gait on the existing planted-foot source pose before turning.
@@ -326,7 +330,8 @@ func _input(event:InputEvent)->void:
 
 func _advance_manual(direction: Vector2, delta: float) -> void:
 	var fast := _fast_held or Input.is_physical_key_pressed(KEY_SHIFT) or Input.is_key_pressed(KEY_SHIFT)
-	var desired: Vector2 = direction * max_speed * (1.65 if fast else 1.0)
+	_shift_blend = move_toward(_shift_blend, 1.0 if fast else 0.0, delta / 0.20)
+	var desired: Vector2 = direction * max_speed * lerpf(1.0, 1.35, smoothstep(0.0, 1.0, _shift_blend))
 	velocity = velocity.move_toward(desired, (acceleration if not direction.is_zero_approx() else deceleration) * delta)
 	var previous: Vector2 = foot
 	var proposed: Vector2 = foot + velocity * delta

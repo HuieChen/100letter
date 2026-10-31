@@ -57,6 +57,8 @@ func _ready()->void:
  courier.modulate=actor_light[period]
  UI.place(courier,world,Rect2(Vector2.ZERO,world.size))
  courier.configure(null,Rect2(100,872,world.size.x-200,0),Vector2(100,872))
+ courier.foot_position_changed.connect(_follow_courier)
+ _follow_courier(courier.foot)
  courier.manual_enabled=true
  if postal:
   entry_hint=UI.label(world,"E 进入",Rect2(world.size.x*0.376-90,490,180,52),28,Color("fff8e8"))
@@ -71,11 +73,12 @@ func _process(_delta:float)->void:
  if not is_instance_valid(courier):return
  var allowed:bool=not can_walk.is_valid() or can_walk.call()
  if courier.manual_enabled!=allowed:courier.manual_enabled=allowed
- world.position.x=-clampf(courier.foot.x-650,0,world.size.x-1600)
 
  if is_instance_valid(entry_hint):
   entry_ready=allowed and absf(courier.foot.x-world.size.x*0.376)<220
   entry_hint.visible=entry_ready
+func _follow_courier(at:Vector2)->void:
+ world.position.x=-clampf(at.x-650,0,world.size.x-1600)
 func _unhandled_key_input(event:InputEvent)->void:
  if event is InputEventKey and event.pressed and not event.echo and event.physical_keycode==KEY_E and entry_ready:
   entry_ready=false
