@@ -1,0 +1,12 @@
+# Courier interior matte correction — 2026-10-31
+
+Latest feedback identifies unclean cutout edges and the space between the legs. Independent source audit confirmed roughly511 opaque near-white pixels inside the supplied JPEG-derived idle's leg gap, at x195–211/y501–539 in its385x704 texture. A smaller white remainder exists inside the curl at x261–275/y38–50. Earlier outer-alpha erosion could not remove enclosed opaque white.
+
+The render shader now removes neutral white only inside those two bounded source regions and along the existing exterior alpha boundary. It evaluates the corrected coverage before the small contour inset, so the inner gaps receive edge cleanup too. The385x704 source-size guard applies the correction only to this idle texture, including mirrored drawing; the other ten current textures retain the existing alpha path. No per-draw shared-material uniform is used, avoiding state leakage when multiple poses draw. Original PNG bytes, facial drawing, pigment, motion timing, scenery and saves are unchanged.
+
+Validation:
+- `tests/courier_alpha_render.gd`:17 GPU readback checks,0 failures. Original opaque matte is verified before testing that the corrected leg/curl sample points exactly reveal the actual dark scene color. Seven eye/hair/hat/skin/boot pigment points remain identical. No shader compile/runtime error in the final run.
+- Before/after GPU image: `docs/testing/courier_alpha_20261031/before_after.png`; left original alpha, right corrected shader. Both shown at1:1 against the same dark background, inspected including internal leg edges and the curl. This is a rendering correction, not a newly generated/repainted bitmap.
+- Independent read-only audit found no equivalent opaque white holes in current walking or turn poses. Low-alpha stray RGB in generated turn textures is already suppressed by the existing shader; no global white color key is applied.
+- Native window inspection succeeded after activation: corrected standing courier displayed against the tarot street, with visible scene through the leg gap. A subsequent D input/refresh was interrupted by the minimized window; walking/native-input outcome is NOT_ASSESSED, and the app was not repeatedly brought to the foreground. Earlier UI-runtime failure from the pace pass is historical, not a claim that this pass lacked a visible-window check.
+- Existing broad game/animation acceptance remains separate. The five-pose gait's discrete changes are not fixed by this alpha correction.
