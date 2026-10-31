@@ -1,0 +1,46 @@
+{
+  "author": "Kenney",
+  "pack": "Impact Sounds 1.0",
+  "license": "CC0-1.0",
+  "source_url": "https://kenney.nl/assets/impact-sounds",
+  "license_file": "KENNEY_CC0.txt",
+  "processing": "highpass 100 Hz; lowpass 2800 Hz; 6 ms fade-in; 25 ms silent tail; mono PCM16 32000 Hz; runtime -20 dB, pitch 0.98 to 1.02",
+  "files": [
+    {
+      "file": "soft_step_concrete_1.wav",
+      "source": "step_concrete_1.wav",
+      "source_sha256": "aea49e21426655e9b252f5d5de864a778a1de84d72df5ad4bb7c90bdbadfecc8",
+      "sha256": "71cfedeb2b26551e539f8722ef204eab17f094ee6228300b2e852ec5a4d3a3f5"
+    },
+    {
+      "file": "soft_step_concrete_2.wav",
+      "source": "step_concrete_2.wav",
+      "source_sha256": "e89dead0e3af34e42b1677182ea086f2b40c6233d8945eb8b0b82ecce89a9549",
+      "sha256": "6b8eaab4371aad584d8e69541727359707dfe5ffde66c378437f2e2eeacf7afb"
+    },
+    {
+      "file": "soft_step_concrete_3.wav",
+      "source": "step_concrete_3.wav",
+      "source_sha256": "d9b34cdb30e697c010ffa8c295642d55f67af3f4ede417cddee2f6bca8e59ceb",
+      "sha256": "a6b002b87aaf4b337c5de715650b56e9656669b5b55b066baa09929fef3c9450"
+    },
+    {
+      "file": "soft_step_wood_1.wav",
+      "source": "step_wood_1.wav",
+      "source_sha256": "545e025a60beb498b17e1d01e7a9113e915fac252cd38138e685a93c6a712610",
+      "sha256": "1b6f01ab2a23407aff1ef2236091d54ceb36fd563704054acb803f854c0ce99e"
+    },
+    {
+      "file": "soft_step_wood_2.wav",
+      "source": "step_wood_2.wav",
+      "source_sha256": "f475edf15b7df5450b8de50220f9e3decd6d83e9941edcdb169583e2ee363355",
+      "sha256": "54746d4f6fb8e26892d6ad7543d5a6a9402d236543ea9f84753248b516c8f342"
+    },
+    {
+      "file": "soft_step_wood_3.wav",
+      "source": "step_wood_3.wav",
+      "source_sha256": "75e8fe52186ea896a4e862c6d16ab2a435328224d934f55b8b1e413c1a152be0",
+      "sha256": "4deab08fb7d50021a2ce48b6a79d530e7c1eccde7ec6dd30b3ba923f041c2755"
+    }
+  ]
+}

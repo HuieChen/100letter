@@ -157,8 +157,8 @@ func play(kind: String = "paper") -> void:
 	var variants: Array = []
 	if kind == "step":
 		var surface: String = "wood" if indoors else "concrete"
-		if not indoors and location_id in ["residential", "chess_stall"]: surface = "grass"
-		for index: int in range(1, 4): variants.append("step_%s_%d.wav" % [surface, index])
+		# Authored streets all have paved walking lanes, including residential.
+		for index: int in range(1, 4): variants.append("soft_step_%s_%d.wav" % [surface, index])
 	else:
 		variants = POOLS.get(kind, POOLS.paper)
 	var index: int = _rng.randi_range(0, variants.size() - 1)
@@ -172,7 +172,7 @@ func play(kind: String = "paper") -> void:
 	elif kind in ["stamp", "door", "door_close"]: gain = -14.0
 	elif kind == "tram": gain = -25.0
 	elif kind == "water":gain=-22.0
-	_spawn(kind, str(variants[index]), gain, SFX_BUS, _rng.randf_range(0.97, 1.03))
+	_spawn(kind, str(variants[index]), gain, SFX_BUS, _rng.randf_range(0.98, 1.02) if kind=="step" else _rng.randf_range(0.97, 1.03))
 
 
 func quiet_case(enabled: bool) -> void:
@@ -225,6 +225,8 @@ func _stream(file: String) -> AudioStream:
 	if not _streams.has(file):
 		if file=="sea_bed.ogg" and FileAccess.file_exists(ROOT+"gentle_ocean_cc0.mp3"):
 			_streams[file]=AudioStreamMP3.load_from_file(ROOT+"gentle_ocean_cc0.mp3")
+		elif file.begins_with("soft_step_"):
+			_streams[file]=AudioStreamWAV.load_from_file(ROOT+file)
 		else:
 			_streams[file] = load(ROOT + file) if ResourceLoader.exists(ROOT + file) else null
 	return _streams[file] as AudioStream

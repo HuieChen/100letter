@@ -1,0 +1,82 @@
+[
+  {
+    "file": "community_morning.png",
+    "supplied_name": "清晨3(3).png",
+    "sha256": "01144afd0a73de0a8c90bdf5747d9914f3aff7acaa04c30733ee66da96678813",
+    "size": [
+      9204,
+      640
+    ],
+    "processing": "none; exact source bytes"
+  },
+  {
+    "file": "community_noon.png",
+    "supplied_name": "中午3.png",
+    "sha256": "4d42760afd9ba0c14b5cb52fd610a8d90775cc14af2c49314177b0f8091d5de7",
+    "size": [
+      9204,
+      640
+    ],
+    "processing": "none; exact source bytes"
+  },
+  {
+    "file": "community_sunset.png",
+    "supplied_name": "下午3.png",
+    "sha256": "c3de8f7f25657c4cbbed3db0c0bfbae5f054c39e8dba533b61d2eff2e9512c0e",
+    "size": [
+      9204,
+      640
+    ],
+    "processing": "none; exact source bytes"
+  },
+  {
+    "file": "community_night.png",
+    "supplied_name": "夜晚3.png",
+    "sha256": "ad396cba9b18e593cbb675467473b1f369338e81b4fbe31ee14731e3fc3aa2da",
+    "size": [
+      9204,
+      640
+    ],
+    "processing": "none; exact source bytes"
+  },
+  {
+    "file": "residential_morning.png",
+    "supplied_name": "清晨4.png",
+    "sha256": "420fa04bd7a9ae030c472a2a6bf7cd7832423a5847359ceee583facc7de54f97",
+    "size": [
+      7431,
+      640
+    ],
+    "processing": "none; exact source bytes"
+  },
+  {
+    "file": "residential_noon.png",
+    "supplied_name": "中午4.png",
+    "sha256": "2f8c9b4f88a1e6628441b181b178e39c288773f8e177b89db615233732621b55",
+    "size": [
+      7431,
+      640
+    ],
+    "processing": "none; exact source bytes"
+  },
+  {
+    "file": "residential_sunset.png",
+    "supplied_name": "下午4.png",
+    "sha256": "784124e720fea4547596665d30c205c0d8c696fb43d51d6a5b1172ad6bb9f650",
+    "size": [
+      7431,
+      640
+    ],
+    "processing": "none; exact source bytes"
+  },
+  {
+    "file": "residential_night.jpg",
+    "supplied_name": "夜晚4.jpg",
+    "sha256": "191ad83ad5d6f336f920c68111935582e9af0b9c694ea1d9b6dbd377d62b3c78",
+    "size": [
+      7431,
+      640
+    ],
+    "processing": "none; exact source bytes"
+  }
+]

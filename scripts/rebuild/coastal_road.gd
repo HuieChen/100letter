@@ -1,10 +1,13 @@
 extends Control
 signal map_requested
 signal post_office_requested
+signal footstep
 const UI=preload("res://scripts/ui/paper_ui.gd")
 const Walker=preload("res://scripts/rebuild/final_walker.gd")
 var minute:=540
 var postal:=false
+var district:="coastal"
+var source_path:=""
 var art:TextureRect
 var world:Control
 var courier:Control
@@ -21,8 +24,12 @@ func _ready()->void:
  elif minute>=1020:period="sunset"
  elif minute>=660:period="noon"
  var filename:=("post_v2_" if postal else "clean_road_")+period+".png"
+ source_path="res://assets/authoring/town_20261029/"+filename
+ if district in ["community","residential"]:
+  var extension:=".jpg" if district=="residential" and period=="night" else ".png"
+  source_path="res://assets/authoring/streets_20261101/"+district+"_"+period+extension
  var pixels:=Image.new()
- if pixels.load("res://assets/authoring/town_20261029/"+filename)!=OK:return
+ if pixels.load(source_path)!=OK:return
  world=Control.new()
  # Display the original art lower and slightly larger. The viewport crops
  # the bottom export strip without modifying any supplied source pixels.
@@ -32,7 +39,15 @@ func _ready()->void:
  var breeze:=ShaderMaterial.new()
  breeze.shader=preload("res://scripts/rebuild/street_breeze.gdshader")
  breeze.set_shader_parameter("postal",postal)
- art.material=breeze
+ # Region masks are authored for each panorama; never reuse old coordinates
+ # on a newly supplied street, which would warp windows/buildings.
+ if district=="coastal":art.material=breeze
+ if district=="community" and period=="night":
+  var roof_material:=ShaderMaterial.new()
+  roof_material.shader=preload("res://scripts/rebuild/community_roof_occlusion.gdshader")
+  var day_geometry:=Image.load_from_file("res://assets/authoring/streets_20261101/community_noon.png")
+  roof_material.set_shader_parameter("day_geometry",ImageTexture.create_from_image(day_geometry))
+  art.material=roof_material
  art.expand_mode=TextureRect.EXPAND_IGNORE_SIZE
  art.mouse_filter=Control.MOUSE_FILTER_IGNORE
  UI.place(art,world,Rect2(Vector2.ZERO,world.size))
@@ -40,7 +55,7 @@ func _ready()->void:
   var frame:=Image.new()
   if frame.load("res://assets/authoring/fountain_20261030/frame_%d.png"%index)==OK:
    fountain_frames.append(ImageTexture.create_from_image(frame))
- if fountain_frames.size()==3:
+ if fountain_frames.size()==3 and district=="coastal":
   fountain=TextureRect.new()
   fountain.expand_mode=TextureRect.EXPAND_IGNORE_SIZE
   fountain.mouse_filter=Control.MOUSE_FILTER_IGNORE
@@ -58,6 +73,8 @@ func _ready()->void:
  UI.place(courier,world,Rect2(Vector2.ZERO,world.size))
  courier.configure(null,Rect2(100,872,world.size.x-200,0),Vector2(100,872))
  courier.foot_position_changed.connect(_follow_courier)
+ courier.footstep.connect(func():
+  if not can_walk.is_valid() or can_walk.call():footstep.emit())
  _follow_courier(courier.foot)
  courier.manual_enabled=true
  if postal:

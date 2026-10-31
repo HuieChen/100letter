@@ -1,3 +1,9 @@
+## 2026-11-01 — Supplied street imports, roof/window occlusion and footsteps
+
+The user crop identified a lit window incorrectly covering the inquiry-office roof in the supplied community night image. A bounded source-derived runtime occlusion fixes it without changing original image bytes. Eight supplied time variants are imported and seven map destinations route to their actual street's left edge. Current walker contacts now play softened CC0 Kenney footsteps through the real SFX bus.
+
+Verified: GPU 93 import/route/audio/roof assertions, GPU 66 movement assertions, existing postal/camera/Shift suite, actual exported PCK hash/decode/load checks. Native return-arrow, grocery and bus-stop map clicks verified. The initial bad roof sample and audio fixture failure were corrected; final GPU error logs are empty. Sustained native walking/listening and full game acceptance remain unverified. No old saves or unrelated artwork changed. Details and screenshots: [STREETS_AND_WINDOW_20261101.md](docs/testing/STREETS_AND_WINDOW_20261101.md).
+
 # QA report · 2026-10-03
 
 2026-10-23 BLENDER_ENVELOPE_MODEL: Blender 5.1.1 builds an editable `.blend` and textured `.glb` from the exact user-supplied 1280×1280 envelope image. The front print and raised seal use the packed original texture; paper core, cut edge, rear folds and raised wax are separate editable geometry. Fresh Blender reopen confirms the source image is packed; fresh GLB import confirms 11 mesh objects and the embedded 1280×1280 texture. Three Cycles previews were visually checked (front, three-quarter and back). This is a standalone prop asset; it is not represented as integrated into the game runtime.

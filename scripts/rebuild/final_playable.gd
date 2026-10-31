@@ -390,10 +390,13 @@ func _world() -> void:
 	var road=load("res://scripts/rebuild/coastal_road.gd").new()
 	road.minute=int(core.state.minute)
 	road.postal=str(core.state.location) in ["post_office","chess_stall"]
+	if str(core.state.location)=="community_center":road.district="community"
+	elif str(core.state.location) in ["residential","lookout","bus_stop"]:road.district="residential"
 	road.can_walk=func():return not busy and not is_instance_valid(modal)
 	UI.place(road,stage,Rect2(0,0,1600,900))
 	walker=road.courier
 	road.map_requested.connect(_map)
+	road.footstep.connect(func():sound.play("step"))
 	road.post_office_requested.connect(func():core.state.location="post_office";_post_office_room())
 	sound.set_location(str(core.state.location),int(core.state.minute),false)
 func _look_at(text:String) -> void:
@@ -973,13 +976,17 @@ func _map() -> void:
 	var art:=PaperMap.map_texture()
 	var scale_factor:=minf(map.size.x/art.get_width(),map.size.y/art.get_height())
 	var origin:=(map.size-art.get_size()*scale_factor)*0.5
-	var entries=[ ["post_office",Rect2(510,660,260,300)], ["chess_stall",Rect2(150,970,440,350)], ["bookstore",Rect2(160,570,290,260)], ["tarot_shop",Rect2(170,235,370,255)], ["record_store",Rect2(540,70,260,300)], ["statue",Rect2(680,360,480,330)] ]
+	var entries=[ ["post_office",Rect2(510,660,260,300)], ["chess_stall",Rect2(150,970,440,350)], ["bookstore",Rect2(160,570,290,260)], ["tarot_shop",Rect2(170,235,370,255)], ["record_store",Rect2(540,70,260,300)], ["statue",Rect2(680,360,480,330)], ["community_center",Rect2(920,80,355,350)], ["residential",Rect2(1370,200,300,260)], ["grocery",Rect2(1230,580,210,245)], ["market",Rect2(1740,110,280,240)], ["food_truck",Rect2(1610,510,335,190)], ["lookout",Rect2(1050,865,500,235)], ["bus_stop",Rect2(1780,735,335,220)] ]
 	for entry in entries:
 		var destination:String=entry[0]
 		var area:Rect2=entry[1]
 		var button:=UI.button(map,"",Rect2(origin+area.position*scale_factor,area.size*scale_factor),func():
 			_close()
-			core.state.location="post_office" if destination in ["post_office","chess_stall","bookstore"] else "tarot_shop"
+			match destination:
+				"post_office","chess_stall","bookstore":core.state.location="post_office"
+				"community_center","grocery","market","food_truck":core.state.location="community_center"
+				"residential","lookout","bus_stop":core.state.location=destination
+				_:core.state.location="tarot_shop"
 			_world())
 		button.name="Map_"+destination
 		for state:String in ["normal","hover","pressed","focus"]:button.add_theme_stylebox_override(state,StyleBoxEmpty.new())
