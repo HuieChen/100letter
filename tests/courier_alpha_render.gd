@@ -48,6 +48,11 @@ func run()->void:
 		check(corrected.is_equal_approx(background),"Gap reveals actual scene at %s"%point)
 	for point:Vector2i in [Vector2i(150,220),Vector2i(250,220),Vector2i(240,100),Vector2i(170,50),Vector2i(180,520),Vector2i(220,520),Vector2i(180,610)]:
 		check(rendered.get_pixelv(point+Vector2i(40,40)).is_equal_approx(rendered.get_pixelv(point+Vector2i(540,40))),"Pigment preserved at %s"%point)
+	for point:Vector2i in [Vector2i(204,645),Vector2i(46,181),Vector2i(55,141)]:
+		var original:=rendered.get_pixelv(point+Vector2i(40,40))
+		var corrected:=rendered.get_pixelv(point+Vector2i(540,40))
+		check(corrected.r+corrected.g+corrected.b < (original.r+original.g+original.b)*0.6,"White edge contamination removed at %s"%point)
+		check(not corrected.is_equal_approx(background),"Edge remains painted rather than cut away at %s"%point)
 	print("COURIER_ALPHA_RENDER: %d checks, %d failures"%[checks,failures])
 	viewport.queue_free()
 	await process_frame

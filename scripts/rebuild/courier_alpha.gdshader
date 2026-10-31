@@ -46,5 +46,24 @@ void fragment() {
 	inner_alpha = min(inner_alpha,source_coverage(TEXTURE,UV+vec2(0,step_uv.y),TEXTURE_PIXEL_SIZE,photographed));
 	inner_alpha = min(inner_alpha,source_coverage(TEXTURE,UV-vec2(0,step_uv.y),TEXTURE_PIXEL_SIZE,photographed));
 	tex.a = smoothstep(0.10, 0.92, inner_alpha);
+	// The photographed cutout also carries white RGB contamination in its
+	// opaque/antialiased rim. Alpha erosion alone cannot remove that halo.
+	if (photographed && tex.a > 0.0) {
+		vec2 inward = vec2(0.0);
+		float nearby_min = 1.0;
+		for (int i = 0; i < 8; i++) {
+			float angle = float(i) * 0.785398163;
+			vec2 direction = vec2(cos(angle),sin(angle));
+			float coverage = source_coverage(TEXTURE,UV+direction*TEXTURE_PIXEL_SIZE*3.0,TEXTURE_PIXEL_SIZE,true);
+			inward += direction * coverage;
+			nearby_min = min(nearby_min,coverage);
+		}
+		if (nearby_min < 0.95 && length(inward)>0.1) {
+			vec4 pigment = texture(TEXTURE,UV+normalize(inward)*TEXTURE_PIXEL_SIZE*3.0);
+			float white_excess = min(tex.r-pigment.r,min(tex.g-pigment.g,tex.b-pigment.b));
+			float correction = smoothstep(0.02,0.09,white_excess)*(1.0-smoothstep(0.1,0.95,nearby_min));
+			tex.rgb = mix(tex.rgb,pigment.rgb,correction*step(0.98,pigment.a));
+		}
+	}
 	COLOR = tex * item_tint;
 }
