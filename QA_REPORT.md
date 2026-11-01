@@ -1,3 +1,9 @@
+## 2026-11-01 — Walking candidate rejected; previous cycle restored
+
+The user rejected the continuous leg rig as worse and too mechanical. The candidate is removed from runtime and export selection; final_walker.gd, courier_motion_check.gd and export_presets.cfg are restored to committed 2ef993e. Original supplied source images were never overwritten. The three generated atlas candidates were not registered or shipped. The experimental rig, renderer and recordings are retained only under ignored test-results for diagnosis.
+
+Candidate checks (69 motion, 70 GPU gait, 23 alpha, 93 street/import checks plus the street proximity/camera suite) passed, but these do not establish natural movement. Visual/player acceptance failed. Missing authored passing poses and perceived walk stutter remain OPEN. Do not call the rig or its private PCK a completed correction. The next gait repair must preserve the accepted full-body animation and use properly matched passing poses, without substituting static upper-body/IK leg movement. Native restored window was inspected; it loads the previous drawing/controller with no runtime errors. No new walking art is accepted by this entry.
+
 ## 2026-11-01 — Supplied street imports, roof/window occlusion and footsteps
 
 The user crop identified a lit window incorrectly covering the inquiry-office roof in the supplied community night image. A bounded source-derived runtime occlusion fixes it without changing original image bytes. Eight supplied time variants are imported and seven map destinations route to their actual street's left edge. Current walker contacts now play softened CC0 Kenney footsteps through the real SFX bus.
