@@ -1,0 +1,12 @@
+{
+  "title": "Autumn wind and dry leaves.wav",
+  "author": "Stek59",
+  "source": "https://freesound.org/people/Stek59/sounds/457318/",
+  "license": "CC0-1.0",
+  "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+  "download": "https://cdn.freesound.org/previews/457/457318_9065275-hq.mp3",
+  "download_sha256": "a6e6b0dd2d2ac8cffc72a52f631d6501504731caf47f00e2ab00dd763a14d54a",
+  "format_note": "Public HQ preview; derived filtered excerpt, not the original WAV",
+  "processing": "5-33s excerpt; 260Hz highpass, 4200Hz lowpass; 2s crossfade; runtime low-level wind-envelope gain",
+  "output_sha256": "d9a5e988bb5a31f4d3e7a208ad5c2ad8e92587cfbb81de8f629db81c1d635ca5"
+}

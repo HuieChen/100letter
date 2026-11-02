@@ -28,6 +28,7 @@ var layer: Control
 var walker: Control
 var modal: Control
 var status: Label
+var _street_road:Control
 var clock: Label
 var carried := ""
 var view := "title"
@@ -249,6 +250,7 @@ func _say(message:String) -> void:
 
 func _save() -> void:
 	core.save_game()
+	if is_instance_valid(_street_road):_street_road.transition_time_of_day(float(core.state.minute))
 	if is_instance_valid(clock): if is_instance_valid(clock):clock.text=core.time_text() if view in ["counter","post_office_room","ending","failure"] else "7 月 20 日 · "+core.time_text()
 
 func _sprite(parent:Node, key:String, rect:Rect2, preserve_aspect:bool=false) -> TextureRect:
@@ -388,6 +390,8 @@ func _resume() -> void:
 func _world() -> void:
 	_new_stage("world")
 	var road=load("res://scripts/rebuild/coastal_road.gd").new()
+	_street_road=road
+	road.weather_time=float(Time.get_ticks_msec())/1000.0
 	road.minute=int(core.state.minute)
 	road.postal=str(core.state.location) in ["post_office","chess_stall"]
 	if str(core.state.location)=="community_center":road.district="community"
@@ -397,6 +401,7 @@ func _world() -> void:
 	walker=road.courier
 	road.map_requested.connect(_map)
 	road.footstep.connect(func():sound.play("step"))
+	road.ambience_changed.connect(sound.set_weather)
 	road.post_office_requested.connect(func():core.state.location="post_office";_post_office_room())
 	sound.set_location(str(core.state.location),int(core.state.minute),false)
 func _look_at(text:String) -> void:

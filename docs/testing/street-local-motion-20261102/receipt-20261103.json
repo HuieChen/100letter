@@ -1,0 +1,42 @@
+{
+  "revision": "object-partitions-damped-response-20261103",
+  "source_sha256": {
+    "scripts/rebuild/street_atmosphere.gd": "5abcd198dbd440b64cf11b39e9228801fec34d6f9e2a197a471592549173add2",
+    "scripts/rebuild/street_atmosphere.gdshader": "602093d327038d44d45db43bfe651cebbbb9ebca6965e394813d0ea4bc2ff279",
+    "scripts/rebuild/coastal_road.gd": "b07e0d1aeb96ad285b0bcbfeffa555f42954b7049cbc000f9d7923d36dd63103",
+    "scripts/rebuild/final_walker.gd": "cf58f8f6a8536639635f18b1eded553731035fd26a8b78b300203fa587c434a8",
+    "scripts/ui/audio_feedback.gd": "cfde566dea1dc873ac806dfafd9e7b5751e2904d7da552c942a3280bc82a0356",
+    "tests/street_object_boundaries.gd": "eadad3f27d8ddd68d161eeb493be98f04543ce688d0a923b01b07ba9188b4d8c"
+  },
+  "checks": {
+    "street_atmosphere": 131,
+    "object_boundaries": 198,
+    "walker": 75,
+    "failures": 0
+  },
+  "runtime": {
+    "grass_regions": 15,
+    "rigid_regions": 22,
+    "branch_axes": 24,
+    "lamps": 8
+  },
+  "acceptance": "User visual and listening review pending",
+  "video": {
+    "file": "C:\\Users\\22416\\Documents\\Codex\\2026-11-02\\wo-2\\outputs\\Community_Object_Motion_Corrected.mp4",
+    "width": 1920,
+    "height": 1080,
+    "fps": 60,
+    "frames": 3840,
+    "duration_seconds": 64,
+    "bytes": 28234452,
+    "sha256": "68d4fceb42073510074eddcd4c2f03d171c54cf9147c98485d2b6cc5fa356f6d",
+    "full_decode_errors": 0,
+    "walking_consecutive_duplicate_pairs": 0,
+    "walking_max_duplicate_run": 0,
+    "gpu_draws": 3840,
+    "unique_per_second_runtime_captures": 64,
+    "mean_volume_db": -34.4,
+    "max_volume_db": -15.5,
+    "all_consecutive_duplicate_pairs": 0
+  }
+}

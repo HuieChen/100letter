@@ -52,6 +52,17 @@ var _manual_active: bool = false
 var _fast_held: bool = false
 var _window_focused: bool = true
 var _breathing: float = 0.0
+var _blink_wait: float = 4.6
+var _blink_elapsed: float = -1.0
+var _blink_count: int = 0
+var _eye_state: int = 0
+const EYE_RECTS := {
+	"CHAR_courier_walk_0": Rect2(221,153,85,94),
+	"CHAR_courier_walk_1": Rect2(262,151,94,97),
+	"CHAR_courier_walk_2": Rect2(247,151,87,100),
+	"CHAR_courier_walk_3": Rect2(247,152,81,101),
+	"CHAR_courier_walk_4": Rect2(249,176,77,92),
+}
 var _gesture_name: String = ""
 var _gesture_time: float = 0.0
 var _gesture_duration: float = 1.0
@@ -81,6 +92,7 @@ func _ready() -> void:
 	_poses["CHAR_courier"]=PhysicalArt.texture("CHAR_courier")
 	var idle_image:=Image.new()
 	if idle_image.load("res://assets/authoring/courier_20261030/clean_edges/idle.png")==OK:
+		idle_image.generate_mipmaps()
 		_poses["CHAR_courier"]=ImageTexture.create_from_image(idle_image)
 		_frame_geometry["CHAR_courier"]={"reference_height_px":idle_image.get_height(),"foot_anchor_px":[idle_image.get_width()*0.52,idle_image.get_height()]}
 	for key:String in _walk_keys:
@@ -88,6 +100,7 @@ func _ready() -> void:
 	for index in range(_walk_keys.size()):
 		var pixels:=Image.new()
 		if pixels.load("res://assets/authoring/courier_20261030/clean_edges/walk_%d.png"%index)==OK:
+			pixels.generate_mipmaps()
 			var key:String=_walk_keys[index]
 			_poses[key]=ImageTexture.create_from_image(pixels)
 			_frame_geometry[key]={"reference_height_px":pixels.get_height(),"foot_anchor_px":[pixels.get_width()*0.5,pixels.get_height()]}
@@ -103,6 +116,11 @@ func _ready() -> void:
 	texture_filter = CanvasItem.TEXTURE_FILTER_LINEAR_WITH_MIPMAPS
 	var edge_material := ShaderMaterial.new()
 	edge_material.shader = preload("res://scripts/rebuild/courier_alpha.gdshader")
+	# Reuse the actual hand-drawn eye paintings as an independently timed layer.
+	# The original full-body textures remain immutable.
+	edge_material.set_shader_parameter("open_eye_source", _poses.get("CHAR_courier_walk_2"))
+	edge_material.set_shader_parameter("half_eye_source", _poses.get("CHAR_courier_walk_0"))
+	edge_material.set_shader_parameter("closed_eye_source", _poses.get("CHAR_courier_walk_1"))
 	material = edge_material
 	mouse_filter = Control.MOUSE_FILTER_IGNORE
 	set_process(true)
@@ -245,6 +263,10 @@ func _draw() -> void:
 func _draw_pose(key:String,opacity:float)->void:
 	var art:Texture2D=_poses.get(key)
 	if art==null:return
+	var eye: Rect2 = EYE_RECTS.get(key, Rect2())
+	if material is ShaderMaterial:
+		material.set_shader_parameter("eye_rect",Vector4(eye.position.x,eye.position.y,eye.size.x,eye.size.y))
+		material.set_shader_parameter("eye_state",_eye_state)
 	var ratio:float=actor_height/art.get_height()
 	var anchor:=Vector2(art.get_width()*0.44,art.get_height())
 	if _frame_geometry.has(key):
@@ -260,6 +282,7 @@ func _draw_pose(key:String,opacity:float)->void:
 
 func _process(delta: float) -> void:
 	_breathing += delta
+	_update_blink(delta)
 	if not _gesture_name.is_empty():
 		_gesture_time += delta
 		if _gesture_time >= _gesture_duration: _gesture_name = ""
@@ -289,6 +312,23 @@ func _process(delta: float) -> void:
 	queue_redraw()
 	if not walking and _motion_blend == 0.0 and not manual_enabled and _texture != null and _gesture_name.is_empty() and _pose_mix <= 0.001:
 		set_process(false)
+
+func _update_blink(delta: float) -> void:
+	# Wall-clock timing: walking distance, animation loops and Shift do not
+	# restart or accelerate a blink. One soft 220ms blink every 4.1–5.4 seconds.
+	if _blink_elapsed < 0.0:
+		_blink_wait -= delta
+		if _blink_wait > 0.0: return
+		_blink_elapsed = 0.0
+	_blink_elapsed += delta
+	if _blink_elapsed < .05: _eye_state = 1
+	elif _blink_elapsed < .14: _eye_state = 2
+	elif _blink_elapsed < .22: _eye_state = 1
+	else:
+		_eye_state = 0
+		_blink_elapsed = -1.0
+		_blink_count += 1
+		_blink_wait = [4.6,5.4,4.1][_blink_count % 3]
 
 func _update_idle_transition(delta:float)->void:
 	var moving:=velocity.length()>3.0 or walking or (_manual_active and not _manual_direction().is_zero_approx())
@@ -388,17 +428,15 @@ func _frame_for_time(seconds: float) -> int:
 
 func _advance_phase(travelled: float) -> void:
 	if travelled<=0.0 or _cycle_seconds<=0.0:return
-	# At the established game speed the clip runs in its exact source cadence.
-	# Acceleration/braking slow the cycle with actual foot travel, not frame rate.
-	# This world-distance calibration belongs to gameplay, not the source video.
-	_walk_time = fposmod(_walk_time + 1.0 * travelled / maxf(max_speed,1.0),_cycle_seconds)
-	_step_distance += travelled
-	# One conservative contact on the narrow, grounded source pose per cycle.
-	# The silent source does not substantiate a second synthesized footfall.
+	# Preserve the authored five-pose source cadence; rejected generated legs
+	# are not selected. Phase follows actual travel, including Shift ramps.
+	_walk_time=fposmod(_walk_time+travelled/maxf(max_speed,1.0),_cycle_seconds)
+	_step_distance+=travelled
 	var contact_distance:float=maxf(max_speed,1.0)*_cycle_seconds
-	while _step_distance >= contact_distance:
-		_step_distance -= contact_distance
+	while _step_distance>=contact_distance:
+		_step_distance-=contact_distance
 		footstep.emit()
+
 
 
 func _reach_target() -> void:

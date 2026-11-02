@@ -18,14 +18,16 @@ func _run()->void:
 	var loop_roles:Array[String]=["afternoon.wav duplicated motif","settings_vaporware.ogg duplicated track"]
 	for name:String in sound.BEDS:
 		var bed:AudioStreamPlayer=sound._beds[name]
-		_check(bed.stream is AudioStreamOggVorbis and (bed.stream as AudioStreamOggVorbis).loop,"actual ambient bed has its own looping Ogg stream "+name)
+		_check((bed.stream is AudioStreamOggVorbis or bed.stream is AudioStreamMP3) and bed.stream.loop,"actual ambient bed has its own looping licensed stream "+name)
 		_check(bed.playing and bed.has_stream_playback(),"actual ambient playback is active "+name)
 		loop_refs.append(weakref(bed.stream))
 		loop_roles.append(name+" duplicated bed")
 	sound.settings_music(true)
 	sound.cue_played.connect(func(kind:String,_sample:String):cues.append(kind))
 	sound.play_water_touch(Vector2(250,250),1.0)
-	_check(sound.menu_music.playing,"actual Settings soundtrack plays before shutdown")
+	_check(not sound.menu_music.playing,"Settings retains coastal ambience without unrelated music")
+	_check(is_instance_valid(sound.leaf_player) and sound.leaf_player.playing,"Leaf stream active before shutdown")
+	loop_refs.append(weakref(sound.leaf_player.stream));loop_roles.append("licensed leaves loop")
 	_check(sound._shots.size()==1 and not cues.is_empty(),"actual water one-shot exists before shutdown")
 	var owned:Array[AudioStreamPlayer]=[]
 	var playback_refs:Array[WeakRef]=[]

@@ -90,7 +90,7 @@ func run()->void:
 func roof_test()->void:
  viewport.size=Vector2i(600,500)
  var night=Image.load_from_file("res://assets/authoring/streets_20261101/community_night.png")
- var day=Image.load_from_file("res://assets/authoring/streets_20261101/community_noon.png")
+ var day=Image.load_from_file("res://assets/authoring/streets_20261101/community_morning.png")
  var art:=TextureRect.new();art.texture=ImageTexture.create_from_image(night)
  art.expand_mode=TextureRect.EXPAND_IGNORE_SIZE
  art.size=Vector2(night.get_size())*3;art.position=-Vector2(2050,260)*3

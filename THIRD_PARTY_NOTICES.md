@@ -1,5 +1,9 @@
 # Third-party workflow material
 
+## Outdoor foliage ambience — 2026-11-02
+
+“Autumn wind and dry leaves.wav” by Stek59, Freesound sound 457318, CC0 1.0 Universal. Source: https://freesound.org/people/Stek59/sounds/457318/ . License: https://creativecommons.org/publicdomain/zero/1.0/ . Commercial use and adaptation are permitted. The shipped `assets/audio/foley/leaves_soft_cc0.ogg` is a filtered, crossfaded excerpt of the public HQ MP3 preview, not the original WAV. Exact download/output hashes and processing are in `leaves_soft_license.json`. The existing licensed ocean recording, Kenney footsteps, and user-supplied guitar remain selected. New wind/motion code is original; no Unity demo assets or third-party animation code were copied.
+
 Claude Code Game Studios — Copyright (c) 2026 Donchitos.
 
 Source: https://github.com/Donchitos/Claude-Code-Game-Studios

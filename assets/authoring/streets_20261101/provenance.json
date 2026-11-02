@@ -1,43 +1,51 @@
 [
   {
     "file": "community_morning.png",
-    "supplied_name": "清晨3(3).png",
-    "sha256": "01144afd0a73de0a8c90bdf5747d9914f3aff7acaa04c30733ee66da96678813",
+    "supplied_name": "清晨3.png",
+    "sha256": "bad3d4e903c87b3bd308abb3f21fda565d6cf48c8c02923e488a152ab6c556c5",
     "size": [
       9204,
       640
     ],
-    "processing": "none; exact source bytes"
+    "processing": "none; exact source bytes",
+    "source_batch": "2026-11",
+    "imported_at": "2026-11-02"
   },
   {
     "file": "community_noon.png",
     "supplied_name": "中午3.png",
-    "sha256": "4d42760afd9ba0c14b5cb52fd610a8d90775cc14af2c49314177b0f8091d5de7",
+    "sha256": "1367346a083df03e2ecfe1f5d8f97951bb61acc55ed0f3b60dda1fc817ce00f8",
     "size": [
       9204,
       640
     ],
-    "processing": "none; exact source bytes"
+    "processing": "none; exact source bytes",
+    "source_batch": "2026-11",
+    "imported_at": "2026-11-02"
   },
   {
     "file": "community_sunset.png",
     "supplied_name": "下午3.png",
-    "sha256": "c3de8f7f25657c4cbbed3db0c0bfbae5f054c39e8dba533b61d2eff2e9512c0e",
+    "sha256": "3fbc1d62abce17603dd997447eb268164ae695317ae3502a68786cfda318993f",
     "size": [
       9204,
       640
     ],
-    "processing": "none; exact source bytes"
+    "processing": "none; exact source bytes",
+    "source_batch": "2026-11",
+    "imported_at": "2026-11-02"
   },
   {
     "file": "community_night.png",
-    "supplied_name": "夜晚3.png",
-    "sha256": "ad396cba9b18e593cbb675467473b1f369338e81b4fbe31ee14731e3fc3aa2da",
+    "supplied_name": "夜晚3(1).png",
+    "sha256": "28f03793303ba4e67863456f7609bd2009fac2c8dcfd3d21dc63d17199c59d1c",
     "size": [
       9204,
       640
     ],
-    "processing": "none; exact source bytes"
+    "processing": "none; exact source bytes",
+    "source_batch": "2026-11",
+    "imported_at": "2026-11-02"
   },
   {
     "file": "residential_morning.png",

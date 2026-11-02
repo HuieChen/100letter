@@ -2,8 +2,10 @@ extends Control
 signal map_requested
 signal post_office_requested
 signal footstep
+signal ambience_changed(wind:float, swell:float, foliage:float)
 const UI=preload("res://scripts/ui/paper_ui.gd")
 const Walker=preload("res://scripts/rebuild/final_walker.gd")
+const Atmosphere=preload("res://scripts/rebuild/street_atmosphere.gd")
 var minute:=540
 var postal:=false
 var district:="coastal"
@@ -17,6 +19,16 @@ var entry_ready:=false
 var fountain:TextureRect
 var fountain_frames:Array[Texture2D]=[]
 var fountain_time:=0.0
+var weather_time:=0.0
+var display_minute:=540.0
+var _clock_minute:=540.0
+var _light_target:=540.0
+var time_rate:=0.0
+var _light_tween:Tween
+var atmosphere_material:ShaderMaterial
+var period_textures:Array[Texture2D]=[]
+var _time_ids:=Vector2i(-1,-1)
+var family:="coastal"
 func _ready()->void:
  clip_contents=true
  var period:="morning"
@@ -36,18 +48,23 @@ func _ready()->void:
  UI.place(world,self,Rect2(0,0,960.0*pixels.get_width()/pixels.get_height(),960))
  art=TextureRect.new()
  art.texture=ImageTexture.create_from_image(pixels)
- var breeze:=ShaderMaterial.new()
- breeze.shader=preload("res://scripts/rebuild/street_breeze.gdshader")
- breeze.set_shader_parameter("postal",postal)
- # Region masks are authored for each panorama; never reuse old coordinates
- # on a newly supplied street, which would warp windows/buildings.
- if district=="coastal":art.material=breeze
- if district=="community" and period=="night":
-  var roof_material:=ShaderMaterial.new()
-  roof_material.shader=preload("res://scripts/rebuild/community_roof_occlusion.gdshader")
-  var day_geometry:=Image.load_from_file("res://assets/authoring/streets_20261101/community_noon.png")
-  roof_material.set_shader_parameter("day_geometry",ImageTexture.create_from_image(day_geometry))
-  art.material=roof_material
+ family=district if district in ["community","residential"] else ("postal" if postal else "coastal")
+ for phase:String in Atmosphere.PERIODS:
+  var path:="res://assets/authoring/town_20261029/"+("post_v2_" if postal else "clean_road_")+phase+".png"
+  if district in ["community","residential"]:
+   path="res://assets/authoring/streets_20261101/"+district+"_"+phase+(".jpg" if district=="residential" and phase=="night" else ".png")
+  var image:=Image.load_from_file(path)
+  if image==null or image.is_empty():period_textures.append(art.texture)
+  else:period_textures.append(ImageTexture.create_from_image(image))
+ atmosphere_material=ShaderMaterial.new()
+ atmosphere_material.shader=preload("res://scripts/rebuild/street_atmosphere.gdshader")
+ atmosphere_material.set_shader_parameter("community",district=="community")
+ # The revised noon painting uses warm roof pigment. Recover the roof
+ # silhouette from the matching blue morning painting, never from lighting.
+ atmosphere_material.set_shader_parameter("day_geometry",period_textures[0])
+ Atmosphere.apply_regions(atmosphere_material,family)
+ Atmosphere.apply_rigid(atmosphere_material,family)
+ art.material=atmosphere_material
  art.expand_mode=TextureRect.EXPAND_IGNORE_SIZE
  art.mouse_filter=Control.MOUSE_FILTER_IGNORE
  UI.place(art,world,Rect2(Vector2.ZERO,world.size))
@@ -84,10 +101,48 @@ func _ready()->void:
   entry_hint.add_theme_constant_override("outline_size",6)
   entry_hint.hide()
  UI.button(self,"↩",Rect2(30,28,72,64),func():map_requested.emit()).name="RoadMapReturn"
+ set_time_of_day(float(minute))
+
+func set_time_of_day(value:float)->void:
+ _clock_minute=value
+ display_minute=fposmod(value,1440.0)
+ if period_textures.size()!=4:return
+ var blend:=Atmosphere.time_pair(display_minute)
+ var ids:=Vector2i(int(blend.x),int(blend.y))
+ if ids!=_time_ids:
+  _time_ids=ids
+  art.texture=period_textures[ids.x]
+  atmosphere_material.set_shader_parameter("next_art",period_textures[ids.y])
+  atmosphere_material.set_shader_parameter("night_a",1.0 if ids.x==3 else 0.0)
+  atmosphere_material.set_shader_parameter("night_b",1.0 if ids.y==3 else 0.0)
+ atmosphere_material.set_shader_parameter("light_mix",blend.z)
+ # Stall illumination starts only after sunset has become night.
+ var lamps:=smoothstep(1140.0,1200.0,display_minute)
+ if display_minute<360.0:lamps=1.0-smoothstep(300.0,360.0,display_minute)
+ atmosphere_material.set_shader_parameter("night_lights",lamps)
+ if is_instance_valid(courier):courier.modulate=Atmosphere.LIGHTS[ids.x].lerp(Atmosphere.LIGHTS[ids.y],blend.z)
+ if is_instance_valid(fountain):fountain.modulate=courier.modulate
+
+func transition_time_of_day(value:float)->void:
+ # Saves store cumulative minutes. Keep that clock unwrapped while only the
+ # lighting lookup wraps, otherwise saving on day two plays a whole day.
+ if _light_tween and _light_tween.is_valid():
+  if is_equal_approx(_light_target,value):return
+  _light_tween.kill()
+ _light_target=value
+ if is_equal_approx(_clock_minute,value):return
+ _light_tween=create_tween().set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
+ _light_tween.tween_method(set_time_of_day,_clock_minute,value,1.4)
+
 func _process(_delta:float)->void:
+ weather_time+=_delta
+ if atmosphere_material:atmosphere_material.set_shader_parameter("weather_time",weather_time)
+ if time_rate!=0.0:set_time_of_day(_clock_minute+time_rate*_delta)
  fountain_time+=_delta
  if is_instance_valid(fountain):fountain.texture=fountain_frames[int(fountain_time*3.0)%3]
  if not is_instance_valid(courier):return
+ var source_x:float=courier.foot.x/1.5
+ ambience_changed.emit(Atmosphere.wind_at(weather_time,source_x),Atmosphere.swell_at(weather_time,source_x),Atmosphere.foliage_near(family,source_x))
  var allowed:bool=not can_walk.is_valid() or can_walk.call()
  if courier.manual_enabled!=allowed:courier.manual_enabled=allowed
 

@@ -26,6 +26,10 @@ const POOLS := {
 	"water": ["water_touch_1.wav", "water_touch_2.wav", "water_touch_3.wav"]
 }
 const BEDS := ["sea_bed.ogg", "town_bed.ogg", "wind_bed.ogg", "room_bed.ogg"]
+var _weather_wind:=.25
+var _weather_swell:=.5
+var _weather_foliage:=.2
+var leaf_player:AudioStreamPlayer
 
 var music: AudioStreamPlayer
 var ambience: AudioStreamPlayer
@@ -93,6 +97,15 @@ func _ready() -> void:
 	menu_music=AudioStreamPlayer.new();menu_music.bus=MUSIC_BUS;add_child(menu_music)
 	var menu_track:=load("res://assets/audio/settings_vaporware.ogg") as AudioStreamOggVorbis
 	menu_track=menu_track.duplicate();menu_track.loop=true;menu_music.stream=menu_track;menu_music.volume_db=-80
+	if FileAccess.file_exists(ROOT+"leaves_soft_cc0.ogg"):
+		leaf_player=AudioStreamPlayer.new();leaf_player.bus=AMBIENT_BUS;add_child(leaf_player)
+		var leaves:=AudioStreamOggVorbis.load_from_file(ROOT+"leaves_soft_cc0.ogg")
+		leaves.loop=true;leaf_player.stream=leaves;leaf_player.volume_db=-80;leaf_player.play()
+
+func set_weather(wind:float,swell:float,foliage:float)->void:
+	_weather_wind=clampf(wind,0.0,1.0)
+	_weather_swell=clampf(swell,0.0,1.0)
+	_weather_foliage=clampf(foliage,0.0,1.0)
 
 func settings_music(enabled:bool)->void:
 	if _shutdown_complete:return
@@ -113,11 +126,11 @@ func set_location(id: String, at_minute: int = 540, inside: bool = false) -> voi
 	else:
 		match id:
 			"post_office": levels = {"town_bed.ogg": -32.0, "wind_bed.ogg": -35.0, "sea_bed.ogg": -20.0}
-			"community_center": levels = {"town_bed.ogg": -16.0, "wind_bed.ogg": -26.0}
+			"community_center": levels = {"town_bed.ogg": -32.0, "wind_bed.ogg": -32.0, "sea_bed.ogg": -27.0}
 			"bus_stop": levels = {"town_bed.ogg": -20.0, "sea_bed.ogg": -22.0, "wind_bed.ogg": -24.0}
 			"lookout": levels = {"sea_bed.ogg": -12.0, "wind_bed.ogg": -20.0}
-			"residential": levels = {"town_bed.ogg": -25.0, "wind_bed.ogg": -18.0}
-			"chess_stall": levels = {"town_bed.ogg": -24.0, "wind_bed.ogg": -19.0}
+			"residential": levels = {"town_bed.ogg": -30.0, "wind_bed.ogg": -27.0, "sea_bed.ogg": -26.0}
+			"chess_stall": levels = {"town_bed.ogg": -30.0, "wind_bed.ogg": -28.0, "sea_bed.ogg": -26.0}
 			"tarot_shop": levels = {"wind_bed.ogg": -35.0, "sea_bed.ogg": -20.0, "town_bed.ogg": -34.0}
 			_: levels = {"wind_bed.ogg": -29.0}
 	for file: String in BEDS:
@@ -277,10 +290,17 @@ func _process(delta: float) -> void:
 	for file: String in _beds:
 		var current: float = float(_bed_gains[file])
 		var destination: float = float(_targets.get(file, 0.0))
+		if not indoors and location_id!="title":
+			if file=="wind_bed.ogg":destination*=lerpf(.48,1.10,_weather_wind)
+			elif file=="sea_bed.ogg":destination*=lerpf(.70,1.0,_weather_swell)
 		# Roughly two seconds of perceptual, click-free crossfade.
 		current = lerpf(current, destination, 1.0 - exp(-delta * 1.6))
 		_bed_gains[file] = current
 		(_beds[file] as AudioStreamPlayer).volume_db = linear_to_db(maxf(current, 0.0001))
+	if is_instance_valid(leaf_player):
+		var leaf_gain:=db_to_linear(-32.0)*_weather_foliage*lerpf(.10,1.0,_weather_wind) if not indoors and location_id!="title" else 0.0
+		var now:=db_to_linear(leaf_player.volume_db)
+		leaf_player.volume_db=linear_to_db(maxf(.0001,lerpf(now,leaf_gain,1.0-exp(-delta*4.0))))
 	var target_music: float = db_to_linear(-18.0 if _quiet else -12.0)
 	if location_id == "title":target_music=0.0
 	_music_gain = lerpf(_music_gain, target_music, 1.0 - exp(-delta * 1.3))

@@ -1,0 +1,50 @@
+{
+  "revision": "local-fronds-ground-grass-lamp-guards-20261102",
+  "authoritative_chat": "01a19cb8-1747-79b0-bd33-029b3705231f",
+  "source_sha256": {
+    "scripts/rebuild/street_atmosphere.gd": "c9c83730b3d1966f8d41de83dc2dc6123e7ffa80cc44cb9e94fffb76e96997a3",
+    "scripts/rebuild/street_atmosphere.gdshader": "d9cec9a17ccb22b4b5708f9def4cced508dfce2f8638d499a4ca3b4b42e88bf1",
+    "scripts/ui/audio_feedback.gd": "cfde566dea1dc873ac806dfafd9e7b5751e2904d7da552c942a3280bc82a0356",
+    "tests/street_motion_visibility.gd": "691f1011866805941e5bae9c92fa562b241ca3f416303d1f83d08f16f70ce2f8",
+    "scripts/rebuild/coastal_road.gd": "b07e0d1aeb96ad285b0bcbfeffa555f42954b7049cbc000f9d7923d36dd63103",
+    "tests/street_atmosphere_check.gd": "f86da7cc0fbc4ab4f8972bda3a9f97c337324579e6b65276830585e495eecec9"
+  },
+  "checks": {
+    "street_atmosphere": {
+      "checks": 131,
+      "failures": 0,
+      "includes": "stall lighting off before 19:00; gradual 19:00-20:00; fully on at night"
+    },
+    "visibility": {
+      "vegetation_and_sea_regions": 28,
+      "fixed_objects_noon": 19,
+      "fixed_objects_night": 19,
+      "failures": 0,
+      "ground_changed": 0
+    }
+  },
+  "source_art": "Original panoramas and courier poses unchanged",
+  "audio": "Original music remains primary; existing licensed ambience reduced by 2-3 dB. Supplied audio reference not copied into the soundtrack. Human listening acceptance pending.",
+  "references": [
+    "https://www.youtube.com/watch?v=4OxphYV8W3E",
+    "https://github.com/JaccomoLorenz/godot-simple-wind-shader-2d",
+    "https://github.com/2Retr0/GodotGrass",
+    "https://github.com/GrhythmO/2D-water-effect-shader"
+  ],
+  "implementation": "Original canvas shader. Open-source projects inspected for rooted bend, spatially separated wind phase, and tip delay; no reference art or runtime code copied. No grid, bone, diagnostic overlay or added instruction text.",
+  "acceptance": "User visual/audio review pending",
+  "video": {
+    "file": "C:\\Users\\22416\\Documents\\Codex\\2026-11-02\\wo-2\\outputs\\Community_Local_Wind_NightLights.mp4",
+    "duration_seconds": 62.1,
+    "width": 1920,
+    "height": 1080,
+    "fps": 60,
+    "frames": 3726,
+    "bytes": 132375690,
+    "sha256": "436cf156cf9727a2ea3c489e9de4db2f33c934723628f8df12e4003758833f5c",
+    "full_decode_errors": 0,
+    "audio_mean_db": -34.4,
+    "audio_peak_db": -15.4
+  },
+  "night_stall": "User clarified entire stall warmth, rather than only fringe lamps. Runtime night-only warm material lighting; white source signage/awning preserved. Film includes final night-stall shot."
+}

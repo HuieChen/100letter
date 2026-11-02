@@ -1,3 +1,17 @@
+## 2026-11-03 — Street motion, sound and direct video review
+
+The four November community paintings are selected unchanged. Outdoor families use rooted vegetation motion, separate water motion, quiet licensed leaf/wind/sea layers and transitions between the supplied daylight paintings. The corrected 64-second 1080p60 review video was fully decoded with no errors. It loads current source directly; the earlier overlay-PCK recording incorrectly retained compiled helpers and is superseded. Recording is scripted input, not native player acceptance.
+
+A final independent check found 23 moving pixels on the grocery-side cabinet edge: the rigid guard stopped at source x=4510 although the cabinet extended to x=4530. Extending the guard to x=4540 fixes this without touching the painting. Fresh GPU results: atmosphere 131/0; object boundaries 198/0; visibility 28 candidate regions with both non-plant support areas stationary, 22 rigid guards at noon/night, unchanged ground, 0 failures. The earlier visibility failures are preserved in test-results rather than counted as passes. The video precedes this last 30-pixel guard extension; its receipt remains a historical record. See docs/testing/STREET_PUBLICATION_20261103.md.
+
+The rejected scissor-leg candidate remains inactive. Original five walking poses and existing saves are preserved; gait naturalness and user visual/listening acceptance are still OPEN. Current UI automation could not initialize, so no fresh manual Windows playthrough is claimed. Deliver the video here in chat, not through WeChat.
+
+## 2026-11-02 — Revised community-street paintings
+
+The four new November community paintings replace their October counterparts byte-for-byte; current source names, dimensions and SHA-256 are recorded in assets/authoring/streets_20261101/provenance.json. Originals are preserved. These files retain the same 9204×640 world geometry and destination routing. The updated warm noon roof exposed a color-mask assumption in the pending atmosphere branch; using the corresponding morning geometry fixes the night window/roof overlap. The affected 93 street/import checks and 125 atmosphere checks passed on the recorded snapshot.
+
+Weather/audio enhancements and their recording are a separate ongoing review, not final art/gait acceptance. Another active task is refining the shared atmosphere shader; its work must not be overwritten or described as already validated by these earlier results. The user's rejected scissor-leg candidate is not selected. Native UI automation failed after retry/reset. Current recording is a scripted-input review, not a measured native playthrough. The latest delivery instruction is to show the video directly in chat, not send it to WeChat.
+
 ## 2026-11-01 — Walking candidate rejected; previous cycle restored
 
 The user rejected the continuous leg rig as worse and too mechanical. The candidate is removed from runtime and export selection; final_walker.gd, courier_motion_check.gd and export_presets.cfg are restored to committed 2ef993e. Original supplied source images were never overwritten. The three generated atlas candidates were not registered or shipped. The experimental rig, renderer and recordings are retained only under ignored test-results for diagnosis.

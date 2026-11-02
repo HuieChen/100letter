@@ -98,6 +98,19 @@ func run() -> void:
 	var time_before: float = w._walk_time
 	w._advance_phase(125.0)
 	check(absf(w._walk_time - time_before) < .0001, "One calibrated stride wraps once")
+	# Blink scheduling must be real time, never source-frame or travel cadence.
+	for fps:float in [30.0,60.0,144.0]:
+		w._blink_wait=4.6;w._blink_elapsed=-1;w._blink_count=0;w._eye_state=0
+		var active_frames:=0
+		for frame in range(int(fps*20)):
+			w._update_blink(1.0/fps)
+			if w._eye_state>0:active_frames+=1
+		check(w._blink_count==4,"Only four blinks in20s at %s fps"%fps)
+		check(active_frames/fps<1.0,"Blink closed/half duty stays below5%%")
+		var elapsed_before:float=w._blink_elapsed
+		var wait_before:float=w._blink_wait
+		w._fast_held=true;w._advance_phase(5000)
+		check(w._blink_elapsed==elapsed_before and w._blink_wait==wait_before,"Travel and Shift cannot advance blink timer")
 	w.queue_free()
 	await process_frame
 	print("COURIER_MOTION: %d checks, %d failures" % [checks, failures])
