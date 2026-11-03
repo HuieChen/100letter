@@ -1,0 +1,50 @@
+{
+  "date": "2026-11-03",
+  "changes": [
+    "Remove dark fountain matte fringe while preserving original frame bytes",
+    "Reconnect existing source palm-tip notch in moving source coordinates",
+    "Separate slow horizontal cloud motion with smooth foreground clearance"
+  ],
+  "video": "C:\\Users\\22416\\Documents\\Codex\\2026-11-02\\wo-2\\outputs\\Community_Clouds_Clean_Edges.mp4",
+  "sha256": "d1a80e25d97c25b2a874ef050437e069b2b1dd680fedecafa9b75e0295a7dd96",
+  "bytes": 5364679,
+  "resolution": [
+    1920,
+    1080
+  ],
+  "fps": 60,
+  "frames": 4320,
+  "seconds": 72,
+  "adjacent_repeated_frames": 0,
+  "decode_errors": 0,
+  "explicit_gpu_draws": 4320,
+  "checks": {
+    "fountain": {
+      "checks": 43,
+      "failures": []
+    },
+    "leaf": {
+      "checks": 84,
+      "failures": []
+    },
+    "clouds": {
+      "checks": 13,
+      "failures": []
+    },
+    "boundaries": {
+      "checks": 198,
+      "failures": []
+    },
+    "coverage": {
+      "checks": 109,
+      "failures": []
+    }
+  },
+  "source_fountain_sha256": {
+    "frame_0.png": "c6e71847309cc769270a19031cee2ca90fb0569c615fcebd17676e13ca2d1135",
+    "frame_1.png": "9be8022762a37ca0639cf33ad268e540afd9d17d3be0d9c07e65b6e58dd9695f",
+    "frame_2.png": "0f9f70efb387f63905a1dcc703fbd616bff0d1a9eab401c17eea461f87de5ffb"
+  },
+  "cloud_flow_horizontal_jacobian_lower_bound": 0.4322941176470584,
+  "acceptance": "Current-source GPU checks and visual crops verified; no user aesthetic/listening acceptance inferred."
+}

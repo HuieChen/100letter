@@ -70,7 +70,7 @@ func run()->void:
   var fixtures:Dictionary={
    "coastal":[Rect2i(400,100,480,410),Rect2i(2200,140,360,370),Rect2i(1600,350,90,160)],
    "postal":[Rect2i(2200,100,360,410),Rect2i(3730,150,380,360)],
-   "community":[Rect2i(2000,100,520,410),Rect2i(2560,450,170,60),Rect2i(2880,350,90,160)],
+   "community":[Rect2i(2050,100,470,410),Rect2i(2650,450,70,30),Rect2i(2880,350,90,160)],
    "residential":[Rect2i(2100,100,350,410),Rect2i(6390,320,440,190),Rect2i(6320,300,60,200)]}
   var full:=SubViewport.new();full.size=Vector2i(road.period_textures[1].get_width(),640);full.render_target_update_mode=SubViewport.UPDATE_ALWAYS;root.add_child(full)
   var painted:=TextureRect.new();painted.texture=road.period_textures[1];painted.material=road.atmosphere_material;full.add_child(painted)

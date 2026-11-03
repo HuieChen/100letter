@@ -26,6 +26,8 @@ var _light_target:=540.0
 var time_rate:=0.0
 var _light_tween:Tween
 var atmosphere_material:ShaderMaterial
+var clouds:TextureRect
+var cloud_material:ShaderMaterial
 var period_textures:Array[Texture2D]=[]
 var _time_ids:=Vector2i(-1,-1)
 var family:="coastal"
@@ -68,11 +70,21 @@ func _ready()->void:
  art.expand_mode=TextureRect.EXPAND_IGNORE_SIZE
  art.mouse_filter=Control.MOUSE_FILTER_IGNORE
  UI.place(art,world,Rect2(Vector2.ZERO,world.size))
+ if district=="community":
+  clouds=TextureRect.new()
+  clouds.expand_mode=TextureRect.EXPAND_IGNORE_SIZE
+  clouds.mouse_filter=Control.MOUSE_FILTER_IGNORE
+  cloud_material=ShaderMaterial.new()
+  cloud_material.shader=preload("res://scripts/rebuild/street_clouds.gdshader")
+  var clearance:=Image.load_from_file("res://assets/authoring/street_motion_masks_20261103/community_cloud_clearance.png")
+  cloud_material.set_shader_parameter("clearance",ImageTexture.create_from_image(clearance))
+  clouds.material=cloud_material
+  UI.place(clouds,world,Rect2(Vector2.ZERO,world.size))
  for index in range(3):
   var frame:=Image.new()
   if frame.load("res://assets/authoring/fountain_20261030/frame_%d.png"%index)==OK:
    fountain_frames.append(ImageTexture.create_from_image(frame))
- if fountain_frames.size()==3 and district=="coastal":
+ if fountain_frames.size()==3 and district in ["coastal","community"]:
   fountain=TextureRect.new()
   fountain.expand_mode=TextureRect.EXPAND_IGNORE_SIZE
   fountain.mouse_filter=Control.MOUSE_FILTER_IGNORE
@@ -80,7 +92,11 @@ func _ready()->void:
   var water_material:=ShaderMaterial.new()
   water_material.shader=preload("res://scripts/rebuild/fountain_water_only.gdshader")
   fountain.material=water_material
-  UI.place(fountain,world,Rect2((5390.0 if postal else 4104.0)*1.5,(91.0 if postal else 93.0)*1.5,337*1.5,430*1.5))
+  # Reuse the user's imported water frames. Community has the same statue,
+  # registered against its fixed bird and basin landmarks in source pixels.
+  var fountain_rect:=Rect2((5390.0 if postal else 4104.0), (91.0 if postal else 93.0),337,430)
+  if district=="community":fountain_rect=Rect2(386.5,86.7,335.46,427.96)
+  UI.place(fountain,world,Rect2(fountain_rect.position*1.5,fountain_rect.size*1.5))
   fountain.modulate={"morning":Color(0.97,0.97,1.0),"noon":Color.WHITE,"sunset":Color(1.0,0.87,0.72),"night":Color(0.45,0.47,0.72)}[period]
  courier=Walker.new()
  courier.actor_height=295
@@ -116,6 +132,10 @@ func set_time_of_day(value:float)->void:
   atmosphere_material.set_shader_parameter("night_a",1.0 if ids.x==3 else 0.0)
   atmosphere_material.set_shader_parameter("night_b",1.0 if ids.y==3 else 0.0)
  atmosphere_material.set_shader_parameter("light_mix",blend.z)
+ if is_instance_valid(clouds):
+  clouds.texture=period_textures[ids.x]
+  cloud_material.set_shader_parameter("next_art",period_textures[ids.y])
+  cloud_material.set_shader_parameter("light_mix",blend.z)
  # Stall illumination starts only after sunset has become night.
  var lamps:=smoothstep(1140.0,1200.0,display_minute)
  if display_minute<360.0:lamps=1.0-smoothstep(300.0,360.0,display_minute)
@@ -134,12 +154,21 @@ func transition_time_of_day(value:float)->void:
  _light_tween=create_tween().set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
  _light_tween.tween_method(set_time_of_day,_clock_minute,value,1.4)
 
-func _process(_delta:float)->void:
- weather_time+=_delta
+func set_fountain_time(seconds:float)->void:
+ # Keep the original imported three-frame / 3 fps loop, including recordings.
+ fountain_time=maxf(0.0,seconds)
+ if is_instance_valid(fountain):
+  fountain.texture=fountain_frames[int(fountain_time*3.0)%fountain_frames.size()]
+
+func set_weather_time(seconds:float)->void:
+ weather_time=seconds
  if atmosphere_material:atmosphere_material.set_shader_parameter("weather_time",weather_time)
+ if cloud_material:cloud_material.set_shader_parameter("weather_time",weather_time)
+
+func _process(_delta:float)->void:
+ set_weather_time(weather_time+_delta)
  if time_rate!=0.0:set_time_of_day(_clock_minute+time_rate*_delta)
- fountain_time+=_delta
- if is_instance_valid(fountain):fountain.texture=fountain_frames[int(fountain_time*3.0)%3]
+ set_fountain_time(fountain_time+_delta)
  if not is_instance_valid(courier):return
  var source_x:float=courier.foot.x/1.5
  ambience_changed.emit(Atmosphere.wind_at(weather_time,source_x),Atmosphere.swell_at(weather_time,source_x),Atmosphere.foliage_near(family,source_x))

@@ -1,3 +1,17 @@
+## 2026-11-03 — Latest cloud/edge correction package
+
+Latest source adds slowly translating clouds with foreground clearance, removes matte contamination from the original fountain animation and reconnects the supplied palm-tip notch at moving sample coordinates. The originals remain unchanged. Root reran the actual-source cloud test (13/0) and fountain test (43/0), verified the new 72-second video SHA-256 `d1a80e25d97c25b2a874ef050437e069b2b1dd680fedecafa9b75e0295a7dd96` and fully decoded it without errors. See STREET_EDGE_CLOUD_CORRECTIONS_20261103.md and its receipt for additional source-owner regression evidence.
+
+A first export captured a transient mixed-sampler leaf-helper shader and failed to compile, despite its shallow package assertions returning 16/0. That package was rejected. After current source stabilized, a fresh Windows export and isolated GPU package load passed 16 checks with empty stderr; it verifies 26 guards, 35 grass groups, exact source-art hashes, original three fountain frames, leaf audio/license and four daylight states. Logs: test-results/package-atmosphere-qa/check-full-final.*. The prior blanket-region test mismatch below remains recorded and is not a passing check. No final native/user acceptance is claimed.
+
+## 2026-11-03 — Full-street extension and original fountain
+
+Latest authorized shared-workspace revision expands community motion to 12 tree groups, 35 grass/shrub groups, 45 local branch axes and 26 rigid guards, plus separate attached-cloth motion. The procedural replacement fountain highlights were removed: community now reuses the user's original three water frames at their original 3fps, aligned to the fixed statue/basin. Source paintings, character poses and sound mix remain unchanged. See docs/testing/STREET_FULL_COVERAGE_20261103.md and receipt-original-fountain-20261103.json.
+
+Root independently reran hidden GPU checks: full coverage 109/0 across 54 named material objects; object boundaries 198/0; general atmosphere 131/0; original fountain 43/0. Root also verified the latest 72-second video SHA-256 and fully decoded it without errors. This supersedes the prior 64-second preview.
+
+The old `street_motion_visibility.gd` regression was also run and returned 187 failures: it hard-codes 22 guards instead of the new 26, requires whole building rectangles to remain static despite intentionally animated foreground plants/cloth, samples motion at only 1.25 seconds, and treats all pixels below y=521 as ground. It is NOT reported as passing; its compatibility with the broader material-specific coverage remains unresolved. The independent material and architectural boundary tests above are current evidence, not a waiver of this recorded mismatch or user acceptance. Logs: test-results/full-publication-*. Native playthrough, listening acceptance and gait quality remain open.
+
 ## 2026-11-03 — Street motion, sound and direct video review
 
 The four November community paintings are selected unchanged. Outdoor families use rooted vegetation motion, separate water motion, quiet licensed leaf/wind/sea layers and transitions between the supplied daylight paintings. The corrected 64-second 1080p60 review video was fully decoded with no errors. It loads current source directly; the earlier overlay-PCK recording incorrectly retained compiled helpers and is superseded. Recording is scripted input, not native player acceptance.

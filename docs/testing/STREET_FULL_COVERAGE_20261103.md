@@ -1,0 +1,21 @@
+# Full community street motion coverage — 2026-11-03
+
+The user rejected the previous partial coverage. The new audit used the actual9204x640 source panorama from both ends, independently of implementation rectangles. It found missing fountain streams, two flags, parasols/valances/fringe, potted leaves, a narrow tree, grass clumps and parts of both small/leaning palm crowns. Some old grass boxes contained emptyground, sea, stone or crates, creating falsepositive motion checks.
+
+Current community regions:12 tree/leaf groups,35 real grass/shrub groups,45 local branch/frond axes,6 exposed sea regions and26 rigid-region guards. All8 lamp heads/poles remain fixed. Dedicated frond axes use actual crownattachments; the leaning palm now includes its leftfronds andtop. Cacti receive only onefifth of the soft foliage parent response and stiffer branch bending. Roots and pots are fixed.
+
+Foreground plants inside broad building rectangles are admitted by a bounded original-morning pigment silhouette plus antialias margin, with displacement capped1.7 sourcepixels. This makes their actual edges move against the underlying flat wall while preserving architectural boundaries. Existing roof/lamp/wood protections are retained.
+
+The latest explicit user correction replaces the procedural fountain highlights with the existing imported `fountain_20261030/frame_0..2.png` animation. Community now uses the same water-only overlay as the coastal road, registered to its fixed statue at source Rect2(386.5,86.7,335.46,427.96). The established three-frame / 3 fps loop and original asset bytes are preserved. `set_fountain_time` is used both by gameplay and the recording so the imported layer really advances in the film. The full-panorama coverage fixture composites this separate layer and samples noninteger seconds to cover all three original frames.
+
+Seven additional cloth classes cover flags2/3, leftparasol, grocerybluevalance, attached marketfringe, caravanawning and rightparasol. Clothlookups stay inside the same material: fixed attachments/perimeters with independently phased interior ripples and subtle fold shading. These cloth effects preserve the painting; they are not a full cloth simulation. Detached goldmarks beside the market are authored lighting decoration rather than attached cloth and remain static. No extra art is painted.
+
+The source panorama files and original five-pose courier are unchanged. Existing low ambience/original music and night-only stall warmth are retained. Export resource selection already includes the modified helper/shader. No grids, bones, wireframes or parameters are displayed.
+
+Validation records: tests/street_full_coverage.gd selects actual morning green/cloth/cyan pixels in independently named object regions, avoiding sea/emptyground falsepositives. General street regression131checks passes; prior objectboundary regression198checks passes. Current coverage result and finalvideo metadata are stored in receipt-full-coverage-20261103.json. Rendered media is evidence, not user aesthetic/listening acceptance.
+
+The new proof film uses12 fixed views held6seconds each: ten daylight views cover the entire street, followed by nightstall andnightlamps. It uses the verified direct-current-source forced-GPU recording pipeline, native1920x1080/60fps. It is an isolated preview and does not change saves or walking controls.
+
+Final current-source checks:54 independently named material objects,109 coverage checks,0 failures;198 boundary checks,0 failures. Both logs contain no stderr errors. Final72-second MP4 has4320 frames at1920x1080/60fps,0 adjacent repeated frames and0 decode errors. File: C:/Users/22416/Documents/Codex/2026-11-02/wo-2/outputs/Community_Full_Street_Motion.mp4.
+
+Fountain follow-up: actual community-road GPU integration checks43/43 pass, including exact loaded source pixels, original frame order/loop, changing water, fixed statue/basin and continuous day/night tint. Evidence: `test-results/fountain-original-20261103/receipt.json`. Full coverage was rerun with the original overlay:54 objects,109 checks,0 failures. No new human aesthetic acceptance is inferred. The earlier film above is superseded by the original-fountain revision; see the fountain receipt for its final path/hash.

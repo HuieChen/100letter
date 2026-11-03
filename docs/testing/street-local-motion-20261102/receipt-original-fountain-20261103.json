@@ -1,0 +1,27 @@
+{
+  "date": "2026-11-03",
+  "request": "Use the originally imported fountain animation",
+  "video": "C:\\Users\\22416\\Documents\\Codex\\2026-11-02\\wo-2\\outputs\\Community_Original_Fountain.mp4",
+  "bytes": 5203555,
+  "sha256": "1bcd9787c00fdbe11f420a73b8f42de7831dc97cbc9a6355818ba40855c487c4",
+  "resolution": [
+    1920,
+    1080
+  ],
+  "fps": 60,
+  "frames": 4320,
+  "duration_seconds": 72,
+  "adjacent_repeated_frames": 0,
+  "decode_errors": "",
+  "explicit_gpu_draws": 4320,
+  "source_frames_sha256": {
+    "frame_0.png": "c6e71847309cc769270a19031cee2ca90fb0569c615fcebd17676e13ca2d1135",
+    "frame_1.png": "9be8022762a37ca0639cf33ad268e540afd9d17d3be0d9c07e65b6e58dd9695f",
+    "frame_2.png": "0f9f70efb387f63905a1dcc703fbd616bff0d1a9eab401c17eea461f87de5ffb"
+  },
+  "imported_animation_fps": 3,
+  "coverage_checks": 109,
+  "fountain_checks": 43,
+  "failures": [],
+  "note": "Original assets unchanged. Procedural fountain highlights removed. Actual current-source recording, exact loop and static statue/basin verified; user visual/listening acceptance is separate."
+}

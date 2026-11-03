@@ -1,0 +1,40 @@
+{
+  "revision": "full-community-object-coverage-20261103",
+  "source_sha256": {
+    "scripts/rebuild/street_atmosphere.gd": "181d368ea25ce7086af3ff9e48aa37e3d495f7573b9dfec21fb54699dc536948",
+    "scripts/rebuild/street_atmosphere.gdshader": "9f948266623c085b67655b883e0b68756ad7b0f82cf4ae9564b5e5b402e38a30",
+    "tests/street_full_coverage.gd": "3d3563d5805d41db08dbddd5acf851036b3df7a3374e68d2346f32907e9fc387",
+    "tests/street_object_boundaries.gd": "eadad3f27d8ddd68d161eeb493be98f04543ce688d0a923b01b07ba9188b4d8c",
+    "tests/street_atmosphere_check.gd": "adbd68be91055eab8183f83c00f06525a6e4b035dbfc399f32f9783f34c6d58d"
+  },
+  "runtime": {
+    "trees": 12,
+    "grass": 35,
+    "branches": 45,
+    "rigid": 26
+  },
+  "checks": {
+    "coverage_objects": 54,
+    "coverage_checks": 109,
+    "coverage_failures": [],
+    "boundary_checks": 198,
+    "general_checks": 131
+  },
+  "video": {
+    "file": "C:\\Users\\22416\\Documents\\Codex\\2026-11-02\\wo-2\\outputs\\Community_Full_Street_Motion.mp4",
+    "width": 1920,
+    "height": 1080,
+    "fps": 60,
+    "duration_seconds": 72,
+    "frames": 4320,
+    "consecutive_repeated_frames": 0,
+    "full_decode_errors": 0,
+    "bytes": 5252137,
+    "sha256": "908c0d6d1f069d2dad878769533aece5c6d68879a7c29ea93e68d0dedd7e2d4e",
+    "gpu_draws": 4320,
+    "runtime_second_samples_unique": 72,
+    "mean_volume_db": -34.4,
+    "max_volume_db": -15.4
+  },
+  "acceptance": "User visual and listening review pending"
+}

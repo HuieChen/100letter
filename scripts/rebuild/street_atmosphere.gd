@@ -4,8 +4,8 @@ const PERIODS := ["morning", "noon", "sunset", "night"]
 const LIGHTS := [Color(.94,.98,1), Color(1,.99,.94), Color(1,.88,.79), Color(.62,.69,.91)]
 const REGIONS := {
  "community": {
-  "trees": [Vector4(315,180,420,510),Vector4(710,350,870,510),Vector4(2780,345,2860,478),Vector4(3970,315,4130,512),Vector4(5865,120,6160,505),Vector4(6620,345,6840,513),Vector4(7670,110,7850,500)],
-  "grass": [Vector4(895,440,970,515),Vector4(1770,430,1855,515),Vector4(3715,410,3970,515),Vector4(4435,458,4540,515),Vector4(4700,440,4810,515),Vector4(4870,436,4990,515),Vector4(5090,450,5150,515),Vector4(5290,478,5340,515),Vector4(5370,475,5430,515),Vector4(5545,440,5745,515),Vector4(5760,460,5855,515),Vector4(5875,465,5925,515),Vector4(6090,470,6160,515),Vector4(6950,450,7110,515),Vector4(7160,460,7250,515)],
+  "trees": [Vector4(315,180,420,465),Vector4(248,375,402,505),Vector4(419,270,480,460),Vector4(710,350,870,510),Vector4(840,322,900,505),Vector4(2780,345,2860,478),Vector4(3970,315,4130,512),Vector4(4670,375,4738,505),Vector4(5865,120,6160,505),Vector4(6735,340,6840,440),Vector4(7610,88,7842,310),Vector4(8020,469,8100,531)],
+  "grass": [Vector4(366,459,403,515),Vector4(425,480,470,515),Vector4(647,476,707,515),Vector4(832,480,886,515),Vector4(895,440,970,515),Vector4(1003,474,1030,515),Vector4(1770,425,1855,515),Vector4(1840,405,1891,515),Vector4(1913,403,2009,515),Vector4(2520,442,2647,515),Vector4(2707,497,2741,515),Vector4(3458,486,3478,515),Vector4(3483,500,3499,515),Vector4(3618,477,3641,515),Vector4(3640,501,3657,515),Vector4(3772,438,3887,515),Vector4(3950,481,4026,515),Vector4(4613,465,4650,515),Vector4(4650,463,4677,515),Vector4(4704,442,4785,515),Vector4(4791,457,4825,515),Vector4(4908,436,5044,515),Vector4(5151,469,5212,515),Vector4(5328,485,5363,515),Vector4(5417,488,5474,515),Vector4(5579,453,5748,515),Vector4(5778,475,5816,515),Vector4(5816,473,5873,515),Vector4(5896,473,5970,515),Vector4(6011,478,6059,515),Vector4(6775,482,6822,515),Vector4(6846,458,6955,515),Vector4(6998,466,7026,515),Vector4(7036,489,7060,515),Vector4(7072,483,7101,515)],
   "sea": [Vector4(970,485,1050,511),Vector4(1170,486,1550,511),Vector4(2990,485,3540,511),Vector4(4840,485,5020,511),Vector4(5110,485,5370,511),Vector4(7150,485,7450,511)],
   "boat": []},
  "residential": {
@@ -57,15 +57,18 @@ static func apply_branches(material:ShaderMaterial,family:String)->void:
  var axes:Array[Vector4]=[]
  var shapes:Array[Vector2]=[]
  for r:Vector4 in REGIONS.get(family,REGIONS.coastal).trees:
-  if family=="community" and r.x==5865:continue
+  if family=="community" and int(r.x) in [5865,6735,7610,8020]:continue
   var w:float=r.z-r.x;var h:float=r.w-r.y
   var base:=Vector2((r.x+r.z)*.5,r.y+h*.68)
   for k in range(3):
    var tip:=Vector2(r.x+w*[.15,.58,.86][k],r.y+h*[.32,.12,.38][k])
    axes.append(Vector4(base.x,base.y,tip.x,tip.y))
-   shapes.append(Vector2(w*.35,.075 if k!=1 else .045))
+   var stiffness:=.018 if family=="community" and int(r.x) in [315,419,840] else (.075 if k!=1 else .045)
+   shapes.append(Vector2(w*.35,stiffness))
  if family=="community":
   var fronds:=[[6020,290,6100,154,43,.045],[6020,288,5940,225,43,.075],[6020,288,6108,235,32,.065],[6020,291,6130,317,38,.085],[6020,292,5945,315,34,.085],[6020,345,5963,326,23,.075]]
+  fronds.append_array([[6783,414,6745,376,19,.075],[6783,414,6767,353,19,.06],[6783,414,6817,353,19,.065],[6783,414,6818,408,17,.09],[6783,414,6744,413,17,.09],[7723,218,7623,198,28,.065],[7723,218,7652,291,28,.075],[7723,218,7730,99,25,.045],[7723,218,7768,126,26,.055],[7723,218,7824,197,27,.075],[7723,218,7782,260,24,.08]])
+  fronds.append_array([[8053,509,8035,479,11,.075],[8053,509,8075,480,11,.08],[8053,509,8034,508,10,.09],[8053,509,8089,518,11,.1]])
   for f:Array in fronds:
    axes.append(Vector4(f[0],f[1],f[2],f[3]));shapes.append(Vector2(f[4],f[5]))
  material.set_shader_parameter("branch_count",axes.size())
@@ -80,7 +83,7 @@ static func apply_regions(material:ShaderMaterial,family:String)->void:
   var values:Array[Vector4]=[]
   values.assign(spec[kind])
   material.set_shader_parameter(kind+"_count",values.size())
-  while values.size()<(24 if kind=="grass" else 12):values.append(Vector4.ZERO)
+  while values.size()<({"trees":24,"grass":48,"sea":12,"boat":12}[kind]):values.append(Vector4.ZERO)
   material.set_shader_parameter(kind+"_regions",values)
 
 static func apply_rigid(material:ShaderMaterial,family:String)->void:
@@ -91,6 +94,10 @@ static func apply_rigid(material:ShaderMaterial,family:String)->void:
   values.append(Vector4(7526,330,7654,397))
   values.append(Vector4(7578,390,7602,516))
   values.append(Vector4(1776,438,1785,516))
+  values.append(Vector4(390,444,700,515))
+  values.append(Vector4(480,65,655,358))
+  values.append(Vector4(146,469,273,515))
+  values.append(Vector4(796,454,904,515))
  material.set_shader_parameter("rigid_count",values.size())
  while values.size()<32:values.append(Vector4.ZERO)
  material.set_shader_parameter("rigid_regions",values)
