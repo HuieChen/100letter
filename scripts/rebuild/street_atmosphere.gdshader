@@ -171,7 +171,7 @@ vec2 extra_fabric_shift(vec2 p,vec2 texel,float t){
  int kind=-1;
  float top=0.0;
  float height=1.0;
- if(p.x>1876.0 && p.x<1922.0 && p.y>358.0 && p.y<434.0){kind=0;top=359.0;height=75.0;}
+ if(p.x>1876.0 && p.x<1922.0 && p.y>358.0 && p.y<434.0){kind=0;top=359.0;height=48.0;}
  else if(p.x>1984.0 && p.x<2025.0 && p.y>354.0 && p.y<443.0){kind=1;top=356.0;height=49.0;}
  else if(p.x>57.0 && p.x<196.0 && p.y>354.0 && p.y<436.0){kind=2;top=355.0;height=81.0;}
  else if(p.x>4232.0 && p.x<4480.0 && p.y>378.0 && p.y<414.0){kind=3;top=379.0;height=35.0;}
@@ -188,17 +188,32 @@ vec2 extra_fabric_shift(vec2 p,vec2 texel,float t){
  float fine=sin(local*3.43-h*7.1+p.x*.057);
  vec2 displacement;
  if(kind<=1){
-  displacement=vec2((-drive*2.0+wave*2.1+fine*.35)*h*h,.28*wave*h*h);
+  displacement=vec2((-drive*3.0+wave*3.4+fine*.45)*h*h,.50*wave*h*h);
  }else{
   // Canopy fabric carries small travelling folds along a secured horizontal rim.
   float loose=smoothstep(.06,.82,h);
-  displacement=vec2(.55*wave*loose,(-drive*.75+wave*.95+fine*.18)*loose);
+  displacement=vec2(.90*wave*loose,(-drive*1.05+wave*1.85+fine*.25)*loose);
  }
  displacement*=membership;
  // Both lookups must remain the SAME cloth material; this also protects all
  // occluding roof/pole/sign pixels. The boundary itself remains stationary.
  if(extra_fabric_mask(p+displacement,texel,kind)<.92)return vec2(0.0);
  return displacement;
+}
+// The large right parasol has an actual free lower hem. Move its complete
+// antialiased edge plus adjacent sky; the canopy apex and grey support stay
+// fixed. This avoids relying on invisible ripples inside flat-painted fabric.
+vec2 parasol_hem_shift(vec2 p,float t){
+ if(!community || p.x<8350.0 || p.x>8730.0)return vec2(0.0);
+ float hem=253.0+(p.x-8400.0)*.18;
+ float side=smoothstep(8352.0,8374.0,p.x)*(1.0-smoothstep(8710.0,8730.0,p.x));
+ float loose=smoothstep(hem-28.0,hem-5.0,p.y)*(1.0-smoothstep(hem+5.0,hem+18.0,p.y));
+ float support=support_segment(p,vec2(8538.0,276.0),vec2(8511.0,365.0),18.0);
+ float phase=t*1.65-(p.x-8350.0)*.035;
+ vec2 d=vec2(.25*sin(phase*.73),2.0*sin(phase)+.45*sin(t*2.45-p.x*.051));
+ d*=side*loose*(1.0-support);
+ d*=1.0-support_segment(p+d,vec2(8538.0,276.0),vec2(8511.0,365.0),18.0);
+ return d;
 }
 void fragment(){
  vec2 p=UV/TEXTURE_PIXEL_SIZE;
@@ -221,7 +236,7 @@ void fragment(){
   // Several unequal periods prevent a rigid metronome cycle.
   float delayed=local-height*.55;
   float stiffness=(community && (r.x==315.0 || r.x==419.0 || r.x==840.0))?.2:1.0;
-  float sway=-(bend_load(delayed,2.2,.85)-.28)*5.0*stiffness;
+  float sway=-(bend_load(delayed,2.2,.85)-.28)*7.0*stiffness;
   float side=(p.x-(r.x+r.z)*.5)/max(r.z-r.x,1.0);
   float tips=sin(delayed*3.4-side*2.4)*strength*.55;
   float rooted=smoothstep(.16,.86,height);
@@ -246,7 +261,7 @@ void fragment(){
   float pulse=wind(lt);
   float natural=clamp(430.0/max(length(d),1.0),2.3,5.2);
   float direction=(d.y<0.0)?-1.0:1.0;
-  float angle=(bend_load(lt,natural,.68)-.24)*branch_shapes[i].y*direction*1.7;
+  float angle=(bend_load(lt,natural,.68)-.24)*branch_shapes[i].y*direction*2.7;
   angle+=sin(lt*5.1+phase*1.7)*.004*pulse*clamp(along,0.0,1.0);
   angle*=pow(clamp(along,0.0,1.0),1.3);
   // Inverse arc mapping preserves length instead of stretching the leaf axis.
@@ -257,13 +272,15 @@ void fragment(){
  for(int i=0;i<48;i++){
   if(i>=grass_count)break;
   vec4 r=grass_regions[i];
-  float grass_mask=region(p,r,min(7.0,(r.w-r.y)*.18));
+  float grass_mask=region(p,r,min(5.0,(r.w-r.y)*.12));
   if(grass_mask<=0.0)continue;
   float h=clamp((r.w-p.y)/max(r.w-r.y,1.0),0.0,1.0);
   float strength=wind(t-p.x/900.0);
   float grass_load=bend_load(t-p.x/900.0-h*.18,5.2,.78)-.28;
   float tip_flutter=sin(t*4.4+p.x*.05)*strength*.55*h;
-  shift.x-=grass_mask*h*h*(grass_load*18.0+tip_flutter);
+  // Short grass is viewed at scene scale, so give its free upper blade a
+  // readable bend while the rooted bottom still vanishes continuously.
+  shift.x-=grass_mask*pow(h,1.65)*(grass_load*29.0+tip_flutter*1.35);
  }
  // Vegetation may only carry vegetation or its exposed backdrop. Never
  // sample cloth, a pole, a trunk or masonry through a moving leaf/grass field.
@@ -306,7 +323,7 @@ void fragment(){
   float local=t-1780.0/900.0;
   float flutter=sin(local*2.15-hanging*4.2)+.25*sin(local*3.37-hanging*7.0);
   float cloth_load=bend_load(local-hanging*.24,3.6,.8)-.28;
-  vec2 cloth_shift=vec2((-cloth_load*3.0+flutter*(.6+wind(local)))*pow(hanging,1.3),sin(local*2.15-hanging*4.2)*.3*hanging);
+  vec2 cloth_shift=vec2((-cloth_load*4.0+flutter*(1.1+wind(local)*1.25))*pow(hanging,1.3),sin(local*2.15-hanging*4.2)*.45*hanging);
   float from_flag=flag(p+cloth_shift,TEXTURE_PIXEL_SIZE);
   float neighbor_plant=plant(p+cloth_shift,TEXTURE_PIXEL_SIZE);
   float cloth=step(.005,max(own_flag,from_flag))*(1.0-step(.005,max(own_plant,neighbor_plant)));
@@ -344,6 +361,8 @@ void fragment(){
  sea_mask*=1.0-support_guard;
  vec2 fabric_shift=extra_fabric_shift(p,TEXTURE_PIXEL_SIZE,t);
  if(dot(fabric_shift,fabric_shift)>0.0)shift=fabric_shift;
+ vec2 hem_shift=parasol_hem_shift(p,t);
+ if(dot(hem_shift,hem_shift)>0.0)shift=hem_shift;
  vec2 uv=clamp(UV+shift*TEXTURE_PIXEL_SIZE*motion_strength,vec2(0.0),vec2(1.0));
  vec4 a=texture(TEXTURE,uv);
  vec4 b=texture(next_art,uv);
@@ -361,7 +380,9 @@ void fragment(){
   b.rgb=mix(b.rgb,texture(next_art,nearby).rgb,roof*smoothstep(-.08,0.0,b.r-b.b)*night_b);
  }
  vec4 painted=mix(a,b,light_mix);
- painted.rgb*=1.0+sin(p.x*.12+p.y*.12-t*2.2)*length(fabric_shift)*.025*motion_strength;
+ // Visible travelling fold response on broad, nearly flat painted cloth.
+ // Clamp the value to avoid a flash on the larger flag displacement.
+ painted.rgb*=1.0+sin(p.x*.12+p.y*.12-t*2.2)*min(length(fabric_shift),2.0)*.042*motion_strength;
  // Broad painted swells plus short moving crests make motion legible even
  // where the supplied sea is a nearly flat strip of color.
  float wave_y=p.y+sin(p.x*.014-t*1.2)*1.6-t*1.9;

@@ -1,3 +1,9 @@
+## 2026-11-03 — Fountain white collar and clearer local motion
+
+The latest scoped revision removes the rejected upper-spout white collar at render time with adjacent original water pigment, retaining all three source frames and 3fps timing. Local plant/flag/valance response and bounded horizontal cloud motion are more visible; the large right parasol has a moving free lower hem while its pole remains fixed. See docs/testing/STREET_VISIBLE_MOTION_20261103.md for measured before/after evidence and limitations.
+
+Root independently reran the current GPU tests: white collar18/0, original fountain43/0, object boundaries198/0, clouds13/0, full street109/0; stderr empty. The new 72-second1080p60 video hash matches `dcb736b71a68121f40961bf7dfb3720153770316c90a035e24032b74f3656c39`; root fully decoded it without errors. A fresh Windows export in ignored test-results/DearSomewhere-VisibleMotion-20261103 was loaded alone in an isolated GPU process:17 checks passed, empty stderr, including current collar shader, source-art hashes, 26 guards/35 grass regions, original fountain frames and leaf audio. Source images and user saves were not changed. The old blanket-region regression mismatch and human/native/gait acceptance gaps recorded below remain open; this scoped pass is not whole-game acceptance.
+
 ## 2026-11-03 — Latest cloud/edge correction package
 
 Latest source adds slowly translating clouds with foreground clearance, removes matte contamination from the original fountain animation and reconnects the supplied palm-tip notch at moving sample coordinates. The originals remain unchanged. Root reran the actual-source cloud test (13/0) and fountain test (43/0), verified the new 72-second video SHA-256 `d1a80e25d97c25b2a874ef050437e069b2b1dd680fedecafa9b75e0295a7dd96` and fully decoded it without errors. See STREET_EDGE_CLOUD_CORRECTIONS_20261103.md and its receipt for additional source-owner regression evidence.

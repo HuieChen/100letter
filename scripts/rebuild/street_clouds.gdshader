@@ -13,7 +13,10 @@ void fragment(){
  // banks have slightly different speeds; there is no vertical rocking.
  // Smoothly bounded travel keeps the authored occluded background intact.
  float depth=.78+.22*sin(p.x*.00055+.4);
- float drift=18.0*sin(weather_time*.032)*depth;
+ // Offset the slow wind response between distant cloud banks, so all clouds
+ // do not reach a nearly stationary turning point together. The faster flow
+ // remains bounded by the same foreground-clearance and no-fold limit.
+ float drift=18.0*sin(weather_time*.05+p.x*.00017)*depth;
  float amount=free*motion_strength;
  vec2 at=clamp(UV-vec2(drift*amount,0.0)*texel,vec2(0.0),vec2(1.0));
  vec4 sky=mix(texture(TEXTURE,at),texture(next_art,at),light_mix);
