@@ -68,7 +68,7 @@ var guidance_targets: Dictionary={}
 
 func _ready() -> void:
 	var t = Theme.new()
-	t.default_font = load("res://assets/fonts/SolmereSans.ttf")
+	t.default_font = load("res://assets/fonts/DearRounded.tres")
 	t.default_font_size = 22
 	theme = t
 	game = Session.new()

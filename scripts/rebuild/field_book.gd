@@ -5,8 +5,8 @@ signal closed
 signal cue(kind: String)
 
 const CANVAS := Vector2(1600, 900)
-const FONT = preload("res://assets/fonts/SolmereSans.ttf")
-const HAND = preload("res://assets/fonts/Caveat.ttf")
+const FONT = preload("res://assets/fonts/DearRounded.tres")
+const HAND = preload("res://assets/fonts/DearRounded.tres")
 const Art = preload("res://scripts/rebuild/physical_art.gd")
 const BOOK_RECT := Rect2(30,52,1540,798)
 # Insets follow the opaque paper silhouette, not the outer leather cover.
@@ -474,7 +474,7 @@ static func _clock(minute: int) -> String:
 
 func _reading_font() -> Font:
 	var result := FontVariation.new()
-	result.base_font = ThemeDB.fallback_font
+	result.base_font = FONT
 	result.fallbacks = [FONT]
 	return result
 

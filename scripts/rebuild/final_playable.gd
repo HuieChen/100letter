@@ -54,7 +54,7 @@ var _display_apply_queued:=false
 func _ready() -> void:
 	get_tree().auto_accept_quit=false
 	var th:=Theme.new()
-	th.default_font=load("res://assets/fonts/SolmereSans.ttf")
+	th.default_font=load("res://assets/fonts/DearRounded.tres")
 	th.default_font_size=22
 	theme=th
 	core=Core.new()
@@ -403,6 +403,13 @@ func _world() -> void:
 	road.footstep.connect(func():sound.play("step"))
 	road.ambience_changed.connect(sound.set_weather)
 	road.post_office_requested.connect(func():core.state.location="post_office";_post_office_room())
+	if road.district=="community":
+		var chef=preload("res://scripts/rebuild/food_truck_resident.gd").new()
+		chef.courier=walker
+		chef.allowed=road.can_walk
+		chef.locale=func():return preferences.values.language
+		UI.place(chef,road.world,Rect2(Vector2.ZERO,road.world.size))
+		chef.talk_requested.connect(func():_chef_conversation(0))
 	sound.set_location(str(core.state.location),int(core.state.minute),false)
 func _look_at(text:String) -> void:
 	_close()
@@ -1079,3 +1086,33 @@ func _failure() -> void:
 
 
 
+
+# The authored food-truck encounter is a complete, re-enterable conversation.
+# It does not award invented case evidence or overwrite campaign progress.
+func _chef_conversation(index:int)->void:
+	_close()
+	if index>=6:return
+	if is_instance_valid(walker):walker.cancel();walker.manual_enabled=false
+	var zh=[
+		["餐车老板","先别急着走。汤刚出锅，闻着香，喝下去可烫。你今天已经绕广场几圈了？"],
+		["你","一直在认路。远远看见你的勺子，还以为有人在朝我招手。"],
+		["餐车老板","那就算我招了手。以前我刚来，连餐车该停哪儿都不知道。有人给我画了张地图，纸角沾着果酱，我到现在还留着。"],
+		["你","后来你找到地方了吗？"],
+		["餐车老板","找到了。社区中心在街的另一头；往回走，会先经过果蔬摊，再经过杂货店。要是绕晕了，就认准我头顶这把伞。"],
+		["你","那我先把路认熟。回来的时候，汤应该就不烫了。"]]
+	var en=[
+		["Chef","Easy there. The soup smells ready, but it is still too hot to drink. How many laps of the square have you done today?"],
+		["You","I am learning my way around. From a distance, I thought your spoon was someone waving."],
+		["Chef","Then consider yourself waved over. When I arrived, I did not even know where to park. Someone drew me a map. Jam on one corner. I still have it."],
+		["You","Did you find your place?"],
+		["Chef","I did. The community centre is at the other end of this street. Heading back, you pass the produce stall, then the grocery. If you get turned around, look for my parasol."],
+		["You","I will learn the route first. By the time I come back, the soup should be cool enough."]]
+	var lines:Array=en if preferences.values.language=="en" else zh
+	var dialogue:=SceneDialogue.new();modal=dialogue
+	UI.place(dialogue,self,Rect2(0,0,1600,900))
+	dialogue.locale=preferences.values.language
+	dialogue.configure(str(lines[index][0]),str(lines[index][1]),[],"chef_source.jpg","courier_source.jpg")
+	dialogue.cue.connect(sound.play)
+	dialogue.set_text_rate(preferences.text_rate())
+	dialogue.closed.connect(_close)
+	dialogue.advanced.connect(func():_chef_conversation(index+1))

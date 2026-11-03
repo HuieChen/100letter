@@ -32,3 +32,6 @@ driver/enable_input=false
 [editor]
 movie_writer/video_quality=1.0
 movie_writer/fps=24
+
+[gui]
+theme/custom_font="res://assets/fonts/DearRounded.tres"

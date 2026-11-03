@@ -6,6 +6,7 @@ signal closed
 signal cue(kind: String)
 const UI = preload("res://scripts/ui/paper_ui.gd")
 const Art = preload("res://scripts/rebuild/physical_art.gd")
+const Authored = preload("res://scripts/rebuild/authored_dialogue_art.gd")
 const WORDS := Color("493c30")
 const ACCENT := Color("217b87")
 const CHOICES_PER_PAGE := 4
@@ -31,8 +32,13 @@ func configure(speaker: String, line: String, choices: Array = [], left_art: Str
 	_showing_choices=false;_locked=false;_choice_page=0
 	_render()
 func _image(key:String,rect:Rect2,keep:bool=false) -> TextureRect:
+	if key in ["chef_source.jpg","courier_source.jpg"]:
+		var portrait:=Authored.portrait(key,7.0)
+		portrait.name=key
+		UI.place(portrait,self,rect)
+		return portrait
 	var image:=TextureRect.new()
-	image.name=key;image.texture=Art.texture(key)
+	image.name=key;image.texture=Authored.texture("paper_dialogue.png",false) if key=="dialogue_notebook" else Art.texture(key)
 	image.expand_mode=TextureRect.EXPAND_IGNORE_SIZE
 	image.stretch_mode=TextureRect.STRETCH_KEEP_ASPECT_CENTERED if keep else TextureRect.STRETCH_SCALE
 	image.mouse_filter=Control.MOUSE_FILTER_IGNORE
@@ -41,15 +47,15 @@ func _image(key:String,rect:Rect2,keep:bool=false) -> TextureRect:
 func _render() -> void:
 	for child in get_children():remove_child(child);child.queue_free()
 	mouse_filter=Control.MOUSE_FILTER_STOP
-	if not _left_art.is_empty():_image(_left_art,Rect2(35,180,450,720),true)
-	if not _right_art.is_empty():_image(_right_art,Rect2(1160,180,420,720),true)
+	if not _left_art.is_empty():_image(_left_art,Rect2(35,90,560,1040) if _left_art.ends_with(".jpg") else Rect2(35,180,450,720),true)
+	if not _right_art.is_empty():_image(_right_art,Rect2(1120,150,420,1040) if _right_art.ends_with(".jpg") else Rect2(1160,180,420,720),true)
 	_leaf=_image("dialogue_notebook",Rect2(290,600,1030,300));_leaf.name="DialogueLeaf"
 	_close_button=_text_button("×",Rect2(1254,657,46,44))
 	_close_button.name="CloseDialogue"
 	_close_button.action_mode=BaseButton.ACTION_MODE_BUTTON_PRESS
 	_close_button.add_theme_font_size_override("font_size",31)
 	_close_button.pressed.connect(request_close)
-	_speaker_label=UI.label(self,_speaker,Rect2(354,625,222,38),22,WORDS)
+	_speaker_label=UI.label(self,_speaker,Rect2(380,625,145,38),22,WORDS)
 	_speaker_label.name="Speaker";_speaker_label.clip_text=true
 	_speaker_label.text_overrun_behavior=TextServer.OVERRUN_TRIM_ELLIPSIS
 	if _showing_choices:
@@ -73,7 +79,8 @@ func _render() -> void:
 		_spoken.add_theme_font_size_override("normal_font_size",26)
 		_spoken.add_theme_constant_override("line_separation",6)
 		UI.place(_spoken,self,Rect2(378,676,840,148))
-		var next:=_text_button("▼",Rect2(744,835,112,42));next.name=advance_name
+		# The supplied paper already contains its drawn down arrow.
+		var next:=_text_button("",Rect2(744,835,112,42));next.name=advance_name
 		next.add_theme_font_size_override("font_size",20);next.pressed.connect(_advance)
 		_fit_spoken_line.call_deferred(_spoken)
 		_reveal=0.0

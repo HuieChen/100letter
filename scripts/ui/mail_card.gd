@@ -56,7 +56,7 @@ func _draw() -> void:
 	if not is_note:
 		draw_string(f,Vector2(51,68),"背面记录" if reverse else "今日来信",HORIZONTAL_ALIGNMENT_LEFT,size.x-110,18,Color("8a806a"))
 	if not handwriting.is_empty() and not reverse:
-		var sample_font: Font=load("res://assets/fonts/Caveat.ttf") if ResourceLoader.exists("res://assets/fonts/Caveat.ttf") else f
+		var sample_font: Font=load("res://assets/fonts/DearRounded.tres") if ResourceLoader.exists("res://assets/fonts/DearRounded.tres") else f
 		draw_string(sample_font,Vector2(38,85),handwriting,HORIZONTAL_ALIGNMENT_LEFT,size.x-155,33,PaperUI.INK)
 	if not is_note:
 		draw_rect(Rect2(size.x-93,22,48,53),PaperUI.CORAL if urgent else PaperUI.TEAL)

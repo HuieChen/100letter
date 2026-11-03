@@ -1,0 +1,10 @@
+[gd_resource type="FontVariation" load_steps=4 format=3]
+
+[ext_resource type="FontFile" path="res://assets/fonts/DynaPuff.ttf" id="1"]
+[ext_resource type="FontFile" path="res://assets/fonts/ChillRoundF.ttf" id="2"]
+[ext_resource type="FontFile" path="res://assets/fonts/NotoSansSC.ttf" id="3"]
+
+[resource]
+base_font = ExtResource("1")
+variation_opentype = {2003265652: 450.0}
+fallbacks = Array[Font]([ExtResource("2"), ExtResource("3")])

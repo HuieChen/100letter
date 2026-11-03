@@ -7,7 +7,7 @@ signal cue(name: String)
 
 const Art = preload("res://scripts/rebuild/physical_art.gd")
 const CANVAS := Vector2(1600, 900)
-const FONT = preload("res://assets/fonts/SolmereSans.ttf")
+const FONT = preload("res://assets/fonts/DearRounded.tres")
 const INK := Color("4f3847")
 const MUTED := Color("697575")
 const PAPER := Color("faf5e8")

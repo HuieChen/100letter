@@ -1,0 +1,17 @@
+{
+  "chef_chibi_source.jpg": {
+    "sha256": "c3be776793dbf09bba5aa176f722747bb085fd9e0abdc877d4c44c2dfc5eb0bc",
+    "mask": "chef_chibi_source_mask.png",
+    "source_pixels_unchanged": true
+  },
+  "chef_source.jpg": {
+    "sha256": "47e600de684a756243769ce99f7062d700a3cc1a31b19ccb9822a570a63c6caa",
+    "mask": "chef_source_mask.png",
+    "source_pixels_unchanged": true
+  },
+  "courier_source.jpg": {
+    "sha256": "6a1c53220c109b7c38994b67cf6d94b34d5cb73b982a896358fd60a82a21a3cf",
+    "mask": "courier_source_mask.png",
+    "source_pixels_unchanged": true
+  }
+}

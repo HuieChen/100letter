@@ -107,7 +107,7 @@ func _ensure_reader() -> void:
 	body_reader.name="UnfoldedLetter"
 	body_reader.bbcode_enabled=false
 	# Author bodies are Latin-script prose; avoid CJK punctuation spacing in contractions.
-	body_reader.add_theme_font_override("normal_font",ThemeDB.fallback_font)
+	body_reader.add_theme_font_override("normal_font",preload("res://assets/fonts/DearRounded.tres"))
 	body_reader.add_theme_color_override("default_color",INK)
 	body_reader.add_theme_font_size_override("normal_font_size",22)
 	body_reader.scroll_active=true

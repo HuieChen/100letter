@@ -319,3 +319,7 @@ Confirmed opaque white remained between the photographed idle's legs and inside 
 ## 2026-11-01 — remaining courier white RGB fringe
 User still observed white edging after the alpha-only correction. Identified white-contaminated RGB in the photographed idle's opaque/antialiased border, including hat, feather, clothing and boots. Shader now samples inward pigment within3source pixels and replaces only positive neutral-white excess near a transparent boundary. Alpha/silhouette remain as in the previous correction; interior pigments and original PNG bytes remain unchanged. The guard excludes all other current poses. This adds render-time edge color correction, not replacement artwork.
 GPU readback:23checks/0failures, including unchanged eye/hair/skin/boot interior, transparent leg/curl holes and three contaminated edge samples becoming painted color rather than background. Previous-shader vs new-shader comparison inspected at1:1;500pixels have summed RGB reduction>100/765. Actual tarot-street GPU frame inspected at1280x720. Evidence: docs/testing/courier_alpha_20261101/previous_vs_current.png and street.png. Logs alpha-rgb-final and alpha-rgb-street have no shader/runtime errors. No new native keyboard or animation acceptance claim; those earlier gaps remain open. Audio and scene artwork unchanged.
+
+
+## 2026-11-04 — rounded typography / authored chef
+24 GPU checks passed. See [scoped report](docs/testing/ROUNDED_DIALOGUE_20261104.md) for evidence, source preservation and unresolved native/package-shutdown checks.

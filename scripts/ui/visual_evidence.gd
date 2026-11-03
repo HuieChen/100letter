@@ -47,7 +47,7 @@ func _ready() -> void:
 	focus_mode=Control.FOCUS_ALL
 	clip_contents=true
 	mouse_default_cursor_shape=Control.CURSOR_POINTING_HAND
-	_hand=load("res://assets/fonts/Caveat.ttf")
+	_hand=load("res://assets/fonts/DearRounded.tres")
 	_focus_if_live.call_deferred()
 	resized.connect(queue_redraw)
 

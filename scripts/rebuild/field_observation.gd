@@ -90,7 +90,7 @@ func _ready() -> void:
 	set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
 	mouse_filter = Control.MOUSE_FILTER_STOP
 	focus_mode = Control.FOCUS_ALL
-	_font = load("res://assets/fonts/SolmereSans.ttf") as Font
+	_font = load("res://assets/fonts/DearRounded.tres") as Font
 	resized.connect(_layout)
 	_layout()
 	_build_notice()

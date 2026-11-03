@@ -62,8 +62,8 @@ func configure(available_clues: Dictionary, known_ids: Array, previous: Dictiona
 	_commit_elapsed = 0.0
 	_sent = false
 	_message = ""
-	if ResourceLoader.exists("res://assets/fonts/Caveat.ttf"):
-		_hand_font = load("res://assets/fonts/Caveat.ttf")
+	if ResourceLoader.exists("res://assets/fonts/DearRounded.tres"):
+		_hand_font = load("res://assets/fonts/DearRounded.tres")
 	else:
 		_hand_font = get_theme_font("font")
 	for id: String in ORDER:
