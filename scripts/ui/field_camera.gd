@@ -129,7 +129,7 @@ func _ready()->void:
 	if gallery_only:
 		for node:CanvasItem in _live_nodes:node.hide()
 		if not gallery_paths.is_empty():_show_review(gallery_paths.find(initial_photo_path) if initial_photo_path in gallery_paths else gallery_paths.size()-1)
-		else:_review.show();_caption_editor.hide();_review_paper.hide();_caption_notice.text=_t("还没有照片","No photos yet")
+		else:_set_review_active(true);_caption_editor.hide();_review_paper.hide();_caption_notice.text=_t("还没有照片","No photos yet")
 	else:shutter.grab_focus()
 
 func _place(node:Control,parent:Node,rect:Rect2)->void:
@@ -222,6 +222,10 @@ func _refresh_thumbnail()->void:
 	if gallery_paths.is_empty():thumbnail.hide();return
 	var pixels:=Image.load_from_file(gallery_paths[-1])
 	if pixels==null or pixels.is_empty():thumbnail.hide();return
+	# The thumbnail occupies roughly 100 screen pixels. Keep the original PNG
+	# and full-size review intact without allocating a full capture on the GPU here.
+	var preview_scale:=minf(1.0,256.0/maxi(pixels.get_width(),pixels.get_height()))
+	if preview_scale<1.0:pixels.resize(maxi(1,roundi(pixels.get_width()*preview_scale)),maxi(1,roundi(pixels.get_height()*preview_scale)),Image.INTERPOLATE_LANCZOS)
 	thumbnail.show()
 	# A real miniature print, no placeholder photo.
 	var paper:=thumbnail.get_node_or_null("ThumbnailPrint") as PhotoPaper
@@ -234,16 +238,34 @@ func _show_review(index:int)->void:
 	var next_index:int=wrapi(index,0,gallery_paths.size())
 	# A one-photo wrap or selecting the current print has no page turn.
 	if was_visible and next_index==_review_index:return
+	var pixels:=Image.load_from_file(gallery_paths[next_index])
+	if pixels==null or pixels.is_empty():
+		var message:=_t("照片无法打开，请试试另一张","Photo unavailable. Try another print.")
+		if was_visible or gallery_only:
+			if _review_index<0:
+				_caption_editor.hide();_review_paper.hide()
+			_set_review_active(true)
+			_caption_notice.text=message
+		else:_status(message)
+		return
+	# Commit photo identity only after decoding succeeds. Otherwise later edits
+	# to the still-visible print would be saved beside the unreadable photo.
 	_review_index=next_index
-	var pixels:=Image.load_from_file(gallery_paths[_review_index])
-	if pixels==null or pixels.is_empty():_status(_t("照片无法打开","Photo unavailable"));return
 	_caption_original=caption_for(gallery_paths[_review_index]);_caption_editor.set_block_signals(true);_caption_editor.text=_caption_original;_caption_editor.set_block_signals(false);_caption_dirty=false;_caption_notice.text=""
-	_review_paper.image=ImageTexture.create_from_image(pixels);_review_paper.reveal=1.0;_review.show();_review.get_node("BackToCamera").grab_focus()
+	_caption_editor.show();_review_paper.show()
+	_review_paper.image=ImageTexture.create_from_image(pixels);_review_paper.reveal=1.0;_set_review_active(true)
 	cue.emit("flip" if was_visible else "paper")
+func _set_review_active(active:bool)->void:
+	_review.visible=active
+	# These buttons remain drawn underneath the paper, but must not take Tab
+	# focus or keyboard activation through the nested review surface.
+	shutter.focus_mode=Control.FOCUS_NONE if active else Control.FOCUS_ALL
+	thumbnail.focus_mode=Control.FOCUS_NONE if active else Control.FOCUS_ALL
+	if active:_review.get_node("BackToCamera").grab_focus()
 func _leave_review()->void:
 	if gallery_only:_request_close();return
 	if not _save_caption():return
-	_review.hide();cue.emit("paper");shutter.grab_focus()
+	_set_review_active(false);cue.emit("paper");shutter.grab_focus()
 
 func take_photo()->void:
 	if capture_busy or _closing or gallery_only:return
