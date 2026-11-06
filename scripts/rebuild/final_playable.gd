@@ -146,6 +146,11 @@ func _notification(what:int) -> void:
 
 func _close_window_after_save()->void:
 	if _window_close_pending:return
+	# A photo print needs its final GPU frame before the window can retire.
+	# Wait before reporting checkpoint failures, then honor the same close click.
+	if is_instance_valid(modal) and modal.has_method("wait_for_pending_save"):
+		await modal.wait_for_pending_save()
+		if not is_inside_tree() or _window_close_pending:return
 	if busy:
 		_window_close_deferred=true
 		return

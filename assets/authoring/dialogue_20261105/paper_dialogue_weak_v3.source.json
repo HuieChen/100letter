@@ -1,0 +1,12 @@
+{
+  "source_filename": "对话框-牛皮纸-弱纹理 2(1).png",
+  "sha256": "288cbc415d4333f7e00df9809b7c4a3781d73aefce9b7631a512f32af7139544",
+  "exact_copy": true,
+  "atlas_region": [
+    200,
+    225,
+    2583,
+    731
+  ],
+  "note": "Latest user-supplied paper; original pixels preserved. Only transparent outer margins omitted by atlas."
+}

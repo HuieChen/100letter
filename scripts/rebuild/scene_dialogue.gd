@@ -11,10 +11,10 @@ const ManagedSession=preload("res://scripts/rebuild/authored_dialogue_session.gd
 const WORDS := Color("493c30")
 const ACCENT := Color("217b87")
 const CHOICES_PER_PAGE := 4
-const PAPER_SOURCE_SIZE:=Vector2(2624,745)
-const PAPER_HEIGHT:=1030.0*745.0/2624.0
-const SPEAKER_CENTER:=Vector2(437,93.5)
-const CONTINUE_CENTER:=Vector2(1301,595)
+const PAPER_SOURCE_SIZE:=Vector2(2583,731)
+const PAPER_HEIGHT:=1030.0*731.0/2583.0
+const SPEAKER_CENTER:=Vector2(470,72)
+const CONTINUE_CENTER:=Vector2(1330,575)
 var _speaker := ""
 const SPOKEN_TEXT := "……"
 var _choices: Array = []
@@ -142,8 +142,8 @@ func _render() -> void:
 	var shade:=ColorRect.new();shade.name="ConversationShade";shade.color=Color(0.12,0.17,0.19,0.18)
 	shade.mouse_filter=Control.MOUSE_FILTER_IGNORE
 	UI.place(shade,self,Rect2(0,0,1600,900))
-	if not _left_art.is_empty():_left_portrait=_image(_left_art,Rect2(60,278,420,1040) if Authored.is_character(_left_art) else Rect2(35,180,450,720),true)
-	if not _right_art.is_empty():_right_portrait=_image(_right_art,Rect2(1005,270,560,1040) if Authored.is_character(_right_art) else Rect2(1160,180,420,720),true)
+	if not _left_art.is_empty():_left_portrait=_image(_left_art,Rect2(60,238,420,1040) if Authored.is_character(_left_art) else Rect2(35,140,450,720),true)
+	if not _right_art.is_empty():_right_portrait=_image(_right_art,Rect2(1005,230,560,1040) if Authored.is_character(_right_art) else Rect2(1160,140,420,720),true)
 	_sync_scene_light()
 	_leaf=_image("dialogue_notebook",Rect2(290,900-PAPER_HEIGHT,1030,PAPER_HEIGHT));_leaf.name="DialogueLeaf"
 	_close_button=_text_button("×",Rect2(1254,713,46,44))
@@ -153,6 +153,8 @@ func _render() -> void:
 	_close_button.pressed.connect(request_close)
 	_speaker_label=UI.label(self,_speaker,Rect2(375,675,155,38),22,WORDS)
 	_speaker_label.name="Speaker";_speaker_label.clip_text=true
+	_speaker_label.autowrap_mode=TextServer.AUTOWRAP_OFF
+	_speaker_label.size=Vector2(155,38)
 	_speaker_label.horizontal_alignment=HORIZONTAL_ALIGNMENT_CENTER
 	_speaker_label.vertical_alignment=VERTICAL_ALIGNMENT_CENTER
 	_speaker_label.text_overrun_behavior=TextServer.OVERRUN_TRIM_ELLIPSIS
@@ -192,7 +194,7 @@ func _paper_point(source_point:Vector2)->Vector2:
 func _align_paper_controls()->void:
 	# Coordinates are registered to the supplied image after its transparent crop.
 	_speaker_label.position=_paper_point(SPEAKER_CENTER)-_speaker_label.size*.5
-	_close_button.position=_paper_point(Vector2(2440,170))-_close_button.size*.5
+	_close_button.position=_paper_point(Vector2(2400,165))-_close_button.size*.5
 	var next:=get_node_or_null(advance_name) as Button
 	if next!=null:next.position=_paper_point(CONTINUE_CENTER)-next.size*.5
 
@@ -224,7 +226,7 @@ func _fit_spoken_line(spoken:RichTextLabel) -> void:
 	_leaf.position.y=900-height;_leaf.size.y=height
 	_align_paper_controls()
 	spoken.position=_paper_point(Vector2(250,210))
-	spoken.size=Vector2(2100,330)/PAPER_SOURCE_SIZE*_leaf.size
+	spoken.size=Vector2(2100,280)/PAPER_SOURCE_SIZE*_leaf.size
 	spoken.scroll_active=float(spoken.get_content_height())>spoken.size.y
 func _text_button(text:String,rect:Rect2) -> Button:
 	var button:=Button.new();button.text=text;button.flat=true

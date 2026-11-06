@@ -9,13 +9,13 @@ static func texture(file:String, crop:bool=true)->Texture2D:
 	var key:=file+str(crop)
 	if cache.has(key):return cache[key]
 	var path:String=CAST_BASE+REPLACEMENTS[file] if REPLACEMENTS.has(file) else (CAST_BASE+file.trim_prefix("cast/") if file.begins_with("cast/") else BASE+file)
-	if file=="paper_dialogue.png":path="res://assets/authoring/dialogue_20261105/paper_dialogue_weak_v2.png"
+	if file=="paper_dialogue.png":path="res://assets/authoring/dialogue_20261105/paper_dialogue_weak_v3.png"
 	var pixels:=Image.load_from_file(path)
 	if pixels==null:return null
 	pixels.generate_mipmaps()
 	var tex:=ImageTexture.create_from_image(pixels)
 	var bounds:=pixels.get_used_rect()
-	if file=="paper_dialogue.png":bounds=Rect2i(90,192,2624,745)
+	if file=="paper_dialogue.png":bounds=Rect2i(200,225,2583,731)
 	if file in ["cast/record_clerk_chibi.png","cast/record_clerk_portrait.png"]:
 		# Main subject only; omit the original file's isolated far-right paint fleck.
 		# This is an atlas sample. The supplied PNG bytes remain unchanged.

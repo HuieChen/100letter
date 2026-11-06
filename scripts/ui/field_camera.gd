@@ -3,6 +3,8 @@ extends Control
 signal closed
 signal photo_saved(path:String)
 signal caption_saved(path:String,text:String)
+signal album_saved(path:String)
+signal pending_save_finished
 signal cue(kind:String)
 const FONT=preload("res://assets/fonts/DearRounded.tres")
 const ART="res://assets/authoring/camera_20261105/viewfinder.png"
@@ -11,6 +13,7 @@ var locale:="zh"
 var clock_caption:=""
 var location_caption:=""
 var save_directory:="user://photos"
+var album_directory:=""
 var gallery_only:=false
 var initial_photo_path:=""
 var capture_provider:Callable
@@ -40,6 +43,10 @@ var _caption_timer:Timer
 var _caption_dirty:=false
 var _caption_original:=""
 var _live_nodes:Array[CanvasItem]=[]
+var _album_button:Button
+var _album_busy:=false
+var _close_after_album:=false
+var last_album_path:=""
 
 class ArtButton extends Button:
 	var art:Texture2D
@@ -165,7 +172,8 @@ func _build_review()->void:
 	_caption_notice=_label("",Rect2(420,730,760,32),21,HORIZONTAL_ALIGNMENT_CENTER);_caption_notice.reparent(_review)
 	for item:Array in [["PreviousPhoto","‹",Rect2(228,340,90,100),-1],["NextPhoto","›",Rect2(1282,340,90,100),1]]:
 		var button:=_button(item[1],item[2],54);button.reparent(_review);button.name=item[0];button.pressed.connect(func():_show_review(_review_index+int(item[3])))
-	var back:=_button(_t("返回背包","Back to bag") if gallery_only else _t("继续拍摄","Back to camera"),Rect2(620,774,360,64),28);back.reparent(_review);back.name="BackToCamera";back.pressed.connect(_leave_review)
+	_album_button=_button(_t("保存到相册","Save to album"),Rect2(382,774,390,64),28);_album_button.reparent(_review);_album_button.name="SaveToAlbum";_album_button.disabled=true;_album_button.pressed.connect(export_current_photo)
+	var back:=_button(_t("返回背包","Back to bag") if gallery_only else _t("继续拍摄","Back to camera"),Rect2(828,774,390,64),28);back.reparent(_review);back.name="BackToCamera";back.pressed.connect(_leave_review)
 	# The same one-click X stays above the review overlay.
 	canvas.move_child(canvas.get_node("CloseCamera"),canvas.get_child_count()-1)
 func _load_gallery()->void:
@@ -214,7 +222,67 @@ func _save_caption()->bool:
 	if not _write_caption(path,_caption_editor.text):
 		_caption_notice.text=_t("文字还没保存，请再试一次","Note not saved. Please try again.");return false
 	_caption_original=_caption_editor.text;_caption_dirty=false;_caption_notice.text="";caption_saved.emit(path,_caption_editor.text);return true
-func checkpoint_for_quit()->bool:return _save_caption()
+func checkpoint_for_quit()->bool:return not _album_busy and _save_caption()
+func wait_for_pending_save()->void:
+	if _album_busy:await pending_save_finished
+
+func export_current_photo()->String:
+	if _album_busy or _closing or _review_index<0 or _review_index>=gallery_paths.size() or not _review.visible:return ""
+	if not _save_caption():return ""
+	var destination:=album_directory
+	if destination.is_empty():
+		var pictures:=OS.get_system_dir(OS.SYSTEM_DIR_PICTURES)
+		if pictures.is_empty():
+			_caption_notice.text=_t("找不到图片文件夹，照片仍保存在背包中","Pictures folder unavailable. Your photo is still in the bag.");return ""
+		destination=pictures.path_join("Dear Somewhere")
+	if DirAccess.make_dir_recursive_absolute(destination)!=OK:
+		_caption_notice.text=_t("没能存到相册，请检查图片文件夹后重试","Could not save to album. Check your Pictures folder and retry.");return ""
+	var source_path:String=gallery_paths[_review_index]
+	# Freeze this print and its saved note across the two render frames. The
+	# source image/sidecar stay untouched, and repeated clicks cannot race.
+	_album_busy=true;_album_button.disabled=true;_caption_editor.editable=false
+	_caption_notice.text=_t("正在保存…","Saving…")
+	for control_name:String in ["PreviousPhoto","NextPhoto","BackToCamera"]:_review.get_node(control_name).disabled=true
+	var viewport:=SubViewport.new();viewport.disable_3d=true;viewport.transparent_bg=true
+	viewport.size=Vector2i(1808,1240);viewport.render_target_update_mode=SubViewport.UPDATE_ALWAYS
+	add_child(viewport)
+	var print_canvas:=Control.new();print_canvas.scale=Vector2(2,2);viewport.add_child(print_canvas)
+	var paper:=PhotoPaper.new();paper.image=_review_paper.image;paper.size=Vector2(904,620);print_canvas.add_child(paper)
+	var note:=Label.new();note.text=_caption_original;note.autowrap_mode=TextServer.AUTOWRAP_WORD_SMART
+	note.add_theme_font_override("font",FONT);note.add_theme_font_size_override("font_size",25);note.add_theme_color_override("font_color",Color("665240"))
+	note.position=Vector2(50,518);note.size=Vector2(804,78);paper.add_child(note)
+	await get_tree().process_frame
+	# Long notes get more paper below the full-width photograph, rather than
+	# being silently clipped to the editor's scrollable visible area.
+	var print_height:=maxf(620.0,note.position.y+note.get_minimum_size().y+24.0)
+	var result:=""
+	var message:=""
+	if print_height*2.0>8192.0:
+		message=_t("题字太长，缩短一些后再保存；原文已保留","This note is too long to export. Shorten it and retry; the original is saved.")
+	else:
+		paper.size.y=print_height;viewport.size.y=ceili(print_height*2.0)
+		await RenderingServer.frame_post_draw
+		var pixels:=viewport.get_texture().get_image()
+		var stem:=source_path.get_file().get_basename()+"_print"
+		var path:=destination.path_join(stem+".png");var suffix:=1
+		while FileAccess.file_exists(path) or DirAccess.dir_exists_absolute(path) or FileAccess.file_exists(path+".tmp"):
+			path=destination.path_join(stem+"_"+str(suffix)+".png");suffix+=1
+		var temporary:=path+".tmp"
+		var written:=pixels!=null and not pixels.is_empty() and pixels.save_png(temporary)==OK
+		if written and DirAccess.rename_absolute(ProjectSettings.globalize_path(temporary),ProjectSettings.globalize_path(path))==OK:
+			result=path;last_album_path=path
+			message=_t("已保存到 图片 / Dear Somewhere","Saved to Pictures / Dear Somewhere")
+		else:
+			if FileAccess.file_exists(temporary):DirAccess.remove_absolute(ProjectSettings.globalize_path(temporary))
+			message=_t("照片没能存到相册，请重试","Could not save photo to album. Please retry.")
+	viewport.queue_free()
+	_album_busy=false;_album_button.disabled=false;_caption_editor.editable=true
+	for control_name:String in ["PreviousPhoto","NextPhoto","BackToCamera"]:_review.get_node(control_name).disabled=false
+	_caption_notice.text=message;_album_button.grab_focus()
+	if not result.is_empty():album_saved.emit(result);cue.emit("paper")
+	pending_save_finished.emit()
+	if _close_after_album:_close_after_album=false;_request_close()
+	return result
 
 func _refresh_count()->void:
 	count_label.text=_t("照片 ","Photos ")+str(gallery_paths.size())
@@ -233,7 +301,7 @@ func _refresh_thumbnail()->void:
 	if paper==null:paper=PhotoPaper.new();paper.name="ThumbnailPrint";paper.mouse_filter=Control.MOUSE_FILTER_IGNORE;_place(paper,thumbnail,Rect2(4,0,112,77))
 	paper.image=ImageTexture.create_from_image(pixels);paper.queue_redraw()
 func _show_review(index:int)->void:
-	if capture_busy or gallery_paths.is_empty():return
+	if capture_busy or _album_busy or gallery_paths.is_empty():return
 	if not _save_caption():return
 	var was_visible:bool=_review.visible
 	var next_index:int=wrapi(index,0,gallery_paths.size())
@@ -255,6 +323,7 @@ func _show_review(index:int)->void:
 	_caption_original=caption_for(gallery_paths[_review_index]);_caption_editor.set_block_signals(true);_caption_editor.text=_caption_original;_caption_editor.set_block_signals(false);_caption_dirty=false;_caption_notice.text=""
 	_caption_editor.show();_review_paper.show()
 	_review_paper.image=ImageTexture.create_from_image(pixels);_review_paper.reveal=1.0;_set_review_active(true)
+	_album_button.disabled=false
 	cue.emit("flip" if was_visible else "paper")
 func _set_review_active(active:bool)->void:
 	_review.visible=active
@@ -264,12 +333,13 @@ func _set_review_active(active:bool)->void:
 	thumbnail.focus_mode=Control.FOCUS_NONE if active else Control.FOCUS_ALL
 	if active:_review.get_node("BackToCamera").grab_focus()
 func _leave_review()->void:
+	if _album_busy:return
 	if gallery_only:_request_close();return
 	if not _save_caption():return
 	_set_review_active(false);cue.emit("paper");shutter.grab_focus()
 
 func take_photo()->void:
-	if capture_busy or _closing or gallery_only:return
+	if capture_busy or _album_busy or _closing or gallery_only:return
 	if _review.visible and get_viewport().gui_get_focus_owner()==_caption_editor:return
 	if _review.visible:_leave_review()
 	if _review.visible:return
@@ -324,6 +394,7 @@ func request_close()->void:
 	else:_request_close()
 func _request_close()->void:
 	if _closing:return
+	if _album_busy:_close_after_album=true;return
 	if not _save_caption():return
 	_closing=true
 	if _animation and _animation.is_valid():_animation.kill()
