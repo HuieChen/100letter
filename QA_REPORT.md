@@ -1,3 +1,7 @@
+## 2026-11-07 — Latest supplied paper and system photo album
+
+Exact supplied paper, raised portraits and captioned landscape album export are included in the current integrated PCK. 743 focused package checks passed plus release boot and 3 runtime-export tests. See [UI_TAKEOVER_20261107.md](docs/testing/UI_TAKEOVER_20261107.md) for scope and limits. Native/manual and broad acceptance remain separate.
+
 ## 2026-11-07 — Responsive photo pocket
 
 240-photo fixture: old synchronous open 5559.696 ms; final PCK 44.640 ms. Nearby prints load in one background CPU worker, offscreen texture references are released, and the 96-entry cache is bounded. Caption edits and return focus remain intact. An injected thread-start failure no longer starves later prints. Final PCK passes 319 focused checks with no unexpected engine errors; release EXE boot exits 0. Details, limitations and package hash: [PHOTO_POCKET_STREAMING_20261107.md](docs/testing/PHOTO_POCKET_STREAMING_20261107.md). OS-input/listening and broad acceptance were not repeated; CORE-BOOK remains in review.
