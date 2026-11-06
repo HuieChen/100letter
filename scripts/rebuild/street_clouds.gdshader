@@ -54,8 +54,8 @@ void fragment(){
  // original wing lookup as the street below, with its identical motion clock.
  // Alpha still uses only the existing scenery clearance, so no new overlay
  // is introduced over protected vegetation, supports or architecture.
- at_a+=street_bird_shift(p,texel,cloud_time,false)*motion_strength;
- at_b+=street_bird_shift(p,texel,cloud_time,true)*motion_strength;
+ at_a+=street_bird_shift(p,texel,weather_time,false)*texel*motion_strength;
+ at_b+=street_bird_shift(p,texel,weather_time,true)*texel*motion_strength;
  at_a=clamp(at_a,vec2(0.0),vec2(1.0));
  at_b=clamp(at_b,vec2(0.0),vec2(1.0));
  vec4 sky=mix(texture(TEXTURE,at_a),texture(next_art,at_b),light_mix);
