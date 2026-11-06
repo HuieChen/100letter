@@ -343,3 +343,7 @@ GPU readback:23checks/0failures, including unchanged eye/hair/skin/boot interior
 ## 2026-11-06 — photo review resilience
 Fixed wrong-photo caption writes after decode failure, covered shutter keyboard focus and empty failed-album entry. Reduced thumbnail GPU dimensions without changing captures. Source and independent PCK: photo64/0, exploration58/0, routes113/0; release GPU boot exit0. Historical package suite still has5 stale-scope failures; native full-chain/listening acceptance remains open. See docs/testing/PHOTO_REVIEW_POLISH_20261106.md and docs/OPEN_SOURCE_POLISH_REVIEW_20261106.md.
 
+
+## 2026-11-06 — cinematic presentation and managed dialogue
+Phantom Camera and Dialogue Manager now drive real opened functionality. Paper entry/transition, HUD contact shadows and conversation cast isolation refined. Actual PCK492checks/0failures, release GPU120frames exit0; visual candidate inspected. Full artistic/novice/listening acceptance remains open. See docs/testing/CINEMATIC_POLISH_20261106.md.
+

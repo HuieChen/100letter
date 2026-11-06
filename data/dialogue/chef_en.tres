@@ -1,0 +1,121 @@
+[gd_resource type="Resource" script_class="DialogueResource" format=3]
+
+[ext_resource type="Script" path="res://addons/dialogue_manager/dialogue_resource.gd" id="1_ycur3"]
+
+[resource]
+script = ExtResource("1_ycur3")
+using_states = PackedStringArray()
+cues = {
+"chef_0": "2",
+"chef_1": "4",
+"chef_2": "6",
+"chef_3": "8",
+"chef_4": "10",
+"chef_5": "12"
+}
+character_names = PackedStringArray("Chef", "You")
+first_cue = "1"
+lines = {
+"0": {
+&"id": "0",
+&"next_id": "1",
+&"type": ""
+},
+"1": {
+&"id": "1",
+&"next_id": "2",
+&"type": "cue"
+},
+"10": {
+&"character": "Chef",
+&"id": "10",
+&"next_id": "11",
+&"static_id": "",
+&"text": "……",
+&"type": "dialogue"
+},
+"11": {
+&"id": "11",
+&"next_id": "12",
+&"type": "cue"
+},
+"12": {
+&"character": "You",
+&"id": "12",
+&"next_id": "13",
+&"static_id": "",
+&"text": "……",
+&"type": "dialogue"
+},
+"13": {
+&"id": "13",
+&"is_snippet": false,
+&"next_id": "end",
+&"next_id_after": "",
+&"type": "goto"
+},
+"14": {
+&"id": "14",
+&"next_id": "15",
+&"type": ""
+},
+"15": {
+&"id": "15",
+&"is_snippet": false,
+&"next_id": "end",
+&"next_id_after": "",
+&"type": "goto"
+},
+"2": {
+&"character": "Chef",
+&"id": "2",
+&"next_id": "3",
+&"static_id": "",
+&"text": "……",
+&"type": "dialogue"
+},
+"3": {
+&"id": "3",
+&"next_id": "4",
+&"type": "cue"
+},
+"4": {
+&"character": "You",
+&"id": "4",
+&"next_id": "5",
+&"static_id": "",
+&"text": "……",
+&"type": "dialogue"
+},
+"5": {
+&"id": "5",
+&"next_id": "6",
+&"type": "cue"
+},
+"6": {
+&"character": "Chef",
+&"id": "6",
+&"next_id": "7",
+&"static_id": "",
+&"text": "……",
+&"type": "dialogue"
+},
+"7": {
+&"id": "7",
+&"next_id": "8",
+&"type": "cue"
+},
+"8": {
+&"character": "You",
+&"id": "8",
+&"next_id": "9",
+&"static_id": "",
+&"text": "……",
+&"type": "dialogue"
+},
+"9": {
+&"id": "9",
+&"next_id": "10",
+&"type": "cue"
+}
+}

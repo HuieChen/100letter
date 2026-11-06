@@ -11,6 +11,10 @@ run/main_scene="res://scenes/final_slice.tscn"
 config/features=PackedStringArray("4.3", "GL Compatibility")
 config/icon="res://assets/faefever_v2/props/game_icon.png"
 
+[autoload]
+PhantomCameraManager="*res://addons/phantom_camera/scripts/managers/phantom_camera_manager.gd"
+DialogueManager="*res://addons/dialogue_manager/dialogue_manager.gd"
+
 [display]
 window/size/viewport_width=1600
 window/size/viewport_height=900

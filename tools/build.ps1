@@ -153,6 +153,8 @@ try {
     foreach ($taskRecord in $taskLicenseSources) {
         Copy-Item -LiteralPath (Join-Path $taskRepo $taskRecord) -Destination $taskLicenses
     }
+    Copy-Item -LiteralPath (Join-Path $taskRepo 'addons/phantom_camera/LICENSE') -Destination (Join-Path $taskLicenses 'PhantomCamera-LICENSE.txt')
+    Copy-Item -LiteralPath (Join-Path $taskRepo 'addons/dialogue_manager/LICENSE') -Destination (Join-Path $taskLicenses 'DialogueManager-LICENSE.txt')
     $taskPlayerReadme = @(
         'Dear Somewhere',
         '双击 DearSomewhere.exe。当前为已开放功能的探索试玩版。',

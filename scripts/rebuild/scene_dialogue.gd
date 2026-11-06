@@ -7,6 +7,7 @@ signal cue(kind: String)
 const UI = preload("res://scripts/ui/paper_ui.gd")
 const Art = preload("res://scripts/rebuild/physical_art.gd")
 const Authored = preload("res://scripts/rebuild/authored_dialogue_art.gd")
+const ManagedSession=preload("res://scripts/rebuild/authored_dialogue_session.gd")
 const WORDS := Color("493c30")
 const ACCENT := Color("217b87")
 const CHOICES_PER_PAGE := 4
@@ -35,6 +36,8 @@ var _line_transition:Tween
 var _entering:=false
 var _closing:=false
 var _presented:=false
+var _managed_session:RefCounted
+var _managed_serial:=0
 var _left_portrait:TextureRect
 var _right_portrait:TextureRect
 # Same world light as the small actors; paper remains readable UI.
@@ -60,6 +63,27 @@ func set_line(speaker:String,_line:String)->void:
 	)
 	_line_transition.tween_property(_spoken,"modulate:a",1.0,0.10)
 	_line_transition.tween_callback(func():_locked=false)
+func configure_managed_chef(index:int=0)->void:
+	# Only the opened food-truck encounter uses this graph. The renderer keeps
+	# its intentionally masked copy; no hidden narrative is unlocked here.
+	_managed_serial+=1
+	var serial:=_managed_serial
+	_managed_session=ManagedSession.new()
+	var line:Dictionary=await _managed_session.open(locale,index)
+	if _closing or serial!=_managed_serial or not is_inside_tree():return
+	if line.is_empty():finish();return
+	set_meta("chef_page",int(line.index))
+	set_meta("dialogue_backend","DialogueManager 4.2.0")
+	if not _presented:configure(str(line.speaker),str(line.text),[],"courier_source.jpg","chef_source.jpg")
+	else:set_line(str(line.speaker),str(line.text))
+func _advance_managed()->void:
+	_locked=true
+	var serial:=_managed_serial
+	var line:Dictionary=await _managed_session.advance()
+	if _closing or serial!=_managed_serial or not is_inside_tree():return
+	if line.is_empty():finish();return
+	set_meta("chef_page",int(line.index))
+	set_line(str(line.speaker),str(line.text))
 func _speaker_emphasis()->void:
 	var player_speaks:=_speaker in ["你","You","主角"]
 	var t:=create_tween().set_parallel(true)
@@ -80,6 +104,7 @@ func _enter_dialogue()->void:
 func finish()->void:
 	if _closing:return
 	_closing=true;_locked=true;_entering=false
+	_managed_serial+=1
 	if is_instance_valid(_transition):_transition.kill()
 	if is_instance_valid(_line_transition):_line_transition.kill()
 	_transition=create_tween().set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
@@ -215,7 +240,8 @@ func _advance() -> void:
 	if is_instance_valid(_spoken) and _spoken.visible_characters>=0:
 		_spoken.visible_characters=-1;get_viewport().set_input_as_handled();return
 	get_viewport().set_input_as_handled();cue.emit("flip")
-	if _choices.is_empty():_locked=true;advanced.emit()
+	if _managed_session!=null:_advance_managed()
+	elif _choices.is_empty():_locked=true;advanced.emit()
 	else:_showing_choices=true;_render()
 func _choose(id:String) -> void:
 	if _locked:return

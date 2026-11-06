@@ -31,6 +31,12 @@ def selection(retained_paths=()):
              'res://scripts/rebuild/field_observation.gd',
              'res://assets/fonts/SolmereSans.ttf',
              'res://assets/fonts/Caveat.ttf', room_path}
+    # Upstream runtime types also refer to each other by class_name. Include
+    # their resource graph explicitly instead of relying only on quoted paths.
+    for addon in ('phantom_camera', 'dialogue_manager'):
+        for path in (ROOT / 'addons' / addon).rglob('*'):
+            if path.is_file() and path.suffix.lower() in {'.gd', '.tres', '.tscn', '.svg', '.png', '.ttf', '.translation'}:
+                paths.add('res://' + path.relative_to(ROOT).as_posix())
     # The preset also records later explicit runtime adoptions (street art,
     # shaders and authored dialogue). Refreshing the older catalog must not
     # silently undo those reviewed selections.
@@ -71,6 +77,11 @@ def selection(retained_paths=()):
         local = ROOT / resource[6:]
         if not local.is_file():
             raise ValueError(f'Missing runtime source dependency: {resource}')
+        if resource.startswith(('res://addons/phantom_camera/', 'res://addons/dialogue_manager/')):
+            # These complete upstream graphs were selected above. Their editor
+            # utilities also mention optional upstream test/example paths.
+            # Treating every such string as our game dependency is incorrect.
+            continue
         source = local.read_text(encoding='utf-8-sig')
         for dependency in re.findall(r'''res://[^"'\s]+\.(?:gdshaderinc|gdshader|gd|tscn|tres|ttf)(?=["'\s])''', source):
             if dependency not in paths:
@@ -103,6 +114,7 @@ def refreshed_source(source):
     # panoramas, masks and original animation frames. Add only exact include
     # dependencies discovered from runtime source; never broaden to assets/*.
     patterns = [x.strip() for x in (current_includes[0] + ',' + includes).split(',') if x.strip()]
+    patterns.extend(['addons/phantom_camera/LICENSE', 'addons/dialogue_manager/LICENSE', 'data/dialogue/chef_zh.dialogue', 'data/dialogue/chef_en.dialogue'])
     patterns.extend(path[6:] for path in paths if path.endswith('.gdshaderinc'))
     includes = ','.join(dict.fromkeys(patterns))
     source = re.sub(r'^include_filter=.*$', lambda _: 'include_filter="' + includes + '"', source, flags=re.M)

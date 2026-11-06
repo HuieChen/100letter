@@ -1,0 +1,9 @@
+{
+  "version": "0.11.0.3",
+  "license": "MIT",
+  "upstream_modified": false,
+  "repository": "https://github.com/ramokz/phantom-camera",
+  "commit": "9874dfe6882724362ee10b15788f7811beb6371a",
+  "integration": "Real PhantomCamera2D transform output drives the original Control panorama. No root Camera2D is used, preserving HUD and authored click geometry.",
+  "retrieved": "2026-11-06"
+}

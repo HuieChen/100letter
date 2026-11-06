@@ -8,6 +8,7 @@ const UI=preload("res://scripts/ui/paper_ui.gd")
 const Walker=preload("res://scripts/rebuild/final_walker.gd")
 const Atmosphere=preload("res://scripts/rebuild/street_atmosphere.gd")
 const TextureCache=preload("res://scripts/rebuild/street_texture_cache.gd")
+const CameraDirector=preload("res://scripts/rebuild/street_camera_director.gd")
 var minute:=540
 var postal:=false
 var district:="coastal"
@@ -36,8 +37,11 @@ var cloud_material:ShaderMaterial
 var period_textures:Array[Texture2D]=[]
 var _time_ids:=Vector2i(-1,-1)
 var family:="coastal"
+var camera_director:Node2D
 func _ready()->void:
  clip_contents=true
+ # Run the camera after the courier's committed foot movement in this frame.
+ process_priority=1
  var period:="morning"
  if minute>=1140 or minute<360:period="night"
  elif minute>=1020:period="sunset"
@@ -67,6 +71,8 @@ func _ready()->void:
  # the bottom export strip without modifying any supplied source pixels.
  var selected:Texture2D=period_textures[selected_index]
  UI.place(world,self,Rect2(0,0,960.0*selected.get_width()/selected.get_height(),960))
+ camera_director=CameraDirector.new()
+ add_child(camera_director)
  art=TextureRect.new()
  art.texture=selected
  atmosphere_material=ShaderMaterial.new()
@@ -215,13 +221,16 @@ func _process(_delta:float)->void:
  ambience_changed.emit(Atmosphere.wind_at(weather_time,source_x),Atmosphere.swell_at(weather_time,source_x),Atmosphere.foliage_near(family,source_x))
  var allowed:bool=not can_walk.is_valid() or can_walk.call()
  if courier.manual_enabled!=allowed:courier.manual_enabled=allowed
+ # Hold composition perfectly still while the player uses a camera or modal.
+ world.position.x=-camera_director.advance(_delta,allowed)
 
  if is_instance_valid(entry_hint):
   entry_ready=not _entering and allowed and absf(courier.foot.x-world.size.x*0.376)<220
   entry_hint.visible=entry_ready or _entering
   entry_hint.position=courier.foot+Vector2(74,-courier.actor_height*0.68-entry_hint.size.y*0.5)
 func _follow_courier(at:Vector2)->void:
- world.position.x=-clampf(at.x-650,0,world.size.x-1600)
+ camera_director.frame_foot(at.x,world.size.x)
+ world.position.x=-camera_director.scroll
 func _unhandled_key_input(event:InputEvent)->void:
  if event is InputEventKey and event.pressed and not event.echo and event.physical_keycode==KEY_E and entry_ready:
   get_viewport().set_input_as_handled()

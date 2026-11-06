@@ -12,6 +12,7 @@ func configure(title:String,copy:String,actions:Array,close_action:Callable)->vo
 	name="PaperSheet"
 	_width=660.0 if copy.is_empty() else 860.0
 	_backing=UI.panel(self,Rect2(0,0,_width,400),Color("f7efdc"))
+	_backing.add_theme_stylebox_override("panel",preload("res://scripts/ui/paper_presentation.gd").backing(Color("f7efdc")))
 	_backing.mouse_filter=Control.MOUSE_FILTER_IGNORE
 	_heading=UI.label(self,title,Rect2(42,32,_width-164,60),32)
 	_heading.name="SheetHeading"
@@ -32,6 +33,7 @@ func configure(title:String,copy:String,actions:Array,close_action:Callable)->vo
 	_layout()
 	_layout.call_deferred()
 	_focus_primary.call_deferred()
+	preload("res://scripts/ui/paper_presentation.gd").enter.call_deferred(self)
 
 func _layout()->void:
 	if not is_inside_tree():return
@@ -48,6 +50,7 @@ func _layout()->void:
 	if not _actions.is_empty():y-=10.0
 	var height:=y+36.0
 	size=Vector2(_width,height)
+	pivot_offset=size*.5
 	position=(Vector2(1600,900)-size)*.5
 	_backing.size=size
 

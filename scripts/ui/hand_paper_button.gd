@@ -18,12 +18,12 @@ func _ready()->void:
 	flat=true
 	mouse_default_cursor_shape=Control.CURSOR_POINTING_HAND
 	for state in ["normal","hover","pressed","focus","disabled"]:add_theme_stylebox_override(state,StyleBoxEmpty.new())
-	mouse_entered.connect(func():_hover=true;_animate(1.035,-2.0))
-	mouse_exited.connect(func():_hover=false;_animate(1.0,0.0))
-	focus_entered.connect(func():_animate(1.035,-2.0))
-	focus_exited.connect(func():_animate(1.0,0.0))
+	mouse_entered.connect(func():_hover=true;_settle())
+	mouse_exited.connect(func():_hover=false;_settle())
+	focus_entered.connect(_settle)
+	focus_exited.connect(_settle)
 	button_down.connect(func():_animate(0.91,2.0,0.07))
-	button_up.connect(func():_animate(1.035 if _hover else 1.0,-2.0 if _hover else 0.0,0.17))
+	button_up.connect(_settle)
 	resized.connect(queue_redraw)
 	if texture_normal:
 		_icon=TextureRect.new()
@@ -41,6 +41,12 @@ func _animate(amount:float,y:float,duration:float=0.14)->void:
 	_motion=create_tween().set_parallel(true).set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_OUT)
 	_motion.tween_property(self,"visual_scale",amount,duration)
 	_motion.tween_property(self,"lift",y,duration)
+func _settle()->void:
+	if button_pressed:
+		_animate(.91,2.0,.07)
+		return
+	var active:=_hover or has_focus()
+	_animate(1.035 if active else 1.0,-2.0 if active else 0.0,.17)
 func keyboard_press()->void:_animate(0.91,2.0,0.07)
 func _draw()->void:
 	draw_set_transform(size*.5+Vector2(0,lift),0.0,Vector2.ONE*visual_scale)
@@ -52,6 +58,8 @@ func _draw()->void:
 		var content:=source_content_size if source_content_size!=Vector2.ZERO else texture_normal.get_size()
 		var ratio:=minf(60.0/content.x,60.0/content.y)
 		var icon_size:=texture_normal.get_size()*ratio
+		# A soft contact shadow anchors the original cutout above its paper label.
+		draw_texture_rect(texture_normal,Rect2(base+Vector2(size.x*.5,34)-icon_size*.5,icon_size),false,Color(.20,.24,.19,.13)*tint)
 		if is_instance_valid(_icon):
 			_icon.size=icon_size
 			_icon.scale=Vector2.ONE*visual_scale

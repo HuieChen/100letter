@@ -20,11 +20,16 @@ func check()->void:
  w.foot=Vector2(2000,872)
  w.target=w.foot
  w._advance_manual(Vector2.RIGHT,1.0/30.0)
- assert(absf(road.world.position.x+w.foot.x-650.0)<0.001)
+ # Follow now uses a cinematic spring rather than a hard lock. Input still
+ # feeds the current foot target immediately; settling must converge exactly.
+ assert(absf(road.camera_director.target.position.x-(w.foot.x-650.0))<0.001)
+ assert(absf(road.world.position.x+w.foot.x-650.0)<72.0)
+ for step in 120:road.camera_director.advance(1.0/60.0)
+ assert(absf(road.camera_director.scroll-(w.foot.x-650.0))<0.1)
  road.queue_free();await process_frame
  var post=load("res://scripts/rebuild/coastal_road.gd").new();post.postal=true;root.add_child(post)
  assert(post.world.size.x>9000)
  post.courier.foot.x=post.world.size.x*0.376;post._process(0.01);assert(post.entry_ready)
  post.courier.foot.x=100;post._process(0.01);assert(not post.entry_ready)
- print("STREET_QA_PASS: authored poses, fountain, gentle Shift, braking, same-frame camera, postal proximity")
+ print("STREET_QA_PASS: authored poses, fountain, gentle Shift, braking, bounded camera damping, postal proximity")
  post.queue_free();await process_frame;quit()

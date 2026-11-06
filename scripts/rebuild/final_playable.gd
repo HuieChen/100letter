@@ -473,7 +473,7 @@ func _resident_conversation(character_id:String,index:int)->void:
 		modal.set_line(speaker,"……")
 		return
 	_close()
-	if is_instance_valid(walker):walker.cancel();walker.manual_enabled=false
+	_hide_courier_for_closeup()
 	var dialogue:=SceneDialogue.new()
 	dialogue.light_source=walker
 	dialogue.locale=preferences.values.language
@@ -1244,6 +1244,7 @@ func _map() -> void:
 		button.name="Map_"+destination
 		for state:String in ["normal","hover","pressed","focus"]:button.add_theme_stylebox_override(state,StyleBoxEmpty.new())
 	sound.play("map")
+	preload("res://scripts/ui/paper_presentation.gd").enter(map)
 
 func _visit_map_destination(destination:String)->void:
 	if busy:return
@@ -1262,19 +1263,12 @@ func _change_scene(build:Callable)->void:
 	busy=true
 	_close()
 	if is_instance_valid(walker):walker.cancel();walker.manual_enabled=false
-	var fade:=ColorRect.new()
-	fade.name="SceneTransition";fade.z_index=200
-	fade.color=Color(0.16,0.24,0.26,0.0)
-	fade.mouse_filter=Control.MOUSE_FILTER_STOP
+	var fade:=preload("res://scripts/ui/scene_passage.gd").new()
 	UI.place(fade,self,Rect2(0,0,1600,900))
-	var departure:=create_tween().set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
-	departure.tween_property(fade,"color:a",1.0,0.13)
-	await departure.finished
+	await fade.cover()
 	if not is_inside_tree():return
 	build.call()
-	var arrival:=create_tween().set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_OUT)
-	arrival.tween_property(fade,"color:a",0.0,0.20)
-	await arrival.finished
+	await fade.uncover()
 	if is_instance_valid(fade):remove_child(fade);fade.queue_free()
 	busy=false
 	if is_instance_valid(walker):walker.manual_enabled=view=="world"
@@ -1372,35 +1366,17 @@ func _chef_conversation(index:int)->void:
 	if index>=6:
 		if is_instance_valid(modal) and modal is SceneDialogue:modal.finish()
 		return
-	if is_instance_valid(walker):walker.cancel();walker.manual_enabled=false
-	var zh=[
-		["餐车老板","先别急着走。汤刚出锅，闻着香，喝下去可烫。你今天已经绕广场几圈了？"],
-		["你","一直在认路。远远看见你的勺子，还以为有人在朝我招手。"],
-		["餐车老板","那就算我招了手。以前我刚来，连餐车该停哪儿都不知道。有人给我画了张地图，纸角沾着果酱，我到现在还留着。"],
-		["你","后来你找到地方了吗？"],
-		["餐车老板","找到了。社区中心在街的另一头；往回走，会先经过果蔬摊，再经过杂货店。要是绕晕了，就认准我头顶这把伞。"],
-		["你","那我先把路认熟。回来的时候，汤应该就不烫了。"]]
-	var en=[
-		["Chef","Easy there. The soup smells ready, but it is still too hot to drink. How many laps of the square have you done today?"],
-		["You","I am learning my way around. From a distance, I thought your spoon was someone waving."],
-		["Chef","Then consider yourself waved over. When I arrived, I did not even know where to park. Someone drew me a map. Jam on one corner. I still have it."],
-		["You","Did you find your place?"],
-		["Chef","I did. The community centre is at the other end of this street. Heading back, you pass the produce stall, then the grocery. If you get turned around, look for my parasol."],
-		["You","I will learn the route first. By the time I come back, the soup should be cool enough."]]
-	var lines:Array=en if preferences.values.language=="en" else zh
 	if is_instance_valid(modal) and modal is SceneDialogue and modal.has_meta("chef_page"):
-		modal.set_meta("chef_page",index)
-		modal.set_line(str(lines[index][0]),str(lines[index][1]))
+		modal.configure_managed_chef(index)
 		return
 	_close()
-	if is_instance_valid(walker):walker.cancel();walker.manual_enabled=false
+	_hide_courier_for_closeup()
 	var dialogue:=SceneDialogue.new();dialogue.light_source=walker;modal=dialogue
 	dialogue.set_meta("chef_page",index)
 	UI.place(dialogue,self,Rect2(0,0,1600,900))
 	dialogue.locale=preferences.values.language
-	dialogue.configure(str(lines[index][0]),str(lines[index][1]),[],"courier_source.jpg","chef_source.jpg")
 	dialogue.cue.connect(sound.play)
 	sound.play("paper")
 	dialogue.set_text_rate(preferences.text_rate())
 	dialogue.closed.connect(_close)
-	dialogue.advanced.connect(func():_chef_conversation(int(dialogue.get_meta("chef_page"))+1))
+	dialogue.configure_managed_chef(index)
