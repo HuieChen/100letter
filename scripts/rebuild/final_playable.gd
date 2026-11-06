@@ -674,7 +674,7 @@ func _post_office_room(index:int=0) -> void:
 	var source_scale:=Vector2(1600,900)/Vector2(1920,1080)
 	var exit:=preload("res://scripts/ui/post_office_door.gd").new()
 	exit.name="PostOfficeExit"
-	exit.tooltip_text=_tr("走出邮局","Leave the post office")
+	# The painted handle supplies feedback; no floating tooltip over the door.
 	exit.interaction_allowed=func():return not busy and not is_instance_valid(modal) and not room.transitioning
 	UI.place(exit,stage,Rect2(Vector2(110,238)*source_scale,Vector2(376,488)*source_scale))
 	exit.activated.connect(func():
@@ -958,15 +958,19 @@ func _bag_photo_grid(paper:Control,photos:Array[String])->void:
 		var path:String=photos[photos.size()-1-index]
 		var thumbnail:=_photo_thumbnail(path)
 		if thumbnail==null:continue
-		var item:=Button.new();item.name="BagPhoto_%d"%index;item.flat=true;item.custom_minimum_size=Vector2(230,276)
+		var item:=Button.new();item.name="BagPhoto_%d"%index;item.flat=true;item.custom_minimum_size=Vector2(230,170)
 		item.set_meta("photo_path",path)
 		item.mouse_default_cursor_shape=Control.CURSOR_POINTING_HAND
 		for state:String in ["normal","hover","pressed","focus"]:item.add_theme_stylebox_override(state,StyleBoxEmpty.new())
 		grid.add_child(item)
 		var photo:=FieldCamera.PhotoPaper.new();photo.name="PhotoPrint";photo.image=thumbnail;photo.mouse_filter=Control.MOUSE_FILTER_IGNORE
-		UI.place(photo,item,Rect2(5,2,220,264))
-		var caption:=UI.label(item,FieldCamera.caption_for(path),Rect2(20,219,190,40),20,Color("665240"))
+		UI.place(photo,item,Rect2(5,2,220,151))
+		var caption:=Label.new();caption.name="PhotoCaption"
+		caption.text=FieldCamera.caption_for(path);caption.autowrap_mode=TextServer.AUTOWRAP_OFF
+		caption.text_overrun_behavior=TextServer.OVERRUN_TRIM_ELLIPSIS
+		caption.add_theme_font_size_override("font_size",18);caption.add_theme_color_override("font_color",Color("665240"))
 		caption.horizontal_alignment=HORIZONTAL_ALIGNMENT_CENTER;caption.vertical_alignment=VERTICAL_ALIGNMENT_CENTER;caption.clip_text=true;caption.mouse_filter=Control.MOUSE_FILTER_IGNORE
+		UI.place(caption,item,Rect2(20,126,190,24))
 		item.pressed.connect(func():_bag_photo_album(path))
 		item.mouse_entered.connect(func():photo.position.y=0)
 		item.mouse_exited.connect(func():photo.position.y=2)

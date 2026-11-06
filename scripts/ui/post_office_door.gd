@@ -36,14 +36,10 @@ func _draw()->void:
 	if warmth<0.001:return
 	draw_set_transform(Vector2.ZERO,0.0,size/DESIGN)
 	var cream:=Color("fff4d9")
-	draw_colored_polygon(_outline,Color(cream,0.055*warmth))
-	# A quiet rim stays on the green frame and ends above foreground parcels.
-	var rim:=PackedVector2Array([Vector2(3,476),Vector2(3,3),Vector2(372,3),Vector2(372,448)])
-	draw_polyline(rim,Color(cream,0.38*warmth),3.0,true)
 	# The feedback sits on the painted handle, with a small press displacement.
 	var a:=Vector2(330,309)+Vector2(2,3)*pressure
 	var b:=Vector2(330,422)+Vector2(2,3)*pressure
-	draw_line(a,b,Color(cream,0.16*warmth),26.0,true)
-	draw_circle(a,13.0,Color(cream,0.16*warmth));draw_circle(b,13.0,Color(cream,0.16*warmth))
-	draw_line(a,b,Color(cream,(0.32+0.30*pressure)*warmth),8.0,true)
-	draw_circle(a,4.0,Color(cream,0.48*warmth));draw_circle(b,4.0,Color(cream,0.48*warmth))
+	draw_line(a,b,Color(cream,0.09*warmth),26.0,true)
+	draw_circle(a,13.0,Color(cream,0.09*warmth));draw_circle(b,13.0,Color(cream,0.09*warmth))
+	draw_line(a,b,Color(cream,(0.16+0.18*pressure)*warmth),8.0,true)
+	draw_circle(a,4.0,Color(cream,0.20*warmth));draw_circle(b,4.0,Color(cream,0.20*warmth))

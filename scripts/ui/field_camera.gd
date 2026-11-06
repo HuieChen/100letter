@@ -70,13 +70,14 @@ class PhotoPaper extends Control:
 		draw_colored_polygon(paper,Color("fffaf0"))
 		var edge:=paper.duplicate();edge.append(paper[0])
 		draw_polyline(edge,Color("e5d9c5"),1.5,true)
-		var window:=Rect2(Vector2(size.x*.065,size.x*.065),Vector2(size.x*.87,size.x*.87))
+		var window:=Rect2(Vector2(size.x*.05,size.x*.05),Vector2(size.x*.9,size.x*.9*9.0/16.0))
 		draw_rect(window,Color("ddd8cb"))
 		if image:
 			var source:=Rect2(Vector2.ZERO,image.get_size())
-			var side:=minf(source.size.x,source.size.y)
-			source.position=(source.size-Vector2.ONE*side)*.5;source.size=Vector2.ONE*side
-			draw_texture_rect_region(image,window,source,Color(1,1,1,reveal))
+			# Keep the full captured composition; never crop a landscape photo to square.
+			var fit:=minf(window.size.x/source.size.x,window.size.y/source.size.y)
+			var fitted:=Rect2(window.position+(window.size-source.size*fit)*.5,source.size*fit)
+			draw_texture_rect_region(image,fitted,source,Color(1,1,1,reveal))
 		var line_color:=Color(0.63,0.57,0.46,0.14)
 		draw_line(Vector2(size.x*.08,size.y-8),Vector2(size.x*.41,size.y-9),line_color,1.0,true)
 
@@ -115,11 +116,11 @@ func _ready()->void:
 		var button_atlas:=AtlasTexture.new();button_atlas.atlas=texture;button_atlas.region=Rect2(744,754,182,182);button_atlas.filter_clip=true;shutter.art=button_atlas
 	_place(shutter,canvas,Rect2(748,724,104,104));shutter.tooltip_text=_t("拍照 · C","Take photo · C");shutter.pressed.connect(take_photo)
 	_label("C",Rect2(755,831,90,26),18,HORIZONTAL_ALIGNMENT_CENTER)
-	thumbnail=ArtButton.new();thumbnail.name="LastPhoto";thumbnail.tooltip_text=_t("查看照片","View photos");_place(thumbnail,canvas,Rect2(82,746,100,109));thumbnail.pressed.connect(func():_show_review(gallery_paths.size()-1))
+	thumbnail=ArtButton.new();thumbnail.name="LastPhoto";thumbnail.tooltip_text=_t("查看照片","View photos");_place(thumbnail,canvas,Rect2(82,760,120,84));thumbnail.pressed.connect(func():_show_review(gallery_paths.size()-1))
 	status_label=_label("",Rect2(950,788,450,42),23)
-	_print_clip=Control.new();_print_clip.name="PhotoEjection";_print_clip.clip_contents=true;_print_clip.mouse_filter=Control.MOUSE_FILTER_IGNORE;_place(_print_clip,canvas,Rect2(710,646,180,244));_print_clip.hide()
-	_print_paper=PhotoPaper.new();_print_paper.mouse_filter=Control.MOUSE_FILTER_IGNORE;_place(_print_paper,_print_clip,Rect2(0,-216,180,216))
-	_slot=PrintSlot.new();_slot.mouse_filter=Control.MOUSE_FILTER_IGNORE;_place(_slot,canvas,Rect2(698,636,204,20));_slot.hide()
+	_print_clip=Control.new();_print_clip.name="PhotoEjection";_print_clip.clip_contents=true;_print_clip.mouse_filter=Control.MOUSE_FILTER_IGNORE;_place(_print_clip,canvas,Rect2(660,646,280,244));_print_clip.hide()
+	_print_paper=PhotoPaper.new();_print_paper.mouse_filter=Control.MOUSE_FILTER_IGNORE;_place(_print_paper,_print_clip,Rect2(0,-192,280,192))
+	_slot=PrintSlot.new();_slot.mouse_filter=Control.MOUSE_FILTER_IGNORE;_place(_slot,canvas,Rect2(648,636,304,20));_slot.hide()
 	_flash=ColorRect.new();_flash.name="ShutterFlash";_flash.color=Color("fff7df");_flash.mouse_filter=Control.MOUSE_FILTER_IGNORE;_place(_flash,canvas,Rect2(Vector2.ZERO,DESIGN));_flash.modulate.a=0.0
 	for node:Node in canvas.get_children():
 		if node is CanvasItem:_live_nodes.append(node)
@@ -152,17 +153,17 @@ func _button(text:String,rect:Rect2,font_size:int)->Button:
 func _build_review()->void:
 	_review=Control.new();_review.name="PhotoReview";_review.mouse_filter=Control.MOUSE_FILTER_STOP;_place(_review,canvas,Rect2(Vector2.ZERO,DESIGN));_review.hide()
 	var shade:=ColorRect.new();shade.color=Color(0.08,0.12,0.10,0.72);shade.mouse_filter=Control.MOUSE_FILTER_IGNORE;_place(shade,_review,Rect2(Vector2.ZERO,DESIGN))
-	_review_paper=PhotoPaper.new();_review_paper.name="DevelopedPhoto";_review_paper.mouse_filter=Control.MOUSE_FILTER_IGNORE;_place(_review_paper,_review,Rect2(535,76,530,636))
+	_review_paper=PhotoPaper.new();_review_paper.name="DevelopedPhoto";_review_paper.mouse_filter=Control.MOUSE_FILTER_IGNORE;_place(_review_paper,_review,Rect2(348,100,904,620))
 	_caption_editor=TextEdit.new();_caption_editor.name="PhotoCaption";_caption_editor.placeholder_text=_t("在这里写点什么…","Write a little note…");_caption_editor.wrap_mode=TextEdit.LINE_WRAPPING_BOUNDARY
 	_caption_editor.add_theme_font_override("font",FONT);_caption_editor.add_theme_font_size_override("font_size",25)
 	for state:String in ["normal","focus","read_only"]:_caption_editor.add_theme_stylebox_override(state,StyleBoxEmpty.new())
 	_caption_editor.add_theme_color_override("font_color",Color("665240"));_caption_editor.add_theme_color_override("font_placeholder_color",Color(0.4,0.32,0.25,0.42));_caption_editor.add_theme_color_override("caret_color",Color("665240"));_caption_editor.add_theme_color_override("selection_color",Color(0.66,0.58,0.44,0.24))
-	_place(_caption_editor,_review,Rect2(573,594,454,94))
+	_place(_caption_editor,_review,Rect2(398,618,804,78))
 	_caption_editor.text_changed.connect(func():_caption_dirty=true;_caption_timer.start())
 	_caption_editor.focus_exited.connect(_save_caption)
 	_caption_timer=Timer.new();_caption_timer.one_shot=true;_caption_timer.wait_time=.45;add_child(_caption_timer);_caption_timer.timeout.connect(_save_caption)
-	_caption_notice=_label("",Rect2(520,714,560,34),21,HORIZONTAL_ALIGNMENT_CENTER);_caption_notice.reparent(_review)
-	for item:Array in [["PreviousPhoto","‹",Rect2(402,340,90,100),-1],["NextPhoto","›",Rect2(1108,340,90,100),1]]:
+	_caption_notice=_label("",Rect2(420,730,760,32),21,HORIZONTAL_ALIGNMENT_CENTER);_caption_notice.reparent(_review)
+	for item:Array in [["PreviousPhoto","‹",Rect2(228,340,90,100),-1],["NextPhoto","›",Rect2(1282,340,90,100),1]]:
 		var button:=_button(item[1],item[2],54);button.reparent(_review);button.name=item[0];button.pressed.connect(func():_show_review(_review_index+int(item[3])))
 	var back:=_button(_t("返回背包","Back to bag") if gallery_only else _t("继续拍摄","Back to camera"),Rect2(620,774,360,64),28);back.reparent(_review);back.name="BackToCamera";back.pressed.connect(_leave_review)
 	# The same one-click X stays above the review overlay.
@@ -229,7 +230,7 @@ func _refresh_thumbnail()->void:
 	thumbnail.show()
 	# A real miniature print, no placeholder photo.
 	var paper:=thumbnail.get_node_or_null("ThumbnailPrint") as PhotoPaper
-	if paper==null:paper=PhotoPaper.new();paper.name="ThumbnailPrint";paper.mouse_filter=Control.MOUSE_FILTER_IGNORE;_place(paper,thumbnail,Rect2(4,0,88,106))
+	if paper==null:paper=PhotoPaper.new();paper.name="ThumbnailPrint";paper.mouse_filter=Control.MOUSE_FILTER_IGNORE;_place(paper,thumbnail,Rect2(4,0,112,77))
 	paper.image=ImageTexture.create_from_image(pixels);paper.queue_redraw()
 func _show_review(index:int)->void:
 	if capture_busy or gallery_paths.is_empty():return
@@ -299,7 +300,7 @@ func take_photo()->void:
 func _capture_failed(message:String)->void:
 	capture_busy=false;shutter.disabled=false;shutter.grab_focus();_status(message)
 func _develop(texture:Texture2D)->void:
-	_print_paper.image=texture;_print_paper.reveal=0.0;_print_paper.position=Vector2(0,-216);_print_clip.modulate.a=1.0;_print_clip.show();_slot.show()
+	_print_paper.image=texture;_print_paper.reveal=0.0;_print_paper.position=Vector2(0,-192);_print_clip.modulate.a=1.0;_print_clip.show();_slot.show()
 	_flash.modulate.a=0.22
 	_animation=create_tween().set_parallel(true)
 	_animation.tween_property(_flash,"modulate:a",0.0,0.18)
