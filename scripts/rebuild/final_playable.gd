@@ -928,24 +928,6 @@ func _bag(focus_letter:String="",feedback:bool=true) -> void:
 		empty.name="EmptyMailBag";empty.horizontal_alignment=HORIZONTAL_ALIGNMENT_CENTER
 	if feedback:sound.play("paper")
 
-func _photo_thumbnail(path:String)->Texture2D:
-	# Prints are immutable captures. Reuse their small GPU preview across page
-	# returns; captions stay separate and are read afresh. Bound memory for long visits.
-	var modified:=FileAccess.get_modified_time(path)
-	var cached:Dictionary=_photo_thumbnails.get(path,{})
-	if not cached.is_empty() and int(cached.modified)==modified:
-		_photo_thumbnail_order.erase(path);_photo_thumbnail_order.append(path)
-		return cached.texture
-	var pixels:=Image.load_from_file(path)
-	if pixels==null or pixels.is_empty():return null
-	var ratio:=230.0/maxf(pixels.get_width(),pixels.get_height())
-	if ratio<1.0:pixels.resize(maxi(1,roundi(pixels.get_width()*ratio)),maxi(1,roundi(pixels.get_height()*ratio)),Image.INTERPOLATE_LANCZOS)
-	var texture:=ImageTexture.create_from_image(pixels)
-	_photo_thumbnails[path]={"modified":modified,"texture":texture}
-	_photo_thumbnail_order.erase(path);_photo_thumbnail_order.append(path)
-	while _photo_thumbnail_order.size()>96:_photo_thumbnails.erase(_photo_thumbnail_order.pop_front())
-	return texture
-
 func _bag_photo_grid(paper:Control,photos:Array[String])->void:
 	if photos.is_empty():
 		var empty:=UI.label(paper,_tr("还没有拍好的照片。","No photos yet."),Rect2(48,236,paper.size.x-96,80),26,Color("73665c"))
@@ -953,23 +935,25 @@ func _bag_photo_grid(paper:Control,photos:Array[String])->void:
 		return
 	var scroll:=ScrollContainer.new();scroll.name="PhotoPocket"
 	scroll.horizontal_scroll_mode=ScrollContainer.SCROLL_MODE_DISABLED
+	scroll.follow_focus=true
 	UI.place(scroll,paper,Rect2(48,168,paper.size.x-96,paper.size.y-208))
-	var grid:=GridContainer.new();grid.name="PhotoGrid";grid.columns=4
+	var grid=preload("res://scripts/ui/photo_pocket_grid.gd").new();grid.name="PhotoGrid";grid.columns=4
+	grid.thumbnails=_photo_thumbnails;grid.thumbnail_order=_photo_thumbnail_order
+	grid.caption_loader=FieldCamera.caption_for
+	grid.unavailable_text=_tr("照片无法打开","Photo unavailable")
 	grid.add_theme_constant_override("h_separation",20);grid.add_theme_constant_override("v_separation",18)
 	scroll.add_child(grid)
 	for index:int in photos.size():
 		var path:String=photos[photos.size()-1-index]
-		var thumbnail:=_photo_thumbnail(path)
-		if thumbnail==null:continue
 		var item:=Button.new();item.name="BagPhoto_%d"%index;item.flat=true;item.custom_minimum_size=Vector2(230,170)
 		item.set_meta("photo_path",path)
 		item.mouse_default_cursor_shape=Control.CURSOR_POINTING_HAND
 		for state:String in ["normal","hover","pressed","focus"]:item.add_theme_stylebox_override(state,StyleBoxEmpty.new())
 		grid.add_child(item)
-		var photo:=FieldCamera.PhotoPaper.new();photo.name="PhotoPrint";photo.image=thumbnail;photo.mouse_filter=Control.MOUSE_FILTER_IGNORE
+		var photo:=FieldCamera.PhotoPaper.new();photo.name="PhotoPrint";photo.mouse_filter=Control.MOUSE_FILTER_IGNORE
 		UI.place(photo,item,Rect2(5,2,220,151))
 		var caption:=Label.new();caption.name="PhotoCaption"
-		caption.text=FieldCamera.caption_for(path);caption.autowrap_mode=TextServer.AUTOWRAP_OFF
+		caption.autowrap_mode=TextServer.AUTOWRAP_OFF
 		caption.text_overrun_behavior=TextServer.OVERRUN_TRIM_ELLIPSIS
 		caption.add_theme_font_size_override("font_size",18);caption.add_theme_color_override("font_color",Color("665240"))
 		caption.horizontal_alignment=HORIZONTAL_ALIGNMENT_CENTER;caption.vertical_alignment=VERTICAL_ALIGNMENT_CENTER;caption.clip_text=true;caption.mouse_filter=Control.MOUSE_FILTER_IGNORE

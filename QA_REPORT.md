@@ -1,3 +1,7 @@
+## 2026-11-07 — Responsive photo pocket
+
+240-photo fixture: old synchronous open 5559.696 ms; final PCK 44.640 ms. Nearby prints load in one background CPU worker, offscreen texture references are released, and the 96-entry cache is bounded. Caption edits and return focus remain intact. An injected thread-start failure no longer starves later prints. Final PCK passes 319 focused checks with no unexpected engine errors; release EXE boot exits 0. Details, limitations and package hash: [PHOTO_POCKET_STREAMING_20261107.md](docs/testing/PHOTO_POCKET_STREAMING_20261107.md). OS-input/listening and broad acceptance were not repeated; CORE-BOOK remains in review.
+
 ## 2026-11-06 — Rounded bilingual type and comfort integration
 
 Chinese UI now uses the original ChillRoundF v3.200 Bold font; English and numbers use DynaPuff 500, with Noto Sans SC 400 for rare characters. Original font notices and provenance are included. Dialogue Enter/Space honors the focused close button; the drawn advance arrow has visible focus. New-journey and failed-save text is bilingual, with technical diagnostics kept outside player text.
