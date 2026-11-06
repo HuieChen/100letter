@@ -44,6 +44,7 @@ var _caption_dirty:=false
 var _caption_original:=""
 var _live_nodes:Array[CanvasItem]=[]
 var _album_button:Button
+var _album_open:Button
 var _album_busy:=false
 var _close_after_album:=false
 var last_album_path:=""
@@ -173,6 +174,9 @@ func _build_review()->void:
 	for item:Array in [["PreviousPhoto","‹",Rect2(228,340,90,100),-1],["NextPhoto","›",Rect2(1282,340,90,100),1]]:
 		var button:=_button(item[1],item[2],54);button.reparent(_review);button.name=item[0];button.pressed.connect(func():_show_review(_review_index+int(item[3])))
 	_album_button=_button(_t("保存到相册","Save to album"),Rect2(382,774,390,64),28);_album_button.reparent(_review);_album_button.name="SaveToAlbum";_album_button.disabled=true;_album_button.pressed.connect(export_current_photo)
+	_album_open=_button(_t("查看相册","Open album"),Rect2(1176,730,240,36),21);_album_open.reparent(_review);_album_open.name="OpenAlbum";_album_open.hide()
+	_album_open.pressed.connect(func():
+		if not last_album_path.is_empty() and OS.shell_open(ProjectSettings.globalize_path(last_album_path).get_base_dir())!=OK:_caption_notice.text=_t("相册无法打开，请在图片目录查看","Open Pictures / Dear Somewhere to find your photo."))
 	var back:=_button(_t("返回背包","Back to bag") if gallery_only else _t("继续拍摄","Back to camera"),Rect2(828,774,390,64),28);back.reparent(_review);back.name="BackToCamera";back.pressed.connect(_leave_review)
 	# The same one-click X stays above the review overlay.
 	canvas.move_child(canvas.get_node("CloseCamera"),canvas.get_child_count()-1)
@@ -240,27 +244,28 @@ func export_current_photo()->String:
 	var source_path:String=gallery_paths[_review_index]
 	# Freeze this print and its saved note across the two render frames. The
 	# source image/sidecar stay untouched, and repeated clicks cannot race.
-	_album_busy=true;_album_button.disabled=true;_caption_editor.editable=false
+	_album_busy=true;_album_button.disabled=true;_caption_editor.editable=false;_album_open.hide()
 	_caption_notice.text=_t("正在保存…","Saving…")
 	for control_name:String in ["PreviousPhoto","NextPhoto","BackToCamera"]:_review.get_node(control_name).disabled=true
 	var viewport:=SubViewport.new();viewport.disable_3d=true;viewport.transparent_bg=true
 	viewport.size=Vector2i(1808,1240);viewport.render_target_update_mode=SubViewport.UPDATE_ALWAYS
 	add_child(viewport)
-	var print_canvas:=Control.new();print_canvas.scale=Vector2(2,2);viewport.add_child(print_canvas)
-	var paper:=PhotoPaper.new();paper.image=_review_paper.image;paper.size=Vector2(904,620);print_canvas.add_child(paper)
+	var print_canvas:=Control.new();viewport.add_child(print_canvas)
+	var paper:=PhotoPaper.new();paper.image=_review_paper.image;paper.size=Vector2(1808,1240);print_canvas.add_child(paper)
 	var note:=Label.new();note.text=_caption_original;note.autowrap_mode=TextServer.AUTOWRAP_WORD_SMART
-	note.add_theme_font_override("font",FONT);note.add_theme_font_size_override("font_size",25);note.add_theme_color_override("font_color",Color("665240"))
-	note.position=Vector2(50,518);note.size=Vector2(804,78);paper.add_child(note)
+	# Rasterize at output resolution instead of scaling cached 25px glyphs.
+	note.add_theme_font_override("font",FONT);note.add_theme_font_size_override("font_size",50);note.add_theme_color_override("font_color",Color("665240"))
+	note.position=Vector2(100,1036);note.size=Vector2(1608,156);paper.add_child(note)
 	await get_tree().process_frame
 	# Long notes get more paper below the full-width photograph, rather than
 	# being silently clipped to the editor's scrollable visible area.
-	var print_height:=maxf(620.0,note.position.y+note.get_minimum_size().y+24.0)
+	var print_height:=maxf(1240.0,note.position.y+note.get_minimum_size().y+48.0)
 	var result:=""
 	var message:=""
-	if print_height*2.0>8192.0:
+	if print_height>8192.0:
 		message=_t("题字太长，缩短一些后再保存；原文已保留","This note is too long to export. Shorten it and retry; the original is saved.")
 	else:
-		paper.size.y=print_height;viewport.size.y=ceili(print_height*2.0)
+		paper.size.y=print_height;viewport.size.y=ceili(print_height)
 		await RenderingServer.frame_post_draw
 		var pixels:=viewport.get_texture().get_image()
 		var stem:=source_path.get_file().get_basename()+"_print"
@@ -279,6 +284,7 @@ func export_current_photo()->String:
 	_album_busy=false;_album_button.disabled=false;_caption_editor.editable=true
 	for control_name:String in ["PreviousPhoto","NextPhoto","BackToCamera"]:_review.get_node(control_name).disabled=false
 	_caption_notice.text=message;_album_button.grab_focus()
+	_album_open.visible=not result.is_empty()
 	if not result.is_empty():album_saved.emit(result);cue.emit("paper")
 	pending_save_finished.emit()
 	if _close_after_album:_close_after_album=false;_request_close()
@@ -323,7 +329,7 @@ func _show_review(index:int)->void:
 	_caption_original=caption_for(gallery_paths[_review_index]);_caption_editor.set_block_signals(true);_caption_editor.text=_caption_original;_caption_editor.set_block_signals(false);_caption_dirty=false;_caption_notice.text=""
 	_caption_editor.show();_review_paper.show()
 	_review_paper.image=ImageTexture.create_from_image(pixels);_review_paper.reveal=1.0;_set_review_active(true)
-	_album_button.disabled=false
+	_album_button.disabled=false;_album_open.hide()
 	cue.emit("flip" if was_visible else "paper")
 func _set_review_active(active:bool)->void:
 	_review.visible=active

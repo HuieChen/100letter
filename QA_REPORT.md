@@ -363,3 +363,7 @@ Fixed wrong-photo caption writes after decode failure, covered shutter keyboard 
 ## 2026-11-06 — cinematic presentation and managed dialogue
 Phantom Camera and Dialogue Manager now drive real opened functionality. Paper entry/transition, HUD contact shadows and conversation cast isolation refined. Actual PCK492checks/0failures, release GPU120frames exit0; visual candidate inspected. Full artistic/novice/listening acceptance remains open. See docs/testing/CINEMATIC_POLISH_20261106.md.
 
+# 2026-11-07 album and dialogue follow-up
+
+Final integration preserves bc8d458's corrected original dialogue PNG, 40-pixel portrait lift, atomic album export and pending-save close handling. Added output-resolution caption typography and Open album. Merged GPU checks: album visual 98/0, retained export 54/0, close during success/failure 7/0 + 8/0. Earlier review resilience 64/0 and landscape/map/door 72/0 evidence is retained. No OS input resumed after interruption; native/human acceptance remains unverified. See docs/testing/ALBUM_DIALOGUE_20261107.md for provenance, evidence and publication boundary.
+
