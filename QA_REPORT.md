@@ -1,3 +1,11 @@
+## 2026-11-06 — Rounded bilingual type and comfort integration
+
+Chinese UI now uses the original ChillRoundF v3.200 Bold font; English and numbers use DynaPuff 500, with Noto Sans SC 400 for rare characters. Original font notices and provenance are included. Dialogue Enter/Space honors the focused close button; the drawn advance arrow has visible focus. New-journey and failed-save text is bilingual, with technical diagnostics kept outside player text.
+
+The B9332041 font/UI package, built from runtime commit 8926c2b on top of map/door/landscape commit 0770e48 and cinematic commit dac55ea, passed 14 completed GPU/engine-input suites: typography 1799/0 (337 button and 716 label/body measurements across six language/resolution combinations), genuine save failures 91/0, experience 58/0, routes 113/0, landscape 72/0, photo resilience 64/0, presentation 9/0, managed dialogue 41/0, camera follow 132/0, settings 168/0, original-water idle 9/0, photo bag 37/0, plus normal queued quit and failed-save/retry quit with independently verified destination/checksum. Local CI equivalents passed 48 Python tests and integrity checks. The intentionally corrupt PNG fixture emitted 12 expected decoder messages; each was checked against that fixture. No unexpected script/shader/engine or shutdown leak errors were found. These are not native/manual or whole-story acceptance.
+
+The final 1C7A8B45 motion build includes the same font commit and a subsequent cloud-wing correction; it supersedes the undistributed D50CD5D2 candidate. Its separate integrated results are in MOTION_COVERAGE_20261106.md. See docs/testing/comfort-type_20261106/release.json for exact source/package evidence and COMFORT_TYPE_RESEARCH_20261106.txt for design analysis and primary references. The user requires every future completed game modification to be validated and pushed to GitHub main; AGENTS.md records that rule.
+
 ## 2026-11-06 — Existing demo comfort and original-art water
 
 Delivered Windows pack SHA-256: `ff6f495ed06de60953795b07f547705a66550f9ef64e3e26da9fa9ee9e393a95`. The published runtime source and adopted assets derive from its 675-entry inventory; text source may be LF-normalized by Git. Rebuilding may produce different import/compiler bytes and therefore a different package SHA.

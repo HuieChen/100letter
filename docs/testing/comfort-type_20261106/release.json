@@ -1,0 +1,203 @@
+{
+  "scope": "Opened exploration demo; GPU/engine input and screenshot inspection, not native/manual or full narrative acceptance.",
+  "font_source_commit": "8926c2b088dad67d6d2be6da03b744ecba1438d1",
+  "merged_main_commit_at_receipt": "71098d5c7cd0713511d83f101604ea94724d64fb",
+  "font_ui_package_sha256": "b9332041c410f59e2c5d8e4f927b799142b622c86dd69d56bc6f969ba1c2c06b",
+  "font_ui_package_entries": 1097,
+  "runtime_suites": [
+    {
+      "exit_code": 0,
+      "name": "typography",
+      "errors": false,
+      "summary": [
+        "COMFORT_TYPOGRAPHY 1799 checks / 0 failures; 337 buttons; 142 glyphs\r"
+      ]
+    },
+    {
+      "exit_code": 0,
+      "name": "save-failure",
+      "errors": false,
+      "summary": [
+        "SETTINGS SAVE FAILURE INPUT: 91 checks / 0 failures\r"
+      ]
+    },
+    {
+      "exit_code": 0,
+      "name": "experience",
+      "errors": false,
+      "summary": [
+        "EXPERIENCE_FLOW 58 checks / 0 failures\r"
+      ]
+    },
+    {
+      "exit_code": 0,
+      "name": "routes",
+      "errors": false,
+      "summary": [
+        "EXPERIENCE_ROUTES 113 checks / 0 failures\r"
+      ]
+    },
+    {
+      "exit_code": 0,
+      "name": "landscape",
+      "errors": false,
+      "summary": [
+        "FEEDBACK_LANDSCAPE 72 checks / 0 failures\r"
+      ]
+    },
+    {
+      "exit_code": 0,
+      "name": "photo-resilience",
+      "errors": false,
+      "summary": [
+        "PHOTO_REVIEW_RESILIENCE 64 checks / 0 failures\r"
+      ],
+      "expected_negative_diagnostics": 12,
+      "negative_diagnostic_scope": "Four loads of the deliberately corrupt DearSomewhere_02.png fixture; 64 behavioral assertions passed; first generic error gate retained."
+    },
+    {
+      "summary": [
+        "CINEMATIC_REVIEW 9 checks / 0 failures\r"
+      ],
+      "errors": false,
+      "name": "cinematic",
+      "exit_code": 0
+    },
+    {
+      "summary": [
+        "MANAGED_CHEF_HOST 41 checks / 0 failures\r"
+      ],
+      "errors": false,
+      "name": "managed-chef",
+      "exit_code": 0
+    },
+    {
+      "summary": [
+        "PHANTOM_STREET_CAMERA 132 checks / 0 failures\r"
+      ],
+      "errors": false,
+      "name": "camera-follow",
+      "exit_code": 0
+    },
+    {
+      "summary": [
+        "FLOWING_SETTINGS 168 checks / 0 failures\r"
+      ],
+      "errors": false,
+      "name": "settings",
+      "exit_code": 0
+    },
+    {
+      "summary": [
+        "SHALLOW_IDLE 9 checks / 0 failures\r"
+      ],
+      "errors": false,
+      "name": "idle",
+      "exit_code": 0
+    },
+    {
+      "summary": [
+        "PHOTO_BAG checks=37 failures=[]\r"
+      ],
+      "errors": false,
+      "name": "photo-bag",
+      "exit_code": 0
+    },
+    {
+      "summary": [
+        "QUIT_REQUEST_QUEUED user://qa/font-final/quit/state.json"
+      ],
+      "errors": false,
+      "name": "quit",
+      "exit_code": 0
+    },
+    {
+      "summary": [
+        "FAILED_QUIT_RETAINED live destination and visible save error"
+      ],
+      "errors": false,
+      "name": "quit-failure",
+      "exit_code": 0
+    }
+  ],
+  "quit_file_checks": [
+    {
+      "case": "quit",
+      "saved_location": "residential",
+      "payload_sha256_valid": true
+    },
+    {
+      "case": "quit-failure",
+      "saved_location": "residential",
+      "payload_sha256_valid": true
+    }
+  ],
+  "typography": {
+    "checks": 1799,
+    "failures": [],
+    "measured_buttons": 337,
+    "measured_labels": 716,
+    "scope": "Engine/GPU input and measured layout; not native/manual accessibility certification.",
+    "screenshots": [
+      "zh_720_title.png",
+      "zh_720_new_journey.png",
+      "zh_720_pause.png",
+      "zh_720_bag.png",
+      "zh_720_settings.png",
+      "en_720_title.png",
+      "en_720_new_journey.png",
+      "en_720_pause.png",
+      "en_720_bag.png",
+      "en_720_settings.png",
+      "zh_1080_title.png",
+      "zh_1080_new_journey.png",
+      "zh_1080_pause.png",
+      "zh_1080_bag.png",
+      "zh_1080_settings.png",
+      "en_1080_title.png",
+      "en_1080_new_journey.png",
+      "en_1080_pause.png",
+      "en_1080_bag.png",
+      "en_1080_settings.png",
+      "zh_1440_title.png",
+      "zh_1440_new_journey.png",
+      "zh_1440_pause.png",
+      "zh_1440_bag.png",
+      "zh_1440_settings.png",
+      "en_1440_title.png",
+      "en_1440_new_journey.png",
+      "en_1440_pause.png",
+      "en_1440_bag.png",
+      "en_1440_settings.png",
+      "en_dialogue.png"
+    ],
+    "unique_glyphs": 142
+  },
+  "local_ci": {
+    "studio_integrity": "pass",
+    "gut_files": 259,
+    "retained_evidence_files": 1262,
+    "python_tests": 48,
+    "python_failures": 0
+  },
+  "font_source_blobs": {
+    "assets/fonts/DearRounded.tres": "c51c6a8c8616de3f975a7c30676c159e8afa747f",
+    "assets/fonts/DearFallback.tres": "18f44d9bf97a3852d3ae2fa2815f9fae80d6c993",
+    "assets/fonts/ChillRoundFBold.ttf": "2f133c32b834820e7810689a37a8d527f841fdc4",
+    "scripts/rebuild/scene_dialogue.gd": "bdfb39006ace0097016d7ab1e6d86d1ab279fc13",
+    "scripts/rebuild/final_playable.gd": "7ee3ce0c234183da527576b4050b120715e7b692",
+    "scripts/ui/coastal_settings.gd": "0c3f0d6280bfabc4ad1533570935e02d2f1973e5"
+  },
+  "separate_final_motion_package": {
+    "sha256": "1c7a8b45cef0e2e4c09fb9b94fdff1b7d03c9a4a613c003f9f97dabf0cdec1fa",
+    "reference": "docs/testing/MOTION_COVERAGE_20261106.md",
+    "note": "Final integrated motion build after cloud-wing correction; includes the font commit. Its separate 11-suite 1847-check QA is in the motion report, not represented as this B933 test run.",
+    "superseded_sha256": "d50cd5d2f1127af465ed8190c3e4ed8a5570f05aa4dd1cabdd0537b3fbf869e7"
+  },
+  "retained_failures": [
+    "Initial glyph coverage missed U+25BE; replaced with supported U+25BC.",
+    "Focused dialogue close Enter advanced dialogue before correction.",
+    "Old camera probe exited 0 without completion; not counted as passed.",
+    "First generic log gate rejected expected corrupt-photo decoder errors; all 12 lines were matched to the owned malformed PNG fixture, with no other engine errors."
+  ]
+}
