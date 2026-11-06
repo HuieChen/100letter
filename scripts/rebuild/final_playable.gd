@@ -71,7 +71,7 @@ func _ready() -> void:
 	for arg in OS.get_cmdline_user_args():
 		if arg.begins_with("--final-save="): core.save_path=arg.trim_prefix("--final-save=")
 	add_child(core)
-	core.save_failed.connect(func(message:String): _show_save_problem("记录未写入磁盘："+message))
+	core.save_failed.connect(func(message:String): _show_save_problem(_tr("进度暂时无法保存，当前场景会保留。请稍后重试。","Progress could not be saved. This scene will stay open; please try again."),message))
 	sound=Sound.new()
 	sound.settings_path="user://final_v2/audio_settings.cfg"
 	add_child(sound)
@@ -172,22 +172,23 @@ func _prepare_quit() -> bool:
 		_update_preference_save_notice()
 	if not is_instance_valid(core) or view=="title":return true
 	if busy:
-		_show_save_problem("正在完成这次移动或交接，请稍等一下再关闭。")
+		_show_save_problem(_tr("正在完成这次移动，请稍等一下再关闭。","Finishing this move. Please wait a moment before closing."))
 		return false
 	if is_instance_valid(modal) and modal.has_method("checkpoint_for_quit"):
 		if not modal.checkpoint_for_quit():
-			_show_save_problem("物件的当前状态还没保存成功，窗口暂时保留。"+core.last_save_error)
+			_show_save_problem(_tr("物件的当前状态还没保存成功，窗口暂时保留。","This item's state has not been saved. The window will stay open."),core.last_save_error)
 			return false
 	elif not core.state.active_operation.is_empty():
-		_show_save_problem("请先收好正在操作的纸件，再关闭这班工作。")
+		_show_save_problem(_tr("请先收好正在操作的纸件，再关闭游戏。","Please put away the paper you are handling before closing."))
 		return false
 	if not _save_resolution_drafts():return false
 	if not core.save_game():
-		_show_save_problem("工作记录没有保存成功，窗口暂时保留。"+core.last_save_error)
+		_show_save_problem(_tr("进度还没有保存成功，窗口暂时保留。","Progress has not been saved. The window will stay open."),core.last_save_error)
 		return false
 	return true
 
-func _show_save_problem(message:String) -> void:
+func _show_save_problem(message:String,diagnostic:String="") -> void:
+	if not diagnostic.is_empty():set_meta("last_save_diagnostic",diagnostic)
 	var previous:=get_node_or_null("SaveFailureNotice")
 	if is_instance_valid(previous):remove_child(previous);previous.queue_free()
 	var notice:=UI.label(self,message,Rect2(240,108,1120,108),23,Color("fff3df"))
@@ -353,7 +354,7 @@ func _stage_plan(id:String) -> Dictionary:
 func _start() -> void:
 	if core.has_save():
 		sound.play("paper")
-		_sheet(_tr("另开一个班次","Start a new shift"), _tr("新班次会替换此版本的工作记录。","A new shift will replace this version's current work record."),[[_tr("继续旧班次","Continue current shift"),_resume],[_tr("确认开始新班次","Start new shift"),_fresh]])
+		_sheet(_tr("开启新的旅程？","A new journey?"), _tr("这会替换当前旅程的进度。","This will replace your current journey's progress."),[[_tr("继续当前旅程","Continue current journey"),_resume],[_tr("开始新旅程","Start new journey"),_fresh]])
 	else: _fresh()
 
 func _fresh() -> void:
@@ -364,12 +365,13 @@ func _fresh() -> void:
 	_resolution_drafts.clear()
 	if not core.save_game():
 		_briefing_pending=false
-		_sheet("暂时无法开始可保存的班次",core.last_save_error,[])
+		set_meta("last_save_diagnostic",core.last_save_error)
+		_sheet(_tr("暂时无法保存新旅程","Unable to save a new journey"),_tr("原有记录会保留。请检查存储空间或写入权限，再试一次。","Your previous record is preserved. Please check storage space or write access, then try again."),[])
 		return
 	var draft_error:String=DraftStore.reset(core.save_path+".drafts-v1.json")
 	if not draft_error.is_empty():
 		_briefing_pending=false
-		_show_save_problem(draft_error)
+		_show_save_problem(_tr("暂时无法准备新旅程，请稍后重试。","The new journey could not be prepared. Please try again."),draft_error)
 		return
 	sound.play("paper")
 	_post_office_room()
@@ -401,7 +403,8 @@ func _finish_briefing() -> void:
 
 func _resume() -> void:
 	if not core.load_game():
-		_sheet("工作记录",core.last_save_error,[])
+		set_meta("last_save_diagnostic",core.last_save_error)
+		_sheet(_tr("旅程记录","Journey record"),_tr("暂时无法读取这段旅程，原有文件已保留。请稍后重试。","This journey could not be opened. Your original file is preserved; please try again."),[])
 		return
 	sound.play("paper")
 	_tray_opened=bool(core.case_state("case01").physical.inspected_front)
@@ -1179,7 +1182,9 @@ func _save_resolution_drafts(capture_open:bool=true) -> bool:
 		var id:String=str(draft.get("case_id",""))
 		if id in core.CASE_IDS and core.resolution_view(id).is_empty():_resolution_drafts[id]=draft
 	var error:String=DraftStore.write(core.save_path+".drafts-v1.json",_resolution_drafts)
-	if not error.is_empty():_show_save_problem(error);return false
+	if not error.is_empty():
+		_show_save_problem(_tr("记录还没有保存成功，当前场景会保留。请稍后重试。","Your notes have not been saved. This scene will stay open; please try again."),error)
+		return false
 	return true
 
 func _read_resolution(id:String) -> void:
@@ -1333,7 +1338,7 @@ func _settings_page(return_to_pause:bool=true) -> void:
 func _save_to_title() -> void:
 	if not _save_resolution_drafts():return
 	if core.save_game():_title()
-	else:_show_save_problem("工作记录没有保存成功，仍保留在当前班次。"+core.last_save_error)
+	else:_show_save_problem(_tr("进度还没有保存成功，仍保留在当前场景。","Progress has not been saved. You will stay in the current scene."),core.last_save_error)
 
 func _pause() -> void:
 	if busy:return

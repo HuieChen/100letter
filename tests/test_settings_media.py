@@ -10,13 +10,20 @@ class SettingsMedia(unittest.TestCase):
             with self.subTest(font=name):
                 font=ROOT/'assets/fonts'/f'{name}.ttf'
                 self.assertEqual(hashlib.sha256(font.read_bytes()).hexdigest(),record['sha256'])
-                self.assertEqual(len(record['commit']),40)
-                expected_repo='Warren2060/ChillRound' if name=='ChillRoundF' else 'google/fonts'
-                self.assertTrue(record['upstream'].startswith('https://github.com/'+expected_repo+'/tree/'+record['commit']))
+                if name == 'ChillRoundFBold':
+                    self.assertEqual(record['release'],'v3.200')
+                    self.assertEqual(record['upstream'],'https://github.com/Warren2060/ChillRound/releases/tag/v3.200')
+                    self.assertEqual(record['source_archive'],'https://github.com/Warren2060/ChillRound/releases/download/v3.200/ChillRoundF_v3.200.zip')
+                    self.assertEqual(len(record['source_archive_sha256']),64)
+                    self.assertTrue(record['unmodified'])
+                else:
+                    self.assertEqual(len(record['commit']),40)
+                    expected_repo='Warren2060/ChillRound' if name=='ChillRoundF' else 'google/fonts'
+                    self.assertTrue(record['upstream'].startswith('https://github.com/'+expected_repo+'/tree/'+record['commit']))
                 notice=(ROOT/'assets/fonts'/f'{name}-OFL.txt').read_text(encoding='utf-8-sig')
                 self.assertIn('SIL OPEN FONT LICENSE',notice)
                 self.assertIn('Version 1.1',notice)
-                self.assertTrue('Copyright' in notice or (name=='ChillRoundF' and '© 2023 ChillType' in notice))
+                self.assertTrue('Copyright' in notice or (name.startswith('ChillRoundF') and '© 2023 ChillType' in notice))
     def test_water_samples_are_real_short_decodable_recordings(self):
         info=json.loads((ROOT/'assets/audio/foley/water-provenance.json').read_text(encoding='utf-8'))
         self.assertEqual(info['license'],'CC0 1.0')

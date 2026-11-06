@@ -7,7 +7,7 @@ func _initialize()->void:
 	_check(not model.load_settings(),"missing preferences use defaults")
 	_check(model.values.master==1.0 and model.values.sensitivity==1.0,"neutral defaults preserve established handling")
 	for key:String in Preferences.DEFAULTS:
-		var value:Variant={"language":"en","display_mode":"borderless","resolution":"1920x1080","master":0.0,"music":0.34,"sfx":0.67,"sensitivity":1.61,"text_speed":"slow"}[key]
+		var value:Variant={"language":"en","display_mode":"borderless","resolution":"1920x1080","master":0.0,"music":0.34,"sfx":0.67,"ambience":0.51,"sensitivity":1.61,"text_speed":"slow"}[key]
 		_check(model.set_value(key,value),"actual validated preference "+key)
 	_check(model.save_settings(),"atomic save")
 	var reload:=Preferences.new();reload.path=model.path;root.add_child(reload)

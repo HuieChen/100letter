@@ -1,0 +1,43 @@
+Dear Somewhere — 圆润字体与舒适体验分析
+2026-11-06
+
+目标
+让玩家看得清、知道焦点在哪里、按下按钮得到预期结果，也能安心暂停和退出。可爱感服务于阅读和操作；原画与现有探索节奏继续作为主体。
+
+本轮取舍
+中文使用 ChillRoundF 官方 Bold 字形，英文和数字使用 DynaPuff 500。普通 ChillRoundF 在蓝色设置纸上的视觉重量不足，因此改用作者专门绘制的粗体，保留字腔。少见字符由 Noto Sans SC 400 补齐，避免变量字体默认细字重造成突兀。字体文件未改写，随包保留 OFL 许可和来源指纹。
+对话关闭按钮获得焦点后，Enter/Space 应激活关闭，不能被推进对白的全局按键抢走。原画里的无文字翻页箭头需要可见但克制的焦点反馈。
+新旅程确认明确告知会替换进度，并保留继续当前旅程的安全选项。保存失败提示跟随界面语言；原始错误留在诊断信息中，玩家看到保留现场、稍后重试的短提示。未知版本存档和记录原字节受到保护。
+设置水面继续折射原画内容。被拒绝的新增白色焦散网纹不恢复，字体修改不改变纸张、邮票、柠檬或水面素材。
+
+调研参考与应用
+1. A Short Hike
+官方介绍强调平静探索，可沿标记路径，也可自由离开路径。借鉴的是低压力、允许停留的节奏。现有试玩的暂停、地图往返和恢复位置都作为重点回归对象，没有因演出增加计时压力。
+https://ashorthike.com/
+
+2. Unpacking
+官网可及性说明包括无时间限制/惩罚、分开调节声音、界面尺寸选项，以及可关闭房间切换动画。用于提醒我们优先检查可读性、退出与音量控制，避免把持续动效当作舒适体验的证明。并不表示本作已具备对方全部可及性功能。
+https://www.unpackinggame.com/
+
+3. TOEM: A Photo Adventure
+开发者发布的产品介绍围绕摄影、交谈与放松探索。借鉴的是照片作为旅行记忆的连续性：拍摄、查看、写字、回到场景应衔接自然。横向照片、地图和门的视觉调整由对应 UI 修改组负责，合并后共同回归。
+https://store.steampowered.com/app/1307580/TOEM_A_Photo_Adventure/
+
+4. Xbox Accessibility Guidelines
+文本与 UI 导航指南用于核对文字尺寸、换行、清晰焦点和可预测的按钮行为。此处是审查参考，不是认证。
+https://learn.microsoft.com/en-us/xbox/accessibility/xbox-accessibility-guidelines/101
+https://learn.microsoft.com/en-us/xbox/accessibility/xbox-accessibility-guidelines/112
+https://learn.microsoft.com/en-in/gaming/accessibility/xbox-accessibility-guidelines/117
+
+字体原始来源
+https://github.com/Warren2060/ChillRound/releases/tag/v3.200
+https://github.com/googlefonts/dynapuff
+项目内 assets/fonts/settings-font-provenance.json 记录实际文件 SHA-256、版本、下载地址和原始许可。
+
+验收原则
+检查中文/英文在 1280x720、1920x1080、2560x1440 的标题、暂停、背包、设置、新旅程确认；同时检查设置最长选项、展开下拉菜单、对话关闭和字形覆盖。保存异常使用隔离目录中的真实文件失败，不碰玩家存档。正式 PCK 在无源码回退的空目录中运行，并要求完成摘要、失败数和错误日志都符合预期。
+初次测试发现下拉符号缺字、关闭焦点被抢、草稿报错未本地化；修复后复测。旧相机测试曾进程退出0但无完成摘要，按未通过处理。旧脚本期待隐藏剧情的断言已按当前试玩路径修正，历史失败证据保留。
+
+边界
+本轮验收覆盖已开放探索试玩。部分对白仍是占位，隐藏邮件/柜台/录音机和完整叙事没有被补写或宣称完成。自动输入和 GPU 截图不等于真人首次游玩、长时间舒适度或听感验收。“行业最好”仍需完整内容与玩家反馈支持，不能由测试数量推定。
+最终提交、正式包指纹和合并后的测试结果见同目录 comfort-type_20261106/release.json。

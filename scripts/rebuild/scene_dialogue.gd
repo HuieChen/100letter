@@ -86,6 +86,7 @@ func _advance_managed()->void:
 	set_line(str(line.speaker),str(line.text))
 func _speaker_emphasis()->void:
 	var player_speaks:=_speaker in ["你","You","主角"]
+	if not is_instance_valid(_left_portrait) and not is_instance_valid(_right_portrait):return
 	var t:=create_tween().set_parallel(true)
 	if is_instance_valid(_left_portrait):t.tween_property(_left_portrait,"self_modulate",Color.WHITE if player_speaks else Color(0.84,0.86,0.88),0.16)
 	if is_instance_valid(_right_portrait):t.tween_property(_right_portrait,"self_modulate",Color(0.84,0.86,0.88) if player_speaks else Color.WHITE,0.16)
@@ -233,6 +234,11 @@ func _text_button(text:String,rect:Rect2) -> Button:
 	button.add_theme_color_override("font_hover_color",ACCENT)
 	button.add_theme_color_override("font_focus_color",ACCENT)
 	for state in ["normal","hover","pressed","focus"]:button.add_theme_stylebox_override(state,StyleBoxEmpty.new())
+	# The authored advance arrow has no text, so font color cannot show focus.
+	var focused:=StyleBoxFlat.new()
+	focused.bg_color=Color(0.13,0.48,0.53,0.14)
+	focused.set_corner_radius_all(9)
+	button.add_theme_stylebox_override("focus",focused)
 	UI.place(button,self,rect)
 	return button
 func _advance() -> void:
@@ -253,7 +259,12 @@ func _input(event:InputEvent) -> void:
 	if not visible or _closing:return
 	if event is InputEventKey and event.pressed and not event.echo:
 		if event.keycode==KEY_ESCAPE:request_close()
-		elif not _showing_choices and event.keycode in [KEY_SPACE,KEY_ENTER,KEY_KP_ENTER]:_advance()
+		elif not _showing_choices and event.keycode in [KEY_SPACE,KEY_ENTER,KEY_KP_ENTER]:
+			# Keyboard activation belongs to the focused control. In particular,
+			# Enter on the close button must close instead of advancing dialogue.
+			var focused:=get_viewport().gui_get_focus_owner()
+			if focused is BaseButton and is_ancestor_of(focused) and focused.name!=advance_name:return
+			_advance()
 		elif _showing_choices and event.keycode>=KEY_1 and event.keycode<=KEY_9:
 			var index:int=_choice_page*CHOICES_PER_PAGE+int(event.keycode)-KEY_1
 			if int(event.keycode)-KEY_1<CHOICES_PER_PAGE and index<_choices.size():_choose(str(_choices[index].get("id",index)))

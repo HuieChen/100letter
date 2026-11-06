@@ -202,8 +202,8 @@ func _option(key:String,label:String,label_rect:Rect2,rect:Rect2,values:Array,te
 	focus_style.bg_color=Color.TRANSPARENT;focus_style.border_color=Color("fff4ba")
 	choice.add_theme_stylebox_override("focus",focus_style)
 	UI.place(choice,self,rect);controls[key]=choice
-	var arrow:=Label.new();arrow.text="▾";arrow.mouse_filter=Control.MOUSE_FILTER_IGNORE
-	arrow.add_theme_color_override("font_color",Color.WHITE);arrow.add_theme_font_size_override("font_size",20)
+	var arrow:=Label.new();arrow.text="▼";arrow.mouse_filter=Control.MOUSE_FILTER_IGNORE
+	arrow.add_theme_color_override("font_color",Color.WHITE);arrow.add_theme_font_size_override("font_size",14)
 	UI.place(arrow,choice,Rect2(rect.size.x-25,1,22,rect.size.y-2))
 	_feedback.bind_button(choice,arrow)
 	choice.pressed.connect(func():

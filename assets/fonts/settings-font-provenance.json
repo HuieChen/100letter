@@ -3,7 +3,8 @@
     "commit": "d4cc17c373d3c60e98e332099c1462b98305101e",
     "sha256": "c3752fc6dd8aaa46a88637f061a9a4e6ab44c02c5f0afd65528b91ae8ff6f948",
     "license": "SIL OFL 1.1",
-    "upstream": "https://github.com/google/fonts/tree/d4cc17c373d3c60e98e332099c1462b98305101e/ofl/dynapuff"
+    "upstream": "https://github.com/google/fonts/tree/d4cc17c373d3c60e98e332099c1462b98305101e/ofl/dynapuff",
+    "scope": "Global English UI, headings and numbers at weight 500; original variable-font bytes retained"
   },
   "ZCOOLKuaiLe": {
     "commit": "6d49995f5d8f1c7d476760a580ffb89ce1e52c5d",
@@ -30,6 +31,17 @@
     "upstream": "https://github.com/Warren2060/ChillRound/tree/46dda1602729b58de96e3fdee9f918d7aaa64727",
     "source_path": "ChillRound/ChillRoundF.ttf",
     "unmodified": true,
-    "scope": "Chinese Settings headline, captions and selectors only; original font bytes and name retained"
+    "scope": "Retained original regular font for provenance and compatibility; new global Chinese UI uses official ChillRoundFBold."
+  },
+  "ChillRoundFBold": {
+    "release": "v3.200",
+    "sha256": "f2c4f9295d9d04a1eb6392ae3c51ecf2a9ffab355a45c6686eeec5eede3381ec",
+    "license": "SIL OFL 1.1",
+    "upstream": "https://github.com/Warren2060/ChillRound/releases/tag/v3.200",
+    "source_archive": "https://github.com/Warren2060/ChillRound/releases/download/v3.200/ChillRoundF_v3.200.zip",
+    "source_archive_sha256": "7a061e39cc8f377ce122f0ae68d1fe3ef43d78431388362c61ea8d695722d267",
+    "source_path": "ChillRoundF_v3.200/ChillRoundFBold.ttf",
+    "unmodified": true,
+    "scope": "Global Chinese rounded UI; official designed Bold outlines, including dense multi-stroke glyphs."
   }
 }

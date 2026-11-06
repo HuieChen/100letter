@@ -10,7 +10,9 @@ var failures:Array[String]=[]
 var images:Array[String]=[]
 var sentinel_path:=""
 var sentinel_bytes:PackedByteArray
-func _initialize()->void:_run.call_deferred()
+func _initialize()->void:
+	create_timer(45).timeout.connect(func():push_error("Settings save regression timed out");quit(1))
+	_run.call_deferred()
 func _run()->void:
 	root.unfocusable=true;root.gui_embed_subwindows=true
 	root.size=Vector2i(1920,1080);root.content_scale_size=Vector2i(1600,900);root.content_scale_mode=Window.CONTENT_SCALE_MODE_CANVAS_ITEMS
@@ -46,6 +48,7 @@ func _run()->void:
 	_check_status("Not saved")
 	var unsaved:Dictionary=game.preferences.values.duplicate(true)
 	await _click_named("CloseSettings")
+	await create_timer(0.3).timeout
 	_check(not is_instance_valid(game.modal),"one visible return click exits despite failed saving")
 	_check(game.preferences.values==unsaved and game.preferences.dirty,"return retains every dirty in-memory preference")
 	var notice:Label=game.get_node_or_null("PreferencesSaveNotice")
@@ -56,22 +59,27 @@ func _run()->void:
 	_check(game.get_node_or_null("PreferencesSaveNotice")==null,"reentry uses one paper status instead of duplicate messages")
 	_check(absf(game.modal.controls.master.value-unsaved.master)<0.001,"reentered track shows the actual unsaved in-memory value")
 	await _key(KEY_ESCAPE)
+	await create_timer(0.3).timeout
 	_check(not is_instance_valid(game.modal),"Esc can always leave a failed-save Settings page")
 	_check(game._prepare_quit(),"title quit remains available after repeated failed saves")
 	_check(game.core.state==story_before,"preference failure and exits preserve existing campaign state")
 	_check_sentinel("reentry and title quit readiness")
-	# Enter the real first scene and its real briefing. Its existing busy guard
-	# must still reject quit, regardless of the independent preference failure.
+	# Exercise the currently opened demo route, not the hidden old briefing.
 	await _click_named("NewShift")
-	_check(game.view=="counter" and game.busy,"actual first-scene transition creates the campaign busy state")
+	_check(game.view=="post_office_room" and not game.busy,"new journey opens the current post-office demo")
+	# Seed a retained legacy-save guard while the Core is at the post office.
+	# This does not expose the hidden mail UI in the current demo.
+	_check(game.core.take_case("case01").is_empty(),"prepare owned paper for retained-save guard")
+	await _key(KEY_M);await _click_named("Map_community_center")
+	_check(game.busy,"actual map departure creates the transition busy state")
 	_check(not game._prepare_quit(),"campaign transition guard still rejects unsafe quit")
-	await create_timer(0.72).timeout;await _click_named("FinishBriefing")
-	_check(not game.busy and game.view=="counter","actual briefing advance finishes before campaign guard fixtures")
+	await create_timer(0.72).timeout
+	_check(not game.busy and game.view=="world","map arrival finishes before save-guard fixtures")
 	await _key(KEY_ESCAPE);await _click_text("Settings")
 	_check(is_instance_valid(game.modal) and game.modal.has_node("SettingsWater"),"actual pause control opens campaign Settings")
 	_check_status("Not saved")
 	_check(game._prepare_quit(),"valid campaign checkpoint can prepare quit despite failed preferences")
-	_check(game.core.take_case("case01").is_empty(),"real owned mail supports the active-paper guard fixture")
+	_check(game.core.case_state("case01").owner=="courier","owned paper survives the current map route")
 	var physical:Dictionary=game.core.case_state("case01").physical.duplicate(true)
 	_check(game.core.begin_operation("case01","open").is_empty(),"real Core operation begins without fabricating a completion")
 	_check(not game._prepare_quit() and not game.core.state.active_operation.is_empty(),"uncheckpointed physical-paper guard remains intact")
@@ -81,9 +89,25 @@ func _run()->void:
 	var future:=FileAccess.open(future_path,FileAccess.WRITE);future.store_buffer(future_bytes);future.close()
 	game.core.save_path=future_path
 	_check(not game._prepare_quit(),"actual unknown campaign-save format still blocks unsafe overwrite/quit")
+	var save_notice:Label=game.get_node_or_null("SaveFailureNotice")
+	_check(save_notice!=null and save_notice.text.begins_with("Progress has not been saved."),"campaign save failure is localized in English")
+	_check(save_notice!=null and not save_notice.text.contains(".json") and not save_notice.text.contains("/"),"technical save diagnostics stay out of player-facing text")
 	_check(FileAccess.get_file_as_bytes(future_path)==future_bytes,"failed campaign quit preserves the original future-format bytes")
 	game.core.save_path=valid_story_path
 	_check(game._prepare_quit(),"restoring a valid campaign slot recovers its normal checkpoint")
+	# A future-format notes sidecar is a genuine failure on the public quit path.
+	var blocked_notes_slot:=directory+"/notes-slot.json"
+	var notes_path:=blocked_notes_slot+".drafts-v1.json"
+	var notes_bytes:="{\"format\":\"solmere-resolution-drafts\",\"version\":999}".to_utf8_buffer()
+	var notes:=FileAccess.open(notes_path,FileAccess.WRITE);notes.store_buffer(notes_bytes);notes.close()
+	game.core.save_path=blocked_notes_slot
+	_check(not game._prepare_quit(),"unsupported notes sidecar prevents unsafe quit")
+	var notes_notice:Label=game.get_node_or_null("SaveFailureNotice")
+	_check(notes_notice!=null and notes_notice.text.begins_with("Your notes have not been saved."),"notes failure uses friendly English text")
+	_check(game.get_meta("last_save_diagnostic","")=="草稿槽使用未知版本，已保留原文件。","original diagnostic remains available outside player text")
+	_check(FileAccess.get_file_as_bytes(notes_path)==notes_bytes,"unsupported notes bytes remain intact")
+	game.core.save_path=valid_story_path
+	_check(game._prepare_quit(),"valid notes sidecar recovers normal quit readiness")
 	_check_sentinel("campaign and physical guard checks")
 	# Recover the fixture path, then save using a real slider drag. No model
 	# save helper is called to manufacture the successful UI state.
@@ -97,6 +121,7 @@ func _run()->void:
 	_check(saved is Dictionary and saved.version==1 and JSON.parse_string(JSON.stringify(saved.values))==JSON.parse_string(JSON.stringify(game.preferences.values)),"saved recovered values exactly match the retained in-memory controls")
 	_check_sentinel("successful recovery")
 	await _click_named("CloseSettings")
+	await create_timer(0.3).timeout
 	_check(is_instance_valid(game.modal) and not game.modal.has_node("SettingsWater"),"campaign Settings returns to its existing pause mode")
 	_check(game.get_node_or_null("PreferencesSaveNotice")==null,"recovery clears only the preference failure notice")
 	_check(game._prepare_quit(),"recovered preferences and campaign can both safely prepare quit")
