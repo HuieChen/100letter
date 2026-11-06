@@ -112,6 +112,19 @@ func support_points(morning: Image, boxes: Array[Rect2i]) -> Array[Vector2i]:
   points.append(p)
  return points
 
+func without_foreground_grass(points: Array[Vector2i], polygons: Array) -> Array[Vector2i]:
+ # The warm-color + one-pixel support search also selects the brown fraction
+ # of translucent grass AA. Those pixels belong to the moving foreground, not
+ # naked wood. These independent silhouettes are observed in the original
+ # picture plus its one-pixel sweep; no production alpha/mask is consulted.
+ var result: Array[Vector2i] = []
+ for point: Vector2i in points:
+  var grass := false
+  for polygon: PackedVector2Array in polygons:
+   if Geometry2D.is_point_in_polygon(Vector2(point), polygon):grass=true;break
+  if not grass:result.append(point)
+ return result
+
 func snapshot(view: SubViewport) -> Image:
  await process_frame
  await RenderingServer.frame_post_draw
@@ -214,11 +227,18 @@ func run() -> void:
   print("OBJECT_MOTION ",label," flag=",max_flag_moved," shrub=",max_shrub_moved)
  # The rendered ending exposed a different antialias failure around fixed
  # wood and fruit, so check their real painted edges against zero motion too.
+ var trunk_grass = [PackedVector2Array([Vector2(6018,493),Vector2(6021,487),Vector2(6030,487),Vector2(6036,490),Vector2(6041,500),Vector2(6046,500),Vector2(6055,503),Vector2(6057,515),Vector2(6024,515),Vector2(6018,501)])]
+ var pots_grass = [
+  PackedVector2Array([Vector2(5886,491),Vector2(5895,488),Vector2(5903,493),Vector2(5913,506),Vector2(5915,515),Vector2(5897,515),Vector2(5886,500)]),
+  PackedVector2Array([Vector2(5909,477),Vector2(5920,476),Vector2(5925,481),Vector2(5924,498),Vector2(5928,515),Vector2(5906,515),Vector2(5907,496)]),
+  PackedVector2Array([Vector2(5928,478),Vector2(5938,477),Vector2(5942,483),Vector2(5939,493),Vector2(5940,515),Vector2(5923,515),Vector2(5922,493)]),
+  PackedVector2Array([Vector2(5935,490),Vector2(5946,489),Vector2(5952,496),Vector2(5948,507),Vector2(5947,515),Vector2(5928,515),Vector2(5928,503)]),
+  PackedVector2Array([Vector2(5950,478),Vector2(5961,476),Vector2(5966,481),Vector2(5966,500),Vector2(5960,504),Vector2(5949,504),Vector2(5948,489)])]
  var supports: Array[Dictionary] = [
   {"name":"leaning_palm_wood_and_fruit","points":support_points(morning,[Rect2i(7694,215,67,60),Rect2i(7739,268,71,180)])},
-  {"name":"main_palm_trunk","points":support_points(morning,[Rect2i(6008,307,45,202)])},
+  {"name":"main_palm_trunk","points":without_foreground_grass(support_points(morning,[Rect2i(6008,307,45,202)]),trunk_grass)},
   {"name":"main_palm_yellow_fruit","points":support_points(morning,[Rect2i(6023,316,54,70)])},
-  {"name":"main_palm_pots","points":support_points(morning,[Rect2i(5867,453,120,59)])}
+  {"name":"main_palm_pots","points":without_foreground_grass(support_points(morning,[Rect2i(5867,453,120,59)]),pots_grass)}
  ]
  for support: Dictionary in supports:
   verify(support.points.size()>100,"Independent support edge mask exists: "+support.name)

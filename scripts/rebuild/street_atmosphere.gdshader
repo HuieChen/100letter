@@ -486,11 +486,18 @@ void fragment(){
  shift*=1.0-cloth_front_support(p,TEXTURE_PIXEL_SIZE);
  shift*=1.0-cloth_front_support(p+shift,TEXTURE_PIXEL_SIZE);
  shift=bounded_object_motion(p,shift,t);
- if(community)shift+=bird_wing_shift(p,t);
- else shift+=attached_street_props(p,t,family_id);
+ if(!community)shift+=attached_street_props(p,t,family_id);
  vec2 uv=clamp(UV+shift*TEXTURE_PIXEL_SIZE*motion_strength,vec2(0.0),vec2(1.0));
- vec4 a=texture(TEXTURE,uv);
- vec4 b=texture(next_art,uv);
+ // Each source phase has its own painted birds. Applying one shared field
+ // during dusk would move stars or a cloud where the day bird disappears.
+ vec2 bird_a=street_bird_shift(p,TEXTURE_PIXEL_SIZE,t,false);
+ vec2 bird_b=street_bird_shift(p,TEXTURE_PIXEL_SIZE,t,true);
+ // Some painted gulls lie inside a broad treetop rectangle. They belong to
+ // the sky layer and must not inherit the vegetation displacement as well.
+ vec2 bird_uv_a=UV+(shift*(1.0-street_bird_area(p,false))+bird_a)*TEXTURE_PIXEL_SIZE*motion_strength;
+ vec2 bird_uv_b=UV+(shift*(1.0-street_bird_area(p,true))+bird_b)*TEXTURE_PIXEL_SIZE*motion_strength;
+ vec4 a=texture(TEXTURE,clamp(bird_uv_a,vec2(0.0),vec2(1.0)));
+ vec4 b=texture(next_art,clamp(bird_uv_b,vec2(0.0),vec2(1.0)));
  a=apply_foreground_grass(foregrass_original_art,UV,TEXTURE_PIXEL_SIZE,a,t,motion_strength);
  b=apply_foreground_grass(next_art,UV,TEXTURE_PIXEL_SIZE,b,t,motion_strength);
  float stray=floating_mark(uv/TEXTURE_PIXEL_SIZE,TEXTURE_PIXEL_SIZE);

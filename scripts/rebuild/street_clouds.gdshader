@@ -15,7 +15,6 @@ void fragment(){
  vec2 texel=1.0/vec2(textureSize(TEXTURE,0));
  vec2 p=UV/texel;
  float free=texture(clearance,UV).r;
- if(community_sky)free*=1.0-bird_wing_area(p);
  // A slow shared wind advects cloud contours horizontally. Different distant
  // banks have slightly different speeds; there is no vertical rocking.
  // Smoothly bounded travel keeps the authored occluded background intact.
@@ -41,8 +40,24 @@ void fragment(){
  vec2 offset=vec2(drift*amount,0.0)*texel;
  // Stars are fixed features of the original night painting, not part of
  // the moving clouds. Gate each time variant separately during crossfades.
- vec2 at_a=clamp(UV-offset*mix(1.0,star_free,night_a),vec2(0.0),vec2(1.0));
- vec2 at_b=clamp(UV-offset*mix(1.0,star_free,night_b),vec2(0.0),vec2(1.0));
+ vec2 offset_a=offset*mix(1.0,star_free,night_a);
+ vec2 offset_b=offset*mix(1.0,star_free,night_b);
+ // A phase owns its own sky and birds. The hidden neighbouring phase must
+ // not stop/restart this sky region when the daylight pair changes.
+ // Guard both destination and displaced source: a drifting cloud lookup
+ // cannot carry a second, unanimated wing out past the bird's local field.
+ float bird_a=max(street_bird_area(p,false),street_bird_area((UV-offset_a)/texel,false));
+ float bird_b=max(street_bird_area(p,true),street_bird_area((UV-offset_b)/texel,true));
+ vec2 at_a=UV-offset_a*(1.0-bird_a);
+ vec2 at_b=UV-offset_b*(1.0-bird_b);
+ // Where this original clearance allows the overlay, reproduce the same
+ // original wing lookup as the street below, with its identical motion clock.
+ // Alpha still uses only the existing scenery clearance, so no new overlay
+ // is introduced over protected vegetation, supports or architecture.
+ at_a+=street_bird_shift(p,texel,cloud_time,false)*motion_strength;
+ at_b+=street_bird_shift(p,texel,cloud_time,true)*motion_strength;
+ at_a=clamp(at_a,vec2(0.0),vec2(1.0));
+ at_b=clamp(at_b,vec2(0.0),vec2(1.0));
  vec4 sky=mix(texture(TEXTURE,at_a),texture(next_art,at_b),light_mix);
  // Do not put an overlay on foreground pixels: the flowing vegetation and
  // original fountain remain independent layers with their own silhouettes.

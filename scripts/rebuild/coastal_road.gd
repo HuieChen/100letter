@@ -7,6 +7,7 @@ signal ambience_changed(wind:float, swell:float, foliage:float)
 const UI=preload("res://scripts/ui/paper_ui.gd")
 const Walker=preload("res://scripts/rebuild/final_walker.gd")
 const Atmosphere=preload("res://scripts/rebuild/street_atmosphere.gd")
+const BirdMotion=preload("res://scripts/rebuild/street_bird_motion.gd")
 const TextureCache=preload("res://scripts/rebuild/street_texture_cache.gd")
 const CameraDirector=preload("res://scripts/rebuild/street_camera_director.gd")
 var minute:=540
@@ -170,6 +171,8 @@ func set_time_of_day(value:float)->void:
  var ids:=Vector2i(int(blend.x),int(blend.y))
  if ids!=_time_ids:
   _time_ids=ids
+  BirdMotion.apply(atmosphere_material,family,ids.x,ids.y)
+  BirdMotion.apply(cloud_material,family,ids.x,ids.y)
   art.texture=period_textures[ids.x]
   atmosphere_material.set_shader_parameter("foregrass_original_art",art.texture)
   atmosphere_material.set_shader_parameter("next_art",period_textures[ids.y])

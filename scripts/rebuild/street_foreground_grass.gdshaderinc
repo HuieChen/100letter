@@ -5,6 +5,14 @@ uniform bool foregrass_enabled=false;
 uniform bool foregrass_fountain_only=false;
 float fg_load(float t){return .62*sin(t*.73)+.25*sin(t*1.21+.6)+.13*sin(t*2.05+1.7);}
 vec2 fg_shift(vec2 p,float t){
+ if(p.x>5886.0&&p.x<5967.0){
+  // Five separate original blades stand in front of two painted flower pots.
+  // Their upper tips bend within the original AA sweep; roots/rock contact stay.
+  float top=p.x<5909.0?490.0:(p.x<5924.0?479.0:(p.x<5939.0?481.0:(p.x<5951.0?492.0:479.0)));
+  float bottom=p.x<5951.0?513.0:501.0;
+  float free=1.0-smoothstep(top,bottom,p.y);
+  return vec2(.78*fg_load(t-6.35-(p.x-5888.0)*.008)*free*free,0.0);
+ }
  float top=491.0;float lag=.5;
  if(p.x>6000.0){lag=6.7;}
  if(p.x>6700.0){top=477.0;lag=7.6;}
@@ -35,6 +43,7 @@ vec4 apply_foreground_grass(sampler2D art,vec2 original_uv,vec2 texel,vec4 prior
  vec2 p=original_uv/texel;
  if(foregrass_fountain_only && p.x>500.0)return prior;
  bool near=(p.x>419.0&&p.x<478.0&&p.y>483.0&&p.y<515.0)
+  ||(p.x>5886.0&&p.x<5967.0&&p.y>475.0&&p.y<515.0)
   ||(p.x>6015.0&&p.x<6058.0&&p.y>484.0&&p.y<515.0)
   ||(p.x>6780.0&&p.x<6829.0&&p.y>471.0&&p.y<515.0);
  if(!near)return prior;
