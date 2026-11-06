@@ -1,0 +1,30 @@
+{
+  "work": "Cat Meowing",
+  "creator": "qubodup",
+  "source": "https://freesound.org/people/qubodup/sounds/813113/",
+  "media": "https://cdn.freesound.org/previews/813/813113_71257-hq.mp3",
+  "license": "CC0 1.0",
+  "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+  "original_recording": {
+    "creator": "tuberatanka",
+    "work": "cat meow II",
+    "source": "https://freesound.org/people/tuberatanka/sounds/110010/",
+    "description": "Recording of the contributor's own cat",
+    "license": "CC0 1.0"
+  },
+  "retrieved": "2026-11-05",
+  "asset": "assets/audio/foley/cat_meow_cc0.mp3",
+  "sha256": "4d1964449b1aa07c043ad1c71854fc5e524b33bf2aa4393b58e470c2a1f6f110",
+  "byte_count": 15762,
+  "decoded_duration_seconds": 0.5991156463,
+  "decoded_sample_rate": 44100,
+  "channels": 1,
+  "local_asset_processing": "None; public high-quality MP3 preview retained byte-for-byte",
+  "upstream_processing": "Trimmed, one channel, normalized and faded by qubodup",
+  "runtime": {
+    "cue": "cat",
+    "gain_db": -19.0,
+    "cooldown_seconds": 1.2,
+    "bus": "SolmereFoley"
+  }
+}

@@ -1,0 +1,380 @@
+{
+  "bookseller_chibi": {
+    "ai_generated": false,
+    "crop": [
+      230,
+      508,
+      544,
+      1324
+    ],
+    "output_sha256": "b5395b58cf09b29d201abef8989953456083bcfccf719b155d5db6d2471d59ad",
+    "output_size": [
+      289,
+      704
+    ],
+    "processing": "Native alpha, main subject crop, alpha edge RGB padding and downsampling",
+    "source_file": "微信图片_20261104233754_18451_29.png",
+    "source_sha256": "3c7edea6fbac8d9f087ecee4c055479c8e69850545ff3d3fb984f4e43bd6775e",
+    "source_size": [
+      1625,
+      2096
+    ]
+  },
+  "bookseller_portrait": {
+    "ai_generated": false,
+    "crop": [
+      206,
+      118,
+      586,
+      1854
+    ],
+    "output_sha256": "885c577a320ec494d7c444ecec5c37665fcde9b29ae87ae67d82000954680d3c",
+    "output_size": [
+      379,
+      1200
+    ],
+    "processing": "Native alpha, main subject crop, alpha edge RGB padding and downsampling",
+    "source_file": "微信图片_20261104233754_18452_29.png",
+    "source_sha256": "9975aed2c517cea7dbfe0c76281ec923600f9fcfe475c897d2aaf50de34b9444",
+    "source_size": [
+      1625,
+      2096
+    ]
+  },
+  "chef_chibi": {
+    "ai_generated": false,
+    "crop": [
+      1439,
+      577,
+      821,
+      1606
+    ],
+    "output_sha256": "559c60dbc966939af0c45719f0b57e9827a9110778684980bf8120b31234407d",
+    "output_size": [
+      360,
+      704
+    ],
+    "processing": "Native alpha, main subject crop, alpha edge RGB padding and downsampling",
+    "source_file": "微信图片_20261104233754_18461_29.png",
+    "source_sha256": "c6abba967f31ad78e3704912684ccd2552bfe4f138f21c6fd2cc6ad9b5eb935c",
+    "source_size": [
+      2558,
+      2732
+    ]
+  },
+  "chef_portrait": {
+    "ai_generated": false,
+    "crop": [
+      264,
+      133,
+      1144,
+      2460
+    ],
+    "output_sha256": "08b2805167e89cb909d6f4f8e0446064b41703df6313bad987ec8601fedcabeb",
+    "output_size": [
+      558,
+      1200
+    ],
+    "processing": "Native alpha, main subject crop, alpha edge RGB padding and downsampling",
+    "source_file": "厨师.png",
+    "source_sha256": "7dd5638dd63fdb535090654c3b522c7a200d21f7df013adff125de56ba869082",
+    "source_size": [
+      2558,
+      2732
+    ]
+  },
+  "community_chibi": {
+    "ai_generated": false,
+    "crop": [
+      1212,
+      492,
+      557,
+      1351
+    ],
+    "output_sha256": "68f0a3d8b51be3597434abff92c2af7afda28b0cd6c9b7395f1eec9b09a6ff3a",
+    "output_size": [
+      290,
+      704
+    ],
+    "processing": "Native alpha, main subject crop, alpha edge RGB padding and downsampling",
+    "source_file": "微信图片_20261104233754_18459_29.png",
+    "source_sha256": "1501e40e7af143cfbb7dee66fe4ee0acb2343d370615550e176e9002fd6f8799",
+    "source_size": [
+      2062,
+      2266
+    ]
+  },
+  "community_portrait": {
+    "ai_generated": false,
+    "crop": [
+      370,
+      82,
+      589,
+      1969
+    ],
+    "output_sha256": "055e8d6c0cdd3443a18d4405af0a8cfd250a2e2ada6a95aa1a2444800e7bbe69",
+    "output_size": [
+      359,
+      1200
+    ],
+    "processing": "White background alpha, main subject crop, alpha edge RGB padding and downsampling",
+    "source_file": "微信图片_20261013220029_89_385.jpg",
+    "source_sha256": "9ff1b22d2fed8035eb7559bd4f3f21ef6722f079e0d7af28193ffa38b275a982",
+    "source_size": [
+      2062,
+      2266
+    ]
+  },
+  "courier_idle": {
+    "ai_generated": false,
+    "crop": [
+      594,
+      748,
+      1240,
+      2289
+    ],
+    "output_sha256": "d2548b8f51181693d77a01cbf1fa5f7b2f0157a81ab8175402fe2a11bc31d28d",
+    "output_size": [
+      381,
+      704
+    ],
+    "processing": "Native alpha, main subject crop, alpha edge RGB padding and downsampling",
+    "source_file": "微信图片_20261104235916_18485_29.png",
+    "source_sha256": "0af6ddb624ca7ac221e85a11a75a5da8cffe9b391823171494a69680ed8141c0",
+    "source_size": [
+      4146,
+      3497
+    ]
+  },
+  "courier_portrait": {
+    "ai_generated": false,
+    "crop": [
+      2292,
+      194,
+      1097,
+      3248
+    ],
+    "output_sha256": "5102f37a1e79194ebbc0d96d8c33b68b82c6344260ad670de1a7b5236cf8a3ba",
+    "output_size": [
+      405,
+      1200
+    ],
+    "processing": "Native alpha, main subject crop, alpha edge RGB padding and downsampling",
+    "source_file": "微信图片_20261104235915_18484_29.png",
+    "source_sha256": "4b17cdbba4d91b202d4ab4b38f517d8a318997cd0988c53a65061bd7b91e50d9",
+    "source_size": [
+      4146,
+      3497
+    ]
+  },
+  "grocer_chibi": {
+    "ai_generated": false,
+    "crop": [
+      2666,
+      789,
+      1080,
+      2849
+    ],
+    "output_sha256": "e9587322a9cc1d68af585e215d7fcb8df24fdd9e0f8eb7a9b3fc6ec6d409e2d6",
+    "output_size": [
+      267,
+      704
+    ],
+    "processing": "Native alpha, main subject crop, alpha edge RGB padding and downsampling",
+    "source_file": "微信图片_20261104233754_18450_29.png",
+    "source_sha256": "02bf9587884def46d2ea419e0144c168abaf68e0a0ce4bd547d2eca98007f16a",
+    "source_size": [
+      5000,
+      5000
+    ]
+  },
+  "grocer_portrait": {
+    "ai_generated": false,
+    "crop": [
+      817,
+      366,
+      1238,
+      3933
+    ],
+    "output_sha256": "3fc4f79e329a2c8be22d475fee862b7627efd145103f5fe2452f055e653d62fe",
+    "output_size": [
+      378,
+      1200
+    ],
+    "processing": "Native alpha, main subject crop, alpha edge RGB padding and downsampling",
+    "source_file": "微信图片_20261104233754_18449_29.png",
+    "source_sha256": "2149f68f0c52a5122ddc026593616539e455a3fdb308c147cff452bf053d9ad4",
+    "source_size": [
+      5000,
+      5000
+    ]
+  },
+  "guitarist_chibi": {
+    "ai_generated": false,
+    "crop": [
+      1749,
+      907,
+      990,
+      1923
+    ],
+    "output_sha256": "e61d70983b3efaa53139bbb35cee3746643a5308466cf83670d20e00e523b1d9",
+    "output_size": [
+      362,
+      704
+    ],
+    "processing": "Native alpha, main subject crop, alpha edge RGB padding and downsampling",
+    "source_file": "微信图片_20261104233754_18454_29.png",
+    "source_sha256": "6f567a53c5ea68108cdaf01db5cf2bd7c7c48cac9869396dca52196778382fc5",
+    "source_size": [
+      3130,
+      3508
+    ]
+  },
+  "guitarist_portrait": {
+    "ai_generated": false,
+    "crop": [
+      365,
+      170,
+      1195,
+      3224
+    ],
+    "output_sha256": "076ee383eeb04bd78563b01752c14f160493df11f8312598bb5786c212d8b97b",
+    "output_size": [
+      445,
+      1200
+    ],
+    "processing": "Native alpha, main subject crop, alpha edge RGB padding and downsampling",
+    "source_file": "微信图片_20261104233754_18453_29.png",
+    "source_sha256": "faa678dd32bbaf7a03bc11e17209de12e2e4925495e1f97e1b1d0740b5899aa4",
+    "source_size": [
+      3130,
+      3508
+    ]
+  },
+  "lookout_chibi": {
+    "ai_generated": false,
+    "crop": [
+      2325,
+      604,
+      978,
+      2347
+    ],
+    "output_sha256": "c00ec6c7af2cdcbf2f1f7d819627f5b8d9d79152c15644007d421388a300f01c",
+    "output_size": [
+      293,
+      704
+    ],
+    "processing": "Native alpha, main subject crop, alpha edge RGB padding and downsampling",
+    "source_file": "微信图片_20261104233754_18456_29.png",
+    "source_sha256": "b8cdb94f687e77c459d9e1fff07e643430f023a4eb5c49b3bffde13cda652a28",
+    "source_size": [
+      3907,
+      3600
+    ]
+  },
+  "lookout_portrait": {
+    "ai_generated": false,
+    "crop": [
+      956,
+      85,
+      869,
+      3363
+    ],
+    "output_sha256": "abbbc215ab04a6cf99f4eaa42a6ee3d581768abe238b1998c9620e704e373b17",
+    "output_size": [
+      310,
+      1200
+    ],
+    "processing": "Native alpha, main subject crop, alpha edge RGB padding and downsampling",
+    "source_file": "微信图片_20261104233754_18455_29.png",
+    "source_sha256": "38549962b7bded835ccc44eb9cf18c2c860cdfe5bcbf217e0795ebc1306cf5f5",
+    "source_size": [
+      3907,
+      3600
+    ]
+  },
+  "record_clerk_chibi": {
+    "ai_generated": false,
+    "crop": [
+      1021,
+      240,
+      499,
+      1267
+    ],
+    "output_sha256": "462dfe2d127bd0edecd4a628329a721b414b5c4dc384e895c7c44a6792267dbf",
+    "output_size": [
+      277,
+      704
+    ],
+    "processing": "Native alpha, main subject crop, alpha edge RGB padding and downsampling",
+    "source_file": "微信图片_20261017195358_112_385.png",
+    "source_sha256": "01ec7e32414a9da37e7efaef980315df7d4d3a11dcca32ec1e70823ad0effcae",
+    "source_size": [
+      2048,
+      2048
+    ]
+  },
+  "record_clerk_portrait": {
+    "ai_generated": false,
+    "crop": [
+      664,
+      128,
+      1226,
+      3349
+    ],
+    "output_sha256": "c1578d7859393b117b678cc0ca42bda88112628036a4ae83e0edb053b0f206b5",
+    "output_size": [
+      439,
+      1200
+    ],
+    "processing": "Native alpha, main subject crop, alpha edge RGB padding and downsampling",
+    "source_file": "微信图片_20261104233754_18462_29.png",
+    "source_sha256": "4205dc041e237d46ab4862f7362495dbada9e28cc13dc0897b750b37fc4388d6",
+    "source_size": [
+      2600,
+      3600
+    ]
+  },
+  "resident_chibi": {
+    "ai_generated": false,
+    "crop": [
+      727,
+      540,
+      962,
+      2262
+    ],
+    "output_sha256": "39f6c241a9d61818448d0bd5ab5fd221492b0c8b366f45a90b99c724ed15dd71",
+    "output_size": [
+      299,
+      704
+    ],
+    "processing": "Native alpha, main subject crop, alpha edge RGB padding and downsampling",
+    "source_file": "微信图片_20261104233754_18458_29.png",
+    "source_sha256": "7a53b839778aa1617c4e197c991cdc001a69a543ddec6bd72650c488bb92c65b",
+    "source_size": [
+      3784,
+      3508
+    ]
+  },
+  "resident_portrait": {
+    "ai_generated": false,
+    "crop": [
+      2391,
+      164,
+      1151,
+      3239
+    ],
+    "output_sha256": "31d389651e9bf25b5604f6932fec6a12f1d0d5568b0cd7e386438723efe00420",
+    "output_size": [
+      426,
+      1200
+    ],
+    "processing": "Native alpha, main subject crop, alpha edge RGB padding and downsampling",
+    "source_file": "微信图片_20261104233754_18457_29.png",
+    "source_sha256": "f5057b52a8f98be19c714e9bdb23bba44a676b3181c1d76a837092d473824a50",
+    "source_size": [
+      3784,
+      3508
+    ]
+  }
+}

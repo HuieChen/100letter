@@ -1,7 +1,7 @@
 extends Node
 ## Validated, atomic preferences; independent from campaign and physical mail saves.
 signal changed(key:String,value:Variant)
-const DEFAULTS={"language":"zh","display_mode":"windowed","resolution":"auto","master":1.0,"music":0.75,"sfx":0.85,"sensitivity":1.0,"text_speed":"instant"}
+const DEFAULTS={"language":"zh","display_mode":"windowed","resolution":"auto","master":1.0,"music":0.75,"sfx":0.85,"ambience":0.85,"sensitivity":1.0,"text_speed":"instant"}
 const ENUMS={"language":["zh","en"],"display_mode":["windowed","fullscreen","borderless"],"resolution":["auto","1280x720","1600x900","1920x1080"],"text_speed":["slow","normal","fast","instant"]}
 var path:="user://final_v2/preferences_v1.json"
 var values:Dictionary=DEFAULTS.duplicate(true)
@@ -18,6 +18,11 @@ func load_settings() -> bool:
 		last_error="Invalid preferences; defaults restored without changing the original file."
 		return false
 	for key:String in DEFAULTS:values[key]=_valid(key,parsed.values.get(key,DEFAULTS[key]))
+	# Older UI preferences drove ambience with their SFX value. Preserve that
+	# listening level until the player chooses an independent ambience setting.
+	if not parsed.values.has("ambience"):
+		values.ambience=values.sfx
+		dirty=true
 	loaded=true;return true
 func _valid(key:String,value:Variant) -> Variant:
 	if ENUMS.has(key):return value if value is String and value in ENUMS[key] else DEFAULTS[key]

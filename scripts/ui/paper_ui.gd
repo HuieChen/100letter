@@ -58,6 +58,7 @@ static func button(parent: Node, text: String, rect: Rect2, callback: Callable, 
 	b.add_theme_font_size_override("font_size", 21)
 	b.add_theme_color_override("font_color", TEAL if primary else INK)
 	b.add_theme_color_override("font_hover_color", CORAL)
+	b.add_theme_color_override("font_focus_color", CORAL)
 	b.add_theme_color_override("font_pressed_color", INK)
 	b.add_theme_color_override("font_disabled_color", MUTED)
 	var line=StyleBoxFlat.new()

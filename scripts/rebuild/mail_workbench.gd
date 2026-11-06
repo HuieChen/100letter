@@ -217,7 +217,7 @@ func _return_to_bag() -> void:
 	_presentation_from=from;_presentation_to=return_rect;_presentation=0.0
 	_presentation_motion=create_tween()
 	_presentation_motion.tween_method(func(value:float):_presentation=value;queue_redraw(),0.0,1.0,0.18).set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_IN)
-	_presentation_motion.tween_callback(func():closed.emit())
+	_presentation_motion.tween_callback(func():cue.emit("paper");closed.emit())
 
 func get_workbench_snapshot() -> Dictionary:
 	return {"case_id":case_id,"physical":model.export_state(),"held":_drag,"tool":_tool,"reading":_reading,"amending":_amending,"drawer":drawer.snapshot(),"magnifier_active":_magnifier,"magnifier_held":_magnifier_held,"magnifier_rect":Rect2(_magnifier_at,Vector2(146,204)),"presentation":_presentation,"motion":{"flip":_flip_progress,"lift":_lift,"zoom_target":_zoom_goal,"returning":_returning,"counter_retained":retain_counter_surface,"text_layout_builds":_text_layout_builds},"art":Art.readiness(["BG_workroom","envelope_front","envelope_back","letter_paper","drawer_open","drawer_front","magnifier","opener","restorer","press","eraser","sealer","repair_label","protector","envelope_flap","attachment_photo","replacement_strip"])}
@@ -278,7 +278,10 @@ func _gui_input(event: InputEvent) -> void:
 		return
 	if event is InputEventMouseMotion:
 		_pointer=event.position
-		if drawer.motion(event.position/_fit):queue_redraw();accept_event();return
+		var drawer_was_open:bool=drawer.opened
+		if drawer.motion(event.position/_fit):
+			if drawer.opened!=drawer_was_open:cue.emit("drawer")
+			queue_redraw();accept_event();return
 		if _magnifier_held:
 			_magnifier_at=(event.position/_fit-_magnifier_offset).clamp(Vector2(35,75),Vector2(1410,690))
 			_update_lens();queue_redraw();accept_event();return
@@ -305,7 +308,10 @@ func _gui_input(event: InputEvent) -> void:
 	var canvas: Vector2=event.position/_fit
 	if event.pressed: grab_focus()
 	if event.button_index==MOUSE_BUTTON_LEFT and not event.pressed:
-		if drawer.release():queue_redraw();accept_event();return
+		var drawer_was_open:bool=drawer.opened
+		if drawer.release():
+			if drawer.opened!=drawer_was_open:cue.emit("drawer")
+			queue_redraw();accept_event();return
 		if _magnifier_held:
 			_magnifier_held=false
 			if drawer.opened and Drawer.INNER.has_point(canvas):_magnifier=false
@@ -554,7 +560,7 @@ func _instruction() -> String:
 
 func _draw() -> void:
 	draw_set_transform(Vector2.ZERO,0,Vector2.ONE*_fit)
-	if retain_counter_surface:
+	if retain_counter_surface or Art.texture("BG_workroom")==null:
 		draw_rect(Rect2(0,0,1600,900),Color(0.08,0.15,0.13,0.28*(1.0-_presentation if _returning else _presentation)))
 	else:Art.paint(self,"BG_workroom",Rect2(-640,-697,2880,1620))
 	if _snapshot.is_empty():return
@@ -574,7 +580,7 @@ func _draw() -> void:
 		var center:Vector2=item.get_center()
 		var envelope_origin:Vector2=ORIGIN+pan+center*zoom-(center*Vector2(turn,1))*zoom+raised
 		draw_set_transform((envelope_origin+Vector2(7,9)*_lift)*_fit,0,Vector2(turn,1)*_fit*zoom)
-		Art.paint(self,"envelope_front",item,Color(0.03,0.05,0.04,0.22*_lift))
+		_draw_sprite("envelope_front",item,Color(0.03,0.05,0.04,0.22*_lift))
 		draw_set_transform(envelope_origin*_fit,0,Vector2(turn,1)*_fit*zoom)
 		_draw_envelope(_previous_face if _flip_progress<0.5 else str(_snapshot.face))
 		draw_set_transform((ORIGIN+pan)*_fit,0,Vector2.ONE*_fit*zoom)
@@ -587,12 +593,12 @@ func _draw() -> void:
 		Art.paint(self,_tool,Rect2(_pointer/_fit-Vector2(72,0),Vector2(110,95)),Color.WHITE,true)
 	if _reading:
 		draw_rect(Rect2(0,0,1600,900),Color(0.08,0.15,0.13,0.20))
-		Art.paint(self,"letter_paper",READING_PAPER)
+		_draw_sprite("letter_paper",READING_PAPER)
 		_text("原文记录" if _reading_original else "当前纸面",Vector2(551,91),250,16,INK)
 		_text("查看现稿 ↔" if _reading_original else "查看原文 ↔",Vector2(882,91),169,16,INK)
 	if _presentation<1.0:
 		var displayed:=_displayed_envelope_rect()
-		Art.paint(self,"envelope_front",Rect2(displayed.position+Vector2(7,9),displayed.size),Color(0.03,0.05,0.04,0.18))
+		_draw_sprite("envelope_front",Rect2(displayed.position+Vector2(7,9),displayed.size),Color(0.03,0.05,0.04,0.18))
 		var scale:=displayed.size/Paper.ENVELOPE_SIZE
 		draw_set_transform((displayed.position-model.object_rect("envelope").position*scale)*_fit,0,scale*_fit)
 		_draw_envelope(str(_snapshot.face),false)
@@ -617,7 +623,19 @@ func _draw_table_tool(_id:String) -> void:
 	pass
 
 func _draw_sprite(id:String,rect:Rect2,tint:Color=Color.WHITE,_shadow:bool=false,keep_aspect:bool=false) -> void:
-	Art.paint(self,"letter_paper" if id=="letter" else id,rect,tint,keep_aspect)
+	var key:="letter_paper" if id=="letter" else id
+	if Art.texture(key)!=null:
+		Art.paint(self,key,rect,tint,keep_aspect)
+	elif key in ["envelope_front","envelope_back","letter_paper"]:
+		# The source-art gate may omit an old paper bitmap. Keep the existing
+		# physical hit shape readable without enabling or replacing that asset.
+		draw_rect(rect,PAPER*tint)
+		if tint.a>=0.9:
+			draw_rect(rect,Color("c8bda6"),false,1.0)
+			if key=="envelope_back":
+				var tip:=rect.position+Vector2(rect.size.x*.5,rect.size.y*.42)
+				draw_line(rect.position,tip,Color("d7cbb4"),1.0,true)
+				draw_line(rect.position+Vector2(rect.size.x,0),tip,Color("d7cbb4"),1.0,true)
 
 func _draw_envelope(face:String,physical_details:bool=true) -> void:
 	var rect: Rect2=model.object_rect("envelope")
@@ -687,13 +705,14 @@ func _draw_paper() -> void:
 		if material!=null:
 			var visible_fraction:float=clampf(visible_paper.size.x/248.0,0.0,1.0)
 			draw_texture_rect_region(material,visible_paper,Rect2(material.get_width()*(1.0-visible_fraction),0,material.get_width()*visible_fraction,material.get_height()))
+		else:_draw_sprite("letter_paper",visible_paper)
 		return
-	Art.paint(self,"letter_paper",rect)
+	_draw_sprite("letter_paper",rect)
 	if _amending:return
 	for index:int in range(2):
 		var amount:float=_snapshot.fold_progress[index]
 		var fold:Rect2=model.object_rect("fold_"+str(index))
-		if amount<1.0:Art.paint(self,"letter_paper",Rect2(rect.position+Vector2(12,25+index*70),Vector2(160*(1-amount),45)))
+		if amount<1.0:_draw_sprite("letter_paper",Rect2(rect.position+Vector2(12,25+index*70),Vector2(160*(1-amount),45)))
 		_text("→" if index==0 else "↓",fold.position+Vector2(4,7),70,18,INK)
 	if model.body_is_currently_visible() and not core.body_text(case_id).is_empty():
 		_text(core.body_text(case_id).left(80)+"…",rect.position+Vector2(16,18),170,11,INK)
@@ -727,14 +746,18 @@ func _draw_amendments() -> void:
 func _paper_patch(paper:Rect2, patch:Rect2) -> void:
 	# Erasing exposes this same generated paper, rather than cloning eight paper borders.
 	var material:Texture2D=Art.texture("letter_paper")
-	if material==null:return
+	if material==null:
+		draw_rect(patch,PAPER)
+		return
 	var uv_scale:Vector2=material.get_size()/paper.size
 	draw_texture_rect_region(material,patch,Rect2((patch.position-paper.position)*uv_scale,patch.size*uv_scale))
 
 func _paint_replacement_strip(rect:Rect2) -> void:
 	# Nine regions retain the generated ink edge width while its blank writing area expands.
 	var material:Texture2D=Art.texture("replacement_strip")
-	if material==null:return
+	if material==null:
+		_draw_sprite("letter_paper",rect)
+		return
 	var source_size:Vector2=material.get_size()
 	var sx:Array[float]=[0.0,45.0,source_size.x-45.0,source_size.x]
 	var sy:Array[float]=[0.0,32.0,source_size.y-32.0,source_size.y]

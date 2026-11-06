@@ -1,0 +1,16 @@
+{
+  "source": "Original postal morning panorama; original source bytes retained",
+  "source_sha256": "524c9c8c1c120b74be4bd025d06f5e521d06b5a4084e1c4fdb977f090071dc20",
+  "method": "Rigid 12-pixel translation of nine end props; fixed ground retained; vacated background locally interpolated. No generative image model or material recoloring.",
+  "pixel_partition": {
+    "unchanged_outside_support": 3697436,
+    "unchanged_outside_mismatch": 0,
+    "rigid_translation_pixels": 134259,
+    "rigid_translation_mismatch": 0,
+    "fixed_ground_AA_composite_pixels": 1128,
+    "vacated_background_interpolation_pixels": 30857,
+    "all_pixels_partitioned": 3863680,
+    "road_y515_onwards_changed_pixels": 0
+  },
+  "patch_sha256": "55a50e9c4e11bd7e99f878f63223f0e1b6ab4d73e65d15cfbfeb4f0d79ee1cd9"
+}

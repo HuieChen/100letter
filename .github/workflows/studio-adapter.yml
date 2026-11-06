@@ -23,3 +23,4 @@ jobs:
       - run: python -m unittest discover -s tests -p 'test_pastel_assets.py' -v
       - run: python -m unittest discover -s tests -p 'test_video_courier.py' -v
       - run: python -m unittest discover -s tests -p 'test_settings_media.py' -v
+      - run: python -m unittest discover -s tests -p 'test_runtime_export.py' -v

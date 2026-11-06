@@ -69,11 +69,13 @@ try {
     # Same-preset ZIP inventory is inspectable with the installed .NET runtime.
     $taskAuditZip = Join-Path $taskAuditDirectory 'selected-runtime.zip'
     Invoke-BuildGodot 'export-audit' @('--export-pack','Windows Desktop',$taskAuditZip)
-    Add-Type -AssemblyName System.IO.Compression.FileSystem
-    $taskZip = [IO.Compression.ZipFile]::OpenRead($taskAuditZip)
-    try {
-        $taskEntries = @($taskZip.Entries | ForEach-Object { $_.FullName.Replace('\','/') -replace '^res://','' })
-    } finally { $taskZip.Dispose() }
+    # Godot may export only imported textures despite explicit raw include rules.
+    # Complete those exact rules before auditing and pack the verified inventory.
+    $taskInventoryPath = Join-Path $taskAuditDirectory 'inventory.json'
+    & $PythonPath (Join-Path $PSScriptRoot 'complete_runtime_export.py') --repo $taskRepo --zip $taskAuditZip --stage (Join-Path $taskAuditDirectory 'entries') --manifest $taskInventoryPath
+    if ($LASTEXITCODE -ne 0) { throw 'Runtime export completion failed.' }
+    $taskInventory = Get-Content -LiteralPath $taskInventoryPath -Raw | ConvertFrom-Json
+    $taskEntries = @($taskInventory.entries | ForEach-Object { $_.path -replace '^res://','' })
     $taskRequired = @(
         'scenes/final_slice.tscn',
         'scripts/rebuild/final_playable.gd','scripts/rebuild/final_case_state.gd',
@@ -90,6 +92,28 @@ try {
     # Every explicitly selected dynamic asset must survive actual export, too.
     $taskSelection = [regex]::Match($taskPreset,'(?m)^export_files=PackedStringArray\((.*)\)$').Groups[1].Value
     $taskRequired += @([regex]::Matches($taskSelection,'"res://([^"]+)"') | ForEach-Object { $_.Groups[1].Value })
+    # Raw files loaded at runtime (panoramas, masks, shader includes, dialogue)
+    # must survive the same-preset export as well as selected Godot resources.
+    $taskIncludes = [regex]::Match($taskPreset,'(?m)^include_filter="([^"]*)"').Groups[1].Value
+    $taskRawRequired = @()
+    foreach ($taskPattern in $taskIncludes.Split(',')) {
+        $taskPattern = $taskPattern.Trim()
+        if (-not $taskPattern) { continue }
+        if (-not [System.Management.Automation.WildcardPattern]::ContainsWildcardCharacters($taskPattern)) {
+            $taskRawRequired += $taskPattern
+            continue
+        }
+        $taskRawRequired += @(Get-ChildItem -Path (Join-Path $taskRepo $taskPattern) -File -ErrorAction SilentlyContinue | ForEach-Object {
+            $_.FullName.Substring($taskRepo.Length + 1).Replace('\','/')
+        })
+    }
+    $taskRawRequired = @($taskRawRequired | Sort-Object -Unique)
+    foreach ($taskRawPath in $taskRawRequired) {
+        if ($taskRawPath -notin $taskEntries) {
+            throw "Export is missing raw runtime content (an import/remap is insufficient): $taskRawPath"
+        }
+    }
+    $taskRequired += $taskRawRequired
     $taskRequired = @($taskRequired | Sort-Object -Unique)
     foreach ($taskPath in $taskRequired) {
         if ($taskPath -notin $taskEntries -and ($taskPath+'.remap') -notin $taskEntries -and ($taskPath+'.import') -notin $taskEntries) {
@@ -98,7 +122,8 @@ try {
     }
     $taskForbidden = @($taskEntries | Where-Object {
         $_ -match '^(work|artifacts|specification|docs|tools|tests|test-results|local-data|builds)/' -or
-        $_ -match '^assets/(locked_user|display_user|generated|characters|reference_gate)/' -or
+        $_ -match '^assets/(locked_user|generated|characters|reference_gate)/' -or
+        ($_ -match '^assets/display_user/' -and $_ -notmatch '^assets/display_user/dear_somewhere_cover_USER_20261024\.png(?:\.import|\.remap)?$') -or
         $_ -match '^scripts/reference_gate/' -or $_ -match '^scenes/reference_fidelity_prototype\.tscn' -or
         $_ -match '^assets/generated/(post_office_interior|post_office_counter_integrated_v3)\.png' -or
         $_ -match '^scripts/(main\.gd|core/|rebuild/(post_office_room|title_screen)\.gd)' -or
@@ -108,9 +133,9 @@ try {
     @{
         preset='Windows Desktop'; mode='resources (selected and dependencies)'
         required=$taskRequired; excluded_matches=$taskForbidden
-        files=$taskEntries; scope='ZIP inventory with the same preset; not a native executable playtest.'
+        files=$taskEntries; scope='Selected-resource ZIP plus exact raw includes, verified by SHA-256 after packing; not a native playtest.'
     } | ConvertTo-Json -Depth 6 | Set-Content -LiteralPath (Join-Path $taskAuditDirectory 'export-audit.json') -Encoding utf8
-    Invoke-BuildGodot 'export-pck' @('--export-pack','Windows Desktop',(Join-Path $taskDestination 'DearSomewhere.pck'))
+    Invoke-BuildGodot 'export-pck' @('--script',(Join-Path $PSScriptRoot 'pack_runtime_inventory.gd'),'--',$taskInventoryPath,(Join-Path $taskDestination 'DearSomewhere.pck'))
     # The caller supplies the matching release template; no automatic download.
     Copy-Item -LiteralPath $taskTemplate -Destination (Join-Path $taskDestination 'DearSomewhere.exe')
     Copy-Item -LiteralPath $TemplateManifestPath -Destination (Join-Path $taskDestination 'GODOT_TEMPLATE_SOURCE.json')
@@ -121,7 +146,7 @@ try {
         'docs/GODOT_LICENSE.txt','docs/GODOT_COPYRIGHT.txt','docs/THIRD_PARTY.md',
         'docs/AUDIO_PROVENANCE.md',
         'assets/faefever_v2/manifest.json',
-        'assets/audio/foley/KENNEY_CC0.txt','assets/audio/foley/sample_manifest.json',
+        'assets/audio/foley/KENNEY_CC0.txt','assets/audio/foley/sample_manifest.json','assets/audio/foley/CAT_MEOW_CC0.txt','assets/audio/foley/cat-meow-provenance.json',
         'assets/audio/foley/source_downloads.json','assets/audio/foley/WATER_CC0.txt','assets/audio/foley/water-provenance.json','assets/faefever_v2/characters/courier_video_provenance_20261017.json',
         'assets/audio/SETTINGS_MUSIC_CC0.txt','assets/audio/settings-music-provenance.json','third_party/webgl-water/LICENSE-MIT.txt','third_party/webgl-water/upstream.json','assets/faefever_v2/ui/settings_pdf_20261017/provenance.json'
     )
@@ -130,11 +155,11 @@ try {
     }
     $taskPlayerReadme = @(
         'Dear Somewhere',
-        '双击 DearSomewhere.exe。新班次从邮局柜台、主管的短交代和实体邮件箱开始。',
-        'WASD / 方向键 / 点地面行走；B 信袋，J 档案，M 地图；Esc 暂停，F11 全屏。',
-        '松锁扣、点开或掀起箱盖、点击或拖出信件。点击信封右边缘翻面，也支持右键；拉开桌沿抽屉取工具。',
-        '交付与记录分开：每封信处理后回柜台填写处置单，复核并亲手拖章。',
-        '新版存档位于 Godot 用户目录下 final_v2；旧版进度不被覆盖。',
+        '双击 DearSomewhere.exe。当前为已开放功能的探索试玩版。',
+        'WASD / 方向键 / 点地面行走；可使用地图、相机、照片包和已开放的居民互动。',
+        'Esc 返回或暂停，F11 切换全屏；设置页可调整音量与显示。',
+        '完整邮件剧情、部分居民对白和录音机仍未开放。',
+        '沿用 Godot 用户目录下 一百信 · Solmere Post 的存档位置。',
         '字体、声音、引擎与新生成美术的许可及来源说明见 Licenses。',
         '本地构建不等于参考验收、真人试玩或商业发行审核已经完成。'
     )

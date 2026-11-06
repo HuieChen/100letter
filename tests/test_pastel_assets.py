@@ -47,7 +47,11 @@ class PastelAssets(unittest.TestCase):
         text=(ROOT/'export_presets.cfg').read_text(encoding='utf-8')
         line=re.search(r'^export_files=PackedStringArray\((.*)\)$',text,re.M).group(1)
         selected=set(re.findall(r'"([^"]+)"',line))
-        images={p for p in selected if p.startswith('res://assets/faefever_v2/')}
+        # Catalog/geometry JSON are also explicit runtime dependencies; they
+        # are not extra art. Keep all other resources subject to exact equality.
+        metadata={'res://assets/faefever_v2/manifest.json',
+                  'res://assets/faefever_v2/characters/courier_walk_regions.json'}
+        images={p for p in selected if p.startswith('res://assets/faefever_v2/')} - metadata
         self.assertEqual(images,{e['path'] for e in m['assets'].values()})
         for helper in ['mail_imprint','physical_envelope']:
             self.assertIn('res://scripts/rebuild/'+helper+'.gd',selected)

@@ -23,6 +23,7 @@ const SHADE := Color("#E6E1CB")
 const SECTIONS := ["人物", "见闻", "信件", "推断"]
 const SECTIONS_EN := ["People", "Sources", "Letters", "Draft"]
 const PAGE_SIZE := 6
+const NAVIGATION_META := &"field_book_navigation"
 const PORTRAITS := {"chenyuan":"CHAR_chenyuan","mira_vale":"CHAR_mira","june_arlen":"CHAR_june","elsie_moran":"CHAR_elsie","community_clerk":"CHAR_clerk"}
 const PLACE_NAMES := {"post_office": "邮局", "community_center": "社区中心", "residential": "居民楼", "bus_stop": "公交站", "lookout": "观景台", "chess_stall": "棋摊", "tarot_shop": "塔罗店"}
 const SOURCE_NAMES := {"community_notice": "市政通知", "residential_wall": "旧瓷牌", "public_resident_note": "住户公示", "mira_home": "Mira 门口", "equipment_checkout_sheet": "器材借还簿", "public_bus_timetable": "站点时刻表", "local_service_guide": "本地邮件服务规则", "physical_label": "修复后的转寄标签", "current_resident_list": "现行住户表", "public_volunteer_roster": "志愿者收信登记", "case04_envelope_back": "旧件背面", "community_archive_photo": "历年活动照片", "current_volunteer_board": "现行志愿者公告", "old_desk_ledger": "旧值台账簿", "old_shift_rota": "旧值班表", "official_procedure_guide": "正式处置规则"}
@@ -45,10 +46,16 @@ var _closed := false
 var _turn: Tween
 var _turn_surface: Control
 var _turn_progress := 1.0
+var _chapter_positions: Dictionary = {}
+var _reading_positions: Dictionary = {}
+var _session_state: Dictionary = {}
+var _session_path := ""
 
 
 func configure(next_core: Node, language: String = "") -> void:
+	_remember_navigation()
 	core = next_core
+	_load_navigation()
 	if not language.is_empty(): locale = "en" if language.begins_with("en") else "zh"
 	_closed = false
 	visible = true
@@ -57,6 +64,46 @@ func configure(next_core: Node, language: String = "") -> void:
 	selected_sources.clear()
 	for id: String in _view.draft.get("sources", []): selected_sources.append(id)
 	_rebuild()
+
+
+func _load_navigation() -> void:
+	var remembered: Dictionary = core.get_meta(NAVIGATION_META, {}) if is_instance_valid(core) else {}
+	_session_state = core.get("state") if is_instance_valid(core) else {}
+	_session_path = str(core.get("save_path")) if is_instance_valid(core) else ""
+	# New game, load and checkpoint restore all replace core.state. UI bookmarks
+	# belong only to this exact live state and never enter the saved payload.
+	if not is_same(remembered.get("state"), _session_state) or str(remembered.get("path", "")) != _session_path:
+		remembered = {}
+		if is_instance_valid(core) and core.has_meta(NAVIGATION_META): core.remove_meta(NAVIGATION_META)
+	_chapter_positions = remembered.get("chapters", {}).duplicate(true)
+	_reading_positions = remembered.get("reading", {}).duplicate(true)
+	section = int(remembered.get("section", 0))
+	_restore_chapter_position()
+
+
+func _restore_chapter_position() -> void:
+	var position: Dictionary = _chapter_positions.get(section, {})
+	page = int(position.get("page", 0))
+	selected_id = str(position.get("selected_id", ""))
+
+
+func _remember_navigation() -> void:
+	if not is_instance_valid(core) or not is_same(_session_state, core.get("state")) or _session_path != str(core.get("save_path")): return
+	_capture_reading_positions()
+	_chapter_positions[section] = {"page": page, "selected_id": selected_id}
+	core.set_meta(NAVIGATION_META, {"state": _session_state, "path": _session_path, "section": section, "chapters": _chapter_positions.duplicate(true), "reading": _reading_positions.duplicate(true)})
+
+
+func _capture_reading_positions() -> void:
+	if not is_instance_valid(_canvas): return
+	if not is_same(_canvas.get_meta("navigation_state", null), _session_state): return
+	for node: Node in _canvas.find_children("*", "RichTextLabel", true, false):
+		if node.has_meta("reading_bookmark"):
+			_reading_positions[str(node.get_meta("reading_bookmark"))] = node.get_v_scroll_bar().value
+
+
+func _exit_tree() -> void:
+	_remember_navigation()
 
 
 func _ready() -> void:
@@ -87,10 +134,28 @@ func _draw() -> void:
 		draw_texture_rect(material, BOOK_RECT, false)
 		for index: int in _available_sections():
 			Art.paint(self,"book_index_tab",painted_tab_rect(index))
+	else:
+		# The provenance gate may intentionally omit a book bitmap. Keep the
+		# actual writing readable on plain paper without enabling rejected art.
+		var paper := StyleBoxFlat.new()
+		paper.bg_color = PAPER
+		paper.border_color = Color("#D6CFBE")
+		paper.set_border_width_all(1)
+		paper.set_corner_radius_all(4)
+		draw_style_box(paper, Rect2(92,127,690,674))
+		draw_style_box(paper, Rect2(802,127,690,674))
+		for index: int in _available_sections():
+			draw_style_box(paper, painted_tab_rect(index))
 	draw_set_transform(Vector2.ZERO)
 
 
 func _rebuild() -> void:
+	_capture_reading_positions()
+	var focus_name := ""
+	if is_inside_tree():
+		var focused := get_viewport().gui_get_focus_owner()
+		if is_instance_valid(focused) and is_instance_valid(_canvas) and _canvas.is_ancestor_of(focused):
+			focus_name = str(focused.name)
 	if _turn != null: _turn.kill()
 	_turn_progress = 1.0
 	if _canvas != null:
@@ -98,6 +163,7 @@ func _rebuild() -> void:
 		_canvas.queue_free()
 	_canvas = Control.new()
 	_canvas.name = "BookCanvas"
+	_canvas.set_meta("navigation_state", _session_state)
 	_canvas.size = CANVAS
 	_canvas.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	add_child(_canvas)
@@ -113,6 +179,7 @@ func _rebuild() -> void:
 	close.add_theme_stylebox_override("hover", _tab_style(true))
 	close.add_theme_stylebox_override("pressed", _tab_style(true))
 	var available := _available_sections()
+	if available.is_empty(): section = 0; page = 0; selected_id = ""
 	if not available.is_empty() and section not in available:
 		section = int(available[0]); page = 0; selected_id = ""
 	if not available.is_empty(): _label(_section_name(section), Rect2(285,183,430,35), 27)
@@ -125,12 +192,19 @@ func _rebuild() -> void:
 		tab.add_theme_color_override("font_color", TEAL if index == section else INK)
 		for state: String in ["normal","hover","pressed","focus"]:
 			tab.add_theme_stylebox_override(state,StyleBoxEmpty.new())
+		var focus_line := _line_style(TEAL)
+		focus_line.border_width_bottom = 2
+		tab.add_theme_stylebox_override("focus", focus_line)
+		tab.add_theme_stylebox_override("hover", _line_style(Color("#C8CAB5")))
 		tab.add_theme_color_override("font_hover_color", TEAL)
 		
 		tab.mouse_entered.connect(tab.queue_redraw)
 		tab.mouse_exited.connect(tab.queue_redraw)
 		tab.tooltip_text = ""
 	_items = _section_items()
+	if available.is_empty():
+		_label(_t("还没有记录", "No notes yet"), Rect2(288,271,415,48), 28)
+		_label(_t("亲手查看的邮件、见闻与交谈，会留在这里。", "Examined mail, observations and conversations will be kept here."), Rect2(290,340,410,112), 22, MUTED)
 	page = clampi(page, 0, maxi(0, ceili(float(_items.size()) / page_size()) - 1))
 	if section == 3:
 		_draw_draft()
@@ -142,26 +216,32 @@ func _rebuild() -> void:
 			2: _draw_letter()
 	var pages := maxi(1, ceili(float(_items.size()) / page_size()))
 	if section != 3:
-		var previous := _button("PreviousPage", "", Rect2(256,642,118,88), _flip.bind(-1), 38)
+		var has_art := Art.texture("handbook_open") != null
+		var previous := _button("PreviousPage", "" if has_art else "‹", Rect2(256,642,118,88), _flip.bind(-1), 38)
 		# The illustrated folded corners are outside the text-column transform.
 		# Place hit areas on those visible paper corners, not on empty page space.
 		previous.position = Vector2(105,692)
 		previous.size = Vector2(160,104)
+		previous.alignment = HORIZONTAL_ALIGNMENT_CENTER
 		previous.add_theme_stylebox_override("hover", StyleBoxEmpty.new())
 		previous.add_theme_stylebox_override("pressed", StyleBoxEmpty.new())
 		previous.disabled = page == 0
+		previous.visible = has_art or pages > 1
 		previous.mouse_default_cursor_shape = Control.CURSOR_ARROW if previous.disabled else Control.CURSOR_POINTING_HAND
-		var next := _button("NextPage", "", Rect2(1210,642,118,88), _flip.bind(1), 38)
+		var next := _button("NextPage", "" if has_art else "›", Rect2(1210,642,118,88), _flip.bind(1), 38)
 		next.position = Vector2(1335,692)
 		next.size = Vector2(160,104)
+		next.alignment = HORIZONTAL_ALIGNMENT_CENTER
 		next.add_theme_stylebox_override("hover", StyleBoxEmpty.new())
 		next.add_theme_stylebox_override("pressed", StyleBoxEmpty.new())
 		next.disabled = page + 1 >= pages
+		next.visible = has_art or pages > 1
 		next.mouse_default_cursor_shape = Control.CURSOR_ARROW if next.disabled else Control.CURSOR_POINTING_HAND
 	var folio := _label("%d  /  %d" % [page+1, pages], Rect2(686,702,210,32), 18, MUTED)
 	folio.name = "LeafNumber"
 	folio.position = Vector2(675,746)
 	folio.size = Vector2(110,28)
+	folio.visible = not _items.is_empty() and section != 3
 	if not notice.is_empty(): _label(notice, Rect2(855,650,420,42), 18, TEAL)
 	_turn_surface = Control.new()
 	_turn_surface.name = "TurningLeaf"
@@ -171,6 +251,24 @@ func _rebuild() -> void:
 	_canvas.add_child(_turn_surface)
 	_layout()
 	queue_redraw()
+	_restore_focus.call_deferred(focus_name, _canvas.get_instance_id())
+
+
+func _restore_focus(node_name: String, canvas_id: int) -> void:
+	# Every record redraw replaces its controls. Restore by their stable names,
+	# and ignore deferred requests from an already superseded leaf.
+	if not is_inside_tree() or _closed or not visible or not is_instance_valid(_canvas) or canvas_id != _canvas.get_instance_id(): return
+	var candidate := _canvas.find_child(node_name, true, false) as Control if not node_name.is_empty() else null
+	if not _can_focus(candidate) and node_name in ["PreviousPage", "NextPage"]:
+		candidate = _canvas.find_child("NextPage" if node_name == "PreviousPage" else "PreviousPage", true, false) as Control
+	if not _can_focus(candidate):
+		candidate = _canvas.find_child("Tab" + str(section), true, false) as Control
+	if not _can_focus(candidate): candidate = _canvas.find_child("Close", true, false) as Control
+	if _can_focus(candidate): candidate.grab_focus()
+
+
+func _can_focus(control: Control) -> bool:
+	return is_instance_valid(control) and control.is_visible_in_tree() and control.focus_mode != Control.FOCUS_NONE and not (control is BaseButton and control.disabled)
 
 
 func _available_sections() -> Array[int]:
@@ -209,7 +307,9 @@ func _draw_index() -> void:
 	if section == 0:
 		selected_id = str(_items[page])
 		return
-	if selected_id not in _items: selected_id = str(_items[page*PAGE_SIZE])
+	var first := page * PAGE_SIZE
+	var last := mini(_items.size(), (page + 1) * PAGE_SIZE)
+	if selected_id not in _items.slice(first, last): selected_id = str(_items[first])
 	for index: int in range(page * PAGE_SIZE, mini(_items.size(), (page+1)*PAGE_SIZE)):
 		var id := str(_items[index])
 		var text := _item_label(id)
@@ -235,10 +335,10 @@ func _draw_person() -> void:
 	var encountered := encounters.has(selected_id)
 	var portrait_rect := Rect2(322,263,316,326)
 	# Only an encountered resident receives their generated gameplay portrait.
-	if PORTRAITS.has(selected_id) and encountered:
+	var source: Texture2D = Art.texture(str(PORTRAITS[selected_id])) if PORTRAITS.has(selected_id) and encountered else null
+	if source != null:
 		var portrait := TextureRect.new()
 		portrait.name = "KnownPortrait"
-		var source := Art.texture(str(PORTRAITS[selected_id]))
 		var used := source.get_image().get_used_rect()
 		var sketch := AtlasTexture.new()
 		sketch.atlas = source
@@ -368,15 +468,17 @@ func _toggle_source() -> void:
 
 
 func _select_section(index: int) -> void:
+	if index == section: return
+	_remember_navigation()
 	section = index
-	page = 0
-	selected_id = ""
+	_restore_chapter_position()
 	notice = ""
 	_rebuild()
 	_turn_page()
 
 
 func _select_item(id: String) -> void:
+	_remember_navigation()
 	cue.emit("paper")
 	selected_id = id
 	notice = ""
@@ -384,7 +486,10 @@ func _select_item(id: String) -> void:
 
 
 func _flip(direction: int) -> void:
-	page += direction
+	var next_page := clampi(page + direction, 0, maxi(0, ceili(float(_items.size()) / page_size()) - 1))
+	if section == 3 or next_page == page: return
+	_remember_navigation()
+	page = next_page
 	selected_id = ""
 	notice = ""
 	_rebuild()
@@ -502,7 +607,17 @@ func _reading(node_name: String, text: String, rect: Rect2, font_size: int) -> R
 	label.scroll_active = true
 	label.selection_enabled = true
 	_place(label, rect)
+	var bookmark := "%d/%s/%s" % [section, selected_id, node_name]
+	label.set_meta("reading_bookmark", bookmark)
+	_restore_reading_position.call_deferred(label.get_instance_id(), float(_reading_positions.get(bookmark, 0.0)))
 	return label
+
+
+func _restore_reading_position(instance_id: int, value: float) -> void:
+	var reading := instance_from_id(instance_id) as RichTextLabel
+	if not is_instance_valid(reading) or not is_instance_valid(_canvas) or not _canvas.is_ancestor_of(reading): return
+	var scrollbar := reading.get_v_scroll_bar()
+	scrollbar.value = clampf(value, 0.0, maxf(0.0, scrollbar.max_value - scrollbar.page))
 
 
 func _button(node_name: String, text: String, rect: Rect2, callback: Callable, font_size: int = 22) -> Button:
@@ -515,6 +630,8 @@ func _button(node_name: String, text: String, rect: Rect2, callback: Callable, f
 	button.add_theme_font_size_override("font_size", font_size)
 	button.add_theme_color_override("font_color", INK)
 	button.add_theme_color_override("font_hover_color", TEAL)
+	button.add_theme_color_override("font_focus_color", TEAL)
+	button.add_theme_color_override("font_pressed_color", INK)
 	button.add_theme_color_override("font_disabled_color", Color("#ABA69C"))
 	button.add_theme_stylebox_override("normal", StyleBoxEmpty.new())
 	button.add_theme_stylebox_override("disabled", StyleBoxEmpty.new())
@@ -606,13 +723,24 @@ func _leaf(node_name: String, rect: Rect2) -> Control:
 
 func _unhandled_key_input(event: InputEvent) -> void:
 	if not visible or _closed: return
-	if event is InputEventKey and event.pressed and not event.echo and event.keycode == KEY_ESCAPE:
+	if not (event is InputEventKey and event.pressed and not event.echo): return
+	if event.keycode == KEY_ESCAPE:
 		get_viewport().set_input_as_handled()
 		_close()
+		return
+	var focused := get_viewport().gui_get_focus_owner()
+	if focused is LineEdit or focused is TextEdit or focused is OptionButton or focused is RichTextLabel: return
+	if event.keycode in [KEY_PAGEUP, KEY_PAGEDOWN] and section != 3:
+		get_viewport().set_input_as_handled()
+		var direction := -1 if event.keycode == KEY_PAGEUP else 1
+		var corner := _canvas.find_child("PreviousPage" if direction < 0 else "NextPage", true, false) as Control
+		if _can_focus(corner): corner.grab_focus()
+		_flip(direction)
 
 
 func _close() -> void:
 	if _closed: return
+	_remember_navigation()
 	_closed = true
 	hide()
 	cue.emit("paper")

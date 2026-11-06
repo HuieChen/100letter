@@ -23,6 +23,8 @@ const POOLS := {
 	"tram": ["tram_pass.wav"],
 	"birds": ["birds.wav"],
 	"wood": ["wood_piece.wav"],
+	"drawer": ["wood_piece.wav"],
+	"cat": ["cat_meow_cc0.mp3"],
 	"water": ["water_touch_1.wav", "water_touch_2.wav", "water_touch_3.wav"]
 }
 const BEDS := ["sea_bed.ogg", "town_bed.ogg", "wind_bed.ogg", "room_bed.ogg"]
@@ -43,6 +45,7 @@ var _rng := RandomNumberGenerator.new()
 var _beds: Dictionary = {}
 var _bed_gains: Dictionary = {}
 var _targets: Dictionary = {}
+var _town_base_gain: float = 0.0
 var _streams: Dictionary = {}
 var _last_variant: Dictionary = {}
 var _last_played: Dictionary = {}
@@ -56,6 +59,9 @@ var _sfx_volume: float = 0.85
 var _ambience_volume: float = 0.85
 var menu_music:AudioStreamPlayer
 var _settings_mode:=false
+var _settings_feedback_mode:=false
+var _last_settings_water:float=-100.0
+var _last_settings_water_sample:String=""
 var _menu_gain:=0.0
 var _shutdown_complete:=false
 var _retiring_playbacks:Array[WeakRef]=[]
@@ -109,13 +115,14 @@ func set_weather(wind:float,swell:float,foliage:float)->void:
 
 func settings_music(enabled:bool)->void:
 	if _shutdown_complete:return
+	_settings_feedback_mode=enabled
+	# Settings changes its touch feedback, never the user's existing music.
 	_settings_mode=false
 
 
 func set_location(id: String, at_minute: int = 540, inside: bool = false) -> void:
 	var changed: bool = not _configured or id != location_id or inside != indoors
 	location_id = id
-	minute = at_minute
 	indoors = inside
 	_configured = true
 	var levels: Dictionary = {}
@@ -135,8 +142,9 @@ func set_location(id: String, at_minute: int = 540, inside: bool = false) -> voi
 			_: levels = {"wind_bed.ogg": -29.0}
 	for file: String in BEDS:
 		var gain: float = db_to_linear(float(levels[file])) if levels.has(file) else 0.0
-		if at_minute >= 1020 and file == "town_bed.ogg": gain *= 0.68
 		_targets[file] = gain
+	_town_base_gain = float(_targets["town_bed.ogg"])
+	set_time_of_day(at_minute)
 	if changed:
 		_detail_after = _rng.randf_range(8.0, 17.0)
 		if id == "title": _detail_after = 1.5
@@ -147,6 +155,14 @@ func set_location(id: String, at_minute: int = 540, inside: bool = false) -> voi
 				shot.stop()
 				shot.queue_free()
 		_clean_shots()
+
+
+func set_time_of_day(at_minute: int) -> void:
+	if _shutdown_complete:return
+	# Saves use cumulative minutes. Audio follows the same daily clock as the
+	# street lighting without restarting players, fades or random detail timers.
+	minute = posmod(at_minute, 1440)
+	_targets["town_bed.ogg"] = _town_base_gain * (0.68 if minute >= 1020 else 1.0)
 
 
 func set_volumes(music_level: float, effects_level: float, ambient_level: float = 0.85) -> void:
@@ -162,11 +178,16 @@ func set_volumes(music_level: float, effects_level: float, ambient_level: float 
 
 func play(kind: String = "paper") -> void:
 	if muted or _shutdown_complete: return
+	if kind=="cat" and _sfx_volume<=0.0:return
+	var settings_cue:bool=_settings_feedback_mode and kind in ["paper","snap"]
+	var feedback_key:String="settings_"+kind if settings_cue else kind
 	var cooldown: float = 0.16 if kind == "step" else 0.11
 	if kind in ["tool", "snap", "repair"]: cooldown = 0.22
 	if kind in ["bell", "tram"]: cooldown = 2.0
-	if _elapsed - float(_last_played.get(kind, -100.0)) < cooldown: return
-	_last_played[kind] = _elapsed
+	if kind=="cat":cooldown=1.2
+	if settings_cue:cooldown=0.28
+	if _elapsed - float(_last_played.get(feedback_key, -100.0)) < cooldown: return
+	_last_played[feedback_key] = _elapsed
 	var variants: Array = []
 	if kind == "step":
 		var surface: String = "wood" if indoors else "concrete"
@@ -174,17 +195,22 @@ func play(kind: String = "paper") -> void:
 		for index: int in range(1, 4): variants.append("soft_step_%s_%d.wav" % [surface, index])
 	else:
 		variants = POOLS.get(kind, POOLS.paper)
+	if settings_cue and kind=="paper":variants=["paper_1.wav","paper_2.wav"]
 	var index: int = _rng.randi_range(0, variants.size() - 1)
-	if variants.size() > 1 and index == int(_last_variant.get(kind, -1)):
+	if variants.size() > 1 and index == int(_last_variant.get(feedback_key, -1)):
 		index = (index + 1) % variants.size()
-	_last_variant[kind] = index
+	_last_variant[feedback_key] = index
 	var gain: float = -13.0
 	if kind == "step": gain = -20.0
 	elif kind == "bell": gain = -23.0
 	elif kind in ["snap", "tool", "repair"]: gain = -18.0
 	elif kind in ["stamp", "door", "door_close"]: gain = -14.0
 	elif kind == "tram": gain = -25.0
-	elif kind == "water":gain=-22.0
+	elif kind in ["water","drawer"]:gain=-22.0
+	elif kind == "cat":gain=-19.0
+	if settings_cue:gain=-18.0 if kind=="paper" else -22.0
+	# Match the denser recording to the other paper variants; retain the source.
+	if kind=="paper" and str(variants[index])=="paper_3.wav":gain-=9.0
 	_spawn(kind, str(variants[index]), gain, SFX_BUS, _rng.randf_range(0.98, 1.02) if kind=="step" else _rng.randf_range(0.97, 1.03))
 
 
@@ -240,6 +266,8 @@ func _stream(file: String) -> AudioStream:
 			_streams[file]=AudioStreamMP3.load_from_file(ROOT+"gentle_ocean_cc0.mp3")
 		elif file.begins_with("soft_step_"):
 			_streams[file]=AudioStreamWAV.load_from_file(ROOT+file)
+		elif file=="cat_meow_cc0.mp3":
+			_streams[file]=AudioStreamMP3.load_from_file(ROOT+file)
 		else:
 			_streams[file] = load(ROOT + file) if ResourceLoader.exists(ROOT + file) else null
 	return _streams[file] as AudioStream
@@ -265,6 +293,9 @@ func _spawn(kind: String, file: String, gain: float, bus: String, pitch: float =
 func play_water_touch(point:Vector2,strength:float=1.0,body_contact:bool=false)->void:
 	if muted or _sfx_volume<=0.0 or _shutdown_complete:return
 	var value:=clampf(strength,0.1,1.0)
+	if _settings_feedback_mode:
+		_play_settings_water_touch(point,value,body_contact)
+		return
 	# Distinct close touch / lighter surface contact; original CC0 PCM remains unchanged.
 	var file:="water_touch_3.wav" if body_contact or value<0.45 else ("water_touch_2.wav" if int(point.x+point.y)%2==0 else "water_touch_1.wav")
 	var bus:=SFX_BUS
@@ -274,7 +305,55 @@ func play_water_touch(point:Vector2,strength:float=1.0,body_contact:bool=false)-
 		AudioServer.add_bus();var index:=AudioServer.bus_count-1;AudioServer.set_bus_name(index,pan_bus);AudioServer.set_bus_send(index,SFX_BUS)
 		var pan:=AudioEffectPanner.new();pan.pan=float(side-1)*0.3;AudioServer.add_bus_effect(index,pan)
 	bus=pan_bus
-	_spawn("water",file,-7.0+linear_to_db(lerpf(0.35,1.0,value)),bus,_rng.randf_range(0.96,1.04))
+	# Keep direct water contacts quiet beside the original guitar.
+	_spawn("water",file,-18.0+linear_to_db(lerpf(0.35,1.0,value)),bus,_rng.randf_range(0.96,1.04))
+
+
+func _play_settings_water_touch(point:Vector2,value:float,body_contact:bool)->void:
+	# Lemon press/release and drag contacts share one clock, so a single gesture
+	# does not produce several identical clicks. Direct taps stay responsive.
+	var gentle:bool=body_contact or value<0.45
+	var cooldown:float=0.44 if gentle else 0.24
+	if _elapsed-_last_settings_water<cooldown:return
+	_clean_shots()
+	var water_voices:int=0
+	for shot:AudioStreamPlayer in _shots:
+		if shot.playing and str(shot.bus).begins_with("SolmereSettingsWater"):
+			water_voices+=1
+	if water_voices>=2:return
+	var variants:Array=["water_touch_1.wav","water_touch_3.wav"] if gentle else ["water_touch_1.wav","water_touch_2.wav"]
+	var file:String=variants[_rng.randi_range(0,variants.size()-1)]
+	if file==_last_settings_water_sample:
+		file=variants[1] if file==variants[0] else variants[0]
+	_last_settings_water=_elapsed
+	_last_settings_water_sample=file
+	var side:int=0 if point.x<550.0 else (2 if point.x>1050.0 else 1)
+	var bus:String="SolmereSettingsWater"+str(side)
+	if AudioServer.get_bus_index(bus)==-1:
+		AudioServer.add_bus()
+		var index:int=AudioServer.bus_count-1
+		AudioServer.set_bus_name(index,bus)
+		AudioServer.set_bus_send(index,SFX_BUS)
+		var soften:=AudioEffectLowPassFilter.new()
+		soften.cutoff_hz=3200.0
+		soften.resonance=0.5
+		soften.db=AudioEffectFilter.FILTER_12DB
+		AudioServer.add_bus_effect(index,soften)
+		# The recordings' strongest transients occur well after their start.
+		# A quick, gentle compressor softens those peaks without raising the tail.
+		var peaks:=AudioEffectCompressor.new()
+		peaks.threshold=-38.0
+		peaks.ratio=2.2
+		peaks.attack_us=400.0
+		peaks.release_ms=80.0
+		peaks.gain=0.0
+		AudioServer.add_bus_effect(index,peaks)
+		var pan:=AudioEffectPanner.new()
+		pan.pan=float(side-1)*0.22
+		AudioServer.add_bus_effect(index,pan)
+	# Original CC0 samples are retained; this route removes the brittle high end
+	# and sits six decibels below the former setting beside the original guitar.
+	_spawn("water",file,-24.0+linear_to_db(lerpf(0.35,1.0,value)),bus,_rng.randf_range(0.97,1.02))
 
 
 func _clean_shots() -> void:
@@ -312,12 +391,12 @@ func _process(delta: float) -> void:
 	_detail_after -= delta
 	if _detail_after <= 0.0:
 		_detail_after = _rng.randf_range(20.0, 42.0) * (1.4 if minute >= 1020 else 1.0)
-		if muted or indoors: return
+		if muted or indoors or _quiet or _settings_feedback_mode or location_id=="title":return
 		if location_id == "bus_stop" and _rng.randf() < 0.55:
 			_spawn("tram_ambient", "tram_pass.wav", -28.0, AMBIENT_BUS)
 		elif location_id == "chess_stall" and _rng.randf() < 0.35:
 			_spawn("chess_piece", "wood_piece.wav", -24.0, AMBIENT_BUS)
-		else:
+		elif minute>=360 and minute<1140:
 			_spawn("bird_ambient", "birds.wav", -25.0 if location_id == "lookout" else -21.0, AMBIENT_BUS, _rng.randf_range(0.94, 1.04))
 
 
@@ -330,6 +409,7 @@ func shutdown() -> void:
 	_shutdown_complete=true
 	set_process(false)
 	_settings_mode=false
+	_settings_feedback_mode=false
 	for child: Node in get_children():
 		if child is AudioStreamPlayer:
 			# A weak fence observes only this player's native voice, not a shared

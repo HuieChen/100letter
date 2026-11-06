@@ -9,6 +9,20 @@ signal foot_position_changed(at: Vector2)
 
 const PhysicalArt = preload("res://scripts/rebuild/physical_art.gd")
 const WALK_GEOMETRY := "res://assets/faefever_v2/characters/courier_walk_regions.json"
+# Only the authored idle, five walk and five supplementary turn images.
+# Geometry, animation state, materials and callbacks remain instance-local.
+const MAX_PREPARED_TEXTURES := 11
+static var _prepared_textures: Dictionary = {}
+static func _prepared_texture(path:String) -> Texture2D:
+	if _prepared_textures.has(path):return _prepared_textures[path]
+	var pixels:=Image.new()
+	if pixels.load(path)!=OK:return null
+	pixels.generate_mipmaps()
+	var texture:=ImageTexture.create_from_image(pixels)
+	# A changed future manifest still renders normally beyond this fixed budget.
+	if _prepared_textures.size()<MAX_PREPARED_TEXTURES:_prepared_textures[path]=texture
+	return texture
+
 var _frame_geometry: Dictionary = {}
 var _poses: Dictionary = {}
 var _walk_keys: Array[String] = []
@@ -90,20 +104,18 @@ func _ready() -> void:
 	# Warm the source's complete ordered cycle before the first visible step.
 	# Drawing never decodes a new bitmap while the actor is already moving.
 	_poses["CHAR_courier"]=PhysicalArt.texture("CHAR_courier")
-	var idle_image:=Image.new()
-	if idle_image.load("res://assets/authoring/courier_20261030/clean_edges/idle.png")==OK:
-		idle_image.generate_mipmaps()
-		_poses["CHAR_courier"]=ImageTexture.create_from_image(idle_image)
-		_frame_geometry["CHAR_courier"]={"reference_height_px":idle_image.get_height(),"foot_anchor_px":[idle_image.get_width()*0.52,idle_image.get_height()]}
+	var idle_texture:=_prepared_texture("res://assets/authoring/cast_20261105/courier_idle.png")
+	if idle_texture!=null:
+		_poses["CHAR_courier"]=idle_texture
+		_frame_geometry["CHAR_courier"]={"reference_height_px":idle_texture.get_height(),"foot_anchor_px":[idle_texture.get_width()*0.52,idle_texture.get_height()]}
 	for key:String in _walk_keys:
 		_poses[key]=PhysicalArt.texture(key)
 	for index in range(_walk_keys.size()):
-		var pixels:=Image.new()
-		if pixels.load("res://assets/authoring/courier_20261030/clean_edges/walk_%d.png"%index)==OK:
-			pixels.generate_mipmaps()
+		var texture:=_prepared_texture("res://assets/authoring/courier_20261030/clean_edges/walk_%d.png"%index)
+		if texture!=null:
 			var key:String=_walk_keys[index]
-			_poses[key]=ImageTexture.create_from_image(pixels)
-			_frame_geometry[key]={"reference_height_px":pixels.get_height(),"foot_anchor_px":[pixels.get_width()*0.5,pixels.get_height()]}
+			_poses[key]=texture
+			_frame_geometry[key]={"reference_height_px":texture.get_height(),"foot_anchor_px":[texture.get_width()*0.5,texture.get_height()]}
 	# Register cutouts by the cap instead of their changing silhouette width.
 	# Undo independent crop-height normalization; preserve authored relative
 	# proportions and pose order without repainting the source pixels.
@@ -134,10 +146,9 @@ func _load_turns() -> void:
 	if not data is Dictionary or data.get("frames", []).size() != 5: return
 	var prepared: Array[Texture2D] = []
 	for frame: Dictionary in data.frames:
-		var pixels := Image.new()
-		if pixels.load(str(frame.path)) != OK: return
-		pixels.generate_mipmaps()
-		prepared.append(ImageTexture.create_from_image(pixels))
+		var texture:=_prepared_texture(str(frame.path))
+		if texture==null:return
+		prepared.append(texture)
 	# These are supplementary turns only: the authored walk cycle is untouched.
 	_turn_keys.assign([_walk_keys[2]])
 	for i in range(prepared.size()):

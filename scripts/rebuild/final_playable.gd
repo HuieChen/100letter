@@ -15,6 +15,7 @@ const ResolutionSlip = preload("res://scripts/rebuild/resolution_slip.gd")
 const SceneDialogue = preload("res://scripts/rebuild/scene_dialogue.gd")
 const Preferences = preload("res://scripts/ui/game_preferences.gd")
 const SettingsPage = preload("res://scripts/ui/coastal_settings.gd")
+const FieldCamera = preload("res://scripts/ui/field_camera.gd")
 const LOCATIONS = ["post_office","community_center","bus_stop","lookout","residential","chess_stall","tarot_shop"]
 const NAMES = {"post_office":"邮局","community_center":"社区中心","bus_stop":"海岸电车站","lookout":"观景台","residential":"海阶居民楼","chess_stall":"树下棋摊","tarot_shop":"塔楼屋"}
 const PEOPLE = {"post_office":[],"community_center":["june_arlen","community_clerk"],"bus_stop":["chenyuan"],"lookout":["mira_vale"],"residential":["elsie_moran"],"chess_stall":["chenyuan"],"tarot_shop":[]}
@@ -26,7 +27,10 @@ var sound: Node
 var stage: Control
 var layer: Control
 var walker: Control
-var modal: Control
+var modal: Control:
+	set(value):
+		modal=value
+		if is_instance_valid(modal):modal.z_index=maxi(100,modal.z_index)
 var status: Label
 var _street_road:Control
 var clock: Label
@@ -48,8 +52,14 @@ var _conversation_person := ""
 var preferences:Node
 var preferences_path := "user://final_v2/preferences_v1.json"
 var _window_close_pending := false
+var _window_close_deferred := false
 var allow_display_changes := true
 var _display_apply_queued:=false
+var _closeup_hidden_residents:Array[WeakRef]=[]
+var _camera_hidden_ui:Array[WeakRef]=[]
+var _bag_photos_visible:=false
+var _photo_thumbnails:Dictionary={}
+var _photo_thumbnail_order:Array[String]=[]
 
 func _ready() -> void:
 	get_tree().auto_accept_quit=false
@@ -71,7 +81,7 @@ func _ready() -> void:
 	if preferences_path=="user://final_v2/preferences_v1.json" and core.save_path.contains("/qa/"):preferences_path=core.save_path.get_base_dir()+"/preferences.json"
 	preferences.path=preferences_path;add_child(preferences);preferences.load_settings()
 	if not preferences.loaded:
-		var old:Dictionary=sound.get_volumes();preferences.values.music=old.music;preferences.values.sfx=old.effects
+		var old:Dictionary=sound.get_volumes();preferences.values.music=old.music;preferences.values.sfx=old.effects;preferences.values.ambience=old.ambience
 		if sound.muted:preferences.values.master=0.0
 	# Old hidden mute becomes the visible master control, without an invisible second mute.
 	sound.set_muted(false)
@@ -79,15 +89,16 @@ func _ready() -> void:
 	_apply_audio_preferences()
 	if preferences.loaded:_apply_display_preferences()
 	_title()
+	add_child(preload("res://scripts/ui/modal_focus.gd").new())
 
 func _tr(zh:String,en:String) -> String:
 	return en if is_instance_valid(preferences) and preferences.values.language=="en" else zh
 func _apply_audio_preferences() -> void:
 	var index:=AudioServer.get_bus_index("Master");var master:float=preferences.values.master
 	AudioServer.set_bus_volume_db(index,linear_to_db(maxf(master,0.0001)));AudioServer.set_bus_mute(index,master<=0.0)
-	sound.set_volumes(preferences.values.music,preferences.values.sfx,preferences.values.sfx)
+	sound.set_volumes(preferences.values.music,preferences.values.sfx,preferences.values.get("ambience",preferences.values.sfx))
 func _apply_preference(key:String,_value:Variant) -> void:
-	if key in ["master","music","sfx"]:_apply_audio_preferences()
+	if key in ["master","music","sfx","ambience"]:_apply_audio_preferences()
 	elif key in ["display_mode","resolution"]:
 		# Native decoration/viewport changes must happen after the current GUI release
 		# and dropdown teardown, rather than invalidating that input traversal midway.
@@ -134,7 +145,12 @@ func _notification(what:int) -> void:
 		_close_window_after_save()
 
 func _close_window_after_save()->void:
-	if _window_close_pending or not _prepare_quit():return
+	if _window_close_pending:return
+	if busy:
+		_window_close_deferred=true
+		return
+	_window_close_deferred=false
+	if not _prepare_quit():return
 	_window_close_pending=true
 	# Drain only this host's audio while the mixer is still alive. A last-second
 	# click cannot mutate the already checkpointed paper/progress during exit.
@@ -176,6 +192,7 @@ func _show_save_problem(message:String) -> void:
 	if is_instance_valid(previous):remove_child(previous);previous.queue_free()
 	var notice:=UI.label(self,message,Rect2(240,108,1120,108),23,Color("fff3df"))
 	notice.name="SaveFailureNotice"
+	notice.z_index=300
 	notice.add_theme_color_override("font_outline_color",Color("4a241b"))
 	notice.add_theme_constant_override("outline_size",5)
 	notice.mouse_filter=Control.MOUSE_FILTER_IGNORE
@@ -189,6 +206,7 @@ func _update_preference_save_notice()->void:
 	if is_instance_valid(modal) and modal.get_script()==SettingsPage:return
 	var notice:=UI.label(self,_tr("设置未保存","Settings not saved"),Rect2(575,811,450,36),18,Color("405c64"))
 	notice.name="PreferencesSaveNotice";notice.horizontal_alignment=HORIZONTAL_ALIGNMENT_CENTER
+	notice.z_index=300
 	notice.mouse_filter=Control.MOUSE_FILTER_IGNORE
 
 func _unhandled_input(event:InputEvent) -> void:
@@ -201,13 +219,16 @@ func _unhandled_input(event:InputEvent) -> void:
 				if modal.has_method("request_close"): modal.request_close()
 				elif modal.has_method("close_safely"): modal.close_safely()
 				elif not core.state.active_operation.is_empty(): return
-				else: _close()
+				else: _close(true)
 			elif view!="title": _pause()
 			get_viewport().set_input_as_handled()
 		elif not is_instance_valid(modal) and view in ["world","counter","post_office_room"]:
 			if event.keycode==KEY_M: _map()
-			elif event.keycode==KEY_J: pass
-			elif event.keycode==KEY_B: pass
+			elif event.keycode==KEY_J: _book()
+			elif event.keycode==KEY_B: _bag()
+			elif event.keycode==KEY_C:
+				get_viewport().set_input_as_handled()
+				_camera()
 
 func _new_stage(next_view:String) -> void:
 	var notice:=get_node_or_null("SaveFailureNotice")
@@ -215,6 +236,9 @@ func _new_stage(next_view:String) -> void:
 	_close()
 	if is_instance_valid(walker): walker.cancel()
 	walker=null
+	_street_road=null
+	actors=null
+	_desk_surface=null
 	if is_instance_valid(stage):
 		remove_child(stage)
 		stage.queue_free()
@@ -249,9 +273,11 @@ func _say(message:String) -> void:
 	if is_instance_valid(_footer_timer):_footer_timer.stop()
 
 func _save() -> void:
-	core.save_game()
+	if core.save_game():
+		var stale_notice:=get_node_or_null("SaveFailureNotice")
+		if is_instance_valid(stale_notice):remove_child(stale_notice);stale_notice.queue_free()
+	if is_instance_valid(sound):sound.set_time_of_day(int(core.state.minute))
 	if is_instance_valid(_street_road):_street_road.transition_time_of_day(float(core.state.minute))
-	if is_instance_valid(clock): if is_instance_valid(clock):clock.text=core.time_text() if view in ["counter","post_office_room","ending","failure"] else "7 月 20 日 · "+core.time_text()
 
 func _sprite(parent:Node, key:String, rect:Rect2, preserve_aspect:bool=false) -> TextureRect:
 	var art:=TextureRect.new()
@@ -278,21 +304,8 @@ func _title() -> void:
 	cover.stretch_mode=TextureRect.STRETCH_SCALE
 	cover.mouse_filter=Control.MOUSE_FILTER_IGNORE
 	UI.place(cover,stage,Rect2(0,0,1600,900))
-	# A compact vertical paper menu sits on the open sand, clear of the logo
-	# and the two riders. The supplied illustration remains the entire cover.
-	var menu:=Panel.new()
-	menu.name="CoverMenuPaper"
-	var menu_style:=StyleBoxFlat.new()
-	menu_style.bg_color=Color(0.97,0.94,0.86,0.94)
-	menu_style.border_color=Color("d6c29f")
-	menu_style.set_border_width_all(2)
-	menu_style.set_corner_radius_all(18)
-	menu_style.shadow_color=Color(0.12,0.22,0.32,0.22)
-	menu_style.shadow_size=10
-	menu_style.shadow_offset=Vector2(0,5)
-	menu.add_theme_stylebox_override("panel",menu_style)
-	menu.mouse_filter=Control.MOUSE_FILTER_IGNORE
-	UI.place(menu,stage,Rect2(64,596,374,270))
+	preload("res://scripts/rebuild/scene_local_motion.gd").attach_cover(cover)
+	# Keep the menu as clickable lettering over the original cover art.
 	var start:=UI.button(stage,_tr("开始新旅程","New journey"),Rect2(84,612,334,64),_start,true)
 	start.name="NewShift"
 	var resume:=UI.button(stage,_tr("继续","Continue"),Rect2(84,699,334,64),_resume)
@@ -303,22 +316,28 @@ func _title() -> void:
 	for button in [start,resume,options]:
 		button.alignment=HORIZONTAL_ALIGNMENT_CENTER
 		button.add_theme_font_size_override("font_size",23)
-		button.add_theme_color_override("font_color",Color("fff8e8") if button==start else Color("243d50"))
-		button.add_theme_color_override("font_hover_color",Color("fff8e8"))
-		button.add_theme_color_override("font_pressed_color",Color("fff8e8"))
+		button.add_theme_color_override("font_color",Color("243d50"))
+		button.add_theme_color_override("font_hover_color",Color("9c4e3a"))
+		button.add_theme_color_override("font_focus_color",Color("9c4e3a"))
+		button.add_theme_color_override("font_pressed_color",Color("713b31"))
 		button.add_theme_color_override("font_disabled_color",Color("8c9898"))
 		for button_state:String in ["normal","hover","pressed","focus","disabled"]:
-			var state_style:=StyleBoxFlat.new()
-			state_style.bg_color=Color("d56b52") if button==start else Color("e8dfca")
-			if button_state=="hover":state_style.bg_color=Color("bd5845") if button==start else Color("d4e5df")
-			if button_state=="pressed":state_style.bg_color=Color("a9443d") if button==start else Color("c7dcd5")
-			if button_state=="disabled":state_style.bg_color=Color("e3dfd4")
-			state_style.border_color=Color("a64d43") if button==start else Color("8ca29e")
-			state_style.set_border_width_all(2)
-			state_style.set_corner_radius_all(13)
-			state_style.content_margin_left=12;state_style.content_margin_right=12
-			state_style.content_margin_top=8;state_style.content_margin_bottom=8
-			button.add_theme_stylebox_override(button_state,state_style)
+			button.add_theme_stylebox_override(button_state,StyleBoxEmpty.new())
+	var menu:Array=[start,options] if resume.disabled else [start,resume,options]
+	for i:int in range(menu.size()):
+		menu[i].focus_neighbor_top=menu[i].get_path_to(menu[posmod(i-1,menu.size())])
+		menu[i].focus_neighbor_bottom=menu[i].get_path_to(menu[(i+1)%menu.size()])
+		menu[i].focus_previous=menu[i].focus_neighbor_top
+		menu[i].focus_next=menu[i].focus_neighbor_bottom
+	_focus_title_default.call_deferred()
+
+func _focus_title_default()->void:
+	if view!="title" or is_instance_valid(modal) or not is_instance_valid(stage):return
+	var focused:=get_viewport().gui_get_focus_owner()
+	if is_instance_valid(focused) and stage.is_ancestor_of(focused):return
+	var target:=stage.find_child("ContinueShift",true,false) as Button
+	if target==null or target.disabled:target=stage.find_child("NewShift",true,false) as Button
+	if target!=null:target.grab_focus()
 
 func _stage_plan(id:String) -> Dictionary:
 	# Image-relative placements are refined against each accepted full-scene asset.
@@ -333,6 +352,7 @@ func _stage_plan(id:String) -> Dictionary:
 
 func _start() -> void:
 	if core.has_save():
+		sound.play("paper")
 		_sheet(_tr("另开一个班次","Start a new shift"), _tr("新班次会替换此版本的工作记录。","A new shift will replace this version's current work record."),[[_tr("继续旧班次","Continue current shift"),_resume],[_tr("确认开始新班次","Start new shift"),_fresh]])
 	else: _fresh()
 
@@ -351,6 +371,7 @@ func _fresh() -> void:
 		_briefing_pending=false
 		_show_save_problem(draft_error)
 		return
+	sound.play("paper")
 	_post_office_room()
 	_briefing_pending=false
 
@@ -376,41 +397,61 @@ func _begin_briefing() -> void:
 
 func _finish_briefing() -> void:
 	_briefing_pending=false;busy=false;_close();_post_office_room()
+	if _window_close_deferred:_close_window_after_save.call_deferred()
 
 func _resume() -> void:
 	if not core.load_game():
 		_sheet("工作记录",core.last_save_error,[])
 		return
+	sound.play("paper")
 	_tray_opened=bool(core.case_state("case01").physical.inspected_front)
 	_briefing_pending=false
 	_load_resolution_drafts()
 	if str(core.state.location)=="post_office": _post_office_room()
-	else: _world()
+	else: _world(str(core.state.location))
 
-func _world() -> void:
+func _world(arrival:String="") -> void:
 	_new_stage("world")
 	var road=load("res://scripts/rebuild/coastal_road.gd").new()
 	_street_road=road
 	road.weather_time=float(Time.get_ticks_msec())/1000.0
 	road.minute=int(core.state.minute)
+	road.locale=preferences.values.language
 	road.postal=str(core.state.location) in ["post_office","chess_stall"]
 	if str(core.state.location)=="community_center":road.district="community"
 	elif str(core.state.location) in ["residential","lookout","bus_stop"]:road.district="residential"
 	road.can_walk=func():return not busy and not is_instance_valid(modal)
 	UI.place(road,stage,Rect2(0,0,1600,900))
 	walker=road.courier
+	if not arrival.is_empty():preload("res://scripts/rebuild/street_arrival.gd").place(road,arrival)
 	road.map_requested.connect(_map)
 	road.footstep.connect(func():sound.play("step"))
+	road.cat_requested.connect(func():sound.play("cat"))
 	road.ambience_changed.connect(sound.set_weather)
-	road.post_office_requested.connect(func():core.state.location="post_office";_post_office_room())
-	if road.district=="community":
-		var chef=preload("res://scripts/rebuild/food_truck_resident.gd").new()
-		chef.courier=walker
-		chef.allowed=road.can_walk
-		chef.locale=func():return preferences.values.language
-		UI.place(chef,road.world,Rect2(Vector2.ZERO,road.world.size))
-		chef.talk_requested.connect(func():_chef_conversation(0))
+	road.post_office_requested.connect(func():
+		_change_scene(func():core.state.location="post_office";_post_office_room();_save()))
+	road.courier.z_index=2
+	var cast:Dictionary=preload("res://scripts/rebuild/authored_cast.gd").RESIDENTS
+	for character_id:String in cast:
+		var resident:Dictionary=cast[character_id]
+		if resident.family!=road.family:continue
+		var actor=preload("res://scripts/rebuild/food_truck_resident.gd").new()
+		actor.name="Resident_"+character_id
+		actor.character_id=character_id
+		actor.foot=resident.foot
+		actor.actor_height=resident.height
+		actor.art_key="cast/"+character_id+"_chibi.png"
+		actor.courier=walker
+		actor.allowed=road.can_walk
+		actor.locale=func():return preferences.values.language
+		UI.place(actor,road.world,Rect2(Vector2.ZERO,road.world.size))
+		actor.talk_requested.connect(func():
+			if character_id=="chef":_chef_conversation(0)
+			else:_resident_conversation(character_id,0))
 	sound.set_location(str(core.state.location),int(core.state.minute),false)
+	var old_map:Node=road.get_node_or_null("RoadMapReturn")
+	if old_map!=null:old_map.hide()
+	_hud(str(core.state.location),false)
 func _look_at(text:String) -> void:
 	_close()
 	if is_instance_valid(walker):walker.cancel();walker.manual_enabled=false
@@ -421,15 +462,114 @@ func _look_at(text:String) -> void:
 	line.advanced.connect(_close)
 	line.closed.connect(_close)
 
+func _resident_conversation(character_id:String,index:int)->void:
+	if index>=2:
+		if is_instance_valid(modal) and modal is SceneDialogue:modal.finish()
+		return
+	var resident:Dictionary=preload("res://scripts/rebuild/authored_cast.gd").RESIDENTS[character_id]
+	var speaker:String=_tr(resident.zh,resident.en) if index==0 else _tr("你","You")
+	if is_instance_valid(modal) and modal is SceneDialogue and modal.get_meta("resident_id","")==character_id:
+		modal.set_meta("resident_page",index)
+		modal.set_line(speaker,"……")
+		return
+	_close()
+	if is_instance_valid(walker):walker.cancel();walker.manual_enabled=false
+	var dialogue:=SceneDialogue.new()
+	dialogue.light_source=walker
+	dialogue.locale=preferences.values.language
+	dialogue.set_meta("resident_id",character_id)
+	dialogue.set_meta("resident_page",index)
+	modal=dialogue
+	UI.place(dialogue,self,Rect2(0,0,1600,900))
+	dialogue.configure(speaker,"……",[],"courier_source.jpg","cast/"+character_id+"_portrait.png")
+	dialogue.set_text_rate(preferences.text_rate())
+	dialogue.cue.connect(sound.play)
+	sound.play("paper")
+	dialogue.closed.connect(_close)
+	dialogue.advanced.connect(func():_resident_conversation(character_id,int(dialogue.get_meta("resident_page"))+1))
+
 func _hud(_id:String, show_carried:bool=true) -> void:
-	_icon(stage,"bag","信袋 · B",Rect2(18,4,100,98),_bag).name="OpenBag"
-	_icon(stage,"book","档案 · J",Rect2(124,4,100,98),_book).name="OpenBook"
-	_icon(stage,"map","地图 · M",Rect2(230,4,100,98),_map).name="OpenMap"
-	clock=UI.label(stage,"7 月 20 日 · "+core.time_text(),Rect2(1200,29,280,34),20)
-	clock.add_theme_color_override("font_outline_color",Color("fff4dd"))
-	clock.add_theme_constant_override("outline_size",2)
-	UI.button(stage,"⋮",Rect2(1520,20,55,50),_pause)
+	var bar=preload("res://scripts/rebuild/authored_quickbar.gd").new()
+	bar.locale=preferences.values.language
+	bar.available=func():return not busy and not is_instance_valid(modal)
+	stage.add_child(bar)
+	bar.cue.connect(sound.play)
+	preferences.changed.connect(bar.preference_changed)
+	bar.z_index=3
+	bar.set_action_enabled("camera",true)
+	bar.set_action_enabled("recorder",false)
+	bar.buttons.camera.tooltip_text=_tr("相机 · C","Camera · C")
+	bar.buttons.recorder.tooltip_text=_tr("录音机 · 暂未开放","Recorder · Coming soon")
+	bar.action_requested.connect(_quickbar_action)
 	if show_carried:_refresh_selected_letter()
+
+func _quickbar_action(action:String) -> void:
+	if busy or is_instance_valid(modal):return
+	match action:
+		"map":_map()
+		"book":_book()
+		"bag":_bag()
+		"camera":_camera()
+		"settings":_settings_page(false)
+
+func _camera()->void:
+	if busy or is_instance_valid(modal) or view not in ["world","counter","post_office_room"]:return
+	var postal_room:=stage.get_node_or_null("PostOfficeInterior")
+	if is_instance_valid(postal_room) and postal_room.transitioning:return
+	if is_instance_valid(_street_road) and _street_road.get("_entering")==true:return
+	# Opening the camera stops an earlier click-to-walk command as well as keys.
+	# Keep the character visible, but never let a queued arrival open dialogue
+	# over the camera or let the view drift while the player composes a photo.
+	if is_instance_valid(walker):walker.cancel();walker.manual_enabled=false
+	var camera:=FieldCamera.new()
+	camera.locale=preferences.values.language
+	# QA captures stay beside the explicitly isolated test save.
+	camera.save_directory=_photo_directory()
+	camera.capture_provider=_capture_camera_scene
+	modal=camera
+	UI.place(camera,self,Rect2(0,0,1600,900))
+	camera.closed.connect(_close)
+	camera.photo_saved.connect(func(_path:String):_bag_photos_visible=true)
+	camera.cue.connect(func(kind:String):sound.play("snap" if kind=="camera" else kind))
+	sound.play("paper")
+	_camera_hidden_ui.clear()
+	var candidates:Array=[clock,status,_footer_shade]
+	for node_name:String in ["AuthoredQuickbar","CarriedLetter","RoadMapReturn","PostOfficeEntryHint","ToWorkroom","ToCounter"]:
+		candidates.append_array(stage.find_children(node_name,"",true,false))
+	for node in candidates:
+		if is_instance_valid(node) and node is CanvasItem and node.visible:
+			_camera_hidden_ui.append(weakref(node));node.hide()
+
+func _capture_camera_scene()->Image:
+	# The camera hides its own controls; capture only the live in-game canvas.
+	await RenderingServer.frame_post_draw
+	if not is_inside_tree():return null
+	return get_viewport().get_texture().get_image()
+
+func _photo_directory()->String:
+	return core.save_path.get_base_dir()+"/photos" if core.save_path.contains("/qa/") else "user://photos"
+
+func _bag_photo_album(path:String)->void:
+	_close()
+	var album:=FieldCamera.new()
+	album.locale=preferences.values.language
+	album.save_directory=_photo_directory()
+	album.gallery_only=true
+	album.initial_photo_path=path
+	modal=album
+	# Gallery ready opens the first print, so connect before mounting it.
+	album.cue.connect(sound.play)
+	UI.place(album,self,Rect2(0,0,1600,900))
+	album.closed.connect(func():
+		var return_path:=path
+		if not album.gallery_paths.is_empty() and album._review_index>=0:return_path=album.gallery_paths[album._review_index]
+		_close();_bag_photos_visible=true;_bag("",false)
+		for item:Node in modal.find_children("BagPhoto_*","Button",true,false):
+			if item.get_meta("photo_path","")==return_path:
+				item.grab_focus.call_deferred()
+				var pocket:=modal.find_child("PhotoPocket",true,false) as ScrollContainer
+				if pocket!=null:pocket.ensure_control_visible.call_deferred(item)
+				break)
 
 func _refresh_selected_letter() -> void:
 	var previous:=stage.find_child("CarriedLetter",true,false)
@@ -518,6 +658,7 @@ func _objective() -> String:
 	return "读清信封，再到现场核对。地图可预览耗时；阅读与交谈不会推动时钟。"
 
 func _post_office_room(index:int=0) -> void:
+	core.state.location="post_office"
 	_new_stage("post_office_room")
 	post_office_room_index=clampi(index,0,1)
 	sound.set_location("post_office",int(core.state.minute),true)
@@ -531,10 +672,15 @@ func _post_office_room(index:int=0) -> void:
 	room.set_process_unhandled_key_input(false)
 	room.close_button.hide()
 	var source_scale:=Vector2(1600,900)/Vector2(1920,1080)
-	var exit:=_surface_hotspot(stage,"PostOfficeExit","",Rect2(Vector2(50,150)*source_scale,Vector2(400,500)*source_scale),func():
+	var exit:=preload("res://scripts/ui/post_office_door.gd").new()
+	exit.name="PostOfficeExit"
+	exit.tooltip_text=_tr("走出邮局","Leave the post office")
+	exit.interaction_allowed=func():return not busy and not is_instance_valid(modal) and not room.transitioning
+	UI.place(exit,stage,Rect2(Vector2(110,238)*source_scale,Vector2(376,488)*source_scale))
+	exit.activated.connect(func():
 		if busy or is_instance_valid(modal) or room.transitioning:return
 		sound.play("door")
-		_world())
+		_change_scene(func():core.state.location="post_office";_world("post_office");_save()))
 	var reference:=_surface_hotspot(stage,"CounterReferenceBook","",Rect2(Vector2(430,730)*source_scale,Vector2(420,240)*source_scale),func():
 		if busy or is_instance_valid(modal) or room.transitioning:return
 		_book())
@@ -549,8 +695,7 @@ func _post_office_room(index:int=0) -> void:
 		exit.visible=next_index==0
 		reference.visible=false
 		desk.visible=false)
-	UI.button(stage,"↩",Rect2(30,28,72,64),_map)
-	if is_instance_valid(clock):clock.text=core.time_text()
+	_hud("post_office",false)
 	_footer()
 
 func _counter() -> void:
@@ -578,7 +723,6 @@ func _counter() -> void:
 	desk.cue.connect(sound.play)
 	_hud("post_office",false)
 	if not carried.is_empty():_refresh_selected_letter()
-	if is_instance_valid(clock):clock.text=core.time_text()
 	_footer()
 
 func _surface_hotspot(parent:Node, node_name:String, tip:String, rect:Rect2, callback:Callable) -> Button:
@@ -599,6 +743,7 @@ func _counter_reference_books() -> void:
 
 func _workbench(id:String,from_rect:Rect2=Rect2()) -> void:
 	if busy:return
+	var opened_from_bag:=is_instance_valid(modal) and modal.name=="MailBag"
 	var item:Dictionary=core.case_state(id)
 	if item.is_empty() or str(item.owner)!="courier":
 		_say("先从柜台的实体邮件箱取出这封信，再放到面前查看。");return
@@ -608,6 +753,7 @@ func _workbench(id:String,from_rect:Rect2=Rect2()) -> void:
 	var bench:=Workbench.new()
 	bench.retain_counter_surface=view=="counter"
 	if view=="counter":bench.return_rect=Rect2(150,280,300,171.43)
+	if opened_from_bag and from_rect.has_area():bench.return_rect=from_rect
 	modal=bench
 	UI.place(bench,self,Rect2(0,0,1600,900))
 	error=bench.configure(core,id)
@@ -616,7 +762,9 @@ func _workbench(id:String,from_rect:Rect2=Rect2()) -> void:
 	_hide_courier_for_closeup()
 	bench.cue.connect(sound.play)
 	bench.manipulation_sensitivity=preferences.values.sensitivity
-	bench.closed.connect(func(): _close();_save())
+	bench.closed.connect(func():
+		_close();_save()
+		if opened_from_bag:_bag(id,false))
 	bench.inspection_completed.connect(func(_mode:String):_save())
 
 func _observe(id:String) -> void:
@@ -657,18 +805,37 @@ func _hide_courier_for_closeup() -> void:
 	# Residents share the actor layer; hide it too so feet cannot poke out below
 	# a large document while the player is examining its closeup.
 	if is_instance_valid(actors):actors.hide()
+	# The authored street residents live inside Road.world, outside the legacy
+	# actor layer. Keep their feet and shadows behind the full document too.
+	if is_instance_valid(_street_road) and is_instance_valid(_street_road.world):
+		for child:Node in _street_road.world.get_children():
+			if child is CanvasItem and str(child.name).begins_with("Resident_") and child.visible:
+				_closeup_hidden_residents.append(weakref(child))
+				child.hide()
 	if not is_instance_valid(walker):return
 	walker.cancel()
 	walker.manual_enabled=false
 	walker.hide()
 
-func _close() -> void:
+func _close(user_feedback:bool=false) -> void:
+	# Components with their own cue signal own their close sound. Internal
+	# replacements/rebuilds stay silent; explicit bare-overlay dismissal is one cue.
+	if user_feedback and is_instance_valid(modal) and not modal.has_signal("cue"):
+		sound.play("paper")
 	if is_inside_tree(): get_viewport().set_input_as_handled()
 	if is_instance_valid(modal) and modal.get_script()==SettingsPage and is_instance_valid(sound):sound.settings_music(false)
 	if is_instance_valid(modal):
 		remove_child(modal)
 		modal.queue_free()
 	modal=null
+	for reference:WeakRef in _camera_hidden_ui:
+		var camera_ui=reference.get_ref()
+		if is_instance_valid(camera_ui):camera_ui.show()
+	_camera_hidden_ui.clear()
+	for reference:WeakRef in _closeup_hidden_residents:
+		var resident=reference.get_ref()
+		if is_instance_valid(resident):resident.show()
+	_closeup_hidden_residents.clear()
 	var carried_icon:=stage.find_child("CarriedLetter",true,false) if is_instance_valid(stage) else null
 	if is_instance_valid(carried_icon):
 		if carried_icon.has_method("configure") and not carried.is_empty():carried_icon.configure(core,carried)
@@ -691,42 +858,120 @@ func _overlay() -> Control:
 
 func _sheet(title:String, copy:String, actions:Array) -> Control:
 	var root:=_overlay()
-	var paper:=Control.new()
-	UI.place(paper,root,Rect2(360,145,880,650))
-	var backing:=ColorRect.new()
-	backing.color=Color("f7efdc")
-	backing.mouse_filter=Control.MOUSE_FILTER_IGNORE
-	UI.place(backing,paper,Rect2(-16,-20,912,690))
-	UI.label(paper,title,Rect2(45,28,725,55),32)
-	UI.button(paper,"×",Rect2(797,20,58,54),_close)
-	UI.body(paper,copy,Rect2(45,103,781,246),23)
-	var y:=366
-	for action:Array in actions:
-		UI.button(paper,str(action[0]),Rect2(46,y,784,48),action[1])
-		y+=57
+	var paper:=preload("res://scripts/ui/paper_sheet.gd").new()
+	root.add_child(paper)
+	paper.configure(title,copy,actions,_close.bind(true))
 	return paper
 
-func _bag() -> void:
+func _bag(focus_letter:String="",feedback:bool=true) -> void:
 	if busy:return
+	if not focus_letter.is_empty():_bag_photos_visible=false
 	var root:=_overlay()
 	root.name="MailBag"
-	_sprite(root,"satchel",Rect2(110,300,340,415),true).name="OpenSatchelArtwork"
-	UI.button(root,"×",Rect2(1450,45,70,64),_close).name="CloseBag"
-	var index:=0
+	var photos:Array[String]=FieldCamera.photo_paths(_photo_directory())
+	var letters:Array[String]=[]
 	for id:String in core.CASE_IDS:
 		var item:Dictionary=core.case_state(id)
-		if not item.available or item.owner!="courier" or not str(item.disposition).is_empty():continue
-		var at:=Vector2(510+(index%3)*292,292+(index/3)*236)
-		var source:=Rect2(at,Vector2(270,175))
+		if item.available and item.owner=="courier" and str(item.disposition).is_empty():letters.append(id)
+	var columns:=mini(3,letters.size())
+	var paper_size:=Vector2(maxf(660.0,columns*354.0+50.0),330.0 if letters.is_empty() else 412.0+228.0*floori(float(letters.size()-1)/3.0))
+	if _bag_photos_visible:paper_size=Vector2(1112,660)
+	var paper_rect:=Rect2((Vector2(1600,900)-paper_size)*.5,paper_size)
+	var paper:=UI.panel(root,paper_rect,Color("f7efdc"))
+	paper.name="BagPaper"
+	UI.label(paper,_tr("背包","Bag"),Rect2(48,35,paper_size.x-250,56),32)
+	UI.button(paper,"×",Rect2(paper_size.x-82,26,54,54),_close.bind(true)).name="CloseBag"
+	var satchel:=_sprite(paper,"satchel",Rect2(paper_size.x-210,14,90,98),true)
+	satchel.name="OpenSatchelArtwork"
+	var letter_tab:=UI.button(paper,_tr("信件 ","Letters ")+str(letters.size()),Rect2(48,98,180,42),func():_bag_photos_visible=false;_bag())
+	letter_tab.name="BagLettersTab"
+	var photo_tab:=UI.button(paper,_tr("照片 ","Photos ")+str(photos.size()),Rect2(244,98,180,42),func():_bag_photos_visible=true;_bag())
+	photo_tab.name="BagPhotosTab"
+	(letter_tab if not _bag_photos_visible else photo_tab).add_theme_color_override("font_color",Color("a15836"))
+	if _bag_photos_visible:
+		_bag_photo_grid(paper,photos)
+		if feedback:sound.play("paper")
+		return
+	var index:=0
+	var inset_x:=(paper_size.x-(columns*354.0-46.0))*.5
+	for id:String in letters:
+		var at:=paper_rect.position+Vector2(inset_x+(index%3)*354,160+floori(float(index)/3.0)*228)
+		var source:=Rect2(at,Vector2(308,190))
 		var mail:=_icon(root,"letter","",source,func():
 			carried=id
 			_refresh_selected_letter()
 			_workbench(id,source))
 		mail.name="Envelope_"+id
+		if id==focus_letter:mail.grab_focus.call_deferred()
+		# If an older generated prop is rejected by the source-art gate, retain
+		# a readable paper surface instead of an invisible but clickable letter.
+		if mail.texture_normal==null:
+			var envelope:=UI.panel(mail,Rect2(Vector2.ZERO,source.size),Color("fff7e5"))
+			envelope.mouse_filter=Control.MOUSE_FILTER_IGNORE
 		var front:Dictionary=core.case_view(id).get("front",{})
-		var addressee:=UI.label(mail,str(front.get("recipient","")),Rect2(24,58,215,45),19)
+		var caption:=str(front.get("recipient",_tr("信件 ","Letter ")+id.right(2)))
+		var addressee:=UI.label(mail,caption,Rect2(24,56,260,70),23)
 		addressee.clip_text=true
+		if front.is_empty():UI.label(mail,_tr("尚未查看正面","Front not yet inspected"),Rect2(24,132,260,38),19,Color("73665c"))
+		var selection:=ColorRect.new();selection.color=Color("9c4e3a");selection.mouse_filter=Control.MOUSE_FILTER_IGNORE
+		UI.place(selection,mail,Rect2(12,source.size.y+5,source.size.x-24,2));selection.hide()
+		mail.focus_entered.connect(selection.show)
+		mail.focus_exited.connect(func():if not mail.is_hovered():selection.hide())
+		mail.mouse_entered.connect(selection.show)
+		mail.mouse_exited.connect(func():if not mail.has_focus():selection.hide())
 		index+=1
+	if index==0:
+		var empty:=UI.label(paper,_tr("信袋里暂时没有待送的信。","No letters to deliver right now."),Rect2(48,164,paper_size.x-96,84),25,Color("73665c"))
+		empty.name="EmptyMailBag";empty.horizontal_alignment=HORIZONTAL_ALIGNMENT_CENTER
+	if feedback:sound.play("paper")
+
+func _photo_thumbnail(path:String)->Texture2D:
+	# Prints are immutable captures. Reuse their small GPU preview across page
+	# returns; captions stay separate and are read afresh. Bound memory for long visits.
+	var modified:=FileAccess.get_modified_time(path)
+	var cached:Dictionary=_photo_thumbnails.get(path,{})
+	if not cached.is_empty() and int(cached.modified)==modified:
+		_photo_thumbnail_order.erase(path);_photo_thumbnail_order.append(path)
+		return cached.texture
+	var pixels:=Image.load_from_file(path)
+	if pixels==null or pixels.is_empty():return null
+	var ratio:=230.0/maxf(pixels.get_width(),pixels.get_height())
+	if ratio<1.0:pixels.resize(maxi(1,roundi(pixels.get_width()*ratio)),maxi(1,roundi(pixels.get_height()*ratio)),Image.INTERPOLATE_LANCZOS)
+	var texture:=ImageTexture.create_from_image(pixels)
+	_photo_thumbnails[path]={"modified":modified,"texture":texture}
+	_photo_thumbnail_order.erase(path);_photo_thumbnail_order.append(path)
+	while _photo_thumbnail_order.size()>96:_photo_thumbnails.erase(_photo_thumbnail_order.pop_front())
+	return texture
+
+func _bag_photo_grid(paper:Control,photos:Array[String])->void:
+	if photos.is_empty():
+		var empty:=UI.label(paper,_tr("还没有拍好的照片。","No photos yet."),Rect2(48,236,paper.size.x-96,80),26,Color("73665c"))
+		empty.name="EmptyPhotoPocket";empty.horizontal_alignment=HORIZONTAL_ALIGNMENT_CENTER
+		return
+	var scroll:=ScrollContainer.new();scroll.name="PhotoPocket"
+	scroll.horizontal_scroll_mode=ScrollContainer.SCROLL_MODE_DISABLED
+	UI.place(scroll,paper,Rect2(48,168,paper.size.x-96,paper.size.y-208))
+	var grid:=GridContainer.new();grid.name="PhotoGrid";grid.columns=4
+	grid.add_theme_constant_override("h_separation",20);grid.add_theme_constant_override("v_separation",18)
+	scroll.add_child(grid)
+	for index:int in photos.size():
+		var path:String=photos[photos.size()-1-index]
+		var thumbnail:=_photo_thumbnail(path)
+		if thumbnail==null:continue
+		var item:=Button.new();item.name="BagPhoto_%d"%index;item.flat=true;item.custom_minimum_size=Vector2(230,276)
+		item.set_meta("photo_path",path)
+		item.mouse_default_cursor_shape=Control.CURSOR_POINTING_HAND
+		for state:String in ["normal","hover","pressed","focus"]:item.add_theme_stylebox_override(state,StyleBoxEmpty.new())
+		grid.add_child(item)
+		var photo:=FieldCamera.PhotoPaper.new();photo.name="PhotoPrint";photo.image=thumbnail;photo.mouse_filter=Control.MOUSE_FILTER_IGNORE
+		UI.place(photo,item,Rect2(5,2,220,264))
+		var caption:=UI.label(item,FieldCamera.caption_for(path),Rect2(20,219,190,40),20,Color("665240"))
+		caption.horizontal_alignment=HORIZONTAL_ALIGNMENT_CENTER;caption.vertical_alignment=VERTICAL_ALIGNMENT_CENTER;caption.clip_text=true;caption.mouse_filter=Control.MOUSE_FILTER_IGNORE
+		item.pressed.connect(func():_bag_photo_album(path))
+		item.mouse_entered.connect(func():photo.position.y=0)
+		item.mouse_exited.connect(func():photo.position.y=2)
+		item.focus_entered.connect(func():photo.position.y=0)
+		item.focus_exited.connect(func():photo.position.y=2)
 
 func _talk(id:String) -> void:
 	var error:String=core.meet(id)
@@ -738,6 +983,7 @@ func _dialogue(id:String, line:String) -> void:
 	_close()
 	if is_instance_valid(walker):walker.gesture("talk");walker.manual_enabled=false;walker.hide()
 	var dialogue:=SceneDialogue.new()
+	dialogue.light_source=walker
 	modal=dialogue
 	UI.place(dialogue,self,Rect2(0,0,1600,900))
 	var choices:Array=[]
@@ -790,6 +1036,7 @@ func _spoken_question(line:String, reply:Callable) -> void:
 	_close()
 	if is_instance_valid(walker):walker.gesture("talk");walker.manual_enabled=false;walker.hide()
 	var dialogue:=SceneDialogue.new()
+	dialogue.light_source=walker
 	modal=dialogue
 	UI.place(dialogue,self,Rect2(0,0,1600,900))
 	dialogue.configure("你",line,[],"CHAR_courier",str(PERSON_ART.get(_conversation_person,"")))
@@ -837,9 +1084,9 @@ func _archive_box() -> void:
 func _ledger() -> void:
 	if not core.state.cases.case04.available:_say("先处理今天的地址调查，再整理旧档清理箱。");return
 	var actions:Array=[["看旧件处置行",func():_observe("case04_manual_hold")],["翻到账簿夹袋",func():_observe("ledger_hv_repeat")],["查看值班人表",func():_observe("helena_rota")]]
-	var p:=_sheet("Desk B · 旧账簿","纸页按年份放着。编号、经手人和去向分别占一栏；一处潦草的缩写不能替你完成判断。",actions)
-	UI.button(p,"服务代码",Rect2(45,303,230,45),func():_observe("procedure_codes"))
-	UI.button(p,"回案记录",Rect2(305,303,230,45),func():_observe("ledger_returns"))
+	actions.append(["服务代码",func():_observe("procedure_codes")])
+	actions.append(["回案记录",func():_observe("ledger_returns")])
+	_sheet("Desk B · 旧账簿","纸页按年份放着。编号、经手人和去向分别占一栏；一处潦草的缩写不能替你完成判断。",actions)
 
 func _registry() -> void:
 	if not core.case_state("case01").physical.inspected_front:
@@ -984,25 +1231,55 @@ func _map() -> void:
 	root.name="MapInspection"
 	var map:=PaperMap.new()
 	UI.place(map,root,Rect2(175,80,1250,740))
-	UI.button(root,"×",Rect2(1460,35,65,64),_close)
+	UI.button(root,"×",Rect2(1460,35,65,64),_close.bind(true))
 	var art:=PaperMap.map_texture()
 	var scale_factor:=minf(map.size.x/art.get_width(),map.size.y/art.get_height())
 	var origin:=(map.size-art.get_size()*scale_factor)*0.5
-	var entries=[ ["post_office",Rect2(510,660,260,300)], ["chess_stall",Rect2(150,970,440,350)], ["bookstore",Rect2(160,570,290,260)], ["tarot_shop",Rect2(170,235,370,255)], ["record_store",Rect2(540,70,260,300)], ["statue",Rect2(680,360,480,330)], ["community_center",Rect2(920,80,355,350)], ["residential",Rect2(1370,200,300,260)], ["grocery",Rect2(1230,580,210,245)], ["market",Rect2(1740,110,280,240)], ["food_truck",Rect2(1610,510,335,190)], ["lookout",Rect2(1050,865,500,235)], ["bus_stop",Rect2(1780,735,335,220)] ]
+	var entries:=PaperMap.hotspot_entries()
 	for entry in entries:
 		var destination:String=entry[0]
 		var area:Rect2=entry[1]
 		var button:=UI.button(map,"",Rect2(origin+area.position*scale_factor,area.size*scale_factor),func():
-			_close()
-			match destination:
-				"post_office","chess_stall","bookstore":core.state.location="post_office"
-				"community_center","grocery","market","food_truck":core.state.location="community_center"
-				"residential","lookout","bus_stop":core.state.location=destination
-				_:core.state.location="tarot_shop"
-			_world())
+			_visit_map_destination(destination))
 		button.name="Map_"+destination
 		for state:String in ["normal","hover","pressed","focus"]:button.add_theme_stylebox_override(state,StyleBoxEmpty.new())
 	sound.play("map")
+
+func _visit_map_destination(destination:String)->void:
+	if busy:return
+	sound.play("paper")
+	var location:=destination
+	match destination:
+		"post_office","bookstore":location="post_office"
+		"community_center","grocery","market","food_truck":location="community_center"
+		"residential","lookout","bus_stop","chess_stall":pass
+		_:location="tarot_shop"
+	# Preserve the current leisurely map semantics: no hidden time charge.
+	_change_scene(func():core.state.location=location;_world(destination);_save())
+
+func _change_scene(build:Callable)->void:
+	if busy or not build.is_valid():return
+	busy=true
+	_close()
+	if is_instance_valid(walker):walker.cancel();walker.manual_enabled=false
+	var fade:=ColorRect.new()
+	fade.name="SceneTransition";fade.z_index=200
+	fade.color=Color(0.16,0.24,0.26,0.0)
+	fade.mouse_filter=Control.MOUSE_FILTER_STOP
+	UI.place(fade,self,Rect2(0,0,1600,900))
+	var departure:=create_tween().set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
+	departure.tween_property(fade,"color:a",1.0,0.13)
+	await departure.finished
+	if not is_inside_tree():return
+	build.call()
+	var arrival:=create_tween().set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_OUT)
+	arrival.tween_property(fade,"color:a",0.0,0.20)
+	await arrival.finished
+	if is_instance_valid(fade):remove_child(fade);fade.queue_free()
+	busy=false
+	if is_instance_valid(walker):walker.manual_enabled=view=="world"
+	set_meta("completed_scene_changes",int(get_meta("completed_scene_changes",0))+1)
+	if _window_close_deferred:_close_window_after_save.call_deferred()
 func _walk_cost(origin:String,destination:String) -> int:
 	return 30 if "lookout" in [origin,destination] or (origin=="tarot_shop" and destination=="post_office") or (destination=="tarot_shop" and origin=="post_office") else 15
 
@@ -1021,7 +1298,7 @@ func _depart(id:String,minutes:int,_map:Control=null) -> void:
 		walker.walk_to(walker.foot+Vector2(82 if LOCATIONS.find(id)>LOCATIONS.find(str(core.state.location)) else -82,0))
 		await get_tree().create_timer(0.28).timeout
 	var fade:=ColorRect.new()
-	fade.name="TravelFade";fade.color=Color(0.08,0.12,0.13,0)
+	fade.name="TravelFade";fade.z_index=200;fade.color=Color(0.08,0.12,0.13,0)
 	UI.place(fade,self,Rect2(0,0,1600,900))
 	var out:=create_tween();out.tween_property(fade,"color:a",1.0,0.2)
 	await out.finished
@@ -1029,7 +1306,7 @@ func _depart(id:String,minutes:int,_map:Control=null) -> void:
 	if error.is_empty():
 		_save()
 		if not core.state.failure.is_empty():_failure()
-		else:_world()
+		else:_world(id)
 	# Newly created stage stays under this overlay during the arrival fade.
 	move_child(fade,get_child_count()-1)
 	var arrival:=create_tween();arrival.tween_property(fade,"color:a",0.0,0.25)
@@ -1037,17 +1314,19 @@ func _depart(id:String,minutes:int,_map:Control=null) -> void:
 	fade.queue_free();busy=false
 	if is_instance_valid(walker):walker.manual_enabled=view=="world"
 	if not error.is_empty():_say(error)
+	if _window_close_deferred:_close_window_after_save.call_deferred()
 
-func _settings_page() -> void:
+func _settings_page(return_to_pause:bool=true) -> void:
 	if busy:return
-	var return_pause:=view!="title"
+	var return_pause:=view!="title" and return_to_pause
 	_close()
-	if is_instance_valid(walker):walker.manual_enabled=false
+	_hide_courier_for_closeup()
 	var settings:=SettingsPage.new();modal=settings
 	UI.place(settings,self,Rect2(0,0,1600,900));settings.configure(preferences)
 	settings.cue.connect(sound.play)
 	settings.water_audio.connect(sound.play_water_touch)
 	sound.settings_music(true)
+	sound.play("paper")
 	settings.closed.connect(func():
 		_close()
 		if return_pause:_pause())
@@ -1090,8 +1369,9 @@ func _failure() -> void:
 # The authored food-truck encounter is a complete, re-enterable conversation.
 # It does not award invented case evidence or overwrite campaign progress.
 func _chef_conversation(index:int)->void:
-	_close()
-	if index>=6:return
+	if index>=6:
+		if is_instance_valid(modal) and modal is SceneDialogue:modal.finish()
+		return
 	if is_instance_valid(walker):walker.cancel();walker.manual_enabled=false
 	var zh=[
 		["餐车老板","先别急着走。汤刚出锅，闻着香，喝下去可烫。你今天已经绕广场几圈了？"],
@@ -1108,11 +1388,19 @@ func _chef_conversation(index:int)->void:
 		["Chef","I did. The community centre is at the other end of this street. Heading back, you pass the produce stall, then the grocery. If you get turned around, look for my parasol."],
 		["You","I will learn the route first. By the time I come back, the soup should be cool enough."]]
 	var lines:Array=en if preferences.values.language=="en" else zh
-	var dialogue:=SceneDialogue.new();modal=dialogue
+	if is_instance_valid(modal) and modal is SceneDialogue and modal.has_meta("chef_page"):
+		modal.set_meta("chef_page",index)
+		modal.set_line(str(lines[index][0]),str(lines[index][1]))
+		return
+	_close()
+	if is_instance_valid(walker):walker.cancel();walker.manual_enabled=false
+	var dialogue:=SceneDialogue.new();dialogue.light_source=walker;modal=dialogue
+	dialogue.set_meta("chef_page",index)
 	UI.place(dialogue,self,Rect2(0,0,1600,900))
 	dialogue.locale=preferences.values.language
-	dialogue.configure(str(lines[index][0]),str(lines[index][1]),[],"chef_source.jpg","courier_source.jpg")
+	dialogue.configure(str(lines[index][0]),str(lines[index][1]),[],"courier_source.jpg","chef_source.jpg")
 	dialogue.cue.connect(sound.play)
+	sound.play("paper")
 	dialogue.set_text_rate(preferences.text_rate())
 	dialogue.closed.connect(_close)
-	dialogue.advanced.connect(func():_chef_conversation(index+1))
+	dialogue.advanced.connect(func():_chef_conversation(int(dialogue.get_meta("chef_page"))+1))

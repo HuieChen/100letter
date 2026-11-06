@@ -2,10 +2,12 @@ extends Control
 signal map_requested
 signal post_office_requested
 signal footstep
+signal cat_requested
 signal ambience_changed(wind:float, swell:float, foliage:float)
 const UI=preload("res://scripts/ui/paper_ui.gd")
 const Walker=preload("res://scripts/rebuild/final_walker.gd")
 const Atmosphere=preload("res://scripts/rebuild/street_atmosphere.gd")
+const TextureCache=preload("res://scripts/rebuild/street_texture_cache.gd")
 var minute:=540
 var postal:=false
 var district:="coastal"
@@ -14,9 +16,12 @@ var art:TextureRect
 var world:Control
 var courier:Control
 var can_walk:Callable
-var entry_hint:Label
+var entry_hint:Button
+var locale:="zh"
 var entry_ready:=false
+var _entering:=false
 var fountain:TextureRect
+var fountain_background:TextureRect
 var fountain_frames:Array[Texture2D]=[]
 var fountain_time:=0.0
 var weather_time:=0.0
@@ -42,22 +47,28 @@ func _ready()->void:
  if district in ["community","residential"]:
   var extension:=".jpg" if district=="residential" and period=="night" else ".png"
   source_path="res://assets/authoring/streets_20261101/"+district+"_"+period+extension
- var pixels:=Image.new()
- if pixels.load(source_path)!=OK:return
- world=Control.new()
- # Display the original art lower and slightly larger. The viewport crops
- # the bottom export strip without modifying any supplied source pixels.
- UI.place(world,self,Rect2(0,0,960.0*pixels.get_width()/pixels.get_height(),960))
- art=TextureRect.new()
- art.texture=ImageTexture.create_from_image(pixels)
  family=district if district in ["community","residential"] else ("postal" if postal else "coastal")
+ var period_paths:Array[String]=[]
  for phase:String in Atmosphere.PERIODS:
   var path:="res://assets/authoring/town_20261029/"+("post_v2_" if postal else "clean_road_")+phase+".png"
   if district in ["community","residential"]:
    path="res://assets/authoring/streets_20261101/"+district+"_"+phase+(".jpg" if district=="residential" and phase=="night" else ".png")
-  var image:=Image.load_from_file(path)
-  if image==null or image.is_empty():period_textures.append(art.texture)
-  else:period_textures.append(ImageTexture.create_from_image(image))
+  period_paths.append(path)
+ var selected_index:int=Atmosphere.PERIODS.find(period)
+ period_textures=TextureCache.acquire(family,period_paths,selected_index)
+ if period_textures.size()!=4:return
+ if family=="postal":
+  # Register the nine morning end props to the other phases; originals stay immutable.
+  var patch:=Image.load_from_file("res://assets/authoring/street_registration_20261106/postal_morning_cluster_patch.png")
+  var registered:=preload("res://scripts/rebuild/postal_morning_registration.gd").apply(period_textures[0].get_image(),patch)
+  period_textures[0]=ImageTexture.create_from_image(registered)
+ world=Control.new()
+ # Display the original art lower and slightly larger. The viewport crops
+ # the bottom export strip without modifying any supplied source pixels.
+ var selected:Texture2D=period_textures[selected_index]
+ UI.place(world,self,Rect2(0,0,960.0*selected.get_width()/selected.get_height(),960))
+ art=TextureRect.new()
+ art.texture=selected
  atmosphere_material=ShaderMaterial.new()
  atmosphere_material.shader=preload("res://scripts/rebuild/street_atmosphere.gdshader")
  atmosphere_material.set_shader_parameter("community",district=="community")
@@ -70,21 +81,27 @@ func _ready()->void:
  art.expand_mode=TextureRect.EXPAND_IGNORE_SIZE
  art.mouse_filter=Control.MOUSE_FILTER_IGNORE
  UI.place(art,world,Rect2(Vector2.ZERO,world.size))
- if district=="community":
+ var cloud_path:="res://assets/authoring/street_motion_masks_20261103/%s_cloud_clearance.png"%family
+ if FileAccess.file_exists(cloud_path):
   clouds=TextureRect.new()
   clouds.expand_mode=TextureRect.EXPAND_IGNORE_SIZE
   clouds.mouse_filter=Control.MOUSE_FILTER_IGNORE
   cloud_material=ShaderMaterial.new()
   cloud_material.shader=preload("res://scripts/rebuild/street_clouds.gdshader")
-  var clearance:=Image.load_from_file("res://assets/authoring/street_motion_masks_20261103/community_cloud_clearance.png")
+  var clearance:=Image.load_from_file(cloud_path)
+  cloud_material.set_shader_parameter("community_sky",family=="community")
   cloud_material.set_shader_parameter("clearance",ImageTexture.create_from_image(clearance))
+  var star_path:="res://assets/authoring/street_motion_masks_20261103/%s_cloud_star_clearance.png"%family
+  if FileAccess.file_exists(star_path):
+   cloud_material.set_shader_parameter("star_clearance",ImageTexture.create_from_image(Image.load_from_file(star_path)))
+   cloud_material.set_shader_parameter("protect_night_stars",true)
   clouds.material=cloud_material
   UI.place(clouds,world,Rect2(Vector2.ZERO,world.size))
  for index in range(3):
   var frame:=Image.new()
   if frame.load("res://assets/authoring/fountain_20261030/frame_%d.png"%index)==OK:
    fountain_frames.append(ImageTexture.create_from_image(frame))
- if fountain_frames.size()==3 and district in ["coastal","community"]:
+ if fountain_frames.size()==3 and district in ["coastal","community","residential"]:
   fountain=TextureRect.new()
   fountain.expand_mode=TextureRect.EXPAND_IGNORE_SIZE
   fountain.mouse_filter=Control.MOUSE_FILTER_IGNORE
@@ -95,7 +112,11 @@ func _ready()->void:
   # Reuse the user's imported water frames. Community has the same statue,
   # registered against its fixed bird and basin landmarks in source pixels.
   var fountain_rect:=Rect2((5390.0 if postal else 4104.0), (91.0 if postal else 93.0),337,430)
-  if district=="community":fountain_rect=Rect2(386.5,86.7,335.46,427.96)
+  if district in ["community","residential"]:fountain_rect=Rect2(386.5,86.7,335.46,427.96)
+  if not postal:
+   fountain_background=preload("res://scripts/rebuild/fountain_background_patch.gd").new()
+   fountain_background.configure(period_textures,fountain_rect)
+   world.add_child(fountain_background)
   UI.place(fountain,world,Rect2(fountain_rect.position*1.5,fountain_rect.size*1.5))
   fountain.modulate={"morning":Color(0.97,0.97,1.0),"noon":Color.WHITE,"sunset":Color(1.0,0.87,0.72),"night":Color(0.45,0.47,0.72)}[period]
  courier=Walker.new()
@@ -111,11 +132,27 @@ func _ready()->void:
  _follow_courier(courier.foot)
  courier.manual_enabled=true
  if postal:
-  entry_hint=UI.label(world,"E 进入",Rect2(world.size.x*0.376-90,490,180,52),28,Color("fff8e8"))
-  entry_hint.horizontal_alignment=HORIZONTAL_ALIGNMENT_CENTER
-  entry_hint.add_theme_color_override("font_outline_color",Color("243d50"))
-  entry_hint.add_theme_constant_override("outline_size",6)
+  entry_hint=preload("res://scripts/ui/hand_paper_button.gd").new()
+  entry_hint.name="PostOfficeEntryHint"
+  entry_hint.z_index=4
+  entry_hint.caption="E  Enter" if locale=="en" else "E  进入"
+  entry_hint.caption_size=23
+  entry_hint.nameplate_texture=preload("res://scripts/rebuild/authored_quickbar.gd").entry_nameplate_texture()
+  UI.place(entry_hint,world,Rect2(0,0,142,72))
+  entry_hint.pressed.connect(_request_entry)
   entry_hint.hide()
+ if family=="postal":
+  var cat_hotspot:=Control.new()
+  cat_hotspot.name="RooftopCatHotspot"
+  cat_hotspot.z_index=4
+  cat_hotspot.mouse_filter=Control.MOUSE_FILTER_STOP
+  cat_hotspot.mouse_default_cursor_shape=Control.CURSOR_POINTING_HAND
+  UI.place(cat_hotspot,world,Rect2(Vector2(3870,236)*1.5,Vector2(91,68)*1.5))
+  cat_hotspot.gui_input.connect(func(event:InputEvent):
+   if not event is InputEventMouseButton or not event.pressed or event.button_index!=MOUSE_BUTTON_LEFT:return
+   if can_walk.is_valid() and not can_walk.call():return
+   get_viewport().set_input_as_handled()
+   cat_requested.emit())
  UI.button(self,"↩",Rect2(30,28,72,64),func():map_requested.emit()).name="RoadMapReturn"
  set_time_of_day(float(minute))
 
@@ -128,6 +165,7 @@ func set_time_of_day(value:float)->void:
  if ids!=_time_ids:
   _time_ids=ids
   art.texture=period_textures[ids.x]
+  atmosphere_material.set_shader_parameter("foregrass_original_art",art.texture)
   atmosphere_material.set_shader_parameter("next_art",period_textures[ids.y])
   atmosphere_material.set_shader_parameter("night_a",1.0 if ids.x==3 else 0.0)
   atmosphere_material.set_shader_parameter("night_b",1.0 if ids.y==3 else 0.0)
@@ -136,12 +174,15 @@ func set_time_of_day(value:float)->void:
   clouds.texture=period_textures[ids.x]
   cloud_material.set_shader_parameter("next_art",period_textures[ids.y])
   cloud_material.set_shader_parameter("light_mix",blend.z)
+  cloud_material.set_shader_parameter("night_a",1.0 if ids.x==3 else 0.0)
+  cloud_material.set_shader_parameter("night_b",1.0 if ids.y==3 else 0.0)
  # Stall illumination starts only after sunset has become night.
  var lamps:=smoothstep(1140.0,1200.0,display_minute)
  if display_minute<360.0:lamps=1.0-smoothstep(300.0,360.0,display_minute)
  atmosphere_material.set_shader_parameter("night_lights",lamps)
  if is_instance_valid(courier):courier.modulate=Atmosphere.LIGHTS[ids.x].lerp(Atmosphere.LIGHTS[ids.y],blend.z)
  if is_instance_valid(fountain):fountain.modulate=courier.modulate
+ if is_instance_valid(fountain_background):fountain_background.set_time_of_day(display_minute)
 
 func transition_time_of_day(value:float)->void:
  # Saves store cumulative minutes. Keep that clock unwrapped while only the
@@ -176,12 +217,23 @@ func _process(_delta:float)->void:
  if courier.manual_enabled!=allowed:courier.manual_enabled=allowed
 
  if is_instance_valid(entry_hint):
-  entry_ready=allowed and absf(courier.foot.x-world.size.x*0.376)<220
-  entry_hint.visible=entry_ready
+  entry_ready=not _entering and allowed and absf(courier.foot.x-world.size.x*0.376)<220
+  entry_hint.visible=entry_ready or _entering
+  entry_hint.position=courier.foot+Vector2(74,-courier.actor_height*0.68-entry_hint.size.y*0.5)
 func _follow_courier(at:Vector2)->void:
  world.position.x=-clampf(at.x-650,0,world.size.x-1600)
 func _unhandled_key_input(event:InputEvent)->void:
  if event is InputEventKey and event.pressed and not event.echo and event.physical_keycode==KEY_E and entry_ready:
-  entry_ready=false
   get_viewport().set_input_as_handled()
-  post_office_requested.emit()
+  _request_entry()
+
+func _request_entry()->void:
+ if not entry_ready or _entering:return
+ _entering=true
+ entry_ready=false
+ entry_hint.keyboard_press()
+ await get_tree().create_timer(0.12).timeout
+ if not is_inside_tree():return
+ _entering=false
+ if can_walk.is_valid() and not can_walk.call():return
+ post_office_requested.emit()

@@ -1,3 +1,19 @@
+## 2026-11-06 — Existing demo comfort and original-art water
+
+Delivered Windows pack SHA-256: `ff6f495ed06de60953795b07f547705a66550f9ef64e3e26da9fa9ee9e393a95`. The published runtime source and adopted assets derive from its 675-entry inventory; text source may be LF-normalized by Git. Rebuilding may produce different import/compiler bytes and therefore a different package SHA.
+
+Exact-pack GPU/engine-injected-input results: experience 58/0, routes 113/0, bilingual/responsive settings 168/0, original-art water idle 9/0, photo bag 37/0, camera annotations 48/0. Both normal quit during transition and failed-save/retry quit cases passed checksum and destination checks. All eight processes exited 0 without SCRIPT/SHADER/ERROR diagnostics. Isolated QA data was used. The release executable also booted with its adjacent PCK, without a source fallback. These are not OS-native/manual playtests or full narrative acceptance.
+
+The rejected bright caustic overlay is disabled; refraction moves original image content without painting a new white pattern. The older bright-overlay pixel-coverage threshold failed after this change and remains a rejected acceptance criterion; the replacement checks non-static original water, stable paper and no active caustic renderer. Earlier packages with missing shader dependencies were rejected and superseded, not counted as successful releases.
+
+Current scope is the opened exploration demo. Hidden mail/counter/recorder routes and unfinished dialogue are not claimed complete. Scene transitions, modal order, focus return, photo annotations/cache, quiet audio, original-art street motion, save/quit recovery and removal of visible clocks are included. Original art, three fountain frames and save schemas remain intact.
+
+Fresh-source build: `tools/build.ps1` now stages the selected-resource ZIP plus only explicit raw include files, rejects private/excluded paths and mismatched bytes, then hashes every mounted PCK entry. Supply verified Godot 4.7.2 engine/template paths and its official template provenance JSON. Use `-SkipChecks` only to reproduce packaging; it does not turn skipped gameplay checks into a passing result. Build evidence stays under ignored `test-results/package-*`.
+
+The isolated fresh-source build completed with 678 entries and 163 verified raw files (PCK SHA-256 `953752891a17df3c333e1f2649c3b30d4bd999695033130e523705fb3c77ddea`). Mounted in an empty host without source fallback, all eight suites above passed again. Local CI equivalents passed: adapter/GUT integrity, 1262 retained-artifact hashes and 48 Python tests. See `docs/testing/demo-comfort_20261106/release.json` for source blob hashes and results. The original delivered FF6F package is retained; recompilation is not represented as byte-identical output.
+
+Portable GPU probes are `tests/experience_comfort_20261106.gd`, `tests/experience_routes_20261106.gd` and `tests/settings_original_water_20261106.gd`. Pass `--final-save=user://qa/<unique-run>/state.json` after `--` to protect player saves, plus an optional `--qa-out=<evidence-directory>`. These probe scripts passed Godot parsing; the same scenario bodies produced the package results above. Do not run GPU assertions with the headless dummy renderer.
+
 ## 2026-11-03 — Fountain white collar and clearer local motion
 
 The latest scoped revision removes the rejected upper-spout white collar at render time with adjacent original water pigment, retaining all three source frames and 3fps timing. Local plant/flag/valance response and bounded horizontal cloud motion are more visible; the large right parasol has a moving free lower hem while its pole remains fixed. See docs/testing/STREET_VISIBLE_MOTION_20261103.md for measured before/after evidence and limitations.

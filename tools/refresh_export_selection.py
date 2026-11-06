@@ -10,7 +10,7 @@ ROOT = Path(__file__).resolve().parents[1]
 MANIFEST = ROOT / 'assets/faefever_v2/manifest.json'
 
 
-def selection():
+def selection(retained_paths=()):
     catalog = json.loads(MANIFEST.read_text(encoding='utf-8-sig'))
     entries = catalog.get('assets', {})
     if not entries:
@@ -31,6 +31,14 @@ def selection():
              'res://scripts/rebuild/field_observation.gd',
              'res://assets/fonts/SolmereSans.ttf',
              'res://assets/fonts/Caveat.ttf', room_path}
+    # The preset also records later explicit runtime adoptions (street art,
+    # shaders and authored dialogue). Refreshing the older catalog must not
+    # silently undo those reviewed selections.
+    for path in retained_paths:
+        if (not path.startswith('res://') or '..' in Path(path[6:]).parts
+                or not (ROOT / path[6:]).is_file()):
+            raise ValueError(f'Existing selected runtime resource is missing or invalid: {path}')
+        paths.add(path)
     for key, entry in entries.items():
         authorized_video = (isinstance(entry, dict) and key in {'CHAR_courier','CHAR_courier_walk',
                             *('CHAR_courier_walk_'+str(i) for i in range(5))}
@@ -52,7 +60,8 @@ def selection():
         paths.add(path)
     # Selected scene dependencies do not recursively include every GDScript preload.
     # Explicitly walk the runtime source closure, including dynamically mounted roots.
-    pending = [path for path in paths if path.endswith(('.gd', '.tscn', '.tres'))]
+    source_suffixes = ('.gd', '.gdshader', '.gdshaderinc', '.tscn', '.tres')
+    pending = [path for path in paths if path.endswith(source_suffixes)]
     visited = set()
     while pending:
         resource = pending.pop()
@@ -63,10 +72,10 @@ def selection():
         if not local.is_file():
             raise ValueError(f'Missing runtime source dependency: {resource}')
         source = local.read_text(encoding='utf-8-sig')
-        for dependency in re.findall(r'res://[^"\s]+\.(?:gdshader|gd|tscn|tres|ttf)(?=["\s])', source):
+        for dependency in re.findall(r'''res://[^"'\s]+\.(?:gdshaderinc|gdshader|gd|tscn|tres|ttf)(?=["'\s])''', source):
             if dependency not in paths:
                 paths.add(dependency)
-                if dependency.endswith(('.gd','.gdshader','.tscn','.tres')):
+                if dependency.endswith(source_suffixes):
                     pending.append(dependency)
     # This directory contains licensed local playback clips, not reference media.
     for path in (ROOT / 'assets/audio').rglob('*'):
@@ -75,18 +84,44 @@ def selection():
     return sorted(paths)
 
 
-def main():
-    paths = selection()
-    preset = ROOT / 'export_presets.cfg'
-    source = preset.read_text(encoding='utf-8-sig')
+def refreshed_source(source):
+    """Return a refreshed preset without touching the shared file (also for QA)."""
+    source = source.replace('\r\n', '\n')
+    existing = re.findall(r'^export_files=PackedStringArray\((.*)\)$', source, re.M)
+    if len(existing) != 1:
+        raise ValueError('Expected exactly one export selection.')
+    paths = selection(re.findall(r'"(res://[^"\n]+)"', existing[0]))
     line = 'export_files=PackedStringArray(' + ', '.join(json.dumps(x) for x in paths) + ')'
     source, count = re.subn(r'^export_files=.*$', lambda _: line, source, flags=re.M)
     if count != 1:
         raise ValueError('Expected exactly one export selection.')
     includes = 'data/rebuild/*.json,assets/faefever_v2/manifest.json,assets/faefever_v2/characters/courier_walk_regions.json,assets/faefever_v2/characters/courier_video_provenance_20261017.json,assets/fonts/OFL.txt,assets/fonts/Caveat-OFL.txt,assets/fonts/DynaPuff-OFL.txt,assets/fonts/LilitaOne-OFL.txt,assets/fonts/NotoSansSC-OFL.txt,assets/fonts/ChillRoundF-OFL.txt,assets/fonts/ZCOOLKuaiLe-OFL.txt,assets/fonts/settings-font-provenance.json,assets/audio/foley/WATER_CC0.txt,assets/audio/foley/water-provenance.json,assets/audio/foley/KENNEY_CC0.txt,assets/audio/SETTINGS_MUSIC_CC0.txt,assets/audio/settings-music-provenance.json,third_party/webgl-water/LICENSE-MIT.txt,third_party/webgl-water/upstream.json,assets/faefever_v2/ui/settings_pdf_20261017/provenance.json'
+    current_includes = re.findall(r'^include_filter="([^"]*)"$', source, re.M)
+    if len(current_includes) != 1:
+        raise ValueError('Expected exactly one include filter.')
+    # Preserve the exact current raw-file patterns, including dialogue, source
+    # panoramas, masks and original animation frames. Add only exact include
+    # dependencies discovered from runtime source; never broaden to assets/*.
+    patterns = [x.strip() for x in (current_includes[0] + ',' + includes).split(',') if x.strip()]
+    patterns.extend(path[6:] for path in paths if path.endswith('.gdshaderinc'))
+    includes = ','.join(dict.fromkeys(patterns))
     source = re.sub(r'^include_filter=.*$', lambda _: 'include_filter="' + includes + '"', source, flags=re.M)
     exclusions = 'specification/*,docs/*,tools/*,tests/*,test-results/*,work/*,artifacts/*,local-data/*,builds/*,*.psd,assets/locked_user/*,assets/display_user/*,assets/generated/*,assets/characters/*,assets/reference_gate/*,scripts/reference_gate/*,scenes/reference_fidelity_prototype.tscn*,scripts/rebuild/post_office_room.gd*,scripts/rebuild/title_screen.gd*,scripts/main.gd*,scripts/core/*,scenes/main.tscn*,data/game.json'
+    current_exclusions = re.findall(r'^exclude_filter="([^"]*)"$', source, re.M)
+    if len(current_exclusions) != 1:
+        raise ValueError('Expected exactly one exclude filter.')
+    exclusions = ','.join(dict.fromkeys(
+        x.strip() for x in (current_exclusions[0] + ',' + exclusions).split(',')
+        if x.strip() and x.strip() != 'assets/display_user/*'))
+    # Only the specifically adopted cover may pass build.ps1's display_user
+    # audit. A blanket folder exclusion would also remove that authorized file.
     source = re.sub(r'^exclude_filter=.*$', lambda _: 'exclude_filter="' + exclusions + '"', source, flags=re.M)
+    return source, paths
+
+
+def main():
+    preset = ROOT / 'export_presets.cfg'
+    source, paths = refreshed_source(preset.read_text(encoding='utf-8-sig'))
     preset.write_text(source, encoding='utf-8')
     print(f'Selected {len(paths)} resources from reviewed art, explicit courier-video override, current entry, fonts and licensed audio.')
     print('This updates packaging scope only; it does not prove all runtime roles are present or playable.')

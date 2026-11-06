@@ -1,0 +1,25 @@
+CAT MEOW - CC0 1.0
+
+Work: Cat Meowing
+Contributor: qubodup
+Source: https://freesound.org/people/qubodup/sounds/813113/
+Media: https://cdn.freesound.org/previews/813/813113_71257-hq.mp3
+Retrieved: 2026-11-05
+License: Creative Commons Zero 1.0 Universal (public domain dedication)
+License URL: https://creativecommons.org/publicdomain/zero/1.0/
+License legal code: https://creativecommons.org/publicdomain/zero/1.0/legalcode
+
+Original field recording: cat meow II by tuberatanka
+Original source: https://freesound.org/people/tuberatanka/sounds/110010/
+Original source license: CC0 1.0
+The original contributor describes a recording of their own cat meowing.
+qubodup's edit trims the recording, uses one channel, normalizes and fades it.
+
+Local asset: cat_meow_cc0.mp3
+The public high-quality preview is preserved byte-for-byte. No synthesis,
+pitch processing, trimming or re-encoding was applied to this asset file.
+Playback level and short retrigger cooldown are controlled in audio_feedback.gd.
+
+CC0 permits commercial use and modification. Attribution is not required;
+the creator and original-recording links are retained here for provenance.
+Neither contributor endorses this game.
