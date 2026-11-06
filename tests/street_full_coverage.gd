@@ -2,13 +2,17 @@ extends SceneTree
 ## Independent object inventory from the supplied panorama, not runtime regions.
 ## A changed ROI alone is insufficient: only actual painted material counts.
 const Road=preload("res://scripts/rebuild/coastal_road.gd")
-const OUT="res://test-results/street-full-coverage-20261103/"
+var OUT="user://qa/street-full-coverage-20261103/"
 const TIMES=[0.0,3.34,9.68,20.0]
 var checks:=0
 var failures:Array[String]=[]
 var entries:Array[Dictionary]=[]
 
-func _initialize()->void:run.call_deferred()
+func _initialize()->void:
+ root.unfocusable=true
+ for arg:String in OS.get_cmdline_user_args():
+  if arg.begins_with("--qa-out="):OUT=arg.trim_prefix("--qa-out=").trim_suffix("/")+"/"
+ run.call_deferred()
 func verify(ok:bool,label:String)->void:
  checks+=1
  if not ok:failures.append(label);push_error(label)

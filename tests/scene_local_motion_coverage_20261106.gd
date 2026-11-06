@@ -40,10 +40,12 @@ func run()->void:
  var view:=SubViewport.new();view.size=Vector2i(1280,720);view.render_target_update_mode=SubViewport.UPDATE_ALWAYS;root.add_child(view)
  for kind:String in ["cover","counter","workroom"]:
   var is_cover:=kind=="cover"
-  var source:=Image.load_from_file(COVER if is_cover else ROOM)
-  check(source!=null,kind+" original source is available")
-  if source==null:continue
-  var tex:=ImageTexture.create_from_image(source)
+  # Match the production resource loader: exported rooms are imported textures,
+  # not raw JPEG files. Keep this fixture valid in an asset-free PCK host.
+  var tex:Texture2D=load(COVER if is_cover else ROOM)
+  check(tex!=null,kind+" original texture resource is available")
+  if tex==null:continue
+  var source:=tex.get_image()
   var art:=TextureRect.new();art.size=Vector2(1280,720);art.expand_mode=TextureRect.EXPAND_IGNORE_SIZE;art.stretch_mode=TextureRect.STRETCH_SCALE;art.texture_filter=CanvasItem.TEXTURE_FILTER_LINEAR
   var origin:=1926.0 if kind=="workroom" else 0.0
   var dimensions:=Vector2(source.get_size()) if is_cover else Vector2(1914,1080)
@@ -87,7 +89,7 @@ func run()->void:
   art.queue_free();await process_frame
  # Match the room component: both crossfade images are created in the same
  # frame and only their AtlasTexture changes when navigating between rooms.
- var room_source:=ImageTexture.create_from_image(Image.load_from_file(ROOM))
+ var room_source:Texture2D=load(ROOM)
  var left:=AtlasTexture.new();left.atlas=room_source;left.region=Rect2(0,0,1914,1080)
  var right:=AtlasTexture.new();right.atlas=room_source;right.region=Rect2(1926,0,1914,1080)
  var previous:=TextureRect.new();previous.texture=left;view.add_child(previous)
@@ -102,6 +104,6 @@ func run()->void:
  check(current_driver.motion_time>before_swap,"changing the room atlas does not reset paper pose time")
  check(is_equal_approx(previous_driver.motion_time,current_driver.motion_time),"old and new room remain phase aligned through crossfade")
  view.queue_free();await process_frame
- FileAccess.open(out+"receipt.json",FileAccess.WRITE).store_string(JSON.stringify({"checks":checks,"failures":failures,"method":"Actual GPU original ImageTexture and AtlasTexture, zero-motion byte equality, fixed fixture pixels and 22.5-second motion coverage at 1280x720. This is not human gameplay acceptance.","records":records,"source_sha256":{COVER:FileAccess.get_sha256(COVER),ROOM:FileAccess.get_sha256(ROOM)}},"  "))
+ FileAccess.open(out+"receipt.json",FileAccess.WRITE).store_string(JSON.stringify({"checks":checks,"failures":failures,"method":"Actual GPU production Texture2D and AtlasTexture resource loading, zero-motion byte equality, fixed fixture pixels and 22.5-second motion coverage at 1280x720. This is not human gameplay acceptance.","records":records,"texture_paths":[COVER,ROOM]},"  "))
  print("LOCAL_MOTION_COVERAGE ",checks," checks / ",failures.size()," failures")
  quit(0 if failures.is_empty() else 1)

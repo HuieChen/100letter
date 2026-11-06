@@ -2,7 +2,7 @@ extends SceneTree
 ## Independent rendered regression for the user-reported flag / shrub / lamp faults.
 ## Coordinates and pixel classifications come from source artwork, never REGIONS/RIGID.
 const Road = preload("res://scripts/rebuild/coastal_road.gd")
-const OUT = "res://test-results/object-boundaries-20261103/"
+var OUT = "user://qa/object-boundaries-20261103/"
 const LAMP_CENTERS = [1092, 1646, 2916, 3702, 5091, 5697, 7128, 7589]
 const TIMES = [0.0, 1.25, 9.0, 20.0]
 const PERIODS = [["morning", 540.0, 0], ["noon", 720.0, 1], ["night", 1200.0, 3]]
@@ -11,6 +11,9 @@ var checks := 0
 var results: Array[Dictionary] = []
 
 func _initialize() -> void:
+ root.unfocusable=true
+ for arg:String in OS.get_cmdline_user_args():
+  if arg.begins_with("--qa-out="):OUT=arg.trim_prefix("--qa-out=").trim_suffix("/")+"/"
  run.call_deferred()
 
 func verify(condition: bool, label: String) -> void:
