@@ -1,5 +1,13 @@
 # Dear Somewhere
 
+## 协作者打开当前版本（2026-11-06）
+
+请获取本仓库的 `main` 分支，用 **Godot 4.7.2 stable** 导入根目录的 `project.godot`，等待首次资源导入完成，然后按 **F5（运行项目）**。项目入口为 `scenes/final_slice.tscn`。已有克隆请先保存自己的修改，再更新 `main`；不要直接覆盖协作者的未提交工作。
+
+当前源码包含探索、地图、相机、照片包、居民互动及设置。下方较早的流程、截图和 Release 链接属于历史记录，不代表当前可用功能或当前版本。若要与开发中的游戏保持一致，请以 `main` 源码运行结果为准，不要用旧 Release 包对照。
+
+游戏所需脚本、场景、字体、音频和图片已包含在仓库中；`.godot` 是引擎生成的本地缓存，无需从开发者电脑复制。个人存档、语言、音量和显示偏好不会随 Git 同步，因此不同电脑的初始进度和设置可能不同。
+
 2026-10-17 R7_SCOPED_REVIEW: latest supplied five-pose courier selected unchanged, actual8fps/.625s with source-pose2 idle/shared anchor and distance-driven acceleration/retarget/braking. Current signed height-field water crest/trough feedback .24/.08 retains authored PDF and hard3px/.055caps. Complete same-production-source QA matrix38suites/12,321checks/0failures; engine close/reload29; Python28/3/9/5; actualPCK423/0 and official120GPUframes/exit0. Full-attempt fixture failures remain recorded, not relabeled. Current package actual mouse confirms New/supervisor cross/door/right-left movement/settling; later map input interrupted, no further OS input. Forced --quit-after retains18ObjectDB/4resources unresolved. Current courier/water operation clips fully decoded with nonzero mixers; not nativeFPS/listening approval. New transparent supplied suitcase original crop/holes retained AUTHORING ONLY; missing interior/lid/fastener rig is not faked with old art. Sourcebd04a23 and QA-only follow-up170baeb verified on main; actual170baeb CI success. Matching R7 ZIP93,809,777bytes/SHA2564ec4d8155e34d5d526fe39b132fd75d0c8ff18ca9417e67317361a1ed6ac3330 verified uploaded at https://github.com/HuieChen/100letter/releases/tag/dear-somewhere-courier-r7-2026-10-17. Receipt docs/testing/courier-replacement_20261017-r7/publication.json; broad game/art/audio/novice/story acceptance remains open and CORE-BOOK remains review. Details: docs/testing/COURIER_REPLACEMENT_R7_20261017.md.
 
 
