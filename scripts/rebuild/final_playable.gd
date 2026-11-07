@@ -310,7 +310,8 @@ func _title() -> void:
 	cover.stretch_mode=TextureRect.STRETCH_SCALE
 	cover.mouse_filter=Control.MOUSE_FILTER_IGNORE
 	UI.place(cover,stage,Rect2(0,0,1600,900))
-	preload("res://scripts/rebuild/scene_local_motion.gd").attach_cover(cover)
+	# The 2026-11-07 supplied cover is a new composition. Old pixel-space
+	# sail masks target another illustration and must not deform this original.
 	# Keep the menu as clickable lettering over the original cover art.
 	var start:=UI.button(stage,_tr("开始新旅程","New journey"),Rect2(84,612,334,64),_start,true)
 	start.name="NewShift"

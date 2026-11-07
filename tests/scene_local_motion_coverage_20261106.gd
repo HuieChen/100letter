@@ -54,17 +54,25 @@ func run()->void:
    var atlas:=AtlasTexture.new();atlas.atlas=tex;atlas.region=Rect2(origin,0,1914,1080);atlas.filter_clip=true;art.texture=atlas
   view.add_child(art)
   var original:=await frame(view)
-  var driver=Motion.attach_cover(art) if is_cover else Motion.attach_room(art)
+  if is_cover:
+   # The newly supplied 2026-11-07 cover stays intact; the old illustration's
+   # pixel-space boat masks must not be applied to its different composition.
+   check(source.get_size()==Vector2i(7262,4085),"cover retains supplied full resolution")
+   await create_timer(.1).timeout
+   var unchanged:=await frame(view)
+   check(original.get_data()==unchanged.get_data(),"new cover remains unwarped")
+   unchanged.save_png(out+"cover_original.png")
+   records.append({"scene":kind,"motion":"disabled for replacement illustration"})
+   art.queue_free();await process_frame
+   continue
+  var driver=Motion.attach_room(art)
   driver.set_process(false);driver.material.set_shader_parameter("motion_strength",0.0)
   var still:=await frame(view)
   check(original.get_data()==still.get_data(),kind+" zero motion is byte-exact source rendering")
   driver.material.set_shader_parameter("motion_strength",1.0)
   var guards:Dictionary={}
   var targets:Dictionary={}
-  if is_cover:
-   guards={"lettering":Rect2(0,0,550,240),"riders_and_bicycle":Rect2(760,120,430,549)}
-   targets={"orange_boat":Rect2(620,180,48,125),"green_boat":Rect2(672,210,28,84),"distant_boat":Rect2(567,230,28,50)}
-  elif kind=="counter":
+  if kind=="counter":
    guards={"door_and_parcel":Rect2(0,0,400,1080),"spine_phone_table":Rect2(610,650,1304,430),"lower_paper_stack_and_red_cover":Rect2(430,930,470,150)}
    targets={"free_book_corner":Rect2(440,740,165,185)}
   else:
