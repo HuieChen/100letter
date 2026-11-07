@@ -1,0 +1,20 @@
+{
+  "source_kind": "user_supplied_exact_png_layers",
+  "source_dimensions": [7262, 4085],
+  "background": {
+    "source_filename": "纯封面.png",
+    "runtime_path": "res://assets/display_user/dear_somewhere_cover_USER_20261024.png",
+    "sha256": "58083944651e65a43c3722a50ba600309917211b1b075067cbbfe5eb5e209062"
+  },
+  "lettering": {
+    "source_filename": "字.png",
+    "runtime_path": "res://assets/authoring/title_20261108/lettering.png",
+    "sha256": "384bfa6737b7b37008874ffa5bc43a5f8a011f067b79754998614d4eb26641dc",
+    "alpha_preserved": true
+  },
+  "reference": {
+    "source_filename": "全部.png",
+    "sha256": "6f1e97ca00240a2730f59d626342c7ed1858d59d46853475f5671d293fc279e2"
+  },
+  "treatment": "Original files copied without repainting or resampling. Runtime AtlasTexture regions separate logo and paper buttons; only button visuals move for interaction. Authored English lettering remains unchanged in both UI languages; semantic labels and help follow locale. Old cover filename is retained solely for the existing export allowlist."
+}

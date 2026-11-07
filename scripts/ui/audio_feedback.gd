@@ -9,6 +9,7 @@ const MUSIC_BUS := "SolmereMusic"
 const SFX_BUS := "SolmereFoley"
 const AMBIENT_BUS := "SolmereAmbience"
 const POOLS := {
+	"title_hover": ["paper_1.wav", "paper_2.wav"],
 	"paper": ["paper_1.wav", "paper_2.wav", "paper_3.wav"],
 	"flip": ["paper_unfold.wav", "paper_2.wav"],
 	"map": ["paper_unfold.wav"],
@@ -185,6 +186,7 @@ func play(kind: String = "paper") -> void:
 	if kind in ["tool", "snap", "repair"]: cooldown = 0.22
 	if kind in ["bell", "tram"]: cooldown = 2.0
 	if kind=="cat":cooldown=1.2
+	if kind=="title_hover":cooldown=.18
 	if settings_cue:cooldown=0.28
 	if _elapsed - float(_last_played.get(feedback_key, -100.0)) < cooldown: return
 	_last_played[feedback_key] = _elapsed
@@ -208,6 +210,7 @@ func play(kind: String = "paper") -> void:
 	elif kind == "tram": gain = -25.0
 	elif kind in ["water","drawer"]:gain=-22.0
 	elif kind == "cat":gain=-19.0
+	elif kind == "title_hover":gain=-30.0
 	if settings_cue:gain=-18.0 if kind=="paper" else -22.0
 	# Match the denser recording to the other paper variants; retain the source.
 	if kind=="paper" and str(variants[index])=="paper_3.wav":gain-=9.0

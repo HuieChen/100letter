@@ -16,6 +16,7 @@ const SceneDialogue = preload("res://scripts/rebuild/scene_dialogue.gd")
 const Preferences = preload("res://scripts/ui/game_preferences.gd")
 const SettingsPage = preload("res://scripts/ui/coastal_settings.gd")
 const FieldCamera = preload("res://scripts/ui/field_camera.gd")
+const CoverPaperButton = preload("res://scripts/ui/cover_paper_button.gd")
 const LOCATIONS = ["post_office","community_center","bus_stop","lookout","residential","chess_stall","tarot_shop"]
 const NAMES = {"post_office":"邮局","community_center":"社区中心","bus_stop":"海岸电车站","lookout":"观景台","residential":"海阶居民楼","chess_stall":"树下棋摊","tarot_shop":"塔楼屋"}
 const PEOPLE = {"post_office":[],"community_center":["june_arlen","community_clerk"],"bus_stop":["chenyuan"],"lookout":["mira_vale"],"residential":["elsie_moran"],"chess_stall":["chenyuan"],"tarot_shop":[]}
@@ -60,6 +61,7 @@ var _camera_hidden_ui:Array[WeakRef]=[]
 var _bag_photos_visible:=false
 var _photo_thumbnails:Dictionary={}
 var _photo_thumbnail_order:Array[String]=[]
+var _title_action_pending:=false
 
 func _ready() -> void:
 	get_tree().auto_accept_quit=false
@@ -311,26 +313,22 @@ func _title() -> void:
 	cover.stretch_mode=TextureRect.STRETCH_SCALE
 	cover.mouse_filter=Control.MOUSE_FILTER_IGNORE
 	UI.place(cover,stage,Rect2(0,0,1600,900))
-	# The 2026-11-07 supplied cover is a new composition. Old pixel-space
-	# sail masks target another illustration and must not deform this original.
-	# Keep the menu as clickable lettering over the original cover art.
-	var start:=UI.button(stage,_tr("开始新旅程","New journey"),Rect2(84,612,334,64),_start,true)
-	start.name="NewShift"
-	var resume:=UI.button(stage,_tr("继续","Continue"),Rect2(84,699,334,64),_resume)
-	resume.name="ContinueShift"
-	resume.disabled=not core.has_save()
-	var options:=UI.button(stage,_tr("设置","Settings"),Rect2(84,786,334,64),_settings_page)
-	options.name="OpenSettings"
-	for button in [start,resume,options]:
-		button.alignment=HORIZONTAL_ALIGNMENT_CENTER
-		button.add_theme_font_size_override("font_size",23)
-		button.add_theme_color_override("font_color",Color("243d50"))
-		button.add_theme_color_override("font_hover_color",Color("9c4e3a"))
-		button.add_theme_color_override("font_focus_color",Color("9c4e3a"))
-		button.add_theme_color_override("font_pressed_color",Color("713b31"))
-		button.add_theme_color_override("font_disabled_color",Color("8c9898"))
-		for button_state:String in ["normal","hover","pressed","focus","disabled"]:
-			button.add_theme_stylebox_override(button_state,StyleBoxEmpty.new())
+	# Exact 2026-11-08 background + transparent ink layers. Coordinates below
+	# use the user's 2048 x 1152 composition, mapped into our logical viewport.
+	var ink_image:=Image.load_from_file("res://assets/authoring/title_20261108/lettering.png")
+	var ink:=ImageTexture.create_from_image(ink_image)
+	var source_scale:=Vector2(ink_image.get_size())/Vector2(2048,1152)
+	var logo:=TextureRect.new();logo.name="AuthoredTitle"
+	var logo_atlas:=AtlasTexture.new();logo_atlas.atlas=ink
+	logo_atlas.region=Rect2(Vector2.ZERO,Vector2(2048,430)*source_scale);logo_atlas.filter_clip=true
+	logo.texture=logo_atlas;logo.expand_mode=TextureRect.EXPAND_IGNORE_SIZE;logo.stretch_mode=TextureRect.STRETCH_SCALE
+	logo.mouse_filter=Control.MOUSE_FILTER_IGNORE
+	UI.place(logo,stage,Rect2(0,0,1600,430.0/1.28))
+	_title_action_pending=false
+	var start:=_cover_button(ink,source_scale,"NewShift",Rect2(70,430,600,155),_tr("开始新旅程","Start"),_start)
+	var resume:=_cover_button(ink,source_scale,"ContinueShift",Rect2(70,589,600,145),_tr("继续旅程","Continue"),_resume,not core.has_save())
+	var options:=_cover_button(ink,source_scale,"OpenSettings",Rect2(70,734,600,152),_tr("设置","Settings"),_settings_page)
+	if resume.disabled:resume.tooltip_text=_tr("还没有旅程记录","No saved journey yet")
 	var menu:Array=[start,options] if resume.disabled else [start,resume,options]
 	for i:int in range(menu.size()):
 		menu[i].focus_neighbor_top=menu[i].get_path_to(menu[posmod(i-1,menu.size())])
@@ -338,6 +336,24 @@ func _title() -> void:
 		menu[i].focus_previous=menu[i].focus_neighbor_top
 		menu[i].focus_next=menu[i].focus_neighbor_bottom
 	_focus_title_default.call_deferred()
+
+func _cover_button(ink:Texture2D,source_scale:Vector2,id:String,area:Rect2,label:String,action:Callable,unavailable:bool=false)->Button:
+	var button:=CoverPaperButton.new();button.name=id;button.disabled=unavailable
+	UI.place(button,stage,Rect2(area.position/1.28,area.size/1.28))
+	button.configure(ink,Rect2(area.position*source_scale,area.size*source_scale),label)
+	button.tooltip_text=label
+	button.paper_hovered.connect(func():sound.play("title_hover"))
+	button.pressed.connect(func():_activate_title_action(action))
+	return button
+
+func _activate_title_action(action:Callable)->void:
+	if _title_action_pending or view!="title" or is_instance_valid(modal):return
+	_title_action_pending=true
+	# Let the release spring be visible and coalesce rapid clicks before a
+	# scene change. Existing action handlers provide the confirmation paper cue.
+	await get_tree().create_timer(.10).timeout
+	if view=="title" and not is_instance_valid(modal):action.call()
+	_title_action_pending=false
 
 func _focus_title_default()->void:
 	if view!="title" or is_instance_valid(modal) or not is_instance_valid(stage):return
