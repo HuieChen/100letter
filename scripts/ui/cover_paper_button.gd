@@ -32,7 +32,10 @@ func configure(texture:Texture2D,region:Rect2,label:String)->void:
 	_arm.call_deferred()
 
 func _arm()->void:
+	# A scene may leave before this deferred hover-sound warm-up runs.
+	if not is_inside_tree() or is_queued_for_deletion():return
 	await get_tree().create_timer(.35).timeout
+	if not is_inside_tree() or is_queued_for_deletion():return
 	_armed=true
 
 func _refresh(with_sound:bool=false)->void:
