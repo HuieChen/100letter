@@ -69,8 +69,11 @@ vec4 apply_foreground_grass(sampler2D art,vec2 original_uv,vec2 texel,vec4 prior
  if(!near)return prior;
  vec2 shift=fg_shift(p,t)*clamp(strength,0.0,1.0);
  vec2 source=original_uv+shift*texel;
- float a0=texture(foregrass_alpha,original_uv).r;
- float a1=texture(foregrass_alpha,source).r;
+ // Shared fountain maps retain community source-pixel coordinates even when
+ // the residential panorama has a different width. Normalize to the map itself.
+ vec2 alpha_size=vec2(textureSize(foregrass_alpha,0));
+ float a0=texture(foregrass_alpha,p/alpha_size).r;
+ float a1=texture(foregrass_alpha,(p+shift)/alpha_size).r;
  if(max(a0,a1)<.001)return prior;
  vec3 c=texture(art,source).rgb;
  vec3 source_back=fg_background(art,source,texel);

@@ -12,6 +12,8 @@ Changes:
 - Add source-derived foreground mappings for four postal tufts and the right
   side of the shared fountain. These use original pigment and same-row
   background coordinates, with roots fixed; no new art or texture animation.
+  Shared maps are sampled in source-pixel coordinates, so the shorter
+  residential panorama does not displace the mask onto unrelated locations.
 - Add six local postal regions for the bent blade and lamp-side cluster.
   Exclude those postal grass regions from the overlapping sea motion field.
 - Give the three postal sheets one continuous hanging response. Their upper
@@ -34,6 +36,10 @@ Source GPU evidence:
 - 39 supplied artwork files retain their previous SHA-256 values. Technical
   mask builders assert source hashes and scope preservation. Postal open-grass
   mask reconstruction is idempotent.
+- The focused four-variant Road review covers 56 blade observations and 44
+  rigid-region observations. All blades move and all rigid regions stay
+  unchanged. This caught and corrected the residential shared-map coordinate
+  bug; its two fountain blade tips now travel about 2.2 to 2.3 screen pixels.
 
 Tests are actual offscreen GPU renders, not headless dummy-rendering proof or
 human playthrough acceptance. A run with exit code zero but without its final
