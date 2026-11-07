@@ -30,6 +30,7 @@ var _closing:=false
 var controls:Dictionary={}
 var _dropdown:Control
 var _dropdown_owner:Button
+var _dropdown_focus_modes:Dictionary={}
 var _option_values:Dictionary={}
 var _option_texts:Dictionary={}
 var surface:Node2D
@@ -66,6 +67,8 @@ func _image(key:String,rect:Rect2) -> TextureRect:
 	var image:=TextureRect.new();image.texture=Art.texture(key);image.expand_mode=TextureRect.EXPAND_IGNORE_SIZE
 	image.mouse_filter=Control.MOUSE_FILTER_IGNORE;UI.place(image,self,rect);return image
 func _build() -> void:
+	if _closing:return
+	_close_options()
 	_release_held_lemon()
 	if is_instance_valid(_entrance):_entrance.kill()
 	if not _closing:_set_page_opacity(1.0)
@@ -216,6 +219,11 @@ func _option(key:String,label:String,label_rect:Rect2,rect:Rect2,values:Array,te
 
 func _open_options(key:String,choice:Button,values:Array,texts:Array) -> void:
 	_close_options()
+	# A nested selector owns keyboard navigation as well as pointer input.
+	# Spatial arrow navigation must not reach settings behind its scrim.
+	for id:String in controls:
+		_dropdown_focus_modes[id]=controls[id].focus_mode
+		controls[id].focus_mode=Control.FOCUS_NONE
 	_dropdown_owner=choice
 	_feedback.set_expanded(choice,true)
 	_dropdown=Control.new();_dropdown.name="SettingsDropdown";UI.place(_dropdown,self,Rect2(0,0,1600,900))
@@ -261,6 +269,9 @@ func _open_options(key:String,choice:Button,values:Array,texts:Array) -> void:
 	_feedback.menu_open(box,top<choice.position.y)
 
 func _close_options() -> void:
+	for id:String in _dropdown_focus_modes:
+		if controls.has(id) and is_instance_valid(controls[id]):controls[id].focus_mode=_dropdown_focus_modes[id]
+	_dropdown_focus_modes.clear()
 	var restore_focus:=_dropdown_owner
 	if is_instance_valid(restore_focus):_feedback.set_expanded(restore_focus,false)
 	_dropdown_owner=null

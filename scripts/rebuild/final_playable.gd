@@ -1339,7 +1339,7 @@ func _settings_page(return_to_pause:bool=true) -> void:
 	sound.play("paper")
 	settings.closed.connect(func():
 		_close()
-		if return_pause:_pause())
+		if return_pause:_pause(true))
 	_update_preference_save_notice()
 
 func _save_to_title() -> void:
@@ -1347,9 +1347,13 @@ func _save_to_title() -> void:
 	if core.save_game():_title()
 	else:_show_save_problem(_tr("进度还没有保存成功，仍保留在当前场景。","Progress has not been saved. You will stay in the current scene."),core.last_save_error)
 
-func _pause() -> void:
+func _pause(return_from_settings:bool=false) -> void:
 	if busy:return
-	_sheet(_tr("暂歇一会儿","Pause"),"",[[_tr("回到场景","Resume"),_close],[_tr("设置","Settings"),_settings_page],[_tr("保存并回到封面","Save and title"),_save_to_title]])
+	var paper:=_sheet(_tr("暂歇一会儿","Pause"),"",[[_tr("回到场景","Resume"),_close],[_tr("设置","Settings"),_settings_page],[_tr("保存并回到封面","Save and title"),_save_to_title]])
+	if return_from_settings:
+		# The previous pause sheet was replaced. Restore its logical opener after
+		# the new sheet's default focus callback, including a changed UI language.
+		paper.get_node("SheetAction_1").grab_focus.call_deferred()
 
 func _ending() -> void:
 	_counter()
