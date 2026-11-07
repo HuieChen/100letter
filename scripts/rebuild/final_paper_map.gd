@@ -18,6 +18,8 @@ static func hotspot_entries()->Array:
 var _focused_destination:Button
 var _hovered_destination:Button
 var _pressed_destination:Button
+var _keyboard_navigation:=false
+var _last_pointer_position:=Vector2.INF
 var points:Array[Vector2]=[]
 var current_index:=0
 var target_index:=0
@@ -52,6 +54,23 @@ func _host()->Node:
 func _map_focus_changed(control:Control)->void:
 	_focused_destination=control if control is Button and control.get_parent()==self and str(control.name).begins_with("Map_") else null
 	queue_redraw()
+func _input(event:InputEvent)->void:
+	if not is_visible_in_tree():return
+	# Focus can also change programmatically or on a mouse press. Only an
+	# actual navigation event replaces the pointer's current target.
+	if event is InputEventKey and event.pressed and event.keycode in [KEY_TAB,KEY_LEFT,KEY_RIGHT,KEY_UP,KEY_DOWN,KEY_ENTER,KEY_KP_ENTER,KEY_SPACE]:
+		_keyboard_navigation=true
+		queue_redraw()
+	elif event is InputEventMouseMotion:
+		# Keep the hover reference while keyboard navigation is active: movement
+		# within that same building must restore it without another mouse_entered.
+		if event.position!=_last_pointer_position:
+			_last_pointer_position=event.position
+			_keyboard_navigation=false
+			queue_redraw()
+	elif event is InputEventMouseButton and event.button_index==MOUSE_BUTTON_LEFT and event.pressed:
+		_keyboard_navigation=false
+		queue_redraw()
 func _draw()->void:
 	var art:=map_texture()
 	if art!=null:
@@ -74,6 +93,7 @@ func _draw()->void:
 
 func _active_destination()->Button:
 	if is_instance_valid(_pressed_destination):return _pressed_destination
+	if _keyboard_navigation:return _focused_destination
 	return _hovered_destination if is_instance_valid(_hovered_destination) else _focused_destination
 
 func place_source_points(source_points:Array[Vector2]) -> void:

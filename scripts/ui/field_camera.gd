@@ -30,6 +30,9 @@ var _focus_marks:TextureRect
 var _review:Control
 var _review_paper:PhotoPaper
 var _review_index:=-1
+# Browsing may stop on an unreadable file; captions still belong to the last
+# successfully decoded print, never to this independent navigation cursor.
+var _review_cursor:=-1
 var _print_paper:PhotoPaper
 var _print_clip:Control
 var _slot:Control
@@ -172,7 +175,7 @@ func _build_review()->void:
 	_caption_timer=Timer.new();_caption_timer.one_shot=true;_caption_timer.wait_time=.45;add_child(_caption_timer);_caption_timer.timeout.connect(_save_caption)
 	_caption_notice=_label("",Rect2(420,730,760,32),21,HORIZONTAL_ALIGNMENT_CENTER);_caption_notice.reparent(_review)
 	for item:Array in [["PreviousPhoto","‹",Rect2(228,340,90,100),-1],["NextPhoto","›",Rect2(1282,340,90,100),1]]:
-		var button:=_button(item[1],item[2],54);button.reparent(_review);button.name=item[0];button.pressed.connect(func():_show_review(_review_index+int(item[3])))
+		var button:=_button(item[1],item[2],54);button.reparent(_review);button.name=item[0];button.pressed.connect(func():_step_review(int(item[3])))
 	_album_button=_button(_t("保存到相册","Save to album"),Rect2(382,774,390,64),28);_album_button.reparent(_review);_album_button.name="SaveToAlbum";_album_button.disabled=true;_album_button.pressed.connect(export_current_photo)
 	_album_open=_button(_t("查看相册","Open album"),Rect2(1176,730,240,36),21);_album_open.reparent(_review);_album_open.name="OpenAlbum";_album_open.hide()
 	_album_open.pressed.connect(func():
@@ -246,7 +249,7 @@ func export_current_photo()->String:
 	# source image/sidecar stay untouched, and repeated clicks cannot race.
 	_album_busy=true;_album_button.disabled=true;_caption_editor.editable=false;_album_open.hide()
 	_caption_notice.text=_t("正在保存…","Saving…")
-	for control_name:String in ["PreviousPhoto","NextPhoto","BackToCamera"]:_review.get_node(control_name).disabled=true
+	_update_review_controls()
 	var viewport:=SubViewport.new();viewport.disable_3d=true;viewport.transparent_bg=true
 	viewport.size=Vector2i(1808,1240);viewport.render_target_update_mode=SubViewport.UPDATE_ALWAYS
 	add_child(viewport)
@@ -282,7 +285,7 @@ func export_current_photo()->String:
 			message=_t("照片没能存到相册，请重试","Could not save photo to album. Please retry.")
 	viewport.queue_free()
 	_album_busy=false;_album_button.disabled=false;_caption_editor.editable=true
-	for control_name:String in ["PreviousPhoto","NextPhoto","BackToCamera"]:_review.get_node(control_name).disabled=false
+	_update_review_controls()
 	_caption_notice.text=message;_album_button.grab_focus()
 	_album_open.visible=not result.is_empty()
 	if not result.is_empty():album_saved.emit(result);cue.emit("paper")
@@ -311,8 +314,10 @@ func _show_review(index:int)->void:
 	if not _save_caption():return
 	var was_visible:bool=_review.visible
 	var next_index:int=wrapi(index,0,gallery_paths.size())
+	_review_cursor=next_index
 	# A one-photo wrap or selecting the current print has no page turn.
-	if was_visible and next_index==_review_index:return
+	if was_visible and next_index==_review_index:
+		_caption_notice.text="";_update_review_controls();return
 	var pixels:=Image.load_from_file(gallery_paths[next_index])
 	if pixels==null or pixels.is_empty():
 		var message:=_t("照片无法打开，请试试另一张","Photo unavailable. Try another print.")
@@ -329,15 +334,25 @@ func _show_review(index:int)->void:
 	_caption_original=caption_for(gallery_paths[_review_index]);_caption_editor.set_block_signals(true);_caption_editor.text=_caption_original;_caption_editor.set_block_signals(false);_caption_dirty=false;_caption_notice.text=""
 	_caption_editor.show();_review_paper.show()
 	_review_paper.image=ImageTexture.create_from_image(pixels);_review_paper.reveal=1.0;_set_review_active(true)
-	_album_button.disabled=false;_album_open.hide()
+	_update_review_controls();_album_open.hide()
 	cue.emit("flip" if was_visible else "paper")
+func _step_review(direction:int)->void:
+	if _closing or _album_busy or capture_busy or gallery_paths.size()<2:return
+	_show_review(_review_cursor+direction)
+func _update_review_controls()->void:
+	for control_name:String in ["PreviousPhoto","NextPhoto"]:
+		_review.get_node(control_name).disabled=_album_busy or gallery_paths.size()<2
+	_review.get_node("BackToCamera").disabled=_album_busy
+	_album_button.disabled=_album_busy or _review_index<0 or _review_index>=gallery_paths.size()
 func _set_review_active(active:bool)->void:
+	var was_active:=_review.visible
 	_review.visible=active
+	_update_review_controls()
 	# These buttons remain drawn underneath the paper, but must not take Tab
 	# focus or keyboard activation through the nested review surface.
 	shutter.focus_mode=Control.FOCUS_NONE if active else Control.FOCUS_ALL
 	thumbnail.focus_mode=Control.FOCUS_NONE if active else Control.FOCUS_ALL
-	if active:_review.get_node("BackToCamera").grab_focus()
+	if active and not was_active:_review.get_node("BackToCamera").grab_focus()
 func _leave_review()->void:
 	if _album_busy:return
 	if gallery_only:_request_close();return
@@ -406,6 +421,17 @@ func _request_close()->void:
 	if _animation and _animation.is_valid():_animation.kill()
 	cue.emit("paper")
 	closed.emit()
+func _input(event:InputEvent)->void:
+	# Photo notes use Tab for navigation, not indentation. Handle it before
+	# TextEdit inserts a tab so keyboard users can reach the save/back controls.
+	if not is_visible_in_tree() or _closing or not _review.visible:return
+	if not event is InputEventKey or not event.pressed or event.echo:return
+	if event.keycode!=KEY_TAB and event.physical_keycode!=KEY_TAB:return
+	if event.ctrl_pressed or event.alt_pressed or event.meta_pressed:return
+	if get_viewport().gui_get_focus_owner()!=_caption_editor:return
+	get_viewport().set_input_as_handled()
+	var next:Control=_caption_editor.find_prev_valid_focus() if event.shift_pressed else _caption_editor.find_next_valid_focus()
+	if next!=null:next.grab_focus()
 func _unhandled_key_input(event:InputEvent)->void:
 	if not event is InputEventKey or not event.pressed or event.echo:return
 	if event.keycode==KEY_ESCAPE or event.physical_keycode==KEY_ESCAPE:

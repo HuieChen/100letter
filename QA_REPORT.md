@@ -1,3 +1,7 @@
+## 2026-11-07 — Consistent map and photo navigation
+
+Map marker and activation now agree when switching between keyboard and stationary mouse. Photo browsing recovers after corrupt files, Tab leaves notes unchanged, and paging preserves keyboard focus. 535 focused actual-PCK checks passed, release boot exited 0. Details and scope: [NAVIGATION_POLISH_20261107.md](docs/testing/NAVIGATION_POLISH_20261107.md).
+
 ## 2026-11-07 — Latest supplied paper and system photo album
 
 Exact supplied paper, raised portraits and captioned landscape album export are included in the current integrated PCK. 743 focused package checks passed plus release boot and 3 runtime-export tests. See [UI_TAKEOVER_20261107.md](docs/testing/UI_TAKEOVER_20261107.md) for scope and limits. Native/manual and broad acceptance remain separate.
