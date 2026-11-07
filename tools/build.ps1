@@ -51,6 +51,9 @@ if (Test-Path -LiteralPath $taskOverride) {
 }
 $taskAuditDirectory = Join-Path $taskRepo ('test-results/package-' + (Get-Date -Format 'yyyyMMdd-HHmmss'))
 New-Item -ItemType Directory -Force -Path $taskDestination,$taskAuditDirectory | Out-Null
+# The audit contains a staged copy of exported resources. Keep Godot from
+# importing it again on the next build and registering duplicate resource UIDs.
+Set-Content -LiteralPath (Join-Path $taskRepo 'test-results/.gdignore') -Value '' -Encoding utf8
 $taskOldAppData = $env:APPDATA
 $taskOldLocalAppData = $env:LOCALAPPDATA
 $env:APPDATA = Join-Path $taskAuditDirectory 'AppData/Roaming'
