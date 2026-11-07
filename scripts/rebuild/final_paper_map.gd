@@ -1,6 +1,7 @@
 extends Control
-## Only route annotations are procedural; the town, paper and buildings use the supplied map.
+## Exact supplied map: local light identifies a destination without adding pointers.
 const PhysicalArt=preload("res://scripts/rebuild/physical_art.gd")
+const FocusShader=preload("res://scripts/rebuild/map_soft_focus.gdshader")
 const SOURCE_REGION:=Rect2(128,12,1875,1341)
 # Rectangles follow buildings in the new scroll's original source pixels.
 const SOURCE_HOTSPOTS=[
@@ -11,6 +12,14 @@ const SOURCE_HOTSPOTS=[
 	["grocery",Rect2(1419,340,125,166)], ["market",Rect2(1650,291,180,158)],
 	["food_truck",Rect2(1530,573,233,155)], ["lookout",Rect2(1127,824,403,186)],
 	["bus_stop",Rect2(1636,756,272,158)] ]
+const DESTINATION_NAMES={
+	"post_office":["邮局","Post office"],"chess_stall":["树下棋摊","Chess corner"],
+	"bookstore":["书店","Bookshop"],"tarot_shop":["塔楼屋","Tower house"],
+	"record_store":["唱片店","Record shop"],"statue":["喷泉广场","Fountain square"],
+	"community_center":["社区中心","Community center"],"residential":["海阶居民楼","Seaside residences"],
+	"grocery":["杂货店","Grocery"],"market":["集市","Market"],"food_truck":["餐车","Food truck"],
+	"lookout":["观景台","Lookout"],"bus_stop":["海岸电车站","Seaside tram stop"]}
+const FADE_SECONDS:=0.16
 static func hotspot_entries()->Array:
 	var entries:=SOURCE_HOTSPOTS.duplicate(true)
 	for entry in entries:entry[1].position-=SOURCE_REGION.position
@@ -20,6 +29,11 @@ var _hovered_destination:Button
 var _pressed_destination:Button
 var _keyboard_navigation:=false
 var _last_pointer_position:=Vector2.INF
+var _focus_material:ShaderMaterial
+var _focus_weights:=PackedFloat32Array()
+var _caption:Label
+var _caption_alpha:=0.0
+var _press_amount:=0.0
 var points:Array[Vector2]=[]
 var current_index:=0
 var target_index:=0
@@ -27,8 +41,28 @@ var route_progress:=0.0:
 	set(value):route_progress=value;queue_redraw()
 func _ready()->void:
 	mouse_filter=Control.MOUSE_FILTER_IGNORE
+	_focus_material=ShaderMaterial.new();_focus_material.shader=FocusShader;material=_focus_material
+	var regions:Array[Vector4]=[]
+	for entry:Array in SOURCE_HOTSPOTS:
+		var area:Rect2=entry[1]
+		regions.append(Vector4(area.get_center().x,area.get_center().y,area.size.x*.5,area.size.y*.5))
+		_focus_weights.append(0.0)
+	_focus_material.set_shader_parameter("focus_regions",regions)
+	_focus_material.set_shader_parameter("focus_weights",_focus_weights)
+	_caption=Label.new();_caption.name="MapDestinationCaption"
+	_caption.mouse_filter=Control.MOUSE_FILTER_IGNORE;_caption.horizontal_alignment=HORIZONTAL_ALIGNMENT_CENTER
+	_caption.vertical_alignment=VERTICAL_ALIGNMENT_CENTER;_caption.autowrap_mode=TextServer.AUTOWRAP_OFF
+	_caption.add_theme_font_size_override("font_size",25);_caption.add_theme_color_override("font_color",Color("554531"))
+	var paper:=StyleBoxFlat.new();paper.bg_color=Color("f6ead2");paper.set_corner_radius_all(5)
+	paper.shadow_color=Color(0.17,0.14,0.10,0.16);paper.shadow_size=2;paper.shadow_offset=Vector2(0,2)
+	_caption.add_theme_stylebox_override("normal",paper)
+	add_child(_caption);_caption.size=Vector2(440,44)
+	resized.connect(_layout_caption);_layout_caption()
+	_caption.modulate.a=0.0
 	get_viewport().gui_focus_changed.connect(_map_focus_changed)
 	_focus_destination.call_deferred()
+func _layout_caption()->void:
+	if is_instance_valid(_caption):_caption.position=Vector2((size.x-_caption.size.x)*.5,size.y+10)
 func _focus_destination()->void:
 	# The host adds the hit regions after this map enters the tree.
 	if not is_inside_tree():return
@@ -71,25 +105,28 @@ func _input(event:InputEvent)->void:
 	elif event is InputEventMouseButton and event.button_index==MOUSE_BUTTON_LEFT and event.pressed:
 		_keyboard_navigation=false
 		queue_redraw()
+func _process(delta:float)->void:
+	var selected:Button=_active_destination()
+	var destination:=str(selected.name).trim_prefix("Map_") if is_instance_valid(selected) else ""
+	var changed:=false
+	for index:int in SOURCE_HOTSPOTS.size():
+		var target:=1.0 if str(SOURCE_HOTSPOTS[index][0])==destination else 0.0
+		var next:=move_toward(_focus_weights[index],target,delta/FADE_SECONDS)
+		if next!=_focus_weights[index]:_focus_weights[index]=next;changed=true
+	if changed:_focus_material.set_shader_parameter("focus_weights",_focus_weights)
+	var press:=move_toward(_press_amount,1.0 if is_instance_valid(_pressed_destination) else 0.0,delta/.08)
+	if press!=_press_amount:_press_amount=press;_focus_material.set_shader_parameter("press_amount",press)
+	if not destination.is_empty():
+		var names:Array=DESTINATION_NAMES.get(destination,[destination,destination])
+		var host:=_host()
+		_caption.text=host._tr(names[0],names[1]) if host!=null else str(names[0])
+	_caption_alpha=move_toward(_caption_alpha,1.0 if not destination.is_empty() else 0.0,delta/FADE_SECONDS)
+	_caption.modulate.a=_caption_alpha
 func _draw()->void:
 	var art:=map_texture()
 	if art!=null:
 		var ratio:=minf(size.x/art.get_width(),size.y/art.get_height())
 		draw_texture_rect(art,Rect2((size-art.get_size()*ratio)*0.5,art.get_size()*ratio),false)
-	if current_index>=0 and current_index<points.size() and target_index>=0 and target_index<points.size() and current_index!=target_index:
-		var origin:Vector2=points[current_index]
-		var destination:Vector2=points[target_index]
-		draw_line(origin,origin.lerp(destination,clampf(route_progress,0.0,1.0)),Color("8b3e33"),3.0,true)
-	# A small ink chevron identifies the target without tracing or tinting its art.
-	var selected:Button=_active_destination()
-	if is_instance_valid(selected):
-		var at:=Vector2(selected.position.x+selected.size.x*.5,selected.position.y-10.0)
-		var press:=selected==_pressed_destination
-		at.y+=3.0 if press else 0.0
-		var spread:=5.0 if press else 7.0
-		var ink:=Color("865431") if press else Color("a76a3b")
-		draw_line(at+Vector2(-spread,-4),at+Vector2(0,2),ink,3.0,true)
-		draw_line(at+Vector2(0,2),at+Vector2(spread,-4),ink,3.0,true)
 
 func _active_destination()->Button:
 	if is_instance_valid(_pressed_destination):return _pressed_destination
