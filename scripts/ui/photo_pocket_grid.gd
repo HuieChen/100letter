@@ -76,6 +76,12 @@ func _display(index:int,texture:Texture2D)->void:
 	var item:=get_child(index) as Button
 	var paper=item.get_node("PhotoPrint")
 	paper.image=texture;paper.queue_redraw()
+	var square:=texture!=null and texture.get_width()<=texture.get_height()*1.1
+	paper.position=Vector2(60,2) if square else Vector2(5,2)
+	paper.size=Vector2(110,151) if square else Vector2(220,151)
+	var caption:Label=item.get_node("PhotoCaption")
+	caption.position=Vector2(66,119) if square else Vector2(20,126)
+	caption.size=Vector2(98,27) if square else Vector2(190,24)
 	if not item.has_meta("caption_loaded"):
 		item.get_node("PhotoCaption").text=caption_loader.call(item.get_meta("photo_path")) if caption_loader.is_valid() else ""
 		item.set_meta("caption_loaded",true)

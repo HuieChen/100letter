@@ -110,6 +110,10 @@ func _build() -> void:
 	surface.lemon_press_changed.connect(_lemon_press_water)
 	var lemon_layer:=TextureRect.new();lemon_layer.texture=physics_view.get_texture();lemon_layer.expand_mode=TextureRect.EXPAND_IGNORE_SIZE;lemon_layer.mouse_filter=Control.MOUSE_FILTER_IGNORE;UI.place(lemon_layer,self,Rect2(0,0,1600,900))
 	lemon_layer.name="FloatingLemons"
+	# Transparent SubViewport pixels already contain premultiplied alpha. Applying
+	# alpha twice darkens the antialiased rind into an unintended black outline.
+	var lemon_blend:=CanvasItemMaterial.new();lemon_blend.blend_mode=CanvasItemMaterial.BLEND_MODE_PREMULT_ALPHA
+	lemon_layer.material=lemon_blend
 	_paper_masks.clear()
 	_paper_materials.clear()
 	for key:String in ["settings_paper_shadow","settings_papers","settings_tape","settings_stationery","settings_postcards"]:

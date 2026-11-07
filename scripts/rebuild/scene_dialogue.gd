@@ -144,6 +144,9 @@ func _render() -> void:
 	UI.place(shade,self,Rect2(0,0,1600,900))
 	if not _left_art.is_empty():_left_portrait=_image(_left_art,Rect2(60,238,420,1040) if Authored.is_character(_left_art) else Rect2(35,140,450,720),true)
 	if not _right_art.is_empty():_right_portrait=_image(_right_art,Rect2(1005,230,560,1040) if Authored.is_character(_right_art) else Rect2(1160,140,420,720),true)
+	if is_instance_valid(_right_portrait) and "community" in _right_art:
+		_right_portrait.position=Vector2(1061,270)
+		_right_portrait.size=Vector2(448,832)
 	_sync_scene_light()
 	_leaf=_image("dialogue_notebook",Rect2(290,900-PAPER_HEIGHT,1030,PAPER_HEIGHT));_leaf.name="DialogueLeaf"
 	_close_button=_text_button("×",Rect2(1254,713,46,44))

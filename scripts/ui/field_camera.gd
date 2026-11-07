@@ -51,6 +51,8 @@ var _album_open:Button
 var _album_busy:=false
 var _close_after_album:=false
 var last_album_path:=""
+var instant_format:=false
+var _format_button:Button
 
 class ArtButton extends Button:
 	var art:Texture2D
@@ -81,7 +83,8 @@ class PhotoPaper extends Control:
 		draw_colored_polygon(paper,Color("fffaf0"))
 		var edge:=paper.duplicate();edge.append(paper[0])
 		draw_polyline(edge,Color("e5d9c5"),1.5,true)
-		var window:=Rect2(Vector2(size.x*.05,size.x*.05),Vector2(size.x*.9,size.x*.9*9.0/16.0))
+		var square:=image!=null and image.get_width()<=image.get_height()*1.1
+		var window:=Rect2(Vector2(size.x*.05,size.x*.05),Vector2(size.x*.9,size.x*.9*(1.0 if square else 9.0/16.0)))
 		draw_rect(window,Color("ddd8cb"))
 		if image:
 			var source:=Rect2(Vector2.ZERO,image.get_size())
@@ -120,6 +123,8 @@ func _ready()->void:
 		_place(_focus_marks,canvas,Rect2(645,345,310,209))
 	var heading:=_label(_t("相机","Camera"),Rect2(80,60,300,42),30)
 	heading.name="CameraHeading"
+	_format_button=_button(_t("横向照片  ⇄  R","Landscape  ⇄  R"),Rect2(540,65,520,48),24)
+	_format_button.name="PhotoFormat";_format_button.tooltip_text=_t("切换相纸 · R","Switch format · R");_format_button.pressed.connect(_toggle_format)
 	count_label=_label("",Rect2(1130,60,280,42),24,HORIZONTAL_ALIGNMENT_RIGHT)
 	_label(location_caption,Rect2(270,800,430,38),22)
 	shutter=ArtButton.new();shutter.name="CameraShutter";shutter.round_hit=true
@@ -151,6 +156,22 @@ func _layout()->void:
 	var factor:=minf(size.x/DESIGN.x,size.y/DESIGN.y)
 	canvas.scale=Vector2.ONE*factor;canvas.position=(size-DESIGN*factor)*.5
 func _t(zh:String,en:String)->String:return en if locale=="en" else zh
+func _toggle_format()->void:
+	if capture_busy or _album_busy or _review.visible:return
+	instant_format=not instant_format
+	_format_button.text=_t("竖版拍立得  ⇄  R","Instant print  ⇄  R") if instant_format else _t("横向照片  ⇄  R","Landscape  ⇄  R")
+	if _frame:
+		_frame.position=Vector2(374,24) if instant_format else Vector2(24,24)
+		_frame.size=Vector2(852,852) if instant_format else Vector2(1552,852)
+	cue.emit("paper")
+
+func _fit_review_print()->void:
+	var square:=_review_paper.image.get_width()<=_review_paper.image.get_height()*1.1
+	_review_paper.position=Vector2(560,60) if square else Vector2(348,100)
+	_review_paper.size=Vector2(480,650) if square else Vector2(904,620)
+	_caption_editor.position=_review_paper.position+(Vector2(28,490) if square else Vector2(50,518))
+	_caption_editor.size=Vector2(424,132) if square else Vector2(804,78)
+	_review_paper.queue_redraw()
 func _label(text:String,rect:Rect2,font_size:int,align:HorizontalAlignment=HORIZONTAL_ALIGNMENT_LEFT)->Label:
 	var label:=Label.new();label.text=text;label.horizontal_alignment=align;label.vertical_alignment=VERTICAL_ALIGNMENT_CENTER;label.mouse_filter=Control.MOUSE_FILTER_IGNORE
 	label.add_theme_font_override("font",FONT);label.add_theme_font_size_override("font_size",font_size);label.add_theme_color_override("font_color",Color("fff5dc"));label.add_theme_color_override("font_shadow_color",Color(0.25,0.25,0.19,0.8));label.add_theme_constant_override("shadow_offset_x",1);label.add_theme_constant_override("shadow_offset_y",2)
@@ -251,18 +272,18 @@ func export_current_photo()->String:
 	_caption_notice.text=_t("正在保存…","Saving…")
 	_update_review_controls()
 	var viewport:=SubViewport.new();viewport.disable_3d=true;viewport.transparent_bg=true
-	viewport.size=Vector2i(1808,1240);viewport.render_target_update_mode=SubViewport.UPDATE_ALWAYS
+	viewport.size=Vector2i(_review_paper.size*2.0);viewport.render_target_update_mode=SubViewport.UPDATE_ALWAYS
 	add_child(viewport)
 	var print_canvas:=Control.new();viewport.add_child(print_canvas)
-	var paper:=PhotoPaper.new();paper.image=_review_paper.image;paper.size=Vector2(1808,1240);print_canvas.add_child(paper)
+	var paper:=PhotoPaper.new();paper.image=_review_paper.image;paper.size=_review_paper.size*2.0;print_canvas.add_child(paper)
 	var note:=Label.new();note.text=_caption_original;note.autowrap_mode=TextServer.AUTOWRAP_WORD_SMART
 	# Rasterize at output resolution instead of scaling cached 25px glyphs.
 	note.add_theme_font_override("font",FONT);note.add_theme_font_size_override("font_size",50);note.add_theme_color_override("font_color",Color("665240"))
-	note.position=Vector2(100,1036);note.size=Vector2(1608,156);paper.add_child(note)
+	note.position=(_caption_editor.position-_review_paper.position)*2.0;note.size=_caption_editor.size*2.0;paper.add_child(note)
 	await get_tree().process_frame
 	# Long notes get more paper below the full-width photograph, rather than
 	# being silently clipped to the editor's scrollable visible area.
-	var print_height:=maxf(1240.0,note.position.y+note.get_minimum_size().y+48.0)
+	var print_height:=maxf(paper.size.y,note.position.y+note.get_minimum_size().y+48.0)
 	var result:=""
 	var message:=""
 	if print_height>8192.0:
@@ -309,6 +330,8 @@ func _refresh_thumbnail()->void:
 	var paper:=thumbnail.get_node_or_null("ThumbnailPrint") as PhotoPaper
 	if paper==null:paper=PhotoPaper.new();paper.name="ThumbnailPrint";paper.mouse_filter=Control.MOUSE_FILTER_IGNORE;_place(paper,thumbnail,Rect2(4,0,112,77))
 	paper.image=ImageTexture.create_from_image(pixels);paper.queue_redraw()
+	if pixels.get_width()<=pixels.get_height()*1.1:paper.position=Vector2(32,0);paper.size=Vector2(56,77)
+	else:paper.position=Vector2(4,0);paper.size=Vector2(112,77)
 func _show_review(index:int)->void:
 	if capture_busy or _album_busy or gallery_paths.is_empty():return
 	if not _save_caption():return
@@ -334,6 +357,7 @@ func _show_review(index:int)->void:
 	_caption_original=caption_for(gallery_paths[_review_index]);_caption_editor.set_block_signals(true);_caption_editor.text=_caption_original;_caption_editor.set_block_signals(false);_caption_dirty=false;_caption_notice.text=""
 	_caption_editor.show();_review_paper.show()
 	_review_paper.image=ImageTexture.create_from_image(pixels);_review_paper.reveal=1.0;_set_review_active(true)
+	_fit_review_print()
 	_update_review_controls();_album_open.hide()
 	cue.emit("flip" if was_visible else "paper")
 func _step_review(direction:int)->void:
@@ -352,6 +376,7 @@ func _set_review_active(active:bool)->void:
 	# focus or keyboard activation through the nested review surface.
 	shutter.focus_mode=Control.FOCUS_NONE if active else Control.FOCUS_ALL
 	thumbnail.focus_mode=Control.FOCUS_NONE if active else Control.FOCUS_ALL
+	_format_button.focus_mode=Control.FOCUS_NONE if active else Control.FOCUS_ALL
 	if active and not was_active:_review.get_node("BackToCamera").grab_focus()
 func _leave_review()->void:
 	if _album_busy:return
@@ -375,6 +400,9 @@ func take_photo()->void:
 	if not is_inside_tree() or _closing:return
 	show()
 	if pixels==null or pixels.is_empty():_capture_failed(_t("没有拍到，再试一次","Could not capture. Try again."));return
+	if instant_format:
+		var side:=mini(pixels.get_width(),roundi(pixels.get_height()*852.0/900.0))
+		pixels=pixels.get_region(Rect2i((pixels.get_width()-side)/2,(pixels.get_height()-side)/2,side,side))
 	var directory_error:=DirAccess.make_dir_recursive_absolute(save_directory)
 	if directory_error!=OK:_capture_failed(_t("照片没能保存，请重试","Could not save photo. Try again."));return
 	var stamp:=Time.get_datetime_string_from_system().replace(":","").replace("-","").replace("T","_")
@@ -391,7 +419,10 @@ func take_photo()->void:
 func _capture_failed(message:String)->void:
 	capture_busy=false;shutter.disabled=false;shutter.grab_focus();_status(message)
 func _develop(texture:Texture2D)->void:
+	var square:=texture.get_width()<=texture.get_height()*1.1
+	_print_paper.size=Vector2(140,192) if square else Vector2(280,192)
 	_print_paper.image=texture;_print_paper.reveal=0.0;_print_paper.position=Vector2(0,-192);_print_clip.modulate.a=1.0;_print_clip.show();_slot.show()
+	_print_paper.position.x=70 if square else 0
 	_flash.modulate.a=0.22
 	_animation=create_tween().set_parallel(true)
 	_animation.tween_property(_flash,"modulate:a",0.0,0.18)
@@ -434,6 +465,8 @@ func _input(event:InputEvent)->void:
 	if next!=null:next.grab_focus()
 func _unhandled_key_input(event:InputEvent)->void:
 	if not event is InputEventKey or not event.pressed or event.echo:return
+	if event.keycode==KEY_R and get_viewport().gui_get_focus_owner()!=_caption_editor:
+		_toggle_format();get_viewport().set_input_as_handled();return
 	if event.keycode==KEY_ESCAPE or event.physical_keycode==KEY_ESCAPE:
 		get_viewport().set_input_as_handled()
 		request_close()
