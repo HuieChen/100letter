@@ -30,6 +30,7 @@ var _focus_marks:TextureRect
 var _review:Control
 var _review_paper:PhotoPaper
 var _review_index:=-1
+var _thumbnail_index:=-1
 # Browsing may stop on an unreadable file; captions still belong to the last
 # successfully decoded print, never to this independent navigation cursor.
 var _review_cursor:=-1
@@ -132,7 +133,7 @@ func _ready()->void:
 		var button_atlas:=AtlasTexture.new();button_atlas.atlas=texture;button_atlas.region=Rect2(744,754,182,182);button_atlas.filter_clip=true;shutter.art=button_atlas
 	_place(shutter,canvas,Rect2(748,724,104,104));shutter.tooltip_text=_t("拍照 · C","Take photo · C");shutter.pressed.connect(take_photo)
 	_label("C",Rect2(755,831,90,26),18,HORIZONTAL_ALIGNMENT_CENTER)
-	thumbnail=ArtButton.new();thumbnail.name="LastPhoto";thumbnail.tooltip_text=_t("查看照片","View photos");_place(thumbnail,canvas,Rect2(82,760,120,84));thumbnail.pressed.connect(func():_show_review(gallery_paths.size()-1))
+	thumbnail=ArtButton.new();thumbnail.name="LastPhoto";thumbnail.tooltip_text=_t("查看照片","View photos");_place(thumbnail,canvas,Rect2(82,760,120,84));thumbnail.pressed.connect(func():_show_review(_thumbnail_index))
 	status_label=_label("",Rect2(950,788,450,42),23)
 	_print_clip=Control.new();_print_clip.name="PhotoEjection";_print_clip.clip_contents=true;_print_clip.mouse_filter=Control.MOUSE_FILTER_IGNORE;_place(_print_clip,canvas,Rect2(660,646,280,244));_print_clip.hide()
 	_print_paper=PhotoPaper.new();_print_paper.mouse_filter=Control.MOUSE_FILTER_IGNORE;_place(_print_paper,_print_clip,Rect2(0,-192,280,192))
@@ -317,18 +318,29 @@ func export_current_photo()->String:
 func _refresh_count()->void:
 	count_label.text=_t("照片 ","Photos ")+str(gallery_paths.size())
 func _refresh_thumbnail()->void:
+	_thumbnail_index=gallery_paths.size()-1
 	thumbnail.disabled=gallery_paths.is_empty()
 	if gallery_paths.is_empty():thumbnail.hide();return
-	var pixels:=Image.load_from_file(gallery_paths[-1])
-	if pixels==null or pixels.is_empty():thumbnail.hide();return
+	# A damaged newest capture must not hide access to earlier good prints.
+	# The clickable miniature and its target always refer to the same image.
+	var pixels:Image
+	for index:int in range(gallery_paths.size()-1,-1,-1):
+		var candidate:=Image.new()
+		if candidate.load(gallery_paths[index])==OK and not candidate.is_empty():
+			pixels=candidate;_thumbnail_index=index;break
+	thumbnail.show()
+	var paper:=thumbnail.get_node_or_null("ThumbnailPrint") as PhotoPaper
+	if paper==null:paper=PhotoPaper.new();paper.name="ThumbnailPrint";paper.mouse_filter=Control.MOUSE_FILTER_IGNORE;_place(paper,thumbnail,Rect2(4,0,112,77))
+	if pixels==null:
+		# Keep a neutral paper entry and the error/recovery controls reachable.
+		paper.image=null;paper.position=Vector2(4,0);paper.size=Vector2(112,77);paper.queue_redraw()
+		thumbnail.tooltip_text=_t("照片暂时无法打开 · 查看照片","Photos unavailable · View photos")
+		return
+	thumbnail.tooltip_text=_t("查看照片","View photos")
 	# The thumbnail occupies roughly 100 screen pixels. Keep the original PNG
 	# and full-size review intact without allocating a full capture on the GPU here.
 	var preview_scale:=minf(1.0,256.0/maxi(pixels.get_width(),pixels.get_height()))
 	if preview_scale<1.0:pixels.resize(maxi(1,roundi(pixels.get_width()*preview_scale)),maxi(1,roundi(pixels.get_height()*preview_scale)),Image.INTERPOLATE_LANCZOS)
-	thumbnail.show()
-	# A real miniature print, no placeholder photo.
-	var paper:=thumbnail.get_node_or_null("ThumbnailPrint") as PhotoPaper
-	if paper==null:paper=PhotoPaper.new();paper.name="ThumbnailPrint";paper.mouse_filter=Control.MOUSE_FILTER_IGNORE;_place(paper,thumbnail,Rect2(4,0,112,77))
 	paper.image=ImageTexture.create_from_image(pixels);paper.queue_redraw()
 	if pixels.get_width()<=pixels.get_height()*1.1:paper.position=Vector2(32,0);paper.size=Vector2(56,77)
 	else:paper.position=Vector2(4,0);paper.size=Vector2(112,77)
@@ -344,12 +356,12 @@ func _show_review(index:int)->void:
 	var pixels:=Image.load_from_file(gallery_paths[next_index])
 	if pixels==null or pixels.is_empty():
 		var message:=_t("照片无法打开，请试试另一张","Photo unavailable. Try another print.")
-		if was_visible or gallery_only:
-			if _review_index<0:
-				_caption_editor.hide();_review_paper.hide()
-			_set_review_active(true)
-			_caption_notice.text=message
-		else:_status(message)
+		if _review_index<0:
+			_caption_editor.hide();_review_paper.hide()
+		# Files may disappear after the miniature loaded. Always expose previous,
+		# next and back so a failed first selection cannot trap gallery access.
+		_set_review_active(true)
+		_caption_notice.text=message
 		return
 	# Commit photo identity only after decoding succeeds. Otherwise later edits
 	# to the still-visible print would be saved beside the unreadable photo.
