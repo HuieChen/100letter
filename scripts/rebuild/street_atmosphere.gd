@@ -100,9 +100,10 @@ static func apply_regions(material:ShaderMaterial,family:String)->void:
  # rigid supports keeps every original pigment on one continuous surface.
  var path:="res://assets/authoring/street_motion_masks_20261103/%s_foliage_clearance.png"%family
  if FileAccess.file_exists(path):
-  var image:=Image.load_from_file(path)
-  material.set_shader_parameter("foliage_clearance",ImageTexture.create_from_image(image))
-  material.set_shader_parameter("smooth_foliage",true)
+  var texture:=preload("res://scripts/rebuild/street_texture_cache.gd").auxiliary(family,path)
+  if texture!=null:
+   material.set_shader_parameter("foliage_clearance",texture)
+   material.set_shader_parameter("smooth_foliage",true)
  var spec:Dictionary=REGIONS.get(family,REGIONS.coastal)
  for kind:String in ["trees","grass","sea","boat"]:
   var values:Array[Vector4]=[]

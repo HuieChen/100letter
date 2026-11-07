@@ -41,3 +41,18 @@ static func _copy(textures:Array)->Array[Texture2D]:
  var result:Array[Texture2D]=[]
  result.assign(textures)
  return result
+
+static func auxiliary(family:String,path:String)->Texture2D:
+ # These original masks/frames are immutable, just like the panoramas. Keep
+ # them in the same two-family lifetime rather than decoding and uploading
+ # several full-width masks on every return to a street.
+ if _families.has(family):
+  var assets:Dictionary=_families[family].get("auxiliary",{})
+  if assets.has(path):return assets[path]
+ var pixels:=Image.load_from_file(path)
+ if pixels==null or pixels.is_empty():return null
+ var texture:=ImageTexture.create_from_image(pixels)
+ if _families.has(family):
+  if not _families[family].has("auxiliary"):_families[family].auxiliary={}
+  _families[family].auxiliary[path]=texture
+ return texture

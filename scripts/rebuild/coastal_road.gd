@@ -19,7 +19,12 @@ var world:Control
 var courier:Control
 var can_walk:Callable
 var entry_hint:Button
-var locale:="zh"
+var locale:="zh":
+ set(value):
+  locale=value
+  if is_instance_valid(entry_hint):
+   entry_hint.caption="E  Enter" if locale=="en" else "E  进入"
+   entry_hint.queue_redraw()
 var entry_ready:=false
 var _entering:=false
 var fountain:TextureRect
@@ -95,19 +100,18 @@ func _ready()->void:
   clouds.mouse_filter=Control.MOUSE_FILTER_IGNORE
   cloud_material=ShaderMaterial.new()
   cloud_material.shader=preload("res://scripts/rebuild/street_clouds.gdshader")
-  var clearance:=Image.load_from_file(cloud_path)
+  var clearance:=TextureCache.auxiliary(family,cloud_path)
   cloud_material.set_shader_parameter("community_sky",family=="community")
-  cloud_material.set_shader_parameter("clearance",ImageTexture.create_from_image(clearance))
+  cloud_material.set_shader_parameter("clearance",clearance)
   var star_path:="res://assets/authoring/street_motion_masks_20261103/%s_cloud_star_clearance.png"%family
   if FileAccess.file_exists(star_path):
-   cloud_material.set_shader_parameter("star_clearance",ImageTexture.create_from_image(Image.load_from_file(star_path)))
+   cloud_material.set_shader_parameter("star_clearance",TextureCache.auxiliary(family,star_path))
    cloud_material.set_shader_parameter("protect_night_stars",true)
   clouds.material=cloud_material
   UI.place(clouds,world,Rect2(Vector2.ZERO,world.size))
  for index in range(3):
-  var frame:=Image.new()
-  if frame.load("res://assets/authoring/fountain_20261030/frame_%d.png"%index)==OK:
-   fountain_frames.append(ImageTexture.create_from_image(frame))
+  var frame:=TextureCache.auxiliary(family,"res://assets/authoring/fountain_20261030/frame_%d.png"%index)
+  if frame!=null:fountain_frames.append(frame)
  if fountain_frames.size()==3 and district in ["coastal","community","residential"]:
   fountain=TextureRect.new()
   fountain.expand_mode=TextureRect.EXPAND_IGNORE_SIZE
@@ -120,10 +124,11 @@ func _ready()->void:
   # registered against its fixed bird and basin landmarks in source pixels.
   var fountain_rect:=Rect2((5390.0 if postal else 4104.0), (91.0 if postal else 93.0),337,430)
   if district in ["community","residential"]:fountain_rect=Rect2(386.5,86.7,335.46,427.96)
-  if not postal:
-   fountain_background=preload("res://scripts/rebuild/fountain_background_patch.gd").new()
-   fountain_background.configure(period_textures,fountain_rect)
-   world.add_child(fountain_background)
+  # Every panorama, including postal, contains the old painted water.
+  # Clear only that water behind the supplied animation to avoid doubled edges.
+  fountain_background=preload("res://scripts/rebuild/fountain_background_patch.gd").new()
+  fountain_background.configure(period_textures,fountain_rect)
+  world.add_child(fountain_background)
   UI.place(fountain,world,Rect2(fountain_rect.position*1.5,fountain_rect.size*1.5))
   fountain.modulate={"morning":Color(0.97,0.97,1.0),"noon":Color.WHITE,"sunset":Color(1.0,0.87,0.72),"night":Color(0.45,0.47,0.72)}[period]
  courier=Walker.new()

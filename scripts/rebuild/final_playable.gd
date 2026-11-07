@@ -98,6 +98,7 @@ func _apply_audio_preferences() -> void:
 	AudioServer.set_bus_volume_db(index,linear_to_db(maxf(master,0.0001)));AudioServer.set_bus_mute(index,master<=0.0)
 	sound.set_volumes(preferences.values.music,preferences.values.sfx,preferences.values.get("ambience",preferences.values.sfx))
 func _apply_preference(key:String,_value:Variant) -> void:
+	if key=="language" and is_instance_valid(_street_road):_street_road.locale=str(_value)
 	if key in ["master","music","sfx","ambience"]:_apply_audio_preferences()
 	elif key in ["display_mode","resolution"]:
 		# Native decoration/viewport changes must happen after the current GUI release

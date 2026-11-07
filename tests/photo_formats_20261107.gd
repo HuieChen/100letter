@@ -44,6 +44,11 @@ func run():
 	await create_timer(.5).timeout;await RenderingServer.frame_post_draw;v.get_texture().get_image().save_png(out+"community.png")
 	check(game.modal._right_portrait.size.x==448,"community portrait reduced")
 	game._close();game._settings_page(false);await create_timer(.5).timeout;await RenderingServer.frame_post_draw;v.get_texture().get_image().save_png(out+"settings.png")
-	game._close();game.sound.shutdown();game.queue_free();await process_frame;v.queue_free();await process_frame
+	game._close();game.process_mode=Node.PROCESS_MODE_DISABLED;game.sound.shutdown()
+	# Match the host's orderly shutdown: the audio thread releases stopped
+	# playback references before the fixture frees its owner and exits.
+	var shutdown_started:=Time.get_ticks_msec()
+	while game.sound.has_pending_playbacks() and Time.get_ticks_msec()-shutdown_started<1000:await process_frame
+	game.queue_free();await process_frame;v.queue_free();await process_frame
 	FileAccess.open(out+"formats.json",FileAccess.WRITE).store_string(JSON.stringify({"checks":checks,"failures":failures}))
 	print("PHOTO_FORMATS ",checks," / ",failures.size());quit(0 if failures.is_empty() else 1)

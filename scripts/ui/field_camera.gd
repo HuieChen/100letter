@@ -18,6 +18,8 @@ var gallery_only:=false
 var initial_photo_path:=""
 var capture_provider:Callable
 var capture_busy:=false
+var _capture_pending_save:=false
+var _close_after_capture:=false
 var gallery_paths:Array[String]=[]
 var last_photo_path:=""
 var canvas:Control
@@ -250,9 +252,9 @@ func _save_caption()->bool:
 	if not _write_caption(path,_caption_editor.text):
 		_caption_notice.text=_t("文字还没保存，请再试一次","Note not saved. Please try again.");return false
 	_caption_original=_caption_editor.text;_caption_dirty=false;_caption_notice.text="";caption_saved.emit(path,_caption_editor.text);return true
-func checkpoint_for_quit()->bool:return not _album_busy and _save_caption()
+func checkpoint_for_quit()->bool:return not _album_busy and not _capture_pending_save and _save_caption()
 func wait_for_pending_save()->void:
-	if _album_busy:await pending_save_finished
+	while _album_busy or _capture_pending_save:await pending_save_finished
 
 func export_current_photo()->String:
 	if _album_busy or _closing or _review_index<0 or _review_index>=gallery_paths.size() or not _review.visible:return ""
@@ -389,7 +391,7 @@ func take_photo()->void:
 	if _review.visible and get_viewport().gui_get_focus_owner()==_caption_editor:return
 	if _review.visible:_leave_review()
 	if _review.visible:return
-	capture_busy=true;shutter.disabled=true
+	capture_busy=true;_capture_pending_save=true;shutter.disabled=true
 	_status("")
 	hide()
 	await RenderingServer.frame_post_draw
@@ -412,12 +414,21 @@ func take_photo()->void:
 	while FileAccess.file_exists(path):suffix+=1;path=save_directory.path_join(stem+"_"+str(suffix)+".png")
 	if pixels.save_png(path)!=OK:_capture_failed(_t("照片没能保存，请重试","Could not save photo. Try again."));return
 	last_photo_path=path;gallery_paths.append(path);_refresh_count();_refresh_thumbnail();photo_saved.emit(path);cue.emit("camera")
+	_finish_capture_save()
+	if _closing or not is_inside_tree():return
 	await _develop(ImageTexture.create_from_image(pixels))
 	if not is_inside_tree():return
 	capture_busy=false;shutter.disabled=false;_show_review(gallery_paths.size()-1)
 
 func _capture_failed(message:String)->void:
 	capture_busy=false;shutter.disabled=false;shutter.grab_focus();_status(message)
+	_finish_capture_save()
+func _finish_capture_save()->void:
+	# An accepted shutter needs two rendered frames before its raw PNG exists.
+	# Back/quit waits for those frames, not for the decorative print animation.
+	_capture_pending_save=false;pending_save_finished.emit()
+	if _close_after_capture:
+		_close_after_capture=false;capture_busy=false;_request_close()
 func _develop(texture:Texture2D)->void:
 	var square:=texture.get_width()<=texture.get_height()*1.1
 	_print_paper.size=Vector2(140,192) if square else Vector2(280,192)
@@ -446,6 +457,7 @@ func request_close()->void:
 	else:_request_close()
 func _request_close()->void:
 	if _closing:return
+	if _capture_pending_save:_close_after_capture=true;return
 	if _album_busy:_close_after_album=true;return
 	if not _save_caption():return
 	_closing=true

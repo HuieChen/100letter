@@ -1,5 +1,5 @@
 extends TextureRect
-# Isolated proposal: derive each family's mask from its own noon source. Original Image
+# Derive each family's mask from its own noon source. Original Image
 # objects and animation bytes are never modified. Insert immediately before the
 # fountain node; call set_time_of_day alongside the road's existing time update.
 const Atmosphere=preload("res://scripts/rebuild/street_atmosphere.gd")
@@ -18,7 +18,9 @@ func configure(sources:Array[Texture2D],fountain_rect_source_pixels:Rect2=BASE_F
  assert(sources.size()==4)
  var ratio:=fountain_rect_source_pixels.size/BASE_FOUNTAIN.size
  var offset:=fountain_rect_source_pixels.position-BASE_FOUNTAIN.position*ratio
- patch_rect=_map_rect(PATCH,ratio,offset)
+ # Keep source RGB around the opaque repair, then fade the outermost texels.
+ # A clamped opaque crop otherwise draws a thin line across the fixed basin.
+ patch_rect=_map_rect(PATCH,ratio,offset).grow(2)
  regions.clear();donors_by_region.clear();period_textures.clear()
  for k in range(REGIONS.size()):
   regions.append(_map_rect(REGIONS[k],ratio,offset))
@@ -53,6 +55,16 @@ func configure(sources:Array[Texture2D],fountain_rect_source_pixels:Rect2=BASE_F
      c=_sample_col(src,donors.x,float(p.y)+hl-h).lerp(_sample_col(src,donors.y,float(p.y)+hr-h),t)
     c.a=1.0
     patch.set_pixelv(p-patch_rect.position,c)
+  for edge_x in range(patch.get_width()):
+   for edge_y in [0,patch.get_height()-1]:
+    var edge:=patch.get_pixel(edge_x,edge_y)
+    edge.a=0.0
+    patch.set_pixel(edge_x,edge_y,edge)
+  for edge_y in range(patch.get_height()):
+   for edge_x in [0,patch.get_width()-1]:
+    var edge:=patch.get_pixel(edge_x,edge_y)
+    edge.a=0.0
+    patch.set_pixel(edge_x,edge_y,edge)
   period_textures.append(ImageTexture.create_from_image(patch))
  expand_mode=TextureRect.EXPAND_IGNORE_SIZE
  mouse_filter=Control.MOUSE_FILTER_IGNORE
