@@ -18,7 +18,7 @@ const REGIONS := {
   "boat": []},
  "postal": {
   "trees": [Vector4(90,70,340,510),Vector4(710,250,843,508),Vector4(1920,150,2060,505),Vector4(2070,330,2200,510),Vector4(3430,120,3720,500),Vector4(3970,378,4086,497),Vector4(5310,250,5460,510),Vector4(5735,350,5900,510)],
-  "grass": [Vector4(130,460,190,515),Vector4(238,468,370,515),Vector4(710,460,790,515),Vector4(790,466,850,515),Vector4(850,474,915,515),Vector4(1020,455,1160,515),Vector4(1660,455,1860,515),Vector4(2710,455,2860,515),Vector4(3100,455,3270,515),Vector4(4290,455,4440,515),Vector4(4780,455,4910,515)],
+  "grass": [Vector4(130,460,190,515),Vector4(238,468,370,515),Vector4(710,460,790,515),Vector4(790,466,850,515),Vector4(850,474,915,515),Vector4(1020,455,1160,515),Vector4(1660,455,1860,515),Vector4(2710,455,2860,515),Vector4(3100,455,3270,515),Vector4(4290,455,4440,515),Vector4(4780,455,4910,515),Vector4(1860,450,1901,507),Vector4(2954,498,2993,515),Vector4(2995,485,3018,514),Vector4(3019,498,3041,513),Vector4(3046,472,3067,511),Vector4(3063,492,3092,511)],
   "sea": [Vector4(1220,488,1450,513),Vector4(2890,488,3030,513),Vector4(4510,488,4610,513),Vector4(4960,488,5080,513)],
   "boat": []},
  # Seven separately attached shore/lamppost tufts fill actual coverage gaps.
@@ -93,8 +93,8 @@ static func apply_branches(material:ShaderMaterial,family:String)->void:
 
 static func apply_regions(material:ShaderMaterial,family:String)->void:
  material.set_shader_parameter("family_id",{"community":0,"residential":1,"postal":2,"coastal":3}.get(family,3))
- if family in ["community","residential"]:
-  preload("res://scripts/rebuild/street_foreground_grass.gd").apply(material,family=="residential")
+ if family in ["community","residential","postal"]:
+  preload("res://scripts/rebuild/street_foreground_grass.gd").apply(material,family=="residential",family)
  apply_branches(material,family)
  # Linear data, not a painted texture: a conservative smooth distance from
  # rigid supports keeps every original pigment on one continuous surface.

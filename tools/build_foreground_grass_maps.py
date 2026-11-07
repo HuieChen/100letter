@@ -1,6 +1,6 @@
 """Extend the existing technical foreground maps only at the two flower pots.
 
-Original paintings and the three previously accepted grass mappings are immutable.
+Original paintings and all previously accepted grass mappings are immutable.
 The generated data stores alpha and original same-row background coordinates;
 it does not contain newly painted artwork. Requires Pillow and numpy.
 """
@@ -17,8 +17,9 @@ OUT=ROOT/'assets/authoring/street_motion_masks_20261103'
 SOURCE_SHA='bad3d4e903c87b3bd308abb3f21fda565d6cf48c8c02923e488a152ab6c556c5'
 SCOPE=(5886,475,5967,516)
 OUTSIDE_SHA={
-    'alpha':'fd77dd20a49a725139a18bfea546dfd2210d2c5f87f3a913f1962d627ecadebc',
-    'backmap':'7b73c2714fc7b10912b0006e0f3ddc74d31c65ab7dd73f26a5413607560cbe78',
+    # Includes the separately validated 2026-11-07 fountain-right technical map.
+    'alpha':'993fcb6635348dcadfda879c2d6345ee2137b9937423ae7b5fcae98912f04466',
+    'backmap':'e2cc417d34c1847cbaeeb9c7cb2e409ff213cdd6da277bd33e1b5377ba8a6b18',
 }
 POLYGONS=[
     [(5889,492),(5894,490),(5900,494),(5909,507),(5912,513),(5900,513),(5892,502),(5888,498)],
@@ -105,7 +106,7 @@ def build():
             'alpha_pixels':int(np.count_nonzero(alpha[y0:y1,x0:x1])),
             'outside_patch_unchanged':True,'existing_fountain_trunk_small_pot_mappings_unchanged':True,
             'background':'Original same-row samples, restricted to the same observed pot face / sky gap / rock. No new pigment.',
-            'motion_bound_source_pixels':.78}
+            'motion_bound_source_pixels':1.6}
     (OUT/'community_foregrass_maps.json').write_text(json.dumps(record,indent=2),encoding='utf-8')
     print(json.dumps(record,indent=2))
 

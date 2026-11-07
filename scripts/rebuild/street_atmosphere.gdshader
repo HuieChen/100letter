@@ -284,7 +284,9 @@ vec2 bounded_object_motion(vec2 p,vec2 old_shift,float t){
   float right=smoothstep(4713.0,4750.0,p.x);
   float tree_load=clamp(bend_load(t-5.2,2.6,.95)-.28,-.25,.35);
   float grass_load=clamp(bend_load(t-5.4,4.0,.95)-.28,-.25,.35);
-  vec2 bend=vec2(mix(tree_load*4.0*tree_h*tree_h,grass_load*3.5*grass_h*grass_h,right),0.0);
+  // Keep the neighbouring tree's response; release only the rooted grass
+  // blade enough to remain legible at normal camera distance.
+  vec2 bend=vec2(mix(tree_load*4.0*tree_h*tree_h,grass_load*7.0*pow(grass_h,1.35),right),0.0);
   old_shift=mix(old_shift,bend,narrow_area);
  }
  // One bounded canopy deformation replaces overlapping palm rotations. The
@@ -383,19 +385,26 @@ void fragment(){
   vec2 rotated=vec2(ca*q.x-sa*q.y,sa*q.x+ca*q.y);
   shift+=(rotated-q)*m*tree_field;
  }
+ float grass_presence=0.0;
+ float grass_area=0.0;
  for(int i=0;i<48;i++){
   if(i>=grass_count)break;
   vec4 r=grass_regions[i];
-  float grass_mask=region(p,r,clamp((r.w-r.y)*.20,4.0,8.0));
+  float grass_feather=clamp((r.w-r.y)*.20,4.0,8.0);
+  // The authored top marks a free tip, not another attachment. Fade in the
+  // empty margin above it, keeping the side and rooted-bottom guards intact.
+  float grass_mask=region(p,r+vec4(0.0,-2.0*grass_feather,0.0,0.0),grass_feather);
   if(grass_mask<=0.0)continue;
+  grass_area=max(grass_area,grass_mask);
   float h=clamp((r.w-p.y)/max(r.w-r.y,1.0),0.0,1.0);
+  grass_presence=max(grass_presence,grass_mask*pow(h,1.25));
   float strength=wind(t-p.x/900.0);
   float grass_load=bend_load(t-p.x/900.0-h*.18,5.2,.85)-.28;
   grass_load=grass_load/sqrt(1.0+grass_load*grass_load/.1225);
   float tip_flutter=sin(t*4.4+p.x*.05)*strength*.55*h;
   // Short grass is viewed at scene scale, so give its free upper blade a
   // readable bend while the rooted bottom still vanishes continuously.
-  shift.x-=grass_mask*pow(h,1.65)*(grass_load*6.0+tip_flutter*.40);
+  shift.x-=grass_mask*pow(h,1.25)*(grass_load*10.5+tip_flutter*.40);
  }
  shift+=joined_tree_shift(p,t);
  // Vegetation may only carry vegetation or its exposed backdrop. Never
@@ -410,7 +419,7 @@ void fragment(){
  if(family_id==1)large_crown=region(p,vec4(6005,50,6585,415),36.0);
  if(family_id==2)large_crown=region(p,vec4(3400,85,3750,480),36.0);
  float crown_limit=family_id==1?3.5:(family_id==2?4.0:(family_id==3?6.5:7.0));
- float foliage_limit=mix(2.5,crown_limit,large_crown);
+ float foliage_limit=mix(mix(2.5,3.2,grass_presence),crown_limit,large_crown);
  foliage_shift/=sqrt(1.0+dot(foliage_shift,foliage_shift)/(foliage_limit*foliage_limit));
  if(family_id==3){
   float stem=support_segment(p,vec2(2037,346),vec2(2041,515),8.0);
@@ -445,6 +454,9 @@ void fragment(){
   if(i>=sea_count)break;
   float m=region(p,sea_regions[i],6.0)*(1.0-own_plant)*(1.0-own_flag);
   if(smooth_foliage)m=region(p,sea_regions[i],6.0)*texture(foliage_clearance,UV).r;
+  // Postal sea rectangles overlap the lamp-side turf. Newly released grass
+  // has its own rooted wind field and must not inherit vertical water flow.
+  if(family_id==2)m*=1.0-grass_area;
   sea_mask=max(sea_mask,m);
   shift.y+=m*(sin(t*.81+p.x*.018)*.65+sin(t*1.17-p.x*.011)*.25);
   shift.x+=m*sin(t*.42+p.y*.17)*.35;

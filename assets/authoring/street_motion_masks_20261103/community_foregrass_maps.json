@@ -176,5 +176,5 @@
   "outside_patch_unchanged": true,
   "existing_fountain_trunk_small_pot_mappings_unchanged": true,
   "background": "Original same-row samples, restricted to the same observed pot face / sky gap / rock. No new pigment.",
-  "motion_bound_source_pixels": 0.78
+  "motion_bound_source_pixels": 1.6
 }

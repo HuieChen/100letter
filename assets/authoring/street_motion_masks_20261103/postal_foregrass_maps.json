@@ -1,0 +1,87 @@
+{
+  "sources": {
+    "morning": {
+      "path": "assets/authoring/town_20261029/post_v2_morning.png",
+      "sha256": "524c9c8c1c120b74be4bd025d06f5e521d06b5a4084e1c4fdb977f090071dc20"
+    },
+    "noon": {
+      "path": "assets/authoring/town_20261029/post_v2_noon.png",
+      "sha256": "6f8c7dc4956593c4abf9f2697149be25fa44a0be5d785fa3ca4218eda06a7ca2"
+    },
+    "sunset": {
+      "path": "assets/authoring/town_20261029/post_v2_sunset.png",
+      "sha256": "5d9e3937b41c91c0e1012812d7764c31374b4182cc678ffb006ca9a1f4c2cfe2"
+    },
+    "night": {
+      "path": "assets/authoring/town_20261029/post_v2_night.png",
+      "sha256": "e509d52d73624fd72eac9bbb322d97855217043f48a2a5ed7ae062133ad460e9"
+    }
+  },
+  "groups": [
+    {
+      "name": "cloth_tree_tuft",
+      "box": [
+        413,
+        478,
+        458,
+        513
+      ],
+      "search": [
+        399,
+        519
+      ],
+      "alpha_pixels": 645,
+      "mapped_pixels": 645
+    },
+    {
+      "name": "small_pot_front",
+      "box": [
+        470,
+        502,
+        482,
+        513
+      ],
+      "search": [
+        460,
+        500
+      ],
+      "alpha_pixels": 62,
+      "mapped_pixels": 62
+    },
+    {
+      "name": "long_pot_twins",
+      "box": [
+        630,
+        499,
+        648,
+        513
+      ],
+      "search": [
+        621,
+        659
+      ],
+      "alpha_pixels": 147,
+      "mapped_pixels": 147
+    },
+    {
+      "name": "fence_grass_tail",
+      "box": [
+        2875,
+        498,
+        2918,
+        513
+      ],
+      "search": [
+        2870,
+        2928
+      ],
+      "alpha_pixels": 113,
+      "mapped_pixels": 113
+    }
+  ],
+  "original_art_unchanged": true,
+  "background": "Original same-row samples on the same observed surface; no new pigment",
+  "motion_bound_source_pixels": 1.7,
+  "fixed_root_y": 512,
+  "phase_fidelity": "The shared geometry maps transport each original phase's own source RGB"
+}

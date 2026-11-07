@@ -10,6 +10,35 @@ vec2 hanging_cloth(vec2 p,vec4 box,float anchor_y,float top_slope,float t){
  float h=clamp((p.y-top)/max(box.w-top,25.0),0.0,1.0);
  return vec2(3.8,.35)*prop_load(t)*h*h*weight;
 }
+float postal_sheet_clearance(vec2 p){
+ // The poles remain visible beside/below the cloths in the source painting.
+ // Feather away from those actual contacts, including their antialiased rim.
+ float left_pole=support_segment(p,vec2(319,336),vec2(373,502),21.0);
+ float right_pole=region(p,vec4(720,456,765,526),6.0);
+ float right_branch=support_segment(p,vec2(771,367),vec2(802,321),6.0);
+ return 1.0-max(left_pole,max(right_pole,right_branch));
+}
+vec2 postal_hung_sheets(vec2 p,float t){
+ float area=region(p,vec4(354,260,812,480),16.0);
+ if(area<=0.0)return vec2(0.0);
+ // One continuous displacement covers the painted overlaps. Adding three
+ // rectangular fields doubled the bend at their seams and then the generic
+ // prop cap made all three free hems almost motionless. All checks/stripes
+ // now move with their sheet, including the complete outer antialias edge.
+ // The observed top of the left sheet slopes down; the two back/right top
+ // edges and the ropes are above this stationary attachment band.
+ float top=clamp(280.0+(p.x-376.0)*.20,280.0,332.0)+4.0;
+ float bottom=mix(416.0,465.0,smoothstep(550.0,610.0,p.x));
+ float h=clamp((p.y-top)/max(bottom-top,60.0),0.0,1.0);
+ float lag=.40+.35*smoothstep(376.0,796.0,p.x);
+ float bend=5.5*prop_load(t-lag)*h*h;
+ // A hanging free hem lifts very slightly as it bends; it does not bounce
+ // independently or carry a travelling material/shading wave.
+ vec2 d=vec2(bend,bend*bend/(2.0*max(bottom-top,60.0)));
+ d*=area*postal_sheet_clearance(p);
+ d*=postal_sheet_clearance(p+d);
+ return d;
+}
 vec2 supported_canopy(vec2 p,vec4 box,vec2 hub,vec2 stem,float t){
  vec2 q=p-hub;
  float angle=prop_load(t)*.017;
@@ -45,11 +74,6 @@ vec2 attached_street_props(vec2 p,float t,int family){
   d+=supported_canopy(p,vec4(4147,315,4352,357),vec2(4250,352),vec2(4250,500),t-4.8)
      *(1.0-support_segment(p,vec2(4250,298),vec2(4250,353),4.0));
  }else if(family==2){
-  // Three original cloths hang from the rope. A single displacement carries
-  // every colored square; their upper attachment edges stay still.
-  d+=hanging_cloth(p,vec4(376,280,570,438),280.0,.20,t-.4);
-  d+=hanging_cloth(p,vec4(488,300,696,457),310.0,-.05,t-.7);
-  d+=hanging_cloth(p,vec4(598,323,796,478),324.0,.025,t-1.0);
   d+=hanging_cloth(p,vec4(3807,370,3886,397),369.0,0.0,t-4.1)*.65;
   d+=supported_canopy(p,vec4(5063,345,5200,435),vec2(5134,410),vec2(5160,514),t-5.8);
  }else if(family==3){
@@ -64,5 +88,9 @@ vec2 attached_street_props(vec2 p,float t,int family){
  }
  // The cloths overlap in the flat painting. Bound their combined response
  // smoothly so that a shared edge never receives two full-strength bends.
- return d/sqrt(1.0+dot(d,d)/2.25);
+ d=d/sqrt(1.0+dot(d,d)/2.25);
+ // The larger postal sheets have their own bounded hanging response. Keep
+ // the small-prop cap on every other street prop exactly as before.
+ if(family==2)d+=postal_hung_sheets(p,t);
+ return d;
 }

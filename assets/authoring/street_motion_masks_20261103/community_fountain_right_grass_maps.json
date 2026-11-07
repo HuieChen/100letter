@@ -1,0 +1,29 @@
+{
+  "scope": [
+    643,
+    475,
+    701,
+    515
+  ],
+  "silhouette_box": [
+    647,
+    478,
+    697,
+    514
+  ],
+  "alpha_pixels": 699,
+  "all_existing_maps_outside_scope_unchanged": true,
+  "sources_unchanged_sha256": {
+    "assets/authoring/streets_20261101/community_morning.png": "bad3d4e903c87b3bd308abb3f21fda565d6cf48c8c02923e488a152ab6c556c5",
+    "assets/authoring/streets_20261101/community_noon.png": "1367346a083df03e2ecfe1f5d8f97951bb61acc55ed0f3b60dda1fc817ce00f8",
+    "assets/authoring/streets_20261101/community_sunset.png": "3fbc1d62abce17603dd997447eb268164ae695317ae3502a68786cfda318993f",
+    "assets/authoring/streets_20261101/community_night.png": "28f03793303ba4e67863456f7609bd2009fac2c8dcfd3d21dc63d17199c59d1c",
+    "assets/authoring/streets_20261101/residential_morning.png": "420fa04bd7a9ae030c472a2a6bf7cd7832423a5847359ceee583facc7de54f97",
+    "assets/authoring/streets_20261101/residential_noon.png": "2f8c9b4f88a1e6628441b181b178e39c288773f8e177b89db615233732621b55",
+    "assets/authoring/streets_20261101/residential_sunset.png": "784124e720fea4547596665d30c205c0d8c696fb43d51d6a5b1172ad6bb9f650",
+    "assets/authoring/streets_20261101/residential_night.jpg": "191ad83ad5d6f336f920c68111935582e9af0b9c694ea1d9b6dbd377d62b3c78"
+  },
+  "motion_bound_source_pixels": 1.7,
+  "fixed_root_y": 513,
+  "background": "Original same-row fountainwall samples; flowerpot and rounded plant excluded"
+}
