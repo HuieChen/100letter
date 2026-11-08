@@ -1,3 +1,7 @@
+## 2026-11-09 — Immediate camera shutter sound
+
+Accepted photos now trigger a dedicated mechanical shutter cue immediately through the effects bus, with no second cue after PNG saving. The current cover guitar and Settings exit actions are preserved. The complete exported package passed 57 camera, orderly-close and title/guitar checks. Listening acceptance remains separate. See [CAMERA_SHUTTER_AUDIO_20261109.md](docs/testing/CAMERA_SHUTTER_AUDIO_20261109.md).
+
 ## 2026-11-08 — Ground grass readability
 
 Stronger grass bending and broader leaf response preserve the original art and fixed roots. Final standard exported PCK also preserves concurrent caption-only map main 13d8e5f: 454 scoped checks, 30 grass capture targets and 21 unchanged rigid/root guards; all 680 captured PNGs match the reviewed source. Visible-motion acceptance remains separate from numerical tests. See [GROUND_GRASS_READABILITY_20261108.md](docs/testing/GROUND_GRASS_READABILITY_20261108.md).
