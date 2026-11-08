@@ -8,7 +8,7 @@ Stable camera damping at low frame rates and bounded reuse of immutable street c
 
 ## 2026-11-08 — Remove rejected map lighting
 
-The user found the illumination too conspicuous. Map pixels now stay unchanged during hover and press; a smaller translucent paper caption carries selection feedback. Final PCK bfb0820b passed 288 scoped checks and fresh GPU visual inspection. The earlier lighting treatment is superseded. See [MAP_PAPER_FEEDBACK_20261108.md](docs/testing/MAP_PAPER_FEEDBACK_20261108.md).
+The user found the illumination too conspicuous. Map pixels now stay unchanged during hover and press; a smaller translucent paper caption carries selection feedback. Final integrated PCK 5816677d preserves the concurrent grass update and passed 300 scoped checks and fresh GPU visual inspection. The earlier lighting treatment is superseded. See [MAP_PAPER_FEEDBACK_20261108.md](docs/testing/MAP_PAPER_FEEDBACK_20261108.md).
 
 ## 2026-11-08 — Map destination light and caption (superseded)
 
