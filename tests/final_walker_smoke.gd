@@ -129,6 +129,10 @@ func _test_manual() -> void:
 	walker.manual_enabled=true
 	walker._notification(Control.NOTIFICATION_WM_WINDOW_FOCUS_IN)
 	walker.walk_to(Vector2(790,300),func() -> void: callbacks.append("manual_stale"))
+	# A new direction press still interrupts click travel. A key carried out of
+	# the disabled mode is intentionally latched until release (resume suite).
+	_key(KEY_D,false)
+	_key(KEY_D,true)
 	for index in range(45): walker._process(1.0/60.0)
 	_check(walker.foot.x > 205 and not walker.walking and walker._manual_active, "held D drives actual acceleration and interrupts click travel")
 	_key(KEY_D,false)

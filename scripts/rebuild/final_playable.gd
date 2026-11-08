@@ -220,6 +220,7 @@ func _update_preference_save_notice()->void:
 
 func _unhandled_input(event:InputEvent) -> void:
 	if event is InputEventKey and event.pressed and not event.echo:
+		if event.ctrl_pressed or event.alt_pressed or event.meta_pressed:return
 		if event.keycode==KEY_F11:
 			preferences.set_value("display_mode","windowed" if get_window().mode==Window.MODE_FULLSCREEN else "fullscreen")
 			preferences.save_settings()

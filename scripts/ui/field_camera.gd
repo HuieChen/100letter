@@ -489,6 +489,7 @@ func _input(event:InputEvent)->void:
 	if next!=null:next.grab_focus()
 func _unhandled_key_input(event:InputEvent)->void:
 	if not event is InputEventKey or not event.pressed or event.echo:return
+	if event.ctrl_pressed or event.alt_pressed or event.meta_pressed:return
 	if event.keycode==KEY_R and get_viewport().gui_get_focus_owner()!=_caption_editor:
 		_toggle_format();get_viewport().set_input_as_handled();return
 	if event.keycode==KEY_ESCAPE or event.physical_keycode==KEY_ESCAPE:

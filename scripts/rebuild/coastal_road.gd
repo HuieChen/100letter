@@ -240,6 +240,7 @@ func _follow_courier(at:Vector2)->void:
  camera_director.frame_foot(at.x,world.size.x)
  world.position.x=-camera_director.scroll
 func _unhandled_key_input(event:InputEvent)->void:
+ if event is InputEventKey and (event.ctrl_pressed or event.alt_pressed or event.meta_pressed):return
  if event is InputEventKey and event.pressed and not event.echo and event.physical_keycode==KEY_E and entry_ready:
   get_viewport().set_input_as_handled()
   _request_entry()
