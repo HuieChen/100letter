@@ -397,14 +397,14 @@ void fragment(){
   if(grass_mask<=0.0)continue;
   grass_area=max(grass_area,grass_mask);
   float h=clamp((r.w-p.y)/max(r.w-r.y,1.0),0.0,1.0);
-  grass_presence=max(grass_presence,grass_mask*pow(h,1.25));
+  grass_presence=max(grass_presence,grass_mask*pow(h,.85));
   float strength=wind(t-p.x/900.0);
   float grass_load=bend_load(t-p.x/900.0-h*.18,5.2,.85)-.28;
   grass_load=grass_load/sqrt(1.0+grass_load*grass_load/.1225);
   float tip_flutter=sin(t*4.4+p.x*.05)*strength*.55*h;
-  // Short grass is viewed at scene scale, so give its free upper blade a
-  // readable bend while the rooted bottom still vanishes continuously.
-  shift.x-=grass_mask*pow(h,1.25)*(grass_load*10.5+tip_flutter*.40);
+  // Short grass needs a readable local tip bend at the normal game scale.
+  // Keep rooted-bottom, rigid-clearance and foreground safety guards intact.
+  shift.x-=grass_mask*pow(h,.85)*(grass_load*21.0+tip_flutter*.40);
  }
  shift+=joined_tree_shift(p,t);
  // Vegetation may only carry vegetation or its exposed backdrop. Never
@@ -419,7 +419,7 @@ void fragment(){
  if(family_id==1)large_crown=region(p,vec4(6005,50,6585,415),36.0);
  if(family_id==2)large_crown=region(p,vec4(3400,85,3750,480),36.0);
  float crown_limit=family_id==1?3.5:(family_id==2?4.0:(family_id==3?6.5:7.0));
- float foliage_limit=mix(mix(2.5,3.2,grass_presence),crown_limit,large_crown);
+ float foliage_limit=mix(mix(2.5,4.5,grass_presence),crown_limit,large_crown);
  foliage_shift/=sqrt(1.0+dot(foliage_shift,foliage_shift)/(foliage_limit*foliage_limit));
  if(family_id==3){
   float stem=support_segment(p,vec2(2037,346),vec2(2041,515),8.0);
