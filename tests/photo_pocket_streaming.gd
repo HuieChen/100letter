@@ -90,7 +90,10 @@ func run():
 	# A missing file remains an identifiable print instead of shifting all keyboard slots.
 	var broken:=directory.path_join("DearSomewhere_9999.png")
 	FileAccess.open(broken,FileAccess.WRITE).store_string("deliberately invalid QA PNG")
-	game.preferences.values.language="en";game._bag();await loaded()
+	game.preferences.values.language="en";game._bag()
+	# Reopening now intentionally restores the old scroll position. Bring the
+	# newly inserted first print into view before asserting its decode feedback.
+	await process_frame;await process_frame;pocket().scroll_vertical=0;await loaded()
 	check(grid().get_child_count()==241,"Unavailable print does not reorder or hide other photos")
 	check(grid().get_child(0).tooltip_text=="Photo unavailable","Unreadable print has localized feedback")
 	check(grid().get_child(1).get_node("PhotoPrint").image!=null,"A damaged newest file does not block healthy thumbnails")

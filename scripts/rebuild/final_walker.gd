@@ -45,6 +45,7 @@ var walk_bounds := Rect2()
 var walking: bool = false
 var manual_enabled: bool = false:
 	set(value):
+		if value and not manual_enabled: _block_held_movement_keys()
 		manual_enabled = value
 		if not value: cancel()
 		set_process(true)
@@ -65,6 +66,8 @@ var _facing: float = 1.0
 var _manual_active: bool = false
 var _fast_held: bool = false
 var _window_focused: bool = true
+const MOVEMENT_KEYS := [KEY_W, KEY_A, KEY_S, KEY_D, KEY_UP, KEY_LEFT, KEY_DOWN, KEY_RIGHT]
+var _blocked_movement_keys: Dictionary = {}
 var _breathing: float = 0.0
 var _blink_wait: float = 4.6
 var _blink_elapsed: float = -1.0
@@ -232,13 +235,32 @@ func _notification(what: int) -> void:
 		if _manual_active or (walking and not get_window().unfocusable): cancel()
 	elif what == NOTIFICATION_WM_WINDOW_FOCUS_IN:
 		_window_focused = not get_window().unfocusable
+		_block_held_movement_keys()
 		set_process(true)
 
 
+func _movement_key_pressed(code: Key) -> bool:
+	return Input.is_physical_key_pressed(code) if code in [KEY_W, KEY_A, KEY_S, KEY_D] else Input.is_key_pressed(code)
+
+
+func _block_held_movement_keys() -> void:
+	# A direction held on a paper or in another window is not a new walk.
+	# Each key resumes independently, so a fresh direction remains responsive.
+	_blocked_movement_keys.clear()
+	for code: Key in MOVEMENT_KEYS:
+		if _movement_key_pressed(code): _blocked_movement_keys[code] = true
+
+
+func _movement_key_active(code: Key) -> bool:
+	return _movement_key_pressed(code) and not _blocked_movement_keys.has(code)
+
+
 func _manual_direction() -> Vector2:
+	for code: Key in _blocked_movement_keys.keys():
+		if not _movement_key_pressed(code): _blocked_movement_keys.erase(code)
 	if not manual_enabled or not _window_focused: return Vector2.ZERO
-	var x: float = float(Input.is_physical_key_pressed(KEY_D) or Input.is_key_pressed(KEY_RIGHT)) - float(Input.is_physical_key_pressed(KEY_A) or Input.is_key_pressed(KEY_LEFT))
-	var y: float = float(Input.is_physical_key_pressed(KEY_S) or Input.is_key_pressed(KEY_DOWN)) - float(Input.is_physical_key_pressed(KEY_W) or Input.is_key_pressed(KEY_UP))
+	var x: float = float(_movement_key_active(KEY_D) or _movement_key_active(KEY_RIGHT)) - float(_movement_key_active(KEY_A) or _movement_key_active(KEY_LEFT))
+	var y: float = float(_movement_key_active(KEY_S) or _movement_key_active(KEY_DOWN)) - float(_movement_key_active(KEY_W) or _movement_key_active(KEY_UP))
 	if walk_bounds.size.y <= 0.0: y = 0.0
 	return Vector2(x, y).normalized() * Vector2(1.0, 0.58)
 
@@ -376,7 +398,14 @@ func _update_idle_transition(delta:float)->void:
 
 
 func _input(event:InputEvent)->void:
-	if event is InputEventKey and (event.keycode==KEY_SHIFT or event.physical_keycode==KEY_SHIFT):
+	if not event is InputEventKey:return
+	if not event.pressed:
+		# Catch release/repress between frames as well as the polling fallback.
+		if event.physical_keycode in [KEY_W, KEY_A, KEY_S, KEY_D]:
+			_blocked_movement_keys.erase(event.physical_keycode)
+		if event.keycode in [KEY_UP, KEY_LEFT, KEY_DOWN, KEY_RIGHT]:
+			_blocked_movement_keys.erase(event.keycode)
+	if event.keycode==KEY_SHIFT or event.physical_keycode==KEY_SHIFT:
 		_fast_held=event.pressed
 
 func _advance_manual(direction: Vector2, delta: float) -> void:

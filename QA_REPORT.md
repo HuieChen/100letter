@@ -1,3 +1,19 @@
+## 2026-11-08 — Ground grass readability
+
+Stronger grass bending and broader leaf response preserve the original art and fixed roots. Final standard exported PCK also preserves concurrent caption-only map main 13d8e5f: 454 scoped checks, 30 grass capture targets and 21 unchanged rigid/root guards; all 680 captured PNGs match the reviewed source. Visible-motion acceptance remains separate from numerical tests. See [GROUND_GRASS_READABILITY_20261108.md](docs/testing/GROUND_GRASS_READABILITY_20261108.md).
+
+## 2026-11-08 — Street continuity integration
+
+Stable camera damping at low frame rates and bounded reuse of immutable street composites are integrated on main 182dee6. Actual exported PCK passes 9 suites / 1,074 checks. Original art, map feedback, bag navigation and input guards are preserved. Native/listening acceptance and seven pre-existing walker smoke failures remain open; cover/safe-exit work is separate. See [CONTINUITY_INTEGRATION_20261108.md](docs/testing/CONTINUITY_INTEGRATION_20261108.md).
+
+## 2026-11-08 — Remove rejected map lighting
+
+The user found the illumination too conspicuous. Map pixels now stay unchanged during hover and press; a smaller translucent paper caption carries selection feedback. Final integrated PCK 5816677d preserves the concurrent grass update and passed 300 scoped checks and fresh GPU visual inspection. The earlier lighting treatment is superseded. See [MAP_PAPER_FEEDBACK_20261108.md](docs/testing/MAP_PAPER_FEEDBACK_20261108.md).
+
+## 2026-11-08 — Map destination light and caption (superseded)
+
+The runtime selection arrow is replaced by soft local light and a bilingual location caption. Original map bytes and destinations are unchanged. Integrated with main dbc6fdb; final R2 PCK 49ee8ed8 passes 671 scoped checks plus release boot. Forced-exit resource diagnostics reproduce on the prior main package and remain open; explicit audio teardown passes. Details, reference sources and evidence limits: [MAP_SOFT_FOCUS_20261108.md](docs/testing/MAP_SOFT_FOCUS_20261108.md).
+
 ## 2026-11-07 — Consistent map and photo navigation
 
 Map marker and activation now agree when switching between keyboard and stationary mouse. Photo browsing recovers after corrupt files, Tab leaves notes unchanged, and paging preserves keyboard focus. 535 focused actual-PCK checks passed, release boot exited 0. Details and scope: [NAVIGATION_POLISH_20261107.md](docs/testing/NAVIGATION_POLISH_20261107.md).

@@ -56,3 +56,20 @@ static func auxiliary(family:String,path:String)->Texture2D:
   if not _families[family].has("auxiliary"):_families[family].auxiliary={}
   _families[family].auxiliary[path]=texture
  return texture
+
+static func derived_textures(family:String,key:String,sources:Array[Texture2D],signature:String="")->Array[Texture2D]:
+ # Runtime registration/repair results share the same bounded family lifetime.
+ # Source identity and geometry keep a caller with different input from reusing
+ # a derivative made for another painting or fountain placement.
+ if not _families.has(family):return []
+ var derivatives:Dictionary=_families[family].get("derived",{})
+ var entry:Dictionary=derivatives.get(key,{})
+ if entry.is_empty() or entry.sources!=sources or entry.signature!=signature:return []
+ return _copy(entry.textures)
+
+static func retain_derived(family:String,key:String,sources:Array[Texture2D],textures:Array[Texture2D],signature:String="")->void:
+ if not _families.has(family) or textures.is_empty():return
+ for texture:Texture2D in textures:
+  if texture==null:return
+ if not _families[family].has("derived"):_families[family].derived={}
+ _families[family].derived[key]={"sources":sources.duplicate(),"textures":textures.duplicate(),"signature":signature}
