@@ -46,7 +46,20 @@ func run()->void:
 	check(game.stage.get_node("ContinueShift").focus_mode==Control.FOCUS_NONE,"keyboard skips unavailable Continue")
 	check(game.sound.location_id=="title" and game.sound.ambience.playing,"cover ocean ambience playing")
 	check(game.sound.ambience.bus==game.sound.AMBIENT_BUS,"ocean follows ambience setting")
-	check(game.sound.music.volume_db < -60,"in-game guitar does not leak into cover")
+	check(game.sound.music.playing and game.sound.music.volume_db > -40,"supplied guitar fades into the cover")
+	var guitar_id:int=game.sound.music.get_instance_id()
+	var guitar_capture:=AudioEffectCapture.new();guitar_capture.buffer_length=2.0
+	var music_bus:=AudioServer.get_bus_index(game.sound.MUSIC_BUS)
+	AudioServer.add_bus_effect(music_bus,guitar_capture)
+	await create_timer(.6).timeout
+	var guitar_samples:=guitar_capture.get_buffer(guitar_capture.get_frames_available());var guitar_peak:=0.0
+	for sample:Vector2 in guitar_samples:guitar_peak=maxf(guitar_peak,maxf(absf(sample.x),absf(sample.y)))
+	check(guitar_peak>0.00001,"cover music bus emits nonzero guitar samples")
+	AudioServer.remove_bus_effect(music_bus,AudioServer.get_bus_effect_count(music_bus)-1)
+	game.preferences.set_value("music",0.0)
+	check(AudioServer.is_bus_mute(music_bus) and not AudioServer.is_bus_mute(AudioServer.get_bus_index(game.sound.AMBIENT_BUS)),"music mute leaves cover ocean independently controlled")
+	game.preferences.set_value("music",.75)
+	check(not AudioServer.is_bus_mute(music_bus),"music slider restores cover guitar")
 	var capture:=AudioEffectCapture.new();capture.buffer_length=2.0
 	var audio_bus:=AudioServer.get_bus_index(game.sound.AMBIENT_BUS)
 	AudioServer.add_bus_effect(audio_bus,capture)
@@ -75,8 +88,10 @@ func run()->void:
 	await shot("pressed")
 	await mouse(start.get_global_rect().get_center(),false);await create_timer(.5).timeout
 	check(game.view=="post_office_room","Start opens playable post office")
+	check(game.sound.music.get_instance_id()==guitar_id and game.sound.music.playing,"Start retains one continuous guitar player")
 	check(game.core.has_save(),"Start creates isolated save")
 	game.core.state.location="bus_stop";game.core.save_game();game._title();await create_timer(.4).timeout
+	check(game.sound.music.get_instance_id()==guitar_id and game.sound.music.playing,"returning to title does not stack another guitar player")
 	check(not game.stage.get_node("ContinueShift").disabled,"saved journey enables Continue")
 	await click(game.stage.get_node("ContinueShift"))
 	check(game.view=="world" and game.core.state.location=="bus_stop","Continue restores saved location")
@@ -102,6 +117,6 @@ func run()->void:
 	check("paper" in cues,"activation produces existing paper confirmation sound")
 	game.sound.shutdown();game.queue_free();await process_frame;view.queue_free();await process_frame
 	await create_timer(.2).timeout
-	FileAccess.open(out+"receipt.json",FileAccess.WRITE).store_string(JSON.stringify({"checks":checks,"failures":failures,"audio_peak":peak,"audio_cues":cues},"  "))
+	FileAccess.open(out+"receipt.json",FileAccess.WRITE).store_string(JSON.stringify({"checks":checks,"failures":failures,"audio_peak":peak,"guitar_peak":guitar_peak,"audio_cues":cues},"  "))
 	print("TITLE_PAPER_CHECKS ",checks," / ",failures.size())
 	quit(0 if failures.is_empty() else 1)

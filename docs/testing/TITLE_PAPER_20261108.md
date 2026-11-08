@@ -4,7 +4,7 @@ Reproduces the user's `全部.png` composition using their exact `纯封面.png`
 
 The paper buttons retain the existing Start, Continue and Settings actions. Visuals lift slightly on mouse/keyboard selection and compress on press, with stable hit rectangles and a short release interval before activation. Rapid activation is coalesced. No-save Continue is dimmed and excluded from keyboard navigation. Starting again still requires the existing overwrite confirmation. The supplied painted lettering remains English; semantic labels and tooltips follow the selected language.
 
-The title retains the licensed ocean ambience and existing activation paper sound. Hover/focus uses the existing paper samples at -30 dB with a shared 180 ms cooldown. Music, SFX and ambience remain on their existing buses; the in-game guitar remains silent on the title. No audio samples were generated or replaced.
+The title retains the licensed ocean ambience and existing activation paper sound. Hover/focus uses the existing paper samples at -30 dB with a shared 180 ms cooldown. Music, SFX and ambience remain on their existing buses. The user's later November 8 request explicitly adds the supplied guitar to the title: the same loop continues at a gentler title gain and follows the Music slider, without restarting or stacking players. No audio samples were generated or replaced.
 
 ## Current evidence
 

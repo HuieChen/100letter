@@ -384,7 +384,9 @@ func _process(delta: float) -> void:
 		var now:=db_to_linear(leaf_player.volume_db)
 		leaf_player.volume_db=linear_to_db(maxf(.0001,lerpf(now,leaf_gain,1.0-exp(-delta*4.0))))
 	var target_music: float = db_to_linear(-18.0 if _quiet else -12.0)
-	if location_id == "title":target_music=0.0
+	# Keep the supplied guitar running across title, Settings and the journey.
+	# Only its gain changes; entering the cover must not restart or stack a loop.
+	if location_id == "title" and not _quiet:target_music=db_to_linear(-15.0)
 	_music_gain = lerpf(_music_gain, target_music, 1.0 - exp(-delta * 1.3))
 	if music: music.volume_db = linear_to_db(maxf(_music_gain, 0.0001))
 	_menu_gain=lerpf(_menu_gain,db_to_linear(-15.0) if _settings_mode else 0.0,1.0-exp(-delta*3.0))
