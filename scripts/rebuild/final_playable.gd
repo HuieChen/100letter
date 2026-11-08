@@ -59,6 +59,7 @@ var _display_apply_queued:=false
 var _closeup_hidden_residents:Array[WeakRef]=[]
 var _camera_hidden_ui:Array[WeakRef]=[]
 var _bag_photos_visible:=false
+var _bag_photo_scroll:=0
 var _photo_thumbnails:Dictionary={}
 var _photo_thumbnail_order:Array[String]=[]
 var _title_action_pending:=false
@@ -852,6 +853,9 @@ func _close(user_feedback:bool=false) -> void:
 	if is_inside_tree(): get_viewport().set_input_as_handled()
 	if is_instance_valid(modal) and modal.get_script()==SettingsPage and is_instance_valid(sound):sound.settings_music(false)
 	if is_instance_valid(modal):
+		if modal.name=="MailBag":
+			var pocket:=modal.find_child("PhotoPocket",true,false) as ScrollContainer
+			if pocket!=null:_bag_photo_scroll=pocket.scroll_vertical
 		remove_child(modal)
 		modal.queue_free()
 	modal=null
@@ -910,9 +914,9 @@ func _bag(focus_letter:String="",feedback:bool=true) -> void:
 	UI.button(paper,"×",Rect2(paper_size.x-82,26,54,54),_close.bind(true)).name="CloseBag"
 	var satchel:=_sprite(paper,"satchel",Rect2(paper_size.x-210,14,90,98),true)
 	satchel.name="OpenSatchelArtwork"
-	var letter_tab:=UI.button(paper,_tr("信件 ","Letters ")+str(letters.size()),Rect2(48,98,180,42),func():_bag_photos_visible=false;_bag())
+	var letter_tab:=UI.button(paper,_tr("信件 ","Letters ")+str(letters.size()),Rect2(48,98,180,42),_switch_bag_tab.bind(false))
 	letter_tab.name="BagLettersTab"
-	var photo_tab:=UI.button(paper,_tr("照片 ","Photos ")+str(photos.size()),Rect2(244,98,180,42),func():_bag_photos_visible=true;_bag())
+	var photo_tab:=UI.button(paper,_tr("照片 ","Photos ")+str(photos.size()),Rect2(244,98,180,42),_switch_bag_tab.bind(true))
 	photo_tab.name="BagPhotosTab"
 	(letter_tab if not _bag_photos_visible else photo_tab).add_theme_color_override("font_color",Color("a15836"))
 	if _bag_photos_visible:
@@ -952,6 +956,17 @@ func _bag(focus_letter:String="",feedback:bool=true) -> void:
 		empty.name="EmptyMailBag";empty.horizontal_alignment=HORIZONTAL_ALIGNMENT_CENTER
 	if feedback:sound.play("paper")
 
+func _switch_bag_tab(photos:bool)->void:
+	if busy or not is_instance_valid(modal) or modal.name!="MailBag" or _bag_photos_visible==photos:return
+	_bag_photos_visible=photos
+	_bag()
+	_focus_bag_tab.call_deferred(modal.get_instance_id())
+
+func _focus_bag_tab(expected_id:int)->void:
+	if not is_inside_tree() or not is_instance_valid(modal) or modal.get_instance_id()!=expected_id:return
+	var tab:=modal.find_child("BagPhotosTab" if _bag_photos_visible else "BagLettersTab",true,false) as Control
+	if tab!=null:tab.grab_focus()
+
 func _bag_photo_grid(paper:Control,photos:Array[String])->void:
 	if photos.is_empty():
 		var empty:=UI.label(paper,_tr("还没有拍好的照片。","No photos yet."),Rect2(48,236,paper.size.x-96,80),26,Color("73665c"))
@@ -987,6 +1002,9 @@ func _bag_photo_grid(paper:Control,photos:Array[String])->void:
 		item.mouse_exited.connect(func():photo.position.y=2)
 		item.focus_entered.connect(func():photo.position.y=0)
 		item.focus_exited.connect(func():photo.position.y=2)
+	# Restore after the container has measured its new grid; its range clamps
+	# naturally if photos have been removed since the previous visit.
+	scroll.set_deferred("scroll_vertical",_bag_photo_scroll)
 
 func _talk(id:String) -> void:
 	var error:String=core.meet(id)

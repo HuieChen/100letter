@@ -1,0 +1,11 @@
+# Bag navigation continuity — 2026-11-08
+
+On b0fa079, Enter on the Photos tab moved focus to CloseBag. Activating the already selected Photos tab rebuilt the entire bag and reset its scroll from 400 to 0. The same engine-input reproduction now retains BagPhotosTab, the same bag instance and scroll 400; closing still returns to OpenBag.
+
+Actual tab changes restore focus to the selected tab. Activating the current tab does nothing. The host remembers the photo pocket's scroll before removing the bag and restores it after the grid layout. The container clamps this value when fewer photos remain. Deferred focus checks the expected modal instance, so a newer map or other surface keeps its own focus. This is session-only UI state; no save schema or original images change.
+
+`tests/bag_navigation_20261108.gd`: 30 checks passed with isolated saves and 20 generated QA pictures. Covers Chinese 720p and English 1080p, repeated Enter, both tabs, close/reopen, immediate replacement by the map, shrinking and empty albums. GPU screenshots were inspected. Settings continuity 144 and experience flow 58 are adjacent regression suites; packaged results are recorded against the final coordinated PCK separately.
+
+Initial probe had a test-only inferred-type parse error, corrected before reproduction. The first full test had 30 passing assertions but exited before audio retirement, producing shutdown leak diagnostics. Its log was retained; after waiting for owned audio shutdown, the complete test passed without script errors or leak diagnostics. No failed attempt is counted as acceptance. No native OS input, human listening or full player playthrough is claimed.
+
+Integration on e7630c9: the actual PCK passed bag navigation 30, photo streaming 70, walker resume 67, shortcut modifiers 106 and exploration routes 113 (386 checks). The streaming suite initially had two failures because it assumed reopening always reset to the first row. Its damaged-newest-photo case now explicitly scrolls to that row before testing decode feedback; its existing return-focus, original-byte, bounded-memory and note assertions remain intact. Prior input protection remains integrated. The seven legacy animation assertions documented in INPUT_RECOVERY_20261108.md remain an existing acceptance gap.
