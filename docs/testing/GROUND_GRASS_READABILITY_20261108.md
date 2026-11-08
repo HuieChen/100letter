@@ -9,3 +9,11 @@ Source render comparison covers 30 independently selected blade crops across 10 
 The actual Host live-clock test advances naturally in all four streets and verifies shader clock/grass connections (12 checks). Captured crops were reviewed for continuity; engine rendering and numerical measurements are not a claim of human acceptance. Exported-PCK checks and final publication receipts accompany the release.
 
 Evidence: D:/Codex-build-cache/dear-somewhere-motion-pass2-20261108/grass-visible/.
+
+## Integrated Windows package
+
+Integrated on `ecc53c6`; runtime commit `ca605caae08e69abb61913c53abab6957620ac15`. Standard `tools/build.ps1` export completion and raw-asset audit produced PCK SHA-256 `06964b45e65064bf72e67dae586c449b5a90968138701f69452d15c2c1dc6e4d`. Process-local TEMP/TMP were on D:; no global environment changes. Historical broad checks were skipped in favor of these actual-package checks.
+
+Actual PCK, isolated userdata, offscreen GPU: live Host clock 12/12; street object boundaries 198/198; pot/foreground grass 140/140. Visibility capture covers 30 targets in 10 views across four streets, with all 21 rigid/root guards unchanged. All 680 PNGs match the reviewed source render byte for byte. No script/shader errors or shutdown leaks occurred. Source four-phase grass coverage additionally passed 366 checks; this is separate source evidence, not added to the PCK count.
+
+Package evidence: `D:/Codex-build-cache/dear-somewhere-grass-release-20261108/checks/receipt.json`, `source-frame-comparison.json`; inventory: `test-results/package-20261108-191332/export-audit.json`. User visual acceptance remains pending. The unfinished cover/settings exit work is not included.
