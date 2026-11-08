@@ -17,3 +17,9 @@ Integrated on `ecc53c6`; runtime commit `ca605caae08e69abb61913c53abab6957620ac1
 Actual PCK, isolated userdata, offscreen GPU: live Host clock 12/12; street object boundaries 198/198; pot/foreground grass 140/140. Visibility capture covers 30 targets in 10 views across four streets, with all 21 rigid/root guards unchanged. All 680 PNGs match the reviewed source render byte for byte. No script/shader errors or shutdown leaks occurred. Source four-phase grass coverage additionally passed 366 checks; this is separate source evidence, not added to the PCK count.
 
 Package evidence: `D:/Codex-build-cache/dear-somewhere-grass-release-20261108/checks/receipt.json`, `source-frame-comparison.json`; inventory: `test-results/package-20261108-191332/export-audit.json`. User visual acceptance remains pending. The unfinished cover/settings exit work is not included.
+
+### Concurrent map update preserved in final package
+
+GitHub main advanced to `13d8e5f` during publication. Its caption-only map correction is merged unchanged in runtime `a1ba97f12c14d137e1a294835b86db0b2a048a7b`. The final standard build supersedes the temporary grass-only package above: PCK `92d891b2a626471bf2eb480017029fbb633c26fff567d9a5dacaf808175877e1` (266480768 bytes). All four grass checks/captures were rerun, plus map feedback 104/104: 454 assertions, 30 grass targets, 21 unchanged guards. The 680 grass PNGs match the previous validated capture. The caption-only map screenshot was inspected; no rejected spotlight is restored.
+
+Final evidence: `D:/Codex-build-cache/dear-somewhere-grass-map-20261108/checks`; export audit `test-results/package-20261108-191946/export-audit.json`. Local network API requests returned HTTP 504; the GitHub connector exposed the newer main and prevented publishing without its map correction. No force update or unrelated worktree edits were used.
