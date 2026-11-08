@@ -564,7 +564,7 @@ func _camera()->void:
 	UI.place(camera,self,Rect2(0,0,1600,900))
 	camera.closed.connect(_close)
 	camera.photo_saved.connect(func(_path:String):_bag_photos_visible=true)
-	camera.cue.connect(func(kind:String):sound.play("snap" if kind=="camera" else kind))
+	camera.cue.connect(func(kind:String):sound.play(kind))
 	sound.play("paper")
 	_camera_hidden_ui.clear()
 	var candidates:Array=[clock,status,_footer_shade]

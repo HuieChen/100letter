@@ -14,6 +14,7 @@ const POOLS := {
 	"flip": ["paper_unfold.wav", "paper_2.wav"],
 	"map": ["paper_unfold.wav"],
 	"snap": ["paper_slide.wav"],
+	"camera": ["procedural_camera_shutter"],
 	"repair": ["paper_slide.wav", "paper_3.wav"],
 	"stamp": ["stamp_1.wav", "stamp_2.wav"],
 	"deliver": ["paper_3.wav", "paper_1.wav"],
@@ -179,7 +180,7 @@ func set_volumes(music_level: float, effects_level: float, ambient_level: float 
 
 func play(kind: String = "paper") -> void:
 	if muted or _shutdown_complete: return
-	if kind=="cat" and _sfx_volume<=0.0:return
+	if kind in ["cat","camera"] and _sfx_volume<=0.0:return
 	var settings_cue:bool=_settings_feedback_mode and kind in ["paper","snap"]
 	var feedback_key:String="settings_"+kind if settings_cue else kind
 	var cooldown: float = 0.16 if kind == "step" else 0.11
@@ -210,6 +211,7 @@ func play(kind: String = "paper") -> void:
 	elif kind == "tram": gain = -25.0
 	elif kind in ["water","drawer"]:gain=-22.0
 	elif kind == "cat":gain=-19.0
+	elif kind == "camera":gain=-8.0
 	elif kind == "title_hover":gain=-30.0
 	if settings_cue:gain=-18.0 if kind=="paper" else -22.0
 	# Match the denser recording to the other paper variants; retain the source.
@@ -265,7 +267,9 @@ static func _safe_volume(value: Variant, fallback: float) -> float:
 
 func _stream(file: String) -> AudioStream:
 	if not _streams.has(file):
-		if file=="sea_bed.ogg" and FileAccess.file_exists(ROOT+"gentle_ocean_cc0.mp3"):
+		if file=="procedural_camera_shutter":
+			_streams[file]=preload("res://scripts/ui/camera_shutter_sound.gd").make_stream()
+		elif file=="sea_bed.ogg" and FileAccess.file_exists(ROOT+"gentle_ocean_cc0.mp3"):
 			_streams[file]=AudioStreamMP3.load_from_file(ROOT+"gentle_ocean_cc0.mp3")
 		elif file.begins_with("soft_step_"):
 			_streams[file]=AudioStreamWAV.load_from_file(ROOT+file)
