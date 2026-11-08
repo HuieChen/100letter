@@ -54,7 +54,7 @@ func run()->void:
 	var map:Control=game.modal.find_child("Map_post_office",true,false).get_parent()
 	var close:Button
 	for child:Node in game.modal.get_children():
-		if child is Button and child.text=="脳":close=child
+		if child is Button and child.text=="×":close=child
 	await move(Vector2(20,20));close.grab_focus();await settle()
 	var baseline:Image=await frame("neutral")
 	check(map._caption.modulate.a==0.0,"No destination caption when close has focus and pointer is off map")
