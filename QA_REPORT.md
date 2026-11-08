@@ -1,6 +1,6 @@
 ## 2026-11-08 — Ground grass readability
 
-Stronger grass bending and broader leaf response preserve the original art and fixed roots. Standard exported PCK passes 350 scoped checks, 30 grass capture targets and 21 unchanged rigid/root guards; all 680 captured PNGs match the reviewed source. Visible-motion acceptance remains separate from numerical tests. See [GROUND_GRASS_READABILITY_20261108.md](docs/testing/GROUND_GRASS_READABILITY_20261108.md).
+Stronger grass bending and broader leaf response preserve the original art and fixed roots. Final standard exported PCK also preserves concurrent caption-only map main 13d8e5f: 454 scoped checks, 30 grass capture targets and 21 unchanged rigid/root guards; all 680 captured PNGs match the reviewed source. Visible-motion acceptance remains separate from numerical tests. See [GROUND_GRASS_READABILITY_20261108.md](docs/testing/GROUND_GRASS_READABILITY_20261108.md).
 
 ## 2026-11-08 — Street continuity integration
 
