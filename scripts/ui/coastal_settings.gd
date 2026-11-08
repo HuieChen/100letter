@@ -1,5 +1,7 @@
 extends Control
 signal closed
+signal return_title_requested
+signal quit_requested
 signal cue(kind:String)
 signal water_audio(point:Vector2,strength:float,body_contact:bool)
 const UI=preload("res://scripts/ui/paper_ui.gd")
@@ -55,8 +57,10 @@ var _water_canvas:SubViewport
 var _companion_material:ShaderMaterial
 var _companion_pose:Array[Vector4]=[]
 var _water_canvas_updates:=0
-func configure(model:Node) -> void:
+var _in_game:=false
+func configure(model:Node,in_game:bool=false) -> void:
 	preferences=model
+	_in_game=in_game
 	if not preferences.changed.is_connected(_model_changed):preferences.changed.connect(_model_changed)
 	_build()
 func _configure_fonts()->void:
@@ -155,6 +159,9 @@ func _build() -> void:
 	_slider("sensitivity",_t("鼠标灵敏度","Mouse Sensitivity"),658,0.5,2.0)
 	controls.sensitivity.tooltip_text=_t("纸面缩放与平移；物件仍紧随指针。","Paper zoom and pan; held objects remain attached to the pointer.")
 	_option("text_speed",_t("文字显示速度","Text Speed"),Rect2(526,718,274,40),Rect2(804,715,161,42),["slow","normal","fast","instant"],[_t("慢","Slow"),_t("中","Normal"),_t("快","Fast"),_t("即时","Instant")])
+	if _in_game:
+		_session_action("SettingsReturnTitle",_t("保存并回到封面","Save & return to title"),Rect2(526,803,320,54),func():return_title_requested.emit())
+	_session_action("SettingsQuitGame",_t("退出游戏","Quit game"),Rect2(866 if _in_game else 690,803,196,54),func():quit_requested.emit())
 	# A short system status uses the existing clear gap above the first divider,
 	# avoiding both headline typography and interactive tracks/postcard art.
 	# It survives rebuilds via the model, and is absent after a successful save.
@@ -168,6 +175,18 @@ func _build() -> void:
 	else:cross.grab_focus()
 	if not _has_built:_play_entrance()
 	_has_built=true
+
+func _session_action(id:String,label:String,rect:Rect2,action:Callable)->void:
+	var button:=Button.new();button.name=id;button.text=label
+	button.add_theme_font_override("font",_font);button.add_theme_font_size_override("font_size",23)
+	button.add_theme_color_override("font_color",Color("0059ae"))
+	button.set_meta("light_surface",true)
+	for state:String in ["normal","hover","pressed","focus"]:
+		button.add_theme_stylebox_override(state,UI.style(Color("fff9ee"),Color.TRANSPARENT,14))
+	UI.place(button,self,rect);controls[id]=button;_feedback.bind_button(button)
+	button.pressed.connect(func():
+		if _closing:return
+		_release_held_lemon();_save();cue.emit("paper");action.call())
 
 func _focus_loop(items:Array) -> void:
 	for i:int in items.size():

@@ -87,9 +87,9 @@ func _process(delta:float)->void:
 		var down:bool=data.down and not button.disabled
 		data.active=lerpf(data.active,1.0 if active else 0.0,blend)
 		data.press=lerpf(data.press,1.0 if down else 0.0,press_blend)
-		var fill:Color=data.base_fill.lerp(HOVER_INK,data.active).lerp(PRESS_INK,data.press)
-		if data.style!=null and not data.style.bg_color.is_equal_approx(fill):data.style.bg_color=fill
 		var light_surface:bool=button.get_meta("light_surface",false)
+		var fill:Color=data.base_fill.lerp(CREAM,data.active*.4).lerp(Color("eadbc5"),data.press*.5) if light_surface else data.base_fill.lerp(HOVER_INK,data.active).lerp(PRESS_INK,data.press)
+		if data.style!=null and not data.style.bg_color.is_equal_approx(fill):data.style.bg_color=fill
 		var target_color:Color=HOVER_INK if light_surface else (CREAM if data.focus or data.expanded else Color.WHITE)
 		var color:Color=data.base_color.lerp(target_color,data.active)
 		color=color.lerp(PRESS_INK if light_surface else CREAM,data.press)

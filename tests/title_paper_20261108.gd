@@ -62,12 +62,16 @@ func run()->void:
 	await shot("no_save")
 	var start:Button=game.stage.get_node("NewShift")
 	await move(start.get_global_rect().get_center());await create_timer(.2).timeout
-	check(start.art.scale.x>1.0,"hover gently lifts paper")
+	check(start.art.scale==Vector2.ONE and start.art.position.is_equal_approx(Vector2(0,-3)),"hover lifts without stretching lettering or drifting sideways")
+	var options:Button=game.stage.get_node("OpenSettings")
+	await move(options.get_global_rect().get_center());await create_timer(.2).timeout
+	check(start.art.position.is_zero_approx() and options.has_focus(),"pointer selects only one paper instead of retaining the previous focus highlight")
+	await move(start.get_global_rect().get_center());await create_timer(.2).timeout
 	check("title_hover" in cues,"hover produces quiet paper cue")
 	await shot("hover")
 	await mouse(start.get_global_rect().get_center(),true);await create_timer(.1).timeout
 	await RenderingServer.frame_post_draw
-	check(start.art.scale.x<1.0,"held paper compresses: held="+str(start._held)+" scale="+str(start.art.scale))
+	check(start.art.scale==Vector2.ONE and start.art.position.y>0 and start.art.modulate.r<1,"held paper contacts surface without shrinking its label")
 	await shot("pressed")
 	await mouse(start.get_global_rect().get_center(),false);await create_timer(.5).timeout
 	check(game.view=="post_office_room","Start opens playable post office")

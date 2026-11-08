@@ -230,6 +230,7 @@ func _unhandled_input(event:InputEvent) -> void:
 				elif not core.state.active_operation.is_empty(): return
 				else: _close(true)
 			elif view!="title": _pause()
+			else:_request_quit()
 			get_viewport().set_input_as_handled()
 		elif not is_instance_valid(modal) and view in ["world","counter","post_office_room"]:
 			if event.keycode==KEY_M: _map()
@@ -329,7 +330,12 @@ func _title() -> void:
 	var resume:=_cover_button(ink,source_scale,"ContinueShift",Rect2(70,589,600,145),_tr("继续旅程","Continue"),_resume,not core.has_save())
 	var options:=_cover_button(ink,source_scale,"OpenSettings",Rect2(70,734,600,152),_tr("设置","Settings"),_settings_page)
 	if resume.disabled:resume.tooltip_text=_tr("还没有旅程记录","No saved journey yet")
-	var menu:Array=[start,options] if resume.disabled else [start,resume,options]
+	# A quiet secondary action below the three original painted paper strips.
+	var exit_button:=UI.button(stage,_tr("退出游戏","Quit game"),Rect2(84,716,410,58),_request_quit)
+	exit_button.name="QuitGame"
+	exit_button.add_theme_font_size_override("font_size",25)
+	exit_button.mouse_entered.connect(func():sound.play("title_hover"))
+	var menu:Array=[start,options,exit_button] if resume.disabled else [start,resume,options,exit_button]
 	for i:int in range(menu.size()):
 		menu[i].focus_neighbor_top=menu[i].get_path_to(menu[posmod(i-1,menu.size())])
 		menu[i].focus_neighbor_bottom=menu[i].get_path_to(menu[(i+1)%menu.size()])
@@ -1332,7 +1338,10 @@ func _settings_page(return_to_pause:bool=true) -> void:
 	_close()
 	_hide_courier_for_closeup()
 	var settings:=SettingsPage.new();modal=settings
-	UI.place(settings,self,Rect2(0,0,1600,900));settings.configure(preferences)
+	UI.place(settings,self,Rect2(0,0,1600,900));settings.configure(preferences,view!="title")
+	settings.set_meta("return_to_pause",return_pause)
+	settings.return_title_requested.connect(_save_to_title)
+	settings.quit_requested.connect(_request_quit)
 	settings.cue.connect(sound.play)
 	settings.water_audio.connect(sound.play_water_touch)
 	sound.settings_music(true)
@@ -1343,13 +1352,41 @@ func _settings_page(return_to_pause:bool=true) -> void:
 	_update_preference_save_notice()
 
 func _save_to_title() -> void:
-	if not _save_resolution_drafts():return
-	if core.save_game():_title()
-	else:_show_save_problem(_tr("进度还没有保存成功，仍保留在当前场景。","Progress has not been saved. You will stay in the current scene."),core.last_save_error)
+	# Returning to the title honors the same progress/draft safeguards as Quit.
+	if _prepare_quit():_title()
+
+func _request_quit()->void:
+	if busy or _window_close_pending:return
+	if is_instance_valid(modal) and modal.has_meta("quit_confirmation"):return
+	var from_title:=view=="title"
+	var from_settings:bool=is_instance_valid(modal) and modal.get_script()==SettingsPage
+	var return_pause:=bool(modal.get_meta("return_to_pause",true)) if from_settings else true
+	var root:=_overlay()
+	root.set_script(preload("res://scripts/ui/quit_confirmation.gd"))
+	root.set_meta("quit_confirmation",true)
+	var cancel:=_cancel_quit.bind(from_title,from_settings,return_pause)
+	root.cancel_requested.connect(cancel)
+	var paper:=preload("res://scripts/ui/paper_sheet.gd").new();root.add_child(paper)
+	paper.configure(_tr("退出游戏？","Quit game?"),
+		_tr("要结束本次游玩吗？","Ready to leave?") if from_title else _tr("当前进度会保存，下次可以继续旅程。","Your progress will be saved so you can continue next time."),
+		[[_tr("继续游玩","Keep playing"),cancel],[_tr("退出游戏","Quit game") if from_title else _tr("保存并退出游戏","Save and quit"),_close_window_after_save]],cancel)
+	sound.play("paper")
+
+func _cancel_quit(from_title:bool,from_settings:bool=false,return_pause:bool=true)->void:
+	_close(true)
+	if from_settings:
+		_settings_page(return_pause)
+		modal.get_node("SettingsQuitGame").grab_focus.call_deferred()
+	elif from_title:
+		var button:=stage.get_node_or_null("QuitGame") as Button
+		if button!=null:button.grab_focus.call_deferred()
+	else:
+		_pause()
+		modal.get_node("PaperSheet/SheetAction_3").grab_focus.call_deferred()
 
 func _pause(return_from_settings:bool=false) -> void:
 	if busy:return
-	var paper:=_sheet(_tr("暂歇一会儿","Pause"),"",[[_tr("回到场景","Resume"),_close],[_tr("设置","Settings"),_settings_page],[_tr("保存并回到封面","Save and title"),_save_to_title]])
+	var paper:=_sheet(_tr("暂歇一会儿","Pause"),"",[[_tr("回到场景","Resume"),_close],[_tr("设置","Settings"),_settings_page],[_tr("保存并回到封面","Save and title"),_save_to_title],[_tr("退出游戏","Quit game"),_request_quit]])
 	if return_from_settings:
 		# The previous pause sheet was replaced. Restore its logical opener after
 		# the new sheet's default focus callback, including a changed UI language.
