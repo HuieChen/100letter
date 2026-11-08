@@ -27,6 +27,7 @@ def selection(retained_paths=()):
             or room_hash != '5bef8c44b16c09eb31d60395b6b4d56b11b574d9ba70acdd2ccb2f8de1e04e8b'):
         raise ValueError('Supplied postal interior differs from the authorized original.')
     paths = {'res://scenes/final_slice.tscn',
+             'res://assets/ui/confirmation_20261109/rounded_paper.png',
              'res://scripts/rebuild/field_book.gd',
              'res://scripts/rebuild/field_observation.gd',
              'res://assets/fonts/SolmereSans.ttf',

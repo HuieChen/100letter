@@ -69,7 +69,7 @@ func run()->void:
 		check(map.material==null,id+" no lighting shader is applied to the map")
 		check(map._caption.modulate.a==1.0,id+" location caption provides visible selection feedback")
 		check(map._caption.text==Map.DESTINATION_NAMES[id][0],id+" caption names the exact landmark")
-		check(map._caption.get_global_rect().position.y>=map.get_global_rect().end.y,id+" caption stays below supplied artwork")
+		check(map._caption.get_global_rect().end.y<map.get_global_rect().position.y,id+" caption stays above supplied artwork")
 		check(map._caption.focus_mode==Control.FOCUS_NONE and map._caption.mouse_filter==Control.MOUSE_FILTER_IGNORE,id+" caption does not intercept navigation")
 	var community:Button=map.get_node("Map_community_center")
 	await move(community.get_global_rect().get_center());await settle()

@@ -385,7 +385,7 @@ func _stage_plan(id:String) -> Dictionary:
 func _start() -> void:
 	if core.has_save():
 		sound.play("paper")
-		_sheet(_tr("开启新的旅程？","A new journey?"), _tr("这会替换当前旅程的进度。","This will replace your current journey's progress."),[[_tr("继续当前旅程","Continue current journey"),_resume],[_tr("开始新旅程","Start new journey"),_fresh]])
+		_sheet(_tr("开启新的旅程？","A new journey?"), _tr("这会替换当前旅程的进度。","This will replace your current journey's progress."),[[_tr("继续当前旅程","Continue current journey"),_resume],[_tr("开始新旅程","Start new journey"),_fresh]],true)
 	else: _fresh()
 
 func _fresh() -> void:
@@ -893,11 +893,11 @@ func _overlay() -> Control:
 	_hide_courier_for_closeup()
 	return modal
 
-func _sheet(title:String, copy:String, actions:Array) -> Control:
+func _sheet(title:String, copy:String, actions:Array,rounded_actions:bool=false) -> Control:
 	var root:=_overlay()
 	var paper:=preload("res://scripts/ui/paper_sheet.gd").new()
 	root.add_child(paper)
-	paper.configure(title,copy,actions,_close.bind(true))
+	paper.configure(title,copy,actions,_close.bind(true),rounded_actions)
 	return paper
 
 func _bag(focus_letter:String="",feedback:bool=true) -> void:
@@ -1388,7 +1388,7 @@ func _request_quit()->void:
 	var paper:=preload("res://scripts/ui/paper_sheet.gd").new();root.add_child(paper)
 	paper.configure(_tr("退出游戏？","Quit game?"),
 		_tr("要结束本次游玩吗？","Ready to leave?") if from_title else _tr("当前进度会保存，下次可以继续旅程。","Your progress will be saved so you can continue next time."),
-		[[_tr("继续游玩","Keep playing"),cancel],[_tr("退出游戏","Quit game") if from_title else _tr("保存并退出游戏","Save and quit"),_close_window_after_save]],cancel)
+		[[_tr("继续游玩","Keep playing"),cancel],[_tr("退出游戏","Quit game") if from_title else _tr("保存并退出游戏","Save and quit"),_close_window_after_save]],cancel,true)
 	sound.play("paper")
 
 func _cancel_quit(from_title:bool,from_settings:bool=false,return_pause:bool=true)->void:

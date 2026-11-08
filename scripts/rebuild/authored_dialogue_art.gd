@@ -1,7 +1,7 @@
 extends RefCounted
 const BASE="res://assets/authoring/dialogue_20261104/"
 const CAST_BASE="res://assets/authoring/cast_20261105/"
-const REPLACEMENTS={"chef_source.jpg":"chef_portrait.png","chef_chibi_source.jpg":"chef_chibi.png","courier_source.jpg":"courier_portrait.png","cast/record_clerk_chibi.png":"record_clerk_source_20261105.png","cast/record_clerk_portrait.png":"record_clerk_source_20261105.png"}
+const REPLACEMENTS={"chef_source.jpg":"chef_portrait.png","chef_chibi_source.jpg":"chef_chibi.png","courier_source.jpg":"courier_portrait.png","cast/record_clerk_chibi.png":"record_clerk_source_20261105.png"}
 static var cache:Dictionary={}
 static func is_character(file:String)->bool:
 	return REPLACEMENTS.has(file) or file.begins_with("cast/")
@@ -16,7 +16,7 @@ static func texture(file:String, crop:bool=true)->Texture2D:
 	var tex:=ImageTexture.create_from_image(pixels)
 	var bounds:=pixels.get_used_rect()
 	if file=="paper_dialogue.png":bounds=Rect2i(200,225,2583,731)
-	if file in ["cast/record_clerk_chibi.png","cast/record_clerk_portrait.png"]:
+	if file=="cast/record_clerk_chibi.png":
 		# Main subject only; omit the original file's isolated far-right paint fleck.
 		# This is an atlas sample. The supplied PNG bytes remain unchanged.
 		bounds=Rect2i(1018,199,532,1305)

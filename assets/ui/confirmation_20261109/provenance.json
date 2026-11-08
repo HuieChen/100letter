@@ -1,0 +1,9 @@
+{
+  "prompt": "Use case: stylized-concept. Production-ready 2D game UI button sprite for a warm hand-painted seaside letter-writing adventure. One blank horizontal rounded ivory paper label, roughly 5:1, transparent surrounding canvas, softly rounded irregular handmade corners, delicate warm paper grain, restrained Procreate dry-brush edges, narrow warm beige paper underlayer. Flat front view, broad blank center for live text. No text, symbols, icons, decorative objects, outline, pink divider, black edge, rectangular background, dramatic shadow, gradient shine, bevel or 3D. Opaque cream paper and real surrounding alpha.",
+  "source": "exec-d8ac0cf3-8140-4d15-a14c-06304a33f168.png",
+  "generator": "built-in image_gen",
+  "integration": "Immutable PNG sampled through a runtime atlas rectangle. Live bilingual text uses DearRounded; stable hit target with 2px focus lift and press feedback.",
+  "sha256": "5131c2f5019797b7c7455adf93ad31b58e5d1c2cb84a012d86c35fb240ac26dd",
+  "alpha": true,
+  "date": "2026-11-09"
+}

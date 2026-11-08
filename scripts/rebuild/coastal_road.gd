@@ -162,17 +162,13 @@ func _ready()->void:
   entry_hint.pressed.connect(_request_entry)
   entry_hint.hide()
  if family=="postal":
-  var cat_hotspot:=Control.new()
+  var cat_hotspot:=preload("res://scripts/rebuild/rooftop_cat.gd").new()
   cat_hotspot.name="RooftopCatHotspot"
   cat_hotspot.z_index=4
-  cat_hotspot.mouse_filter=Control.MOUSE_FILTER_STOP
-  cat_hotspot.mouse_default_cursor_shape=Control.CURSOR_POINTING_HAND
+  cat_hotspot.allowed=func():return not can_walk.is_valid() or can_walk.call()
+  cat_hotspot.language=func():return locale
   UI.place(cat_hotspot,world,Rect2(Vector2(3870,236)*1.5,Vector2(91,68)*1.5))
-  cat_hotspot.gui_input.connect(func(event:InputEvent):
-   if not event is InputEventMouseButton or not event.pressed or event.button_index!=MOUSE_BUTTON_LEFT:return
-   if can_walk.is_valid() and not can_walk.call():return
-   get_viewport().set_input_as_handled()
-   cat_requested.emit())
+  cat_hotspot.meowed.connect(func():cat_requested.emit())
  UI.button(self,"↩",Rect2(30,28,72,64),func():map_requested.emit()).name="RoadMapReturn"
  set_time_of_day(float(minute))
 
