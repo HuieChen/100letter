@@ -4,7 +4,11 @@ uniform sampler2D foregrass_backmap : filter_nearest, repeat_disable;
 uniform bool foregrass_enabled=false;
 uniform bool foregrass_fountain_only=false;
 uniform bool foregrass_postal=false;
-float fg_load(float t){return .62*sin(t*.73)+.25*sin(t*1.21+.6)+.13*sin(t*2.05+1.7);}
+float fg_load(float t){
+ // Quicker, readable gust response while preserving the original 1.7px sweep.
+ float load=.62*sin(t*1.05)+.25*sin(t*1.63+.6)+.13*sin(t*2.35+1.7);
+ return 1.45*load/sqrt(1.0+1.1025*load*load);
+}
 vec2 fg_shift(vec2 p,float t){
  if(foregrass_postal){
   float top=479.0;
@@ -12,7 +16,7 @@ vec2 fg_shift(vec2 p,float t){
   if(p.x>620.0)top=499.0;
   if(p.x>2800.0)top=p.x<2894.0?501.0:498.0;
   float free=1.0-smoothstep(top,512.0,p.y);
-  return vec2(1.7*fg_load(t-p.x/900.0)*pow(free,1.3),0.0);
+  return vec2(1.7*fg_load(t-p.x/900.0)*pow(free,.75),0.0);
  }
  if(p.x>5886.0&&p.x<5967.0){
   // Five separate original blades stand in front of two painted flower pots.
@@ -20,20 +24,20 @@ vec2 fg_shift(vec2 p,float t){
   float top=p.x<5909.0?490.0:(p.x<5924.0?479.0:(p.x<5939.0?481.0:(p.x<5951.0?492.0:479.0)));
   float bottom=p.x<5951.0?513.0:501.0;
   float free=1.0-smoothstep(top,bottom,p.y);
-  return vec2(1.6*fg_load(t-6.35-(p.x-5888.0)*.008)*pow(free,1.3),0.0);
+  return vec2(1.6*fg_load(t-6.35-(p.x-5888.0)*.008)*pow(free,.75),0.0);
  }
  if(p.x>643.0&&p.x<701.0){
   // Original small blades in front of the patterned fountain wall.
   float top=p.x<658.0?489.0:(p.x<678.0?487.0:(p.x<686.0?493.0:503.0));
   float free=1.0-smoothstep(top,513.0,p.y);
-  return vec2(1.7*fg_load(t-.74-(p.x-647.0)*.008)*pow(free,1.3),0.0);
+  return vec2(1.7*fg_load(t-.74-(p.x-647.0)*.008)*pow(free,.75),0.0);
  }
  float top=491.0;float lag=.5;
  if(p.x>6000.0){lag=6.7;}
  if(p.x>6700.0){top=477.0;lag=7.6;}
  float free=1.0-smoothstep(top,513.0,p.y);
  // Visible at the normal game scale, within the original two-pixel AA sweep.
- return vec2(1.7*fg_load(t-lag)*pow(free,1.3),0.0);
+ return vec2(1.7*fg_load(t-lag)*pow(free,.75),0.0);
 }
 vec3 fg_background_pixel(sampler2D art,ivec2 pixel,vec2 texel){
  vec4 key=texelFetch(foregrass_backmap,pixel,0);
