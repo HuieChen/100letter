@@ -69,9 +69,17 @@ func _ready()->void:
  if period_textures.size()!=4:return
  if family=="postal":
   # Register the nine morning end props to the other phases; originals stay immutable.
-  var patch:=Image.load_from_file("res://assets/authoring/street_registration_20261106/postal_morning_cluster_patch.png")
-  var registered:=preload("res://scripts/rebuild/postal_morning_registration.gd").apply(period_textures[0].get_image(),patch)
-  period_textures[0]=ImageTexture.create_from_image(registered)
+  var original_morning:Array[Texture2D]=[period_textures[0]]
+  var registered_textures:=TextureCache.derived_textures(family,"postal_morning",original_morning)
+  if registered_textures.is_empty():
+   var patch:=Image.load_from_file("res://assets/authoring/street_registration_20261106/postal_morning_cluster_patch.png")
+   var registration=preload("res://scripts/rebuild/postal_morning_registration.gd")
+   var registered:Image=registration.apply(period_textures[0].get_image(),patch)
+   registered_textures.append(ImageTexture.create_from_image(registered))
+   # Keep the existing fallback, but retry a missing/invalid patch next entry.
+   if patch!=null and patch.get_size()==registration.PATCH_SIZE and registered.get_size()==registration.SOURCE_SIZE:
+    TextureCache.retain_derived(family,"postal_morning",original_morning,registered_textures)
+  period_textures[0]=registered_textures[0]
  world=Control.new()
  # Display the original art lower and slightly larger. The viewport crops
  # the bottom export strip without modifying any supplied source pixels.
@@ -127,7 +135,7 @@ func _ready()->void:
   # Every panorama, including postal, contains the old painted water.
   # Clear only that water behind the supplied animation to avoid doubled edges.
   fountain_background=preload("res://scripts/rebuild/fountain_background_patch.gd").new()
-  fountain_background.configure(period_textures,fountain_rect)
+  fountain_background.configure(period_textures,fountain_rect,family)
   world.add_child(fountain_background)
   UI.place(fountain,world,Rect2(fountain_rect.position*1.5,fountain_rect.size*1.5))
   fountain.modulate={"morning":Color(0.97,0.97,1.0),"noon":Color.WHITE,"sunset":Color(1.0,0.87,0.72),"night":Color(0.45,0.47,0.72)}[period]

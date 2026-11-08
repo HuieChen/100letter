@@ -31,10 +31,13 @@ func run():
  var view:=SubViewport.new();view.size=Vector2i(1280,720);view.render_target_update_mode=SubViewport.UPDATE_ALWAYS;root.add_child(view)
  var observed:Dictionary={}
  var first_mask:WeakRef
+ var first_patch:WeakRef
  for family:String in ["community","residential","postal","coastal"]:
   var a=make_road(family,view);await capture(view)
   var cache_texture:Texture2D=a.atmosphere_material.get_shader_parameter("foliage_clearance")
-  if family=="community":first_mask=weakref(cache_texture)
+  if family=="community":
+   first_mask=weakref(cache_texture)
+   first_patch=weakref(a.fountain_background.period_textures[0])
   var original:=Image.load_from_file("res://assets/authoring/street_motion_masks_20261103/%s_foliage_clearance.png"%family)
   check(cache_texture.get_image().get_data()==original.get_data(),family+" cached mask preserves original bytes")
   var samples:Array[Vector3]=[Vector3(720,1.25,.34),Vector3(1120,5.5,.68),Vector3(1200,2.0,0)]
@@ -50,6 +53,9 @@ func run():
    check(a.cloud_material.get_shader_parameter(parameter)==b.cloud_material.get_shader_parameter(parameter),family+" repeat entry shares cloud "+parameter)
   for i:int in a.fountain_frames.size():
    check(a.fountain_frames[i]==b.fountain_frames[i],family+" repeat entry shares original fountain frame "+str(i))
+  for i:int in 4:
+   check(a.fountain_background.period_textures[i]==b.fountain_background.period_textures[i],family+" repeat entry reuses unchanged fountain background "+str(i))
+  if family=="postal":check(a.period_textures[0]==b.period_textures[0],"Postal registration is not uploaded again on re-entry")
   for i:int in samples.size():
    var s:Vector3=samples[i];b.set_time_of_day(s.x);b.set_weather_time(s.y);b.set_fountain_time(s.z)
    var actual:=await capture(view)
@@ -60,6 +66,7 @@ func run():
   view.remove_child(b);a.free();b.free();cache_texture=null;original=null;expected.clear()
   await process_frame
  check(first_mask!=null and first_mask.get_ref()==null,"Evicted family's masks release after its last road closes")
+ check(first_patch!=null and first_patch.get_ref()==null,"Evicted family's runtime patch releases after its last road closes")
  view.queue_free();await process_frame
  FileAccess.open(out+"receipt.json",FileAccess.WRITE).store_string(JSON.stringify({"checks":checks,"failures":failures,"observed_entry_ms":observed,"method":"Actual Road repeated entry; source-mask byte identity, three framebuffer phases, shared immutable textures and two-family lifetime. Timings describe this QA process, not promised FPS."},"  "))
  print("STREET_ASSET_REUSE ",checks," checks / ",failures.size()," failures")

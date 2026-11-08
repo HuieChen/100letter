@@ -2,6 +2,7 @@ extends TextureRect
 # Derive each family's mask from its own noon source. Original Image
 # objects and animation bytes are never modified. Insert immediately before the
 # fountain node; call set_time_of_day alongside the road's existing time update.
+const TextureCache=preload("res://scripts/rebuild/street_texture_cache.gd")
 const Atmosphere=preload("res://scripts/rebuild/street_atmosphere.gd")
 const PATCH=Rect2i(488,380,123,67)
 const REGIONS=[Rect2i(488,380,16,20),Rect2i(598,382,13,20),Rect2i(502,390,21,57),Rect2i(588,390,13,57)]
@@ -14,7 +15,7 @@ var horizon_range:Vector2i
 var period_textures:Array[Texture2D]=[]
 var patch_material:ShaderMaterial
 
-func configure(sources:Array[Texture2D],fountain_rect_source_pixels:Rect2=BASE_FOUNTAIN)->void:
+func configure(sources:Array[Texture2D],fountain_rect_source_pixels:Rect2=BASE_FOUNTAIN,family:String="")->void:
  assert(sources.size()==4)
  var ratio:=fountain_rect_source_pixels.size/BASE_FOUNTAIN.size
  var offset:=fountain_rect_source_pixels.position-BASE_FOUNTAIN.position*ratio
@@ -26,6 +27,22 @@ func configure(sources:Array[Texture2D],fountain_rect_source_pixels:Rect2=BASE_F
   regions.append(_map_rect(REGIONS[k],ratio,offset))
   donors_by_region.append(Vector2i(roundi(float(DONORS[k].x)*ratio.x+offset.x),roundi(float(DONORS[k].y)*ratio.x+offset.x)))
  horizon_range=Vector2i(ceili(418.0*ratio.y+offset.y-0.001),floori(441.0*ratio.y+offset.y+0.001))
+ period_textures=TextureCache.derived_textures(family,"fountain_background",sources,str(fountain_rect_source_pixels))
+ if period_textures.is_empty():
+  _build_period_textures(sources)
+  TextureCache.retain_derived(family,"fountain_background",sources,period_textures,str(fountain_rect_source_pixels))
+ expand_mode=TextureRect.EXPAND_IGNORE_SIZE
+ mouse_filter=Control.MOUSE_FILTER_IGNORE
+ position=Vector2(patch_rect.position)*1.5
+ size=Vector2(patch_rect.size)*1.5
+ patch_material=ShaderMaterial.new()
+ var patch_shader:=Shader.new()
+ patch_shader.code="shader_type canvas_item; render_mode unshaded; uniform sampler2D next_art : source_color, filter_linear, repeat_disable; uniform float light_mix=0.0; void fragment(){COLOR=mix(texture(TEXTURE,UV),texture(next_art,UV),light_mix);}"
+ patch_material.shader=patch_shader
+ material=patch_material
+ set_time_of_day(720.0)
+
+func _build_period_textures(sources:Array[Texture2D])->void:
  var reference:Image=sources[1].get_image()
  var masks:Array[PackedVector2Array]=[]
  for k in range(regions.size()):
@@ -66,16 +83,6 @@ func configure(sources:Array[Texture2D],fountain_rect_source_pixels:Rect2=BASE_F
     edge.a=0.0
     patch.set_pixel(edge_x,edge_y,edge)
   period_textures.append(ImageTexture.create_from_image(patch))
- expand_mode=TextureRect.EXPAND_IGNORE_SIZE
- mouse_filter=Control.MOUSE_FILTER_IGNORE
- position=Vector2(patch_rect.position)*1.5
- size=Vector2(patch_rect.size)*1.5
- patch_material=ShaderMaterial.new()
- var patch_shader:=Shader.new()
- patch_shader.code="shader_type canvas_item; render_mode unshaded; uniform sampler2D next_art : source_color, filter_linear, repeat_disable; uniform float light_mix=0.0; void fragment(){COLOR=mix(texture(TEXTURE,UV),texture(next_art,UV),light_mix);}"
- patch_material.shader=patch_shader
- material=patch_material
- set_time_of_day(720.0)
 
 func set_time_of_day(value:float)->void:
  if period_textures.size()!=4:return
