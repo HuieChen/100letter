@@ -404,6 +404,8 @@ func take_photo()->void:
 	if _review.visible:_leave_review()
 	if _review.visible:return
 	capture_busy=true;_capture_pending_save=true;shutter.disabled=true
+	# Sound follows the accepted shutter, not disk-write completion.
+	cue.emit("camera")
 	_status("")
 	hide()
 	await RenderingServer.frame_post_draw
@@ -425,7 +427,7 @@ func take_photo()->void:
 	var suffix:=0
 	while FileAccess.file_exists(path):suffix+=1;path=save_directory.path_join(stem+"_"+str(suffix)+".png")
 	if pixels.save_png(path)!=OK:_capture_failed(_t("照片没能保存，请重试","Could not save photo. Try again."));return
-	last_photo_path=path;gallery_paths.append(path);_refresh_count();_refresh_thumbnail();photo_saved.emit(path);cue.emit("camera")
+	last_photo_path=path;gallery_paths.append(path);_refresh_count();_refresh_thumbnail();photo_saved.emit(path)
 	_finish_capture_save()
 	if _closing or not is_inside_tree():return
 	await _develop(ImageTexture.create_from_image(pixels))
