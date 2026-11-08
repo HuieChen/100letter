@@ -10,9 +10,9 @@ Primary pages checked on 2026-11-08: [Carto](https://store.steampowered.com/app/
 
 ## Frozen integration and validation
 
-Runtime commit `c53bfc3` is based on main `e7630c96efe23d6200ce426bb1a18451bfaec2f3`, preserving the newer supplied title, paper menu, camera, street and input-recovery work. The export-selection conflict was resolved by regenerating the resource list from the combined source.
+Runtime commit `ad34bd9` is based on main `dbc6fdb`, preserving the newer supplied title, paper menu, camera, street, input-recovery and bag-navigation work. The export-selection conflict was resolved by regenerating the resource list from the combined source. The final R2 package was built from `628c869`; later documentation changes do not alter its runtime.
 
-Final Windows PCK SHA-256: `3cdf51a32d4ebf3b240ed531af444a1e011ef92577d55c6be69b14ea4200f56b`. The build audit verifies 1,116 mounted entries and 172 raw files. Build used `-SkipChecks` because checks ran separately on this actual frozen PCK, mounted from empty hosts with isolated userdata.
+Final R2 Windows PCK SHA-256: `49ee8ed87df30c37b0b7e12cf0345b3e064c63a2a407081cbef9e251d60c8982`. The build audit verifies 1,116 mounted entries and 172 raw files. Build used `-SkipChecks` because checks ran separately on this actual frozen PCK, mounted from empty hosts with isolated userdata. Earlier 3cdf51a3 candidate evidence is retained separately; it predates the bag-navigation integration.
 
 | Actual-PCK check | Passed |
 | --- | ---: |
@@ -25,7 +25,11 @@ Final Windows PCK SHA-256: `3cdf51a32d4ebf3b240ed531af444a1e011ef92577d55c6be69b
 | Pointer and window-focus behavior | 15 |
 | Map-held direction close and travel integration probe | 23 |
 | Current Host audio teardown | 27 |
-| Total | 571 |
+| Bag tab focus and remembered photo position | 30 |
+| Photo pocket streaming and damaged-image recovery | 70 |
+| Total | 671 |
+
+The photo-streaming suite's only decoder errors identify its deliberately corrupt `user://qa/photo-pocket/.../photos/DearSomewhere_9999.png` fixture. There were no unexpected script, shader or teardown errors in the completed suites.
 
 For both map-close and actual map travel, the integration probe measured 0 px of carried-key movement; releasing and pressing again moved approximately 32.64 px. Map actions use real Host input. Movement sampling uses deterministic 120 Hz stepping and simulated focus, as in the existing walker suite. Earlier probe type-declaration, offscreen-window and delayed-focus fixture failures remain in separate logs and are not included as passes.
 
@@ -33,6 +37,8 @@ The final package's 7-second, 60-fps preview was recorded again through Godot Mo
 
 The official release executable booted for 120 GPU frames and exited 0. Its forced `--quit-after` exit reports 20 ObjectDB instances and 3 resources still in use. The previous main package `f20273e75f0bd5d4f19b3055cb77e0ba83c24057a8edb01bb3c90a9ee63c125f` reproduces the same diagnostic. Explicit Host/audio teardown passes without errors or leaks; forced-exit cleanup is not claimed fixed. The seven historical walker-animation assertions recorded in INPUT_RECOVERY_20261108.md were not rerun or declared fixed here.
 
-Evidence is retained under the task workspace: `package-qa-map-soft-focus-final`, `package-qa-map-final-regression`, `package-qa-map-held-input-20261108-153000`, the pointer result in `package-qa-map-held-input-20261108-152848`, and `map-shutdown-comparison-20261108`. The build audit is `test-results/package-20261108-151935/export-audit.json`.
+Final evidence is retained under the task workspace: `package-qa-map-soft-focus-final-r2`, `package-qa-map-final-r2-regression`, and `package-qa-map-held-input-r2-20261108-154107`. The prior forced-exit comparison remains in `map-shutdown-comparison-20261108`. The final build audit is `test-results/package-20261108-153648/export-audit.json`.
+
+The first R2 movie attempt ran out of C-drive space and was rejected; a Python report read also initially used the wrong Windows text encoding. Both logs are retained. Only this task's generated AVI and large build-cache entries were copied to D-drive archives, individually SHA-256/length verified, then removed from their C-drive cache locations. Audit JSON and logs remain at their original paths. Migration manifests are `D:/CodexArchives/DearSomewhere-map-recordings-20261108/migration-manifest.json` and `D:/CodexArchives/DearSomewhere-map-build-cache-20261108/migration-manifest.json`. The final R2 movie was recorded again successfully with raw output on D; deliverable MP4/PNG are in the final R2 output folder.
 
 No OS input or player-save modification was used. Native/manual play, listening, full-story completion and human aesthetic acceptance remain separate; this is a scoped map-feedback update to the opened exploration demo.
