@@ -1,5 +1,7 @@
 # Map destination feedback — 2026-11-08
 
+Superseded: the user found the lighting too conspicuous. The current caption-only treatment and its fresh package checks are recorded in [MAP_PAPER_FEEDBACK_20261108.md](MAP_PAPER_FEEDBACK_20261108.md). The results below describe the earlier lighting version, not user acceptance.
+
 The runtime selection chevron is replaced with a feathered light over the existing destination artwork and a quiet bilingual location caption below the map. Hover and keyboard changes fade over 0.16 seconds; pressing lowers the light over 0.08 seconds. There is no idle pulse, image distortion or route-line overlay. The 13 existing targets, actual travel routes, latest-input selection, cancellation and focus behavior are preserved.
 
 The original map remains byte-identical: `scroll_map_v2.png`, SHA-256 `3ace307814071c4bb8990a6eb52b28f70cfcbaa9806f9b20a167dd53cc67d815`. Painted arrows already in that supplied illustration are untouched; the removed arrow is the runtime selection marker.
