@@ -54,7 +54,7 @@ func run()->void:
 	var map:Control=game.modal.find_child("Map_post_office",true,false).get_parent()
 	var close:Button
 	for child:Node in game.modal.get_children():
-		if child is Button and child.text=="×":close=child
+		if child is Button and child.text=="脳":close=child
 	await move(Vector2(20,20));close.grab_focus();await settle()
 	var baseline:Image=await frame("neutral")
 	check(map._caption.modulate.a==0.0,"No destination caption when close has focus and pointer is off map")
@@ -65,26 +65,27 @@ func run()->void:
 		var allowed:=button.get_global_rect().grow(maxf(button.size.x,button.size.y)*.08+4.0)
 		var delta:=compare(baseline,current,map.get_global_rect(),allowed)
 		measurements[id]=delta
-		check(delta.changed_samples>20,id+" original pigment receives visible local illumination")
-		check(delta.outside_samples==0,id+" no pointer, outline or unrelated-area pixels outside feathered target")
-		check(delta.darker_samples==0,id+" focus only lifts original pigment without displacement shadows")
+		check(delta.changed_samples==0,id+" original artwork stays unchanged on hover")
+		check(map.material==null,id+" no lighting shader is applied to the map")
+		check(map._caption.modulate.a==1.0,id+" location caption provides visible selection feedback")
 		check(map._caption.text==Map.DESTINATION_NAMES[id][0],id+" caption names the exact landmark")
 		check(map._caption.get_global_rect().position.y>=map.get_global_rect().end.y,id+" caption stays below supplied artwork")
 		check(map._caption.focus_mode==Control.FOCUS_NONE and map._caption.mouse_filter==Control.MOUSE_FILTER_IGNORE,id+" caption does not intercept navigation")
 	var community:Button=map.get_node("Map_community_center")
 	await move(community.get_global_rect().get_center());await settle()
 	var focused:Image=await frame("community_focus")
+	var resting_caption_y:float=map._caption.position.y
 	await press(community.get_global_rect().get_center(),true);await settle(.10)
 	var pressed:Image=await frame("community_pressed")
 	var response:=compare(pressed,focused,map.get_global_rect(),community.get_global_rect().grow(15))
-	check(response.changed_samples>20 and response.total_lift>0.0,"Held press quietly reduces light without moving the map")
+	check(response.changed_samples==0 and map._caption.position.y>resting_caption_y+1.5,"Held press moves only the paper caption while map pixels stay identical")
 	await move(Vector2(20,20));await press(Vector2(20,20),false);close.grab_focus();await settle()
 	check(not game.busy,"Canceled press does not travel")
 	var faded:Image=await frame("neutral_after_release")
-	check(compare(baseline,faded,map.get_global_rect(),Rect2()).changed_samples==0,"Focus fades back to exact original display")
+	check(compare(baseline,faded,map.get_global_rect(),Rect2()).changed_samples==0,"Canceled press preserves exact original display")
 	await move(community.get_global_rect().get_center());await settle()
 	var idle_one:Image=await frame();await settle(.4);var idle_two:Image=await frame()
-	check(compare(idle_one,idle_two,map.get_global_rect(),Rect2()).changed_samples==0,"Settled focus has no perpetual pulse")
+	check(compare(idle_one,idle_two,map.get_global_rect(),Rect2()).changed_samples==0,"Original map remains static without lighting or pulse")
 	for locale:String in ["zh","en"]:
 		game.preferences.set_value("language",locale)
 		for dimensions:Vector2i in [Vector2i(1280,720),Vector2i(1920,1080),Vector2i(2560,1440)]:
@@ -100,5 +101,5 @@ func run()->void:
 	check(map._active_destination()==map.get_node("Map_chess_stall") and map._caption.text=="Chess corner","Keyboard target and caption agree despite stationary community hover")
 	await key(KEY_ESCAPE);await settle();check(not is_instance_valid(game.modal),"Escape closes the complete focus surface")
 	game.sound.shutdown();await settle(.3);game.queue_free();await process_frame;view.queue_free();await process_frame
-	FileAccess.open(out+"receipt.json",FileAccess.WRITE).store_string(JSON.stringify({"checks":checks,"failures":failures,"measurements":measurements,"source_map_sha256":ORIGINAL_SHA,"method":"Actual production Host offscreen GPU; source-art pixel-delta bounds, real input and bilingual responsive captures. No OS-input or user aesthetic acceptance implied."},"  "))
+	FileAccess.open(out+"receipt.json",FileAccess.WRITE).store_string(JSON.stringify({"checks":checks,"failures":failures,"measurements":measurements,"source_map_sha256":ORIGINAL_SHA,"method":"Actual production Host offscreen GPU; unchanged source-art pixels during all hover/press states, real input and bilingual responsive captures. No OS-input or user aesthetic acceptance implied."},"  "))
 	print("MAP_SOFT_FOCUS ",checks," checks / ",failures.size()," failures");quit(0 if failures.is_empty() else 1)

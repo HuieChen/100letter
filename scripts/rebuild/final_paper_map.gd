@@ -1,7 +1,6 @@
 extends Control
-## Exact supplied map: local light identifies a destination without adding pointers.
+## Exact supplied map: destination feedback stays on a small paper caption.
 const PhysicalArt=preload("res://scripts/rebuild/physical_art.gd")
-const FocusShader=preload("res://scripts/rebuild/map_soft_focus.gdshader")
 const SOURCE_REGION:=Rect2(128,12,1875,1341)
 # Rectangles follow buildings in the new scroll's original source pixels.
 const SOURCE_HOTSPOTS=[
@@ -29,8 +28,6 @@ var _hovered_destination:Button
 var _pressed_destination:Button
 var _keyboard_navigation:=false
 var _last_pointer_position:=Vector2.INF
-var _focus_material:ShaderMaterial
-var _focus_weights:=PackedFloat32Array()
 var _caption:Label
 var _caption_alpha:=0.0
 var _press_amount:=0.0
@@ -41,28 +38,22 @@ var route_progress:=0.0:
 	set(value):route_progress=value;queue_redraw()
 func _ready()->void:
 	mouse_filter=Control.MOUSE_FILTER_IGNORE
-	_focus_material=ShaderMaterial.new();_focus_material.shader=FocusShader;material=_focus_material
-	var regions:Array[Vector4]=[]
-	for entry:Array in SOURCE_HOTSPOTS:
-		var area:Rect2=entry[1]
-		regions.append(Vector4(area.get_center().x,area.get_center().y,area.size.x*.5,area.size.y*.5))
-		_focus_weights.append(0.0)
-	_focus_material.set_shader_parameter("focus_regions",regions)
-	_focus_material.set_shader_parameter("focus_weights",_focus_weights)
 	_caption=Label.new();_caption.name="MapDestinationCaption"
 	_caption.mouse_filter=Control.MOUSE_FILTER_IGNORE;_caption.horizontal_alignment=HORIZONTAL_ALIGNMENT_CENTER
 	_caption.vertical_alignment=VERTICAL_ALIGNMENT_CENTER;_caption.autowrap_mode=TextServer.AUTOWRAP_OFF
 	_caption.add_theme_font_size_override("font_size",25);_caption.add_theme_color_override("font_color",Color("554531"))
-	var paper:=StyleBoxFlat.new();paper.bg_color=Color("f6ead2");paper.set_corner_radius_all(5)
-	paper.shadow_color=Color(0.17,0.14,0.10,0.16);paper.shadow_size=2;paper.shadow_offset=Vector2(0,2)
+	var paper:=StyleBoxFlat.new();paper.bg_color=Color("f6ead2");paper.bg_color.a=.86;paper.set_corner_radius_all(3)
 	_caption.add_theme_stylebox_override("normal",paper)
-	add_child(_caption);_caption.size=Vector2(440,44)
+	add_child(_caption);_caption.size=Vector2(168,40)
 	resized.connect(_layout_caption);_layout_caption()
 	_caption.modulate.a=0.0
 	get_viewport().gui_focus_changed.connect(_map_focus_changed)
 	_focus_destination.call_deferred()
 func _layout_caption()->void:
-	if is_instance_valid(_caption):_caption.position=Vector2((size.x-_caption.size.x)*.5,size.y+10)
+	if not is_instance_valid(_caption):return
+	var text_width:=_caption.get_theme_font("font").get_string_size(_caption.text,HORIZONTAL_ALIGNMENT_LEFT,-1,_caption.get_theme_font_size("font_size")).x
+	_caption.size=Vector2(clampf(text_width+48.0,168.0,340.0),40)
+	_caption.position=Vector2((size.x-_caption.size.x)*.5,size.y+10+2.0*_press_amount)
 func _focus_destination()->void:
 	# The host adds the hit regions after this map enters the tree.
 	if not is_inside_tree():return
@@ -108,20 +99,14 @@ func _input(event:InputEvent)->void:
 func _process(delta:float)->void:
 	var selected:Button=_active_destination()
 	var destination:=str(selected.name).trim_prefix("Map_") if is_instance_valid(selected) else ""
-	var changed:=false
-	for index:int in SOURCE_HOTSPOTS.size():
-		var target:=1.0 if str(SOURCE_HOTSPOTS[index][0])==destination else 0.0
-		var next:=move_toward(_focus_weights[index],target,delta/FADE_SECONDS)
-		if next!=_focus_weights[index]:_focus_weights[index]=next;changed=true
-	if changed:_focus_material.set_shader_parameter("focus_weights",_focus_weights)
-	var press:=move_toward(_press_amount,1.0 if is_instance_valid(_pressed_destination) else 0.0,delta/.08)
-	if press!=_press_amount:_press_amount=press;_focus_material.set_shader_parameter("press_amount",press)
+	_press_amount=move_toward(_press_amount,1.0 if is_instance_valid(_pressed_destination) else 0.0,delta/.08)
 	if not destination.is_empty():
 		var names:Array=DESTINATION_NAMES.get(destination,[destination,destination])
 		var host:=_host()
 		_caption.text=host._tr(names[0],names[1]) if host!=null else str(names[0])
 	_caption_alpha=move_toward(_caption_alpha,1.0 if not destination.is_empty() else 0.0,delta/FADE_SECONDS)
 	_caption.modulate.a=_caption_alpha
+	_layout_caption()
 func _draw()->void:
 	var art:=map_texture()
 	if art!=null:
