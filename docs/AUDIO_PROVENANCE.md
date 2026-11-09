@@ -39,3 +39,5 @@ The previous `assets/audio/afternoon.wav` remains a very quiet **procedurally sy
 ### Wooden opening replacement
 
 Per the user's wood-not-metal request, `door_open_soft.wav` now uses the first opening (1.04–2.06 s) of Pfannkuchn's [Wooden door 1](https://freesound.org/people/Pfannkuchn/sounds/342873/), CC0 1.0. Filtered at 65 Hz/2.8 kHz, rounded latch transient, 8 ms/80 ms fades, peak 0.45 and playback -18 dB. Closing and the user-approved crisp shutter are unchanged. Original recordings are retained separately.
+
+Map paw and fountain: Puppy Bark, AntumDeluge (moffet remix), CC0 1.0. https://freesound.org/people/AntumDeluge/sounds/583142/ . Gentle 32kHz derivative; source and processing recorded in puppy-bark-provenance.json. Map black cat reuses the existing bookstore cat sample.

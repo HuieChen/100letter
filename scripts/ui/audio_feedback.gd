@@ -27,6 +27,7 @@ const POOLS := {
 	"wood": ["wood_piece.wav"],
 	"drawer": ["wood_piece.wav"],
 	"cat": ["cat_meow_cc0.mp3"],
+	"dog": ["puppy_bark_cc0.wav"],
 	"water": ["water_touch_1.wav", "water_touch_2.wav", "water_touch_3.wav"]
 }
 const BEDS := ["sea_bed.ogg", "town_bed.ogg", "wind_bed.ogg", "room_bed.ogg"]
@@ -180,13 +181,14 @@ func set_volumes(music_level: float, effects_level: float, ambient_level: float 
 
 func play(kind: String = "paper") -> void:
 	if muted or _shutdown_complete: return
-	if kind in ["cat","camera"] and _sfx_volume<=0.0:return
+	if kind in ["cat","dog","camera"] and _sfx_volume<=0.0:return
 	var settings_cue:bool=_settings_feedback_mode and kind in ["paper","snap"]
 	var feedback_key:String="settings_"+kind if settings_cue else kind
 	var cooldown: float = 0.16 if kind == "step" else 0.11
 	if kind in ["tool", "snap", "repair"]: cooldown = 0.22
 	if kind in ["bell", "tram"]: cooldown = 2.0
 	if kind=="cat":cooldown=1.2
+	if kind=="dog":cooldown=1.6
 	if kind=="title_hover":cooldown=.18
 	if settings_cue:cooldown=0.28
 	if _elapsed - float(_last_played.get(feedback_key, -100.0)) < cooldown: return
@@ -213,6 +215,7 @@ func play(kind: String = "paper") -> void:
 	elif kind == "tram": gain = -25.0
 	elif kind in ["water","drawer"]:gain=-22.0
 	elif kind == "cat":gain=-19.0
+	elif kind == "dog":gain=-17.0
 	elif kind == "camera":gain=-10.0
 	elif kind == "title_hover":gain=-30.0
 	if settings_cue:gain=-18.0 if kind=="paper" else -22.0
@@ -269,7 +272,7 @@ static func _safe_volume(value: Variant, fallback: float) -> float:
 
 func _stream(file: String) -> AudioStream:
 	if not _streams.has(file):
-		if file in ["camera_shutter_soft.wav","door_open_soft.wav","door_close_soft.wav"]:
+		if file in ["camera_shutter_soft.wav","door_open_soft.wav","door_close_soft.wav","puppy_bark_cc0.wav"]:
 			_streams[file]=AudioStreamWAV.load_from_file(ROOT+file)
 		elif file=="sea_bed.ogg" and FileAccess.file_exists(ROOT+"gentle_ocean_cc0.mp3"):
 			_streams[file]=AudioStreamMP3.load_from_file(ROOT+"gentle_ocean_cc0.mp3")
