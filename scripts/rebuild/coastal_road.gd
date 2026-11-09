@@ -1,4 +1,5 @@
 extends Control
+var ambient_figures:Array[CanvasItem]=[]
 signal map_requested
 signal post_office_requested
 signal footstep
@@ -200,6 +201,8 @@ func set_time_of_day(value:float)->void:
  if display_minute<360.0:lamps=1.0-smoothstep(300.0,360.0,display_minute)
  atmosphere_material.set_shader_parameter("night_lights",lamps)
  if is_instance_valid(courier):courier.modulate=Atmosphere.LIGHTS[ids.x].lerp(Atmosphere.LIGHTS[ids.y],blend.z)
+ for figure:CanvasItem in ambient_figures:
+  if is_instance_valid(figure):figure.modulate=courier.modulate
  if is_instance_valid(fountain):fountain.modulate=courier.modulate
  if is_instance_valid(fountain_background):fountain_background.set_time_of_day(display_minute)
 

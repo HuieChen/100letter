@@ -479,6 +479,7 @@ func _world(arrival:String="") -> void:
 		var dims:Vector2=atlas.get_size()*float(figure[4])/atlas.get_height()
 		UI.place(neighbour,road.world,Rect2(figure[3]-Vector2(dims.x*.5,dims.y),dims))
 		neighbour.modulate=walker.modulate
+		road.ambient_figures.append(neighbour)
 		var pigment:=ShaderMaterial.new();pigment.shader=preload("res://scripts/rebuild/character_palette.gdshader");neighbour.material=pigment
 	var cast:Dictionary=preload("res://scripts/rebuild/authored_cast.gd").RESIDENTS
 	for character_id:String in cast:

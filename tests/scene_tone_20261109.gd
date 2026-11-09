@@ -39,6 +39,11 @@ func run():
   var road=game._street_road
   road.courier.foot=Cast.RESIDENTS[spec[1]].foot-Vector2(170,0);road._follow_courier(road.courier.foot)
   road.set_weather_time(4.0)
+  var initial_light:Color=road.courier.modulate
+  road.set_time_of_day(1320)
+  for figure:CanvasItem in road.ambient_figures:
+   check(figure.modulate.is_equal_approx(road.courier.modulate) and not figure.modulate.is_equal_approx(initial_light),"Ambient neighbour follows night light "+str(figure.name))
+  road.set_time_of_day(720)
   await snap(view,spec[1]+"_street")
   if spec[1]=="chef":game._chef_conversation(0)
   else:game._resident_conversation(spec[1],0)
