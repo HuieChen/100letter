@@ -1,5 +1,6 @@
 shader_type canvas_item;
 render_mode unshaded;
+#include "res://scripts/rebuild/character_palette.gdshaderinc"
 varying vec4 item_tint;
 uniform sampler2D open_eye_source : filter_linear;
 uniform sampler2D half_eye_source : filter_linear;
@@ -91,5 +92,5 @@ void fragment() {
 			tex.rgb = mix(tex.rgb,pigment.rgb,correction*step(0.98,pigment.a));
 		}
 	}
-	COLOR = tex * item_tint;
+	COLOR = vec4(character_pigment(tex.rgb),tex.a) * item_tint;
 }

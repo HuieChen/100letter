@@ -33,7 +33,10 @@ static func portrait(file:String)->TextureRect:
 	node.expand_mode=TextureRect.EXPAND_IGNORE_SIZE;node.stretch_mode=TextureRect.STRETCH_KEEP_ASPECT_CENTERED
 	node.mouse_filter=Control.MOUSE_FILTER_IGNORE
 	node.texture_filter=CanvasItem.TEXTURE_FILTER_LINEAR_WITH_MIPMAPS
-	if is_character(file):return node
+	if is_character(file):
+		var pigment:=ShaderMaterial.new();pigment.shader=preload("res://scripts/rebuild/character_palette.gdshader")
+		node.material=pigment
+		return node
 	var material:=ShaderMaterial.new();material.shader=preload("res://scripts/rebuild/authored_portrait.gdshader")
 	material.set_shader_parameter("matte",texture(file.trim_suffix(".jpg")+"_mask.png",false))
 	node.material=material

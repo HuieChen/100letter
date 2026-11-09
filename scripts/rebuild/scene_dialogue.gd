@@ -88,8 +88,8 @@ func _speaker_emphasis()->void:
 	var player_speaks:=_speaker in ["你","You","主角"]
 	if not is_instance_valid(_left_portrait) and not is_instance_valid(_right_portrait):return
 	var t:=create_tween().set_parallel(true)
-	if is_instance_valid(_left_portrait):t.tween_property(_left_portrait,"self_modulate",Color.WHITE if player_speaks else Color(0.84,0.86,0.88),0.16)
-	if is_instance_valid(_right_portrait):t.tween_property(_right_portrait,"self_modulate",Color(0.84,0.86,0.88) if player_speaks else Color.WHITE,0.16)
+	if is_instance_valid(_left_portrait):t.tween_property(_left_portrait,"self_modulate",Color.WHITE if player_speaks else Color(0.94,0.94,0.93),0.16)
+	if is_instance_valid(_right_portrait):t.tween_property(_right_portrait,"self_modulate",Color(0.94,0.94,0.93) if player_speaks else Color.WHITE,0.16)
 func _enter_dialogue()->void:
 	await get_tree().process_frame
 	await get_tree().process_frame
@@ -139,7 +139,7 @@ func _render() -> void:
 	z_index=100 # Entire dialogue must remain in front of the world actor layer.
 	for child in get_children():remove_child(child);child.queue_free()
 	mouse_filter=Control.MOUSE_FILTER_STOP
-	var shade:=ColorRect.new();shade.name="ConversationShade";shade.color=Color(0.12,0.17,0.19,0.18)
+	var shade:=ColorRect.new();shade.name="ConversationShade";shade.color=Color(0.25,0.22,0.18,0.09)
 	shade.mouse_filter=Control.MOUSE_FILTER_IGNORE
 	UI.place(shade,self,Rect2(0,0,1600,900))
 	if not _left_art.is_empty():_left_portrait=_image(_left_art,Rect2(60,238,420,1040) if Authored.is_character(_left_art) else Rect2(35,140,450,720),true)
@@ -149,6 +149,7 @@ func _render() -> void:
 		_right_portrait.size=Vector2(448,832)
 	_sync_scene_light()
 	_leaf=_image("dialogue_notebook",Rect2(290,900-PAPER_HEIGHT,1030,PAPER_HEIGHT));_leaf.name="DialogueLeaf"
+	var paper_tone:=ShaderMaterial.new();paper_tone.shader=preload("res://scripts/rebuild/dialogue_paper_tone.gdshader");_leaf.material=paper_tone
 	_close_button=_text_button("×",Rect2(1254,713,46,44))
 	_close_button.name="CloseDialogue"
 	_close_button.action_mode=BaseButton.ACTION_MODE_BUTTON_PRESS
@@ -241,7 +242,7 @@ func _text_button(text:String,rect:Rect2) -> Button:
 	for state in ["normal","hover","pressed","focus"]:button.add_theme_stylebox_override(state,StyleBoxEmpty.new())
 	# The authored advance arrow has no text, so font color cannot show focus.
 	var focused:=StyleBoxFlat.new()
-	focused.bg_color=Color(0.13,0.48,0.53,0.14)
+	focused.bg_color=Color(0.40,0.32,0.19,0.12)
 	focused.set_corner_radius_all(9)
 	button.add_theme_stylebox_override("focus",focused)
 	UI.place(button,self,rect)
