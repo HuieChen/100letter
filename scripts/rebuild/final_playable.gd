@@ -1309,6 +1309,7 @@ func _map() -> void:
 			_visit_map_destination(destination))
 		button.name="Map_"+destination
 		for state:String in ["normal","hover","pressed","focus"]:button.add_theme_stylebox_override(state,StyleBoxEmpty.new())
+	map.install_pet_regions()
 	sound.play("map")
 	preload("res://scripts/ui/paper_presentation.gd").enter(map)
 
