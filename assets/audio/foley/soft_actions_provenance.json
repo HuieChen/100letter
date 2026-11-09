@@ -13,9 +13,17 @@
     "source": "Existing CC0 door_open.wav / door_close.wav; originals retained",
     "license": "CC0 1.0",
     "upstream": "https://opengameart.org/content/door-open-door-close",
-    "original_provenance": "source_downloads.json; sample_manifest.json"
+    "original_provenance": "source_downloads.json; sample_manifest.json",
+    "opening_replacement": {
+      "author": "Pfannkuchn",
+      "title": "Wooden door 1, opening and closing with different speeds and articulations",
+      "page": "https://freesound.org/people/Pfannkuchn/sounds/342873/",
+      "download": "https://cdn.freesound.org/previews/342/342873_627541-hq.mp3",
+      "license": "CC0 1.0",
+      "description": "First opening of an old wooden kitchen door; original first opening excerpt, soft latch transient. Replaces opening only; closing retained."
+    }
   },
-  "processing": "Mono 32 kHz PCM16; see per-output processing. Camera retains natural transients, 4.8 kHz low-pass, peak 0.55; doors retain 1.8 kHz low-pass, smooth tanh transient shaping, 6 ms attack/up to 70 ms fade-out and peak 0.4. No originals modified.",
+  "processing": "Mono 32 kHz PCM16; see per-output processing. Camera retains natural transients, 4.8 kHz low-pass, peak 0.55; doors retain 1.8 kHz low-pass, smooth tanh transient shaping, 6 ms attack/up to 70 ms fade-out and peak 0.4. No originals modified. Opening subsequently replaced with a wooden-kitchen-door recording: see opening_replacement and per-output values.",
   "outputs": [
     {
       "file": "camera_shutter_soft.wav",
@@ -32,15 +40,15 @@
     },
     {
       "file": "door_open_soft.wav",
-      "source_sha256": "103af91c87524b4f4833ba58f73ccc4bc9188317185f9f3be89c115718c9d709",
-      "source_file": "door_open.wav",
-      "start_seconds": 0,
-      "duration_seconds": 0.8295625,
-      "highpass_hz": 90,
-      "lowpass_hz": 1800,
-      "peak": 0.4000000059604645,
+      "source_sha256": "e30e2458075341284c4f17941e2cb5df1c62fcc45a66b400142fea1f735be390",
+      "source_file": "wood-door-original.mp3",
+      "start_seconds": 1.04,
+      "duration_seconds": 1.02,
+      "highpass_hz": 65,
+      "lowpass_hz": 2800,
+      "peak": 0.45,
       "playback_gain_db": -18,
-      "sha256": "5b5e1a96c7ab2acb3aa7330dc87a9e46358728b5adfa205a1596c2b2e76d33e7"
+      "sha256": "5d3c7be232eab10e811ffaf028b1a0b15551216ad96e96d5b06f868318e2da5c"
     },
     {
       "file": "door_close_soft.wav",

@@ -35,3 +35,7 @@ The previous `assets/audio/afternoon.wav` remains a very quiet **procedurally sy
 ## Soft camera and door revision (2026-11-09)
 
 `camera_shutter_soft.wav` uses a single Canon T3i shutter excerpt by phatcorns, [Camera Shutter](https://freesound.org/people/phatcorns/sounds/250105/), CC0 1.0. `door_open_soft.wav` and `door_close_soft.wav` are filtered and softened derivatives of the existing qubodup recordings listed above. Originals are retained. Exact URLs, hashes, excerpt timing, processing and levels: `assets/audio/foley/soft_actions_provenance.json`. The rejected procedural shutter is no longer used.
+
+### Wooden opening replacement
+
+Per the user's wood-not-metal request, `door_open_soft.wav` now uses the first opening (1.04–2.06 s) of Pfannkuchn's [Wooden door 1](https://freesound.org/people/Pfannkuchn/sounds/342873/), CC0 1.0. Filtered at 65 Hz/2.8 kHz, rounded latch transient, 8 ms/80 ms fades, peak 0.45 and playback -18 dB. Closing and the user-approved crisp shutter are unchanged. Original recordings are retained separately.
