@@ -1,0 +1,3 @@
+# Chess stall palette — 2026-11-09
+User requested less purple at the chess stall. A postal-only shader pigment selection shifts violet scenery towards warm linen/stone at original luminance. Original PNGs and character textures remain untouched. Uses day-geometry mask for stable selection across the existing blended lighting phases. Other road families bypass the branch.
+Package: package-chess-warm, SHA256 7F8110E012BAE4A6246103520C5AE3D4F530C6D1157D4F1CD4307B3AA7363675. Six neighbour/placement checks pass; actual packaged morning chess image inspected at qa-chess-warm-215107/neighbours_20261109/chess_stall.png. Native inspection remains blocked by the locked desktop; no human aesthetic acceptance claimed.
