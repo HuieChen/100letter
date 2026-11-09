@@ -1,3 +1,7 @@
+## 2026-11-09 — Wooden opening-door recording
+
+Opening now uses a licensed wooden kitchen-door recording; the approved crisp shutter and closing audio are unchanged. Standard complete PCK passes 23 audio checks plus exact hash verification of the three selected WAVs. Original source recordings and user saves are preserved. See [WOOD_DOOR_AUDIO_20261109.md](docs/testing/WOOD_DOOR_AUDIO_20261109.md).
+
 ## 2026-11-09 — Recorded shutter and softened doors
 
 The rejected synthetic shutter is replaced by a CC0 camera recording, revised for a crisper natural attack after user audition; door derivatives have softer transients and quieter playback. Original recordings, cover guitar and immediate capture timing remain intact. Final actual PCK passes 36 audio/capture-close/title-music checks. A broader title screenshot attempt timed out on the superseded candidate and remains unverified; listening acceptance is separate. See [SOFT_ACTION_AUDIO_20261109.md](docs/testing/SOFT_ACTION_AUDIO_20261109.md).
