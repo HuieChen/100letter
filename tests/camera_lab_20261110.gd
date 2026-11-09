@@ -24,6 +24,14 @@ func run():
   check(result!=null and result.get_size()==test_image.get_size(),"Render recipe "+str(i))
   var digest=result.get_data().hex_encode().sha256_text()
   check(not hashes.has(digest),"Distinct recipe "+str(i));hashes.append(digest)
+ camera.lab.select_recipe(0)
+ var neutral:Image=await camera.lab.render(test_image)
+ camera.lab.sliders.exposure.value=1.0
+ var brighter:Image=await camera.lab.render(test_image)
+ check(brighter.get_pixel(30,25).r>neutral.get_pixel(30,25).r+.10,"Exposure changes rendered light")
+ camera.lab.sliders.exposure.value=0.0;camera.lab.sliders.aperture.value=1.4;camera.lab.focus_at(Vector2(.2,.3))
+ var soft:Image=await camera.lab.render(test_image)
+ check(soft.get_data()!=neutral.get_data(),"Aperture produces rendered effect")
  camera.lab.select_recipe(8);camera.lab.panel.show();await RenderingServer.frame_post_draw;root.get_texture().get_image().save_png(out+"film_controls.png")
  check(camera.lab.panel.position.y+camera.lab.panel.size.y<900,"All controls fit vertical safe area")
  camera.lab.panel.hide();camera.take_photo();await create_timer(3.3).timeout

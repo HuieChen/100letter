@@ -47,7 +47,7 @@ func run():
 	game._map();await settle()
 	for entry:Array in Map.hotspot_entries():
 		var b:Button=game.modal.find_child("Map_"+entry[0],true,false)
-		await hover(b.get_global_rect().get_center())
+		await hover(b.get_global_rect().get_center() if entry[0]!="statue" else b.get_global_rect().end-Vector2(24,20))
 		check(b.get_parent()._active_destination()==b,"Mouse chooses "+entry[0])
 		check(b.text.is_empty() and b.tooltip_text.is_empty(),"No added map text "+entry[0])
 		check(b.mouse_default_cursor_shape==Control.CURSOR_POINTING_HAND,"Hand cursor "+entry[0])
@@ -66,7 +66,7 @@ func run():
 		view.add_child(camera);camera.size=Vector2(1600,900);await settle()
 		var paper:Control=camera._review_paper
 		check(paper.size.x>paper.size.y,"Landscape print "+language)
-		check(paper.get_rect().encloses(camera._caption_editor.get_rect()),"Writing remains inside white margin "+language)
+		check(Rect2(Vector2.ZERO,paper.size).encloses(camera._caption_editor.get_rect()),"Writing remains inside white margin "+language)
 		camera._caption_editor.text="海风 / Sea breeze"
 		check(camera.checkpoint_for_quit(),"Photo note saves "+language)
 		check(Camera.caption_for(path)=="海风 / Sea breeze","Photo note survives reload "+language)

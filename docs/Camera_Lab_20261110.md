@@ -11,3 +11,5 @@ Implementation: 12 original artistic instant/film recipes plus unfiltered origin
 Caption hierarchy: bag caption is a child of the print; review editor is a child of the print. Export uses paper-relative coordinates. Tests check bound caption movement, metadata preservation and composite export.
 
 Development QA: first packaged candidate failed because a GDScript constant shadowed Shader; first source-render candidate caught illegal shader TEXTURE scope and nil focus metadata. Both corrected. Source QA 33/0 then passed (13 distinct rendered recipes, capture, caption, composite export); final package validation tracked separately below.
+
+Final merged package QA: camera lab 35/0, composition 20/0, landscape/caption 72/0, pending capture close 6/0, 240-photo pocket streaming 70/0 (203 checks total). Existing tests updated for caption-local coordinates and the new map dog hotspot. Evidence qa-lab-final-013803, 015938, 020411. PCK FFF192F1D5FC62565B649A810AE451126A0B2FECA1E3E73EFFC5C90526174A73. Actual native input acceptance remains separate.
