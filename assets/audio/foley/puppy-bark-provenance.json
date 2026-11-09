@@ -1,0 +1,9 @@
+{
+  "download": "https://cdn.freesound.org/previews/583/583142_3403708-hq.mp3",
+  "processing": "mono PCM16 32 kHz; high-pass 100 Hz, low-pass 6500 Hz; 8ms attack fade and 100ms end fade; runtime -17dB; shared 1.6s cooldown",
+  "title": "Puppy Bark",
+  "license": "CC0 1.0",
+  "sha256": "63b31ca9140a956819d2ccd7d2ce84f5a557802a8d4c4c259793fea52c8868f3",
+  "page": "https://freesound.org/people/AntumDeluge/sounds/583142/",
+  "author": "AntumDeluge (derived from moffet dog recording)"
+}

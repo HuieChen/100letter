@@ -19,6 +19,30 @@ const DESTINATION_NAMES={
 	"grocery":["杂货店","Grocery"],"market":["集市","Market"],"food_truck":["餐车","Food truck"],
 	"lookout":["观景台","Lookout"],"bus_stop":["海岸电车站","Seaside tram stop"]}
 const FADE_SECONDS:=0.16
+const PET_REGIONS=[
+	["Paw","dog",Rect2(350,645,115,115)],
+	["FountainDog","dog",Rect2(958,462,160,155)],
+	["BookCat","cat",Rect2(530,622,55,88)]]
+func install_pet_regions()->void:
+	for entry in PET_REGIONS:
+		var button:=Button.new()
+		button.name="Pet_"+str(entry[0]);button.mouse_default_cursor_shape=Control.CURSOR_POINTING_HAND
+		button.tooltip_text=""
+		for state:String in ["normal","hover","pressed","focus"]:button.add_theme_stylebox_override(state,StyleBoxEmpty.new())
+		add_child(button)
+		button.pressed.connect(func():
+			var host:=_host()
+			if host!=null and not host.busy:host.sound.play(str(entry[1])))
+	_layout_pets()
+	resized.connect(_layout_pets)
+func _layout_pets()->void:
+	var art:=map_texture()
+	var ratio:=minf(size.x/art.get_width(),size.y/art.get_height())
+	var origin:=(size-art.get_size()*ratio)*.5
+	for entry in PET_REGIONS:
+		var button:Control=get_node("Pet_"+str(entry[0]))
+		button.position=origin+(entry[2].position-SOURCE_REGION.position)*ratio
+		button.size=entry[2].size*ratio
 static func hotspot_entries()->Array:
 	var entries:=SOURCE_HOTSPOTS.duplicate(true)
 	for entry in entries:entry[1].position-=SOURCE_REGION.position
@@ -42,8 +66,7 @@ func _ready()->void:
 	_caption.mouse_filter=Control.MOUSE_FILTER_IGNORE;_caption.horizontal_alignment=HORIZONTAL_ALIGNMENT_CENTER
 	_caption.vertical_alignment=VERTICAL_ALIGNMENT_CENTER;_caption.autowrap_mode=TextServer.AUTOWRAP_OFF
 	_caption.add_theme_font_size_override("font_size",25);_caption.add_theme_color_override("font_color",Color("554531"))
-	var paper:=StyleBoxFlat.new();paper.bg_color=Color("f6ead2");paper.bg_color.a=.86;paper.set_corner_radius_all(3)
-	_caption.add_theme_stylebox_override("normal",paper)
+	_caption.add_theme_stylebox_override("normal",StyleBoxEmpty.new())
 	add_child(_caption);_caption.size=Vector2(168,40)
 	resized.connect(_layout_caption);_layout_caption()
 	_caption.modulate.a=0.0
@@ -111,11 +134,17 @@ func _process(delta:float)->void:
 	_caption_alpha=move_toward(_caption_alpha,1.0 if not destination.is_empty() else 0.0,delta/FADE_SECONDS)
 	_caption.modulate.a=_caption_alpha
 	_layout_caption()
+	queue_redraw()
 func _draw()->void:
 	var art:=map_texture()
 	if art!=null:
 		var ratio:=minf(size.x/art.get_width(),size.y/art.get_height())
 		draw_texture_rect(art,Rect2((size-art.get_size()*ratio)*0.5,art.get_size()*ratio),false)
+	if is_instance_valid(_caption) and _caption_alpha>0.0:
+		var p:=_caption.position;var w:=_caption.size.x;var h:=_caption.size.y
+		var edge:=PackedVector2Array([p+Vector2(2,2),p+Vector2(w*.34,0),p+Vector2(w*.69,2),p+Vector2(w-1,1),p+Vector2(w,h*.51),p+Vector2(w-3,h-1),p+Vector2(w*.64,h+1),p+Vector2(w*.3,h-1),p+Vector2(0,h),p+Vector2(1,h*.47)])
+		draw_colored_polygon(edge,Color(0.93,0.86,0.74,_caption_alpha))
+		edge.append(edge[0]);draw_polyline(edge,Color(0.69,0.56,0.38,.5*_caption_alpha),1.0,true)
 
 func _active_destination()->Button:
 	if is_instance_valid(_pressed_destination):return _pressed_destination

@@ -468,7 +468,7 @@ func _world(arrival:String="") -> void:
 	road.courier.z_index=2
 	# Supplied street figures retain their original transparent pixels. They are
 	# ambient neighbours; no invented dialogue or false interaction affordance.
-	for figure:Array in [["postal","Naonao","naonao.png",Vector2(1060,850),300.0,Rect2i(112,91,306,799)],["community","FoodTruckGuest","food_truck_guest.png",Vector2(11730,850),305.0,Rect2i(1490,125,392,751)]]:
+	for figure:Array in [["postal","Naonao","naonao.png",Vector2(1060,850),300.0,Rect2i(112,91,306,799)],["community","FoodTruckGuest","hoodie_guest.png",Vector2(11730,850),305.0,Rect2i(1514,155,380,771)],["coastal","TarotGuest","tarot_guest.png",Vector2(1220,850),305.0,Rect2i(2151,165,309,750)]]:
 		if road.family!=figure[0]:continue
 		var pixels:=Image.load_from_file("res://assets/authoring/neighbours_20261109/"+figure[2])
 		pixels.generate_mipmaps()
@@ -1309,6 +1309,7 @@ func _map() -> void:
 			_visit_map_destination(destination))
 		button.name="Map_"+destination
 		for state:String in ["normal","hover","pressed","focus"]:button.add_theme_stylebox_override(state,StyleBoxEmpty.new())
+	map.install_pet_regions()
 	sound.play("map")
 	preload("res://scripts/ui/paper_presentation.gd").enter(map)
 
