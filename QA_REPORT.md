@@ -1,3 +1,7 @@
+## 2026-11-09 — Recorded shutter and softened doors
+
+The rejected synthetic shutter is replaced by a CC0 camera recording, revised for a crisper natural attack after user audition; door derivatives have softer transients and quieter playback. Original recordings, cover guitar and immediate capture timing remain intact. Final actual PCK passes 36 audio/capture-close/title-music checks. A broader title screenshot attempt timed out on the superseded candidate and remains unverified; listening acceptance is separate. See [SOFT_ACTION_AUDIO_20261109.md](docs/testing/SOFT_ACTION_AUDIO_20261109.md).
+
 ## 2026-11-09 — Immediate camera shutter sound
 
 Accepted photos now trigger a dedicated mechanical shutter cue immediately through the effects bus, with no second cue after PNG saving. The current cover guitar and Settings exit actions are preserved. The complete exported package passed 57 camera, orderly-close and title/guitar checks. Listening acceptance remains separate. See [CAMERA_SHUTTER_AUDIO_20261109.md](docs/testing/CAMERA_SHUTTER_AUDIO_20261109.md).
