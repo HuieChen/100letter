@@ -540,6 +540,18 @@ void fragment(){
   b=mix(b,mix(texture(next_art,record_lookup.xy),texture(next_art,record_clean_uv),record_lookup.w),record_lookup.z);
  }
  vec4 painted=mix(a,b,light_mix);
+ // User-directed chess-stall palette: warm stone/linen replaces the broad
+ // violet pigments, while retaining painted luminance, grain and day phases.
+ // Applied only to the panorama; supplied character textures are untouched.
+ if(family_id==2){
+  vec2 source_pixel=uv/TEXTURE_PIXEL_SIZE;
+  float stall=region(source_pixel,vec4(40.0,200.0,1000.0,550.0),24.0);
+  vec3 day=texture(day_geometry,uv).rgb;
+  float violet=smoothstep(.025,.095,min(day.r,day.b)-day.g);
+  float luminance=dot(painted.rgb,vec3(.2126,.7152,.0722));
+  vec3 linen=vec3(luminance*1.12,luminance*1.035,luminance*.87);
+  painted.rgb=mix(painted.rgb,linen,stall*violet*.86);
+ }
  // Original painted colors and textures are sampled unchanged. No animated
  // fold shading, water glints, contrast pumping or material-flow overlay.
  if(community && night_lights>0.0){
