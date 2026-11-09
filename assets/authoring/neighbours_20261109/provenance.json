@@ -12,5 +12,31 @@
     "sha256": "c7cea85e89a72786a2d2da625a7643cf2a8a361274665077176a09b257a0a511",
     "source_kind": "user_supplied_exact_bytes",
     "ai_generated": false
+  },
+  {
+    "file": "hoodie_guest.png",
+    "source_name": "卫衣男.png",
+    "sha256": "b34ea25666410757e0169490add9576586501c12746e311ae4d6a0de9927ceb9",
+    "source_kind": "user_supplied_exact_bytes",
+    "ai_generated": false,
+    "atlas_region": [
+      1514,
+      155,
+      380,
+      771
+    ]
+  },
+  {
+    "file": "tarot_guest.png",
+    "source_name": "紫色.png",
+    "sha256": "94d3ce86b2a01fc5685e0170b1ee3300c1223a674833958a3b691bf2720bdf1b",
+    "source_kind": "user_supplied_exact_bytes",
+    "ai_generated": false,
+    "atlas_region": [
+      2151,
+      165,
+      309,
+      750
+    ]
   }
 ]
