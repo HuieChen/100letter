@@ -1,0 +1,66 @@
+{
+  "camera": {
+    "author": "phatcorns",
+    "title": "Camera Shutter",
+    "page": "https://freesound.org/people/phatcorns/sounds/250105/",
+    "download": "https://cdn.freesound.org/previews/250/250105_2772007-hq.mp3",
+    "license": "CC0 1.0",
+    "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+    "description": "Canon T3i recording; one shutter excerpt from CC0 preview, filtered and softened",
+    "user_revision": "Requested crisper shutter after initial soft preview; 4.8 kHz cutoff and intact natural transients. Door derivatives unchanged."
+  },
+  "doors": {
+    "source": "Existing CC0 door_open.wav / door_close.wav; originals retained",
+    "license": "CC0 1.0",
+    "upstream": "https://opengameart.org/content/door-open-door-close",
+    "original_provenance": "source_downloads.json; sample_manifest.json",
+    "opening_replacement": {
+      "author": "Pfannkuchn",
+      "title": "Wooden door 1, opening and closing with different speeds and articulations",
+      "page": "https://freesound.org/people/Pfannkuchn/sounds/342873/",
+      "download": "https://cdn.freesound.org/previews/342/342873_627541-hq.mp3",
+      "license": "CC0 1.0",
+      "description": "First opening of an old wooden kitchen door; original first opening excerpt, soft latch transient. Replaces opening only; closing retained."
+    }
+  },
+  "processing": "Mono 32 kHz PCM16; see per-output processing. Camera retains natural transients, 4.8 kHz low-pass, peak 0.55; doors retain 1.8 kHz low-pass, smooth tanh transient shaping, 6 ms attack/up to 70 ms fade-out and peak 0.4. No originals modified. Opening subsequently replaced with a wooden-kitchen-door recording: see opening_replacement and per-output values.",
+  "outputs": [
+    {
+      "file": "camera_shutter_soft.wav",
+      "source_sha256": "d23b4fa94fcfc0c53fbc7a375e8878ec4d2f99f55b50f8dd3233c2d5190dcfef",
+      "source_file": "camera-original.mp3",
+      "start_seconds": 1.33,
+      "duration_seconds": 0.39,
+      "highpass_hz": 90,
+      "lowpass_hz": 4800,
+      "peak": 0.55,
+      "playback_gain_db": -10,
+      "sha256": "d73022dd805a1c457f6aba07c1da45afe401ff1b4b4cdf95bf735ffb34860350",
+      "transient_processing": "No compression; preserve recorded attack; 2 ms opening and 60 ms closing fade"
+    },
+    {
+      "file": "door_open_soft.wav",
+      "source_sha256": "e30e2458075341284c4f17941e2cb5df1c62fcc45a66b400142fea1f735be390",
+      "source_file": "wood-door-original.mp3",
+      "start_seconds": 1.04,
+      "duration_seconds": 1.02,
+      "highpass_hz": 65,
+      "lowpass_hz": 2800,
+      "peak": 0.45,
+      "playback_gain_db": -18,
+      "sha256": "5d3c7be232eab10e811ffaf028b1a0b15551216ad96e96d5b06f868318e2da5c"
+    },
+    {
+      "file": "door_close_soft.wav",
+      "source_sha256": "efd281ac2c6b7be70ad536bda57d324771bdfa1608e1852da14fe8e411065207",
+      "source_file": "door_close.wav",
+      "start_seconds": 0,
+      "duration_seconds": 0.5614375,
+      "highpass_hz": 90,
+      "lowpass_hz": 1800,
+      "peak": 0.4000000059604645,
+      "playback_gain_db": -19,
+      "sha256": "d3327ab3775dd82924ae6d6669181f806d88fc8baf9e09d0d677862d303ca929"
+    }
+  ]
+}

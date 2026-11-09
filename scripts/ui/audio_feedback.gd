@@ -14,14 +14,14 @@ const POOLS := {
 	"flip": ["paper_unfold.wav", "paper_2.wav"],
 	"map": ["paper_unfold.wav"],
 	"snap": ["paper_slide.wav"],
-	"camera": ["procedural_camera_shutter"],
+	"camera": ["camera_shutter_soft.wav"],
 	"repair": ["paper_slide.wav", "paper_3.wav"],
 	"stamp": ["stamp_1.wav", "stamp_2.wav"],
 	"deliver": ["paper_3.wav", "paper_1.wav"],
 	"tool": ["tool_metal.wav", "paper_slide.wav"],
 	"bell": ["bell.wav"],
-	"door": ["door_open.wav"],
-	"door_close": ["door_close.wav"],
+	"door": ["door_open_soft.wav"],
+	"door_close": ["door_close_soft.wav"],
 	"tram": ["tram_pass.wav"],
 	"birds": ["birds.wav"],
 	"wood": ["wood_piece.wav"],
@@ -207,11 +207,13 @@ func play(kind: String = "paper") -> void:
 	if kind == "step": gain = -20.0
 	elif kind == "bell": gain = -23.0
 	elif kind in ["snap", "tool", "repair"]: gain = -18.0
-	elif kind in ["stamp", "door", "door_close"]: gain = -14.0
+	elif kind == "stamp": gain = -14.0
+	elif kind == "door":gain=-18.0
+	elif kind == "door_close":gain=-19.0
 	elif kind == "tram": gain = -25.0
 	elif kind in ["water","drawer"]:gain=-22.0
 	elif kind == "cat":gain=-19.0
-	elif kind == "camera":gain=-8.0
+	elif kind == "camera":gain=-10.0
 	elif kind == "title_hover":gain=-30.0
 	if settings_cue:gain=-18.0 if kind=="paper" else -22.0
 	# Match the denser recording to the other paper variants; retain the source.
@@ -267,8 +269,8 @@ static func _safe_volume(value: Variant, fallback: float) -> float:
 
 func _stream(file: String) -> AudioStream:
 	if not _streams.has(file):
-		if file=="procedural_camera_shutter":
-			_streams[file]=preload("res://scripts/ui/camera_shutter_sound.gd").make_stream()
+		if file in ["camera_shutter_soft.wav","door_open_soft.wav","door_close_soft.wav"]:
+			_streams[file]=AudioStreamWAV.load_from_file(ROOT+file)
 		elif file=="sea_bed.ogg" and FileAccess.file_exists(ROOT+"gentle_ocean_cc0.mp3"):
 			_streams[file]=AudioStreamMP3.load_from_file(ROOT+"gentle_ocean_cc0.mp3")
 		elif file.begins_with("soft_step_"):

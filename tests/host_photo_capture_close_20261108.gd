@@ -25,6 +25,7 @@ func run()->void:
 	game=Host.new();game.allow_display_changes=false;root.add_child(game);game.size=Vector2(1600,900)
 	game.core.state.location="community_center";game._world();await process_frame
 	game._camera();await process_frame;camera=game.modal
+	camera.save_directory=out+"photos"
 	camera.photo_saved.connect(func(path:String):saved.append(path))
 	root.tree_exiting.connect(final_receipt)
 	camera.shutter.pressed.emit()
