@@ -79,15 +79,15 @@ func _display(index:int,texture:Texture2D)->void:
 	var square:=texture!=null and texture.get_width()<=texture.get_height()*1.1
 	paper.position=Vector2(60,2) if square else Vector2(5,2)
 	paper.size=Vector2(110,151) if square else Vector2(220,151)
-	var caption:Label=item.get_node("PhotoCaption")
-	caption.position=Vector2(66,119) if square else Vector2(20,126)
+	var caption:Label=paper.get_node("PhotoCaption")
+	caption.position=Vector2(6,117) if square else Vector2(15,124)
 	caption.size=Vector2(98,27) if square else Vector2(190,24)
 	if not item.has_meta("caption_loaded"):
-		item.get_node("PhotoCaption").text=caption_loader.call(item.get_meta("photo_path")) if caption_loader.is_valid() else ""
+		caption.text=caption_loader.call(item.get_meta("photo_path")) if caption_loader.is_valid() else ""
 		item.set_meta("caption_loaded",true)
 	item.tooltip_text=unavailable_text if texture==null else ""
-	if texture==null and item.get_node("PhotoCaption").text.is_empty():
-		item.get_node("PhotoCaption").text=unavailable_text
+	if texture==null and caption.text.is_empty():
+		caption.text=unavailable_text
 
 func _exit_tree()->void:
 	# Only one small CPU decode can be in flight. Join before releasing its owner;

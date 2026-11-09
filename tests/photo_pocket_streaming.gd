@@ -77,7 +77,7 @@ func run():
 	game.modal._request_close();await process_frame;await process_frame;await loaded()
 	check(pocket().scroll_vertical>9000,"Album return restores previous scroll region")
 	check(view.gui_get_focus_owner()==grid().get_child(239),"Album return restores the correct keyboard focus")
-	check(grid().get_child(239).get_node("PhotoCaption").text=="远处的海风 / A distant breeze","Edited caption refreshes independently of cached image")
+	check(grid().get_child(239).get_node("PhotoPrint/PhotoCaption").text=="远处的海风 / A distant breeze","Edited caption refreshes independently of cached image")
 	check(FileAccess.get_sha256(original)==original_hash,"Thumbnail work preserves original photograph bytes")
 	# Close while a fresh original is being decoded; no completion targets a dead panel.
 	for cycle:int in 8:
@@ -104,7 +104,7 @@ func run():
 		var button:=Button.new();button.custom_minimum_size=Vector2(230,170);button.set_meta("photo_path",original)
 		failure_grid.add_child(button)
 		var paper:=Camera.PhotoPaper.new();paper.name="PhotoPrint";paper.size=Vector2(220,151);button.add_child(paper)
-		var caption:=Label.new();caption.name="PhotoCaption";button.add_child(caption)
+		var caption:=Label.new();caption.name="PhotoCaption";button.get_node("PhotoPrint").add_child(caption)
 	var deadline:=Time.get_ticks_msec()+3000
 	while failure_grid.get_child(1).get_node("PhotoPrint").image==null and Time.get_ticks_msec()<deadline:await process_frame
 	check(failure_grid.get_child(0).tooltip_text=="Photo unavailable","Failed thread startup gives readable feedback")
