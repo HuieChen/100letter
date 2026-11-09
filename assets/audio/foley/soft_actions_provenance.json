@@ -6,7 +6,8 @@
     "download": "https://cdn.freesound.org/previews/250/250105_2772007-hq.mp3",
     "license": "CC0 1.0",
     "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
-    "description": "Canon T3i recording; one shutter excerpt from CC0 preview, filtered and softened"
+    "description": "Canon T3i recording; one shutter excerpt from CC0 preview, filtered and softened",
+    "user_revision": "Requested crisper shutter after initial soft preview; 4.8 kHz cutoff and intact natural transients. Door derivatives unchanged."
   },
   "doors": {
     "source": "Existing CC0 door_open.wav / door_close.wav; originals retained",
@@ -14,7 +15,7 @@
     "upstream": "https://opengameart.org/content/door-open-door-close",
     "original_provenance": "source_downloads.json; sample_manifest.json"
   },
-  "processing": "Mono 32 kHz PCM16; 90 Hz highpass, two-pole lowpass, smooth tanh transient shaping, 6 ms attack and up to 70 ms fade-out, peak 0.4. No source file modified.",
+  "processing": "Mono 32 kHz PCM16; see per-output processing. Camera retains natural transients, 4.8 kHz low-pass, peak 0.55; doors retain 1.8 kHz low-pass, smooth tanh transient shaping, 6 ms attack/up to 70 ms fade-out and peak 0.4. No originals modified.",
   "outputs": [
     {
       "file": "camera_shutter_soft.wav",
@@ -23,10 +24,11 @@
       "start_seconds": 1.33,
       "duration_seconds": 0.39,
       "highpass_hz": 90,
-      "lowpass_hz": 2400,
-      "peak": 0.4000000059604645,
+      "lowpass_hz": 4800,
+      "peak": 0.55,
       "playback_gain_db": -10,
-      "sha256": "f48f9a92e12ce44742bc3ea62ed15c792205d5118f34c45c74ca6c8c19775231"
+      "sha256": "d73022dd805a1c457f6aba07c1da45afe401ff1b4b4cdf95bf735ffb34860350",
+      "transient_processing": "No compression; preserve recorded attack; 2 ms opening and 60 ms closing fade"
     },
     {
       "file": "door_open_soft.wav",

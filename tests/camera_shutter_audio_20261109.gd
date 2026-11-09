@@ -42,7 +42,7 @@ func run():
  for i in range(0,stream.data.size(),2):
   var value:=float(stream.data.decode_s16(i))/32768.0
   peak=maxf(peak,absf(value));energy+=value*value
- check(peak>.35 and peak<.41,"non-silent waveform without clipping")
+ check(peak>.5 and peak<.56,"non-silent waveform without clipping")
  check(sqrt(energy/(stream.data.size()/2))>.025,"waveform has measurable body")
  stream.save_to_wav(out+"shutter-preview.wav")
  await create_timer(.5).timeout
