@@ -1027,7 +1027,7 @@ func _bag_photo_grid(paper:Control,photos:Array[String])->void:
 		caption.text_overrun_behavior=TextServer.OVERRUN_TRIM_ELLIPSIS
 		caption.add_theme_font_size_override("font_size",18);caption.add_theme_color_override("font_color",Color("665240"))
 		caption.horizontal_alignment=HORIZONTAL_ALIGNMENT_CENTER;caption.vertical_alignment=VERTICAL_ALIGNMENT_CENTER;caption.clip_text=true;caption.mouse_filter=Control.MOUSE_FILTER_IGNORE
-		UI.place(caption,item,Rect2(20,126,190,24))
+		UI.place(caption,photo,Rect2(15,124,190,24))
 		item.pressed.connect(func():_bag_photo_album(path))
 		item.mouse_entered.connect(func():photo.position.y=0)
 		item.mouse_exited.connect(func():photo.position.y=2)

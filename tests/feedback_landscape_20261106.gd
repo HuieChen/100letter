@@ -96,7 +96,7 @@ func run():
 	game._bag_photos_visible=true;game._bag();await settle();await shot("bag_landscape")
 	var print_node:Control=game.modal.find_child("PhotoPrint",true,false)
 	check(print_node!=null and print_node.size.x>print_node.size.y,"Bag print is landscape too")
-	var caption:Control=print_node.get_parent().get_node("PhotoCaption")
+	var caption:Control=print_node.get_node("PhotoCaption")
 	check(print_node.get_global_rect().encloses(caption.get_global_rect()),"Bag note stays on photo white margin")
 	game._close();game.sound.shutdown();await settle(.5);game.queue_free();await process_frame;view.queue_free();await process_frame
 	FileAccess.open(out+"receipt.json",FileAccess.WRITE).store_string(JSON.stringify({"checks":checks,"failures":failures,"method":"GPU SubViewport mouse input, full-width photo pixel checks, actual capture and disk note persistence; not OS-input acceptance."},"  "))

@@ -62,6 +62,7 @@ var _close_after_album:=false
 var last_album_path:=""
 var instant_format:=false
 var _format_button:Button
+var lab:RefCounted
 
 class ArtButton extends Button:
 	var art:Texture2D
@@ -116,6 +117,7 @@ func _ready()->void:
 	name="FieldCamera";mouse_filter=Control.MOUSE_FILTER_STOP;z_index=100
 	# The host places this modal on its authored 1600x900 stage.
 	canvas=Control.new();canvas.name="CameraCanvas";canvas.size=DESIGN;canvas.mouse_filter=Control.MOUSE_FILTER_IGNORE;add_child(canvas)
+	if not gallery_only:lab=preload("res://scripts/ui/camera_lab.gd").new(self)
 	if pan_provider.is_valid() and not gallery_only:
 		var surface:=Control.new();surface.name="CameraPanSurface"
 		surface.mouse_default_cursor_shape=Control.CURSOR_DRAG
@@ -161,6 +163,7 @@ func _ready()->void:
 	_flash=ColorRect.new();_flash.name="ShutterFlash";_flash.color=Color("fff7df");_flash.mouse_filter=Control.MOUSE_FILTER_IGNORE;_place(_flash,canvas,Rect2(Vector2.ZERO,DESIGN));_flash.modulate.a=0.0
 	for node:Node in canvas.get_children():
 		if node is CanvasItem:_live_nodes.append(node)
+	if lab!=null:lab.build(canvas)
 	var close:=_button("×",Rect2(1470,42,74,68),42);close.name="CloseCamera";close.tooltip_text=_t("关闭相机","Close camera");close.pressed.connect(_request_close)
 	_build_review();_refresh_count();_refresh_thumbnail()
 	resized.connect(_layout);_layout()
@@ -190,7 +193,7 @@ func _fit_review_print()->void:
 	var square:=_review_paper.image.get_width()<=_review_paper.image.get_height()*1.1
 	_review_paper.position=Vector2(560,60) if square else Vector2(348,100)
 	_review_paper.size=Vector2(480,650) if square else Vector2(904,620)
-	_caption_editor.position=_review_paper.position+(Vector2(28,490) if square else Vector2(50,518))
+	_caption_editor.position=Vector2(28,490) if square else Vector2(50,518)
 	_caption_editor.size=Vector2(424,132) if square else Vector2(804,78)
 	_review_paper.queue_redraw()
 func _label(text:String,rect:Rect2,font_size:int,align:HorizontalAlignment=HORIZONTAL_ALIGNMENT_LEFT)->Label:
@@ -211,7 +214,7 @@ func _build_review()->void:
 	_caption_editor.add_theme_font_override("font",FONT);_caption_editor.add_theme_font_size_override("font_size",25)
 	for state:String in ["normal","focus","read_only"]:_caption_editor.add_theme_stylebox_override(state,StyleBoxEmpty.new())
 	_caption_editor.add_theme_color_override("font_color",Color("665240"));_caption_editor.add_theme_color_override("font_placeholder_color",Color(0.4,0.32,0.25,0.42));_caption_editor.add_theme_color_override("caret_color",Color("665240"));_caption_editor.add_theme_color_override("selection_color",Color(0.66,0.58,0.44,0.24))
-	_place(_caption_editor,_review,Rect2(398,618,804,78))
+	_place(_caption_editor,_review_paper,Rect2(50,518,804,78))
 	_caption_editor.text_changed.connect(func():_caption_dirty=true;_caption_timer.start())
 	_caption_editor.focus_exited.connect(_save_caption)
 	_caption_timer=Timer.new();_caption_timer.one_shot=true;_caption_timer.wait_time=.45;add_child(_caption_timer);_caption_timer.timeout.connect(_save_caption)
@@ -300,7 +303,7 @@ func export_current_photo()->String:
 	var note:=Label.new();note.text=_caption_original;note.autowrap_mode=TextServer.AUTOWRAP_WORD_SMART
 	# Rasterize at output resolution instead of scaling cached 25px glyphs.
 	note.add_theme_font_override("font",FONT);note.add_theme_font_size_override("font_size",50);note.add_theme_color_override("font_color",Color("665240"))
-	note.position=(_caption_editor.position-_review_paper.position)*2.0;note.size=_caption_editor.size*2.0;paper.add_child(note)
+	note.position=_caption_editor.position*2.0;note.size=_caption_editor.size*2.0;paper.add_child(note)
 	await get_tree().process_frame
 	# Long notes get more paper below the full-width photograph, rather than
 	# being silently clipped to the editor's scrollable visible area.
@@ -402,6 +405,7 @@ func _update_review_controls()->void:
 	_album_button.disabled=_album_busy or _review_index<0 or _review_index>=gallery_paths.size()
 func _set_review_active(active:bool)->void:
 	_stop_pan()
+	if lab!=null:lab.set_review(active)
 	for button:Button in _composition_buttons:button.focus_mode=Control.FOCUS_NONE if active else Control.FOCUS_ALL
 	var was_active:=_review.visible
 	_review.visible=active
@@ -437,6 +441,7 @@ func take_photo()->void:
 	if not is_inside_tree() or _closing:return
 	show()
 	if pixels==null or pixels.is_empty():_capture_failed(_t("没有拍到，再试一次","Could not capture. Try again."));return
+	if lab!=null:pixels=await lab.render(pixels)
 	if instant_format:
 		var side:=mini(pixels.get_width(),roundi(pixels.get_height()*852.0/900.0))
 		pixels=pixels.get_region(Rect2i((pixels.get_width()-side)/2,(pixels.get_height()-side)/2,side,side))
@@ -448,6 +453,7 @@ func take_photo()->void:
 	var suffix:=0
 	while FileAccess.file_exists(path):suffix+=1;path=save_directory.path_join(stem+"_"+str(suffix)+".png")
 	if pixels.save_png(path)!=OK:_capture_failed(_t("照片没能保存，请重试","Could not save photo. Try again."));return
+	if lab!=null:FileAccess.open(path+".json",FileAccess.WRITE).store_string(JSON.stringify({"version":1,"caption":"","camera":lab.metadata()}))
 	last_photo_path=path;gallery_paths.append(path);_refresh_count();_refresh_thumbnail();photo_saved.emit(path)
 	_finish_capture_save()
 	if _closing or not is_inside_tree():return
@@ -523,10 +529,16 @@ func _input(event:InputEvent)->void:
 	var next:Control=_caption_editor.find_prev_valid_focus() if event.shift_pressed else _caption_editor.find_next_valid_focus()
 	if next!=null:next.grab_focus()
 func _can_pan()->bool:
+	if lab!=null and lab.panel.visible:return false
 	return pan_provider.is_valid() and is_visible_in_tree() and not gallery_only and not _closing and not capture_busy and not _album_busy and is_instance_valid(_review) and not _review.visible
 func _stop_pan()->void:
 	_dragging=false;_held_pan.clear()
 func _pan_surface_input(event:InputEvent)->void:
+	if event is InputEventMouseButton and event.pressed and event.button_index==MOUSE_BUTTON_RIGHT and lab!=null and not capture_busy and not _review.visible:
+		var point:=get_global_mouse_position()/get_viewport_rect().size
+		lab.focus_at(point)
+		if _focus_marks:_focus_marks.position=point*DESIGN-_focus_marks.size*.5
+		accept_event();return
 	if not _can_pan() or not event is InputEventMouseButton:return
 	if event.button_index==MOUSE_BUTTON_LEFT:
 		_dragging=event.pressed;accept_event()
