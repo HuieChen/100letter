@@ -1,0 +1,56 @@
+{
+  "camera": {
+    "author": "phatcorns",
+    "title": "Camera Shutter",
+    "page": "https://freesound.org/people/phatcorns/sounds/250105/",
+    "download": "https://cdn.freesound.org/previews/250/250105_2772007-hq.mp3",
+    "license": "CC0 1.0",
+    "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+    "description": "Canon T3i recording; one shutter excerpt from CC0 preview, filtered and softened"
+  },
+  "doors": {
+    "source": "Existing CC0 door_open.wav / door_close.wav; originals retained",
+    "license": "CC0 1.0",
+    "upstream": "https://opengameart.org/content/door-open-door-close",
+    "original_provenance": "source_downloads.json; sample_manifest.json"
+  },
+  "processing": "Mono 32 kHz PCM16; 90 Hz highpass, two-pole lowpass, smooth tanh transient shaping, 6 ms attack and up to 70 ms fade-out, peak 0.4. No source file modified.",
+  "outputs": [
+    {
+      "file": "camera_shutter_soft.wav",
+      "source_sha256": "d23b4fa94fcfc0c53fbc7a375e8878ec4d2f99f55b50f8dd3233c2d5190dcfef",
+      "source_file": "camera-original.mp3",
+      "start_seconds": 1.33,
+      "duration_seconds": 0.39,
+      "highpass_hz": 90,
+      "lowpass_hz": 2400,
+      "peak": 0.4000000059604645,
+      "playback_gain_db": -10,
+      "sha256": "f48f9a92e12ce44742bc3ea62ed15c792205d5118f34c45c74ca6c8c19775231"
+    },
+    {
+      "file": "door_open_soft.wav",
+      "source_sha256": "103af91c87524b4f4833ba58f73ccc4bc9188317185f9f3be89c115718c9d709",
+      "source_file": "door_open.wav",
+      "start_seconds": 0,
+      "duration_seconds": 0.8295625,
+      "highpass_hz": 90,
+      "lowpass_hz": 1800,
+      "peak": 0.4000000059604645,
+      "playback_gain_db": -18,
+      "sha256": "5b5e1a96c7ab2acb3aa7330dc87a9e46358728b5adfa205a1596c2b2e76d33e7"
+    },
+    {
+      "file": "door_close_soft.wav",
+      "source_sha256": "efd281ac2c6b7be70ad536bda57d324771bdfa1608e1852da14fe8e411065207",
+      "source_file": "door_close.wav",
+      "start_seconds": 0,
+      "duration_seconds": 0.5614375,
+      "highpass_hz": 90,
+      "lowpass_hz": 1800,
+      "peak": 0.4000000059604645,
+      "playback_gain_db": -19,
+      "sha256": "d3327ab3775dd82924ae6d6669181f806d88fc8baf9e09d0d677862d303ca929"
+    }
+  ]
+}
