@@ -44,6 +44,7 @@ var period_textures:Array[Texture2D]=[]
 var _time_ids:=Vector2i(-1,-1)
 var family:="coastal"
 var camera_director:Node2D
+var photo_composition_active:=false
 func _ready()->void:
  clip_contents=true
  # Run the camera after the courier's committed foot movement in this frame.
@@ -234,7 +235,7 @@ func _process(_delta:float)->void:
  var allowed:bool=not can_walk.is_valid() or can_walk.call()
  if courier.manual_enabled!=allowed:courier.manual_enabled=allowed
  # Hold composition perfectly still while the player uses a camera or modal.
- world.position.x=-camera_director.advance(_delta,allowed)
+ if not photo_composition_active:world.position.x=-camera_director.advance(_delta,allowed)
 
  if is_instance_valid(entry_hint):
   entry_ready=not _entering and allowed and absf(courier.foot.x-world.size.x*0.376)<220

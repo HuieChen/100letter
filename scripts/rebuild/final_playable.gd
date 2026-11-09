@@ -58,6 +58,7 @@ var allow_display_changes := true
 var _display_apply_queued:=false
 var _closeup_hidden_residents:Array[WeakRef]=[]
 var _camera_hidden_ui:Array[WeakRef]=[]
+var _photo_composition:RefCounted
 var _bag_photos_visible:=false
 var _bag_photo_scroll:=0
 var _photo_thumbnails:Dictionary={}
@@ -465,6 +466,19 @@ func _world(arrival:String="") -> void:
 	road.post_office_requested.connect(func():
 		_change_scene(func():core.state.location="post_office";_post_office_room();_save()))
 	road.courier.z_index=2
+	# Supplied street figures retain their original transparent pixels. They are
+	# ambient neighbours; no invented dialogue or false interaction affordance.
+	for figure:Array in [["postal","Naonao","naonao.png",Vector2(1060,850),300.0,Rect2i(112,91,306,799)],["community","FoodTruckGuest","food_truck_guest.png",Vector2(11730,850),305.0,Rect2i(1490,125,392,751)]]:
+		if road.family!=figure[0]:continue
+		var pixels:=Image.load_from_file("res://assets/authoring/neighbours_20261109/"+figure[2])
+		pixels.generate_mipmaps()
+		var atlas:=AtlasTexture.new();atlas.atlas=ImageTexture.create_from_image(pixels);atlas.region=figure[5];atlas.filter_clip=true
+		var neighbour:=TextureRect.new();neighbour.name=figure[1];neighbour.texture=atlas
+		neighbour.expand_mode=TextureRect.EXPAND_IGNORE_SIZE;neighbour.mouse_filter=Control.MOUSE_FILTER_IGNORE
+		neighbour.texture_filter=CanvasItem.TEXTURE_FILTER_LINEAR_WITH_MIPMAPS
+		var dims:Vector2=atlas.get_size()*float(figure[4])/atlas.get_height()
+		UI.place(neighbour,road.world,Rect2(figure[3]-Vector2(dims.x*.5,dims.y),dims))
+		neighbour.modulate=walker.modulate
 	var cast:Dictionary=preload("res://scripts/rebuild/authored_cast.gd").RESIDENTS
 	for character_id:String in cast:
 		var resident:Dictionary=cast[character_id]
@@ -560,6 +574,14 @@ func _camera()->void:
 	# QA captures stay beside the explicitly isolated test save.
 	camera.save_directory=_photo_directory()
 	camera.capture_provider=_capture_camera_scene
+	var composition_target:Control=stage
+	if view=="world" and is_instance_valid(_street_road):
+		composition_target=_street_road.world
+		_street_road.photo_composition_active=true
+	_photo_composition=preload("res://scripts/ui/photo_composition.gd").new(composition_target)
+	camera.pan_provider=_photo_composition.pan
+	camera.zoom_provider=_photo_composition.magnify
+	camera.reset_provider=_photo_composition.reset
 	modal=camera
 	UI.place(camera,self,Rect2(0,0,1600,900))
 	camera.closed.connect(_close)
@@ -852,6 +874,9 @@ func _hide_courier_for_closeup() -> void:
 	walker.hide()
 
 func _close(user_feedback:bool=false) -> void:
+	if _photo_composition!=null:
+		_photo_composition.restore();_photo_composition=null
+		if is_instance_valid(_street_road):_street_road.photo_composition_active=false
 	# Components with their own cue signal own their close sound. Internal
 	# replacements/rebuilds stay silent; explicit bare-overlay dismissal is one cue.
 	if user_feedback and is_instance_valid(modal) and not modal.has_signal("cue"):

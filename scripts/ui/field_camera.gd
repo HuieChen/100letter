@@ -17,6 +17,12 @@ var album_directory:=""
 var gallery_only:=false
 var initial_photo_path:=""
 var capture_provider:Callable
+var pan_provider:Callable
+var zoom_provider:Callable
+var reset_provider:Callable
+var _dragging:=false
+var _held_pan:Dictionary={}
+var _composition_buttons:Array[Button]=[]
 var capture_busy:=false
 var _capture_pending_save:=false
 var _close_after_capture:=false
@@ -110,6 +116,11 @@ func _ready()->void:
 	name="FieldCamera";mouse_filter=Control.MOUSE_FILTER_STOP;z_index=100
 	# The host places this modal on its authored 1600x900 stage.
 	canvas=Control.new();canvas.name="CameraCanvas";canvas.size=DESIGN;canvas.mouse_filter=Control.MOUSE_FILTER_IGNORE;add_child(canvas)
+	if pan_provider.is_valid() and not gallery_only:
+		var surface:=Control.new();surface.name="CameraPanSurface"
+		surface.mouse_default_cursor_shape=Control.CURSOR_DRAG
+		_place(surface,canvas,Rect2(Vector2.ZERO,DESIGN));surface.gui_input.connect(_pan_surface_input)
+		get_window().focus_exited.connect(_stop_pan)
 	_load_gallery()
 	var pixels:=Image.new()
 	var image_error:=pixels.load_png_from_buffer(FileAccess.get_file_as_bytes(ART))
@@ -137,6 +148,13 @@ func _ready()->void:
 	_label("C",Rect2(755,831,90,26),18,HORIZONTAL_ALIGNMENT_CENTER)
 	thumbnail=ArtButton.new();thumbnail.name="LastPhoto";thumbnail.tooltip_text=_t("查看照片","View photos");_place(thumbnail,canvas,Rect2(82,760,120,84));thumbnail.pressed.connect(func():_show_review(_thumbnail_index))
 	status_label=_label("",Rect2(950,788,450,42),23)
+	if pan_provider.is_valid() and not gallery_only:
+		_label(_t("拖动取景 · 方向键微调","Drag to frame · Arrow keys"),Rect2(1080,680,380,36),19,HORIZONTAL_ALIGNMENT_CENTER)
+		for spec:Array in [["ZoomOut","−",1100.0],["ResetComposition",_t("复位","Reset"),1190.0],["ZoomIn","+",1340.0]]:
+			var control:=_button(str(spec[1]),Rect2(float(spec[2]),725,140 if spec[0]=="ResetComposition" else 70,48),25)
+			control.name=str(spec[0]);_composition_buttons.append(control)
+			if spec[0]=="ResetComposition":control.pressed.connect(func():if _can_pan() and reset_provider.is_valid():reset_provider.call())
+			else:control.pressed.connect(func():if _can_pan() and zoom_provider.is_valid():zoom_provider.call(-.1 if spec[0]=="ZoomOut" else .1))
 	_print_clip=Control.new();_print_clip.name="PhotoEjection";_print_clip.clip_contents=true;_print_clip.mouse_filter=Control.MOUSE_FILTER_IGNORE;_place(_print_clip,canvas,Rect2(660,646,280,244));_print_clip.hide()
 	_print_paper=PhotoPaper.new();_print_paper.mouse_filter=Control.MOUSE_FILTER_IGNORE;_place(_print_paper,_print_clip,Rect2(0,-192,280,192))
 	_slot=PrintSlot.new();_slot.mouse_filter=Control.MOUSE_FILTER_IGNORE;_place(_slot,canvas,Rect2(648,636,304,20));_slot.hide()
@@ -383,6 +401,8 @@ func _update_review_controls()->void:
 	_review.get_node("BackToCamera").disabled=_album_busy
 	_album_button.disabled=_album_busy or _review_index<0 or _review_index>=gallery_paths.size()
 func _set_review_active(active:bool)->void:
+	_stop_pan()
+	for button:Button in _composition_buttons:button.focus_mode=Control.FOCUS_NONE if active else Control.FOCUS_ALL
 	var was_active:=_review.visible
 	_review.visible=active
 	_update_review_controls()
@@ -404,6 +424,7 @@ func take_photo()->void:
 	if _review.visible:_leave_review()
 	if _review.visible:return
 	capture_busy=true;_capture_pending_save=true;shutter.disabled=true
+	_stop_pan()
 	# Sound follows the accepted shutter, not disk-write completion.
 	cue.emit("camera")
 	_status("")
@@ -470,6 +491,7 @@ func request_close()->void:
 	elif is_instance_valid(_review) and _review.visible:_leave_review()
 	else:_request_close()
 func _request_close()->void:
+	_stop_pan()
 	if _closing:return
 	if _capture_pending_save:_close_after_capture=true;return
 	if _album_busy:_close_after_album=true;return
@@ -479,6 +501,17 @@ func _request_close()->void:
 	cue.emit("paper")
 	closed.emit()
 func _input(event:InputEvent)->void:
+	if event is InputEventMouseButton and not event.pressed and event.button_index==MOUSE_BUTTON_LEFT:_dragging=false
+	if event is InputEventKey:
+		var code:int=event.physical_keycode if event.physical_keycode!=0 else event.keycode
+		if code in [KEY_LEFT,KEY_RIGHT,KEY_UP,KEY_DOWN,KEY_W,KEY_A,KEY_S,KEY_D]:
+			if not event.pressed:_held_pan.erase(code)
+			if _can_pan() and not event.ctrl_pressed and not event.alt_pressed and not event.meta_pressed:
+				if event.pressed:_held_pan[code]=true
+				get_viewport().set_input_as_handled();return
+	if _dragging and _can_pan() and event is InputEventMouseMotion:
+		pan_provider.call(event.relative/get_global_transform().get_scale())
+		get_viewport().set_input_as_handled();return
 	# Photo notes use Tab for navigation, not indentation. Handle it before
 	# TextEdit inserts a tab so keyboard users can reach the save/back controls.
 	if not is_visible_in_tree() or _closing or not _review.visible:return
@@ -489,6 +522,21 @@ func _input(event:InputEvent)->void:
 	get_viewport().set_input_as_handled()
 	var next:Control=_caption_editor.find_prev_valid_focus() if event.shift_pressed else _caption_editor.find_next_valid_focus()
 	if next!=null:next.grab_focus()
+func _can_pan()->bool:
+	return pan_provider.is_valid() and is_visible_in_tree() and not gallery_only and not _closing and not capture_busy and not _album_busy and is_instance_valid(_review) and not _review.visible
+func _stop_pan()->void:
+	_dragging=false;_held_pan.clear()
+func _pan_surface_input(event:InputEvent)->void:
+	if not _can_pan() or not event is InputEventMouseButton:return
+	if event.button_index==MOUSE_BUTTON_LEFT:
+		_dragging=event.pressed;accept_event()
+	elif event.pressed and event.button_index in [MOUSE_BUTTON_WHEEL_UP,MOUSE_BUTTON_WHEEL_DOWN]:
+		if zoom_provider.is_valid():zoom_provider.call(.1 if event.button_index==MOUSE_BUTTON_WHEEL_UP else -.1)
+		accept_event()
+func _process(delta:float)->void:
+	if not _can_pan():_stop_pan();return
+	var direction:=Vector2(float(_held_pan.has(KEY_RIGHT) or _held_pan.has(KEY_D))-float(_held_pan.has(KEY_LEFT) or _held_pan.has(KEY_A)),float(_held_pan.has(KEY_DOWN) or _held_pan.has(KEY_S))-float(_held_pan.has(KEY_UP) or _held_pan.has(KEY_W)))
+	if direction!=Vector2.ZERO:pan_provider.call(-direction.normalized()*300.0*delta)
 func _unhandled_key_input(event:InputEvent)->void:
 	if not event is InputEventKey or not event.pressed or event.echo:return
 	if event.ctrl_pressed or event.alt_pressed or event.meta_pressed:return

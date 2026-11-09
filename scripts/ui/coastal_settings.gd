@@ -133,7 +133,7 @@ func _build() -> void:
 		paper.material=matte;paper.name="PDF_"+key
 		_paper_materials.append(matte)
 		_paper_masks.append(paper.texture.get_image())
-	var heading:=_label(_t("设置","Settings"),Rect2(510,18,534,109),72 if preferences.values.language=="zh" else 94,Color("0059ae"))
+	var heading:=_label(_t("设置","Settings"),Rect2(510,18,534,109),96 if preferences.values.language=="zh" else 94,Color("0059ae"))
 	heading.horizontal_alignment=HORIZONTAL_ALIGNMENT_CENTER
 	heading.add_theme_font_override("font",_headline);heading.name="SettingsHeading"
 	heading.add_theme_color_override("font_outline_color",Color.WHITE);heading.add_theme_constant_override("outline_size",7)
@@ -178,7 +178,7 @@ func _build() -> void:
 
 func _session_action(id:String,label:String,rect:Rect2,action:Callable)->void:
 	var button:=Button.new();button.name=id;button.text=label
-	button.add_theme_font_override("font",_font);button.add_theme_font_size_override("font_size",23)
+	button.add_theme_font_override("font",_font);button.add_theme_font_size_override("font_size",28 if preferences.values.language=="zh" else 23)
 	button.add_theme_color_override("font_color",Color("0059ae"))
 	button.set_meta("light_surface",true)
 	for state:String in ["normal","hover","pressed","focus"]:
@@ -209,12 +209,14 @@ func _label(text:String,rect:Rect2,font_size:int=29,color:Color=Color.WHITE) -> 
 	label.clip_text=true;UI.place(label,self,rect);return label
 func _option(key:String,label:String,label_rect:Rect2,rect:Rect2,values:Array,texts:Array) -> void:
 	_option_values[key]=values.duplicate();_option_texts[key]=texts.duplicate()
-	if preferences.values.language=="zh":label_rect.position.x=580;label_rect.size.x=221
-	var caption:=_label(label,label_rect,32 if preferences.values.language=="zh" else 29);caption.name="SettingLabel_"+key
+	if preferences.values.language=="zh":
+		label_rect.position.x=526;label_rect.position.y-=3;label_rect.size=Vector2(274,46)
+		if key=="language":label_rect.position.x=610;label_rect.size.x=244
+	var caption:=_label(label,label_rect,40 if preferences.values.language=="zh" else 29);caption.name="SettingLabel_"+key
 	if preferences.values.language=="zh":caption.horizontal_alignment=HORIZONTAL_ALIGNMENT_CENTER
 	var choice:=Button.new();choice.name="Setting_"+key
 	choice.text=str(texts[values.find(preferences.values[key])]);choice.alignment=HORIZONTAL_ALIGNMENT_LEFT
-	choice.add_theme_font_override("font",_font);choice.add_theme_font_size_override("font_size",21 if preferences.values.language=="zh" else 19)
+	choice.add_theme_font_override("font",_font);choice.add_theme_font_size_override("font_size",25 if preferences.values.language=="zh" else 19)
 	choice.add_theme_color_override("font_color",Color("c7e8ff"))
 	choice.add_theme_color_override("font_hover_color",Color.WHITE)
 	choice.add_theme_color_override("font_focus_color",Color("fff4ba"))
@@ -303,7 +305,7 @@ func _separator(y:float) -> void:
 func _slider(key:String,text:String,y:float,minimum:float,maximum:float) -> void:
 	var chinese:bool=preferences.values.language=="zh"
 	if chinese and key=="sensitivity":text="操作灵敏度"
-	var caption:=_label(text,Rect2(580,y-6,221,40) if chinese else Rect2(526,y-10,271,46),32 if chinese else 29);caption.name="SettingLabel_"+key
+	var caption:=_label(text,Rect2(526,y-10,274,46) if chinese else Rect2(526,y-10,271,46),40 if chinese else 29);caption.name="SettingLabel_"+key
 	if chinese:caption.horizontal_alignment=HORIZONTAL_ALIGNMENT_CENTER
 	var slider:=HSlider.new();slider.name="Setting_"+key
 	slider.focus_mode=Control.FOCUS_ALL

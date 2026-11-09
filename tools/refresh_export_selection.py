@@ -27,6 +27,8 @@ def selection(retained_paths=()):
             or room_hash != '5bef8c44b16c09eb31d60395b6b4d56b11b574d9ba70acdd2ccb2f8de1e04e8b'):
         raise ValueError('Supplied postal interior differs from the authorized original.')
     paths = {'res://scenes/final_slice.tscn',
+             'res://assets/authoring/neighbours_20261109/naonao.png',
+             'res://assets/authoring/neighbours_20261109/food_truck_guest.png',
              'res://assets/ui/confirmation_20261109/rounded_paper.png',
              'res://scripts/rebuild/field_book.gd',
              'res://scripts/rebuild/field_observation.gd',
@@ -117,6 +119,7 @@ def refreshed_source(source):
     patterns = [x.strip() for x in (current_includes[0] + ',' + includes).split(',') if x.strip()]
     patterns.extend(['addons/phantom_camera/LICENSE', 'addons/dialogue_manager/LICENSE', 'data/dialogue/chef_zh.dialogue', 'data/dialogue/chef_en.dialogue'])
     patterns.extend(path[6:] for path in paths if path.endswith('.gdshaderinc'))
+    patterns.extend(['assets/authoring/neighbours_20261109/naonao.png', 'assets/authoring/neighbours_20261109/food_truck_guest.png', 'assets/authoring/neighbours_20261109/provenance.json'])
     includes = ','.join(dict.fromkeys(patterns))
     source = re.sub(r'^include_filter=.*$', lambda _: 'include_filter="' + includes + '"', source, flags=re.M)
     exclusions = 'specification/*,docs/*,tools/*,tests/*,test-results/*,work/*,artifacts/*,local-data/*,builds/*,*.psd,assets/locked_user/*,assets/display_user/*,assets/generated/*,assets/characters/*,assets/reference_gate/*,scripts/reference_gate/*,scenes/reference_fidelity_prototype.tscn*,scripts/rebuild/post_office_room.gd*,scripts/rebuild/title_screen.gd*,scripts/main.gd*,scripts/core/*,scenes/main.tscn*,data/game.json'

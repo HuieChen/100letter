@@ -53,7 +53,11 @@ func _layout_caption()->void:
 	if not is_instance_valid(_caption):return
 	var text_width:=_caption.get_theme_font("font").get_string_size(_caption.text,HORIZONTAL_ALIGNMENT_LEFT,-1,_caption.get_theme_font_size("font_size")).x
 	_caption.size=Vector2(clampf(text_width+48.0,168.0,340.0),40)
-	_caption.position=Vector2((size.x-_caption.size.x)*.5,-_caption.size.y-14+2.0*_press_amount)
+	# Follow the central parchment edge, not the taller rolled-up left corner.
+	var art:=map_texture()
+	var ratio:=minf(size.x/art.get_width(),size.y/art.get_height())
+	var paper_top:float=(size.y-art.get_height()*ratio)*.5+200.0*ratio
+	_caption.position=Vector2((size.x-_caption.size.x)*.5,paper_top-_caption.size.y-34+2.0*_press_amount)
 func _focus_destination()->void:
 	# The host adds the hit regions after this map enters the tree.
 	if not is_inside_tree():return

@@ -54,6 +54,8 @@ func run()->void:
 	cat.meowed.connect(func():meows+=1)
 	check(cat.bubble.size.x<104 and cat.bubble.size.y<68.8,"cat bubble smaller than residents")
 	check(cat.bubble.position.y+cat.bubble.size.y<0,"bubble is above original painted cat")
+	check(cat.bubble.get_global_rect().encloses(cat.caption.get_global_rect()),"idle dots stay inside the small bubble")
+	check(cat.caption.text=="..." and cat.caption.get_theme_font_size("font_size")==27,"cat uses the same rounded three-dot typography as residents")
 	await frame("cat_idle")
 	await click(cat.bubble)
 	check(meows==1 and cat.caption.text=="喵～","bubble click meows once")

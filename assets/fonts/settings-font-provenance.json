@@ -10,7 +10,8 @@
     "commit": "6d49995f5d8f1c7d476760a580ffb89ce1e52c5d",
     "sha256": "812a6fc1fe54b6d73a419245c32dfeba8aa33104d5be90d1cf6af082007cb71d",
     "license": "SIL OFL 1.1",
-    "upstream": "https://github.com/google/fonts/tree/6d49995f5d8f1c7d476760a580ffb89ce1e52c5d/ofl/zcoolkuaile"
+    "upstream": "https://github.com/google/fonts/tree/6d49995f5d8f1c7d476760a580ffb89ce1e52c5d/ofl/zcoolkuaile",
+    "scope": "Global playful Chinese UI, original licensed font bytes. English remains DynaPuff."
   },
   "LilitaOne": {
     "commit": "90abd17b4f97671435798b6147b698aa9087612f",
@@ -42,6 +43,6 @@
     "source_archive_sha256": "7a061e39cc8f377ce122f0ae68d1fe3ef43d78431388362c61ea8d695722d267",
     "source_path": "ChillRoundF_v3.200/ChillRoundFBold.ttf",
     "unmodified": true,
-    "scope": "Global Chinese rounded UI; official designed Bold outlines, including dense multi-stroke glyphs."
+    "scope": "Retained previous Chinese UI font, no longer selected."
   }
 }

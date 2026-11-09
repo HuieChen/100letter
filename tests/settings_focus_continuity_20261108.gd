@@ -35,6 +35,11 @@ func run():
 		root.size=Vector2i(1280,720) if locale=="zh" else Vector2i(1920,1080)
 		game.preferences.set_value("language",locale);game._pause();await settle();await open_from_pause()
 		var page=game.modal
+		await shot(locale+"_settings")
+		for child:Node in page.get_children():
+			if child is Label and str(child.name).begins_with("SettingLabel_"):
+				var label:=child as Label
+				check(label.get_theme_font("font").get_string_size(label.text,HORIZONTAL_ALIGNMENT_LEFT,-1,label.get_theme_font_size("font_size")).x<=label.size.x,locale+" label fits "+str(label.name))
 		for id:String in ["language","display_mode","resolution","text_speed"]:
 			var before:Dictionary=game.preferences.values.duplicate(true)
 			page.controls[id].grab_focus();await key(KEY_ENTER);await settle()
