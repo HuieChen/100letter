@@ -1,5 +1,8 @@
 # Latest user feedback — authoritative order
 
+2026-11-10 direct user scope: implement photography, field recording, click movement, map feedback and sound polish before the main story. Recorder is now explicitly authorized. User rejects sentimental AI-sounding instructions and requires game references plus an unobstructed scene while recording. Use SEASON's sparse recording HUD as the primary layout reference; keep recordings library separate from monitoring. Preserve supplied art, guitar, legacy saves and collaborators; validate then push GitHub main. See docs/Exploration_Polish_20261110.md.
+
+
 2026-11-06 latest: make both Chinese and English typography more rounded/cute while keeping the opened demo comfortable and readable. Research player comfort, inspect the rendered UI and validate connected interactions before publishing. Every future completed modification to this game must be pushed to HuieChen/100letter main; preserve collaborator commits and verify the remote SHA. Notify the other active game chats after this revision is completed. This does not authorize reopening hidden narrative or changing supplied artwork.
 
 2026-11-06 current scope: keep the existing exploration demo and improve only opened features. Do not reopen the hidden mail/counter flow, recorder or unfinished narrative. Preserve original art and saves. Settings must retain flowing water sampled from the original artwork; the added bright white caustic/net pattern was explicitly rejected and is disabled. Buttons, focus, transitions and layers should feel calm and consistent. Visible HUD/camera clocks are removed; internal time, daylight and save data remain. Publish the validated revision to GitHub main.

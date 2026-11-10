@@ -34,7 +34,7 @@ func run():
  check(cues.count("camera")==1,"busy duplicate does not replay shutter")
  var shot:AudioStreamPlayer=game.sound._shots.back()
  check(shot.bus==game.sound.SFX_BUS,"camera uses effects bus")
- check(shot.volume_db==-10.0 and shot.has_stream_playback(),"camera has active audible-gain voice")
+ check(shot.volume_db==-14.0 and shot.has_stream_playback(),"camera has active audible-gain voice")
  var stream:AudioStreamWAV=shot.stream
  check(stream.get_length()>.3 and stream.get_length()<.45,"short non-looping shutter")
  check(stream.loop_mode==AudioStreamWAV.LOOP_DISABLED,"shutter does not loop")

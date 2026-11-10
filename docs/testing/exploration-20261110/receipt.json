@@ -1,0 +1,44 @@
+{
+  "scope": "Actual exported PCK GPU input/rendering and PCM mixer checks; not human listening or OS-input acceptance",
+  "suites": {
+    "exploration_photo_20261110": {
+      "checks": 23,
+      "failures": []
+    },
+    "exploration_recorder_20261110": {
+      "checks": 35,
+      "failures": []
+    },
+    "exploration_navigation_20261110": {
+      "checks": 12,
+      "failures": []
+    },
+    "host_photo_capture_close_20261108": {
+      "checks": 6,
+      "failures": []
+    },
+    "audio_current_host_20261108": {
+      "checks": 27,
+      "failures": []
+    },
+    "audio_transition_continuity_20261108": {
+      "checks": 22,
+      "failures": []
+    },
+    "camera_shutter_audio_20261109": {
+      "checks": 23,
+      "failures": []
+    }
+  },
+  "native_window": "Actual release EXE window Dear Somewhere observed in CUA inventory, window id 15482068. Binding the app for input/inspection timed out waiting for Computer Use approval. No mouse playtest or subjective listening pass claimed.",
+  "checks": 148,
+  "captured_audio": {
+    "seconds": 2.136,
+    "channels": 2,
+    "peak_dbfs": -32.13,
+    "rms_dbfs": -47.02,
+    "clipped_samples": 0
+  },
+  "pck_sha256": "be85d6419bbbc65a823bba5c307da22a522e58b073e78f05dbeed30750886067",
+  "exe_sha256": "d34d36f3be1a6c49c56525ae86469b92e4f417ddf0b43cf00dd80c385c4b0562"
+}

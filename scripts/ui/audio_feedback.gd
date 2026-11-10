@@ -15,6 +15,8 @@ const POOLS := {
 	"map": ["paper_unfold.wav"],
 	"snap": ["paper_slide.wav"],
 	"camera": ["camera_shutter_soft.wav"],
+	"recorder_start": ["tool_metal.wav"],
+	"recorder_stop": ["wood_piece.wav"],
 	"repair": ["paper_slide.wav", "paper_3.wav"],
 	"stamp": ["stamp_1.wav", "stamp_2.wav"],
 	"deliver": ["paper_3.wav", "paper_1.wav"],
@@ -44,6 +46,10 @@ var location_id: String = "post_office"
 var indoors: bool = false
 var minute: int = 540
 var _quiet: bool = false
+var recorder_focus:=false
+var recorder_playback:=false
+var _playback_duck:=1.0
+var positional_field:=false
 var _rng := RandomNumberGenerator.new()
 var _beds: Dictionary = {}
 var _bed_gains: Dictionary = {}
@@ -127,6 +133,7 @@ func set_location(id: String, at_minute: int = 540, inside: bool = false) -> voi
 	var changed: bool = not _configured or id != location_id or inside != indoors
 	location_id = id
 	indoors = inside
+	positional_field=not inside and id!="title"
 	_configured = true
 	var levels: Dictionary = {}
 	if id == "title":
@@ -216,7 +223,8 @@ func play(kind: String = "paper") -> void:
 	elif kind in ["water","drawer"]:gain=-22.0
 	elif kind == "cat":gain=-19.0
 	elif kind == "dog":gain=-17.0
-	elif kind == "camera":gain=-10.0
+	elif kind == "camera":gain=-14.0
+	elif kind in ["recorder_start","recorder_stop"]:gain=-25.0
 	elif kind == "title_hover":gain=-30.0
 	if settings_cue:gain=-18.0 if kind=="paper" else -22.0
 	# Match the denser recording to the other paper variants; retain the source.
@@ -385,17 +393,23 @@ func _process(delta: float) -> void:
 			if file=="wind_bed.ogg":destination*=lerpf(.48,1.10,_weather_wind)
 			elif file=="sea_bed.ogg":destination*=lerpf(.70,1.0,_weather_swell)
 		# Roughly two seconds of perceptual, click-free crossfade.
+		if recorder_focus:destination*=.16
 		current = lerpf(current, destination, 1.0 - exp(-delta * 1.6))
 		_bed_gains[file] = current
 		(_beds[file] as AudioStreamPlayer).volume_db = linear_to_db(maxf(current, 0.0001))
 	if is_instance_valid(leaf_player):
 		var leaf_gain:=db_to_linear(-32.0)*_weather_foliage*lerpf(.10,1.0,_weather_wind) if not indoors and location_id!="title" else 0.0
+		if recorder_focus:leaf_gain*=.16
 		var now:=db_to_linear(leaf_player.volume_db)
 		leaf_player.volume_db=linear_to_db(maxf(.0001,lerpf(now,leaf_gain,1.0-exp(-delta*4.0))))
 	var target_music: float = db_to_linear(-18.0 if _quiet else -12.0)
 	# Keep the supplied guitar running across title, Settings and the journey.
 	# Only its gain changes; entering the cover must not restart or stack a loop.
 	if location_id == "title" and not _quiet:target_music=db_to_linear(-15.0)
+	if recorder_focus:target_music*=.18
+	var ambient_index:=AudioServer.get_bus_index(AMBIENT_BUS)
+	_playback_duck=lerpf(_playback_duck,.05 if recorder_playback else 1.0,1.0-exp(-delta*10.0))
+	if ambient_index>=0:AudioServer.set_bus_volume_db(ambient_index,linear_to_db(maxf(.0001,_ambience_volume*_playback_duck)))
 	_music_gain = lerpf(_music_gain, target_music, 1.0 - exp(-delta * 1.3))
 	if music: music.volume_db = linear_to_db(maxf(_music_gain, 0.0001))
 	_menu_gain=lerpf(_menu_gain,db_to_linear(-15.0) if _settings_mode else 0.0,1.0-exp(-delta*3.0))
@@ -410,7 +424,7 @@ func _process(delta: float) -> void:
 			_spawn("tram_ambient", "tram_pass.wav", -28.0, AMBIENT_BUS)
 		elif location_id == "chess_stall" and _rng.randf() < 0.35:
 			_spawn("chess_piece", "wood_piece.wav", -24.0, AMBIENT_BUS)
-		elif minute>=360 and minute<1140:
+		elif not positional_field and minute>=360 and minute<1140:
 			_spawn("bird_ambient", "birds.wav", -25.0 if location_id == "lookout" else -21.0, AMBIENT_BUS, _rng.randf_range(0.94, 1.04))
 
 
