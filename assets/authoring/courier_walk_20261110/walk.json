@@ -22,7 +22,7 @@
         770,
         1905
       ],
-      "sha256": "cfb3608d936cca21d6b3e241fded1baac7dcfdb30f91b54f0b6e3cad988d2efc"
+      "sha256": "af8e6309fd5209aa81002e616b1b26349b620aba8904fdf5f901d58794e25683"
     },
     {
       "path": "res://assets/authoring/courier_walk_20261110/walk_01.png",
@@ -33,7 +33,7 @@
         770,
         1905
       ],
-      "sha256": "25c6603890eecb50084b1869759bd9ffed16a123c23dc8653508fe0e6049b0ed"
+      "sha256": "e8d7cb5383690c7bc343aa5f2bbc531a3873e62448220c672ac4caa160fa36c5"
     },
     {
       "path": "res://assets/authoring/courier_walk_20261110/walk_02.png",
@@ -44,7 +44,7 @@
         770,
         1905
       ],
-      "sha256": "b8c37479517cf8b05ee1324a63de9ccff841216d8a0c5bf4958b2cd9c1ad9d1b"
+      "sha256": "680b48a14a255c0d4ea2ba1e6d9cf1a4ad7e4d2760eddc61ae0d5ab8fd7c996a"
     },
     {
       "path": "res://assets/authoring/courier_walk_20261110/walk_03.png",
@@ -55,7 +55,7 @@
         770,
         1905
       ],
-      "sha256": "9779722afac7486efdca67cd2d92be3a0ea1811955126dba8dcbafaf7c7bbb76"
+      "sha256": "ab74ee2841a6cba9a04708c43271b223bfe5ed52c4975c19a9afbcb4015e5847"
     },
     {
       "path": "res://assets/authoring/courier_walk_20261110/walk_04.png",
@@ -66,7 +66,7 @@
         770,
         1905
       ],
-      "sha256": "80c1062ed50df4692a6f3311c201786473db09c8053d67a9cf46abe0553fd1f1"
+      "sha256": "18de6b563555892a9117e0d1ee4338acec5cc74534eea02ec92f5ecc934c37ec"
     },
     {
       "path": "res://assets/authoring/courier_walk_20261110/walk_05.png",
@@ -77,7 +77,7 @@
         770,
         1905
       ],
-      "sha256": "617bd7f5ecf8f4a4affbb034b08081613524136fe2f50e4a2142f2973d46f0e7"
+      "sha256": "d65d2cf97b21489473d06f36662f1cc268cbc752710ad6efc8b17b0e22864a6c"
     },
     {
       "path": "res://assets/authoring/courier_walk_20261110/walk_06.png",
@@ -88,7 +88,7 @@
         770,
         1905
       ],
-      "sha256": "69298e58268aacdef408bc945f0c32ded3662a8ae4566be4a333e920535a8a21"
+      "sha256": "02e2f35b42c5e597b98009ef7bbbbcdb565d50afce2a0c047e329df6002728c5"
     },
     {
       "path": "res://assets/authoring/courier_walk_20261110/walk_07.png",
@@ -99,7 +99,7 @@
         770,
         1905
       ],
-      "sha256": "0bfa06b963f5be8ac076bdb501021c468d535991b9ddd958602037fbacd741f8"
+      "sha256": "d07484419898d88f8453f5c63f4795d9fd23b2e20d630e8b9b3852d32660123f"
     },
     {
       "path": "res://assets/authoring/courier_walk_20261110/walk_08.png",
@@ -110,7 +110,7 @@
         770,
         1905
       ],
-      "sha256": "2971e76e7ca42c1dfc706f5b37ee613fe8fd01cc9d299fa1d1602719c5116d41"
+      "sha256": "14c69604be0903d9008a05ae2e4e7feb6fd01899bd7e0b33a6cae2554de0828f"
     },
     {
       "path": "res://assets/authoring/courier_walk_20261110/walk_09.png",
@@ -121,7 +121,7 @@
         770,
         1905
       ],
-      "sha256": "2c13827ff3710c2903e1e533c925475383cc2f81e42b20af1fa55dfe50e4fb44"
+      "sha256": "1600e666687610716f43b231e0f6e0cbb98165da23b09f13fee8daa3f2e5f825"
     },
     {
       "path": "res://assets/authoring/courier_walk_20261110/walk_10.png",
@@ -132,7 +132,7 @@
         770,
         1905
       ],
-      "sha256": "ca11674cd6b521efd2820d773e4f08f14c10512c9123dc3ba189a1af7f261fa2"
+      "sha256": "d91b0f239e5207fc207fa7e2e310b931844d4b61b36bf28ebbf2d69e2f553f9f"
     },
     {
       "path": "res://assets/authoring/courier_walk_20261110/walk_11.png",
@@ -143,7 +143,7 @@
         770,
         1905
       ],
-      "sha256": "d0293638478d11aba49326d13de673b7299f06405b8a17bf4d6ef4664b66695f"
+      "sha256": "cf11d99162cb3b9ab78939f7eb2bf4eac1a9bdd8080055c11cf7554c685ed2fd"
     }
   ]
 }

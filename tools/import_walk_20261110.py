@@ -6,7 +6,7 @@ Only derived frames enter the repository. Never writes the source movie.
 import hashlib, json, subprocess, sys, tempfile
 from pathlib import Path
 import numpy as np
-from PIL import Image
+from PIL import Image, ImageFilter
 
 root = Path(__file__).resolve().parents[1]
 source, ffmpeg = Path(sys.argv[1]), sys.argv[2]
@@ -25,7 +25,10 @@ with tempfile.TemporaryDirectory() as tmp:
         # Decoded HEVC has a black matte. Only near-black matte is removed;
         # character pigments remain unchanged, including the dark boots.
         alpha = np.clip((rgb.max(2).astype(float)-2)/10, 0, 1)
-        rgba = np.dstack([rgb, np.rint(alpha*255).astype('uint8')])
+        # HEVC subsampling leaves a 2-3 source-pixel black fringe. Contract
+        # only the alpha edge at full source resolution (under 0.3 game px).
+        coverage = Image.fromarray(np.rint(alpha*255).astype('uint8')).filter(ImageFilter.MinFilter(7))
+        rgba = np.dstack([rgb, np.asarray(coverage)])
         target = out/f'walk_{index:02d}.png'
         Image.fromarray(rgba).save(target)
         frames.append(dict(path='res://'+target.relative_to(root).as_posix(),
