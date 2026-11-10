@@ -550,7 +550,7 @@ void fragment(){
   float violet=smoothstep(.025,.095,min(day.r,day.b)-day.g);
   float luminance=dot(painted.rgb,vec3(.2126,.7152,.0722));
   vec3 linen=vec3(luminance*1.12,luminance*1.035,luminance*.87);
-  painted.rgb=mix(painted.rgb,linen,stall*violet*.86);
+  painted.rgb=mix(painted.rgb,linen,stall*violet*.76);
  }
  // Original painted colors and textures are sampled unchanged. No animated
  // fold shading, water glints, contrast pumping or material-flow overlay.
