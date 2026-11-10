@@ -24,7 +24,7 @@ func run():
 		var camera:=Camera.new();camera.locale=locale;camera.save_directory=gallery;camera.album_directory=out+locale;camera.gallery_only=true
 		root.add_child(camera);camera.size=Vector2(1600,900);await settle()
 		check(not camera._album_button.disabled,locale+" valid print enables export")
-		check(camera._album_button.text==("保存到相册" if locale=="zh" else "Save to album"),locale+" translated export control")
+		check(camera._album_button.text==("导出照片" if locale=="zh" else "Export photo"),locale+" translated export control")
 		camera._caption_editor.text="今天的海风 / Sea breeze"
 		var exported:String=await camera.export_current_photo()
 		check(not exported.is_empty() and FileAccess.file_exists(exported),locale+" saved PNG exists")

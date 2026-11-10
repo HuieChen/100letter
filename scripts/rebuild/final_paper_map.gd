@@ -30,6 +30,11 @@ func install_pet_regions()->void:
 		button.tooltip_text=""
 		for state:String in ["normal","hover","pressed","focus"]:button.add_theme_stylebox_override(state,StyleBoxEmpty.new())
 		add_child(button)
+		var landmark:String={"FountainDog":"statue","BookCat":"bookstore"}.get(entry[0],"")
+		if not landmark.is_empty():
+			button.mouse_entered.connect(func():_hovered_destination=get_node_or_null("Map_"+landmark);queue_redraw())
+			button.mouse_exited.connect(func():
+				if is_instance_valid(_hovered_destination) and str(_hovered_destination.name)=="Map_"+landmark:_hovered_destination=null;queue_redraw())
 		button.pressed.connect(func():
 			var host:=_host()
 			if host!=null and not host.busy:host.sound.play(str(entry[1])))
@@ -56,6 +61,7 @@ var _caption:Label
 var _caption_alpha:=0.0
 var _press_amount:=0.0
 var points:Array[Vector2]=[]
+var current_destination:=""
 var current_index:=0
 var target_index:=0
 var route_progress:=0.0:
@@ -76,16 +82,16 @@ func _layout_caption()->void:
 	if not is_instance_valid(_caption):return
 	var text_width:=_caption.get_theme_font("font").get_string_size(_caption.text,HORIZONTAL_ALIGNMENT_LEFT,-1,_caption.get_theme_font_size("font_size")).x
 	_caption.size=Vector2(clampf(text_width+48.0,168.0,340.0),40)
-	# Follow the central parchment edge, not the taller rolled-up left corner.
-	var art:=map_texture()
-	var ratio:=minf(size.x/art.get_width(),size.y/art.get_height())
-	var paper_top:float=(size.y-art.get_height()*ratio)*.5+200.0*ratio
-	_caption.position=Vector2((size.x-_caption.size.x)*.5,paper_top-_caption.size.y-34+2.0*_press_amount)
+	var selected:=_active_destination()
+	if is_instance_valid(selected):
+		_caption.position=Vector2(clampf(selected.position.x+selected.size.x*.5-_caption.size.x*.5,10,size.x-_caption.size.x-10),clampf(selected.position.y-_caption.size.y-12+2.0*_press_amount,8,size.y-_caption.size.y-8))
+	else:_caption.position=Vector2((size.x-_caption.size.x)*.5,42)
+
 func _focus_destination()->void:
 	# The host adds the hit regions after this map enters the tree.
 	if not is_inside_tree():return
 	var host:=_host()
-	var preferred:String="Map_"+str(host.core.state.location) if host!=null else ""
+	var preferred:String="Map_"+current_destination
 	var first:Button
 	for child in get_children():
 		if child is Button and str(child.name).begins_with("Map_"):
@@ -140,6 +146,10 @@ func _draw()->void:
 	if art!=null:
 		var ratio:=minf(size.x/art.get_width(),size.y/art.get_height())
 		draw_texture_rect(art,Rect2((size-art.get_size()*ratio)*0.5,art.get_size()*ratio),false)
+	var here:=get_node_or_null("Map_"+current_destination) as Control
+	if here!=null:
+		var pin:=here.position+Vector2(here.size.x*.5,here.size.y-5)
+		draw_circle(pin,8,Color("f6ecd4"));draw_circle(pin,4.5,Color("8c604c"))
 	if is_instance_valid(_caption) and _caption_alpha>0.0:
 		var p:=_caption.position;var w:=_caption.size.x;var h:=_caption.size.y
 		var edge:=PackedVector2Array([p+Vector2(2,2),p+Vector2(w*.34,0),p+Vector2(w*.69,2),p+Vector2(w-1,1),p+Vector2(w,h*.51),p+Vector2(w-3,h-1),p+Vector2(w*.64,h+1),p+Vector2(w*.3,h-1),p+Vector2(0,h),p+Vector2(1,h*.47)])

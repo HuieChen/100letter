@@ -11,14 +11,14 @@ func _run()->void:
 	root.size=Vector2i(1280,720)
 	root.content_scale_size=Vector2i(1600,900)
 	root.content_scale_mode=Window.CONTENT_SCALE_MODE_CANVAS_ITEMS
-	dialogue=Dialogue.new();root.add_child(dialogue);dialogue.size=Vector2(1600,900)
+	dialogue=Dialogue.new();root.add_child(dialogue);dialogue.size=Vector2(1600,900);dialogue.set_text_rate(0)
 	dialogue.chosen.connect(func(id:String):selected.append(id))
 	dialogue.advanced.connect(func():advanced+=1)
 	dialogue.closed.connect(func():closed+=1)
 	var choices:Array=[]
 	for i in range(9):choices.append({"id":"topic_"+str(i),"text":"现场核对话题 "+str(i)})
 	dialogue.configure("测试住户","这是现场人物的一句话。",choices)
-	await process_frame
+	await create_timer(.4).timeout
 	_check(dialogue.find_child("Choice_topic_0",true,false)==null,"choices are absent until the line is advanced")
 	await _click("AdvanceDialogue")
 	_check(selected.is_empty(),"revealing topics cannot emit an answer")
@@ -37,15 +37,16 @@ func _run()->void:
 	await _key(KEY_1)
 	_check(selected.size()==1,"repeat input cannot submit a second topic")
 	dialogue.configure("测试住户","回答完成。")
-	await process_frame
+	await create_timer(.4).timeout
 	await _key(KEY_SPACE)
 	await _key(KEY_SPACE)
 	_check(advanced==1,"a line advances once through actual keyboard input")
 	dialogue.configure("测试住户","仍在现场。",choices)
-	await process_frame
+	await create_timer(.4).timeout
 	await _key(KEY_ESCAPE)
 	await _key(KEY_ESCAPE)
-	_check(closed==1,"escape emits a single close signal")
+	await create_timer(.4).timeout
+	_check(closed==1,"escape emits a single close signal after the authored close transition")
 	_check(selected.size()==1,"cancel never chooses an unseen topic")
 	print("SCENE DIALOGUE INPUT: %d checks, %d failures"%[checks,failures.size()])
 	dialogue.queue_free();await process_frame

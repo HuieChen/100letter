@@ -46,6 +46,7 @@ var _time_ids:=Vector2i(-1,-1)
 var family:="coastal"
 var camera_director:Node2D
 var photo_composition_active:=false
+var field_sound:Node
 func _ready()->void:
  clip_contents=true
  # Run the camera after the courier's committed foot movement in this frame.
@@ -173,6 +174,9 @@ func _ready()->void:
   cat_hotspot.meowed.connect(func():cat_requested.emit())
  UI.button(self,"↩",Rect2(30,28,72,64),func():map_requested.emit()).name="RoadMapReturn"
  set_time_of_day(float(minute))
+ field_sound=preload("res://scripts/ui/field_soundscape.gd").new()
+ field_sound.road=self;add_child(field_sound)
+ var feedback=preload("res://scripts/rebuild/street_walk_feedback.gd").new();feedback.name="WalkTarget";feedback.road=self;world.add_child(feedback)
 
 func set_time_of_day(value:float)->void:
  _clock_minute=value

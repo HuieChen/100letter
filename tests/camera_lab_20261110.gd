@@ -36,6 +36,7 @@ func run():
  check(camera.lab.panel.position.y+camera.lab.panel.size.y<900,"All controls fit vertical safe area")
  camera.lab.panel.hide();camera.take_photo();await create_timer(3.3).timeout
  check(FileAccess.file_exists(camera.last_photo_path),"Filtered capture saved")
+ camera._show_review(camera.gallery_paths.size()-1)
  check(camera._caption_editor.get_parent()==camera._review_paper,"Review note belongs to paper")
  camera._caption_editor.text="海边的电影时刻 / Sea cinema";check(camera._save_caption(),"Caption writes beside filtered capture")
  var metadata=JSON.parse_string(FileAccess.get_file_as_string(camera.last_photo_path+".json"))
@@ -47,6 +48,6 @@ func run():
  var caption:Control=paper.get_node("PhotoCaption");var relative:=caption.position;paper.position.y-=8
  check(caption.position==relative and paper.get_global_rect().encloses(caption.get_global_rect()),"Bag caption moves with paper on hover")
  await RenderingServer.frame_post_draw;root.get_texture().get_image().save_png(out+"caption_bound.png")
- game._close();game.sound.shutdown();game.queue_free();await process_frame;await process_frame
+ game._close();game._street_road.field_sound.shutdown();game.sound.shutdown();await create_timer(.15).timeout;game.queue_free();await process_frame;await process_frame
  FileAccess.open(out+"receipt.json",FileAccess.WRITE).store_string(JSON.stringify({"checks":checks,"failures":failures}))
  quit(0 if failures.is_empty() else 1)
