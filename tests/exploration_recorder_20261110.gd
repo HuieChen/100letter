@@ -22,7 +22,9 @@ func run():
 	game._recorder();await create_timer(.5).timeout
 	var recorder=game.modal;var field=game._street_road.field_sound
 	check(recorder.name=="FieldRecorder" and game.sound.recorder_focus,"Recorder accessible and sound focus entered")
-	check(not game.walker.manual_enabled,"Recorder blocks walking")
+	check(game.walker.manual_enabled,"Recorder permits walking during monitoring")
+	check(game.sound.music.stream_paused and game.sound._music_gain==0.0,"Guitar fully silent after recorder entry fade")
+	check(field.sources.any(func(item):return item.id=="fountain") and field.sources.any(func(item):return item.id=="market"),"Community has local fountain and market sound sources")
 	var source:Dictionary=field.sources[0]
 	recorder.aim_point=game._street_road.world.get_global_transform()*source.at
 	await create_timer(.8).timeout
@@ -34,18 +36,18 @@ func run():
 	recorder.library.get_parent().show();recorder.toggle_recording()
 	check(not recorder.library.get_parent().visible,"Recording hides library, preserves scene")
 	var metered_peak:=0.0
-	for i in 21:
+	for i in 25:
 		await create_timer(.1).timeout
 		metered_peak=maxf(metered_peak,recorder.levels.length())
 		if i==10:
 			await RenderingServer.frame_post_draw;root.get_texture().get_image().save_png(out+"recorder_recording.png")
-	check(recorder.recording and recorder.elapsed>1.8,"Recording advances without a fixed progress gate")
+	check(recorder.recording and recorder.elapsed>2.0,"Recording advances without a fixed progress gate")
 	check(metered_peak>.00001,"Meter reflects samples over the recorded interval, including silent gaps")
 	check(recorder.stop_recording(),"Stop saves recording")
 	var first:String=recorder.last_path
 	check(FileAccess.file_exists(first),"WAV created")
 	var wav:=AudioStreamWAV.load_from_file(first)
-	check(wav!=null and wav.get_length()>1.7 and wav.get_length()<2.8,"Saved WAV duration tracks actual interval")
+	check(wav!=null and wav.get_length()>2.0 and wav.get_length()<3.4,"Saved WAV duration tracks actual interval")
 	check(wav.data.size()>10000 and wav.stereo,"Actual stereo PCM retained")
 	var audio_peak:=0
 	for sample in range(0,wav.data.size()-1,2):audio_peak=maxi(audio_peak,absi(wav.data.decode_s16(sample)))
@@ -57,11 +59,21 @@ func run():
 	recorder.toggle_recording();check(not recorder.playback.playing and not game.sound.recorder_playback,"New recording stops replay, prevents feedback")
 	await create_timer(.6).timeout
 	recorder._focus_lost();check(not recorder.recording and recorder.last_path!=first,"Focus loss stops and saves current clip")
-	var before:Vector2=recorder.aim_point
+	var before:Vector2=game.walker.foot
+	recorder.toggle_recording()
 	var key:=InputEventKey.new();key.keycode=KEY_RIGHT;key.physical_keycode=KEY_RIGHT;key.pressed=true
-	recorder.record_button.grab_focus();Input.parse_input_event(key);Input.flush_buffered_events();await create_timer(.1).timeout
+	recorder.record_button.grab_focus();Input.parse_input_event(key);Input.flush_buffered_events();await create_timer(.4).timeout
 	key.pressed=false;Input.parse_input_event(key);Input.flush_buffered_events()
-	check(recorder.aim_point.x>before.x and recorder._held.is_empty(),"Arrow input aims recorder and releases without sticking")
+	check(game.walker.foot.x>before.x+5.0 and recorder.recording,"Arrow keys move courier while recording continues")
+	recorder.stop_recording()
+	var ground:=InputEventMouseButton.new();ground.button_index=MOUSE_BUTTON_LEFT;ground.pressed=true;ground.position=Vector2(1100,872)
+	recorder._aim_input(ground);await create_timer(.25).timeout
+	check(game.walker.walking,"Recorder surface forwards ground clicks")
+	ground.button_index=MOUSE_BUTTON_RIGHT;recorder._aim_input(ground);check(not game.walker.walking,"Right click still cancels walking while recording tool is open")
+	recorder._toggle_library();await create_timer(.1).timeout
+	check(not game.walker.manual_enabled,"Library pauses walking for safe naming")
+	recorder._toggle_library();await create_timer(.1).timeout
+	check(game.walker.manual_enabled,"Leaving library restores walking")
 	var good_directory:String=recorder.directory
 	var blocked_path:=out+"not_a_directory";FileAccess.open(blocked_path,FileAccess.WRITE).store_string("test")
 	recorder.directory=blocked_path
@@ -80,6 +92,8 @@ func run():
 	recorder.library.get_parent().show();await process_frame;await RenderingServer.frame_post_draw;root.get_texture().get_image().save_png(out+"recorder_library.png")
 	recorder.request_close();await process_frame;await process_frame
 	check(not game.sound.recorder_focus and not game.sound.recorder_playback,"Closing restores sound modes")
+	await create_timer(.35).timeout
+	check(not game.sound.music.stream_paused and game.sound._music_gain>0.0,"Closing smoothly resumes the same guitar")
 	check(AudioServer.get_bus_effect_count(AudioServer.get_bus_index("SolmereAmbience"))==base_effects,"Recorder effects removed without affecting existing bus")
 	game.preferences.values.language="en";game._recorder();await process_frame
 	recorder=game.modal;check(first in recorder.paths,"Library persists across reopen")

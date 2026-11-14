@@ -32,6 +32,9 @@ func run():
 	camera.take_photo()
 	await create_timer(.45).timeout
 	check(not camera.capture_busy and not camera._review.visible,"Print presentation never forces review or holds shutter")
+	check(camera._print_clip.visible and camera._slot.visible,"Instant print visibly emerges from a paper slot")
+	check(camera._print_paper.position.y>-192 and camera._print_paper.position.y<20,"Paper travels out instead of appearing at once")
+	camera.instant_format=false
 	camera.take_photo();await create_timer(.45).timeout
 	check(camera.gallery_paths.size()==first_count+2,"Two successive captures without a return action")
 	var latest:String=camera.last_photo_path
@@ -39,6 +42,12 @@ func run():
 	check(FileAccess.file_exists(metadata.get("original","")),"Unfiltered source retained separately")
 	check(metadata.camera.recipe=="Berry" and is_equal_approx(metadata.camera.controls.exposure,.7),"Saved image records chosen settings")
 	check(not camera._review.visible,"Second capture still in live view")
+	check(camera._print_clip.visible and camera._slot.visible,"Landscape photos also eject")
+	check(camera._print_paper.size.x>camera._print_paper.size.y,"Landscape print preserves its shape")
+	await create_timer(.95).timeout
+	await RenderingServer.frame_post_draw;root.get_texture().get_image().save_png(out+"photo_ejection.png")
+	await create_timer(.8).timeout
+	check(not camera._print_clip.visible and not camera._slot.visible,"Finished print leaves no stale paper or slot")
 	camera._show_review(camera.gallery_paths.size()-1)
 	camera._caption_editor.text="海边 / Seaside";check(camera._save_caption(),"Caption stored")
 	camera._toggle_favorite();check(camera.photo_metadata(latest).favorite,"Favorite persisted")

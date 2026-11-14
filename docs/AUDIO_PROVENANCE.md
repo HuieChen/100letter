@@ -41,3 +41,6 @@ The previous `assets/audio/afternoon.wav` remains a very quiet **procedurally sy
 Per the user's wood-not-metal request, `door_open_soft.wav` now uses the first opening (1.04–2.06 s) of Pfannkuchn's [Wooden door 1](https://freesound.org/people/Pfannkuchn/sounds/342873/), CC0 1.0. Filtered at 65 Hz/2.8 kHz, rounded latch transient, 8 ms/80 ms fades, peak 0.45 and playback -18 dB. Closing and the user-approved crisp shutter are unchanged. Original recordings are retained separately.
 
 Map paw and fountain: Puppy Bark, AntumDeluge (moffet remix), CC0 1.0. https://freesound.org/people/AntumDeluge/sounds/583142/ . Gentle 32kHz derivative; source and processing recorded in puppy-bark-provenance.json. Map black cat reuses the existing bookstore cat sample.
+
+
+2026-11-11 fountain: TyberiusGames, self-sampled waterflow, CC0 1.0. Source https://opengameart.org/content/waterflow-sound ; unmodified download https://opengameart.org/sites/default/files/waterflow.mp3 . SHA-256 and file record: assets/audio/foley/fountain-provenance.json. Other new spatial layers reuse the existing documented licensed birds, leaves, town, wind, tram, paper, bell and wood samples. No guitar or UI sound enters the recording bus.

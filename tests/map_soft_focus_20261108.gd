@@ -19,7 +19,7 @@ func _initialize()->void:
 func check(ok:bool,label:String)->void:
 	checks+=1
 	if not ok:failures.append(label);push_error(label)
-func settle(seconds:float=.22)->void:await create_timer(seconds).timeout;await process_frame
+func settle(seconds:float=.66)->void:await create_timer(seconds).timeout;await process_frame
 func move(at:Vector2)->void:
 	var event:=InputEventMouseMotion.new();event.position=at;event.global_position=at;event.relative=at-pointer;pointer=at
 	view.push_input(event,true);await process_frame

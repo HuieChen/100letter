@@ -59,6 +59,12 @@ var _keyboard_navigation:=false
 var _last_pointer_position:=Vector2.INF
 var _caption:Label
 var _caption_alpha:=0.0
+var _caption_target:Button
+var _pending_caption:Button
+var _hover_dwell:=0.0
+var _pointer_still:=0.0
+const HOVER_DWELL:=0.26
+const EXIT_GRACE:=0.30
 var _press_amount:=0.0
 var points:Array[Vector2]=[]
 var current_destination:=""
@@ -82,7 +88,7 @@ func _layout_caption()->void:
 	if not is_instance_valid(_caption):return
 	var text_width:=_caption.get_theme_font("font").get_string_size(_caption.text,HORIZONTAL_ALIGNMENT_LEFT,-1,_caption.get_theme_font_size("font_size")).x
 	_caption.size=Vector2(clampf(text_width+48.0,168.0,340.0),40)
-	var selected:=_active_destination()
+	var selected:=_caption_target
 	if is_instance_valid(selected):
 		_caption.position=Vector2(clampf(selected.position.x+selected.size.x*.5-_caption.size.x*.5,10,size.x-_caption.size.x-10),clampf(selected.position.y-_caption.size.y-12+2.0*_press_amount,8,size.y-_caption.size.y-8))
 	else:_caption.position=Vector2((size.x-_caption.size.x)*.5,42)
@@ -123,6 +129,7 @@ func _input(event:InputEvent)->void:
 		# Keep the hover reference while keyboard navigation is active: movement
 		# within that same building must restore it without another mouse_entered.
 		if event.position!=_last_pointer_position:
+			if _last_pointer_position.distance_to(event.position)>4.0:_pointer_still=0.0
 			_last_pointer_position=event.position
 			_keyboard_navigation=false
 			queue_redraw()
@@ -130,17 +137,27 @@ func _input(event:InputEvent)->void:
 		_keyboard_navigation=false
 		queue_redraw()
 func _process(delta:float)->void:
-	var selected:Button=_active_destination()
-	var destination:=str(selected.name).trim_prefix("Map_") if is_instance_valid(selected) else ""
+	_pointer_still+=delta
+	var selected:Button=_pressed_destination if is_instance_valid(_pressed_destination) else (_focused_destination if _keyboard_navigation else _hovered_destination)
+	var immediate:=_keyboard_navigation or is_instance_valid(_pressed_destination)
+	if selected!=_pending_caption:
+		_pending_caption=selected;_hover_dwell=0.0
+	else:_hover_dwell+=delta
+	var ready:=immediate or (_hover_dwell>=(HOVER_DWELL if is_instance_valid(selected) else EXIT_GRACE) and _pointer_still>=.10)
+	# Keep the old label anchored through flyovers; relocate only while invisible.
+	if ready and selected!=_caption_target:
+		_caption_alpha=move_toward(_caption_alpha,0.0,delta/.10)
+		if _caption_alpha<=0.0 or immediate:_caption_target=selected;_caption_alpha=0.0
+	else:_caption_alpha=move_toward(_caption_alpha,1.0 if is_instance_valid(_caption_target) else 0.0,delta/FADE_SECONDS)
 	_press_amount=move_toward(_press_amount,1.0 if is_instance_valid(_pressed_destination) else 0.0,delta/.08)
-	if not destination.is_empty():
+	if is_instance_valid(_caption_target):
+		var destination:=str(_caption_target.name).trim_prefix("Map_")
 		var names:Array=DESTINATION_NAMES.get(destination,[destination,destination])
 		var host:=_host()
 		_caption.text=host._tr(names[0],names[1]) if host!=null else str(names[0])
-	_caption_alpha=move_toward(_caption_alpha,1.0 if not destination.is_empty() else 0.0,delta/FADE_SECONDS)
 	_caption.modulate.a=_caption_alpha
-	_layout_caption()
-	queue_redraw()
+	_layout_caption();queue_redraw()
+
 func _draw()->void:
 	var art:=map_texture()
 	if art!=null:

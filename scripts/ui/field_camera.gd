@@ -141,19 +141,19 @@ func _ready()->void:
 		var focus_atlas:=AtlasTexture.new();focus_atlas.atlas=texture;focus_atlas.region=Rect2(638,285,388,262);focus_atlas.filter_clip=true
 		_focus_marks=TextureRect.new();_focus_marks.name="FocusMarks";_focus_marks.texture=focus_atlas;_focus_marks.expand_mode=TextureRect.EXPAND_IGNORE_SIZE;_focus_marks.mouse_filter=Control.MOUSE_FILTER_IGNORE
 		_place(_focus_marks,canvas,Rect2(645,345,310,209))
-	var heading:=_label(_t("相机","Camera"),Rect2(80,60,300,42),30)
+	var heading:=_label(_t("相机","Camera"),Rect2(80,60,180,46),28)
 	heading.name="CameraHeading"
-	_format_button=_button(_t("横向照片  ⇄  R","Landscape  ⇄  R"),Rect2(540,65,520,48),24)
+	_format_button=_button(_t("横向照片  ⇄  R","Landscape  ⇄  R"),Rect2(540,60,520,50),24)
 	_format_button.name="PhotoFormat";_format_button.tooltip_text=_t("切换相纸 · R","Switch format · R");_format_button.pressed.connect(_toggle_format)
-	count_label=_label("",Rect2(1130,60,280,42),24,HORIZONTAL_ALIGNMENT_RIGHT)
-	_label(location_caption,Rect2(270,800,430,38),22)
+	count_label=_label("",Rect2(1170,60,240,46),24,HORIZONTAL_ALIGNMENT_RIGHT)
+	_label(location_caption,Rect2(250,796,360,42),22)
 	shutter=ArtButton.new();shutter.name="CameraShutter";shutter.round_hit=true
 	if texture:
 		var button_atlas:=AtlasTexture.new();button_atlas.atlas=texture;button_atlas.region=Rect2(744,754,182,182);button_atlas.filter_clip=true;shutter.art=button_atlas
 	_place(shutter,canvas,Rect2(748,724,104,104));shutter.tooltip_text=_t("拍照 · C","Take photo · C");shutter.pressed.connect(take_photo)
 	_label("C",Rect2(755,831,90,26),18,HORIZONTAL_ALIGNMENT_CENTER)
-	thumbnail=ArtButton.new();thumbnail.name="LastPhoto";thumbnail.tooltip_text=_t("查看照片","View photos");_place(thumbnail,canvas,Rect2(82,760,120,84));thumbnail.pressed.connect(func():_show_review(_thumbnail_index))
-	status_label=_label("",Rect2(950,788,450,42),23)
+	thumbnail=ArtButton.new();thumbnail.name="LastPhoto";thumbnail.tooltip_text=_t("查看照片","View photos");_place(thumbnail,canvas,Rect2(82,748,120,84));thumbnail.pressed.connect(func():_show_review(_thumbnail_index))
+	status_label=_label("",Rect2(1020,798,410,42),21);status_label.hide()
 	if pan_provider.is_valid() and not gallery_only:
 		_label(_t("拖动取景 · 方向键微调","Drag to frame · Arrow keys"),Rect2(1080,680,380,36),19,HORIZONTAL_ALIGNMENT_CENTER)
 		for spec:Array in [["ZoomOut","−",1100.0],["ResetComposition",_t("复位","Reset"),1190.0],["ZoomIn","+",1340.0]]:
@@ -175,7 +175,7 @@ func _ready()->void:
 			include_actor=not include_actor
 			_actor_button.text=_t("人物：显示","Character: on") if include_actor else _t("人物：隐藏","Character: off")
 			actor_visibility_changed.emit(include_actor))
-	var close:=_button("×",Rect2(1470,42,74,68),42);close.name="CloseCamera";close.tooltip_text=_t("关闭相机","Close camera");close.pressed.connect(_request_close)
+	var close:=_button("×",Rect2(1470,48,66,60),36);close.name="CloseCamera";close.tooltip_text=_t("关闭相机","Close camera");close.pressed.connect(_request_close)
 	_build_review();_refresh_count();_refresh_thumbnail()
 	_favorite=_button(_t("收藏","Favorite"),Rect2(650,22,300,48),24)
 	_favorite.name="FavoritePhoto";_favorite.reparent(_review)
@@ -210,15 +210,30 @@ func _fit_review_print()->void:
 	_caption_editor.position=Vector2(28,490) if square else Vector2(50,518)
 	_caption_editor.size=Vector2(424,132) if square else Vector2(804,78)
 	_review_paper.queue_redraw()
+func _control_skin(fill:Color,edge:Color=Color("c5b69b"))->StyleBoxFlat:
+	var style:=StyleBoxFlat.new();style.bg_color=fill;style.set_corner_radius_all(14)
+	style.set_border_width_all(1);style.border_color=edge
+	style.shadow_color=Color(.18,.20,.17,.18);style.shadow_size=3;style.shadow_offset=Vector2(0,3)
+	style.content_margin_left=14;style.content_margin_right=14
+	return style
 func _label(text:String,rect:Rect2,font_size:int,align:HorizontalAlignment=HORIZONTAL_ALIGNMENT_LEFT)->Label:
 	var label:=Label.new();label.text=text;label.horizontal_alignment=align;label.vertical_alignment=VERTICAL_ALIGNMENT_CENTER;label.mouse_filter=Control.MOUSE_FILTER_IGNORE
-	label.add_theme_font_override("font",FONT);label.add_theme_font_size_override("font_size",font_size);label.add_theme_color_override("font_color",Color("fff5dc"));label.add_theme_color_override("font_shadow_color",Color(0.25,0.25,0.19,0.8));label.add_theme_constant_override("shadow_offset_x",1);label.add_theme_constant_override("shadow_offset_y",2)
+	label.add_theme_font_override("font",FONT);label.add_theme_font_size_override("font_size",font_size)
+	label.add_theme_color_override("font_color",Color("514c40"))
+	label.add_theme_stylebox_override("normal",_control_skin(Color("f5ecd9")))
 	_place(label,canvas,rect);return label
 func _button(text:String,rect:Rect2,font_size:int)->Button:
-	var button:=Button.new();button.text=text;button.flat=true;button.mouse_default_cursor_shape=Control.CURSOR_POINTING_HAND
+	var button:=Button.new();button.text=text;button.mouse_default_cursor_shape=Control.CURSOR_POINTING_HAND
 	button.add_theme_font_override("font",FONT);button.add_theme_font_size_override("font_size",font_size)
-	for state:String in ["normal","hover","pressed","focus"]:button.add_theme_stylebox_override(state,StyleBoxEmpty.new())
-	button.add_theme_color_override("font_color",Color("fff5dc"));button.add_theme_color_override("font_hover_color",Color("c8e8ce"));button.add_theme_color_override("font_pressed_color",Color("e1ca9d"));button.add_theme_color_override("font_focus_color",Color("c8e8ce"));button.add_theme_color_override("font_outline_color",Color("5a6151"));button.add_theme_constant_override("outline_size",2)
+	for state:String in ["normal","hover","pressed","disabled"]:
+		var fill:=Color("f5ecd9")
+		if state=="hover":fill=Color("dfebd9")
+		elif state=="pressed":fill=Color("bdcfb9")
+		elif state=="disabled":fill=Color("ded8c9")
+		button.add_theme_stylebox_override(state,_control_skin(fill))
+		button.add_theme_color_override("font_"+state+"_color",Color("514c40") if state!="disabled" else Color("918b7b"))
+	var focus:=_control_skin(Color(0,0,0,0),Color("54786f"));focus.set_border_width_all(3);focus.shadow_size=0
+	button.add_theme_stylebox_override("focus",focus);button.add_theme_color_override("font_color",Color("514c40"));button.add_theme_color_override("font_focus_color",Color("354d46"))
 	_place(button,canvas,rect);return button
 func _build_review()->void:
 	_review=Control.new();_review.name="PhotoReview";_review.mouse_filter=Control.MOUSE_FILTER_STOP;_place(_review,canvas,Rect2(Vector2.ZERO,DESIGN));_review.hide()
@@ -494,17 +509,22 @@ func _finish_capture_save()->void:
 		_close_after_capture=false;capture_busy=false;_request_close()
 func _develop(texture:Texture2D)->void:
 	if _animation and _animation.is_valid():_animation.kill()
-	_flash.modulate.a=0.12
-	_print_clip.position=Vector2(260,670)
-	_print_clip.size=Vector2(170,210)
-	_print_clip.modulate.a=1.0;_print_clip.visible=instant_format
-	_print_paper.size=Vector2(140,192);_print_paper.position=Vector2(12,-192)
-	_print_paper.image=texture;_print_paper.reveal=0.0;_slot.hide()
+	var square:=texture.get_width()<=texture.get_height()*1.1
+	_print_clip.position=Vector2(660,646);_print_clip.size=Vector2(280,244)
+	_print_clip.modulate.a=1.0;_print_clip.show();_slot.show()
+	_print_paper.size=Vector2(140,192) if square else Vector2(280,192)
+	_print_paper.position=Vector2(70 if square else 0,-192)
+	_print_paper.image=texture;_print_paper.reveal=0.0
+	_flash.modulate.a=0.22
+	# Preserve the original slot, paper size and developing rhythm in both formats.
+	# A single owned tween can be replaced by the next shot or cancelled on close.
 	_animation=create_tween().set_parallel(true)
-	_animation.tween_property(_flash,"modulate:a",0.0,0.14)
-	_animation.tween_property(_print_paper,"position:y",8.0,.75).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_OUT)
-	_animation.tween_property(_print_paper,"reveal",1.0,.9)
-	_animation.tween_property(_print_clip,"modulate:a",0.0,.25).set_delay(1.0)
+	_animation.tween_property(_flash,"modulate:a",0.0,0.18)
+	_animation.tween_property(_print_paper,"position:y",20.0,1.35).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_OUT)
+	_animation.tween_property(_print_paper,"reveal",1.0,1.1).set_delay(0.3)
+	_animation.chain().tween_interval(0.30)
+	_animation.chain().tween_property(_print_clip,"modulate:a",0.0,0.20)
+	_animation.chain().tween_callback(func():_print_clip.hide();_slot.hide())
 
 static func photo_metadata(path:String)->Dictionary:
 	if not FileAccess.file_exists(path+".json"):return {}
@@ -529,10 +549,10 @@ func _toggle_favorite()->void:
 	_refresh_favorite();cue.emit("paper")
 
 func _status(message:String)->void:
-	status_label.text=message
+	status_label.text=message;status_label.visible=not message.is_empty()
 	if _status_timer==null:
 		_status_timer=Timer.new();_status_timer.one_shot=true;_status_timer.wait_time=3.2;add_child(_status_timer)
-		_status_timer.timeout.connect(func():status_label.text="")
+		_status_timer.timeout.connect(func():status_label.text="";status_label.hide())
 	_status_timer.stop()
 	if not message.is_empty():_status_timer.start()
 func request_close()->void:

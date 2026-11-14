@@ -404,3 +404,9 @@ Final integration preserves bc8d458's corrected original dialogue PNG, 40-pixel 
 ## 2026-11-11 exploration and recorder polish
 
 Final exported package: 148 checks, zero failures; recorder UI revised to minimal edge HUD after user correction. Standard headless and export checks pass. Actual release window started, but Computer Use app-binding approval timed out; OS-input and subjective listening acceptance remain pending. Full scoped findings and fixed legacy-fixture assumptions: [review](docs/testing/exploration-20261110/review.md).
+
+## 2026-11-14 unified field UI and scene audio
+
+The camera paper ejection ritual was restored, camera controls and recorder monitoring now share the Dear Somewhere paper/ink/teal/coral language, map labels use dwell/grace timing, and the recorder remains walkable while its library is closed. Guitar is fully muted during field recording; the field bus now includes distinct local fountain, market, food-truck, tram, lookout-wind and detail sources. The added fountain source is CC0 and documented in `assets/audio/foley/fountain-provenance.json`.
+
+Scoped source and actual-PCK suites each pass 94/0: camera28, recorder42, navigation18, host close6. The exported candidate contains 1,177 entries and 194 raw files, including all new recorder sources. The full legacy GPU check still reports one pre-existing display-settings assertion (`visible close survives repeated render-resolution changes`); it is recorded as an acceptance gap rather than treated as part of this scoped pass. Native OS input, human listening and novice acceptance remain unverified. See [2026-11-14 review](docs/testing/exploration-20261114/review.md).
