@@ -564,7 +564,7 @@ func _input(event:InputEvent)->void:
 				get_viewport().set_input_as_handled();return
 	if _dragging and _can_pan() and event is InputEventMouseMotion:
 			pan_provider.call(event.relative/get_global_transform().get_scale()*interaction_sensitivity)
-		get_viewport().set_input_as_handled();return
+			get_viewport().set_input_as_handled();return
 	# Photo notes use Tab for navigation, not indentation. Handle it before
 	# TextEdit inserts a tab so keyboard users can reach the save/back controls.
 	if not is_visible_in_tree() or _closing or not _review.visible:return
