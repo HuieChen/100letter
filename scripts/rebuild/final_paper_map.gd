@@ -19,6 +19,8 @@ const DESTINATION_NAMES={
 	"grocery":["杂货店","Grocery"],"market":["集市","Market"],"food_truck":["餐车","Food truck"],
 	"lookout":["观景台","Lookout"],"bus_stop":["海岸电车站","Seaside tram stop"]}
 const FADE_SECONDS:=0.16
+const POST_OFFICE_HUB_COLOR:=Color("2c8f93")
+const POST_OFFICE_HUB_INK:=Color("f8efd9")
 const PET_REGIONS=[
 	["Paw","dog",Rect2(350,645,115,115)],
 	["FountainDog","dog",Rect2(958,462,160,155)],
@@ -70,6 +72,7 @@ var points:Array[Vector2]=[]
 var current_destination:=""
 var current_index:=0
 var target_index:=0
+var _hub_phase:=0.0
 var route_progress:=0.0:
 	set(value):route_progress=value;queue_redraw()
 func _ready()->void:
@@ -82,6 +85,7 @@ func _ready()->void:
 	add_child(_caption);_caption.size=Vector2(168,40)
 	resized.connect(_layout_caption);_layout_caption()
 	_caption.modulate.a=0.0
+	set_meta("post_office_hub_marker",true)
 	get_viewport().gui_focus_changed.connect(_map_focus_changed)
 	_focus_destination.call_deferred()
 func _layout_caption()->void:
@@ -160,6 +164,7 @@ func _input(event:InputEvent)->void:
 		_keyboard_navigation=false
 		queue_redraw()
 func _process(delta:float)->void:
+	_hub_phase=fmod(_hub_phase+delta,TAU)
 	_pointer_still+=delta
 	var selected:Button=_pressed_destination if is_instance_valid(_pressed_destination) else (_focused_destination if _keyboard_navigation else _hovered_destination)
 	var immediate:=_keyboard_navigation or is_instance_valid(_pressed_destination)
@@ -186,6 +191,7 @@ func _draw()->void:
 	if art!=null:
 		var ratio:=minf(size.x/art.get_width(),size.y/art.get_height())
 		draw_texture_rect(art,Rect2((size-art.get_size()*ratio)*0.5,art.get_size()*ratio),false)
+	_draw_post_office_hub_marker()
 	var here:=get_node_or_null("Map_"+current_destination) as Control
 	if here!=null:
 		var pin:=here.position+Vector2(here.size.x*.5,here.size.y-5)
@@ -195,6 +201,29 @@ func _draw()->void:
 		var edge:=PackedVector2Array([p+Vector2(2,2),p+Vector2(w*.34,0),p+Vector2(w*.69,2),p+Vector2(w-1,1),p+Vector2(w,h*.51),p+Vector2(w-3,h-1),p+Vector2(w*.64,h+1),p+Vector2(w*.3,h-1),p+Vector2(0,h),p+Vector2(1,h*.47)])
 		draw_colored_polygon(edge,Color(0.93,0.86,0.74,_caption_alpha))
 		edge.append(edge[0]);draw_polyline(edge,Color(0.69,0.56,0.38,.5*_caption_alpha),1.0,true)
+
+func _draw_post_office_hub_marker()->void:
+	var post:=get_node_or_null("Map_post_office") as Control
+	if not is_instance_valid(post):return
+	var center:=post.position+Vector2(post.size.x*.78,post.size.y*.22)
+	var pulse:=0.5+0.5*sin(_hub_phase)
+	draw_arc(center,16.0+2.0*pulse,0.0,TAU,32,Color(POST_OFFICE_HUB_COLOR,0.18+0.12*pulse),2.0,true)
+	draw_circle(center,12.0,POST_OFFICE_HUB_COLOR)
+	draw_circle(center,8.5,POST_OFFICE_HUB_INK)
+	draw_line(center+Vector2(-4.0,-4.0),center+Vector2(-4.0,4.5),POST_OFFICE_HUB_COLOR,2.0,true)
+	draw_line(center+Vector2(4.0,-4.0),center+Vector2(4.0,4.5),POST_OFFICE_HUB_COLOR,2.0,true)
+	draw_line(center+Vector2(-5.0,1.5),center+Vector2(5.0,1.5),POST_OFFICE_HUB_COLOR,2.0,true)
+	var active:=_active_destination()
+	if is_instance_valid(active) and active.name==&"Map_post_office":
+		var badge:=Rect2(center+Vector2(18.0,-15.0),Vector2(84.0,30.0))
+		var style:=StyleBoxFlat.new()
+		style.bg_color=Color(0.96,0.91,0.80,0.96);style.border_color=Color(0.69,0.56,0.38,0.7)
+		style.set_border_width_all(1);style.set_corner_radius_all(8)
+		draw_style_box(style,badge)
+		draw_string(ThemeDB.fallback_font,badge.position+Vector2(12.0,20.0),"主枢纽",HORIZONTAL_ALIGNMENT_LEFT,-1,17,Color("4a3b2b"))
+
+func has_post_office_hub_marker()->bool:
+	return bool(get_meta("post_office_hub_marker",false))
 
 func _active_destination()->Button:
 	if is_instance_valid(_pressed_destination):return _pressed_destination

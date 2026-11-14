@@ -40,6 +40,7 @@ func run():
 	var post_motion:=InputEventMouseMotion.new();post_motion.position=post_point
 	map._input(post_motion)
 	check(map._hovered_destination==post,"Pointer over post office resolves to post office hotspot")
+	check(map.has_post_office_hub_marker(),"Map exposes the post office as the main transit hub")
 	var target=map.get_node("Map_market");target.mouse_entered.emit();await create_timer(.65).timeout
 	check(map._caption.text=="集市" and map._caption.position.distance_to(target.position)<350,"Destination label beside selected building")
 	await RenderingServer.frame_post_draw;root.get_texture().get_image().save_png(out+"map_target.png")
