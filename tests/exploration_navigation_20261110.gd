@@ -30,6 +30,16 @@ func run():
 	game._map();await create_timer(.4).timeout
 	var map=game.modal.find_child("Map_grocery",true,false).get_parent()
 	check(map.current_destination=="grocery","Map keeps precise location rather than district alias")
+	var grocery:Button=map.get_node("Map_grocery")
+	var grocery_point:Vector2=grocery.get_global_rect().get_center()
+	var grocery_motion:=InputEventMouseMotion.new();grocery_motion.position=grocery_point
+	map._input(grocery_motion)
+	check(map._hovered_destination==grocery,"Pointer over grocery resolves to grocery hotspot")
+	var post:Button=map.get_node("Map_post_office")
+	var post_point:Vector2=post.get_global_rect().get_center()
+	var post_motion:=InputEventMouseMotion.new();post_motion.position=post_point
+	map._input(post_motion)
+	check(map._hovered_destination==post,"Pointer over post office resolves to post office hotspot")
 	var target=map.get_node("Map_market");target.mouse_entered.emit();await create_timer(.65).timeout
 	check(map._caption.text=="集市" and map._caption.position.distance_to(target.position)<350,"Destination label beside selected building")
 	await RenderingServer.frame_post_draw;root.get_texture().get_image().save_png(out+"map_target.png")

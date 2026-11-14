@@ -1,13 +1,13 @@
 {
   "date": "2026-11-14",
-  "scope_checks": 94,
+  "scope_checks": 96,
   "scope_failures": 0,
-  "package_checks": 94,
+  "package_checks": 96,
   "package_failures": 0,
   "source_suites": {
     "exploration_photo_20261110": 28,
     "exploration_recorder_20261110": 42,
-    "exploration_navigation_20261110": 18,
+    "exploration_navigation_20261110": 20,
     "host_photo_capture_close_20261108": 6
   },
   "package": {

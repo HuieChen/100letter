@@ -118,6 +118,27 @@ func _host()->Node:
 func _map_focus_changed(control:Control)->void:
 	_focused_destination=control if control is Button and control.get_parent()==self and str(control.name).begins_with("Map_") else null
 	queue_redraw()
+
+func _hotspot_at(viewport_point:Vector2)->Button:
+	# Mouse-enter signals are not reliable when the pointer crosses a transparent
+	# map button at a scaled window size. Resolve against the same source-space
+	# rectangles used to build the buttons, so the caption can never keep the
+	# previous building while the pointer is already over another one.
+	# Prefer the actual laid-out controls: this includes the map's letterbox
+	# offset and any canvas scaling without another round of coordinate math.
+	for child in get_children():
+		if child is Button and str(child.name).begins_with("Map_") and child.get_global_rect().has_point(viewport_point):
+			return child
+	var art:=map_texture()
+	if art==null:return null
+	var local_point:=get_global_transform_with_canvas().affine_inverse()*viewport_point
+	var ratio:=minf(size.x/art.get_width(),size.y/art.get_height())
+	var origin:=(size-art.get_size()*ratio)*.5
+	for entry:Array in hotspot_entries():
+		var area:Rect2=Rect2(origin+entry[1].position*ratio,entry[1].size*ratio)
+		if area.has_point(local_point):return get_node_or_null("Map_"+str(entry[0])) as Button
+	return null
+
 func _input(event:InputEvent)->void:
 	if not is_visible_in_tree():return
 	# Focus can also change programmatically or on a mouse press. Only an
@@ -131,6 +152,8 @@ func _input(event:InputEvent)->void:
 		if event.position!=_last_pointer_position:
 			if _last_pointer_position.distance_to(event.position)>4.0:_pointer_still=0.0
 			_last_pointer_position=event.position
+			var resolved:=_hotspot_at(event.position)
+			if resolved!=_hovered_destination:_hovered_destination=resolved
 			_keyboard_navigation=false
 			queue_redraw()
 	elif event is InputEventMouseButton and event.button_index==MOUSE_BUTTON_LEFT and event.pressed:
