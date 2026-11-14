@@ -1,5 +1,9 @@
 # Latest user feedback — authoritative order
 
+2026-11-11 direct correction: user prefers the original photo-ejection design. Restore its centered bottom slot, original paper sizes and gradual slide/develop timing for both landscape and instant photos. The unobstructed recorder requirement must not remove the camera paper ritual. Preserve the current photography data and recording features.
+
+2026-11-14 direct correction: global UI should feel authored and comfortable rather than a collection of generic floating labels. Unify the paper, ink, teal and coral language across camera, recorder and map; use well-reviewed camera and field-recorder patterns as interaction references while preserving Dear Somewhere's paper-instrument identity.
+
 2026-11-10 direct user scope: implement photography, field recording, click movement, map feedback and sound polish before the main story. Recorder is now explicitly authorized. User rejects sentimental AI-sounding instructions and requires game references plus an unobstructed scene while recording. Use SEASON's sparse recording HUD as the primary layout reference; keep recordings library separate from monitoring. Preserve supplied art, guitar, legacy saves and collaborators; validate then push GitHub main. See docs/Exploration_Polish_20261110.md.
 
 

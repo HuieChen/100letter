@@ -31,9 +31,17 @@ func run():
 	var map=game.modal.find_child("Map_grocery",true,false).get_parent()
 	check(map.current_destination=="grocery","Map keeps precise location rather than district alias")
 	check(map.has_post_office_hub_marker(),"Map exposes the post office as the main transit hub")
-	var target=map.get_node("Map_market");target.mouse_entered.emit();await create_timer(.3).timeout
+	var target=map.get_node("Map_market");target.mouse_entered.emit();await create_timer(.65).timeout
 	check(map._caption.text=="集市" and map._caption.position.distance_to(target.position)<350,"Destination label beside selected building")
 	await RenderingServer.frame_post_draw;root.get_texture().get_image().save_png(out+"map_target.png")
+	var stable_position:Vector2=map._caption.position
+	for id:String in ["grocery","food_truck","bookstore","statue"]:
+		map.get_node("Map_"+id).mouse_entered.emit();await create_timer(.07).timeout
+		check(map._caption.text=="集市" and map._caption.position==stable_position,"Rapid flyover keeps established label anchored: "+id)
+	map.get_node("Map_statue").mouse_exited.emit();await create_timer(.10).timeout
+	check(map._caption.position==stable_position and map._caption.modulate.a>.9,"Brief gap does not blink or snap to focus")
+	map.get_node("Map_statue").mouse_entered.emit();await create_timer(.65).timeout
+	check(map._caption.text=="喷泉广场","Settled hover eventually changes caption")
 	var minute:int=game.core.state.minute
 	game._visit_map_destination("food_truck");await create_timer(1.7).timeout
 	check(game._nearest_landmark()=="food_truck" and int(game.core.state.minute)==minute,"Map arrives at selected landmark with no added time cost")

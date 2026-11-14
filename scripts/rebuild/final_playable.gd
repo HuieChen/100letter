@@ -461,7 +461,8 @@ func _world(arrival:String="") -> void:
 	road.postal=str(core.state.location) in ["post_office","chess_stall"]
 	if str(core.state.location)=="community_center":road.district="community"
 	elif str(core.state.location) in ["residential","lookout","bus_stop"]:road.district="residential"
-	road.can_walk=func():return not busy and not is_instance_valid(modal)
+	road.can_walk=func():return not busy and (not is_instance_valid(modal) or (modal.has_method("allows_world_walk") and modal.allows_world_walk()))
+	road.can_interact=func():return not busy and not is_instance_valid(modal)
 	UI.place(road,stage,Rect2(0,0,1600,900))
 	walker=road.courier
 	if not arrival.is_empty():preload("res://scripts/rebuild/street_arrival.gd").place(road,arrival)
@@ -577,6 +578,9 @@ func _recorder()->void:
 	recorder.location_caption=_tr(PaperMap.DESTINATION_NAMES.get(_nearest_landmark(),["邮局","Post office"])[0],PaperMap.DESTINATION_NAMES.get(_nearest_landmark(),["邮局","Post office"])[1])
 	recorder.directory=core.save_path.get_base_dir()+"/recordings" if core.save_path.contains("/qa/") else "user://recordings"
 	recorder.road=_street_road if is_instance_valid(_street_road) and view=="world" else null
+	recorder.location_provider=func():
+		var names:Array=PaperMap.DESTINATION_NAMES.get(_nearest_landmark(),["邮局","Post office"])
+		return _tr(names[0],names[1])
 	recorder.sound=sound;modal=recorder
 	UI.place(recorder,self,Rect2(0,0,1600,900))
 	recorder.closed.connect(_close);recorder.cue.connect(sound.play)

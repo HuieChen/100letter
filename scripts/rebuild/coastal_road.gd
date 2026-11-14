@@ -19,6 +19,7 @@ var art:TextureRect
 var world:Control
 var courier:Control
 var can_walk:Callable
+var can_interact:Callable
 var entry_hint:Button
 var locale:="zh":
  set(value):
@@ -168,7 +169,7 @@ func _ready()->void:
   var cat_hotspot:=preload("res://scripts/rebuild/rooftop_cat.gd").new()
   cat_hotspot.name="RooftopCatHotspot"
   cat_hotspot.z_index=4
-  cat_hotspot.allowed=func():return not can_walk.is_valid() or can_walk.call()
+  cat_hotspot.allowed=func():return not can_interact.is_valid() or can_interact.call()
   cat_hotspot.language=func():return locale
   UI.place(cat_hotspot,world,Rect2(Vector2(3870,236)*1.5,Vector2(91,68)*1.5))
   cat_hotspot.meowed.connect(func():cat_requested.emit())
@@ -245,7 +246,7 @@ func _process(_delta:float)->void:
  if not photo_composition_active:world.position.x=-camera_director.advance(_delta,allowed)
 
  if is_instance_valid(entry_hint):
-  entry_ready=not _entering and allowed and absf(courier.foot.x-world.size.x*0.376)<220
+  entry_ready=not _entering and allowed and (not can_interact.is_valid() or can_interact.call()) and absf(courier.foot.x-world.size.x*0.376)<220
   entry_hint.visible=entry_ready or _entering
   entry_hint.position=courier.foot+Vector2(74,-courier.actor_height*0.68-entry_hint.size.y*0.5)
 func _follow_courier(at:Vector2)->void:
@@ -258,7 +259,7 @@ func _unhandled_key_input(event:InputEvent)->void:
   _request_entry()
 
 func _request_entry()->void:
- if not entry_ready or _entering:return
+ if not entry_ready or _entering or (can_interact.is_valid() and not can_interact.call()):return
  _entering=true
  entry_ready=false
  entry_hint.keyboard_press()

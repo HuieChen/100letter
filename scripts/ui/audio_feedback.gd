@@ -393,7 +393,7 @@ func _process(delta: float) -> void:
 			if file=="wind_bed.ogg":destination*=lerpf(.48,1.10,_weather_wind)
 			elif file=="sea_bed.ogg":destination*=lerpf(.70,1.0,_weather_swell)
 		# Roughly two seconds of perceptual, click-free crossfade.
-		if recorder_focus:destination*=.16
+		if recorder_focus and positional_field:destination*=.28
 		current = lerpf(current, destination, 1.0 - exp(-delta * 1.6))
 		_bed_gains[file] = current
 		(_beds[file] as AudioStreamPlayer).volume_db = linear_to_db(maxf(current, 0.0001))
@@ -406,12 +406,14 @@ func _process(delta: float) -> void:
 	# Keep the supplied guitar running across title, Settings and the journey.
 	# Only its gain changes; entering the cover must not restart or stack a loop.
 	if location_id == "title" and not _quiet:target_music=db_to_linear(-15.0)
-	if recorder_focus:target_music*=.18
+	if recorder_focus:target_music=0.0
 	var ambient_index:=AudioServer.get_bus_index(AMBIENT_BUS)
 	_playback_duck=lerpf(_playback_duck,.05 if recorder_playback else 1.0,1.0-exp(-delta*10.0))
 	if ambient_index>=0:AudioServer.set_bus_volume_db(ambient_index,linear_to_db(maxf(.0001,_ambience_volume*_playback_duck)))
-	_music_gain = lerpf(_music_gain, target_music, 1.0 - exp(-delta * 1.3))
-	if music: music.volume_db = linear_to_db(maxf(_music_gain, 0.0001))
+	_music_gain = move_toward(_music_gain,0.0,delta*db_to_linear(-12.0)/.35) if recorder_focus else lerpf(_music_gain, target_music, 1.0 - exp(-delta * 1.3))
+	if music:
+		music.stream_paused=recorder_focus and _music_gain<=0.0
+		music.volume_db=linear_to_db(maxf(_music_gain,0.0001))
 	_menu_gain=lerpf(_menu_gain,db_to_linear(-15.0) if _settings_mode else 0.0,1.0-exp(-delta*3.0))
 	if is_instance_valid(menu_music):
 		menu_music.volume_db=linear_to_db(maxf(_menu_gain,0.0001))
@@ -419,7 +421,7 @@ func _process(delta: float) -> void:
 	_detail_after -= delta
 	if _detail_after <= 0.0:
 		_detail_after = _rng.randf_range(20.0, 42.0) * (1.4 if minute >= 1020 else 1.0)
-		if muted or indoors or _quiet or _settings_feedback_mode or location_id=="title":return
+		if muted or indoors or _quiet or _settings_feedback_mode or positional_field or location_id=="title":return
 		if location_id == "bus_stop" and _rng.randf() < 0.55:
 			_spawn("tram_ambient", "tram_pass.wav", -28.0, AMBIENT_BUS)
 		elif location_id == "chess_stall" and _rng.randf() < 0.35:
