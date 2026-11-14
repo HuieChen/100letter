@@ -11,13 +11,21 @@
     "host_photo_capture_close_20261108": 6
   },
   "package": {
-    "inventory_entries": 1177,
-    "raw_files": 194,
-    "pck": "D:/Codex-build-cache/dear-exploration-audio-20261110/playable-refinement-v4/DearSomewhere.pck"
+    "inventory_entries": 1247,
+    "raw_files": 240,
+    "pck": "D:/Codex-build-cache/dear-exploration-audio-20261110/playable-refinement-final/DearSomewhere.pck",
+    "pck_sha256": "021db2fec2ad28d2a11dde2ec8ad0c8aca7141439720b77244f38f4d454b7076",
+    "source_commit": "ace1c645781fef51d0fdc12ea1dbc2f8d0908431",
+    "remote_main_verified": true
   },
   "legacy_check": {
     "status": "one_existing_display_settings_failure",
     "assertion": "visible close survives repeated render-resolution changes"
   },
-  "native_listening": "not_assessed"
+  "native_listening": "not_assessed",
+  "ci": {
+    "run_id": 43545586632,
+    "conclusion": "success",
+    "url": "https://github.com/HuieChen/DearSomewhere/actions/runs/43545586632"
+  }
 }
