@@ -28,6 +28,7 @@ var _core: Node
 var _spec: Dictionary = {}
 var _page := 0
 var _photo_zoom := 1.0
+var interaction_sensitivity:=1.0
 var _read_rows: Array[int] = []
 var _recorded := false
 var _leaving := false
@@ -48,8 +49,9 @@ var _presentation := 0
 var _notice_queued := false
 
 
-func configure(core: Node, requested_clue: String, locale: String = "zh") -> String:
+func configure(core: Node, requested_clue: String, locale: String = "zh", sensitivity: float = 1.0) -> String:
 	_locale = locale
+	interaction_sensitivity=clampf(sensitivity,0.5,2.0)
 	_presentation += 1
 	_notice_queued = false
 	if is_instance_valid(_notice):
@@ -251,7 +253,7 @@ func _gui_input(event: InputEvent) -> void:
 		if event.button_index==MOUSE_BUTTON_RIGHT and _photo_rect().has_point(point):
 			_activate("photo_flip");accept_event();return
 		if event.button_index in [MOUSE_BUTTON_WHEEL_UP,MOUSE_BUTTON_WHEEL_DOWN] and _page==0 and _photo_rect().has_point(point):
-			_photo_zoom=clampf(_photo_zoom+(0.1 if event.button_index==MOUSE_BUTTON_WHEEL_UP else -0.1),1.0,1.25)
+			_photo_zoom=clampf(_photo_zoom+(0.1 if event.button_index==MOUSE_BUTTON_WHEEL_UP else -0.1)*interaction_sensitivity,1.0,1.25)
 			queue_redraw();accept_event();return
 	if event is InputEventMouseMotion:
 		var point: Vector2 = (event.position - _origin) / _factor
@@ -282,7 +284,7 @@ func _gui_input(event: InputEvent) -> void:
 		elif event.keycode == KEY_F and _spec.get("kind","")=="photo":
 			_activate("photo_flip")
 		elif event.keycode in [KEY_PLUS,KEY_EQUAL,KEY_MINUS] and _spec.get("kind","")=="photo" and _page==0:
-			_photo_zoom=clampf(_photo_zoom+(0.1 if event.keycode!=KEY_MINUS else -0.1),1.0,1.25)
+			_photo_zoom=clampf(_photo_zoom+(0.1 if event.keycode!=KEY_MINUS else -0.1)*interaction_sensitivity,1.0,1.25)
 		elif event.keycode == KEY_TAB:
 			var regions := interaction_regions()
 			_focus_index = posmod(_focus_index + (-1 if event.shift_pressed else 1), regions.size())

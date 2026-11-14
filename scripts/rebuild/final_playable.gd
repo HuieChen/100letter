@@ -573,6 +573,7 @@ func _camera()->void:
 	if is_instance_valid(walker):walker.cancel();walker.manual_enabled=false
 	var camera:=FieldCamera.new()
 	camera.locale=preferences.values.language
+	camera.interaction_sensitivity=preferences.values.sensitivity
 	# QA captures stay beside the explicitly isolated test save.
 	camera.save_directory=_photo_directory()
 	camera.capture_provider=_capture_camera_scene
@@ -836,7 +837,7 @@ func _observe(id:String) -> void:
 	paper.set_anchors_preset(Control.PRESET_TOP_LEFT)
 	paper.position=Vector2.ZERO;paper.size=Vector2(1600,900)
 	_hide_courier_for_closeup()
-	var error:String=paper.configure(core,id,preferences.values.language)
+	var error:String=paper.configure(core,id,preferences.values.language,preferences.values.sensitivity)
 	if not error.is_empty(): _close();_say(error);return
 	paper.cue.connect(sound.play)
 	paper.closed.connect(func():_close();_save())
