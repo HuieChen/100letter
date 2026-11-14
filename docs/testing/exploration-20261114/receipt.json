@@ -2,20 +2,20 @@
   "date": "2026-11-14",
   "scope_checks": 96,
   "scope_failures": 0,
-  "package_checks": 96,
+  "package_checks": 97,
   "package_failures": 0,
   "source_suites": {
     "exploration_photo_20261110": 28,
     "exploration_recorder_20261110": 42,
-    "exploration_navigation_20261110": 20,
+    "exploration_navigation_20261110": 21,
     "host_photo_capture_close_20261108": 6
   },
   "package": {
-    "inventory_entries": 1247,
-    "raw_files": 240,
-    "pck": "D:/Codex-build-cache/dear-exploration-audio-20261110/playable-refinement-final/DearSomewhere.pck",
-    "pck_sha256": "021db2fec2ad28d2a11dde2ec8ad0c8aca7141439720b77244f38f4d454b7076",
-    "source_commit": "ace1c645781fef51d0fdc12ea1dbc2f8d0908431",
+    "inventory_entries": 1236,
+    "raw_files": 176,
+    "pck": "D:/Codex-build-cache/dear-exploration-audio-20261110/playable-refinement-mapfix/DearSomewhere.pck",
+    "pck_sha256": "ed2f6a021183f681f3cfb74574a81d412aa482dfecc195004a533b16227f8a15",
+    "source_commit": "f9067a2122d8c66ba85d9edffd7413913099f6e5",
     "remote_main_verified": true
   },
   "legacy_check": {

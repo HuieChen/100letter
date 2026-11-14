@@ -25,10 +25,10 @@ The implementation borrows interaction patterns, not pixels or authored assets. 
 
 ## Evidence
 
-- Source-scoped GPU/Dummy-mixer suites: 96 checks, 0 failures (camera 28, recorder 42, navigation 20, host close 6).
-- The same four suites loaded the actual exported PCK from an empty runtime directory: 94 checks, 0 failures. No source-checkout fallback was used.
-- Package inventory: 1,247 entries and 240 raw files in the final package built after merging the collaborator main branch. The final inventory includes the fountain MP3, birds, bell, town, tool, tram, wind and paper detail sources used by the field soundscape.
-- The final merged main commit is `ace1c645781fef51d0fdc12ea1dbc2f8d0908431`; GitHub Actions run [43545586632](https://github.com/HuieChen/DearSomewhere/actions/runs/43545586632) is green. The full legacy `tools/check.ps1 -GpuChecks` reached the existing display suite and reported one failure in the unmodified display-settings chain: `visible close survives repeated render-resolution changes`. The scoped source/package suites above are clean; the legacy display failure is retained as a separate acceptance gap rather than hidden.
+- Source-scoped GPU/Dummy-mixer suites: 97 checks, 0 failures (camera 28, recorder 42, navigation 21, host close 6).
+- The same four suites loaded the actual map-fix PCK from an empty runtime directory: 97 checks, 0 failures. No source-checkout fallback was used.
+- Package inventory: 1,236 entries. The inventory includes the original map and street PNGs, fountain MP3, birds, bell, town, tool, tram, wind and paper detail sources used by the field soundscape.
+- The merged main commit is `f9067a2122d8c66ba85d9edffd7413913099f6e5`; the prior GitHub Actions run [43545586632](https://github.com/HuieChen/DearSomewhere/actions/runs/43545586632) is green for the earlier merged source. The full legacy `tools/check.ps1 -GpuChecks` reached the existing display suite and reported one failure in the unmodified display-settings chain: `visible close survives repeated render-resolution changes`. The scoped source/package suites above are clean; the legacy display failure is retained as a separate acceptance gap rather than hidden.
 
 ## Acceptance limits
 
