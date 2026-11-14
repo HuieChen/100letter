@@ -37,6 +37,8 @@ var status_label:Label
 var count_label:Label
 var _frame:NinePatchRect
 var _focus_marks:TextureRect
+var _focus_label:Label
+var _focus_tween:Tween
 var _review:Control
 var _review_paper:PhotoPaper
 var _review_index:=-1
@@ -142,6 +144,7 @@ func _ready()->void:
 		var focus_atlas:=AtlasTexture.new();focus_atlas.atlas=texture;focus_atlas.region=Rect2(638,285,388,262);focus_atlas.filter_clip=true
 		_focus_marks=TextureRect.new();_focus_marks.name="FocusMarks";_focus_marks.texture=focus_atlas;_focus_marks.expand_mode=TextureRect.EXPAND_IGNORE_SIZE;_focus_marks.mouse_filter=Control.MOUSE_FILTER_IGNORE
 		_place(_focus_marks,canvas,Rect2(645,345,310,209))
+		_focus_marks.pivot_offset=_focus_marks.size*.5
 	var heading:=_label(_t("相机","Camera"),Rect2(80,60,180,46),28)
 	heading.name="CameraHeading"
 	_format_button=_button(_t("横向照片  ⇄  R","Landscape  ⇄  R"),Rect2(540,60,520,50),24)
@@ -155,6 +158,7 @@ func _ready()->void:
 	_label("C",Rect2(755,831,90,26),18,HORIZONTAL_ALIGNMENT_CENTER)
 	thumbnail=ArtButton.new();thumbnail.name="LastPhoto";thumbnail.tooltip_text=_t("查看照片","View photos");_place(thumbnail,canvas,Rect2(82,748,120,84));thumbnail.pressed.connect(func():_show_review(_thumbnail_index))
 	status_label=_label("",Rect2(1020,798,410,42),21);status_label.hide()
+	_focus_label=_label("",Rect2(1080,128,430,42),20,HORIZONTAL_ALIGNMENT_CENTER);_focus_label.name="FocusStatus";_focus_label.hide()
 	if pan_provider.is_valid() and not gallery_only:
 		_label(_t("拖动取景 · 方向键微调","Drag to frame · Arrow keys"),Rect2(1080,680,380,36),19,HORIZONTAL_ALIGNMENT_CENTER)
 		for spec:Array in [["ZoomOut","−",1100.0],["ResetComposition",_t("复位","Reset"),1190.0],["ZoomIn","+",1340.0]]:
@@ -204,6 +208,7 @@ func _toggle_format()->void:
 	if _frame:
 		_frame.position=Vector2(374,24) if instant_format else Vector2(24,24)
 		_frame.size=Vector2(852,852) if instant_format else Vector2(1552,852)
+	_clear_focus()
 	cue.emit("paper")
 
 func _fit_review_print()->void:
@@ -464,7 +469,7 @@ func take_photo()->void:
 	_stop_pan()
 	# Sound follows the accepted shutter, not disk-write completion.
 	cue.emit("camera")
-	_status("")
+	_status(_t("正在冲洗…","Developing…"))
 	hide()
 	await RenderingServer.frame_post_draw
 	if not is_inside_tree():return
@@ -558,6 +563,29 @@ func _status(message:String)->void:
 		_status_timer.timeout.connect(func():status_label.text="";status_label.hide())
 	_status_timer.stop()
 	if not message.is_empty():_status_timer.start()
+
+func _clear_focus()->void:
+	if _focus_tween and _focus_tween.is_valid():_focus_tween.kill()
+	if _focus_marks:
+		_focus_marks.modulate=Color(1,1,1,0.0)
+		_focus_marks.scale=Vector2.ONE
+	if _focus_label:_focus_label.hide()
+
+func _show_focus(point:Vector2)->void:
+	if _focus_marks==null:return
+	if _focus_tween and _focus_tween.is_valid():_focus_tween.kill()
+	_focus_marks.position=point*DESIGN-_focus_marks.size*.5
+	_focus_marks.pivot_offset=_focus_marks.size*.5
+	_focus_marks.scale=Vector2.ONE*.72
+	_focus_marks.modulate=Color(1,1,1,0.0)
+	_focus_tween=create_tween().set_parallel(true)
+	_focus_tween.tween_property(_focus_marks,"scale",Vector2.ONE,.22).set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_OUT)
+	_focus_tween.tween_property(_focus_marks,"modulate:a",1.0,.16)
+	_focus_tween.chain().tween_interval(1.1)
+	_focus_tween.chain().tween_property(_focus_marks,"modulate:a",.38,.45)
+	if _focus_label:
+		_focus_label.text=_t("焦点已锁定 · 右键可重选","Focus locked · Right-click to move")
+		_focus_label.show()
 func request_close()->void:
 	# Host Escape follows the same nested review/back path as local Escape.
 	if gallery_only:_request_close()
@@ -604,9 +632,13 @@ func _stop_pan()->void:
 	_dragging=false;_held_pan.clear()
 func _pan_surface_input(event:InputEvent)->void:
 	if event is InputEventMouseButton and event.pressed and event.button_index==MOUSE_BUTTON_RIGHT and lab!=null and not capture_busy and not _review.visible:
-		var point:=get_global_mouse_position()/get_viewport_rect().size
+		# Surface is authored at DESIGN size and is scaled by the modal. Using the
+		# local event position keeps focus aligned at every window resolution.
+		var point:Vector2=(event as InputEventMouseButton).position/DESIGN
+		point=point.clamp(Vector2.ZERO,Vector2.ONE)
 		lab.focus_at(point)
-		if _focus_marks:_focus_marks.position=point*DESIGN-_focus_marks.size*.5
+		_show_focus(point)
+		cue.emit("tool")
 		accept_event();return
 	if not _can_pan() or not event is InputEventMouseButton:return
 	if event.button_index==MOUSE_BUTTON_LEFT:
