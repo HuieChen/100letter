@@ -1,0 +1,149 @@
+{
+  "source_sha256": "82ff56db98d1994d9807e50caf23fff3adecfe7a317cb31f2b4adfa26a9b9ff9",
+  "fps": 6,
+  "source_size": [
+    4096,
+    3074
+  ],
+  "shared_source_crop": [
+    780,
+    730,
+    1200,
+    1920
+  ],
+  "ai_generated": false,
+  "frames": [
+    {
+      "path": "res://assets/authoring/courier_walk_20261110/walk_00.png",
+      "duration_seconds": 0.16666666666666666,
+      "source_frame": 0,
+      "reference_height_px": 1830,
+      "foot_anchor_px": [
+        770,
+        1905
+      ],
+      "sha256": "643a4ca887375b83d1c986d6a9e217156243e21f49f6d54b108fda4191940f53"
+    },
+    {
+      "path": "res://assets/authoring/courier_walk_20261110/walk_01.png",
+      "duration_seconds": 0.16666666666666666,
+      "source_frame": 1,
+      "reference_height_px": 1830,
+      "foot_anchor_px": [
+        770,
+        1905
+      ],
+      "sha256": "fd1de118434b01a96256e8bbbd36ec13b06a9e5b1c6d7c9faaa69d6c38947ea6"
+    },
+    {
+      "path": "res://assets/authoring/courier_walk_20261110/walk_02.png",
+      "duration_seconds": 0.16666666666666666,
+      "source_frame": 2,
+      "reference_height_px": 1830,
+      "foot_anchor_px": [
+        770,
+        1905
+      ],
+      "sha256": "680b48a14a255c0d4ea2ba1e6d9cf1a4ad7e4d2760eddc61ae0d5ab8fd7c996a"
+    },
+    {
+      "path": "res://assets/authoring/courier_walk_20261110/walk_03.png",
+      "duration_seconds": 0.16666666666666666,
+      "source_frame": 3,
+      "reference_height_px": 1830,
+      "foot_anchor_px": [
+        770,
+        1905
+      ],
+      "sha256": "34edf324cb8c60c355ecd3d0e1c398de98c23ff1e7bd8cda8cd85896ec89accd"
+    },
+    {
+      "path": "res://assets/authoring/courier_walk_20261110/walk_04.png",
+      "duration_seconds": 0.16666666666666666,
+      "source_frame": 4,
+      "reference_height_px": 1830,
+      "foot_anchor_px": [
+        770,
+        1905
+      ],
+      "sha256": "ecd591386cdf1c42a7868f0f1bb59898554508294f4e3d9266949f281d077a7a"
+    },
+    {
+      "path": "res://assets/authoring/courier_walk_20261110/walk_05.png",
+      "duration_seconds": 0.16666666666666666,
+      "source_frame": 5,
+      "reference_height_px": 1830,
+      "foot_anchor_px": [
+        770,
+        1905
+      ],
+      "sha256": "60d75143f380cedb018b28c12ec265aeb5ed72188dad7d478bc921b87c3844e8"
+    },
+    {
+      "path": "res://assets/authoring/courier_walk_20261110/walk_06.png",
+      "duration_seconds": 0.16666666666666666,
+      "source_frame": 6,
+      "reference_height_px": 1830,
+      "foot_anchor_px": [
+        770,
+        1905
+      ],
+      "sha256": "69761853da61383a569f8fd701533879d025f7c02cdb16da23b785864b759489"
+    },
+    {
+      "path": "res://assets/authoring/courier_walk_20261110/walk_07.png",
+      "duration_seconds": 0.16666666666666666,
+      "source_frame": 7,
+      "reference_height_px": 1830,
+      "foot_anchor_px": [
+        770,
+        1905
+      ],
+      "sha256": "ad2faeb7d0bb3a9cdd6755287d20a2618eb88333d96457a5a23a9b8eb9d0d365"
+    },
+    {
+      "path": "res://assets/authoring/courier_walk_20261110/walk_08.png",
+      "duration_seconds": 0.16666666666666666,
+      "source_frame": 8,
+      "reference_height_px": 1830,
+      "foot_anchor_px": [
+        770,
+        1905
+      ],
+      "sha256": "c0110fe4ff78cc6530523434d753bb89c7e58bb4bfc70068df10d06f859eec01"
+    },
+    {
+      "path": "res://assets/authoring/courier_walk_20261110/walk_09.png",
+      "duration_seconds": 0.16666666666666666,
+      "source_frame": 9,
+      "reference_height_px": 1830,
+      "foot_anchor_px": [
+        770,
+        1905
+      ],
+      "sha256": "1b0b68a18eb4e65a9194747d0cddd6e412ce03bbd527f22942f7039f2a09c61d"
+    },
+    {
+      "path": "res://assets/authoring/courier_walk_20261110/walk_10.png",
+      "duration_seconds": 0.16666666666666666,
+      "source_frame": 10,
+      "reference_height_px": 1830,
+      "foot_anchor_px": [
+        770,
+        1905
+      ],
+      "sha256": "47e696f056c7b4ff1ddcfcd3ec25b7daed81c21b8a1a645f65364b2fc690d115"
+    },
+    {
+      "path": "res://assets/authoring/courier_walk_20261110/walk_11.png",
+      "duration_seconds": 0.16666666666666666,
+      "source_frame": 11,
+      "reference_height_px": 1830,
+      "foot_anchor_px": [
+        770,
+        1905
+      ],
+      "sha256": "19fa700edc7316380aa2cbaf542cb54a6bcefd1f38a3890eb89df80dac276347"
+    }
+  ]
+}

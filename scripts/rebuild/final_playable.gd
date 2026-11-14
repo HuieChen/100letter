@@ -106,6 +106,8 @@ func _apply_audio_preferences() -> void:
 func _apply_preference(key:String,_value:Variant) -> void:
 	if key=="language" and is_instance_valid(_street_road):_street_road.locale=str(_value)
 	if key in ["master","music","sfx","ambience"]:_apply_audio_preferences()
+	elif key=="sensitivity":
+		if is_instance_valid(modal) and modal.get("interaction_sensitivity") != null:modal.interaction_sensitivity=float(_value)
 	elif key in ["display_mode","resolution"]:
 		# Native decoration/viewport changes must happen after the current GUI release
 		# and dropdown teardown, rather than invalidating that input traversal midway.
@@ -597,6 +599,7 @@ func _camera()->void:
 	if is_instance_valid(walker):walker.cancel();walker.manual_enabled=false
 	var camera:=FieldCamera.new()
 	camera.locale=preferences.values.language
+	camera.interaction_sensitivity=preferences.values.sensitivity
 	camera.location_caption=_tr(PaperMap.DESTINATION_NAMES.get(_nearest_landmark(),["邮局","Post office"])[0],PaperMap.DESTINATION_NAMES.get(_nearest_landmark(),["邮局","Post office"])[1])
 	# QA captures stay beside the explicitly isolated test save.
 	camera.save_directory=_photo_directory()
@@ -862,7 +865,7 @@ func _observe(id:String) -> void:
 	paper.set_anchors_preset(Control.PRESET_TOP_LEFT)
 	paper.position=Vector2.ZERO;paper.size=Vector2(1600,900)
 	_hide_courier_for_closeup()
-	var error:String=paper.configure(core,id,preferences.values.language)
+	var error:String=paper.configure(core,id,preferences.values.language,preferences.values.sensitivity)
 	if not error.is_empty(): _close();_say(error);return
 	paper.cue.connect(sound.play)
 	paper.closed.connect(func():_close();_save())

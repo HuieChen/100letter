@@ -11,7 +11,7 @@ const PhysicalArt = preload("res://scripts/rebuild/physical_art.gd")
 const WALK_GEOMETRY := "res://assets/faefever_v2/characters/courier_walk_regions.json"
 # Only the authored idle, five walk and five supplementary turn images.
 # Geometry, animation state, materials and callbacks remain instance-local.
-const MAX_PREPARED_TEXTURES := 11
+const MAX_PREPARED_TEXTURES := 23
 static var _prepared_textures: Dictionary = {}
 static func _prepared_texture(path:String) -> Texture2D:
 	if _prepared_textures.has(path):return _prepared_textures[path]
@@ -127,6 +127,7 @@ func _ready() -> void:
 		var registration: Dictionary = JSON.parse_string(FileAccess.get_file_as_string(registration_path))
 		for index in range(_walk_keys.size()):
 			if registration.has(str(index)): _frame_geometry[_walk_keys[index]] = registration[str(index)]
+	_load_supplied_walk()
 	_load_turns()
 	texture_filter = CanvasItem.TEXTURE_FILTER_LINEAR_WITH_MIPMAPS
 	var edge_material := ShaderMaterial.new()
@@ -141,6 +142,31 @@ func _ready() -> void:
 	set_process(true)
 	queue_redraw()
 
+
+func _load_supplied_walk() -> void:
+	var path := "res://assets/authoring/courier_walk_20261110/walk.json"
+	if not FileAccess.file_exists(path): return
+	var data: Variant = JSON.parse_string(FileAccess.get_file_as_string(path))
+	if not data is Dictionary or data.get("frames", []).size() != 12: return
+	var prepared: Array[Texture2D] = []
+	for frame: Dictionary in data.frames:
+		var art := _prepared_texture(str(frame.path))
+		if art == null: return
+		prepared.append(art)
+	_walk_keys.clear()
+	_frame_ends.clear()
+	_cycle_seconds = 0.0
+	_idle_time = 0.0
+	_walk_time = 0.0
+	for index in range(prepared.size()):
+		# Distinct keys retain the movie's painted eyes; old eye patches apply
+		# only to the original idle/turn source, never to these new poses.
+		var key := "supplied_walk_%02d" % index
+		_walk_keys.append(key)
+		_poses[key] = prepared[index]
+		_frame_geometry[key] = data.frames[index]
+		_cycle_seconds += float(data.frames[index].duration_seconds)
+		_frame_ends.append(_cycle_seconds)
 
 func _load_turns() -> void:
 	var path := "res://assets/authoring/courier_turn_20261031/turns.json"

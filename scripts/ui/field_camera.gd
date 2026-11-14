@@ -20,6 +20,7 @@ var initial_photo_path:=""
 var capture_provider:Callable
 var pan_provider:Callable
 var zoom_provider:Callable
+var interaction_sensitivity:float=1.0
 var reset_provider:Callable
 var _dragging:=false
 var _held_pan:Dictionary={}
@@ -160,7 +161,9 @@ func _ready()->void:
 			var control:=_button(str(spec[1]),Rect2(float(spec[2]),725,140 if spec[0]=="ResetComposition" else 70,48),25)
 			control.name=str(spec[0]);_composition_buttons.append(control)
 			if spec[0]=="ResetComposition":control.pressed.connect(func():if _can_pan() and reset_provider.is_valid():reset_provider.call())
-			else:control.pressed.connect(func():if _can_pan() and zoom_provider.is_valid():zoom_provider.call(-.1 if spec[0]=="ZoomOut" else .1))
+			else:control.pressed.connect(func():
+				if _can_pan() and zoom_provider.is_valid():
+					zoom_provider.call((-0.1 if spec[0]=="ZoomOut" else 0.1)*interaction_sensitivity);cue.emit("paper"))
 	_print_clip=Control.new();_print_clip.name="PhotoEjection";_print_clip.clip_contents=true;_print_clip.mouse_filter=Control.MOUSE_FILTER_IGNORE;_place(_print_clip,canvas,Rect2(660,646,280,244));_print_clip.hide()
 	_print_paper=PhotoPaper.new();_print_paper.mouse_filter=Control.MOUSE_FILTER_IGNORE;_place(_print_paper,_print_clip,Rect2(0,-192,280,192))
 	_slot=PrintSlot.new();_slot.mouse_filter=Control.MOUSE_FILTER_IGNORE;_place(_slot,canvas,Rect2(648,636,304,20));_slot.hide()
@@ -580,8 +583,8 @@ func _input(event:InputEvent)->void:
 				if event.pressed:_held_pan[code]=true
 				get_viewport().set_input_as_handled();return
 	if _dragging and _can_pan() and event is InputEventMouseMotion:
-		pan_provider.call(event.relative/get_global_transform().get_scale())
-		get_viewport().set_input_as_handled();return
+			pan_provider.call(event.relative/get_global_transform().get_scale()*interaction_sensitivity)
+			get_viewport().set_input_as_handled();return
 	# Photo notes use Tab for navigation, not indentation. Handle it before
 	# TextEdit inserts a tab so keyboard users can reach the save/back controls.
 	if not is_visible_in_tree() or _closing or not _review.visible:return
@@ -609,12 +612,12 @@ func _pan_surface_input(event:InputEvent)->void:
 	if event.button_index==MOUSE_BUTTON_LEFT:
 		_dragging=event.pressed;accept_event()
 	elif event.pressed and event.button_index in [MOUSE_BUTTON_WHEEL_UP,MOUSE_BUTTON_WHEEL_DOWN]:
-		if zoom_provider.is_valid():zoom_provider.call(.1 if event.button_index==MOUSE_BUTTON_WHEEL_UP else -.1)
+		if zoom_provider.is_valid():zoom_provider.call((.1 if event.button_index==MOUSE_BUTTON_WHEEL_UP else -.1)*interaction_sensitivity);cue.emit("paper")
 		accept_event()
 func _process(delta:float)->void:
 	if not _can_pan():_stop_pan();return
 	var direction:=Vector2(float(_held_pan.has(KEY_RIGHT) or _held_pan.has(KEY_D))-float(_held_pan.has(KEY_LEFT) or _held_pan.has(KEY_A)),float(_held_pan.has(KEY_DOWN) or _held_pan.has(KEY_S))-float(_held_pan.has(KEY_UP) or _held_pan.has(KEY_W)))
-	if direction!=Vector2.ZERO:pan_provider.call(-direction.normalized()*300.0*delta)
+	if direction!=Vector2.ZERO:pan_provider.call(-direction.normalized()*300.0*delta*interaction_sensitivity)
 func _unhandled_key_input(event:InputEvent)->void:
 	if not event is InputEventKey or not event.pressed or event.echo:return
 	if event.ctrl_pressed or event.alt_pressed or event.meta_pressed:return
