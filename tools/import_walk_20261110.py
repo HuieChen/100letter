@@ -6,7 +6,7 @@ Only derived frames enter the repository. Never writes the source movie.
 import hashlib, json, subprocess, sys, tempfile
 from pathlib import Path
 import numpy as np
-from PIL import Image, ImageFilter
+from PIL import Image, ImageFilter, ImageDraw
 
 root = Path(__file__).resolve().parents[1]
 source, ffmpeg = Path(sys.argv[1]), sys.argv[2]
@@ -25,6 +25,16 @@ with tempfile.TemporaryDirectory() as tmp:
         # Decoded HEVC has a black matte. Only near-black matte is removed;
         # character pigments remain unchanged, including the dark boots.
         alpha = np.clip((rgb.max(2).astype(float)-2)/10, 0, 1)
+        # Protect enclosed dark ink (eyebrows, mouth) from the matte key.
+        # Work at quarter scale only to classify holes; retain source RGB.
+        holes = Image.fromarray((alpha < .99).astype('uint8')*255).resize((300,480), Image.Resampling.NEAREST)
+        ImageDraw.floodfill(holes, (0,0), 0)
+        # The face is isolated from the curl/arm/leg negative spaces.
+        region = np.zeros((480,300),dtype='uint8')
+        region[105:275,120:300]=np.array(holes)[105:275,120:300]
+        protect = Image.fromarray(region)
+        protected = np.array(protect.resize((1200,1920),Image.Resampling.NEAREST))>0
+        alpha[protected]=1
         # HEVC subsampling leaves a 2-3 source-pixel black fringe. Contract
         # only the alpha edge at full source resolution (under 0.3 game px).
         coverage = Image.fromarray(np.rint(alpha*255).astype('uint8')).filter(ImageFilter.MinFilter(7))
