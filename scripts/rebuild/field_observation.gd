@@ -254,7 +254,7 @@ func _gui_input(event: InputEvent) -> void:
 			_activate("photo_flip");accept_event();return
 		if event.button_index in [MOUSE_BUTTON_WHEEL_UP,MOUSE_BUTTON_WHEEL_DOWN] and _page==0 and _photo_rect().has_point(point):
 			_photo_zoom=clampf(_photo_zoom+(0.1 if event.button_index==MOUSE_BUTTON_WHEEL_UP else -0.1)*interaction_sensitivity,1.0,1.25)
-			queue_redraw();accept_event();return
+			cue.emit("paper");queue_redraw();accept_event();return
 	if event is InputEventMouseMotion:
 		var point: Vector2 = (event.position - _origin) / _factor
 		if _dragging:
@@ -285,6 +285,7 @@ func _gui_input(event: InputEvent) -> void:
 			_activate("photo_flip")
 		elif event.keycode in [KEY_PLUS,KEY_EQUAL,KEY_MINUS] and _spec.get("kind","")=="photo" and _page==0:
 			_photo_zoom=clampf(_photo_zoom+(0.1 if event.keycode!=KEY_MINUS else -0.1)*interaction_sensitivity,1.0,1.25)
+			cue.emit("paper")
 		elif event.keycode == KEY_TAB:
 			var regions := interaction_regions()
 			_focus_index = posmod(_focus_index + (-1 if event.shift_pressed else 1), regions.size())

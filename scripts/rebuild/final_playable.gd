@@ -106,6 +106,8 @@ func _apply_audio_preferences() -> void:
 func _apply_preference(key:String,_value:Variant) -> void:
 	if key=="language" and is_instance_valid(_street_road):_street_road.locale=str(_value)
 	if key in ["master","music","sfx","ambience"]:_apply_audio_preferences()
+	elif key=="sensitivity":
+		if is_instance_valid(modal) and modal.get("interaction_sensitivity") != null:modal.interaction_sensitivity=float(_value)
 	elif key in ["display_mode","resolution"]:
 		# Native decoration/viewport changes must happen after the current GUI release
 		# and dropdown teardown, rather than invalidating that input traversal midway.
