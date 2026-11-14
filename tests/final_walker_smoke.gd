@@ -21,16 +21,16 @@ func _run() -> void:
 	walker = Walker.new()
 	root.add_child(walker)
 	_check(walker._window_focused==root.has_focus(), "initial keyboard focus comes from the actual Window")
-	_check(walker._poses.size()==6 and walker._walk_keys.size()==5 and not walker._poses.values().has(null), "all five latest video poses and matching idle are warm before first step")
+	_check(walker._poses.size()==11 and walker._turn_keys.size()==7 and walker._turn_keys[0]=="CHAR_courier_walk_2" and walker._turn_keys[-1]=="CHAR_courier" and walker._walk_keys.size()==5 and not walker._poses.values().has(null), "five walk poses, authored idle and five preserved turn poses are warm before first step")
 	_check(walker._walk_keys==["CHAR_courier_walk_0","CHAR_courier_walk_1","CHAR_courier_walk_2","CHAR_courier_walk_3","CHAR_courier_walk_4"], "complete latest authored cycle is ordered without obsolete frames")
 	_check(is_equal_approx(walker._cycle_seconds,0.625) and is_equal_approx(walker._idle_time,0.25),"original8fps period and idle2 timing loaded")
 	for index:int in range(5):
 		_check(walker._frame_for_time(float(index)*0.125+0.00001)==index and walker._frame_for_time(float(index)*0.125+0.1249)==index,"original125ms frame duration "+str(index))
 	_check(walker._frame_for_time(0.625)==0 and walker._frame_for_time(1.0)==3,"timestamp selection wraps through exact source duration")
-	var idle_geometry:Dictionary=walker._frame_geometry["CHAR_courier"]
+	var registration:Dictionary=JSON.parse_string(FileAccess.get_file_as_string("res://assets/authoring/courier_20261030/walk-registration.json"))
 	for key:String in walker._walk_keys:
 		var geometry:Dictionary=walker._frame_geometry[key]
-		_check(geometry.foot_anchor_px==idle_geometry.foot_anchor_px and geometry.reference_height_px==idle_geometry.reference_height_px, "idle and walk share the actual source-stage anchor: "+key)
+		_check(geometry==registration[str(walker._walk_keys.find(key))], "authored cropped walk uses its approved cap/foot registration: "+key)
 	walker.arrived.connect(func() -> void: arrivals += 1)
 	walker.footstep.connect(func() -> void: footsteps += 1)
 	walker.configure(null, Rect2(40, 170, 900, 230), Vector2(120, 300))
@@ -191,7 +191,10 @@ func _test_cadence_and_arrival() -> void:
 			walker._process(1.0/rate)
 			if not walker.walking:break
 		_check(not walker.walking and last_speed<20.0,"arrival eases below20px/s before the final1px settle at"+str(rate)+"fps")
-		_check(walker._frame_for_time(walker._walk_time)==2,"arrival restores the exact original idle2 at"+str(rate)+"fps")
+		# Current separate idle is reached through the preserved turn/settle animation.
+		# Do not demand a retired walk-frame index on the same tick feet arrive.
+		for tick:int in range(ceili(rate*.6)):walker._process(1.0/rate)
+		_check(walker._pose_mix<.001 and walker._turn_position>=.999 and walker.velocity.is_zero_approx(),"arrival completes turn and restores the authored idle within 0.6s at"+str(rate)+"fps")
 	_check(trajectories[0].distance_to(trajectories[1])<1.5 and trajectories[1].distance_to(trajectories[2])<1.5,"30/60/144fps movement agrees within1.5worldpx after one second")
 
 

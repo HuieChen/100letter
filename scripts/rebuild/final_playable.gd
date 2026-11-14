@@ -60,6 +60,8 @@ var _closeup_hidden_residents:Array[WeakRef]=[]
 var _camera_hidden_ui:Array[WeakRef]=[]
 var _photo_composition:RefCounted
 var _bag_photos_visible:=false
+var _photo_place_filter:=""
+var _photo_favorites_only:=false
 var _bag_photo_scroll:=0
 var _photo_thumbnails:Dictionary={}
 var _photo_thumbnail_order:Array[String]=[]
@@ -164,6 +166,7 @@ func _close_window_after_save()->void:
 	_window_close_pending=true
 	# Drain only this host's audio while the mixer is still alive. A last-second
 	# click cannot mutate the already checkpointed paper/progress during exit.
+	if is_instance_valid(_street_road) and is_instance_valid(_street_road.field_sound):_street_road.field_sound.shutdown()
 	process_mode=Node.PROCESS_MODE_DISABLED
 	if is_instance_valid(sound):
 		sound.shutdown()
@@ -238,6 +241,7 @@ func _unhandled_input(event:InputEvent) -> void:
 		elif not is_instance_valid(modal) and view in ["world","counter","post_office_room"]:
 			if event.keycode==KEY_M: _map()
 			elif event.keycode==KEY_J: _book()
+			elif event.keycode==KEY_R: _recorder()
 			elif event.keycode==KEY_B: _bag()
 			elif event.keycode==KEY_C:
 				get_viewport().set_input_as_handled()
@@ -547,9 +551,9 @@ func _hud(_id:String, show_carried:bool=true) -> void:
 	preferences.changed.connect(bar.preference_changed)
 	bar.z_index=3
 	bar.set_action_enabled("camera",true)
-	bar.set_action_enabled("recorder",false)
+	bar.set_action_enabled("recorder",true)
 	bar.buttons.camera.tooltip_text=_tr("相机 · C","Camera · C")
-	bar.buttons.recorder.tooltip_text=_tr("录音机 · 暂未开放","Recorder · Coming soon")
+	bar.buttons.recorder.tooltip_text=_tr("录音机 · R","Recorder · R")
 	bar.action_requested.connect(_quickbar_action)
 	if show_carried:_refresh_selected_letter()
 
@@ -560,7 +564,23 @@ func _quickbar_action(action:String) -> void:
 		"book":_book()
 		"bag":_bag()
 		"camera":_camera()
+		"recorder":_recorder()
 		"settings":_settings_page(false)
+
+func _recorder()->void:
+	if busy or is_instance_valid(modal) or view not in ["world","counter","post_office_room"]:return
+	if is_instance_valid(walker):walker.cancel();walker.manual_enabled=false
+	var recorder:=preload("res://scripts/ui/field_recorder.gd").new()
+	recorder.locale=preferences.values.language
+	recorder.location_caption=_tr(PaperMap.DESTINATION_NAMES.get(_nearest_landmark(),["邮局","Post office"])[0],PaperMap.DESTINATION_NAMES.get(_nearest_landmark(),["邮局","Post office"])[1])
+	recorder.directory=core.save_path.get_base_dir()+"/recordings" if core.save_path.contains("/qa/") else "user://recordings"
+	recorder.road=_street_road if is_instance_valid(_street_road) and view=="world" else null
+	recorder.sound=sound;modal=recorder
+	UI.place(recorder,self,Rect2(0,0,1600,900))
+	recorder.closed.connect(_close);recorder.cue.connect(sound.play)
+	for node_name:String in ["AuthoredQuickbar","RoadMapReturn","PostOfficeEntryHint"]:
+		for node:Node in stage.find_children(node_name,"",true,false):
+			if node is CanvasItem and node.visible:_camera_hidden_ui.append(weakref(node));node.hide()
 
 func _camera()->void:
 	if busy or is_instance_valid(modal) or view not in ["world","counter","post_office_room"]:return
@@ -573,7 +593,7 @@ func _camera()->void:
 	if is_instance_valid(walker):walker.cancel();walker.manual_enabled=false
 	var camera:=FieldCamera.new()
 	camera.locale=preferences.values.language
-	camera.interaction_sensitivity=preferences.values.sensitivity
+	camera.location_caption=_tr(PaperMap.DESTINATION_NAMES.get(_nearest_landmark(),["邮局","Post office"])[0],PaperMap.DESTINATION_NAMES.get(_nearest_landmark(),["邮局","Post office"])[1])
 	# QA captures stay beside the explicitly isolated test save.
 	camera.save_directory=_photo_directory()
 	camera.capture_provider=_capture_camera_scene
@@ -588,6 +608,7 @@ func _camera()->void:
 	modal=camera
 	UI.place(camera,self,Rect2(0,0,1600,900))
 	camera.closed.connect(_close)
+	camera.actor_visibility_changed.connect(func(visible:bool):if is_instance_valid(walker):walker.visible=visible)
 	camera.photo_saved.connect(func(_path:String):_bag_photos_visible=true)
 	camera.cue.connect(func(kind:String):sound.play(kind))
 	sound.play("paper")
@@ -837,7 +858,7 @@ func _observe(id:String) -> void:
 	paper.set_anchors_preset(Control.PRESET_TOP_LEFT)
 	paper.position=Vector2.ZERO;paper.size=Vector2(1600,900)
 	_hide_courier_for_closeup()
-	var error:String=paper.configure(core,id,preferences.values.language,preferences.values.sensitivity)
+	var error:String=paper.configure(core,id,preferences.values.language)
 	if not error.is_empty(): _close();_say(error);return
 	paper.cue.connect(sound.play)
 	paper.closed.connect(func():_close();_save())
@@ -952,9 +973,31 @@ func _bag(focus_letter:String="",feedback:bool=true) -> void:
 	letter_tab.name="BagLettersTab"
 	var photo_tab:=UI.button(paper,_tr("照片 ","Photos ")+str(photos.size()),Rect2(244,98,180,42),_switch_bag_tab.bind(true))
 	photo_tab.name="BagPhotosTab"
+	var recordings:=UI.button(paper,_tr("录音","Recordings"),Rect2(444,98,180,42),_bag_recordings)
+	recordings.name="BagRecordingsTab"
 	(letter_tab if not _bag_photos_visible else photo_tab).add_theme_color_override("font_color",Color("a15836"))
 	if _bag_photos_visible:
-		_bag_photo_grid(paper,photos)
+		var places:Array[String]=[""]
+		for path:String in photos:
+			var place:String=FieldCamera.photo_metadata(path).get("location","")
+			if not place.is_empty() and place not in places:places.append(place)
+		var place_picker:=OptionButton.new();place_picker.name="PhotoPlaceFilter";place_picker.add_theme_font_size_override("font_size",20)
+		var filter_style:=StyleBoxFlat.new();filter_style.bg_color=Color("e5d6ba");filter_style.set_corner_radius_all(8)
+		for state:String in ["normal","hover","pressed","focus"]:
+			place_picker.add_theme_stylebox_override(state,filter_style);place_picker.add_theme_color_override("font_"+state+"_color",Color("665240"))
+		place_picker.add_theme_color_override("font_color",Color("665240"))
+		UI.place(place_picker,paper,Rect2(646,98,242,42));place_picker.add_item(_tr("全部地点","All places"))
+		for i in range(1,places.size()):place_picker.add_item(places[i])
+		if _photo_place_filter not in places:_photo_place_filter=""
+		place_picker.select(places.find(_photo_place_filter))
+		place_picker.item_selected.connect(func(index:int):_photo_place_filter=places[index];_bag_photo_scroll=0;_bag("",false);modal.find_child("PhotoPlaceFilter",true,false).grab_focus.call_deferred())
+		var favorite_filter:=UI.button(paper,_tr("仅收藏","Favorites"),Rect2(900,98,164,42),func():_photo_favorites_only=not _photo_favorites_only;_bag_photo_scroll=0;_bag("",false);modal.find_child("PhotoFavoriteFilter",true,false).grab_focus.call_deferred())
+		favorite_filter.name="PhotoFavoriteFilter";favorite_filter.toggle_mode=true;favorite_filter.button_pressed=_photo_favorites_only
+		var filtered:Array[String]=[]
+		for path:String in photos:
+			var data:=FieldCamera.photo_metadata(path)
+			if (_photo_place_filter.is_empty() or data.get("location","")==_photo_place_filter) and (not _photo_favorites_only or data.get("favorite",false)):filtered.append(path)
+		_bag_photo_grid(paper,filtered)
 		if feedback:sound.play("paper")
 		return
 	var index:=0
@@ -990,6 +1033,13 @@ func _bag(focus_letter:String="",feedback:bool=true) -> void:
 		empty.name="EmptyMailBag";empty.horizontal_alignment=HORIZONTAL_ALIGNMENT_CENTER
 	if feedback:sound.play("paper")
 
+func _bag_recordings()->void:
+	_close();_recorder()
+	if not is_instance_valid(modal):return
+	modal.library.get_parent().show()
+	modal.closed.disconnect(_close)
+	modal.closed.connect(func():_close();_bag("",false))
+
 func _switch_bag_tab(photos:bool)->void:
 	if busy or not is_instance_valid(modal) or modal.name!="MailBag" or _bag_photos_visible==photos:return
 	_bag_photos_visible=photos
@@ -1003,7 +1053,7 @@ func _focus_bag_tab(expected_id:int)->void:
 
 func _bag_photo_grid(paper:Control,photos:Array[String])->void:
 	if photos.is_empty():
-		var empty:=UI.label(paper,_tr("还没有拍好的照片。","No photos yet."),Rect2(48,236,paper.size.x-96,80),26,Color("73665c"))
+		var empty:=UI.label(paper,_tr("没有符合条件的照片","No matching photos") if _photo_favorites_only or not _photo_place_filter.is_empty() else _tr("还没有照片","No photos yet"),Rect2(48,236,paper.size.x-96,80),26,Color("73665c"))
 		empty.name="EmptyPhotoPocket";empty.horizontal_alignment=HORIZONTAL_ALIGNMENT_CENTER
 		return
 	var scroll:=ScrollContainer.new();scroll.name="PhotoPocket"
@@ -1012,7 +1062,10 @@ func _bag_photo_grid(paper:Control,photos:Array[String])->void:
 	UI.place(scroll,paper,Rect2(48,168,paper.size.x-96,paper.size.y-208))
 	var grid=preload("res://scripts/ui/photo_pocket_grid.gd").new();grid.name="PhotoGrid";grid.columns=4
 	grid.thumbnails=_photo_thumbnails;grid.thumbnail_order=_photo_thumbnail_order
-	grid.caption_loader=FieldCamera.caption_for
+	grid.caption_loader=func(path:String):
+		var data:=FieldCamera.photo_metadata(path)
+		var caption:=FieldCamera.caption_for(path)
+		return ("★ " if data.get("favorite",false) else "")+(caption if not caption.is_empty() else str(data.get("location","")))
 	grid.unavailable_text=_tr("照片无法打开","Photo unavailable")
 	grid.add_theme_constant_override("h_separation",20);grid.add_theme_constant_override("v_separation",18)
 	scroll.add_child(grid)
@@ -1294,11 +1347,23 @@ func _resolution(id:String) -> void:
 		_close();_counter()
 		_say("首封处理单已经归档。邮件箱里的另两封现在可以取走。" if id=="case01" else "判断和实物去向已分别保留在盖章处理单上。"))
 
+func _nearest_landmark()->String:
+	if not is_instance_valid(_street_road):return str(core.state.location)
+	var family:String=_street_road.family
+	var destinations:Array={"postal":["post_office","chess_stall","bookstore"],"coastal":["tarot_shop","record_store","statue"],"community":["community_center","grocery","market","food_truck"],"residential":["residential","lookout","bus_stop"]}.get(family,[])
+	var nearest:="";var distance:=INF
+	for id:String in destinations:
+		var x:float=_street_road.world.size.x*.376 if id=="post_office" else (12100.0 if id=="food_truck" else float(preload("res://scripts/rebuild/street_arrival.gd").SOURCE_X[id])*1.5-180.0)
+		var d:=absf(walker.foot.x-x)
+		if d<distance:distance=d;nearest=id
+	return nearest
+
 func _map() -> void:
 	if busy:return
 	var root:=_overlay()
 	root.name="MapInspection"
 	var map:=PaperMap.new()
+	map.current_destination=_nearest_landmark()
 	UI.place(map,root,Rect2(175,80,1250,740))
 	UI.button(root,"×",Rect2(1460,35,65,64),_close.bind(true))
 	var art:=PaperMap.map_texture()

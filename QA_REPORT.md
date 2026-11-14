@@ -399,3 +399,8 @@ Phantom Camera and Dialogue Manager now drive real opened functionality. Paper e
 
 Final integration preserves bc8d458's corrected original dialogue PNG, 40-pixel portrait lift, atomic album export and pending-save close handling. Added output-resolution caption typography and Open album. Merged GPU checks: album visual 98/0, retained export 54/0, close during success/failure 7/0 + 8/0. Earlier review resilience 64/0 and landscape/map/door 72/0 evidence is retained. No OS input resumed after interruption; native/human acceptance remains unverified. See docs/testing/ALBUM_DIALOGUE_20261107.md for provenance, evidence and publication boundary.
 
+
+
+## 2026-11-11 exploration and recorder polish
+
+Final exported package: 148 checks, zero failures; recorder UI revised to minimal edge HUD after user correction. Standard headless and export checks pass. Actual release window started, but Computer Use app-binding approval timed out; OS-input and subjective listening acceptance remain pending. Full scoped findings and fixed legacy-fixture assumptions: [review](docs/testing/exploration-20261110/review.md).
